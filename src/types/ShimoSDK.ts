@@ -1,5 +1,8 @@
 import { TinyEmitter } from 'tiny-emitter'
 import * as DocumentPro from './DocumentPro'
+import * as Document from './Document'
+import * as Spreadsheet from './Spreadsheet'
+import * as Presentation from './Presentation'
 
 export declare class ShimoSDK extends TinyEmitter {
   /**
@@ -15,7 +18,22 @@ export declare class ShimoSDK extends TinyEmitter {
   /**
    * 传统文档编辑器实例
    */
-  documentPro?: DocumentPro.Editor;
+  documentPro?: DocumentPro.Editor
+
+  /**
+   * 轻文档编辑器实例
+   */
+  document?: Document.Editor
+
+  /**
+   * 表格编辑器实例
+   */
+  spreadsheet?: Spreadsheet.Editor
+
+  /**
+   * 专业幻灯片编辑器实例
+   */
+  presentation?: Presentation.Editor;
 
   [key: string]: any
 }
@@ -48,7 +66,8 @@ export enum MessageEvent {
   MethodCall = 'methodCall',
   Error = 'error',
   ReadyState = 'readyState',
-  EditorEvent = 'editorEvent'
+  EditorEvent = 'editorEvent',
+  SetCredentials = 'setCredentials'
 }
 
 export enum ReadyState {
@@ -62,7 +81,22 @@ export enum FileType {
   /**
    * 传统文档
    */
-  DocumentPro = 'documentPro'
+  DocumentPro = 'documentPro',
+
+  /**
+   * 轻文档
+   */
+  Document = 'document',
+
+  /**
+   * 表格
+   */
+  Spreadsheet = 'spreadsheet',
+
+  /**
+   * 专业幻灯片
+   */
+  Presentation = 'presentation'
 }
 
 /**

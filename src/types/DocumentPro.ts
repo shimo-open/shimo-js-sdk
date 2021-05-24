@@ -1,4 +1,4 @@
-import { EventCallback } from './ShimoSDK'
+import { BaseEditor } from './BaseEditor'
 
 /**
  * 评论
@@ -60,179 +60,356 @@ export interface CommentData {
   replies: CommentData[]
 }
 
-export interface Editor {
-  on: (event: Event, callback: EventCallback) => void
-  once: (event: Event, callback: EventCallback) => void
-  off: (event: Event, callback?: EventCallback) => void
+/**
+ * 文档位置
+ * 0 - 正文
+ * 1 - 页眉
+ * 2 - 页脚
+ */
+export type DocumentPos = 0 | 1 | 2
 
+/**
+ * 水平对齐方式
+ * 0 - 右对齐
+ * 1 - 左对齐
+ * 2 - 居中对齐
+ */
+export type HorizontalAlignment = 0 | 1 | 2
+
+/** 事件名 */
+export type Events =
+  | 'SelectionEnded'
+  | 'DocumentChanged'
+  | 'CommentClicked'
+  | 'Recalculated'
+
+export interface EventMap {
+  selectionEnded: {}
+  documentChanged: {}
+  commentClicked: {
+    /**
+     * 所有被点击的评论ID列表
+     * @since PD2.10
+     */
+    commentIds?: string[]
+  }
+  documentRecalculated: {}
+  saveStatusChanged: {
+    status?: 'saving' | 'saved' | 'error'
+  }
+  error: {
+    /** 错误信息 */
+    data?: any
+    /** 错误码 */
+    code: number
+  }
+}
+
+export interface Editor extends BaseEditor<EventMap> {
   /**
-   * 获取评论列表
-   *
-   * @param isChapterTitleRequired 是否包含对应的标题信息
+   * 获取所有评论
+   * @since PD2.10
    */
-  getCommentList: (isChapterTitleRequired?: boolean) => Promise<Comment[]>
-
+  getComments: (
+    this: Editor,
+    options: {
+      /**
+       * 包含对应的标题信息
+       * @since PD2.10
+       * @default false
+       */
+      includeChapterTitle?: boolean
+    }
+  ) => Promise<{
+    /**
+     * 包含对应的标题信息
+     * @since PD2.10
+     * @default false
+     */
+    includeChapterTitle?: boolean
+  }>
   /**
-   * 获取单个评论
-   *
-   * @param commentId 目标评论的 ID
-   * @param isChapterTitleRequired 是否包含对应的标题信息
-   *
+   * 获取单条评论
+   * @since PD2.10
    */
-  getCommnet: (
-    commentId: string,
-    isChapterTitleRequired?: boolean
-  ) => Promise<Comment>
-
+  getComment: (
+    this: Editor,
+    options: {
+      /**
+       * 评论ID
+       * @since PD2.10
+       */
+      commentId: string
+      /** 包含对应的标题信息 */
+      includeChapterTitle?: boolean
+    }
+  ) => Promise<{
+    /**
+     * 评论ID
+     * @since PD2.10
+     */
+    commentId: string
+    /** 包含对应的标题信息 */
+    includeChapterTitle?: boolean
+  }>
+  /**
+   * 获取一个选区已存在的评论
+   * @since PD2.10
+   */
+  getCommentBySelection: (this: Editor, options: {}) => Promise<void>
   /**
    * 添加评论
-   *
-   * @param commentText 评论的内容
+   * @since PD2.10
    */
-  addComment: (commentText: string) => Promise<Comment>
-
+  addComment: (
+    this: Editor,
+    options: {
+      /**
+       * 评论内容
+       * @since PD2.10
+       */
+      text: string
+    }
+  ) => Promise<{
+    /**
+     * 评论内容
+     * @since PD2.10
+     */
+    text: string
+  }>
   /**
    * 添加回复
-   *
-   * @param commentId 回复的评论 ID
-   * @param replyText 回复的内容
+   * @since PD2.10
    */
-  replyComment: (commentId: string, replyText: string) => Promise<CommentData>
-
+  replyComment: (
+    this: Editor,
+    options: {
+      /**
+       * 评论ID
+       * @since PD2.10
+       */
+      commentId: string
+      /** 回复内容 */
+      text: string
+    }
+  ) => Promise<{
+    /**
+     * 评论ID
+     * @since PD2.10
+     */
+    commentId: string
+    /** 回复内容 */
+    text: string
+  }>
   /**
    * 删除评论
-   *
-   * @param commentId 待删除的评论 ID
+   * @since PD2.10
    */
-  removeComment: (commentId: string) => Promise<void>
-
+  removeComment: (
+    this: Editor,
+    options: {
+      /**
+       * 评论ID
+       * @since PD2.10
+       */
+      commentId: string
+    }
+  ) => Promise<void>
   /**
    * 删除回复
-   *
-   * @param commentDataId 待删除的回复 ID
+   * @since PD2.10
    */
-  removeReply: (commentDataId: string) => Promise<void>
-
-  /**
-   * 编辑评论或回复
-   *
-   * @param commentDetailId 待更新的评论或回复 ID
-   * @param newCommentText 评论或回复的新内容
-   */
-  editComment: (
-    commentDetailId: string,
-    newCommentText: string
+  removeReply: (
+    this: Editor,
+    options: {
+      /**
+       * 回复数据的ID
+       * @since PD2.10
+       */
+      commentDataId: string
+    }
   ) => Promise<void>
-
   /**
-   * 跳转到评论所在的位置
-   *
-   * @param commentId 目标评论的 ID
+   * 更新评论或回复
+   * @since PD2.10
    */
-  goToComment: (commentId: string) => Promise<void>
-
+  updateComment: (
+    this: Editor,
+    options: {
+      /**
+       * 评论数据或回复数据的ID
+       * @since PD2.10
+       */
+      commentDataId: string
+      /** 评论内容 */
+      text: string
+    }
+  ) => Promise<void>
   /**
-   * 获取选取文本
+   * 跳转到评论所在位置
+   * @since PD2.10
    */
-  getSelectedText: () => Promise<string>
-
+  goToComment: (
+    this: Editor,
+    options: {
+      /**
+       * 评论ID
+       * @since PD2.10
+       */
+      commentId: string
+      /**
+       * 是否滚动到评论所在位置
+       * @default true
+       */
+      shouldScrollToComment?: boolean
+      /**
+       * 是否需要选中评论正文
+       * @default false
+       */
+      shouldSelectComment?: boolean
+    }
+  ) => Promise<void>
   /**
-   * 监听事件
-   *
-   * @param eventName 事件名
-   * @param callback 回调函数
+   * 获取选区文本
+   * @since PD2.10
    */
-  attachEvent: (eventName: string, callback: EventCallback) => Promise<void>
-
+  getSelectedText: (this: Editor, options: {}) => Promise<void>
   /**
-   * 卸载事件监听回调函数
-   *
-   * @param eventName 事件名
-   * @param [callback] 回调函数，可选，不传入时则卸载该事件的所有回调函数
+   * 跳转页面
+   * @since PD2.10
    */
-  detachEvent: (eventName: string, callback?: EventCallback) => Promise<void>
-
+  goToPage: (
+    this: Editor,
+    options: {
+      /**
+       * 页码
+       * @since PD2.10
+       */
+      pageNum: number
+    }
+  ) => Promise<void>
   /**
-   * 跳转到指定页面
-   *
-   * @param pageNum 目标页码，从 0 开始计算。
+   * 跳到文档顶部
+   * @since PD2.10
    */
-  goToPage: (pageNum: number) => Promise<void>
-
+  goToTop: (this: Editor, options: {}) => Promise<void>
   /**
    * 添加页码
-   *
-   * @param documentPosition 页码插入位置
-   * @param [align] 对齐方式
+   * @since PD2.10
    */
   addPageNum: (
-    documentPosition: PageNumPosition,
-    align?: PageNumAlignment
+    this: Editor,
+    options: {
+      /**
+       * 页码的插入位置
+       * @since PD2.10
+       */
+      position: DocumentPos
+      /**
+       * 页码的对齐方式
+       * @default 1
+       */
+      alignment?: HorizontalAlignment
+    }
   ) => Promise<void>
-
+  /**
+   * 删除所有页码
+   * @since PD2.10
+   */
+  removeAllPageNums: (this: Editor, options: {}) => Promise<void>
+  /**
+   * 显示文档结构
+   * @since PD2.10
+   */
+  showToc: (
+    this: Editor,
+    options: {
+      /**
+       * 禁用文档结构图的默认缓存
+       * @since PD2.10
+       * @default true
+       */
+      shouldDisableCache?: boolean
+    }
+  ) => Promise<void>
+  /**
+   * 隐藏文档结构图
+   * @since PD2.10
+   */
+  hideToc: (this: Editor, options: {}) => Promise<void>
+  /**
+   * 文档缩放
+   * @since PD2.10
+   */
+  zoom: (
+    this: Editor,
+    options: {
+      /**
+       * 缩放百分比
+       * @since PD2.10
+       */
+      percent: number
+    }
+  ) => Promise<void>
   /**
    * 设置加粗
-   *
-   * @param isBold true - 加粗，false - 取消加粗
+   * @since PD2.10
    */
-  setBold: (isBold: boolean) => Promise<void>
-
+  setBold: (
+    this: Editor,
+    options: {
+      /**
+       * 是否加粗
+       * @since PD2.10
+       * @default false
+       */
+      isBold?: boolean
+    }
+  ) => Promise<void>
   /**
    * 设置斜体
-   *
-   * @param isItalic true - 斜体，false - 取消斜体
+   * @since PD2.10
    */
-  setItalic: (isItalic: boolean) => Promise<void>
-}
-
-/**
- * 页码插入位置
- */
-export enum PageNumPosition {
+  setItalic: (
+    this: Editor,
+    options: {
+      /**
+       * 是否斜体
+       * @since PD2.10
+       * @default false
+       */
+      isItalic?: boolean
+    }
+  ) => Promise<void>
   /**
-   * 正文
+   * 打印
+   * @since PD2.10
    */
-  Normal = 0,
-
+  print: (
+    this: Editor,
+    options: {
+      /**
+       * 页码列表
+       * @since PD2.10
+       */
+      pageNums: number[]
+    }
+  ) => Promise<void>
   /**
-   * 页眉
+   * 打印所有页面
+   * @since PD2.10
    */
-  Header = 1,
-
-  /**
-   * 页脚
-   */
-  Footer = 2
-}
-
-/**
- * 页码对齐方式
- */
-export enum PageNumAlignment {
-  /**
-   * 右对齐
-   */
-  Right = 0,
-
-  /**
-   * 左对齐
-   */
-  Left = 1,
-
-  /**
-   * 居中对齐
-   */
-  Center = 2
-}
-
-export enum Events {
-  /**
-   * 选中结束事件
-   */
-  SelectionEnded = 'SelectionEnded',
-
-  /**
-   * 文档修改事件
-   */
-  DocumentChanged = 'DocumentChanged'
+  printAll: (this: Editor, options: {}) => Promise<void>
+  /** 创建版本 */
+  createRevision: (
+    this: Editor,
+    options: {
+      /** 版本名 */
+      name: string
+    }
+  ) => Promise<void>
+  /** 预览历史版本 */
+  showHistory: (this: Editor, options: {}) => Promise<void>
+  /** 关闭历史版本预览 */
+  hideHistory: (this: Editor, options: {}) => Promise<void>
 }

@@ -13,6 +13,9 @@ import {
   EventCallback
 } from './types/ShimoSDK'
 import * as DocumentPro from './types/DocumentPro'
+import * as Document from './types/Document'
+import * as Spreadsheet from './types/Spreadsheet'
+import * as Presentation from './types/Presentation'
 
 export interface ConnectOptions {
   /**
@@ -118,6 +121,21 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
           ee.fileType = data.body.fileType
 
           const p = bindEditorAPIs(ee, editorEvent) as unknown
+
+          switch (ee.fileType) {
+            case FileType.Document:
+              ee.document = p as Document.Editor
+              break
+            case FileType.DocumentPro:
+              ee.documentPro = p as DocumentPro.Editor
+              break
+            case FileType.Spreadsheet:
+              ee.spreadsheet = p as Spreadsheet.Editor
+              break
+            case FileType.Presentation:
+              ee.presentation = p as Presentation.Editor
+              break
+          }
 
           if (ee.fileType === FileType.DocumentPro) {
             ee.documentPro = p as DocumentPro.Editor
