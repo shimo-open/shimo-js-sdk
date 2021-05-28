@@ -87,12 +87,17 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
 
   options.container.appendChild(iframe)
 
-  const p = new Promise<ShimoSDK>((resolve) => {
-    ee.once(SDKMessageEvent.ReadyState, (state: ReadyState) => {
+  const p = new Promise<ShimoSDK>((resolve, reject) => {
+    const cb = (state: ReadyState, error?: Error) => {
       if (state === ReadyState.Ready) {
+        ee.off(Event.ReadyState, cb)
         resolve(ee)
+      } else if (state === ReadyState.Failed) {
+        ee.off(Event.ReadyState, cb)
+        reject(error)
       }
-    })
+    }
+    ee.on(Event.ReadyState, cb)
   })
 
   ee.disconnect = () => {
@@ -117,6 +122,11 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
 
     switch (data.event) {
       case SDKMessageEvent.ReadyState: {
+        if (data.body.state === ReadyState.Failed) {
+          ee.emit(Event.ReadyState, data.body.state, data.body.error)
+          break
+        }
+
         if (data.body.state === ReadyState.Ready) {
           ee.fileType = data.body.fileType
 
@@ -135,10 +145,6 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
             case FileType.Presentation:
               ee.presentation = p as Presentation.Editor
               break
-          }
-
-          if (ee.fileType === FileType.DocumentPro) {
-            ee.documentPro = p as DocumentPro.Editor
           }
         }
 

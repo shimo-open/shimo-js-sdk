@@ -71,7 +71,9 @@ export enum MessageEvent {
 }
 
 export enum ReadyState {
-  Ready = 'ready'
+  LoadingEditor = 'loadingEditor',
+  Ready = 'ready',
+  Failed = 'failed'
 }
 
 /**
