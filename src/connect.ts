@@ -56,6 +56,22 @@ export interface ConnectOptions {
   }
 }
 
+function assert<T>(
+  input: any,
+  condition: (input: any) => boolean,
+  message: string
+): T {
+  if (condition(input)) {
+    return input
+  }
+
+  throw new Error(message)
+}
+
+function notEmptyString(input?: string): boolean {
+  return typeof input === 'string' && input.trim().length > 0
+}
+
 export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
   window.addEventListener('message', messageHandler)
 
@@ -68,10 +84,11 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
   iframe.style.overflow = 'hidden'
 
   const url = new URL(options.endpoint)
-  url.pathname = `${url.pathname}/shimo-files/${options.fileId}`.replace(
-    /\/+/g,
-    '/'
-  )
+  url.pathname = `${url.pathname}/shimo-files/${assert<string>(
+    options.fileId,
+    notEmptyString,
+    `"fileId" is missing or empty`
+  )}`.replace(/\/+/g, '/')
 
   const targetOrigin = url.origin
 
@@ -79,9 +96,22 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
     url.searchParams.append(k, v)
   })
 
-  url.searchParams.append('appId', options.appId)
-  url.searchParams.append('token', options.token)
-  url.searchParams.append('signature', await options.getSignature())
+  url.searchParams.append(
+    'appId',
+    assert<string>(options.appId, notEmptyString, `"appId" is missing or empty`)
+  )
+  url.searchParams.append(
+    'token',
+    assert<string>(options.token, notEmptyString, `"token" is missing or empty`)
+  )
+  url.searchParams.append(
+    'signature',
+    assert<string>(
+      await options.getSignature(),
+      notEmptyString,
+      `"signature" is missing or empty`
+    )
+  )
 
   iframe.src = url.toString()
 
