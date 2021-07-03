@@ -73,74 +73,93 @@ function notEmptyString(input?: string): boolean {
 }
 
 export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
+  const ee: ShimoSDK = new TinyEmitter() as any
   window.addEventListener('message', messageHandler)
 
-  const ee: ShimoSDK = new TinyEmitter() as any
   // 用来发 editor 的事件
   const editorEvent = new TinyEmitter()
 
-  const iframe = document.createElement('iframe')
-  iframe.style.border = 'none'
-  iframe.style.overflow = 'hidden'
+  let targetOrigin = ''
+  let iframe: HTMLIFrameElement | undefined
 
-  const url = new URL(options.endpoint)
-  url.pathname = `${url.pathname}/shimo-files/${assert<string>(
-    options.fileId,
-    notEmptyString,
-    `"fileId" is missing or empty`
-  )}`.replace(/\/+/g, '/')
-
-  const targetOrigin = url.origin
-
-  forIn(options.params, (v, k) => {
-    url.searchParams.append(k, v)
-  })
-
-  url.searchParams.append(
-    'appId',
-    assert<string>(options.appId, notEmptyString, `"appId" is missing or empty`)
-  )
-  url.searchParams.append(
-    'token',
-    assert<string>(options.token, notEmptyString, `"token" is missing or empty`)
-  )
-  url.searchParams.append(
-    'signature',
-    assert<string>(
-      await options.getSignature(),
-      notEmptyString,
-      `"signature" is missing or empty`
-    )
-  )
-
-  iframe.src = url.toString()
-
-  options.container.appendChild(iframe)
-
-  const p = new Promise<ShimoSDK>((resolve, reject) => {
-    const cb = (state: ReadyState, error?: Error) => {
-      if (state === ReadyState.Ready) {
-        ee.off(Event.ReadyState, cb)
-        resolve(ee)
-      } else if (state === ReadyState.Failed) {
-        ee.off(Event.ReadyState, cb)
-        reject(error)
-      }
-    }
-    ee.on(Event.ReadyState, cb)
-  })
-
-  ee.disconnect = () => {
-    if (iframe.parentElement instanceof HTMLElement) {
-      iframe.parentElement.removeChild(iframe)
-    }
-    window.removeEventListener('message', messageHandler)
-  }
-
-  return await p.catch((err) => {
+  return await init().catch((err) => {
     window.removeEventListener('message', messageHandler)
     throw err
   })
+
+  async function init() {
+    iframe = document.createElement('iframe')
+    iframe.style.border = 'none'
+    iframe.style.overflow = 'hidden'
+
+    const url = new URL(options.endpoint)
+    url.pathname = `${url.pathname}/shimo-files/${assert<string>(
+      options.fileId,
+      notEmptyString,
+      `"fileId" is missing or empty`
+    )}`.replace(/\/+/g, '/')
+
+    targetOrigin = url.origin
+
+    forIn(options.params, (v, k) => {
+      url.searchParams.append(k, v)
+    })
+
+    url.searchParams.append(
+      'appId',
+      assert<string>(
+        options.appId,
+        notEmptyString,
+        `"appId" is missing or empty`
+      )
+    )
+    url.searchParams.append(
+      'token',
+      assert<string>(
+        options.token,
+        notEmptyString,
+        `"token" is missing or empty`
+      )
+    )
+    url.searchParams.append(
+      'signature',
+      assert<string>(
+        await options.getSignature(),
+        notEmptyString,
+        `"signature" is missing or empty`
+      )
+    )
+
+    iframe.src = url.toString()
+
+    assert<HTMLElement>(
+      options.container,
+      (input) => input instanceof HTMLElement,
+      `container is not a HTMLElement: ${String(options.container)}`
+    ).appendChild(iframe)
+
+    ee.disconnect = () => {
+      if (iframe?.parentElement instanceof HTMLElement) {
+        iframe.parentElement.removeChild(iframe)
+      }
+      window.removeEventListener('message', messageHandler)
+    }
+
+    await new Promise<void>((resolve, reject) => {
+      const cb = (state: ReadyState, error?: Error) => {
+        if (state === ReadyState.Ready) {
+          ee.off(Event.ReadyState, cb)
+          resolve()
+        } else if (state === ReadyState.Failed) {
+          ee.off(Event.ReadyState, cb)
+          reject(error)
+        }
+      }
+      ee.on(Event.ReadyState, cb)
+    })
+
+    return ee
+  }
 
   function messageHandler(msg: MessageEvent) {
     if (typeof msg.data !== 'object' || msg.data == null) {
@@ -215,7 +234,7 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
   }
 
   function postMessage(msg: Message) {
-    iframe.contentWindow?.postMessage(msg, targetOrigin)
+    iframe?.contentWindow?.postMessage(msg, targetOrigin)
   }
 
   function bindEditorAPIs(sdk: TinyEmitter, editorEvent: TinyEmitter) {
