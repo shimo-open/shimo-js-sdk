@@ -33,7 +33,17 @@ export declare class ShimoSDK extends TinyEmitter {
   /**
    * 专业幻灯片编辑器实例
    */
-  presentation?: Presentation.Editor;
+  presentation?: Presentation.Editor
+
+  /**
+   * 设置石墨用的鉴权签名
+   */
+  setSignature: (signature: string) => void
+
+  /**
+   * 设置您系统的鉴权 token
+   */
+  setToken: (token: string) => void;
 
   [key: string]: any
 }

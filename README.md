@@ -75,16 +75,15 @@ const { connect, FileType } = require('shimo-js-sdk')
 
 const fileId = '1234'
 
+// 从您的后端服务获取用于石墨鉴权的签名和 token
+const { signature, token } = await getCredentialsFromServer()
+
 connect({
   appId: '...',
   fileId: fileId,
   endpoint: 'https://sample-endpoint.shimo.im/',
-  getSignature() {
-    return fetch(`/files/${fileId}/shimo-signature`, { method: 'POST' })
-      .then((res) => res.json())
-      .then((res) => res.signature)
-  },
-  token: '用于您系统识别用户请求的 token',
+  signature: signature,
+  token: token,
   container: document.querySelector('#shimo-file') // iframe 挂载的目标容器元素
 }).then((shimoSDK) => {
   // 判断文件类型，也可以在您的系统中记录文件类型
@@ -118,6 +117,11 @@ connect({
 | error      | Error  | 错误事件       |
 | readyState | string | 初始化状态事件 |
 
-`ShimoSDK.documentPro`
+- `shimoSDK.documentPro`
+- `shimoSDK.document`
+- `shimoSDK.spreadsheet`
+- `shimoSDK.presentation`
 
 石墨文档编辑器实例，根据不同类型的文件，会使用不同的实例，用于和编辑器通信，如调用接口：`shimoSDK.documentPro.getCommentList()`，**所有接口均返回 Promise**。
+
+`setSignature(signature)` 和 `setToken(token)` 用于更新签名和 token。处于安全考虑，signature 和 token 一般不建议设置太长的过期时间，而为了减少用户刷新页面的情况，可以用这两个方法更新签名和 token。

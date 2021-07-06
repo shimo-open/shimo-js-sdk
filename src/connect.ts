@@ -35,8 +35,14 @@ export interface ConnectOptions {
 
   /**
    * App signaure generator
+   * @deprecated use sdk.setSignature() instead
    */
-  getSignature: () => Promise<string>
+  getSignature?: () => Promise<string>
+
+  /**
+   * App signaure
+   */
+  signature?: string
 
   /**
    * The HTML element that iframe will be attached to
@@ -72,6 +78,21 @@ function notEmptyString(input?: string): boolean {
   return typeof input === 'string' && input.trim().length > 0
 }
 
+async function getSignature(
+  signature?: string,
+  getter?: () => Promise<string>
+): Promise<string | null> {
+  if (typeof signature === 'string') {
+    return signature
+  }
+
+  if (typeof getter === 'function') {
+    return await getter()
+  }
+
+  return null
+}
+
 export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
   const ee: ShimoSDK = new TinyEmitter() as any
   window.addEventListener('message', messageHandler)
@@ -105,6 +126,17 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
       url.searchParams.append(k, v)
     })
 
+    let token = assert<string>(
+      options.token,
+      notEmptyString,
+      `"token" is missing or empty`
+    )
+    let signature = assert<string>(
+      await getSignature(options.signature, options.getSignature),
+      notEmptyString,
+      `"signature" is missing or empty`
+    )
+
     url.searchParams.append(
       'appId',
       assert<string>(
@@ -113,22 +145,8 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
         `"appId" is missing or empty`
       )
     )
-    url.searchParams.append(
-      'token',
-      assert<string>(
-        options.token,
-        notEmptyString,
-        `"token" is missing or empty`
-      )
-    )
-    url.searchParams.append(
-      'signature',
-      assert<string>(
-        await options.getSignature(),
-        notEmptyString,
-        `"signature" is missing or empty`
-      )
-    )
+    url.searchParams.append('token', token)
+    url.searchParams.append('signature', signature)
 
     iframe.src = url.toString()
 
@@ -143,6 +161,30 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
         iframe.parentElement.removeChild(iframe)
       }
       window.removeEventListener('message', messageHandler)
+    }
+
+    ee.setSignature = (sig: string) => {
+      signature = sig
+
+      postMessage({
+        event: SDKMessageEvent.SetCredentials,
+        body: {
+          signature,
+          token
+        }
+      })
+    }
+
+    ee.setToken = (tk: string) => {
+      token = tk
+
+      postMessage({
+        event: SDKMessageEvent.SetCredentials,
+        body: {
+          signature,
+          token
+        }
+      })
     }
 
     await new Promise<void>((resolve, reject) => {
