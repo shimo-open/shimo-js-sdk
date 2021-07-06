@@ -38,6 +38,9 @@ export interface EventMap {
   }
 }
 
+/** 单元格值类型 */
+export type CellValue = string | number | boolean | null
+
 export interface Editor extends BaseEditor<EventMap> {
   /**
    * 展示评论侧边栏
@@ -138,4 +141,60 @@ export interface Editor extends BaseEditor<EventMap> {
       sheetId?: string
     }
   ) => Promise<void>
+
+  /** 获取当前激活sheet的id */
+  getActiveSheetId: () => Promise<string>
+
+  /** 获取所有工作表的id */
+  getSheetIds: () => Promise<string[]>
+
+  /** 根据工作表 index 获取工作表 ID */
+  getSheetIdByIndex: (options: { index: number }) => Promise<string>
+
+  /** 获取指定工作表行数量 */
+  getRowCount: (options: {
+    /**
+     * 工作表 ID
+     * @default 默认当前工作表 ID
+     */
+    sheetId?: string
+  }) => Promise<number>
+
+  /** 获取指定工作表列数量 */
+  getColumnCount: (options: {
+    /**
+     * 工作表 ID
+     * @default 默认当前工作表 ID
+     */ sheetId?: string
+  }) => Promise<number>
+
+  getCellValue: (options: {
+    /**
+     * 工作表 ID
+     * @default 默认当前工作表 ID
+     * */
+    sheetId?: string
+    /** 行index */
+    row: number
+    /** 列index */
+    column: number
+  }) => Promise<CellValue>
+
+  /** 获取工作表指定范围内的单元格的值 */
+  getRangeValues: (options: {
+    /**
+     * 工作表 ID
+     * @default 默认当前工作表 ID
+     */
+    sheetId?: string
+    /**
+     * 单元格范围
+     * @default 默认当前选中范围
+     */ range?: Range[]
+  }) => Promise<CellValue[][]>
+
+  /**
+   * 指定工作表是否可见，不传值为当前工作表
+   */
+  isSheetVisible: (options?: { sheetId?: string }) => Promise<boolean>
 }
