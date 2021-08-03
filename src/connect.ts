@@ -112,6 +112,8 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
     iframe = document.createElement('iframe')
     iframe.style.border = 'none'
     iframe.style.overflow = 'hidden'
+    iframe.allow = 'fullscreen'
+    iframe.allowFullscreen = true
 
     const url = new URL(options.endpoint)
     url.pathname = `${url.pathname}/shimo-files/${assert<string>(
