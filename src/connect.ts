@@ -85,7 +85,7 @@ export interface ConnectOptions {
   /**
    * 处理石墨文档内点击链接事件
    */
-  openUrl?: (
+  openLink?: (
     /**
      * 目标链接
      */
@@ -312,7 +312,7 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
           return
         }
 
-        const method: 'openUrl' | 'generateUrl' = data.body.method
+        const method: 'openLink' | 'generateUrl' = data.body.method
         const { methodCallId, args } = data.body
 
         let value: unknown
@@ -320,7 +320,7 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
         let error: Error | undefined = undefined
 
         try {
-          if (!['openUrl', 'generateUrl', 'parseUrl'].includes(method)) {
+          if (!['openLink', 'generateUrl', 'parseUrl'].includes(method)) {
             throw new Error(`unknown method: ${method}`)
           }
           value = options[method]?.apply(this, args)
