@@ -18,6 +18,8 @@ import * as Document from './types/Document'
 import * as Spreadsheet from './types/Spreadsheet'
 import * as Presentation from './types/Presentation'
 
+const SM_PARAMS_KEY = 'smParams'
+
 export interface ConnectOptions {
   /**
    * Shimo App ID
@@ -165,7 +167,12 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
     })
 
     if (typeof options.smParams === 'string') {
-      url.searchParams.append('smParams', options.smParams)
+      url.searchParams.append(SM_PARAMS_KEY, options.smParams)
+    } else {
+      const params = new URLSearchParams(location.search).get(SM_PARAMS_KEY)
+      if (typeof params === 'string') {
+        url.searchParams.append(SM_PARAMS_KEY, params)
+      }
     }
 
     url.searchParams.append('jsver', process.env.VERSION ?? '')
