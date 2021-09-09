@@ -1,5 +1,6 @@
 import 'core-js/features/promise'
 import 'core-js/features/url'
+import 'core-js/features/array/includes'
 import 'proxy-polyfill'
 import { TinyEmitter } from 'tiny-emitter'
 import forIn from 'lodash.forin'
@@ -16,6 +17,8 @@ import * as DocumentPro from './types/DocumentPro'
 import * as Document from './types/Document'
 import * as Spreadsheet from './types/Spreadsheet'
 import * as Presentation from './types/Presentation'
+
+const SM_PARAMS_KEY = 'smParams'
 
 export interface ConnectOptions {
   /**
@@ -60,6 +63,41 @@ export interface ConnectOptions {
   params?: {
     [key: string]: string
   }
+
+  /**
+   * 石墨 SDK URL 参数 url?smParams={params}，用于传递石墨 SDK 内部需要的参数
+   */
+  smParams?: string
+
+  /**
+   * 生成插入到石墨文档中的链接，用于处理 @ 文件等功能需要插入的链接
+   */
+  generateUrl?: (
+    /**
+     * 文档相关联的 file ID
+     */
+    fileId: string,
+
+    /**
+     * 需要附加到生成的链接中的参数，比如 http://domain/files/1?sdk_params=<params>
+     */
+    params: string
+  ) => string
+
+  /**
+   * 处理石墨文档内点击链接事件
+   */
+  openLink?: (
+    /**
+     * 目标链接
+     */
+    url: string,
+
+    /**
+     * 意义和 window.open 的第二个参数一样，属于石墨建议的值，具体是否需要使用请接入方自行判断。
+     */
+    target?: string
+  ) => void
 }
 
 function assert<T>(
@@ -127,6 +165,17 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
     forIn(options.params, (v, k) => {
       url.searchParams.append(k, v)
     })
+
+    if (typeof options.smParams === 'string') {
+      url.searchParams.append(SM_PARAMS_KEY, options.smParams)
+    } else {
+      const params = new URLSearchParams(location.search).get(SM_PARAMS_KEY)
+      if (typeof params === 'string') {
+        url.searchParams.append(SM_PARAMS_KEY, params)
+      }
+    }
+
+    url.searchParams.append('jsver', process.env.VERSION ?? '')
 
     let token = assert<string>(
       options.token,
@@ -263,6 +312,40 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
           ee.emit(data.body.methodCallId, data)
         }
         break
+
+      case SDKMessageEvent.MethodCall: {
+        if (!data.body || typeof data.body.methodCallId !== 'string') {
+          ee.emit(Event.Error, 'failed to invoke method')
+          return
+        }
+
+        const method: 'openLink' | 'generateUrl' = data.body.method
+        const { methodCallId, args } = data.body
+
+        let value: unknown
+        // eslint-disable-next-line no-undef-init
+        let error: Error | undefined = undefined
+
+        try {
+          if (!['openLink', 'generateUrl', 'parseUrl'].includes(method)) {
+            throw new Error(`unknown method: ${method}`)
+          }
+          value = options[method]?.apply(this, args)
+        } catch (e) {
+          error = e
+        }
+
+        postMessage({
+          event: SDKMessageEvent.MethodCallback,
+          body: {
+            methodCallId,
+            value
+          },
+          error
+        })
+
+        break
+      }
 
       default: {
         if (data.error != null) {
