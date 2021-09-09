@@ -16,25 +16,25 @@
 
 ### Constructors
 
-- [constructor](shimosdk.md#constructor)
+- [constructor](ShimoSDK.md#constructor)
 
 ### Properties
 
-- [disconnect](shimosdk.md#disconnect)
-- [document](shimosdk.md#document)
-- [documentPro](shimosdk.md#documentpro)
-- [fileType](shimosdk.md#filetype)
-- [presentation](shimosdk.md#presentation)
-- [setSignature](shimosdk.md#setsignature)
-- [setToken](shimosdk.md#settoken)
-- [spreadsheet](shimosdk.md#spreadsheet)
+- [disconnect](ShimoSDK.md#disconnect)
+- [document](ShimoSDK.md#document)
+- [documentPro](ShimoSDK.md#documentpro)
+- [fileType](ShimoSDK.md#filetype)
+- [presentation](ShimoSDK.md#presentation)
+- [setSignature](ShimoSDK.md#setsignature)
+- [setToken](ShimoSDK.md#settoken)
+- [spreadsheet](ShimoSDK.md#spreadsheet)
 
 ### Methods
 
-- [emit](shimosdk.md#emit)
-- [off](shimosdk.md#off)
-- [on](shimosdk.md#on)
-- [once](shimosdk.md#once)
+- [emit](ShimoSDK.md#emit)
+- [off](ShimoSDK.md#off)
+- [on](ShimoSDK.md#on)
+- [once](ShimoSDK.md#once)
 
 ## Constructors
 
@@ -52,6 +52,8 @@ TinyEmitter.constructor
 
 • **disconnect**: () => `void`
 
+销毁 iframe 并释放资源
+
 #### Type declaration
 
 ▸ (): `void`
@@ -64,61 +66,63 @@ TinyEmitter.constructor
 
 #### Defined in
 
-src/types/ShimoSDK.ts:16
+[src/types/ShimoSDK.ts:16](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/types/ShimoSDK.ts#L16)
 
 ___
 
 ### document
 
-• `Optional` **document**: [`Editor`](../interfaces/document.editor.md)
+• `Optional` **document**: [`Editor`](../interfaces/Document.Editor.md)
 
 轻文档编辑器实例
 
 #### Defined in
 
-src/types/ShimoSDK.ts:26
+[src/types/ShimoSDK.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/types/ShimoSDK.ts#L26)
 
 ___
 
 ### documentPro
 
-• `Optional` **documentPro**: [`Editor`](../interfaces/documentpro.editor.md)
+• `Optional` **documentPro**: [`Editor`](../interfaces/DocumentPro.Editor.md)
 
 传统文档编辑器实例
 
 #### Defined in
 
-src/types/ShimoSDK.ts:21
+[src/types/ShimoSDK.ts:21](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/types/ShimoSDK.ts#L21)
 
 ___
 
 ### fileType
 
-• **fileType**: [`FileType`](../enums/filetype.md)
+• **fileType**: [`FileType`](../enums/FileType.md)
 
 石墨文件的类型
 
 #### Defined in
 
-src/types/ShimoSDK.ts:11
+[src/types/ShimoSDK.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/types/ShimoSDK.ts#L11)
 
 ___
 
 ### presentation
 
-• `Optional` **presentation**: [`Editor`](../interfaces/presentation.editor.md)
+• `Optional` **presentation**: [`Editor`](../interfaces/Presentation.Editor.md)
 
 专业幻灯片编辑器实例
 
 #### Defined in
 
-src/types/ShimoSDK.ts:36
+[src/types/ShimoSDK.ts:36](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/types/ShimoSDK.ts#L36)
 
 ___
 
 ### setSignature
 
 • **setSignature**: (`signature`: `string`) => `void`
+
+设置石墨用的鉴权签名
 
 #### Type declaration
 
@@ -138,13 +142,15 @@ ___
 
 #### Defined in
 
-src/types/ShimoSDK.ts:41
+[src/types/ShimoSDK.ts:41](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/types/ShimoSDK.ts#L41)
 
 ___
 
 ### setToken
 
 • **setToken**: (`token`: `string`) => `void`
+
+设置您系统的鉴权 token
 
 #### Type declaration
 
@@ -164,25 +170,25 @@ ___
 
 #### Defined in
 
-src/types/ShimoSDK.ts:46
+[src/types/ShimoSDK.ts:46](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/types/ShimoSDK.ts#L46)
 
 ___
 
 ### spreadsheet
 
-• `Optional` **spreadsheet**: [`Editor`](../interfaces/spreadsheet.editor.md)
+• `Optional` **spreadsheet**: [`Editor`](../interfaces/Spreadsheet.Editor.md)
 
 表格编辑器实例
 
 #### Defined in
 
-src/types/ShimoSDK.ts:31
+[src/types/ShimoSDK.ts:31](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/types/ShimoSDK.ts#L31)
 
 ## Methods
 
 ### emit
 
-▸ **emit**(`event`, ...`args`): [`ShimoSDK`](shimosdk.md)
+▸ **emit**(`event`, ...`args`): [`ShimoSDK`](ShimoSDK.md)
 
 #### Parameters
 
@@ -193,7 +199,7 @@ src/types/ShimoSDK.ts:31
 
 #### Returns
 
-[`ShimoSDK`](shimosdk.md)
+[`ShimoSDK`](ShimoSDK.md)
 
 #### Inherited from
 
@@ -207,7 +213,7 @@ ___
 
 ### off
 
-▸ **off**(`event`, `callback?`): [`ShimoSDK`](shimosdk.md)
+▸ **off**(`event`, `callback?`): [`ShimoSDK`](ShimoSDK.md)
 
 #### Parameters
 
@@ -218,7 +224,7 @@ ___
 
 #### Returns
 
-[`ShimoSDK`](shimosdk.md)
+[`ShimoSDK`](ShimoSDK.md)
 
 #### Inherited from
 
@@ -232,7 +238,7 @@ ___
 
 ### on
 
-▸ **on**(`event`, `callback`, `ctx?`): [`ShimoSDK`](shimosdk.md)
+▸ **on**(`event`, `callback`, `ctx?`): [`ShimoSDK`](ShimoSDK.md)
 
 #### Parameters
 
@@ -244,7 +250,7 @@ ___
 
 #### Returns
 
-[`ShimoSDK`](shimosdk.md)
+[`ShimoSDK`](ShimoSDK.md)
 
 #### Inherited from
 
@@ -258,7 +264,7 @@ ___
 
 ### once
 
-▸ **once**(`event`, `callback`, `ctx?`): [`ShimoSDK`](shimosdk.md)
+▸ **once**(`event`, `callback`, `ctx?`): [`ShimoSDK`](ShimoSDK.md)
 
 #### Parameters
 
@@ -270,7 +276,7 @@ ___
 
 #### Returns
 
-[`ShimoSDK`](shimosdk.md)
+[`ShimoSDK`](ShimoSDK.md)
 
 #### Inherited from
 

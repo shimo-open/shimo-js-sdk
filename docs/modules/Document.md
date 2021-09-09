@@ -6,5 +6,5 @@
 
 ### Interfaces
 
-- [Editor](../interfaces/document.editor.md)
-- [EventMap](../interfaces/document.eventmap.md)
+- [Editor](../interfaces/Document.Editor.md)
+- [EventMap](../interfaces/Document.EventMap.md)

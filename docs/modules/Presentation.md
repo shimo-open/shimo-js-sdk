@@ -6,5 +6,5 @@
 
 ### Interfaces
 
-- [Editor](../interfaces/presentation.editor.md)
-- [EventMap](../interfaces/presentation.eventmap.md)
+- [Editor](../interfaces/Presentation.Editor.md)
+- [EventMap](../interfaces/Presentation.EventMap.md)

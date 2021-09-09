@@ -6,26 +6,26 @@
 
 ### Namespaces
 
-- [Document](modules/document.md)
-- [DocumentPro](modules/documentpro.md)
-- [Presentation](modules/presentation.md)
-- [Spreadsheet](modules/spreadsheet.md)
+- [Document](modules/Document.md)
+- [DocumentPro](modules/DocumentPro.md)
+- [Presentation](modules/Presentation.md)
+- [Spreadsheet](modules/Spreadsheet.md)
 
 ### Enumerations
 
-- [Event](enums/event.md)
-- [FileType](enums/filetype.md)
-- [MessageEvent](enums/messageevent.md)
-- [ReadyState](enums/readystate.md)
+- [Event](enums/Event.md)
+- [FileType](enums/FileType.md)
+- [MessageEvent](enums/MessageEvent.md)
+- [ReadyState](enums/ReadyState.md)
 
 ### Classes
 
-- [ShimoSDK](classes/shimosdk.md)
+- [ShimoSDK](classes/ShimoSDK.md)
 
 ### Interfaces
 
-- [ConnectOptions](interfaces/connectoptions.md)
-- [Message](interfaces/message.md)
+- [ConnectOptions](interfaces/ConnectOptions.md)
+- [Message](interfaces/Message.md)
 
 ### Type aliases
 
@@ -59,24 +59,24 @@
 
 #### Defined in
 
-src/types/ShimoSDK.ts:117
+[src/types/ShimoSDK.ts:117](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/types/ShimoSDK.ts#L117)
 
 ## Functions
 
 ### connect
 
-▸ **connect**(`options`): `Promise`<[`ShimoSDK`](classes/shimosdk.md)\>
+▸ **connect**(`options`): `Promise`<[`ShimoSDK`](classes/ShimoSDK.md)\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`ConnectOptions`](interfaces/connectoptions.md) |
+| `options` | [`ConnectOptions`](interfaces/ConnectOptions.md) |
 
 #### Returns
 
-`Promise`<[`ShimoSDK`](classes/shimosdk.md)\>
+`Promise`<[`ShimoSDK`](classes/ShimoSDK.md)\>
 
 #### Defined in
 
-src/connect.ts:96
+[src/connect.ts:129](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/connect.ts#L129)
