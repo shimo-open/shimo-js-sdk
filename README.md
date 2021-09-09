@@ -27,9 +27,7 @@ connect({
   appId: '您的 app id',
   fileId: '您系统中的 file id',
   endpoint: '石墨服务的地址',
-  getSignature() {
-    return Promise.resolve('用您的 app id 和 secret 签发的签名')
-  },
+  signature: '用您的 app id 和 secret 签发的签名',
   token: '用于您系统识别用户请求的 token',
   container: document.querySelector('#shimo-file') // iframe 挂载的目标容器元素
 }).then((shimoSDK) => {
@@ -37,16 +35,7 @@ connect({
 })
 ```
 
-参数说明：
-
-| 字段         | 类型            | 必选项 | 说明                                                                                            |
-| ------------ | --------------- | ------ | ----------------------------------------------------------------------------------------------- |
-| appId        | string          | Y      | 您的 app id                                                                                     |
-| fileId       | string          | Y      | 您系统中的 file id                                                                              |
-| endpoint     | string          | Y      | 石墨服务的地址                                                                                  |
-| token        | string          | Y      | 用于您系统识别用户请求的 token                                                                  |
-| container    | HTMLElement     | Y      | iframe 挂载的目标容器元素                                                                       |
-| getSignature | Promise<string> | Y      | 获取和石墨服务器通信的签名的方法，**app secret 属于机密信息，请勿暴露在前端，建议通过后端获取** |
+参数说明请参考 `docs/interfaces/connectoptions.md`。
 
 返回值：
 
@@ -71,8 +60,6 @@ const { connect, FileType } = require('shimo-js-sdk')
 假设您的系统有以下接口：
 
 - `POST /files/:fileId/shimo-signature` 返回 `{ signature: '...' }`
-
-传统文档：
 
 ```js
 const { connect, FileType } = require('shimo-js-sdk')
@@ -104,7 +91,7 @@ connect({
 
 #### 对象文档说明
 
-具体文档请参考 `.d.ts` 文件，此处仅进行必要说明，可能有遗漏。
+具体文档请参考 `docs` 目录，此处仅作简单的使用说明。
 
 `connect()`
 
@@ -128,4 +115,55 @@ connect({
 
 石墨文档编辑器实例，根据不同类型的文件，会使用不同的实例，用于和编辑器通信，如调用接口：`shimoSDK.documentPro.getCommentList()`，**所有接口均返回 Promise**。
 
-`setSignature(signature)` 和 `setToken(token)` 用于更新签名和 token。处于安全考虑，signature 和 token 一般不建议设置太长的过期时间，而为了减少用户刷新页面的情况，可以用这两个方法更新签名和 token。
+`setSignature(signature)` 和 `setToken(token)` 用于更新签名和 token。处于安全考虑，signature 和 token 一般不建议设置太长的过期时间，而为了减少用户长时间未刷新页面，导致 API 请求鉴权失败的情况，可以在 signature 或 token 失效前进行更新。
+
+```js
+const { connect, FileType } = require('shimo-js-sdk')
+
+const fileId = '1234'
+
+// 从您的后端服务获取用于石墨鉴权的签名和 token
+let { signature, token, expires } = await getCredentialsFromServer()
+
+const shimoSDK = await connect({ ... })
+
+setInterval(
+  () => {
+    // 当签名不到一分钟就过期时进行更新
+    if (Date.now() - expires < 60000) {
+      const resp = await getCredentialsFromServer()
+      shimoSDK.setSignature(resp.signature)
+      expires = resp.expires
+    }
+  },
+  60 * 1000
+)
+```
+
+##### 如何和 URL 交互
+
+由于石墨 SDK 以 `iframe` 的形式挂载到当前页面，`iframe.src` 对应的 URL 并不适合用于分享，而且在一些功能上，比如 @ 文件，需要用到您系统中对应的 URL 格式，比如 `https://your-domain/files/:id`。
+
+为了解决这个问题，石墨 SDK 引入 `generateUrl()` 和 `openLink()` 方法：
+
+```js
+const shimoSDK = await connect({
+  ...,
+
+  generateUrl(fileId: string): string {
+    return `https://your-domain/files/${fileId}`
+  },
+
+  openLink(url: string): void {
+    // 以 React Router 为例
+
+    // 假设 url 是 'https://your-domain/files/1'，在当前页跳转，其他则新窗口打开
+    if (url.includes('your-domain/files/')) {
+      const u = new URL(url)
+      history.push(u.pathname)
+    } else {
+      window.open(url)
+    }
+  }
+})
+```

@@ -22,50 +22,50 @@ const SM_PARAMS_KEY = 'smParams'
 
 export interface ConnectOptions {
   /**
-   * Shimo App ID
+   * 石墨 SDK 分配给您的 App ID
    */
   appId: string
 
   /**
-   * The endpoint of Shimo server
+   * 石墨 SDK 服务器地址
    */
   endpoint: string
 
   /**
-   * The file ID
+   * 您要打开的文档 ID
    */
   fileId: string
 
   /**
-   * App signaure generator
+   * 获取用于石墨 SDK 鉴权用的签名
    * @deprecated use sdk.setSignature() instead
    */
   getSignature?: () => Promise<string>
 
   /**
-   * App signaure
+   * 用于石墨 SDK 鉴权用的签名
    */
   signature?: string
 
   /**
-   * The HTML element that iframe will be attached to
+   * iframe 挂载的目标容器
    */
   container: HTMLElement
 
   /**
-   * User authorization token
+   * 用于您系统鉴权使用的 token
    */
   token: string
 
   /**
-   * Params for requesting editor page
+   * 添加到 iframe URLSearchParams 的参数列表
    */
   params?: {
     [key: string]: string
   }
 
   /**
-   * 石墨 SDK URL 参数 url?smParams={params}，用于传递石墨 SDK 内部需要的参数
+   * 石墨 SDK URL 参数 url?smParams={params}，用于传递石墨 SDK 内部需要的参数。
    */
   smParams?: string
 
@@ -76,12 +76,7 @@ export interface ConnectOptions {
     /**
      * 文档相关联的 file ID
      */
-    fileId: string,
-
-    /**
-     * 需要附加到生成的链接中的参数，比如 http://domain/files/1?sdk_params=<params>
-     */
-    params: string
+    fileId: string
   ) => string
 
   /**
@@ -327,7 +322,7 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
         let error: Error | undefined = undefined
 
         try {
-          if (!['openLink', 'generateUrl', 'parseUrl'].includes(method)) {
+          if (!['openLink', 'generateUrl'].includes(method)) {
             throw new Error(`unknown method: ${method}`)
           }
           value = options[method]?.apply(this, args)

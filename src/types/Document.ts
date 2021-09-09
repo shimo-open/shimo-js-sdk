@@ -1,17 +1,31 @@
 import { BaseEditor } from './BaseEditor'
 
 export interface EventMap {
+  /**
+   * 保存状态发生变更
+   */
   saveStatusDidChange: {
     /**
      * @since PD2.10
      */
     status?: 'saving' | 'saved' | 'error'
   }
+
   error: {
     /** 错误信息 */
     data?: unknown
     /** 错误码 */
     code: number
+  }
+
+  /**
+   * 标题发生变更
+   */
+  changeTitle: {
+    /**
+     * 新的标题
+     */
+    title: string
   }
 }
 
@@ -76,4 +90,9 @@ export interface Editor extends BaseEditor<EventMap> {
    * @since PD2.10
    */
   print: (this: Editor, options: {}) => Promise<void>
+
+  /**
+   * 设置文档标题
+   */
+  setTitle: (title: string) => Promise<void>
 }
