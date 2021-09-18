@@ -145,6 +145,8 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
     iframe = document.createElement('iframe')
     iframe.style.border = 'none'
     iframe.style.overflow = 'hidden'
+    iframe.style.width = '100%'
+    iframe.style.height = '100%'
     iframe.allow = 'fullscreen'
     iframe.allowFullscreen = true
 
