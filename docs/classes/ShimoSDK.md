@@ -66,7 +66,7 @@ TinyEmitter.constructor
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:16](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/types/ShimoSDK.ts#L16)
+[src/types/ShimoSDK.ts:16](https://github.com/shimohq/shimo-js-sdk/blob/e9f3299/src/types/ShimoSDK.ts#L16)
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/types/ShimoSDK.ts#L26)
+[src/types/ShimoSDK.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/e9f3299/src/types/ShimoSDK.ts#L26)
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:21](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/types/ShimoSDK.ts#L21)
+[src/types/ShimoSDK.ts:21](https://github.com/shimohq/shimo-js-sdk/blob/e9f3299/src/types/ShimoSDK.ts#L21)
 
 ___
 
@@ -102,7 +102,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/types/ShimoSDK.ts#L11)
+[src/types/ShimoSDK.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/e9f3299/src/types/ShimoSDK.ts#L11)
 
 ___
 
@@ -114,7 +114,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:36](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/types/ShimoSDK.ts#L36)
+[src/types/ShimoSDK.ts:36](https://github.com/shimohq/shimo-js-sdk/blob/e9f3299/src/types/ShimoSDK.ts#L36)
 
 ___
 
@@ -142,7 +142,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:41](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/types/ShimoSDK.ts#L41)
+[src/types/ShimoSDK.ts:41](https://github.com/shimohq/shimo-js-sdk/blob/e9f3299/src/types/ShimoSDK.ts#L41)
 
 ___
 
@@ -170,7 +170,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:46](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/types/ShimoSDK.ts#L46)
+[src/types/ShimoSDK.ts:46](https://github.com/shimohq/shimo-js-sdk/blob/e9f3299/src/types/ShimoSDK.ts#L46)
 
 ___
 
@@ -182,7 +182,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:31](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/types/ShimoSDK.ts#L31)
+[src/types/ShimoSDK.ts:31](https://github.com/shimohq/shimo-js-sdk/blob/e9f3299/src/types/ShimoSDK.ts#L31)
 
 ## Methods
 

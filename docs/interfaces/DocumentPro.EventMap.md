@@ -29,7 +29,7 @@
 
 #### Defined in
 
-[src/types/DocumentPro.ts:89](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/types/DocumentPro.ts#L89)
+[src/types/DocumentPro.ts:89](https://github.com/shimohq/shimo-js-sdk/blob/e9f3299/src/types/DocumentPro.ts#L89)
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:88](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/types/DocumentPro.ts#L88)
+[src/types/DocumentPro.ts:88](https://github.com/shimohq/shimo-js-sdk/blob/e9f3299/src/types/DocumentPro.ts#L88)
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:96](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/types/DocumentPro.ts#L96)
+[src/types/DocumentPro.ts:96](https://github.com/shimohq/shimo-js-sdk/blob/e9f3299/src/types/DocumentPro.ts#L96)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:100](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/types/DocumentPro.ts#L100)
+[src/types/DocumentPro.ts:100](https://github.com/shimohq/shimo-js-sdk/blob/e9f3299/src/types/DocumentPro.ts#L100)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:97](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/types/DocumentPro.ts#L97)
+[src/types/DocumentPro.ts:97](https://github.com/shimohq/shimo-js-sdk/blob/e9f3299/src/types/DocumentPro.ts#L97)
 
 ___
 
@@ -92,4 +92,4 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:87](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/types/DocumentPro.ts#L87)
+[src/types/DocumentPro.ts:87](https://github.com/shimohq/shimo-js-sdk/blob/e9f3299/src/types/DocumentPro.ts#L87)

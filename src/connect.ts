@@ -19,6 +19,7 @@ import * as Spreadsheet from './types/Spreadsheet'
 import * as Presentation from './types/Presentation'
 
 const SM_PARAMS_KEY = 'smParams'
+const SUPPORTED_LANGUAGES = ['zh-CN', 'en', 'ja']
 
 export interface ConnectOptions {
   /**
@@ -68,6 +69,17 @@ export interface ConnectOptions {
    * 石墨 SDK URL 参数 url?smParams={params}，用于传递石墨 SDK 内部需要的参数。
    */
   smParams?: string
+
+  /**
+   * 指定石墨 SDK 编辑器界面语言，添加到 iframe URLSearchParams 的参数列表。
+   * 若未指定，则 iframe 使用服务器设置的默认语言。
+   *
+   * 目前支持的语言取值：
+   * 1. zh-CN（简体中文）
+   * 2. en（英文）
+   * 3. ja（日文）
+   */
+  lang?: 'zh-CN' | 'en' | 'ja'
 
   /**
    * 生成插入到石墨文档中的链接，用于处理 @ 文件等功能需要插入的链接
@@ -170,6 +182,14 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
       if (typeof params === 'string') {
         url.searchParams.append(SM_PARAMS_KEY, params)
       }
+    }
+
+    // 设置当前编辑器语言
+    if (
+      typeof options.lang === 'string' &&
+      SUPPORTED_LANGUAGES.includes(options.lang)
+    ) {
+      url.searchParams.append('lang', options.lang)
     }
 
     url.searchParams.append('jsver', process.env.VERSION ?? '')
