@@ -32,7 +32,7 @@ connect({
   signature: '用您的 app id 和 secret 签发的签名',
   token: '用于您系统识别用户请求的 token',
   container: document.querySelector('#shimo-file'), // iframe 挂载的目标容器元素
-  lang: 'en' // 指定编辑器初始化时的界面语言，不指定则不传此参数
+  lang: 'en' // 未指定此参数时，使用浏览器默认语言
 }).then((shimoSDK) => {
   // ...
 })
