@@ -79,7 +79,7 @@ export interface ConnectOptions {
    * 2. en（英文）
    * 3. ja（日文）
    */
-  lang?: string
+  lang?: 'zh-CN' | 'en' | 'ja'
 
   /**
    * 生成插入到石墨文档中的链接，用于处理 @ 文件等功能需要插入的链接
