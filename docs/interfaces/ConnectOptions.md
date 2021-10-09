@@ -10,6 +10,7 @@
 - [container](ConnectOptions.md#container)
 - [endpoint](ConnectOptions.md#endpoint)
 - [fileId](ConnectOptions.md#fileid)
+- [lang](ConnectOptions.md#lang)
 - [params](ConnectOptions.md#params)
 - [signature](ConnectOptions.md#signature)
 - [smParams](ConnectOptions.md#smparams)
@@ -31,7 +32,7 @@
 
 #### Defined in
 
-[src/connect.ts:27](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/connect.ts#L27)
+[src/connect.ts:28](https://github.com/shimohq/shimo-js-sdk/blob/42e1df1/src/connect.ts#L28)
 
 ___
 
@@ -43,7 +44,7 @@ iframe 挂载的目标容器
 
 #### Defined in
 
-[src/connect.ts:53](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/connect.ts#L53)
+[src/connect.ts:54](https://github.com/shimohq/shimo-js-sdk/blob/42e1df1/src/connect.ts#L54)
 
 ___
 
@@ -55,7 +56,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:32](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/connect.ts#L32)
+[src/connect.ts:33](https://github.com/shimohq/shimo-js-sdk/blob/42e1df1/src/connect.ts#L33)
 
 ___
 
@@ -67,7 +68,25 @@ ___
 
 #### Defined in
 
-[src/connect.ts:37](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/connect.ts#L37)
+[src/connect.ts:38](https://github.com/shimohq/shimo-js-sdk/blob/42e1df1/src/connect.ts#L38)
+
+___
+
+### lang
+
+• `Optional` **lang**: `string`
+
+指定石墨 SDK 编辑器界面语言，添加到 iframe URLSearchParams 的参数列表。
+若未指定，则 iframe 使用服务器设置的默认语言。
+
+目前支持的语言取值：
+1. zh-CN（简体中文）
+2. en（英文）
+3. ja（日文）
+
+#### Defined in
+
+[src/connect.ts:82](https://github.com/shimohq/shimo-js-sdk/blob/42e1df1/src/connect.ts#L82)
 
 ___
 
@@ -83,7 +102,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:63](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/connect.ts#L63)
+[src/connect.ts:64](https://github.com/shimohq/shimo-js-sdk/blob/42e1df1/src/connect.ts#L64)
 
 ___
 
@@ -95,7 +114,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:48](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/connect.ts#L48)
+[src/connect.ts:49](https://github.com/shimohq/shimo-js-sdk/blob/42e1df1/src/connect.ts#L49)
 
 ___
 
@@ -107,7 +126,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:70](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/connect.ts#L70)
+[src/connect.ts:71](https://github.com/shimohq/shimo-js-sdk/blob/42e1df1/src/connect.ts#L71)
 
 ___
 
@@ -119,7 +138,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:58](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/connect.ts#L58)
+[src/connect.ts:59](https://github.com/shimohq/shimo-js-sdk/blob/42e1df1/src/connect.ts#L59)
 
 ## Methods
 
@@ -141,7 +160,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:75](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/connect.ts#L75)
+[src/connect.ts:87](https://github.com/shimohq/shimo-js-sdk/blob/42e1df1/src/connect.ts#L87)
 
 ___
 
@@ -159,7 +178,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:43](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/connect.ts#L43)
+[src/connect.ts:44](https://github.com/shimohq/shimo-js-sdk/blob/42e1df1/src/connect.ts#L44)
 
 ___
 
@@ -182,4 +201,4 @@ ___
 
 #### Defined in
 
-[src/connect.ts:85](https://github.com/shimohq/shimo-js-sdk/blob/d265a9d/src/connect.ts#L85)
+[src/connect.ts:97](https://github.com/shimohq/shimo-js-sdk/blob/42e1df1/src/connect.ts#L97)

@@ -29,7 +29,8 @@ connect({
   endpoint: '石墨服务的地址',
   signature: '用您的 app id 和 secret 签发的签名',
   token: '用于您系统识别用户请求的 token',
-  container: document.querySelector('#shimo-file') // iframe 挂载的目标容器元素
+  container: document.querySelector('#shimo-file'), // iframe 挂载的目标容器元素
+  lang: 'en' // 指定编辑器初始化时的界面语言，不指定则不传此参数
 }).then((shimoSDK) => {
   // ...
 })
