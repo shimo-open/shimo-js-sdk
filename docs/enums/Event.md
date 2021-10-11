@@ -20,7 +20,7 @@
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:65](https://github.com/shimohq/shimo-js-sdk/blob/e9f3299/src/types/ShimoSDK.ts#L65)
+[src/types/ShimoSDK.ts:65](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/types/ShimoSDK.ts#L65)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:55](https://github.com/shimohq/shimo-js-sdk/blob/e9f3299/src/types/ShimoSDK.ts#L55)
+[src/types/ShimoSDK.ts:55](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/types/ShimoSDK.ts#L55)
 
 ___
 
@@ -44,4 +44,4 @@ ShimoSDK 状态变化事件
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:60](https://github.com/shimohq/shimo-js-sdk/blob/e9f3299/src/types/ShimoSDK.ts#L60)
+[src/types/ShimoSDK.ts:60](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/types/ShimoSDK.ts#L60)

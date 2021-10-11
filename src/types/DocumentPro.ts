@@ -78,10 +78,10 @@ export type HorizontalAlignment = 0 | 1 | 2
 
 /** 事件名 */
 export type Events =
-  | 'SelectionEnded'
-  | 'DocumentChanged'
-  | 'CommentClicked'
-  | 'Recalculated'
+  | 'selectionEnded'
+  | 'documentChanged'
+  | 'commentClicked'
+  | 'FullRecalculated'
 
 export interface EventMap {
   selectionEnded: {}

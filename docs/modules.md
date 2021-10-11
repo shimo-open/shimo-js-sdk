@@ -59,7 +59,7 @@
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:117](https://github.com/shimohq/shimo-js-sdk/blob/e9f3299/src/types/ShimoSDK.ts#L117)
+[src/types/ShimoSDK.ts:117](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/types/ShimoSDK.ts#L117)
 
 ## Functions
 
@@ -79,4 +79,4 @@
 
 #### Defined in
 
-[src/connect.ts:141](https://github.com/shimohq/shimo-js-sdk/blob/e9f3299/src/connect.ts#L141)
+[src/connect.ts:141](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/connect.ts#L141)
