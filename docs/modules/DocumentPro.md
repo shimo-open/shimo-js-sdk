@@ -30,19 +30,19 @@
 
 #### Defined in
 
-[src/types/DocumentPro.ts:69](https://github.com/shimohq/shimo-js-sdk/blob/e9f3299/src/types/DocumentPro.ts#L69)
+[src/types/DocumentPro.ts:69](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/types/DocumentPro.ts#L69)
 
 ___
 
 ### Events
 
-Ƭ **Events**: ``"SelectionEnded"`` \| ``"DocumentChanged"`` \| ``"CommentClicked"`` \| ``"Recalculated"``
+Ƭ **Events**: ``"selectionEnded"`` \| ``"documentChanged"`` \| ``"commentClicked"`` \| ``"FullRecalculated"``
 
 事件名
 
 #### Defined in
 
-[src/types/DocumentPro.ts:80](https://github.com/shimohq/shimo-js-sdk/blob/e9f3299/src/types/DocumentPro.ts#L80)
+[src/types/DocumentPro.ts:80](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/types/DocumentPro.ts#L80)
 
 ___
 
@@ -57,4 +57,4 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:77](https://github.com/shimohq/shimo-js-sdk/blob/e9f3299/src/types/DocumentPro.ts#L77)
+[src/types/DocumentPro.ts:77](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/types/DocumentPro.ts#L77)
