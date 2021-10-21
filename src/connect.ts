@@ -17,6 +17,7 @@ import * as DocumentPro from './types/DocumentPro'
 import * as Document from './types/Document'
 import * as Spreadsheet from './types/Spreadsheet'
 import * as Presentation from './types/Presentation'
+import * as Table from './types/Table'
 
 const SM_PARAMS_KEY = 'smParams'
 const SUPPORTED_LANGUAGES = ['zh-CN', 'en', 'ja']
@@ -303,6 +304,9 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
               break
             case FileType.Presentation:
               ee.presentation = p as Presentation.Editor
+              break
+            case FileType.Table:
+              ee.table = p as Table.Editor
               break
           }
         }
