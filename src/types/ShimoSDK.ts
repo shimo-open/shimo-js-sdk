@@ -3,6 +3,7 @@ import * as DocumentPro from './DocumentPro'
 import * as Document from './Document'
 import * as Spreadsheet from './Spreadsheet'
 import * as Presentation from './Presentation'
+import * as Table from './Table'
 
 export declare class ShimoSDK extends TinyEmitter {
   /**
@@ -34,6 +35,11 @@ export declare class ShimoSDK extends TinyEmitter {
    * 专业幻灯片编辑器实例
    */
   presentation?: Presentation.Editor
+
+  /**
+   * 应用表格编辑器实例
+   */
+  table?: Table.Editor
 
   /**
    * 设置石墨用的鉴权签名
@@ -108,7 +114,11 @@ export enum FileType {
   /**
    * 专业幻灯片
    */
-  Presentation = 'presentation'
+  Presentation = 'presentation',
+  /**
+   * 应用表格
+   */
+  Table = 'table'
 }
 
 /**
