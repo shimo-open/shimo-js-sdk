@@ -12,6 +12,11 @@ export declare class ShimoSDK extends TinyEmitter {
   fileType: FileType
 
   /**
+   * iframe 元素
+   */
+  element: HTMLIFrameElement
+
+  /**
    * 销毁 iframe 并释放资源
    */
   disconnect: () => void
@@ -56,6 +61,11 @@ export declare class ShimoSDK extends TinyEmitter {
 
 export enum Event {
   /**
+   * SDK 初始化事件，用于内部逻辑
+   */
+  SDKInit = 'sdkinit',
+
+  /**
    * 错误事件，包含编辑器抛出的错误
    */
   Error = 'error',
@@ -78,6 +88,7 @@ export interface Message {
 }
 
 export enum MessageEvent {
+  SDKInit = 'SDKInit',
   MethodCallback = 'methodCallback',
   MethodCall = 'methodCall',
   Error = 'error',

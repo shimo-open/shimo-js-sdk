@@ -1,6 +1,6 @@
-import { BaseEditor } from './BaseEditor'
+import { BaseEditor, EventMap as BaseEventMap } from './BaseEditor'
 
-export interface EventMap {
+export interface EventMap extends BaseEventMap {
   /**
    * 保存状态发生变更
    */

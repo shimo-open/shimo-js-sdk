@@ -1,6 +1,7 @@
 import 'core-js/features/promise'
 import 'core-js/features/url'
 import 'core-js/features/array/includes'
+import 'core-js/features/object/assign'
 import 'proxy-polyfill'
 import { TinyEmitter } from 'tiny-emitter'
 import forIn from 'lodash.forin'
@@ -18,6 +19,8 @@ import * as Document from './types/Document'
 import * as Spreadsheet from './types/Spreadsheet'
 import * as Presentation from './types/Presentation'
 import * as Table from './types/Table'
+import { emit } from './event-handler'
+import { assert } from './assert'
 
 const SM_PARAMS_KEY = 'smParams'
 const SUPPORTED_LANGUAGES = ['zh-CN', 'en', 'ja']
@@ -106,18 +109,26 @@ export interface ConnectOptions {
      */
     target?: string
   ) => void
-}
 
-function assert<T>(
-  input: any,
-  condition: (input: any) => boolean,
-  message: string
-): T {
-  if (condition(input)) {
-    return input
+  /**
+   * 是否禁用提及的浮动卡片组件
+   */
+  disableMentionCards?: {
+    /**
+     * 是否禁用提及人的浮动卡片组件
+     */
+    user?: boolean
+
+    /**
+     * 是否禁用提及人的浮动卡片组件
+     */
+    file?: boolean
+
+    /**
+     * 是否禁用提及人的浮动卡片组件
+     */
+    data?: boolean
   }
-
-  throw new Error(message)
 }
 
 function notEmptyString(input?: string): boolean {
@@ -155,7 +166,7 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
   })
 
   async function init() {
-    iframe = document.createElement('iframe')
+    ee.element = iframe = document.createElement('iframe')
     iframe.style.border = 'none'
     iframe.style.overflow = 'hidden'
     iframe.style.width = '100%'
@@ -256,6 +267,14 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
       })
     }
 
+    // 传递初始化参数进 iframe
+    ee.once(Event.SDKInit, () => {
+      postMessage({
+        event: SDKMessageEvent.SDKInit,
+        body: options
+      })
+    })
+
     await new Promise<void>((resolve, reject) => {
       const cb = (state: ReadyState, error?: Error) => {
         if (state === ReadyState.Ready) {
@@ -281,6 +300,10 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
     const data: Message = msg.data
 
     switch (data.event) {
+      case SDKMessageEvent.SDKInit:
+        ee.emit(Event.SDKInit)
+        break
+
       case SDKMessageEvent.ReadyState: {
         if (data.body.state === ReadyState.Failed) {
           ee.emit(Event.ReadyState, data.body.state, data.body.error)
@@ -320,7 +343,7 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
         break
 
       case SDKMessageEvent.EditorEvent:
-        editorEvent.emit(data.body.editorEvent, data.body.value)
+        emit(editorEvent, ee, data.body.editorEvent, data.body.value)
         break
 
       case SDKMessageEvent.MethodCallback:
