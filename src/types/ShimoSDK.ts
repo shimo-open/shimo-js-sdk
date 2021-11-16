@@ -63,7 +63,7 @@ export enum Event {
   /**
    * SDK 初始化事件，用于内部逻辑
    */
-  SDKInit = 'sdkinit',
+  SDKInit = 'SDKInit',
 
   /**
    * 错误事件，包含编辑器抛出的错误
