@@ -23,11 +23,13 @@
 - [disconnect](ShimoSDK.md#disconnect)
 - [document](ShimoSDK.md#document)
 - [documentPro](ShimoSDK.md#documentpro)
+- [element](ShimoSDK.md#element)
 - [fileType](ShimoSDK.md#filetype)
 - [presentation](ShimoSDK.md#presentation)
 - [setSignature](ShimoSDK.md#setsignature)
 - [setToken](ShimoSDK.md#settoken)
 - [spreadsheet](ShimoSDK.md#spreadsheet)
+- [table](ShimoSDK.md#table)
 
 ### Methods
 
@@ -66,7 +68,7 @@ TinyEmitter.constructor
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:16](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/types/ShimoSDK.ts#L16)
+[src/types/ShimoSDK.ts:22](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/types/ShimoSDK.ts#L22)
 
 ___
 
@@ -78,7 +80,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/types/ShimoSDK.ts#L26)
+[src/types/ShimoSDK.ts:32](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/types/ShimoSDK.ts#L32)
 
 ___
 
@@ -90,7 +92,19 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:21](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/types/ShimoSDK.ts#L21)
+[src/types/ShimoSDK.ts:27](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/types/ShimoSDK.ts#L27)
+
+___
+
+### element
+
+• **element**: `HTMLIFrameElement`
+
+iframe 元素
+
+#### Defined in
+
+[src/types/ShimoSDK.ts:17](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/types/ShimoSDK.ts#L17)
 
 ___
 
@@ -102,7 +116,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/types/ShimoSDK.ts#L11)
+[src/types/ShimoSDK.ts:12](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/types/ShimoSDK.ts#L12)
 
 ___
 
@@ -114,7 +128,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:36](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/types/ShimoSDK.ts#L36)
+[src/types/ShimoSDK.ts:42](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/types/ShimoSDK.ts#L42)
 
 ___
 
@@ -142,7 +156,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:41](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/types/ShimoSDK.ts#L41)
+[src/types/ShimoSDK.ts:52](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/types/ShimoSDK.ts#L52)
 
 ___
 
@@ -170,7 +184,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:46](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/types/ShimoSDK.ts#L46)
+[src/types/ShimoSDK.ts:57](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/types/ShimoSDK.ts#L57)
 
 ___
 
@@ -182,7 +196,19 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:31](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/types/ShimoSDK.ts#L31)
+[src/types/ShimoSDK.ts:37](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/types/ShimoSDK.ts#L37)
+
+___
+
+### table
+
+• `Optional` **table**: [`Editor`](../interfaces/Table.Editor.md)
+
+应用表格编辑器实例
+
+#### Defined in
+
+[src/types/ShimoSDK.ts:47](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/types/ShimoSDK.ts#L47)
 
 ## Methods
 

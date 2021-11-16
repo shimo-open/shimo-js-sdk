@@ -8,6 +8,7 @@
 
 - [appId](ConnectOptions.md#appid)
 - [container](ConnectOptions.md#container)
+- [disableMentionCards](ConnectOptions.md#disablementioncards)
 - [endpoint](ConnectOptions.md#endpoint)
 - [fileId](ConnectOptions.md#fileid)
 - [lang](ConnectOptions.md#lang)
@@ -20,6 +21,7 @@
 
 - [generateUrl](ConnectOptions.md#generateurl)
 - [getSignature](ConnectOptions.md#getsignature)
+- [mentionClickHandlerForMobile](ConnectOptions.md#mentionclickhandlerformobile)
 - [openLink](ConnectOptions.md#openlink)
 
 ## Properties
@@ -32,7 +34,7 @@
 
 #### Defined in
 
-[src/connect.ts:28](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/connect.ts#L28)
+[src/connect.ts:33](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/connect.ts#L33)
 
 ___
 
@@ -44,7 +46,27 @@ iframe 挂载的目标容器
 
 #### Defined in
 
-[src/connect.ts:54](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/connect.ts#L54)
+[src/connect.ts:59](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/connect.ts#L59)
+
+___
+
+### disableMentionCards
+
+• `Optional` **disableMentionCards**: `Object`
+
+是否禁用提及的浮动卡片组件
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `data?` | `boolean` | 是否禁用提及人的浮动卡片组件 |
+| `file?` | `boolean` | 是否禁用提及人的浮动卡片组件 |
+| `user?` | `boolean` | 是否禁用提及人的浮动卡片组件 |
+
+#### Defined in
+
+[src/connect.ts:117](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/connect.ts#L117)
 
 ___
 
@@ -56,7 +78,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:33](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/connect.ts#L33)
+[src/connect.ts:38](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/connect.ts#L38)
 
 ___
 
@@ -68,7 +90,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:38](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/connect.ts#L38)
+[src/connect.ts:43](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/connect.ts#L43)
 
 ___
 
@@ -86,7 +108,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:82](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/connect.ts#L82)
+[src/connect.ts:87](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/connect.ts#L87)
 
 ___
 
@@ -102,7 +124,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:64](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/connect.ts#L64)
+[src/connect.ts:69](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/connect.ts#L69)
 
 ___
 
@@ -114,7 +136,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:49](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/connect.ts#L49)
+[src/connect.ts:54](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/connect.ts#L54)
 
 ___
 
@@ -126,7 +148,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:71](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/connect.ts#L71)
+[src/connect.ts:76](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/connect.ts#L76)
 
 ___
 
@@ -138,7 +160,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:59](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/connect.ts#L59)
+[src/connect.ts:64](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/connect.ts#L64)
 
 ## Methods
 
@@ -160,7 +182,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:87](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/connect.ts#L87)
+[src/connect.ts:92](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/connect.ts#L92)
 
 ___
 
@@ -178,7 +200,29 @@ ___
 
 #### Defined in
 
-[src/connect.ts:44](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/connect.ts#L44)
+[src/connect.ts:49](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/connect.ts#L49)
+
+___
+
+### mentionClickHandlerForMobile
+
+▸ `Optional` **mentionClickHandlerForMobile**(`payload`): `void`
+
+用于移动端处理 @ 点击事件
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `payload` | `MouseMovePayload` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/connect.ts:137](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/connect.ts#L137)
 
 ___
 
@@ -201,4 +245,4 @@ ___
 
 #### Defined in
 
-[src/connect.ts:97](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/connect.ts#L97)
+[src/connect.ts:102](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/connect.ts#L102)

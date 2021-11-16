@@ -12,6 +12,7 @@
 - [DocumentPro](FileType.md#documentpro)
 - [Presentation](FileType.md#presentation)
 - [Spreadsheet](FileType.md#spreadsheet)
+- [Table](FileType.md#table)
 
 ## Enumeration members
 
@@ -23,7 +24,7 @@
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:101](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/types/ShimoSDK.ts#L101)
+[src/types/ShimoSDK.ts:118](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/types/ShimoSDK.ts#L118)
 
 ___
 
@@ -35,7 +36,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:96](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/types/ShimoSDK.ts#L96)
+[src/types/ShimoSDK.ts:113](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/types/ShimoSDK.ts#L113)
 
 ___
 
@@ -47,7 +48,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:111](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/types/ShimoSDK.ts#L111)
+[src/types/ShimoSDK.ts:128](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/types/ShimoSDK.ts#L128)
 
 ___
 
@@ -59,4 +60,16 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:106](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/types/ShimoSDK.ts#L106)
+[src/types/ShimoSDK.ts:123](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/types/ShimoSDK.ts#L123)
+
+___
+
+### Table
+
+• **Table** = `"table"`
+
+应用表格
+
+#### Defined in
+
+[src/types/ShimoSDK.ts:132](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/types/ShimoSDK.ts#L132)

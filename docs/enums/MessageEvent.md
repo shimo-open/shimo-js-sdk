@@ -11,6 +11,7 @@
 - [MethodCall](MessageEvent.md#methodcall)
 - [MethodCallback](MessageEvent.md#methodcallback)
 - [ReadyState](MessageEvent.md#readystate)
+- [SDKInit](MessageEvent.md#sdkinit)
 - [SetCredentials](MessageEvent.md#setcredentials)
 
 ## Enumeration members
@@ -21,7 +22,7 @@
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:79](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/types/ShimoSDK.ts#L79)
+[src/types/ShimoSDK.ts:96](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/types/ShimoSDK.ts#L96)
 
 ___
 
@@ -31,7 +32,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:77](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/types/ShimoSDK.ts#L77)
+[src/types/ShimoSDK.ts:94](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/types/ShimoSDK.ts#L94)
 
 ___
 
@@ -41,7 +42,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:76](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/types/ShimoSDK.ts#L76)
+[src/types/ShimoSDK.ts:93](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/types/ShimoSDK.ts#L93)
 
 ___
 
@@ -51,7 +52,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:75](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/types/ShimoSDK.ts#L75)
+[src/types/ShimoSDK.ts:92](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/types/ShimoSDK.ts#L92)
 
 ___
 
@@ -61,7 +62,17 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:78](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/types/ShimoSDK.ts#L78)
+[src/types/ShimoSDK.ts:95](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/types/ShimoSDK.ts#L95)
+
+___
+
+### SDKInit
+
+• **SDKInit** = `"SDKInit"`
+
+#### Defined in
+
+[src/types/ShimoSDK.ts:91](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/types/ShimoSDK.ts#L91)
 
 ___
 
@@ -71,4 +82,4 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:80](https://github.com/shimohq/shimo-js-sdk/blob/28322b5/src/types/ShimoSDK.ts#L80)
+[src/types/ShimoSDK.ts:97](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/types/ShimoSDK.ts#L97)
