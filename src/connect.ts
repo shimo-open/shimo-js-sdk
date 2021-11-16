@@ -21,6 +21,7 @@ import * as Presentation from './types/Presentation'
 import * as Table from './types/Table'
 import { emit } from './event-handler'
 import { assert } from './assert'
+import { MouseMovePayload } from './types/BaseEditor'
 
 const SM_PARAMS_KEY = 'smParams'
 const SUPPORTED_LANGUAGES = ['zh-CN', 'en', 'ja']
@@ -129,6 +130,11 @@ export interface ConnectOptions {
      */
     data?: boolean
   }
+
+  /**
+   * 用于移动端处理 @ 点击事件
+   */
+  mentionClickHandlerForMobile?: (payload: MouseMovePayload) => void
 }
 
 function notEmptyString(input?: string): boolean {
@@ -363,7 +369,10 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
           return
         }
 
-        const method: 'openLink' | 'generateUrl' = data.body.method
+        const method:
+          | 'openLink'
+          | 'generateUrl'
+          | 'mentionClickHandlerForMobile' = data.body.method
         const { methodCallId, args } = data.body
 
         let value: unknown
@@ -371,9 +380,30 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
         let error: Error | undefined = undefined
 
         try {
-          if (!['openLink', 'generateUrl'].includes(method)) {
+          if (
+            ![
+              'openLink',
+              'generateUrl',
+              'mentionClickHandlerForMobile'
+            ].includes(method)
+          ) {
             throw new Error(`unknown method: ${method}`)
           }
+
+          if (method === 'mentionClickHandlerForMobile') {
+            const value: MouseMovePayload = args[0]
+            if (typeof value === 'object' && value != null) {
+              const rect = ee.element.getBoundingClientRect()
+              value.x += rect.x
+              value.y += rect.y
+
+              if (value.isMention) {
+                value.mentionInfo.left += rect.x
+                value.mentionInfo.top += rect.y
+              }
+            }
+          }
+
           value = options[method]?.apply(this, args)
         } catch (e) {
           error = e
