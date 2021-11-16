@@ -271,7 +271,7 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
     ee.once(Event.SDKInit, () => {
       postMessage({
         event: SDKMessageEvent.SDKInit,
-        body: options
+        body: JSON.parse(JSON.stringify(options))
       })
     })
 
