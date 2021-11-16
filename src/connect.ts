@@ -3,6 +3,7 @@ import 'core-js/features/url'
 import 'core-js/features/array/includes'
 import 'core-js/features/object/assign'
 import 'proxy-polyfill'
+import stringify from 'fast-safe-stringify'
 import { TinyEmitter } from 'tiny-emitter'
 import forIn from 'lodash.forin'
 import {
@@ -275,7 +276,7 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
 
     // 传递初始化参数进 iframe
     ee.once(Event.SDKInit, () => {
-      const opt = JSON.parse(JSON.stringify(options))
+      const opt = JSON.parse(stringify(options))
 
       forIn(options, (v, k) => {
         // 函数用 boolean 标记有设置值
