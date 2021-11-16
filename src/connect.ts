@@ -275,9 +275,18 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
 
     // 传递初始化参数进 iframe
     ee.once(Event.SDKInit, () => {
+      const opt = JSON.parse(JSON.stringify(options))
+
+      forIn(options, (v, k) => {
+        // 函数用 boolean 标记有设置值
+        if (typeof v === 'function') {
+          opt[`has${k[0].toUpperCase()}${k.slice(1)}`] = true
+        }
+      })
+
       postMessage({
         event: SDKMessageEvent.SDKInit,
-        body: JSON.parse(JSON.stringify(options))
+        body: opt
       })
     })
 
