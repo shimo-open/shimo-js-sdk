@@ -3,7 +3,6 @@ import 'core-js/features/url'
 import 'core-js/features/array/includes'
 import 'core-js/features/object/assign'
 import 'proxy-polyfill'
-import stringify from 'fast-safe-stringify'
 import { TinyEmitter } from 'tiny-emitter'
 import forIn from 'lodash.forin'
 import {
@@ -276,18 +275,9 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
 
     // 传递初始化参数进 iframe
     ee.once(Event.SDKInit, () => {
-      const opt = JSON.parse(stringify(options))
-
-      forIn(options, (v, k) => {
-        // 函数用 boolean 标记有设置值
-        if (typeof v === 'function') {
-          opt[`has${k[0].toUpperCase()}${k.slice(1)}`] = true
-        }
-      })
-
       postMessage({
         event: SDKMessageEvent.SDKInit,
-        body: opt
+        body: sanitize(options)
       })
     })
 
@@ -513,4 +503,56 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
 
     return p
   }
+}
+
+function sanitize(input: unknown): unknown {
+  if (
+    typeof input === 'string' ||
+    typeof input === 'boolean' ||
+    typeof input === 'number'
+  ) {
+    return input
+  }
+
+  if (typeof input === 'function') {
+    return '[function]'
+  }
+
+  const output: Record<string, unknown> = {}
+
+  forIn(input, (v: unknown, k) => {
+    if (Array.isArray(v)) {
+      output[k] = (v as unknown[]).map((v) => sanitize(v))
+      return
+    }
+
+    // 函数用 boolean 标记有设置值
+    if (typeof v === 'function') {
+      output[`has${k[0].toUpperCase()}${k.slice(1)}`] = true
+      return
+    }
+
+    if (typeof v === 'object') {
+      if (v === null) {
+        output[k] = v
+        return
+      }
+
+      const prototype = Object.getPrototypeOf(v)
+      if (prototype === null || prototype === Object.prototype) {
+        output[k] = sanitize(v)
+        return
+      }
+    }
+
+    if (
+      typeof v === 'string' ||
+      typeof v === 'boolean' ||
+      typeof v === 'number'
+    ) {
+      output[k] = sanitize(v)
+    }
+  })
+
+  return output
 }
