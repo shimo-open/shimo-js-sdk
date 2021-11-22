@@ -121,14 +121,14 @@ export interface ConnectOptions {
     user?: boolean
 
     /**
-     * 是否禁用提及人的浮动卡片组件
+     * 是否禁用提及文件的浮动卡片组件
      */
     file?: boolean
 
     /**
-     * 是否禁用提及人的浮动卡片组件
+     * 是否禁用提及日期的浮动卡片组件
      */
-    data?: boolean
+    date?: boolean
   }
 
   /**
