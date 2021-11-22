@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[src/types/Presentation.ts:7](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/types/Presentation.ts#L7)
+[src/types/Presentation.ts:7](https://github.com/shimohq/shimo-js-sdk/blob/b1f4ecc/src/types/Presentation.ts#L7)
 
 ___
 
@@ -42,4 +42,4 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:4](https://github.com/shimohq/shimo-js-sdk/blob/d29b8a1/src/types/Presentation.ts#L4)
+[src/types/Presentation.ts:4](https://github.com/shimohq/shimo-js-sdk/blob/b1f4ecc/src/types/Presentation.ts#L4)
