@@ -82,6 +82,7 @@ export enum Event {
 }
 
 export interface Message {
+  uuid?: string
   event: string
   body: any
   error?: Error

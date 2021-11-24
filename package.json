@@ -17,7 +17,8 @@
   "devDependencies": {
     "@types/core-js": "^2.5.5",
     "@types/lodash.forin": "^4.4.6",
-    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@types/uuid": "^8.3.3",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
     "clean-webpack-plugin": "^3.0.0",
     "eslint": "^7.18.0",
     "eslint-config-prettier": "^8.0.0",
@@ -42,7 +43,8 @@
     "lodash.forin": "^4.4.0",
     "process": "^0.11.10",
     "proxy-polyfill": "^0.3.2",
-    "tiny-emitter": "^2.1.0"
+    "tiny-emitter": "^2.1.0",
+    "uuid": "^8.3.2"
   },
   "files": [
     "src",

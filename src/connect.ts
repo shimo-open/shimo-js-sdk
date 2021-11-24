@@ -5,6 +5,7 @@ import 'core-js/features/object/assign'
 import 'proxy-polyfill'
 import { TinyEmitter } from 'tiny-emitter'
 import forIn from 'lodash.forin'
+import { v4 as uuid } from 'uuid'
 import {
   Message,
   ShimoSDK,
@@ -157,6 +158,7 @@ async function getSignature(
 }
 
 export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
+  const iframeUUID = uuid()
   const ee: ShimoSDK = new TinyEmitter() as any
   window.addEventListener('message', messageHandler)
 
@@ -233,6 +235,7 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
     )
     url.searchParams.append('token', token)
     url.searchParams.append('signature', signature)
+    url.searchParams.append('uuid', iframeUUID)
 
     iframe.src = url.toString()
 
@@ -277,7 +280,10 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
     ee.once(Event.SDKInit, () => {
       postMessage({
         event: SDKMessageEvent.SDKInit,
-        body: sanitize(options)
+        body: sanitize({
+          ...options,
+          uuid: iframeUUID
+        })
       })
     })
 
@@ -298,6 +304,16 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
   }
 
   function messageHandler(msg: MessageEvent) {
+    // msg source 不等于当前 iframe，uuid 存在且不等于当前 iframe 的 uuid，则认为消息不是发给当前 iframe 的
+    if (
+      !(
+        msg.source === iframe?.contentWindow ||
+        (typeof msg.data?.uuid === 'string' && msg.data.uuid !== iframeUUID)
+      )
+    ) {
+      return
+    }
+
     if (typeof msg.data !== 'object' || msg.data == null) {
       ee.emit(Event.Error, new Error(`unexpected message data: ${msg.data}`))
       return
@@ -435,6 +451,7 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
   }
 
   function postMessage(msg: Message) {
+    msg.uuid = iframeUUID
     iframe?.contentWindow?.postMessage(msg, targetOrigin)
   }
 
