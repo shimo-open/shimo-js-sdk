@@ -9,6 +9,7 @@
 - [body](Message.md#body)
 - [error](Message.md#error)
 - [event](Message.md#event)
+- [uuid](Message.md#uuid)
 
 ## Properties
 
@@ -18,7 +19,7 @@
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:86](https://github.com/shimohq/shimo-js-sdk/blob/b1f4ecc/src/types/ShimoSDK.ts#L86)
+[src/types/ShimoSDK.ts:87](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/types/ShimoSDK.ts#L87)
 
 ___
 
@@ -28,7 +29,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:87](https://github.com/shimohq/shimo-js-sdk/blob/b1f4ecc/src/types/ShimoSDK.ts#L87)
+[src/types/ShimoSDK.ts:88](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/types/ShimoSDK.ts#L88)
 
 ___
 
@@ -38,4 +39,14 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:85](https://github.com/shimohq/shimo-js-sdk/blob/b1f4ecc/src/types/ShimoSDK.ts#L85)
+[src/types/ShimoSDK.ts:86](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/types/ShimoSDK.ts#L86)
+
+___
+
+### uuid
+
+• `Optional` **uuid**: `string`
+
+#### Defined in
+
+[src/types/ShimoSDK.ts:85](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/types/ShimoSDK.ts#L85)

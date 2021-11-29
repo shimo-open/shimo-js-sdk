@@ -6,6 +6,7 @@
 
 ### Properties
 
+- [allowPolicy](ConnectOptions.md#allowpolicy)
 - [appId](ConnectOptions.md#appid)
 - [container](ConnectOptions.md#container)
 - [disableMentionCards](ConnectOptions.md#disablementioncards)
@@ -26,6 +27,19 @@
 
 ## Properties
 
+### allowPolicy
+
+• `Optional` **allowPolicy**: `string`
+
+用于控制 iframe feature policy (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Feature-Policy) 。
+会覆盖默认的 policy，因此使用时需要注意把需要的 policy 写完整。
+
+#### Defined in
+
+[src/connect.ts:145](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/connect.ts#L145)
+
+___
+
 ### appId
 
 • **appId**: `string`
@@ -34,7 +48,7 @@
 
 #### Defined in
 
-[src/connect.ts:33](https://github.com/shimohq/shimo-js-sdk/blob/b1f4ecc/src/connect.ts#L33)
+[src/connect.ts:35](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/connect.ts#L35)
 
 ___
 
@@ -46,7 +60,7 @@ iframe 挂载的目标容器
 
 #### Defined in
 
-[src/connect.ts:59](https://github.com/shimohq/shimo-js-sdk/blob/b1f4ecc/src/connect.ts#L59)
+[src/connect.ts:61](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/connect.ts#L61)
 
 ___
 
@@ -66,7 +80,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:117](https://github.com/shimohq/shimo-js-sdk/blob/b1f4ecc/src/connect.ts#L117)
+[src/connect.ts:119](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/connect.ts#L119)
 
 ___
 
@@ -78,7 +92,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:38](https://github.com/shimohq/shimo-js-sdk/blob/b1f4ecc/src/connect.ts#L38)
+[src/connect.ts:40](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/connect.ts#L40)
 
 ___
 
@@ -90,7 +104,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:43](https://github.com/shimohq/shimo-js-sdk/blob/b1f4ecc/src/connect.ts#L43)
+[src/connect.ts:45](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/connect.ts#L45)
 
 ___
 
@@ -108,7 +122,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:87](https://github.com/shimohq/shimo-js-sdk/blob/b1f4ecc/src/connect.ts#L87)
+[src/connect.ts:89](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/connect.ts#L89)
 
 ___
 
@@ -124,7 +138,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:69](https://github.com/shimohq/shimo-js-sdk/blob/b1f4ecc/src/connect.ts#L69)
+[src/connect.ts:71](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/connect.ts#L71)
 
 ___
 
@@ -136,7 +150,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:54](https://github.com/shimohq/shimo-js-sdk/blob/b1f4ecc/src/connect.ts#L54)
+[src/connect.ts:56](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/connect.ts#L56)
 
 ___
 
@@ -148,7 +162,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:76](https://github.com/shimohq/shimo-js-sdk/blob/b1f4ecc/src/connect.ts#L76)
+[src/connect.ts:78](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/connect.ts#L78)
 
 ___
 
@@ -160,7 +174,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:64](https://github.com/shimohq/shimo-js-sdk/blob/b1f4ecc/src/connect.ts#L64)
+[src/connect.ts:66](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/connect.ts#L66)
 
 ## Methods
 
@@ -182,7 +196,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:92](https://github.com/shimohq/shimo-js-sdk/blob/b1f4ecc/src/connect.ts#L92)
+[src/connect.ts:94](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/connect.ts#L94)
 
 ___
 
@@ -200,7 +214,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:49](https://github.com/shimohq/shimo-js-sdk/blob/b1f4ecc/src/connect.ts#L49)
+[src/connect.ts:51](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/connect.ts#L51)
 
 ___
 
@@ -222,7 +236,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:137](https://github.com/shimohq/shimo-js-sdk/blob/b1f4ecc/src/connect.ts#L137)
+[src/connect.ts:139](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/connect.ts#L139)
 
 ___
 
@@ -245,4 +259,4 @@ ___
 
 #### Defined in
 
-[src/connect.ts:102](https://github.com/shimohq/shimo-js-sdk/blob/b1f4ecc/src/connect.ts#L102)
+[src/connect.ts:104](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/connect.ts#L104)

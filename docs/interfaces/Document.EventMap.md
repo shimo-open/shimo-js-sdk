@@ -35,7 +35,7 @@ BaseEventMap.HorizontalScroll
 
 #### Defined in
 
-[src/types/BaseEditor.ts:17](https://github.com/shimohq/shimo-js-sdk/blob/b1f4ecc/src/types/BaseEditor.ts#L17)
+[src/types/BaseEditor.ts:17](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/types/BaseEditor.ts#L17)
 
 ___
 
@@ -51,7 +51,7 @@ BaseEventMap.MouseMove
 
 #### Defined in
 
-[src/types/BaseEditor.ts:7](https://github.com/shimohq/shimo-js-sdk/blob/b1f4ecc/src/types/BaseEditor.ts#L7)
+[src/types/BaseEditor.ts:7](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/types/BaseEditor.ts#L7)
 
 ___
 
@@ -67,7 +67,7 @@ BaseEventMap.VerticalScroll
 
 #### Defined in
 
-[src/types/BaseEditor.ts:12](https://github.com/shimohq/shimo-js-sdk/blob/b1f4ecc/src/types/BaseEditor.ts#L12)
+[src/types/BaseEditor.ts:12](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/types/BaseEditor.ts#L12)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:24](https://github.com/shimohq/shimo-js-sdk/blob/b1f4ecc/src/types/Document.ts#L24)
+[src/types/Document.ts:24](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/types/Document.ts#L24)
 
 ___
 
@@ -102,7 +102,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:14](https://github.com/shimohq/shimo-js-sdk/blob/b1f4ecc/src/types/Document.ts#L14)
+[src/types/Document.ts:14](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/types/Document.ts#L14)
 
 ___
 
@@ -120,4 +120,4 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:7](https://github.com/shimohq/shimo-js-sdk/blob/b1f4ecc/src/types/Document.ts#L7)
+[src/types/Document.ts:7](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/types/Document.ts#L7)
