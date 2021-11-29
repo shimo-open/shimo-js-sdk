@@ -11,8 +11,7 @@ export default function initIframe(options: {
 
   if ('allow' in iframe) {
     iframe.allow =
-      options.allowPolicy ??
-      [`fullscreen`, 'clipboard-read', 'clipboard-write'].join(' *; ')
+      options.allowPolicy ?? 'fullscreen *;clipboard-read *;clipboard-write *;'
   } else {
     iframe.allowFullscreen = true
   }
