@@ -23,6 +23,7 @@ import * as Table from './types/Table'
 import { emit } from './event-handler'
 import { assert } from './assert'
 import { MouseMovePayload } from './types/BaseEditor'
+import initIframe from './init-iframe'
 
 const SM_PARAMS_KEY = 'smParams'
 const SUPPORTED_LANGUAGES = ['zh-CN', 'en', 'ja']
@@ -136,6 +137,12 @@ export interface ConnectOptions {
    * 用于移动端处理 @ 点击事件
    */
   mentionClickHandlerForMobile?: (payload: MouseMovePayload) => void
+
+  /**
+   * 用于控制 iframe feature policy (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Feature-Policy) 。
+   * 会覆盖默认的 policy，因此使用时需要注意把需要的 policy 写完整。
+   */
+  allowPolicy?: string
 }
 
 function notEmptyString(input?: string): boolean {
@@ -174,14 +181,6 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
   })
 
   async function init() {
-    ee.element = iframe = document.createElement('iframe')
-    iframe.style.border = 'none'
-    iframe.style.overflow = 'hidden'
-    iframe.style.width = '100%'
-    iframe.style.height = '100%'
-    iframe.allow = 'fullscreen'
-    iframe.allowFullscreen = true
-
     const url = new URL(options.endpoint)
     url.pathname = `${url.pathname}/shimo-files/${assert<string>(
       options.fileId,
@@ -237,7 +236,11 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
     url.searchParams.append('signature', signature)
     url.searchParams.append('uuid', iframeUUID)
 
-    iframe.src = url.toString()
+    iframe = ee.element = initIframe({
+      id: iframeUUID,
+      src: url.toString(),
+      allowPolicy: options.allowPolicy
+    })
 
     assert<HTMLElement>(
       options.container,
