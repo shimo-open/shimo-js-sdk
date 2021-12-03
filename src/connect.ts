@@ -96,7 +96,7 @@ export interface ConnectOptions {
      * 文档相关联的 file ID
      */
     fileId: string
-  ) => string
+  ) => string | Promise<string>
 
   /**
    * 处理石墨文档内点击链接事件
@@ -167,7 +167,14 @@ async function getSignature(
 export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
   const iframeUUID = uuid()
   const ee: ShimoSDK = new TinyEmitter() as any
-  window.addEventListener('message', messageHandler)
+
+  const msgHandler = (ev: MessageEvent) => {
+    messageHandler(ev).catch((err) => {
+      ee.emit(Event.Error, err)
+    })
+  }
+
+  window.addEventListener('message', msgHandler)
 
   // 用来发 editor 的事件
   const editorEvent = new TinyEmitter()
@@ -176,7 +183,7 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
   let iframe: HTMLIFrameElement | undefined
 
   return await init().catch((err) => {
-    window.removeEventListener('message', messageHandler)
+    window.removeEventListener('message', msgHandler)
     throw err
   })
 
@@ -252,7 +259,7 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
       if (iframe?.parentElement instanceof HTMLElement) {
         iframe.parentElement.removeChild(iframe)
       }
-      window.removeEventListener('message', messageHandler)
+      window.removeEventListener('message', msgHandler)
     }
 
     ee.setSignature = (sig: string) => {
@@ -306,7 +313,7 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
     return ee
   }
 
-  function messageHandler(msg: MessageEvent) {
+  async function messageHandler(msg: MessageEvent) {
     // msg source 不等于当前 iframe，uuid 存在且不等于当前 iframe 的 uuid，则认为消息不是发给当前 iframe 的
     if (
       !(
@@ -318,8 +325,7 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
     }
 
     if (typeof msg.data !== 'object' || msg.data == null) {
-      ee.emit(Event.Error, new Error(`unexpected message data: ${msg.data}`))
-      return
+      throw new Error(`unexpected message data: ${msg.data}`)
     }
 
     const data: Message = msg.data
@@ -373,19 +379,17 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
 
       case SDKMessageEvent.MethodCallback:
         if (typeof data.body.methodCallId !== 'string') {
-          ee.emit(
-            Event.Error,
-            new Error(`unknown method callback id: ${data.body.methodCallId}`)
+          throw new Error(
+            `unknown method callback id: ${data.body.methodCallId}`
           )
-        } else {
-          ee.emit(data.body.methodCallId, data)
         }
+
+        ee.emit(data.body.methodCallId, data)
         break
 
       case SDKMessageEvent.MethodCall: {
         if (!data.body || typeof data.body.methodCallId !== 'string') {
-          ee.emit(Event.Error, 'failed to invoke method')
-          return
+          throw new Error('failed to invoke method')
         }
 
         const method:
@@ -423,7 +427,7 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
             }
           }
 
-          value = options[method]?.apply(this, args)
+          value = await options[method]?.apply(this, args)
         } catch (e) {
           error = e
         }
@@ -444,10 +448,7 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
         if (data.error != null) {
           ee.emit(Event.Error, data.error)
         } else {
-          ee.emit(
-            Event.Error,
-            new Error(`unknown event message: ${JSON.stringify(data)}`)
-          )
+          throw new Error(`unknown event message: ${JSON.stringify(data)}`)
         }
       }
     }
