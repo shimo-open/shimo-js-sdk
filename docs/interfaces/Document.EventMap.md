@@ -17,9 +17,9 @@
 - [HorizontalScroll](Document.EventMap.md#horizontalscroll)
 - [MouseMove](Document.EventMap.md#mousemove)
 - [VerticalScroll](Document.EventMap.md#verticalscroll)
-- [titleChange](Document.EventMap.md#titlechange)
 - [error](Document.EventMap.md#error)
 - [saveStatusDidChange](Document.EventMap.md#savestatusdidchange)
+- [titleChange](Document.EventMap.md#titlechange)
 
 ## Properties
 
@@ -35,7 +35,7 @@ BaseEventMap.HorizontalScroll
 
 #### Defined in
 
-[src/types/BaseEditor.ts:17](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/types/BaseEditor.ts#L17)
+[src/types/BaseEditor.ts:17](https://github.com/shimohq/shimo-js-sdk/blob/6d68682/src/types/BaseEditor.ts#L17)
 
 ___
 
@@ -51,7 +51,7 @@ BaseEventMap.MouseMove
 
 #### Defined in
 
-[src/types/BaseEditor.ts:7](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/types/BaseEditor.ts#L7)
+[src/types/BaseEditor.ts:7](https://github.com/shimohq/shimo-js-sdk/blob/6d68682/src/types/BaseEditor.ts#L7)
 
 ___
 
@@ -67,25 +67,7 @@ BaseEventMap.VerticalScroll
 
 #### Defined in
 
-[src/types/BaseEditor.ts:12](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/types/BaseEditor.ts#L12)
-
-___
-
-### titlechange
-
-• **titleChange**: `Object`
-
-标题发生变更
-
-#### Type declaration
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `title` | `string` | 新的标题 |
-
-#### Defined in
-
-[src/types/Document.ts:24](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/types/Document.ts#L24)
+[src/types/BaseEditor.ts:12](https://github.com/shimohq/shimo-js-sdk/blob/6d68682/src/types/BaseEditor.ts#L12)
 
 ___
 
@@ -102,7 +84,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:14](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/types/Document.ts#L14)
+[src/types/Document.ts:14](https://github.com/shimohq/shimo-js-sdk/blob/6d68682/src/types/Document.ts#L14)
 
 ___
 
@@ -120,4 +102,22 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:7](https://github.com/shimohq/shimo-js-sdk/blob/f4ed478/src/types/Document.ts#L7)
+[src/types/Document.ts:7](https://github.com/shimohq/shimo-js-sdk/blob/6d68682/src/types/Document.ts#L7)
+
+___
+
+### titleChange
+
+• **titleChange**: `Object`
+
+标题发生变更
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `title` | `string` | 新的标题 |
+
+#### Defined in
+
+[src/types/Document.ts:24](https://github.com/shimohq/shimo-js-sdk/blob/6d68682/src/types/Document.ts#L24)
