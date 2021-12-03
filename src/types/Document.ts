@@ -21,7 +21,7 @@ export interface EventMap extends BaseEventMap {
   /**
    * 标题发生变更
    */
-  changeTitle: {
+  titleChange: {
     /**
      * 新的标题
      */

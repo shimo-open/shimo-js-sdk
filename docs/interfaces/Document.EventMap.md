@@ -17,7 +17,7 @@
 - [HorizontalScroll](Document.EventMap.md#horizontalscroll)
 - [MouseMove](Document.EventMap.md#mousemove)
 - [VerticalScroll](Document.EventMap.md#verticalscroll)
-- [changeTitle](Document.EventMap.md#changetitle)
+- [titleChange](Document.EventMap.md#titlechange)
 - [error](Document.EventMap.md#error)
 - [saveStatusDidChange](Document.EventMap.md#savestatusdidchange)
 
@@ -71,9 +71,9 @@ BaseEventMap.VerticalScroll
 
 ___
 
-### changeTitle
+### titlechange
 
-• **changeTitle**: `Object`
+• **titleChange**: `Object`
 
 标题发生变更
 
