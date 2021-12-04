@@ -143,6 +143,11 @@ export interface ConnectOptions {
    * 会覆盖默认的 policy，因此使用时需要注意把需要的 policy 写完整。
    */
   allowPolicy?: string
+
+  /**
+   * 是否开启调试模式，true 会通过 console 打印一些信息
+   */
+  debug?: boolean
 }
 
 function notEmptyString(input?: string): boolean {
