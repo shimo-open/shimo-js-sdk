@@ -9,6 +9,7 @@
 - [allowPolicy](ConnectOptions.md#allowpolicy)
 - [appId](ConnectOptions.md#appid)
 - [container](ConnectOptions.md#container)
+- [debug](ConnectOptions.md#debug)
 - [disableMentionCards](ConnectOptions.md#disablementioncards)
 - [endpoint](ConnectOptions.md#endpoint)
 - [fileId](ConnectOptions.md#fileid)
@@ -36,7 +37,7 @@
 
 #### Defined in
 
-[src/connect.ts:145](https://github.com/shimohq/shimo-js-sdk/blob/6d68682/src/connect.ts#L145)
+[src/connect.ts:145](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L145)
 
 ___
 
@@ -48,7 +49,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:35](https://github.com/shimohq/shimo-js-sdk/blob/6d68682/src/connect.ts#L35)
+[src/connect.ts:35](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L35)
 
 ___
 
@@ -60,7 +61,19 @@ iframe 挂载的目标容器
 
 #### Defined in
 
-[src/connect.ts:61](https://github.com/shimohq/shimo-js-sdk/blob/6d68682/src/connect.ts#L61)
+[src/connect.ts:61](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L61)
+
+___
+
+### debug
+
+• `Optional` **debug**: `boolean`
+
+是否开启调试模式，true 会通过 console 打印一些信息
+
+#### Defined in
+
+[src/connect.ts:150](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L150)
 
 ___
 
@@ -80,7 +93,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:119](https://github.com/shimohq/shimo-js-sdk/blob/6d68682/src/connect.ts#L119)
+[src/connect.ts:119](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L119)
 
 ___
 
@@ -92,7 +105,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:40](https://github.com/shimohq/shimo-js-sdk/blob/6d68682/src/connect.ts#L40)
+[src/connect.ts:40](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L40)
 
 ___
 
@@ -104,7 +117,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:45](https://github.com/shimohq/shimo-js-sdk/blob/6d68682/src/connect.ts#L45)
+[src/connect.ts:45](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L45)
 
 ___
 
@@ -122,7 +135,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:89](https://github.com/shimohq/shimo-js-sdk/blob/6d68682/src/connect.ts#L89)
+[src/connect.ts:89](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L89)
 
 ___
 
@@ -138,7 +151,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:71](https://github.com/shimohq/shimo-js-sdk/blob/6d68682/src/connect.ts#L71)
+[src/connect.ts:71](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L71)
 
 ___
 
@@ -150,7 +163,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:56](https://github.com/shimohq/shimo-js-sdk/blob/6d68682/src/connect.ts#L56)
+[src/connect.ts:56](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L56)
 
 ___
 
@@ -162,7 +175,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:78](https://github.com/shimohq/shimo-js-sdk/blob/6d68682/src/connect.ts#L78)
+[src/connect.ts:78](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L78)
 
 ___
 
@@ -174,7 +187,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:66](https://github.com/shimohq/shimo-js-sdk/blob/6d68682/src/connect.ts#L66)
+[src/connect.ts:66](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L66)
 
 ## Methods
 
@@ -196,7 +209,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:94](https://github.com/shimohq/shimo-js-sdk/blob/6d68682/src/connect.ts#L94)
+[src/connect.ts:94](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L94)
 
 ___
 
@@ -214,7 +227,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:51](https://github.com/shimohq/shimo-js-sdk/blob/6d68682/src/connect.ts#L51)
+[src/connect.ts:51](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L51)
 
 ___
 
@@ -236,7 +249,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:139](https://github.com/shimohq/shimo-js-sdk/blob/6d68682/src/connect.ts#L139)
+[src/connect.ts:139](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L139)
 
 ___
 
@@ -259,4 +272,4 @@ ___
 
 #### Defined in
 
-[src/connect.ts:104](https://github.com/shimohq/shimo-js-sdk/blob/6d68682/src/connect.ts#L104)
+[src/connect.ts:104](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L104)
