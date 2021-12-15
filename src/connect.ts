@@ -6,6 +6,7 @@ import 'proxy-polyfill'
 import { TinyEmitter } from 'tiny-emitter'
 import forIn from 'lodash.forin'
 import { v4 as uuid } from 'uuid'
+import Base62Str from 'base62str'
 import {
   Message,
   ShimoSDK,
@@ -28,6 +29,8 @@ import { clone } from './safe-structured-clone'
 
 const SM_PARAMS_KEY = 'smParams'
 const SUPPORTED_LANGUAGES = ['zh-CN', 'en', 'ja']
+
+const base62 = Base62Str.createInstance()
 
 export interface ConnectOptions {
   /**
@@ -76,7 +79,10 @@ export interface ConnectOptions {
   /**
    * 石墨 SDK URL 参数 url?smParams={params}，用于传递石墨 SDK 内部需要的参数。
    */
-  smParams?: string
+  smParams?:
+    | string
+    | Record<string, unknown>
+    | Array<string | Record<string, unknown>>
 
   /**
    * 指定石墨 SDK 编辑器界面语言，添加到 iframe URLSearchParams 的参数列表。
@@ -207,13 +213,14 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
       url.searchParams.append(k, v)
     })
 
-    if (typeof options.smParams === 'string') {
-      url.searchParams.append(SM_PARAMS_KEY, options.smParams)
+    let smParams: string | null
+    if (options.smParams) {
+      smParams = handleSmParams(options.smParams)
     } else {
-      const params = new URLSearchParams(location.search).get(SM_PARAMS_KEY)
-      if (typeof params === 'string') {
-        url.searchParams.append(SM_PARAMS_KEY, params)
-      }
+      smParams = new URLSearchParams(location.search).get(SM_PARAMS_KEY)
+    }
+    if (smParams) {
+      url.searchParams.append(SM_PARAMS_KEY, smParams)
     }
 
     // 设置当前编辑器语言
@@ -530,4 +537,34 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
 
     return p
   }
+}
+
+function handleSmParams(
+  params?:
+    | string
+    | Record<string, unknown>
+    | Array<string | Record<string, unknown>>
+): string {
+  if (typeof params === 'string') {
+    return params
+  }
+
+  if (Array.isArray(params)) {
+    const result: Record<string, unknown> = {}
+    for (const item of params) {
+      if (typeof item === 'string') {
+        try {
+          const decoded = JSON.parse(base62.decodeStr(item))
+          Object.assign(result, decoded)
+        } catch (e) {
+          throw new Error(`invalid smParams: ${item}, error: ${e.message}`)
+        }
+      } else if (item != null) {
+        Object.assign(result, item)
+      }
+    }
+    return base62.encodeStr(JSON.stringify(result))
+  }
+
+  return ''
 }
