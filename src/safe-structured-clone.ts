@@ -1,3 +1,5 @@
+import isPlainObject from 'is-plain-obj'
+
 /**
  * https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
  */
@@ -25,11 +27,12 @@ export function clone(value: unknown): unknown {
     return value
   }
 
-  if (typeof value === 'object') {
+  if (isPlainObject(value)) {
+    const val = value as Record<string, unknown>
     const obj: Record<string, unknown> = {}
-    for (const key in value) {
-      if (Object.prototype.hasOwnProperty.call(value, key)) {
-        obj[key] = clone((value as Record<string, unknown>)[key])
+    for (const key in val) {
+      if (Object.prototype.hasOwnProperty.call(val, key)) {
+        obj[key] = clone(val[key])
       }
     }
 
