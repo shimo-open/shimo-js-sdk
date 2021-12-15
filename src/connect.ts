@@ -24,6 +24,7 @@ import { emit } from './event-handler'
 import { assert } from './assert'
 import { MouseMovePayload } from './types/BaseEditor'
 import initIframe from './init-iframe'
+import { clone } from './safe-structured-clone'
 
 const SM_PARAMS_KEY = 'smParams'
 const SUPPORTED_LANGUAGES = ['zh-CN', 'en', 'ja']
@@ -295,7 +296,7 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
     ee.once(Event.SDKInit, () => {
       postMessage({
         event: SDKMessageEvent.SDKInit,
-        body: sanitize({
+        body: clone({
           ...options,
           uuid: iframeUUID
         })
@@ -529,56 +530,4 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
 
     return p
   }
-}
-
-function sanitize(input: unknown): unknown {
-  if (
-    typeof input === 'string' ||
-    typeof input === 'boolean' ||
-    typeof input === 'number'
-  ) {
-    return input
-  }
-
-  if (typeof input === 'function') {
-    return '[function]'
-  }
-
-  const output: Record<string, unknown> = {}
-
-  forIn(input, (v: unknown, k) => {
-    if (Array.isArray(v)) {
-      output[k] = (v as unknown[]).map((v) => sanitize(v))
-      return
-    }
-
-    // 函数用 boolean 标记有设置值
-    if (typeof v === 'function') {
-      output[`has${k[0].toUpperCase()}${k.slice(1)}`] = true
-      return
-    }
-
-    if (typeof v === 'object') {
-      if (v === null) {
-        output[k] = v
-        return
-      }
-
-      const prototype = Object.getPrototypeOf(v)
-      if (prototype === null || prototype === Object.prototype) {
-        output[k] = sanitize(v)
-        return
-      }
-    }
-
-    if (
-      typeof v === 'string' ||
-      typeof v === 'boolean' ||
-      typeof v === 'number'
-    ) {
-      output[k] = sanitize(v)
-    }
-  })
-
-  return output
 }
