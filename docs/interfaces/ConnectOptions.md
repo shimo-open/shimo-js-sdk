@@ -37,7 +37,7 @@
 
 #### Defined in
 
-[src/connect.ts:145](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L145)
+[src/connect.ts:152](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/connect.ts#L152)
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:35](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L35)
+[src/connect.ts:39](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/connect.ts#L39)
 
 ___
 
@@ -61,7 +61,7 @@ iframe 挂载的目标容器
 
 #### Defined in
 
-[src/connect.ts:61](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L61)
+[src/connect.ts:65](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/connect.ts#L65)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:150](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L150)
+[src/connect.ts:157](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/connect.ts#L157)
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:119](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L119)
+[src/connect.ts:126](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/connect.ts#L126)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:40](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L40)
+[src/connect.ts:44](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/connect.ts#L44)
 
 ___
 
@@ -117,7 +117,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:45](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L45)
+[src/connect.ts:49](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/connect.ts#L49)
 
 ___
 
@@ -135,7 +135,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:89](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L89)
+[src/connect.ts:96](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/connect.ts#L96)
 
 ___
 
@@ -151,7 +151,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:71](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L71)
+[src/connect.ts:75](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/connect.ts#L75)
 
 ___
 
@@ -163,19 +163,19 @@ ___
 
 #### Defined in
 
-[src/connect.ts:56](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L56)
+[src/connect.ts:60](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/connect.ts#L60)
 
 ___
 
 ### smParams
 
-• `Optional` **smParams**: `string`
+• `Optional` **smParams**: `string` \| `Record`<`string`, `unknown`\> \| (`string` \| `Record`<`string`, `unknown`\>)[]
 
 石墨 SDK URL 参数 url?smParams={params}，用于传递石墨 SDK 内部需要的参数。
 
 #### Defined in
 
-[src/connect.ts:78](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L78)
+[src/connect.ts:82](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/connect.ts#L82)
 
 ___
 
@@ -187,7 +187,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:66](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L66)
+[src/connect.ts:70](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/connect.ts#L70)
 
 ## Methods
 
@@ -209,7 +209,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:94](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L94)
+[src/connect.ts:101](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/connect.ts#L101)
 
 ___
 
@@ -227,7 +227,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:51](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L51)
+[src/connect.ts:55](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/connect.ts#L55)
 
 ___
 
@@ -249,7 +249,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:139](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L139)
+[src/connect.ts:146](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/connect.ts#L146)
 
 ___
 
@@ -272,4 +272,4 @@ ___
 
 #### Defined in
 
-[src/connect.ts:104](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/connect.ts#L104)
+[src/connect.ts:111](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/connect.ts#L111)

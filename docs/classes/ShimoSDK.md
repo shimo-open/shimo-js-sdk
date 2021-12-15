@@ -54,8 +54,6 @@ TinyEmitter.constructor
 
 • **disconnect**: () => `void`
 
-销毁 iframe 并释放资源
-
 #### Type declaration
 
 ▸ (): `void`
@@ -68,7 +66,7 @@ TinyEmitter.constructor
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:22](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/ShimoSDK.ts#L22)
+[src/types/ShimoSDK.ts:22](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/ShimoSDK.ts#L22)
 
 ___
 
@@ -80,7 +78,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:32](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/ShimoSDK.ts#L32)
+[src/types/ShimoSDK.ts:32](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/ShimoSDK.ts#L32)
 
 ___
 
@@ -92,7 +90,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:27](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/ShimoSDK.ts#L27)
+[src/types/ShimoSDK.ts:27](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/ShimoSDK.ts#L27)
 
 ___
 
@@ -104,7 +102,7 @@ iframe 元素
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:17](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/ShimoSDK.ts#L17)
+[src/types/ShimoSDK.ts:17](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/ShimoSDK.ts#L17)
 
 ___
 
@@ -116,7 +114,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:12](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/ShimoSDK.ts#L12)
+[src/types/ShimoSDK.ts:12](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/ShimoSDK.ts#L12)
 
 ___
 
@@ -128,15 +126,13 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:42](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/ShimoSDK.ts#L42)
+[src/types/ShimoSDK.ts:42](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/ShimoSDK.ts#L42)
 
 ___
 
 ### setSignature
 
 • **setSignature**: (`signature`: `string`) => `void`
-
-设置石墨用的鉴权签名
 
 #### Type declaration
 
@@ -156,15 +152,13 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:52](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/ShimoSDK.ts#L52)
+[src/types/ShimoSDK.ts:52](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/ShimoSDK.ts#L52)
 
 ___
 
 ### setToken
 
 • **setToken**: (`token`: `string`) => `void`
-
-设置您系统的鉴权 token
 
 #### Type declaration
 
@@ -184,7 +178,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:57](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/ShimoSDK.ts#L57)
+[src/types/ShimoSDK.ts:57](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/ShimoSDK.ts#L57)
 
 ___
 
@@ -196,7 +190,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:37](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/ShimoSDK.ts#L37)
+[src/types/ShimoSDK.ts:37](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/ShimoSDK.ts#L37)
 
 ___
 
@@ -208,7 +202,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:47](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/ShimoSDK.ts#L47)
+[src/types/ShimoSDK.ts:47](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/ShimoSDK.ts#L47)
 
 ## Methods
 

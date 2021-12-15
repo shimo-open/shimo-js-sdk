@@ -45,7 +45,7 @@
 
 ### addComment
 
-▸ **addComment**(`options`): `Promise`<`Object`\>
+▸ **addComment**(`options`): `Promise`<{ `text`: `string`  }\>
 
 添加评论
 
@@ -60,11 +60,11 @@
 
 #### Returns
 
-`Promise`<`Object`\>
+`Promise`<{ `text`: `string`  }\>
 
 #### Defined in
 
-[src/types/DocumentPro.ts:164](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/DocumentPro.ts#L164)
+[src/types/DocumentPro.ts:164](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L164)
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:300](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/DocumentPro.ts#L300)
+[src/types/DocumentPro.ts:300](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L300)
 
 ___
 
@@ -113,13 +113,13 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:404](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/DocumentPro.ts#L404)
+[src/types/DocumentPro.ts:404](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L404)
 
 ___
 
 ### getComment
 
-▸ **getComment**(`options`): `Promise`<`Object`\>
+▸ **getComment**(`options`): `Promise`<{ `commentId`: `string` ; `includeChapterTitle?`: `boolean`  }\>
 
 获取单条评论
 
@@ -135,11 +135,11 @@ ___
 
 #### Returns
 
-`Promise`<`Object`\>
+`Promise`<{ `commentId`: `string` ; `includeChapterTitle?`: `boolean`  }\>
 
 #### Defined in
 
-[src/types/DocumentPro.ts:135](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/DocumentPro.ts#L135)
+[src/types/DocumentPro.ts:135](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L135)
 
 ___
 
@@ -163,13 +163,13 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:159](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/DocumentPro.ts#L159)
+[src/types/DocumentPro.ts:159](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L159)
 
 ___
 
 ### getComments
 
-▸ **getComments**(`options`): `Promise`<`Object`\>
+▸ **getComments**(`options`): `Promise`<{ `includeChapterTitle?`: `boolean`  }\>
 
 获取所有评论
 
@@ -184,11 +184,11 @@ ___
 
 #### Returns
 
-`Promise`<`Object`\>
+`Promise`<{ `includeChapterTitle?`: `boolean`  }\>
 
 #### Defined in
 
-[src/types/DocumentPro.ts:113](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/DocumentPro.ts#L113)
+[src/types/DocumentPro.ts:113](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L113)
 
 ___
 
@@ -212,7 +212,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:276](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/DocumentPro.ts#L276)
+[src/types/DocumentPro.ts:276](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L276)
 
 ___
 
@@ -239,7 +239,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:252](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/DocumentPro.ts#L252)
+[src/types/DocumentPro.ts:252](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L252)
 
 ___
 
@@ -264,7 +264,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:281](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/DocumentPro.ts#L281)
+[src/types/DocumentPro.ts:281](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L281)
 
 ___
 
@@ -288,7 +288,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:295](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/DocumentPro.ts#L295)
+[src/types/DocumentPro.ts:295](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L295)
 
 ___
 
@@ -310,7 +310,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:414](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/DocumentPro.ts#L414)
+[src/types/DocumentPro.ts:414](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L414)
 
 ___
 
@@ -334,7 +334,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:339](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/DocumentPro.ts#L339)
+[src/types/DocumentPro.ts:339](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L339)
 
 ___
 
@@ -365,7 +365,7 @@ BaseEditor.off
 
 #### Defined in
 
-[src/types/BaseEditor.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/BaseEditor.ts#L26)
+[src/types/BaseEditor.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/BaseEditor.ts#L26)
 
 ___
 
@@ -396,7 +396,7 @@ BaseEditor.on
 
 #### Defined in
 
-[src/types/BaseEditor.ts:25](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/BaseEditor.ts#L25)
+[src/types/BaseEditor.ts:25](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/BaseEditor.ts#L25)
 
 ___
 
@@ -421,7 +421,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:388](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/DocumentPro.ts#L388)
+[src/types/DocumentPro.ts:388](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L388)
 
 ___
 
@@ -445,7 +445,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:402](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/DocumentPro.ts#L402)
+[src/types/DocumentPro.ts:402](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L402)
 
 ___
 
@@ -469,7 +469,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:319](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/DocumentPro.ts#L319)
+[src/types/DocumentPro.ts:319](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L319)
 
 ___
 
@@ -494,7 +494,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:208](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/DocumentPro.ts#L208)
+[src/types/DocumentPro.ts:208](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L208)
 
 ___
 
@@ -519,13 +519,13 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:222](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/DocumentPro.ts#L222)
+[src/types/DocumentPro.ts:222](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L222)
 
 ___
 
 ### replyComment
 
-▸ **replyComment**(`options`): `Promise`<`Object`\>
+▸ **replyComment**(`options`): `Promise`<{ `commentId`: `string` ; `text`: `string`  }\>
 
 添加回复
 
@@ -541,11 +541,11 @@ ___
 
 #### Returns
 
-`Promise`<`Object`\>
+`Promise`<{ `commentId`: `string` ; `text`: `string`  }\>
 
 #### Defined in
 
-[src/types/DocumentPro.ts:184](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/DocumentPro.ts#L184)
+[src/types/DocumentPro.ts:184](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L184)
 
 ___
 
@@ -570,7 +570,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:358](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/DocumentPro.ts#L358)
+[src/types/DocumentPro.ts:358](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L358)
 
 ___
 
@@ -595,7 +595,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:373](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/DocumentPro.ts#L373)
+[src/types/DocumentPro.ts:373](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L373)
 
 ___
 
@@ -617,7 +617,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:412](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/DocumentPro.ts#L412)
+[src/types/DocumentPro.ts:412](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L412)
 
 ___
 
@@ -642,7 +642,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:324](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/DocumentPro.ts#L324)
+[src/types/DocumentPro.ts:324](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L324)
 
 ___
 
@@ -668,7 +668,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:236](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/DocumentPro.ts#L236)
+[src/types/DocumentPro.ts:236](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L236)
 
 ___
 
@@ -693,4 +693,4 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:344](https://github.com/shimohq/shimo-js-sdk/blob/a9f5498/src/types/DocumentPro.ts#L344)
+[src/types/DocumentPro.ts:344](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L344)

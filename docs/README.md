@@ -170,3 +170,38 @@ const shimoSDK = await connect({
   }
 })
 ```
+
+###### URL 的上下文信息
+
+为了在 URL 上传递上下文信息，比如 URL 指向的段落、单元格，在调用 `generateUrl()` 生成 URL 后，会在 URL 后附加一个 `smParams=PARAMS` 的参数：
+
+```
+https://your-domain/files/:id?smParams=PARAMS
+```
+
+**如无特殊需要，请保留该参数。**
+
+默认情况下，调用 `connect()` 会从当前 `location.search` 中提取 `smParams`，如果遇到需要自定义参数的场合，可以通过 `connect({ smParams: PARAMS })` 参数修改。
+
+`smParams` 为经过 [base62](https://github.com/felipecarrillo100/base62str) 序列化后的 `Record<string, unknown>` 对象。
+
+**在传入 `smParams` 参数时，将不会从 `location.search` 中获取数据**，如果想保留原有信息，可以这样传递：
+
+```js
+const paramsList: Array<string | Record<string, unknown>>
+
+const originParams = new URLSearchParams(location.search).get('smParams')
+// 保留原来的上下文信息
+if (originParams) {
+  paramsList.push(originParams)
+}
+
+// 添加自定义的上下文信息
+paramsList.push({
+  myVar: 'myVal'
+})
+
+connect({
+  smParams: paramsList
+})
+```
