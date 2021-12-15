@@ -188,7 +188,7 @@ https://your-domain/files/:id?smParams=PARAMS
 ```js
 const paramsList: Array<string | Record<string, unknown>>
 
-const originParams = new URLSearcmParams(location.search).get('smParams')
+const originParams = new URLSearchParams(location.search).get('smParams')
 // 保留原来的上下文信息
 if (originParams) {
   paramsList.push(originParams)
