@@ -177,7 +177,7 @@ const shimoSDK = await connect({
 https://your-domain/files/:id?smParams=PARAMS
 ```
 
-**如无特殊需要，请保留改参数。**
+**如无特殊需要，请保留该参数。**
 
 默认情况下，调用 `connect()` 会从当前 `location.search` 中提取 `smParams`，如果遇到需要自定义参数的场合，可以通过 `connect({ smParams: PARAMS })` 参数修改。
 
