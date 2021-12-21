@@ -1,4 +1,8 @@
-import { BaseEditor, EventMap as BaseEventMap } from './BaseEditor'
+import {
+  BaseEditor,
+  EventMap as BaseEventMap,
+  MouseMovePayload
+} from './BaseEditor'
 
 export interface EventMap extends BaseEventMap {
   /**
@@ -27,6 +31,21 @@ export interface EventMap extends BaseEventMap {
      */
     title: string
   }
+
+  /**
+   * 鼠标移动事件
+   */
+  MouseMove: MouseMovePayload
+
+  /**
+   * 垂直滚动事件
+   */
+  VerticalScroll: MouseMovePayload
+
+  /**
+   * 水平滚动事件
+   */
+  HorizontalScroll: MouseMovePayload
 }
 
 export interface Editor extends BaseEditor<EventMap> {

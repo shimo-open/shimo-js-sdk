@@ -1,4 +1,8 @@
-import { BaseEditor } from './BaseEditor'
+import {
+  BaseEditor,
+  EventMap as BaseEventMap,
+  MouseMovePayload
+} from './BaseEditor'
 
 /** 表格范围 */
 export interface Range {
@@ -26,7 +30,7 @@ export interface DepartmentPermission {
   [departmentId: number]: PermissionLevel
 }
 
-export interface EventMap {
+export interface EventMap extends BaseEventMap {
   saveStatusChanged: {
     status?: 'saving' | 'saved' | 'error'
   }
@@ -36,6 +40,21 @@ export interface EventMap {
     /** 错误码 */
     code: number
   }
+
+  /**
+   * 鼠标移动事件
+   */
+  MouseMove: MouseMovePayload
+
+  /**
+   * 垂直滚动事件
+   */
+  VerticalScroll: MouseMovePayload
+
+  /**
+   * 水平滚动事件
+   */
+  HorizontalScroll: MouseMovePayload
 }
 
 /** 单元格值类型 */
