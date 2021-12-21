@@ -1,20 +1,5 @@
 export interface EventMap {
   [key: string]: any
-
-  /**
-   * 鼠标移动事件
-   */
-  MouseMove: MouseMovePayload
-
-  /**
-   * 垂直滚动事件
-   */
-  VerticalScroll: MouseMovePayload
-
-  /**
-   * 水平滚动事件
-   */
-  HorizontalScroll: MouseMovePayload
 }
 
 export interface BaseEditor<
