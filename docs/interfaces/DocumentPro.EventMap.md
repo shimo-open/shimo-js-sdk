@@ -4,10 +4,19 @@
 
 [DocumentPro](../modules/DocumentPro.md).EventMap
 
+## Hierarchy
+
+- `BaseEventMap`
+
+  ↳ **`EventMap`**
+
 ## Table of contents
 
 ### Properties
 
+- [HorizontalScroll](DocumentPro.EventMap.md#horizontalscroll)
+- [MouseMove](DocumentPro.EventMap.md#mousemove)
+- [VerticalScroll](DocumentPro.EventMap.md#verticalscroll)
 - [commentClicked](DocumentPro.EventMap.md#commentclicked)
 - [documentChanged](DocumentPro.EventMap.md#documentchanged)
 - [documentRecalculated](DocumentPro.EventMap.md#documentrecalculated)
@@ -16,6 +25,42 @@
 - [selectionEnded](DocumentPro.EventMap.md#selectionended)
 
 ## Properties
+
+### HorizontalScroll
+
+• **HorizontalScroll**: `MouseMovePayload`
+
+水平滚动事件
+
+#### Defined in
+
+[src/types/DocumentPro.ts:124](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L124)
+
+___
+
+### MouseMove
+
+• **MouseMove**: `MouseMovePayload`
+
+鼠标移动事件
+
+#### Defined in
+
+[src/types/DocumentPro.ts:114](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L114)
+
+___
+
+### VerticalScroll
+
+• **VerticalScroll**: `MouseMovePayload`
+
+垂直滚动事件
+
+#### Defined in
+
+[src/types/DocumentPro.ts:119](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L119)
+
+___
 
 ### commentClicked
 
@@ -29,7 +74,7 @@
 
 #### Defined in
 
-[src/types/DocumentPro.ts:89](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L89)
+[src/types/DocumentPro.ts:93](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L93)
 
 ___
 
@@ -39,7 +84,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:88](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L88)
+[src/types/DocumentPro.ts:92](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L92)
 
 ___
 
@@ -49,7 +94,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:96](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L96)
+[src/types/DocumentPro.ts:100](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L100)
 
 ___
 
@@ -66,7 +111,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:100](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L100)
+[src/types/DocumentPro.ts:104](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L104)
 
 ___
 
@@ -82,7 +127,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:97](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L97)
+[src/types/DocumentPro.ts:101](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L101)
 
 ___
 
@@ -92,4 +137,4 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:87](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/DocumentPro.ts#L87)
+[src/types/DocumentPro.ts:91](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L91)

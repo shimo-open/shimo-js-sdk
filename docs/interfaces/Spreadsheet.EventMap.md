@@ -4,14 +4,59 @@
 
 [Spreadsheet](../modules/Spreadsheet.md).EventMap
 
+## Hierarchy
+
+- `BaseEventMap`
+
+  ↳ **`EventMap`**
+
 ## Table of contents
 
 ### Properties
 
+- [HorizontalScroll](Spreadsheet.EventMap.md#horizontalscroll)
+- [MouseMove](Spreadsheet.EventMap.md#mousemove)
+- [VerticalScroll](Spreadsheet.EventMap.md#verticalscroll)
 - [error](Spreadsheet.EventMap.md#error)
 - [saveStatusChanged](Spreadsheet.EventMap.md#savestatuschanged)
 
 ## Properties
+
+### HorizontalScroll
+
+• **HorizontalScroll**: `MouseMovePayload`
+
+水平滚动事件
+
+#### Defined in
+
+[src/types/Spreadsheet.ts:57](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/Spreadsheet.ts#L57)
+
+___
+
+### MouseMove
+
+• **MouseMove**: `MouseMovePayload`
+
+鼠标移动事件
+
+#### Defined in
+
+[src/types/Spreadsheet.ts:47](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/Spreadsheet.ts#L47)
+
+___
+
+### VerticalScroll
+
+• **VerticalScroll**: `MouseMovePayload`
+
+垂直滚动事件
+
+#### Defined in
+
+[src/types/Spreadsheet.ts:52](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/Spreadsheet.ts#L52)
+
+___
 
 ### error
 
@@ -26,7 +71,7 @@
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:33](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/Spreadsheet.ts#L33)
+[src/types/Spreadsheet.ts:37](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/Spreadsheet.ts#L37)
 
 ___
 
@@ -42,4 +87,4 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:30](https://github.com/shimohq/shimo-js-sdk/blob/cff0de6/src/types/Spreadsheet.ts#L30)
+[src/types/Spreadsheet.ts:34](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/Spreadsheet.ts#L34)
