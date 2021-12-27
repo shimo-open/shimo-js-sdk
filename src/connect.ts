@@ -26,6 +26,7 @@ import { assert } from './assert'
 import { MouseMovePayload } from './types/BaseEditor'
 import initIframe from './init-iframe'
 import { clone } from './safe-structured-clone'
+import isPlainObject from 'is-plain-obj'
 
 const SM_PARAMS_KEY = 'smParams'
 const SUPPORTED_LANGUAGES = ['zh-CN', 'en', 'ja']
@@ -547,6 +548,10 @@ function handleSmParams(
 ): string {
   if (typeof params === 'string') {
     return params
+  }
+
+  if (isPlainObject<Record<string, unknown>>(params)) {
+    params = [params]
   }
 
   if (Array.isArray(params)) {
