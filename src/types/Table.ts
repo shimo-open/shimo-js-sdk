@@ -32,4 +32,9 @@ export interface Editor extends BaseEditor<EventMap> {
    * 创建版本
    */
   createRevision: (this: Editor, options: {}) => Promise<void>
+
+  /**
+   * 设置文档标题
+   */
+  setTitle: (title: string) => Promise<void>
 }

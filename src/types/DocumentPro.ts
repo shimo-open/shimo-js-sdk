@@ -431,4 +431,9 @@ export interface Editor extends BaseEditor<EventMap> {
   showHistory: (this: Editor, options: {}) => Promise<void>
   /** 关闭历史版本预览 */
   hideHistory: (this: Editor, options: {}) => Promise<void>
+
+  /**
+   * 设置文档标题
+   */
+  setTitle: (title: string) => Promise<void>
 }

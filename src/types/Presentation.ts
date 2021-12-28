@@ -24,4 +24,9 @@ export interface Editor extends BaseEditor<EventMap> {
   startDemonstration: (this: Editor, options: {}) => Promise<void>
   /** 结束本地演示 */
   endDemonstration: (this: Editor, options: {}) => Promise<void>
+
+  /**
+   * 设置文档标题
+   */
+  setTitle: (title: string) => Promise<void>
 }
