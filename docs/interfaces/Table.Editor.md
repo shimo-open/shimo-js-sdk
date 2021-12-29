@@ -18,6 +18,7 @@
 - [hideRevision](Table.Editor.md#hiderevision)
 - [off](Table.Editor.md#off)
 - [on](Table.Editor.md#on)
+- [setTitle](Table.Editor.md#settitle)
 - [showRevision](Table.Editor.md#showrevision)
 
 ## Methods
@@ -40,7 +41,7 @@
 
 #### Defined in
 
-[src/types/Table.ts:34](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/Table.ts#L34)
+[src/types/Table.ts:34](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/Table.ts#L34)
 
 ___
 
@@ -62,7 +63,7 @@ ___
 
 #### Defined in
 
-[src/types/Table.ts:30](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/Table.ts#L30)
+[src/types/Table.ts:30](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/Table.ts#L30)
 
 ___
 
@@ -93,7 +94,7 @@ BaseEditor.off
 
 #### Defined in
 
-[src/types/BaseEditor.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/BaseEditor.ts#L11)
+[src/types/BaseEditor.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/BaseEditor.ts#L11)
 
 ___
 
@@ -124,7 +125,29 @@ BaseEditor.on
 
 #### Defined in
 
-[src/types/BaseEditor.ts:10](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/BaseEditor.ts#L10)
+[src/types/BaseEditor.ts:10](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/BaseEditor.ts#L10)
+
+___
+
+### setTitle
+
+▸ **setTitle**(`title`): `Promise`<`void`\>
+
+设置文档标题
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `title` | `string` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Table.ts:39](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/Table.ts#L39)
 
 ___
 
@@ -146,4 +169,4 @@ ___
 
 #### Defined in
 
-[src/types/Table.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/Table.ts#L26)
+[src/types/Table.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/Table.ts#L26)

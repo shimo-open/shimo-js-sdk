@@ -18,6 +18,7 @@
 - [hideHistory](Presentation.Editor.md#hidehistory)
 - [off](Presentation.Editor.md#off)
 - [on](Presentation.Editor.md#on)
+- [setTitle](Presentation.Editor.md#settitle)
 - [showHistory](Presentation.Editor.md#showhistory)
 - [startDemonstration](Presentation.Editor.md#startdemonstration)
 
@@ -41,7 +42,7 @@
 
 #### Defined in
 
-[src/types/Presentation.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/Presentation.ts#L26)
+[src/types/Presentation.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/Presentation.ts#L26)
 
 ___
 
@@ -63,7 +64,7 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:22](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/Presentation.ts#L22)
+[src/types/Presentation.ts:22](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/Presentation.ts#L22)
 
 ___
 
@@ -94,7 +95,7 @@ BaseEditor.off
 
 #### Defined in
 
-[src/types/BaseEditor.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/BaseEditor.ts#L11)
+[src/types/BaseEditor.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/BaseEditor.ts#L11)
 
 ___
 
@@ -125,7 +126,29 @@ BaseEditor.on
 
 #### Defined in
 
-[src/types/BaseEditor.ts:10](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/BaseEditor.ts#L10)
+[src/types/BaseEditor.ts:10](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/BaseEditor.ts#L10)
+
+___
+
+### setTitle
+
+▸ **setTitle**(`title`): `Promise`<`void`\>
+
+设置文档标题
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `title` | `string` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Presentation.ts:31](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/Presentation.ts#L31)
 
 ___
 
@@ -149,7 +172,7 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:20](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/Presentation.ts#L20)
+[src/types/Presentation.ts:20](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/Presentation.ts#L20)
 
 ___
 
@@ -171,4 +194,4 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:24](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/Presentation.ts#L24)
+[src/types/Presentation.ts:24](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/Presentation.ts#L24)

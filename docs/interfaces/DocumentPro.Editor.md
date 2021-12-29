@@ -36,6 +36,7 @@
 - [replyComment](DocumentPro.Editor.md#replycomment)
 - [setBold](DocumentPro.Editor.md#setbold)
 - [setItalic](DocumentPro.Editor.md#setitalic)
+- [setTitle](DocumentPro.Editor.md#settitle)
 - [showHistory](DocumentPro.Editor.md#showhistory)
 - [showToc](DocumentPro.Editor.md#showtoc)
 - [updateComment](DocumentPro.Editor.md#updatecomment)
@@ -64,7 +65,7 @@
 
 #### Defined in
 
-[src/types/DocumentPro.ts:183](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L183)
+[src/types/DocumentPro.ts:183](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/DocumentPro.ts#L183)
 
 ___
 
@@ -90,7 +91,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:319](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L319)
+[src/types/DocumentPro.ts:319](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/DocumentPro.ts#L319)
 
 ___
 
@@ -113,7 +114,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:423](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L423)
+[src/types/DocumentPro.ts:423](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/DocumentPro.ts#L423)
 
 ___
 
@@ -139,7 +140,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:154](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L154)
+[src/types/DocumentPro.ts:154](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/DocumentPro.ts#L154)
 
 ___
 
@@ -163,7 +164,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:178](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L178)
+[src/types/DocumentPro.ts:178](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/DocumentPro.ts#L178)
 
 ___
 
@@ -188,7 +189,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:132](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L132)
+[src/types/DocumentPro.ts:132](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/DocumentPro.ts#L132)
 
 ___
 
@@ -212,7 +213,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:295](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L295)
+[src/types/DocumentPro.ts:295](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/DocumentPro.ts#L295)
 
 ___
 
@@ -239,7 +240,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:271](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L271)
+[src/types/DocumentPro.ts:271](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/DocumentPro.ts#L271)
 
 ___
 
@@ -264,7 +265,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:300](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L300)
+[src/types/DocumentPro.ts:300](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/DocumentPro.ts#L300)
 
 ___
 
@@ -288,7 +289,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:314](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L314)
+[src/types/DocumentPro.ts:314](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/DocumentPro.ts#L314)
 
 ___
 
@@ -310,7 +311,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:433](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L433)
+[src/types/DocumentPro.ts:433](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/DocumentPro.ts#L433)
 
 ___
 
@@ -334,7 +335,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:358](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L358)
+[src/types/DocumentPro.ts:358](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/DocumentPro.ts#L358)
 
 ___
 
@@ -365,7 +366,7 @@ BaseEditor.off
 
 #### Defined in
 
-[src/types/BaseEditor.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/BaseEditor.ts#L11)
+[src/types/BaseEditor.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/BaseEditor.ts#L11)
 
 ___
 
@@ -396,7 +397,7 @@ BaseEditor.on
 
 #### Defined in
 
-[src/types/BaseEditor.ts:10](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/BaseEditor.ts#L10)
+[src/types/BaseEditor.ts:10](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/BaseEditor.ts#L10)
 
 ___
 
@@ -421,7 +422,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:407](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L407)
+[src/types/DocumentPro.ts:407](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/DocumentPro.ts#L407)
 
 ___
 
@@ -445,7 +446,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:421](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L421)
+[src/types/DocumentPro.ts:421](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/DocumentPro.ts#L421)
 
 ___
 
@@ -469,7 +470,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:338](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L338)
+[src/types/DocumentPro.ts:338](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/DocumentPro.ts#L338)
 
 ___
 
@@ -494,7 +495,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:227](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L227)
+[src/types/DocumentPro.ts:227](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/DocumentPro.ts#L227)
 
 ___
 
@@ -519,7 +520,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:241](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L241)
+[src/types/DocumentPro.ts:241](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/DocumentPro.ts#L241)
 
 ___
 
@@ -545,7 +546,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:203](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L203)
+[src/types/DocumentPro.ts:203](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/DocumentPro.ts#L203)
 
 ___
 
@@ -570,7 +571,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:377](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L377)
+[src/types/DocumentPro.ts:377](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/DocumentPro.ts#L377)
 
 ___
 
@@ -595,7 +596,29 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:392](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L392)
+[src/types/DocumentPro.ts:392](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/DocumentPro.ts#L392)
+
+___
+
+### setTitle
+
+▸ **setTitle**(`title`): `Promise`<`void`\>
+
+设置文档标题
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `title` | `string` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/DocumentPro.ts:438](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/DocumentPro.ts#L438)
 
 ___
 
@@ -617,7 +640,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:431](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L431)
+[src/types/DocumentPro.ts:431](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/DocumentPro.ts#L431)
 
 ___
 
@@ -642,7 +665,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:343](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L343)
+[src/types/DocumentPro.ts:343](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/DocumentPro.ts#L343)
 
 ___
 
@@ -668,7 +691,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:255](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L255)
+[src/types/DocumentPro.ts:255](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/DocumentPro.ts#L255)
 
 ___
 
@@ -693,4 +716,4 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:363](https://github.com/shimohq/shimo-js-sdk/blob/7666570/src/types/DocumentPro.ts#L363)
+[src/types/DocumentPro.ts:363](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/DocumentPro.ts#L363)
