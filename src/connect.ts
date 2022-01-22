@@ -302,10 +302,22 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
 
     // 传递初始化参数进 iframe
     ee.once(Event.SDKInit, () => {
+      const opts = clone({
+        ...options,
+        uuid: iframeUUID
+      }) as Record<string, unknown>
+
+      forIn(options, (v, k) => {
+        // 函数用 boolean 标记有设置值
+        if (typeof v === 'function') {
+          opts[`has${k[0].toUpperCase()}${k.slice(1)}`] = true
+        }
+      })
+
       postMessage({
         event: SDKMessageEvent.SDKInit,
         body: clone({
-          ...options,
+          ...opts,
           uuid: iframeUUID
         })
       })
