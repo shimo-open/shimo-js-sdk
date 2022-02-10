@@ -421,7 +421,8 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
         const method:
           | 'openLink'
           | 'generateUrl'
-          | 'mentionClickHandlerForMobile' = data.body.method
+          | 'mentionClickHandlerForMobile'
+          | 'getContainerRect' = data.body.method
         const { methodCallId, args } = data.body
 
         let value: unknown
@@ -429,31 +430,44 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
         let error: Error | undefined = undefined
 
         try {
-          if (
-            ![
-              'openLink',
-              'generateUrl',
-              'mentionClickHandlerForMobile'
-            ].includes(method)
-          ) {
-            throw new Error(`unknown method: ${method}`)
-          }
-
-          if (method === 'mentionClickHandlerForMobile') {
-            const value: MouseMovePayload = args[0]
-            if (typeof value === 'object' && value != null) {
+          switch (method) {
+            case 'getContainerRect': {
               const rect = ee.element.getBoundingClientRect()
-              value.x += rect.x
-              value.y += rect.y
-
-              if (value.isMention) {
-                value.mentionInfo.left += rect.x
-                value.mentionInfo.top += rect.y
+              value = {
+                viewportWidth: window.innerWidth,
+                viewportHeight: window.innerHeight,
+                top: rect.top,
+                left: rect.left,
+                bottom: rect.bottom,
+                right: rect.right,
+                scrollTop: document.scrollingElement?.scrollTop
               }
+              break
             }
-          }
 
-          value = await options[method]?.apply(this, args)
+            case 'openLink':
+            case 'generateUrl':
+            case 'mentionClickHandlerForMobile':
+              if (method === 'mentionClickHandlerForMobile') {
+                const value: MouseMovePayload = args[0]
+                if (typeof value === 'object' && value != null) {
+                  const rect = ee.element.getBoundingClientRect()
+                  value.x += rect.x
+                  value.y += rect.y
+
+                  if (value.isMention) {
+                    value.mentionInfo.left += rect.x
+                    value.mentionInfo.top += rect.y
+                  }
+                }
+              }
+
+              value = await options[method]?.apply(this, args)
+              break
+
+            default:
+              throw new Error(`unknown method: ${method}`)
+          }
         } catch (e) {
           error = e
         }
