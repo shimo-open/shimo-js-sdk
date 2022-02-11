@@ -233,7 +233,7 @@ if (originParams) {
 // 添加自定义的上下文信息
 paramsList.push({ sheetId: '通过 QueryString 中获取的 sheetId' })
 // paramsList
-// => [originParamsStingValue, {"sheetId": "XXXXX"}]
+// => [originParamsStringValue, {"sheetId": "XXXXX"}]
 
 connect({
   smParams: paramsList
@@ -272,7 +272,7 @@ if (originParams) {
 // 添加自定义的上下文信息
 paramsList.push({ hash: '通过 QueryString 中获取的 mentionId' })
 // paramsList
-// => [originParamsStingValue, {"hash": "XXXXX"}]
+// => [originParamsStringValue, {"hash": "XXXXX"}]
 
 connect({
   smParams: paramsList
