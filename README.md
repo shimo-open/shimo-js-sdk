@@ -203,3 +203,78 @@ connect({
   smParams: paramsList
 })
 ```
+
+#### 打开表格编辑器时展示指定工作表 (Sheet)
+
+**使用本章节用法时，请先了解 [URL 的上下文信息](#url-的上下文信息) 章节**。
+
+此用法适用于表格中存在多个工作表 (Sheet) ，希望在打开编辑器时，直接展示某个工作表格而非默认的第一个工作表。如用于希望直接分享表格的某个工作表链接给其他协作者，他人在打开后可直接查看指定的工作表。
+
+首先通过 `docs/interfaces/Spreadsheet.Editor.md` 表格的编辑器 `getActiveSheetId` 方法获取当前处于激活状态的工作表 ID ，此 ID 可用于追加在接入方自身的 URL 上作为参数。
+
+如通过 `URL QueryString` 方式传递：`https://your-domain.com/files/abcdefg?sheetId=XXXXX&smParams=XXXXXXXXXXXXXXXXXXXXXX`
+
+`sheetId` 仅为参数名举例，接入方可结合自身业务命名。
+
+```js
+const paramsList: Array<string | Record<string, unknown>>
+const queryParams = new URLSearchParams(location.search)
+
+const originParams = queryParams.get('smParams')
+const sheetId = queryParams.get('sheetId')
+
+// 保留原来的上下文信息
+if (originParams) {
+  paramsList.push(originParams)
+}
+// paramsList
+// => [originParamsStingValue]
+
+// 添加自定义的上下文信息
+paramsList.push({ sheetId: '通过 QueryString 中获取的 sheetId' })
+// paramsList
+// => [originParamsStingValue, {"sheetId": "XXXXX"}]
+
+connect({
+  smParams: paramsList
+})
+```
+
+#### 打开编辑器时，定位至在正文中 at 某用户的位置
+
+支持类型：
+
+- `轻文档`
+- `表格`
+
+**使用本章节用法时，请先了解 [URL 的上下文信息](#url-的上下文信息) 章节**。
+
+此用法适用于在接入方系统的文件中 at 了指定用户，在回调接口种收到 `石墨 SDK 事件` 中的 `MentionAt` 类型事件，并获取 `mentionAt.guid` 字段作为参数拼接至接入方的访问链接上，在接入方系统通知对应用户时，推送的链接可直接打开对应文件并定位至当前用户被 at 的正文位置，以便于查看对应位置相关内容。
+
+如通过 `URL QueryString` 方式传递：`https://your-domain.com/files/abcdefg?mentionId=XXXXX&smParams=XXXXXXXXXXXXXXXXXXXXXX`
+
+`mentionId` 仅为参数名举例，接入方可结合自身业务命名。
+
+```js
+const paramsList: Array<string | Record<string, unknown>>
+const queryParams = new URLSearchParams(location.search)
+
+const originParams = queryParams.get('smParams')
+const mentionId = queryParams.get('mentionId')
+
+// 保留原来的上下文信息
+if (originParams) {
+  paramsList.push(originParams)
+}
+// paramsList
+// => [originParamsStingValue]
+
+// 添加自定义的上下文信息
+paramsList.push({ hash: '通过 QueryString 中获取的 mentionId' })
+// paramsList
+// => [originParamsStingValue, {"hash": "XXXXX"}]
+
+connect({
+  smParams: paramsList
+})
+```
