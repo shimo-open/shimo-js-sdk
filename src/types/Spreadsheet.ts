@@ -222,3 +222,159 @@ export interface Editor extends BaseEditor<EventMap> {
    */
   setTitle: (title: string) => Promise<void>
 }
+
+/**
+ * 控制插件是否开启，无特殊说明默认都是 true。某些插件设置为 false 后，可能影响数据呈现。
+ * 受后端服务版本影响，不是所有插件都可用，请以实际部署版本为准。
+ */
+export interface PluginOptions {
+  /**
+   * 附件 (附件 / 云文件)
+   */
+  Attachment?: boolean
+
+  /**
+   * 高亮行列
+   */
+  HighlightPosition?: boolean
+
+  /**
+   * 计算选项
+   */
+  CalcOption?: boolean
+
+  /**
+   * 单元格历史
+   */
+  CellHistory?: boolean
+
+  /**
+   * 图表
+   */
+  ChartV2?: boolean
+
+  /**
+   * 任务清单
+   */
+  CheckList?: boolean
+
+  /**
+   * 清除重复项
+   */
+  ClearRepeat?: boolean
+
+  /**
+   * 合并工作表 (合并工作表依赖跨表格引用，如果跨表格引用设置为不可见，合并工作表也会不可见)
+   */
+  CombineSheets?: boolean
+
+  /**
+   * 评论
+   */
+  Comment?: boolean
+
+  /**
+   * 条件格式
+   */
+  ConditionalFormat?: boolean
+
+  /**
+   * 复制为图片
+   */
+  CopyAsImage?: boolean
+
+  /*
+   * 定义名称
+   */
+  CustomNames?: boolean
+
+  /*
+   * 数据验证
+   */
+  DataValidation?: boolean
+
+  /*
+   * 文件瘦身
+   */
+  FileSlimming?: boolean
+
+  /*
+   * 历史模块
+   */
+  HistorySidebar?: boolean
+
+  /*
+   * 独立视图
+   */
+  IndependentViewport?: boolean
+
+  /*
+   * 分组
+   */
+  Outline?: boolean
+
+  /*
+   * 数据透视表
+   */
+  PivotTable?: boolean
+
+  /*
+   * 备注
+   */
+  Remarks?: boolean
+
+  /*
+   * 套用表格样式
+   */
+  SheetStyles?: boolean
+
+  /*
+   * 切片器 (切片器依赖套用表格样式 / 数据透视表创建，如果设置表格样式 / 数据透视表为不显示，切片器也会不显示)
+   */
+  Slicer?: boolean
+
+  /*
+   * 分列
+   */
+  SplitColumns?: boolean
+
+  /*
+   * 图片权限设置，默认 false
+   */
+  ImagePermission?: boolean
+
+  /*
+   * 获取指向此选区的链接
+   */
+  CopyRangeLink?: boolean
+
+  /*
+   * 复制视图链接以分享
+   */
+  CopyViewportLink?: boolean
+
+  /*
+   * 跨表格引用
+   */
+  ImportFormula?: boolean
+
+  /*
+   * 批量锁定
+   */
+  BatchLock?: boolean
+
+  /*
+   * @人/文件
+   */
+  Mention?: boolean
+
+  /*
+   * 日期提醒
+   */
+  DateMention?: boolean
+
+  /*
+   * 锁定
+   */
+  Lock?: boolean
+}

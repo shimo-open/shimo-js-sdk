@@ -156,6 +156,11 @@ export interface ConnectOptions {
    * 是否开启调试模式，true 会通过 console 打印一些信息
    */
   debug?: boolean
+
+  /**
+   * 编辑器插件配置，不是所有类型的套件都支持，以套件是否提供 PluginOptions 为准
+   */
+  plugins?: Spreadsheet.PluginOptions
 }
 
 function notEmptyString(input?: string): boolean {
