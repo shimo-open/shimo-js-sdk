@@ -9,6 +9,7 @@
 - [DepartmentPermission](../interfaces/Spreadsheet.DepartmentPermission.md)
 - [Editor](../interfaces/Spreadsheet.Editor.md)
 - [EventMap](../interfaces/Spreadsheet.EventMap.md)
+- [PluginOptions](../interfaces/Spreadsheet.PluginOptions.md)
 - [Range](../interfaces/Spreadsheet.Range.md)
 - [UserPermission](../interfaces/Spreadsheet.UserPermission.md)
 
@@ -27,7 +28,7 @@
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:61](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/Spreadsheet.ts#L61)
+[src/types/Spreadsheet.ts:61](https://github.com/shimohq/shimo-js-sdk/blob/9d971e2/src/types/Spreadsheet.ts#L61)
 
 ___
 
@@ -42,4 +43,4 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:21](https://github.com/shimohq/shimo-js-sdk/blob/8db8072/src/types/Spreadsheet.ts#L21)
+[src/types/Spreadsheet.ts:21](https://github.com/shimohq/shimo-js-sdk/blob/9d971e2/src/types/Spreadsheet.ts#L21)
