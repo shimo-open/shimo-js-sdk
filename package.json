@@ -10,7 +10,8 @@
     "format": "eslint --fix .&& prettier --write .",
     "prepack": "npm run lint && NODE_ENV=production npm run build",
     "prepare": "husky install",
-    "docs": "typedoc src/index.ts"
+    "docs": "typedoc src/index.ts",
+    "preversion": "npm run docs && git add -A docs && git diff-index --quiet HEAD || git commit -m 'docs: update'"
   },
   "author": "Chris Yip <chris@yesui.co>",
   "license": "MIT",
