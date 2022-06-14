@@ -23,6 +23,7 @@
 ### Methods
 
 - [generateUrl](ConnectOptions.md#generateurl)
+- [getFileInfoFromUrl](ConnectOptions.md#getfileinfofromurl)
 - [getSignature](ConnectOptions.md#getsignature)
 - [mentionClickHandlerForMobile](ConnectOptions.md#mentionclickhandlerformobile)
 - [openLink](ConnectOptions.md#openlink)
@@ -38,7 +39,7 @@
 
 #### Defined in
 
-[src/connect.ts:153](https://github.com/shimohq/shimo-js-sdk/blob/9d971e2/src/connect.ts#L153)
+[src/connect.ts:153](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/connect.ts#L153)
 
 ___
 
@@ -50,7 +51,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:40](https://github.com/shimohq/shimo-js-sdk/blob/9d971e2/src/connect.ts#L40)
+[src/connect.ts:40](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/connect.ts#L40)
 
 ___
 
@@ -62,7 +63,7 @@ iframe 挂载的目标容器
 
 #### Defined in
 
-[src/connect.ts:66](https://github.com/shimohq/shimo-js-sdk/blob/9d971e2/src/connect.ts#L66)
+[src/connect.ts:66](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/connect.ts#L66)
 
 ___
 
@@ -74,7 +75,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:158](https://github.com/shimohq/shimo-js-sdk/blob/9d971e2/src/connect.ts#L158)
+[src/connect.ts:158](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/connect.ts#L158)
 
 ___
 
@@ -94,7 +95,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:127](https://github.com/shimohq/shimo-js-sdk/blob/9d971e2/src/connect.ts#L127)
+[src/connect.ts:127](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/connect.ts#L127)
 
 ___
 
@@ -106,7 +107,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:45](https://github.com/shimohq/shimo-js-sdk/blob/9d971e2/src/connect.ts#L45)
+[src/connect.ts:45](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/connect.ts#L45)
 
 ___
 
@@ -118,7 +119,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:50](https://github.com/shimohq/shimo-js-sdk/blob/9d971e2/src/connect.ts#L50)
+[src/connect.ts:50](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/connect.ts#L50)
 
 ___
 
@@ -136,7 +137,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:97](https://github.com/shimohq/shimo-js-sdk/blob/9d971e2/src/connect.ts#L97)
+[src/connect.ts:97](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/connect.ts#L97)
 
 ___
 
@@ -152,7 +153,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:76](https://github.com/shimohq/shimo-js-sdk/blob/9d971e2/src/connect.ts#L76)
+[src/connect.ts:76](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/connect.ts#L76)
 
 ___
 
@@ -164,7 +165,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:163](https://github.com/shimohq/shimo-js-sdk/blob/9d971e2/src/connect.ts#L163)
+[src/connect.ts:163](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/connect.ts#L163)
 
 ___
 
@@ -176,7 +177,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:61](https://github.com/shimohq/shimo-js-sdk/blob/9d971e2/src/connect.ts#L61)
+[src/connect.ts:61](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/connect.ts#L61)
 
 ___
 
@@ -188,7 +189,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:83](https://github.com/shimohq/shimo-js-sdk/blob/9d971e2/src/connect.ts#L83)
+[src/connect.ts:83](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/connect.ts#L83)
 
 ___
 
@@ -200,7 +201,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:71](https://github.com/shimohq/shimo-js-sdk/blob/9d971e2/src/connect.ts#L71)
+[src/connect.ts:71](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/connect.ts#L71)
 
 ## Methods
 
@@ -222,7 +223,29 @@ ___
 
 #### Defined in
 
-[src/connect.ts:102](https://github.com/shimohq/shimo-js-sdk/blob/9d971e2/src/connect.ts#L102)
+[src/connect.ts:102](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/connect.ts#L102)
+
+___
+
+### getFileInfoFromUrl
+
+▸ `Optional` **getFileInfoFromUrl**(`url`): `Promise`<`undefined` \| { `fileId`: `string` ; `type`: ``"docs"`` \| ``"docx"`` \| ``"sheets"`` \| ``"presentation"`` \| ``"table"``  }\>
+
+用于从 URL 中解析石墨协作文件对应的 file ID，并返回其对应的数据结构，如果不是协作文件，返回 undefined
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `url` | `string` |
+
+#### Returns
+
+`Promise`<`undefined` \| { `fileId`: `string` ; `type`: ``"docs"`` \| ``"docx"`` \| ``"sheets"`` \| ``"presentation"`` \| ``"table"``  }\>
+
+#### Defined in
+
+[src/connect.ts:168](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/connect.ts#L168)
 
 ___
 
@@ -240,7 +263,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:56](https://github.com/shimohq/shimo-js-sdk/blob/9d971e2/src/connect.ts#L56)
+[src/connect.ts:56](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/connect.ts#L56)
 
 ___
 
@@ -262,7 +285,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:147](https://github.com/shimohq/shimo-js-sdk/blob/9d971e2/src/connect.ts#L147)
+[src/connect.ts:147](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/connect.ts#L147)
 
 ___
 
@@ -285,4 +308,4 @@ ___
 
 #### Defined in
 
-[src/connect.ts:112](https://github.com/shimohq/shimo-js-sdk/blob/9d971e2/src/connect.ts#L112)
+[src/connect.ts:112](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/connect.ts#L112)
