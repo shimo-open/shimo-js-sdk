@@ -161,6 +161,19 @@ export interface ConnectOptions {
    * 编辑器插件配置，不是所有类型的套件都支持，以套件是否提供 PluginOptions 为准
    */
   plugins?: Spreadsheet.PluginOptions
+
+  /**
+   * 用于从 URL 中解析石墨协作文件对应的 file ID，并返回其对应的数据结构，如果不是协作文件，返回 undefined
+   */
+  getFileInfoFromUrl?: (
+    url: string
+  ) => Promise<
+    | {
+        fileId: string
+        type: 'docs' | 'docx' | 'sheets' | 'presentation' | 'table'
+      }
+    | undefined
+  >
 }
 
 function notEmptyString(input?: string): boolean {
@@ -427,6 +440,7 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
           | 'openLink'
           | 'generateUrl'
           | 'mentionClickHandlerForMobile'
+          | 'getFileInfoFromUrl'
           | 'getContainerRect' = data.body.method
         const { methodCallId, args } = data.body
 
@@ -447,6 +461,14 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
                 right: rect.right,
                 scrollTop: document.scrollingElement?.scrollTop
               }
+              break
+            }
+
+            case 'getFileInfoFromUrl': {
+              value =
+                method in options
+                  ? await options[method]?.apply(this, args)
+                  : undefined
               break
             }
 
