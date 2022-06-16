@@ -6,6 +6,7 @@ import {
 
 export interface EventMap extends BaseEventMap {
   /**
+   * @Deprecated
    * 保存状态发生变更
    */
   saveStatusDidChange: {
@@ -14,12 +15,15 @@ export interface EventMap extends BaseEventMap {
      */
     status?: 'saving' | 'saved' | 'error'
   }
-
-  error: {
-    /** 错误信息 */
-    data?: unknown
-    /** 错误码 */
-    code: number
+  
+  /**
+   * 保存状态发生变更
+   */
+  saveStatusChanged: {
+    /**
+     * @since PD3.4
+     */
+    status?: 'saving' | 'saved' | 'error'
   }
 
   /**
