@@ -17,7 +17,7 @@
 - [HorizontalScroll](Document.EventMap.md#horizontalscroll)
 - [MouseMove](Document.EventMap.md#mousemove)
 - [VerticalScroll](Document.EventMap.md#verticalscroll)
-- [error](Document.EventMap.md#error)
+- [saveStatusChanged](Document.EventMap.md#savestatuschanged)
 - [saveStatusDidChange](Document.EventMap.md#savestatusdidchange)
 - [titleChange](Document.EventMap.md#titlechange)
 
@@ -31,7 +31,7 @@
 
 #### Defined in
 
-[src/types/Document.ts:48](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/types/Document.ts#L48)
+[src/types/Document.ts:54](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L54)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:38](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/types/Document.ts#L38)
+[src/types/Document.ts:44](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L44)
 
 ___
 
@@ -55,30 +55,13 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:43](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/types/Document.ts#L43)
+[src/types/Document.ts:49](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L49)
 
 ___
 
-### error
+### saveStatusChanged
 
-• **error**: `Object`
-
-#### Type declaration
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `code` | `number` | 错误码 |
-| `data?` | `unknown` | 错误信息 |
-
-#### Defined in
-
-[src/types/Document.ts:18](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/types/Document.ts#L18)
-
-___
-
-### saveStatusDidChange
-
-• **saveStatusDidChange**: `Object`
+• **saveStatusChanged**: `Object`
 
 保存状态发生变更
 
@@ -90,7 +73,26 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/types/Document.ts#L11)
+[src/types/Document.ts:24](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L24)
+
+___
+
+### saveStatusDidChange
+
+• **saveStatusDidChange**: `Object`
+
+**`deprecated`**
+保存状态发生变更
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `status?` | ``"saving"`` \| ``"saved"`` \| ``"error"`` |
+
+#### Defined in
+
+[src/types/Document.ts:14](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L14)
 
 ___
 
@@ -108,4 +110,4 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:28](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/types/Document.ts#L28)
+[src/types/Document.ts:34](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L34)
