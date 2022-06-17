@@ -4,6 +4,8 @@ import {
   MouseMovePayload
 } from './BaseEditor'
 
+type errorMessage = { message: string }
+
 export interface EventMap extends BaseEventMap {
   /**
    * @Deprecated
@@ -97,7 +99,7 @@ export interface Editor extends BaseEditor<EventMap> {
    * 创建版本
    * @since PD2.10
    */
-  createRevision: (this: Editor, options: {}) => Promise<void>
+  createRevision: (this: Editor, options: {}) => Promise<void | errorMessage>
   /**
    * 进入演示模式
    * @since PD2.10
@@ -118,4 +120,20 @@ export interface Editor extends BaseEditor<EventMap> {
    * 设置文档标题
    */
   setTitle: (title: string) => Promise<void>
+
+  /**
+   * 显示评论侧边栏
+   * @since PD3.4
+   */
+  showComments: (this: Editor, options: {}) => Promise<void>
+  /**
+   * 隐藏评论侧边栏
+   * @since PD3.4
+   */
+  hideComments: (this: Editor, options: {}) => Promise<void>
+  /**
+   * 插入第三方应用
+   * @since PD3.5
+   */
+  insertExternalApp: (this: Editor, options: { url: string }) => Promise<void | errorMessage>
 }
