@@ -4,7 +4,9 @@ import {
   MouseMovePayload
 } from './BaseEditor'
 
-type errorMessage = { message: string }
+interface errorMessage {
+  message: string
+}
 
 export interface EventMap extends BaseEventMap {
   /**
@@ -17,7 +19,7 @@ export interface EventMap extends BaseEventMap {
      */
     status?: 'saving' | 'saved' | 'error'
   }
-  
+
   /**
    * 保存状态发生变更
    */
@@ -99,7 +101,7 @@ export interface Editor extends BaseEditor<EventMap> {
    * 创建版本
    * @since PD2.10
    */
-  createRevision: (this: Editor, options: {}) => Promise<void | errorMessage>
+  createRevision: (this: Editor, options: {}) => Promise<null | errorMessage>
   /**
    * 进入演示模式
    * @since PD2.10
@@ -135,5 +137,8 @@ export interface Editor extends BaseEditor<EventMap> {
    * 插入第三方应用
    * @since PD3.5
    */
-  insertExternalApp: (this: Editor, options: { url: string }) => Promise<void | errorMessage>
+  insertExternalApp: (
+    this: Editor,
+    options: { url: string }
+  ) => Promise<null | errorMessage>
 }
