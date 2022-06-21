@@ -16,14 +16,17 @@
 
 - [createRevision](Document.Editor.md#createrevision)
 - [endDemonstration](Document.Editor.md#enddemonstration)
+- [hideComments](Document.Editor.md#hidecomments)
 - [hideDiscussion](Document.Editor.md#hidediscussion)
 - [hideHistory](Document.Editor.md#hidehistory)
 - [hideRevision](Document.Editor.md#hiderevision)
 - [hideToc](Document.Editor.md#hidetoc)
+- [insertExternalApp](Document.Editor.md#insertexternalapp)
 - [off](Document.Editor.md#off)
 - [on](Document.Editor.md#on)
 - [print](Document.Editor.md#print)
 - [setTitle](Document.Editor.md#settitle)
+- [showComments](Document.Editor.md#showcomments)
 - [showDiscussion](Document.Editor.md#showdiscussion)
 - [showHistory](Document.Editor.md#showhistory)
 - [showRevision](Document.Editor.md#showrevision)
@@ -34,7 +37,7 @@
 
 ### createRevision
 
-▸ **createRevision**(`options`): `Promise`<`void`\>
+▸ **createRevision**(`options`): `Promise`<`void` \| `errorMessage`\>
 
 创建版本
 
@@ -48,11 +51,11 @@
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`<`void` \| `errorMessage`\>
 
 #### Defined in
 
-[src/types/Document.ts:96](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/types/Document.ts#L96)
+[src/types/Document.ts:102](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L102)
 
 ___
 
@@ -76,7 +79,31 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:106](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/types/Document.ts#L106)
+[src/types/Document.ts:112](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L112)
+
+___
+
+### hideComments
+
+▸ **hideComments**(`options`): `Promise`<`void`\>
+
+隐藏评论侧边栏
+
+**`since`** PD3.4
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options` | `Object` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Document.ts:133](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L133)
 
 ___
 
@@ -100,7 +127,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:81](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/types/Document.ts#L81)
+[src/types/Document.ts:87](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L87)
 
 ___
 
@@ -124,7 +151,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:61](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/types/Document.ts#L61)
+[src/types/Document.ts:67](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L67)
 
 ___
 
@@ -148,7 +175,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:71](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/types/Document.ts#L71)
+[src/types/Document.ts:77](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L77)
 
 ___
 
@@ -172,7 +199,32 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:91](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/types/Document.ts#L91)
+[src/types/Document.ts:97](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L97)
+
+___
+
+### insertExternalApp
+
+▸ **insertExternalApp**(`options`): `Promise`<`void` \| `errorMessage`\>
+
+插入第三方应用
+
+**`since`** PD3.5
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options` | `Object` |
+| `options.url` | `string` |
+
+#### Returns
+
+`Promise`<`void` \| `errorMessage`\>
+
+#### Defined in
+
+[src/types/Document.ts:138](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L138)
 
 ___
 
@@ -203,7 +255,7 @@ BaseEditor.off
 
 #### Defined in
 
-[src/types/BaseEditor.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/types/BaseEditor.ts#L11)
+[src/types/BaseEditor.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/BaseEditor.ts#L11)
 
 ___
 
@@ -234,7 +286,7 @@ BaseEditor.on
 
 #### Defined in
 
-[src/types/BaseEditor.ts:10](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/types/BaseEditor.ts#L10)
+[src/types/BaseEditor.ts:10](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/BaseEditor.ts#L10)
 
 ___
 
@@ -258,7 +310,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:111](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/types/Document.ts#L111)
+[src/types/Document.ts:117](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L117)
 
 ___
 
@@ -280,7 +332,31 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:116](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/types/Document.ts#L116)
+[src/types/Document.ts:122](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L122)
+
+___
+
+### showComments
+
+▸ **showComments**(`options`): `Promise`<`void`\>
+
+显示评论侧边栏
+
+**`since`** PD3.4
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options` | `Object` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Document.ts:128](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L128)
 
 ___
 
@@ -304,7 +380,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:76](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/types/Document.ts#L76)
+[src/types/Document.ts:82](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L82)
 
 ___
 
@@ -328,7 +404,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:56](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/types/Document.ts#L56)
+[src/types/Document.ts:62](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L62)
 
 ___
 
@@ -352,7 +428,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:66](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/types/Document.ts#L66)
+[src/types/Document.ts:72](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L72)
 
 ___
 
@@ -376,7 +452,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:86](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/types/Document.ts#L86)
+[src/types/Document.ts:92](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L92)
 
 ___
 
@@ -400,4 +476,4 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:101](https://github.com/shimohq/shimo-js-sdk/blob/1f0e6fa/src/types/Document.ts#L101)
+[src/types/Document.ts:107](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L107)
