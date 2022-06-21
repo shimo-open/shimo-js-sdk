@@ -37,7 +37,7 @@
 
 ### createRevision
 
-▸ **createRevision**(`options`): `Promise`<`void` \| `errorMessage`\>
+▸ **createRevision**(`options`): `Promise`<``null`` \| `errorMessage`\>
 
 创建版本
 
@@ -51,11 +51,11 @@
 
 #### Returns
 
-`Promise`<`void` \| `errorMessage`\>
+`Promise`<``null`` \| `errorMessage`\>
 
 #### Defined in
 
-[src/types/Document.ts:102](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L102)
+[src/types/Document.ts:104](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/Document.ts#L104)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:112](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L112)
+[src/types/Document.ts:114](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/Document.ts#L114)
 
 ___
 
@@ -103,7 +103,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:133](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L133)
+[src/types/Document.ts:135](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/Document.ts#L135)
 
 ___
 
@@ -127,7 +127,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:87](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L87)
+[src/types/Document.ts:89](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/Document.ts#L89)
 
 ___
 
@@ -151,7 +151,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:67](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L67)
+[src/types/Document.ts:69](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/Document.ts#L69)
 
 ___
 
@@ -175,7 +175,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:77](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L77)
+[src/types/Document.ts:79](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/Document.ts#L79)
 
 ___
 
@@ -199,13 +199,13 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:97](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L97)
+[src/types/Document.ts:99](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/Document.ts#L99)
 
 ___
 
 ### insertExternalApp
 
-▸ **insertExternalApp**(`options`): `Promise`<`void` \| `errorMessage`\>
+▸ **insertExternalApp**(`options`): `Promise`<``null`` \| `errorMessage`\>
 
 插入第三方应用
 
@@ -220,11 +220,11 @@ ___
 
 #### Returns
 
-`Promise`<`void` \| `errorMessage`\>
+`Promise`<``null`` \| `errorMessage`\>
 
 #### Defined in
 
-[src/types/Document.ts:138](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L138)
+[src/types/Document.ts:140](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/Document.ts#L140)
 
 ___
 
@@ -255,7 +255,7 @@ BaseEditor.off
 
 #### Defined in
 
-[src/types/BaseEditor.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/BaseEditor.ts#L11)
+[src/types/BaseEditor.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/BaseEditor.ts#L11)
 
 ___
 
@@ -286,7 +286,7 @@ BaseEditor.on
 
 #### Defined in
 
-[src/types/BaseEditor.ts:10](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/BaseEditor.ts#L10)
+[src/types/BaseEditor.ts:10](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/BaseEditor.ts#L10)
 
 ___
 
@@ -310,7 +310,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:117](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L117)
+[src/types/Document.ts:119](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/Document.ts#L119)
 
 ___
 
@@ -332,7 +332,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:122](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L122)
+[src/types/Document.ts:124](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/Document.ts#L124)
 
 ___
 
@@ -356,7 +356,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:128](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L128)
+[src/types/Document.ts:130](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/Document.ts#L130)
 
 ___
 
@@ -380,7 +380,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:82](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L82)
+[src/types/Document.ts:84](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/Document.ts#L84)
 
 ___
 
@@ -404,7 +404,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:62](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L62)
+[src/types/Document.ts:64](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/Document.ts#L64)
 
 ___
 
@@ -428,7 +428,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:72](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L72)
+[src/types/Document.ts:74](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/Document.ts#L74)
 
 ___
 
@@ -452,7 +452,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:92](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L92)
+[src/types/Document.ts:94](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/Document.ts#L94)
 
 ___
 
@@ -476,4 +476,4 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:107](https://github.com/shimohq/shimo-js-sdk/blob/41c12ea/src/types/Document.ts#L107)
+[src/types/Document.ts:109](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/Document.ts#L109)
