@@ -25,6 +25,7 @@
 - [documentPro](ShimoSDK.md#documentpro)
 - [element](ShimoSDK.md#element)
 - [fileType](ShimoSDK.md#filetype)
+- [getPerformanceEntries](ShimoSDK.md#getperformanceentries)
 - [presentation](ShimoSDK.md#presentation)
 - [setSignature](ShimoSDK.md#setsignature)
 - [setToken](ShimoSDK.md#settoken)
@@ -66,7 +67,7 @@ TinyEmitter.constructor
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:22](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/ShimoSDK.ts#L22)
+[src/types/ShimoSDK.ts:22](https://github.com/shimohq/shimo-js-sdk/blob/f4d10e7/src/types/ShimoSDK.ts#L22)
 
 ___
 
@@ -78,7 +79,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:32](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/ShimoSDK.ts#L32)
+[src/types/ShimoSDK.ts:32](https://github.com/shimohq/shimo-js-sdk/blob/f4d10e7/src/types/ShimoSDK.ts#L32)
 
 ___
 
@@ -90,7 +91,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:27](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/ShimoSDK.ts#L27)
+[src/types/ShimoSDK.ts:27](https://github.com/shimohq/shimo-js-sdk/blob/f4d10e7/src/types/ShimoSDK.ts#L27)
 
 ___
 
@@ -102,7 +103,7 @@ iframe 元素
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:17](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/ShimoSDK.ts#L17)
+[src/types/ShimoSDK.ts:17](https://github.com/shimohq/shimo-js-sdk/blob/f4d10e7/src/types/ShimoSDK.ts#L17)
 
 ___
 
@@ -114,7 +115,27 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:12](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/ShimoSDK.ts#L12)
+[src/types/ShimoSDK.ts:12](https://github.com/shimohq/shimo-js-sdk/blob/f4d10e7/src/types/ShimoSDK.ts#L12)
+
+___
+
+### getPerformanceEntries
+
+• **getPerformanceEntries**: () => `Promise`<[`PerformanceEntry`](../interfaces/PerformanceEntry.md)[]\>
+
+#### Type declaration
+
+▸ (): `Promise`<[`PerformanceEntry`](../interfaces/PerformanceEntry.md)[]\>
+
+获取性能信息片段列表，由于性能标记是分段的、异步的，因此每次调用时获取的列表有可能不一致
+
+##### Returns
+
+`Promise`<[`PerformanceEntry`](../interfaces/PerformanceEntry.md)[]\>
+
+#### Defined in
+
+[src/types/ShimoSDK.ts:62](https://github.com/shimohq/shimo-js-sdk/blob/f4d10e7/src/types/ShimoSDK.ts#L62)
 
 ___
 
@@ -126,7 +147,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:42](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/ShimoSDK.ts#L42)
+[src/types/ShimoSDK.ts:42](https://github.com/shimohq/shimo-js-sdk/blob/f4d10e7/src/types/ShimoSDK.ts#L42)
 
 ___
 
@@ -152,7 +173,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:52](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/ShimoSDK.ts#L52)
+[src/types/ShimoSDK.ts:52](https://github.com/shimohq/shimo-js-sdk/blob/f4d10e7/src/types/ShimoSDK.ts#L52)
 
 ___
 
@@ -178,7 +199,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:57](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/ShimoSDK.ts#L57)
+[src/types/ShimoSDK.ts:57](https://github.com/shimohq/shimo-js-sdk/blob/f4d10e7/src/types/ShimoSDK.ts#L57)
 
 ___
 
@@ -190,7 +211,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:37](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/ShimoSDK.ts#L37)
+[src/types/ShimoSDK.ts:37](https://github.com/shimohq/shimo-js-sdk/blob/f4d10e7/src/types/ShimoSDK.ts#L37)
 
 ___
 
@@ -202,7 +223,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:47](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/ShimoSDK.ts#L47)
+[src/types/ShimoSDK.ts:47](https://github.com/shimohq/shimo-js-sdk/blob/f4d10e7/src/types/ShimoSDK.ts#L47)
 
 ## Methods
 

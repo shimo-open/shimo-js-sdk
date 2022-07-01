@@ -27,6 +27,7 @@
 
 - [ConnectOptions](interfaces/ConnectOptions.md)
 - [Message](interfaces/Message.md)
+- [PerformanceEntry](interfaces/PerformanceEntry.md)
 
 ### Type aliases
 
@@ -60,7 +61,7 @@
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:139](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/ShimoSDK.ts#L139)
+[src/types/ShimoSDK.ts:146](https://github.com/shimohq/shimo-js-sdk/blob/f4d10e7/src/types/ShimoSDK.ts#L146)
 
 ## Functions
 
@@ -80,4 +81,4 @@
 
 #### Defined in
 
-[src/connect.ts:198](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/connect.ts#L198)
+[src/connect.ts:199](https://github.com/shimohq/shimo-js-sdk/blob/f4d10e7/src/connect.ts#L199)

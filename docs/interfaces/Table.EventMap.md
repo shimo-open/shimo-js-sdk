@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[src/types/Table.ts:14](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/Table.ts#L14)
+[src/types/Table.ts:14](https://github.com/shimohq/shimo-js-sdk/blob/f4d10e7/src/types/Table.ts#L14)
 
 ___
 
@@ -44,4 +44,4 @@ ___
 
 #### Defined in
 
-[src/types/Table.ts:7](https://github.com/shimohq/shimo-js-sdk/blob/901dedd/src/types/Table.ts#L7)
+[src/types/Table.ts:7](https://github.com/shimohq/shimo-js-sdk/blob/f4d10e7/src/types/Table.ts#L7)
