@@ -14,7 +14,8 @@ import {
   ReadyState,
   FileType,
   Event,
-  EventCallback
+  EventCallback,
+  PerformanceEntry
 } from './types/ShimoSDK'
 import * as DocumentPro from './types/DocumentPro'
 import * as Document from './types/Document'
@@ -318,6 +319,22 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
       })
     }
 
+    ee.getPerformanceEntries = async (): Promise<PerformanceEntry[]> => {
+      postMessage({
+        event: SDKMessageEvent.RequestPerformanceEntries,
+        body: undefined
+      })
+
+      return await new Promise((resolve, reject) => {
+        ee.once(
+          SDKMessageEvent.ResponsePerformanceEntries,
+          (entries: PerformanceEntry[]) => {
+            resolve(entries)
+          }
+        )
+      })
+    }
+
     // 传递初始化参数进 iframe
     ee.once(Event.SDKInit, () => {
       const opts = clone({
@@ -420,6 +437,11 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
       case SDKMessageEvent.EditorEvent:
         emit(editorEvent, ee, data.body.editorEvent, data.body.value)
         break
+
+      case SDKMessageEvent.ResponsePerformanceEntries: {
+        ee.emit(SDKMessageEvent.ResponsePerformanceEntries, data.body)
+        break
+      }
 
       case SDKMessageEvent.MethodCallback:
         if (typeof data.body.methodCallId !== 'string') {
