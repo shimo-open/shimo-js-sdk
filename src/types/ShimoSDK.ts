@@ -54,7 +54,12 @@ export declare class ShimoSDK extends TinyEmitter {
   /**
    * 设置您系统的鉴权 token
    */
-  setToken: (token: string) => void;
+  setToken: (token: string) => void
+
+  /**
+   * 获取性能信息片段列表，由于性能标记是分段的、异步的，因此每次调用时获取的列表有可能不一致
+   */
+  getPerformanceEntries: () => Promise<PerformanceEntry[]>;
 
   [key: string]: any
 }
@@ -95,7 +100,9 @@ export enum MessageEvent {
   Error = 'error',
   ReadyState = 'readyState',
   EditorEvent = 'editorEvent',
-  SetCredentials = 'setCredentials'
+  SetCredentials = 'setCredentials',
+  RequestPerformanceEntries = 'RequestPerformanceEntries',
+  ResponsePerformanceEntries = 'ResponsePerformanceEntries'
 }
 
 export enum ReadyState {
@@ -137,3 +144,18 @@ export enum FileType {
  * 事件回调函数
  */
 export type EventCallback = (...args: any[]) => any
+
+/**
+ * 性能信息
+ */
+export interface PerformanceEntry {
+  /**
+   * 性能信息片段的标记，如 "sdk_initialized"、"editor_render_end"
+   */
+  mark: string
+
+  /**
+   * 性能信息片段的标记时间，以毫秒为单位
+   */
+  timestamp: number
+}
