@@ -175,6 +175,13 @@ export interface ConnectOptions {
       }
     | undefined
   >
+
+  /**
+   * 使用什么设备类型模式，会直接影响功能和样式，不传值或空字符串则默认用 user-agent 自动判断。受版本限制，不是所有类型都支持。
+   * - pc - 桌面模式
+   * - mobile - 移动模式
+   */
+  deviceMode?: 'pc' | 'mobile' | 'pad'
 }
 
 function notEmptyString(input?: string): boolean {
@@ -230,7 +237,7 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
     targetOrigin = url.origin
 
     forIn(options.params, (v, k) => {
-      url.searchParams.append(k, v)
+      url.searchParams.set(k, v)
     })
 
     let smParams: string | null
@@ -240,7 +247,7 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
       smParams = new URLSearchParams(location.search).get(SM_PARAMS_KEY)
     }
     if (smParams) {
-      url.searchParams.append(SM_PARAMS_KEY, smParams)
+      url.searchParams.set(SM_PARAMS_KEY, smParams)
     }
 
     // 设置当前编辑器语言
@@ -248,10 +255,10 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
       typeof options.lang === 'string' &&
       SUPPORTED_LANGUAGES.includes(options.lang)
     ) {
-      url.searchParams.append('lang', options.lang)
+      url.searchParams.set('lang', options.lang)
     }
 
-    url.searchParams.append('jsver', process.env.VERSION ?? '')
+    url.searchParams.set('jsver', process.env.VERSION ?? '')
 
     let token = assert<string>(
       options.token,
@@ -264,7 +271,7 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
       `"signature" is missing or empty`
     )
 
-    url.searchParams.append(
+    url.searchParams.set(
       'appId',
       assert<string>(
         options.appId,
@@ -272,9 +279,13 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
         `"appId" is missing or empty`
       )
     )
-    url.searchParams.append('token', token)
-    url.searchParams.append('signature', signature)
-    url.searchParams.append('uuid', iframeUUID)
+    url.searchParams.set('token', token)
+    url.searchParams.set('signature', signature)
+    url.searchParams.set('uuid', iframeUUID)
+
+    if (typeof options.deviceMode === 'string') {
+      url.searchParams.set('deviceMode', options.deviceMode.trim())
+    }
 
     iframe = ee.element = initIframe({
       id: iframeUUID,
