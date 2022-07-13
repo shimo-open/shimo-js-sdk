@@ -237,7 +237,7 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
     targetOrigin = url.origin
 
     forIn(options.params, (v, k) => {
-      url.searchParams.append(k, v)
+      url.searchParams.set(k, v)
     })
 
     let smParams: string | null
@@ -247,7 +247,7 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
       smParams = new URLSearchParams(location.search).get(SM_PARAMS_KEY)
     }
     if (smParams) {
-      url.searchParams.append(SM_PARAMS_KEY, smParams)
+      url.searchParams.set(SM_PARAMS_KEY, smParams)
     }
 
     // 设置当前编辑器语言
@@ -255,10 +255,10 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
       typeof options.lang === 'string' &&
       SUPPORTED_LANGUAGES.includes(options.lang)
     ) {
-      url.searchParams.append('lang', options.lang)
+      url.searchParams.set('lang', options.lang)
     }
 
-    url.searchParams.append('jsver', process.env.VERSION ?? '')
+    url.searchParams.set('jsver', process.env.VERSION ?? '')
 
     let token = assert<string>(
       options.token,
@@ -271,7 +271,7 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
       `"signature" is missing or empty`
     )
 
-    url.searchParams.append(
+    url.searchParams.set(
       'appId',
       assert<string>(
         options.appId,
@@ -279,9 +279,9 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
         `"appId" is missing or empty`
       )
     )
-    url.searchParams.append('token', token)
-    url.searchParams.append('signature', signature)
-    url.searchParams.append('uuid', iframeUUID)
+    url.searchParams.set('token', token)
+    url.searchParams.set('signature', signature)
+    url.searchParams.set('uuid', iframeUUID)
 
     if (typeof options.deviceMode === 'string') {
       url.searchParams.set('deviceMode', options.deviceMode.trim())
