@@ -175,6 +175,13 @@ export interface ConnectOptions {
       }
     | undefined
   >
+
+  /**
+   * 使用什么设备类型模式，会直接影响功能和样式，不传值或空字符串则默认用 user-agent 自动判断。受版本限制，不是所有类型都支持。
+   * - pc - 桌面模式
+   * - mobile - 移动模式
+   */
+  deviceMode?: 'pc' | 'mobile' | 'pad'
 }
 
 function notEmptyString(input?: string): boolean {
@@ -275,6 +282,10 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
     url.searchParams.append('token', token)
     url.searchParams.append('signature', signature)
     url.searchParams.append('uuid', iframeUUID)
+
+    if (typeof options.deviceMode === 'string') {
+      url.searchParams.set('deviceMode', options.deviceMode.trim())
+    }
 
     iframe = ee.element = initIframe({
       id: iframeUUID,
