@@ -182,6 +182,11 @@ export interface ConnectOptions {
    * - mobile - 移动模式
    */
   deviceMode?: 'pc' | 'mobile' | 'pad'
+
+  /**
+   * 是否禁用默认的签名组件，以支持自定义签名组件。受版本限制，部分版本的特定类型文档才支持。
+   */
+  disableSignatureComponent?: boolean
 }
 
 function notEmptyString(input?: string): boolean {
