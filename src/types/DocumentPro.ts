@@ -122,6 +122,24 @@ export interface EventMap extends BaseEventMap {
    * 水平滚动事件
    */
   HorizontalScroll: MouseMovePayload
+
+  /**
+   * 请求打开签名组件
+   */
+  showSignatureComponent: {
+    /**
+     * 签名图片的宽高比
+     */
+    aspectRatio: number
+  }
+}
+
+export interface UpdateSignaturePayload {
+  /**
+   * 待更新的签名图片，需要是 data:<media type>;base64,<base64 data> 的格式，传 null 则清除签名图片。
+   * Ref: https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs
+   */
+  url: string | null
 }
 
 export interface Editor extends BaseEditor<EventMap> {
@@ -436,4 +454,9 @@ export interface Editor extends BaseEditor<EventMap> {
    * 设置文档标题
    */
   setTitle: (title: string) => Promise<void>
+
+  /**
+   * 更新签名图片
+   */
+  updateSignature: (payload: UpdateSignaturePayload) => Promise<void>
 }

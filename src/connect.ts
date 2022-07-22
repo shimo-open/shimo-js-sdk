@@ -182,6 +182,16 @@ export interface ConnectOptions {
    * - mobile - 移动模式
    */
   deviceMode?: 'pc' | 'mobile' | 'pad'
+
+  /**
+   * 是否禁用默认的签名组件，以支持自定义签名组件。受版本限制，部分版本的特定类型文档才支持。
+   */
+  disableSignatureComponent?: boolean
+
+  /**
+   * 是否显示内置的加载动画，只影响静态资源加载到编辑器渲染这个阶段，不影响编辑器渲染时的加载动画
+   */
+  showLoadingEffect?: boolean
 }
 
 function notEmptyString(input?: string): boolean {
@@ -259,6 +269,10 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
     }
 
     url.searchParams.set('jsver', process.env.VERSION ?? '')
+
+    if (options.showLoadingEffect) {
+      url.searchParams.set('loadingEffect', 'true')
+    }
 
     let token = assert<string>(
       options.token,
