@@ -131,6 +131,10 @@ export interface EventMap extends BaseEventMap {
      * 签名图片的宽高比
      */
     aspectRatio: number
+    /**
+     * 该签名图片的唯一 ID，用于在 updateSignature() 时指定想更新的签名组件
+     */
+    id: string
   }
 }
 
@@ -140,6 +144,11 @@ export interface UpdateSignaturePayload {
    * Ref: https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs
    */
   url: string | null
+  
+  /**
+   * 待更新的签名图片 ID，用于指定更新的签名组件，需要和 showSignatureComponent 中的一致。
+   */
+  id: string
 }
 
 export interface Editor extends BaseEditor<EventMap> {
