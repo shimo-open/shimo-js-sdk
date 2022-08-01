@@ -15,6 +15,11 @@ module.exports = {
         test: /\.ts$/,
         use: 'ts-loader',
         exclude: /node_modules/
+      },
+      {
+        test: /node_modules\/shimo-js-sdk-shared\/src\/.*\.ts$/,
+        use: 'ts-loader',
+        exclude: /node_modules\/shimo-js-sdk-shared\/node_modules/
       }
     ]
   },

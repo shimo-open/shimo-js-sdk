@@ -24,7 +24,6 @@ yarn add shimo-js-sdk
 const { connect } = require('shimo-js-sdk')
 
 connect({
-  appId: '您的 app id',
   fileId: '您系统中的 file id',
   endpoint: '石墨服务的地址',
   signature: '用您的 app id 和 secret 签发的签名',

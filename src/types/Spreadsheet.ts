@@ -1,8 +1,5 @@
-import {
-  BaseEditor,
-  EventMap as BaseEventMap,
-  MouseMovePayload
-} from './BaseEditor'
+import { MouseMovePayload } from 'shimo-js-sdk-shared'
+import { BaseEditor, EventMap as BaseEventMap } from './BaseEditor'
 
 /** 表格范围 */
 export interface Range {

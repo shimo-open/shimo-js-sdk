@@ -1,25 +1,11 @@
-import {
-  BaseEditor,
-  EventMap as BaseEventMap,
-  MouseMovePayload
-} from './BaseEditor'
+import { MouseMovePayload } from 'shimo-js-sdk-shared'
+import { BaseEditor, EventMap as BaseEventMap } from './BaseEditor'
 
-interface errorMessage {
+interface DocumentErrorMessage {
   message: string
 }
 
 export interface EventMap extends BaseEventMap {
-  /**
-   * @Deprecated
-   * 保存状态发生变更
-   */
-  saveStatusDidChange: {
-    /**
-     * @since PD2.10
-     */
-    status?: 'saving' | 'saved' | 'error'
-  }
-
   /**
    * 保存状态发生变更
    */
@@ -101,7 +87,10 @@ export interface Editor extends BaseEditor<EventMap> {
    * 创建版本
    * @since PD2.10
    */
-  createRevision: (this: Editor, options: {}) => Promise<null | errorMessage>
+  createRevision: (
+    this: Editor,
+    options: {}
+  ) => Promise<null | DocumentErrorMessage>
   /**
    * 进入演示模式
    * @since PD2.10
@@ -134,11 +123,11 @@ export interface Editor extends BaseEditor<EventMap> {
    */
   hideComments: (this: Editor, options: {}) => Promise<void>
   /**
-   * 插入第三方应用
+   * 插入第三方应用，是否可用受版本限制。
    * @since PD3.5
    */
   insertExternalApp: (
     this: Editor,
     options: { url: string }
-  ) => Promise<null | errorMessage>
+  ) => Promise<null | DocumentErrorMessage>
 }
