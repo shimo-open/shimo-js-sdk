@@ -15,7 +15,7 @@ export interface EventMap {
 export interface Editor extends BaseEditor<EventMap> {
   /**
    * 显示历史
-   * @since PD2.10
+   * @since 22.2.1
    */
   showHistory: (this: Editor, options: {}) => Promise<void>
   /** 隐藏历史 */
