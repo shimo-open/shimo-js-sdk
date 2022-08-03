@@ -95,9 +95,7 @@ export interface EventMap extends BaseEventMap {
     commentIds?: string[]
   }
   documentRecalculated: {}
-  saveStatusChanged: {
-    status?: 'saving' | 'saved' | 'error'
-  }
+
   error: {
     /** 错误信息 */
     data?: any
@@ -455,11 +453,6 @@ export interface Editor extends BaseEditor<EventMap> {
   showHistory: (this: Editor, options: {}) => Promise<void>
   /** 关闭历史版本预览 */
   hideHistory: (this: Editor, options: {}) => Promise<void>
-
-  /**
-   * 设置文档标题
-   */
-  setTitle: (title: string) => Promise<void>
 
   /**
    * 更新签名图片

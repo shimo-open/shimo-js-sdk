@@ -3,6 +3,7 @@ import * as Document from './types/Document'
 import * as Spreadsheet from './types/Spreadsheet'
 import * as Presentation from './types/Presentation'
 import * as Table from './types/Table'
+import * as Form from './types/Form'
 
 export * from 'shimo-js-sdk-shared'
 
@@ -10,4 +11,4 @@ export * from './connect'
 
 export * from './ShimoSDK'
 
-export { DocumentPro, Document, Spreadsheet, Presentation, Table }
+export { DocumentPro, Document, Spreadsheet, Presentation, Table, Form }

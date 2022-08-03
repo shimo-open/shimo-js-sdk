@@ -1,16 +1,6 @@
 import { BaseEditor } from './BaseEditor'
 
 export interface EventMap {
-  /**
-   * 保存状态发生变更
-   */
-  saveStatusDidChange: {
-    /**
-     * @since 22.2.1
-     */
-    status?: 'saving' | 'saved' | 'error'
-  }
-
   error: {
     /** 错误信息 */
     data?: unknown
@@ -32,9 +22,4 @@ export interface Editor extends BaseEditor<EventMap> {
    * 创建版本
    */
   createRevision: (this: Editor, options: {}) => Promise<void>
-
-  /**
-   * 设置文档标题
-   */
-  setTitle: (title: string) => Promise<void>
 }
