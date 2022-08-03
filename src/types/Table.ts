@@ -6,7 +6,7 @@ export interface EventMap {
    */
   saveStatusDidChange: {
     /**
-     * @since PD2.10
+     * @since 22.2.1
      */
     status?: 'saving' | 'saved' | 'error'
   }

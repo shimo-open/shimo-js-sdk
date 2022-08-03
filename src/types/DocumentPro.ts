@@ -1,8 +1,5 @@
-import {
-  BaseEditor,
-  EventMap as BaseEventMap,
-  MouseMovePayload
-} from './BaseEditor'
+import { MouseMovePayload } from 'shimo-js-sdk-shared'
+import { BaseEditor, EventMap as BaseEventMap } from './BaseEditor'
 
 /**
  * 评论
@@ -93,7 +90,7 @@ export interface EventMap extends BaseEventMap {
   commentClicked: {
     /**
      * 所有被点击的评论ID列表
-     * @since PD2.10
+     * @since 22.2.1
      */
     commentIds?: string[]
   }
@@ -132,7 +129,7 @@ export interface EventMap extends BaseEventMap {
      */
     aspectRatio: number
     /**
-     * 该签名图片的唯一 ID，用于在 updateSignature() 时指定想更新的签名组件
+     * 该签名图片的唯一 ID，用于在 `updateSignature()` 时指定想更新的签名组件
      */
     id: string
   }
@@ -144,9 +141,9 @@ export interface UpdateSignaturePayload {
    * Ref: https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs
    */
   url: string | null
-  
+
   /**
-   * 待更新的签名图片 ID，用于指定更新的签名组件，需要和 showSignatureComponent 中的一致。
+   * 待更新的签名图片 ID，用于指定更新的签名组件，需要和 `showSignatureComponent` 事件中的 `id` 一致。
    */
   id: string
 }
@@ -154,14 +151,14 @@ export interface UpdateSignaturePayload {
 export interface Editor extends BaseEditor<EventMap> {
   /**
    * 获取所有评论
-   * @since PD2.10
+   * @since 22.2.1
    */
   getComments: (
     this: Editor,
     options: {
       /**
        * 包含对应的标题信息
-       * @since PD2.10
+       * @since 22.2.1
        * @default false
        */
       includeChapterTitle?: boolean
@@ -169,21 +166,21 @@ export interface Editor extends BaseEditor<EventMap> {
   ) => Promise<{
     /**
      * 包含对应的标题信息
-     * @since PD2.10
+     * @since 22.2.1
      * @default false
      */
     includeChapterTitle?: boolean
   }>
   /**
    * 获取单条评论
-   * @since PD2.10
+   * @since 22.2.1
    */
   getComment: (
     this: Editor,
     options: {
       /**
        * 评论ID
-       * @since PD2.10
+       * @since 22.2.1
        */
       commentId: string
       /** 包含对应的标题信息 */
@@ -192,7 +189,7 @@ export interface Editor extends BaseEditor<EventMap> {
   ) => Promise<{
     /**
      * 评论ID
-     * @since PD2.10
+     * @since 22.2.1
      */
     commentId: string
     /** 包含对应的标题信息 */
@@ -200,39 +197,39 @@ export interface Editor extends BaseEditor<EventMap> {
   }>
   /**
    * 获取一个选区已存在的评论
-   * @since PD2.10
+   * @since 22.2.1
    */
   getCommentBySelection: (this: Editor, options: {}) => Promise<void>
   /**
    * 添加评论
-   * @since PD2.10
+   * @since 22.2.1
    */
   addComment: (
     this: Editor,
     options: {
       /**
        * 评论内容
-       * @since PD2.10
+       * @since 22.2.1
        */
       text: string
     }
   ) => Promise<{
     /**
      * 评论内容
-     * @since PD2.10
+     * @since 22.2.1
      */
     text: string
   }>
   /**
    * 添加回复
-   * @since PD2.10
+   * @since 22.2.1
    */
   replyComment: (
     this: Editor,
     options: {
       /**
        * 评论ID
-       * @since PD2.10
+       * @since 22.2.1
        */
       commentId: string
       /** 回复内容 */
@@ -241,7 +238,7 @@ export interface Editor extends BaseEditor<EventMap> {
   ) => Promise<{
     /**
      * 评论ID
-     * @since PD2.10
+     * @since 22.2.1
      */
     commentId: string
     /** 回复内容 */
@@ -249,42 +246,42 @@ export interface Editor extends BaseEditor<EventMap> {
   }>
   /**
    * 删除评论
-   * @since PD2.10
+   * @since 22.2.1
    */
   removeComment: (
     this: Editor,
     options: {
       /**
        * 评论ID
-       * @since PD2.10
+       * @since 22.2.1
        */
       commentId: string
     }
   ) => Promise<void>
   /**
    * 删除回复
-   * @since PD2.10
+   * @since 22.2.1
    */
   removeReply: (
     this: Editor,
     options: {
       /**
        * 回复数据的ID
-       * @since PD2.10
+       * @since 22.2.1
        */
       commentDataId: string
     }
   ) => Promise<void>
   /**
    * 更新评论或回复
-   * @since PD2.10
+   * @since 22.2.1
    */
   updateComment: (
     this: Editor,
     options: {
       /**
        * 评论数据或回复数据的ID
-       * @since PD2.10
+       * @since 22.2.1
        */
       commentDataId: string
       /** 评论内容 */
@@ -293,14 +290,14 @@ export interface Editor extends BaseEditor<EventMap> {
   ) => Promise<void>
   /**
    * 跳转到评论所在位置
-   * @since PD2.10
+   * @since 22.2.1
    */
   goToComment: (
     this: Editor,
     options: {
       /**
        * 评论ID
-       * @since PD2.10
+       * @since 22.2.1
        */
       commentId: string
       /**
@@ -317,38 +314,38 @@ export interface Editor extends BaseEditor<EventMap> {
   ) => Promise<void>
   /**
    * 获取选区文本
-   * @since PD2.10
+   * @since 22.2.1
    */
   getSelectedText: (this: Editor, options: {}) => Promise<void>
   /**
    * 跳转页面
-   * @since PD2.10
+   * @since 22.2.1
    */
   goToPage: (
     this: Editor,
     options: {
       /**
        * 页码
-       * @since PD2.10
+       * @since 22.2.1
        */
       pageNum: number
     }
   ) => Promise<void>
   /**
    * 跳到文档顶部
-   * @since PD2.10
+   * @since 22.2.1
    */
   goToTop: (this: Editor, options: {}) => Promise<void>
   /**
    * 添加页码
-   * @since PD2.10
+   * @since 22.2.1
    */
   addPageNum: (
     this: Editor,
     options: {
       /**
        * 页码的插入位置
-       * @since PD2.10
+       * @since 22.2.1
        */
       position: DocumentPos
       /**
@@ -360,19 +357,19 @@ export interface Editor extends BaseEditor<EventMap> {
   ) => Promise<void>
   /**
    * 删除所有页码
-   * @since PD2.10
+   * @since 22.2.1
    */
   removeAllPageNums: (this: Editor, options: {}) => Promise<void>
   /**
    * 显示文档结构
-   * @since PD2.10
+   * @since 22.2.1
    */
   showToc: (
     this: Editor,
     options: {
       /**
        * 禁用文档结构图的默认缓存
-       * @since PD2.10
+       * @since 22.2.1
        * @default true
        */
       shouldDisableCache?: boolean
@@ -380,33 +377,33 @@ export interface Editor extends BaseEditor<EventMap> {
   ) => Promise<void>
   /**
    * 隐藏文档结构图
-   * @since PD2.10
+   * @since 22.2.1
    */
   hideToc: (this: Editor, options: {}) => Promise<void>
   /**
    * 文档缩放
-   * @since PD2.10
+   * @since 22.2.1
    */
   zoom: (
     this: Editor,
     options: {
       /**
        * 缩放百分比
-       * @since PD2.10
+       * @since 22.2.1
        */
       percent: number
     }
   ) => Promise<void>
   /**
    * 设置加粗
-   * @since PD2.10
+   * @since 22.2.1
    */
   setBold: (
     this: Editor,
     options: {
       /**
        * 是否加粗
-       * @since PD2.10
+       * @since 22.2.1
        * @default false
        */
       isBold?: boolean
@@ -414,14 +411,14 @@ export interface Editor extends BaseEditor<EventMap> {
   ) => Promise<void>
   /**
    * 设置斜体
-   * @since PD2.10
+   * @since 22.2.1
    */
   setItalic: (
     this: Editor,
     options: {
       /**
        * 是否斜体
-       * @since PD2.10
+       * @since 22.2.1
        * @default false
        */
       isItalic?: boolean
@@ -429,21 +426,21 @@ export interface Editor extends BaseEditor<EventMap> {
   ) => Promise<void>
   /**
    * 打印
-   * @since PD2.10
+   * @since 22.2.1
    */
   print: (
     this: Editor,
     options: {
       /**
        * 页码列表
-       * @since PD2.10
+       * @since 22.2.1
        */
       pageNums: number[]
     }
   ) => Promise<void>
   /**
    * 打印所有页面
-   * @since PD2.10
+   * @since 22.2.1
    */
   printAll: (this: Editor, options: {}) => Promise<void>
   /** 创建版本 */

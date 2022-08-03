@@ -1,8 +1,5 @@
-import {
-  BaseEditor,
-  EventMap as BaseEventMap,
-  MouseMovePayload
-} from './BaseEditor'
+import { MouseMovePayload } from 'shimo-js-sdk-shared'
+import { BaseEditor, EventMap as BaseEventMap } from './BaseEditor'
 
 /** 表格范围 */
 export interface Range {
@@ -63,7 +60,7 @@ export type CellValue = string | number | boolean | null
 export interface Editor extends BaseEditor<EventMap> {
   /**
    * 展示评论侧边栏
-   * @since PD2.10
+   * @since 22.2.1
    */
   showComments: (this: Editor, options: {}) => Promise<void>
   /** 关闭评论侧边栏 */
