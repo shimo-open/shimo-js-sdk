@@ -271,7 +271,7 @@ export default class ShimoSDK extends TinyEmitter {
     }
 
     const url = new URL(options.endpoint)
-    url.pathname = `${url.pathname}/shimo-files/${assert<string>(
+    url.pathname = `${url.pathname}/collab-files/${assert<string>(
       options.fileId,
       notEmptyString,
       `"fileId" is missing or empty`
