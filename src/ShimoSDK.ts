@@ -22,11 +22,21 @@ import {
   ReadyState,
   PerformanceEntry,
   ReadyStateEventPayload,
-  DeviceMode
+  DeviceMode,
+  GenerateUrlHandler,
+  GenerateUrlInfo
 } from 'shimo-js-sdk-shared'
 
-import { Document, DocumentPro, Presentation, Spreadsheet, Table } from '.'
+import {
+  Document,
+  DocumentPro,
+  Presentation,
+  Spreadsheet,
+  Table,
+  Form
+} from '.'
 import { assert } from './assert'
+import { BaseEditor } from './types/BaseEditor'
 
 const globalThis = getGlobal()
 const AUD = 'smjssdk'
@@ -44,28 +54,39 @@ export default class ShimoSDK extends TinyEmitter {
 
   /**
    * 传统文档编辑器实例
+   * @deprecated - 用 `sdk.getEditor<T>()` 替代
    */
   documentPro?: DocumentPro.Editor
 
   /**
    * 轻文档编辑器实例
+   * @deprecated - 用 `sdk.getEditor<T>()` 替代
    */
   document?: Document.Editor
 
   /**
    * 表格编辑器实例
+   * @deprecated - 用 `sdk.getEditor<T>()` 替代
    */
   spreadsheet?: Spreadsheet.Editor
 
   /**
    * 专业幻灯片编辑器实例
+   * @deprecated - 用 `sdk.getEditor<T>()` 替代
    */
   presentation?: Presentation.Editor
 
   /**
    * 应用表格编辑器实例
+   * @deprecated - 用 `sdk.getEditor<T>()` 替代
    */
   table?: Table.Editor
+
+  /**
+   * 表单编辑器实例
+   * @deprecated - 用 `sdk.getEditor<T>()` 替代
+   */
+  form?: Form.Editor
 
   private readonly _fileType: FileType = FileType.Unknown
   private readonly messageHandler: (evt: globalThis.MessageEvent) => void
@@ -142,17 +163,29 @@ export default class ShimoSDK extends TinyEmitter {
 
   getEditor<
     T extends
+      | BaseEditor
       | Document.Editor
       | DocumentPro.Editor
       | Presentation.Editor
       | Spreadsheet.Editor
-      | Table.Editor
+      | Form.Editor
+      | Table.Editor = BaseEditor
   >(): T {
     return this.editor as T
   }
 
   /**
+   * 更新鉴权 signature 和 token
+   */
+  async setCredentials(payload: { signature: string; token: string }) {
+    await this.channel.invoke(InvokeMethod.SetCredentials, [payload], {
+      audience: AUD
+    })
+  }
+
+  /**
    * 设置石墨的鉴权 signature。用于实时更新鉴权信息，优化用户出现因长时间放置，鉴权失败而引起的体验问题。
+   * @deprecated - 用 `sdk.setCredentials()` 替代
    */
   async setSignature(signature: string) {
     await this.channel.invoke(InvokeMethod.SetCredentials, [{ signature }], {
@@ -162,6 +195,7 @@ export default class ShimoSDK extends TinyEmitter {
 
   /**
    * 设置您系统的鉴权 token。用于实时更新鉴权信息，优化用户出现因长时间放置，鉴权失败而引起的体验问题。
+   * @deprecated - 用 `sdk.setCredentials()` 替代
    */
   async setToken(token: string) {
     await this.channel.invoke(InvokeMethod.SetCredentials, [{ token }], {
@@ -250,6 +284,8 @@ export default class ShimoSDK extends TinyEmitter {
       case FileType.Table:
         this.table = this.editor as Table.Editor
         break
+      case FileType.Form:
+        this.form = this.editor as Form.Editor
     }
   }
 
@@ -433,11 +469,13 @@ export default class ShimoSDK extends TinyEmitter {
 
     channel.addInvokeHandler(
       ContainerMethod.GenerateUrl,
-      async (fileId: string) => {
+      async (fileId: string, info?: GenerateUrlInfo) => {
         if (typeof this.connectOptions.generateUrl !== 'function') {
           throw new Error(`"${ContainerMethod.GenerateUrl}" not found`)
         }
-        return await this.connectOptions.generateUrl(fileId)
+        return await Promise.resolve(
+          this.connectOptions.generateUrl(fileId, info)
+        )
       },
       { audience: AUD }
     )
@@ -529,14 +567,6 @@ export default class ShimoSDK extends TinyEmitter {
         })
       },
 
-      once: async (event: string, callback: EventCallback) => {
-        this.emitter.once(event, callback)
-
-        await this.channel.invoke(InvokeMethod.ListenEditorEvent, [event], {
-          audience: AUD
-        })
-      },
-
       off: (event: string, callback: EventCallback) => {
         this.emitter.off(event, callback)
       }
@@ -599,12 +629,7 @@ export interface ContainerMethods {
   /**
    * 生成插入到石墨文档中的链接，用于处理 @ 文件等功能需要插入的链接
    */
-  [ContainerMethod.GenerateUrl]?: (
-    /**
-     * 文档相关联的 file ID
-     */
-    fileId: string
-  ) => string | Promise<string>
+  [ContainerMethod.GenerateUrl]?: GenerateUrlHandler
 
   /**
    * 用于移动端处理 @ 点击事件

@@ -7,24 +7,9 @@ interface DocumentErrorMessage {
 
 export interface EventMap extends BaseEventMap {
   /**
-   * 保存状态发生变更
-   */
-  saveStatusChanged: {
-    /**
-     * @since 22.6.1
-     */
-    status?: 'saving' | 'saved' | 'error'
-  }
-
-  /**
    * 标题发生变更
    */
-  titleChange: {
-    /**
-     * 新的标题
-     */
-    title: string
-  }
+  titleChange: string
 
   /**
    * 鼠标移动事件
@@ -106,11 +91,6 @@ export interface Editor extends BaseEditor<EventMap> {
    * @since 22.2.1
    */
   print: (this: Editor, options: {}) => Promise<void>
-
-  /**
-   * 设置文档标题
-   */
-  setTitle: (title: string) => Promise<void>
 
   /**
    * 显示评论侧边栏

@@ -28,9 +28,6 @@ export interface DepartmentPermission {
 }
 
 export interface EventMap extends BaseEventMap {
-  saveStatusChanged: {
-    status?: 'saving' | 'saved' | 'error'
-  }
   error: {
     /** 错误信息 */
     data?: any
@@ -213,11 +210,6 @@ export interface Editor extends BaseEditor<EventMap> {
    * 指定工作表是否可见，不传值为当前工作表
    */
   isSheetVisible: (options?: { sheetId?: string }) => Promise<boolean>
-
-  /**
-   * 设置表格标题，仅用于 UI 展示数据，不触发保存操作
-   */
-  setTitle: (title: string) => Promise<void>
 }
 
 /**
