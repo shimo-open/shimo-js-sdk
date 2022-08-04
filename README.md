@@ -169,8 +169,8 @@ const shimoSDK = await connect({
       return `https://your-domain/files/${fileId}/fill-form`
     }
 
-    if (info?.sharingType) {
-      return `https://your-domain/files/${fileId} ${info.sharingType}`
+    if (info?.sharingText) {
+      return `https://your-domain/files/${fileId} ${info.sharingText}`
     }
 
     return `https://your-domain/files/${fileId}`
