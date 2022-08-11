@@ -191,7 +191,7 @@ export interface Editor extends BaseEditor<EventMap> {
    * 获取一个选区已存在的评论
    * @since 22.2.1
    */
-  getCommentBySelection: () => Promise<void>
+  getCommentBySelection: (options?: {}) => Promise<void>
   /**
    * 添加评论
    * @since 22.2.1
@@ -290,7 +290,7 @@ export interface Editor extends BaseEditor<EventMap> {
    * 获取选区文本
    * @since 22.2.1
    */
-  getSelectedText: () => Promise<void>
+  getSelectedText: (options?: {}) => Promise<void>
   /**
    * 跳转页面
    * @since 22.2.1
@@ -306,7 +306,7 @@ export interface Editor extends BaseEditor<EventMap> {
    * 跳到文档顶部
    * @since 22.2.1
    */
-  goToTop: () => Promise<void>
+  goToTop: (options?: {}) => Promise<void>
   /**
    * 添加页码
    * @since 22.2.1
