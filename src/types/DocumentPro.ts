@@ -151,17 +151,14 @@ export interface Editor extends BaseEditor<EventMap> {
    * 获取所有评论
    * @since 22.2.1
    */
-  getComments: (
-    this: Editor,
-    options: {
-      /**
-       * 包含对应的标题信息
-       * @since 22.2.1
-       * @default false
-       */
-      includeChapterTitle?: boolean
-    }
-  ) => Promise<{
+  getComments: (options: {
+    /**
+     * 包含对应的标题信息
+     * @since 22.2.1
+     * @default false
+     */
+    includeChapterTitle?: boolean
+  }) => Promise<{
     /**
      * 包含对应的标题信息
      * @since 22.2.1
@@ -173,18 +170,15 @@ export interface Editor extends BaseEditor<EventMap> {
    * 获取单条评论
    * @since 22.2.1
    */
-  getComment: (
-    this: Editor,
-    options: {
-      /**
-       * 评论ID
-       * @since 22.2.1
-       */
-      commentId: string
-      /** 包含对应的标题信息 */
-      includeChapterTitle?: boolean
-    }
-  ) => Promise<{
+  getComment: (options: {
+    /**
+     * 评论ID
+     * @since 22.2.1
+     */
+    commentId: string
+    /** 包含对应的标题信息 */
+    includeChapterTitle?: boolean
+  }) => Promise<{
     /**
      * 评论ID
      * @since 22.2.1
@@ -197,21 +191,18 @@ export interface Editor extends BaseEditor<EventMap> {
    * 获取一个选区已存在的评论
    * @since 22.2.1
    */
-  getCommentBySelection: (this: Editor, options: {}) => Promise<void>
+  getCommentBySelection: (options?: {}) => Promise<void>
   /**
    * 添加评论
    * @since 22.2.1
    */
-  addComment: (
-    this: Editor,
-    options: {
-      /**
-       * 评论内容
-       * @since 22.2.1
-       */
-      text: string
-    }
-  ) => Promise<{
+  addComment: (options: {
+    /**
+     * 评论内容
+     * @since 22.2.1
+     */
+    text: string
+  }) => Promise<{
     /**
      * 评论内容
      * @since 22.2.1
@@ -222,18 +213,15 @@ export interface Editor extends BaseEditor<EventMap> {
    * 添加回复
    * @since 22.2.1
    */
-  replyComment: (
-    this: Editor,
-    options: {
-      /**
-       * 评论ID
-       * @since 22.2.1
-       */
-      commentId: string
-      /** 回复内容 */
-      text: string
-    }
-  ) => Promise<{
+  replyComment: (options: {
+    /**
+     * 评论ID
+     * @since 22.2.1
+     */
+    commentId: string
+    /** 回复内容 */
+    text: string
+  }) => Promise<{
     /**
      * 评论ID
      * @since 22.2.1
@@ -246,118 +234,100 @@ export interface Editor extends BaseEditor<EventMap> {
    * 删除评论
    * @since 22.2.1
    */
-  removeComment: (
-    this: Editor,
-    options: {
-      /**
-       * 评论ID
-       * @since 22.2.1
-       */
-      commentId: string
-    }
-  ) => Promise<void>
+  removeComment: (options: {
+    /**
+     * 评论ID
+     * @since 22.2.1
+     */
+    commentId: string
+  }) => Promise<void>
   /**
    * 删除回复
    * @since 22.2.1
    */
-  removeReply: (
-    this: Editor,
-    options: {
-      /**
-       * 回复数据的ID
-       * @since 22.2.1
-       */
-      commentDataId: string
-    }
-  ) => Promise<void>
+  removeReply: (options: {
+    /**
+     * 回复数据的ID
+     * @since 22.2.1
+     */
+    commentDataId: string
+  }) => Promise<void>
   /**
    * 更新评论或回复
    * @since 22.2.1
    */
-  updateComment: (
-    this: Editor,
-    options: {
-      /**
-       * 评论数据或回复数据的ID
-       * @since 22.2.1
-       */
-      commentDataId: string
-      /** 评论内容 */
-      text: string
-    }
-  ) => Promise<void>
+  updateComment: (options: {
+    /**
+     * 评论数据或回复数据的ID
+     * @since 22.2.1
+     */
+    commentDataId: string
+    /** 评论内容 */
+    text: string
+  }) => Promise<void>
   /**
    * 跳转到评论所在位置
    * @since 22.2.1
    */
-  goToComment: (
-    this: Editor,
-    options: {
-      /**
-       * 评论ID
-       * @since 22.2.1
-       */
-      commentId: string
-      /**
-       * 是否滚动到评论所在位置
-       * @default true
-       */
-      shouldScrollToComment?: boolean
-      /**
-       * 是否需要选中评论正文
-       * @default false
-       */
-      shouldSelectComment?: boolean
-    }
-  ) => Promise<void>
+  goToComment: (options: {
+    /**
+     * 评论ID
+     * @since 22.2.1
+     */
+    commentId: string
+    /**
+     * 是否滚动到评论所在位置
+     * @default true
+     */
+    shouldScrollToComment?: boolean
+    /**
+     * 是否需要选中评论正文
+     * @default false
+     */
+    shouldSelectComment?: boolean
+  }) => Promise<void>
   /**
    * 获取选区文本
    * @since 22.2.1
    */
-  getSelectedText: (this: Editor, options: {}) => Promise<void>
+  getSelectedText: (options?: {}) => Promise<void>
   /**
    * 跳转页面
    * @since 22.2.1
    */
-  goToPage: (
-    this: Editor,
-    options: {
-      /**
-       * 页码
-       * @since 22.2.1
-       */
-      pageNum: number
-    }
-  ) => Promise<void>
+  goToPage: (options: {
+    /**
+     * 页码
+     * @since 22.2.1
+     */
+    pageNum: number
+  }) => Promise<void>
   /**
    * 跳到文档顶部
    * @since 22.2.1
    */
-  goToTop: (this: Editor, options: {}) => Promise<void>
+  goToTop: (options?: {}) => Promise<void>
   /**
    * 添加页码
    * @since 22.2.1
    */
-  addPageNum: (
-    this: Editor,
-    options: {
-      /**
-       * 页码的插入位置
-       * @since 22.2.1
-       */
-      position: DocumentPos
-      /**
-       * 页码的对齐方式
-       * @default 1
-       */
-      alignment?: HorizontalAlignment
-    }
-  ) => Promise<void>
+  addPageNum: (options: {
+    /**
+     * 页码的插入位置
+     * @since 22.2.1
+     */
+    position: DocumentPos
+    /**
+     * 页码的对齐方式
+     * @default 1
+     */
+    alignment?: HorizontalAlignment
+  }) => Promise<void>
   /**
    * 删除所有页码
    * @since 22.2.1
    */
-  removeAllPageNums: (this: Editor, options: {}) => Promise<void>
+  removeAllPageNums: (options?: {}) => Promise<void>
   /**
    * 显示文档结构
    * @since 22.2.1
@@ -377,7 +347,7 @@ export interface Editor extends BaseEditor<EventMap> {
    * 隐藏文档结构图
    * @since 22.2.1
    */
-  hideToc: (this: Editor, options: {}) => Promise<void>
+  hideToc: (options?: {}) => Promise<void>
   /**
    * 文档缩放
    * @since 22.2.1
@@ -411,48 +381,30 @@ export interface Editor extends BaseEditor<EventMap> {
    * 设置斜体
    * @since 22.2.1
    */
-  setItalic: (
-    this: Editor,
-    options: {
-      /**
-       * 是否斜体
-       * @since 22.2.1
-       * @default false
-       */
-      isItalic?: boolean
-    }
-  ) => Promise<void>
+  setItalic: (options: { isItalic?: boolean }) => Promise<void>
   /**
    * 打印
    * @since 22.2.1
    */
-  print: (
-    this: Editor,
-    options: {
-      /**
-       * 页码列表
-       * @since 22.2.1
-       */
-      pageNums: number[]
-    }
-  ) => Promise<void>
+  print: (options: {
+    /**
+     * 页码列表
+     */
+    pageNums: number[]
+  }) => Promise<void>
   /**
    * 打印所有页面
    * @since 22.2.1
    */
-  printAll: (this: Editor, options: {}) => Promise<void>
-  /** 创建版本 */
-  createRevision: (
-    this: Editor,
-    options: {
-      /** 版本名 */
-      name: string
-    }
-  ) => Promise<void>
+  printAll: (options?: {}) => Promise<void>
+  /**
+   * 创建版本
+   */
+  createRevision: (options?: { name: string }) => Promise<void>
   /** 预览历史版本 */
-  showHistory: (this: Editor, options: {}) => Promise<void>
+  showHistory: (options?: {}) => Promise<void>
   /** 关闭历史版本预览 */
-  hideHistory: (this: Editor, options: {}) => Promise<void>
+  hideHistory: (options?: {}) => Promise<void>
 
   /**
    * 更新签名图片

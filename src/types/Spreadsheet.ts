@@ -59,101 +59,89 @@ export interface Editor extends BaseEditor<EventMap> {
    * 展示评论侧边栏
    * @since 22.2.1
    */
-  showComments: (this: Editor, options: {}) => Promise<void>
+  showComments: (options?: {}) => Promise<void>
   /** 关闭评论侧边栏 */
-  hideComments: (this: Editor, options: {}) => Promise<void>
+  hideComments: (options?: {}) => Promise<void>
   /** 展示历史侧边栏 */
-  showHistory: (this: Editor, options: {}) => Promise<void>
+  showHistory: (options?: {}) => Promise<void>
   /** 关闭历史侧边栏 */
-  hideHistory: (this: Editor, options: {}) => Promise<void>
+  hideHistory: (options?: {}) => Promise<void>
   /** 展示锁定侧边栏 */
-  showLocks: (this: Editor, options: {}) => Promise<void>
+  showLocks: (options?: {}) => Promise<void>
   /** 关闭锁定侧边栏 */
-  hideLocks: (this: Editor, options: {}) => Promise<void>
+  hideLocks: (options?: {}) => Promise<void>
   /** 创建版本 */
-  createRevision: (this: Editor, options: {}) => Promise<void>
+  createRevision: (options?: {}) => Promise<void>
   /** 进入演示模式 */
-  startDemonstration: (this: Editor, options: {}) => Promise<void>
+  startDemonstration: (options?: {}) => Promise<void>
   /** 离开演示模式 */
-  endDemonstration: (this: Editor, options: {}) => Promise<void>
+  endDemonstration: (options?: {}) => Promise<void>
   /** 打印 */
-  print: (this: Editor, options: {}) => Promise<void>
+  print: (options?: {}) => Promise<void>
   /** 创建单元格锁定 */
-  addRangeLock: (
-    this: Editor,
-    options: {
-      /** 用户id对应的权限 */
-      userPermissions: UserPermission
-      /**
-       * 单元格范围
-       * @default 默认当前选中区域范围
-       */
-      ranges?: Range[]
-      /**
-       * 工作表id
-       * @default 默认当前工作表id
-       */
-      sheetId?: string
-      /** 对该锁定的描述 */
-      description?: string
-      /** 部门id对应的权限 */
-      departmentPermissions?: DepartmentPermission
-      /**
-       * 其他访问者的权限
-       * @default 1
-       */
-      visitorPermission?: PermissionLevel
-    }
-  ) => Promise<void>
+  addRangeLock: (options: {
+    /** 用户id对应的权限 */
+    userPermissions: UserPermission
+    /**
+     * 单元格范围
+     * @default 默认当前选中区域范围
+     */
+    ranges?: Range[]
+    /**
+     * 工作表id
+     * @default 默认当前工作表id
+     */
+    sheetId?: string
+    /** 对该锁定的描述 */
+    description?: string
+    /** 部门id对应的权限 */
+    departmentPermissions?: DepartmentPermission
+    /**
+     * 其他访问者的权限
+     * @default 1
+     */
+    visitorPermission?: PermissionLevel
+  }) => Promise<void>
   /** 创建工作表锁定 */
-  addSheetLock: (
-    this: Editor,
-    options: {
-      /** 用户id对应的权限 */
-      userPermissions: UserPermission
-      /**
-       * 工作表id
-       * @default 默认当前工作表id
-       */
-      sheetId?: string
-      /** 对该锁定的描述 */
-      description?: string
-      /** 部门id对应的权限 */
-      departmentPermissions?: DepartmentPermission
-      /**
-       * 其他访问者的权限
-       * @default 1
-       */
-      visitorPermission?: PermissionLevel
-    }
-  ) => Promise<void>
+  addSheetLock: (options: {
+    /** 用户id对应的权限 */
+    userPermissions: UserPermission
+    /**
+     * 工作表id
+     * @default 默认当前工作表id
+     */
+    sheetId?: string
+    /** 对该锁定的描述 */
+    description?: string
+    /** 部门id对应的权限 */
+    departmentPermissions?: DepartmentPermission
+    /**
+     * 其他访问者的权限
+     * @default 1
+     */
+    visitorPermission?: PermissionLevel
+  }) => Promise<void>
   /** 删除指定范围内的所有单元格锁定 */
-  removeRangeLocksInRanges: (
-    this: Editor,
-    options: {
-      /**
-       * 工作表id
-       * @default 默认当前工作表id
-       */
-      sheetId?: string
-      /**
-       * 单元格范围
-       * @default 默认当前选中区域范围
-       */
-      ranges?: Range[]
-    }
-  ) => Promise<void>
+  removeRangeLocksInRanges: (options: {
+    /**
+     * 工作表id
+     * @default 默认当前工作表id
+     */
+    sheetId?: string
+    /**
+     * 单元格范围
+     * @default 默认当前选中区域范围
+     */
+    ranges?: Range[]
+  }) => Promise<void>
   /** 删除工作表锁定 */
-  removeSheetLock: (
-    this: Editor,
-    options: {
-      /**
-       * 工作表id
-       * @default 默认当前工作表id
-       */
-      sheetId?: string
-    }
-  ) => Promise<void>
+  removeSheetLock: (options: {
+    /**
+     * 工作表id
+     * @default 默认当前工作表id
+     */
+    sheetId?: string
+  }) => Promise<void>
 
   /** 获取当前激活sheet的id */
   getActiveSheetId: () => Promise<string>
