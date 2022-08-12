@@ -1,3 +1,9 @@
+import {
+  APIAdaptor,
+  RequestContext,
+  RequestOptions,
+  RequestContextType
+} from 'shimo-js-sdk-shared'
 import * as DocumentPro from './types/DocumentPro'
 import * as Document from './types/Document'
 import * as Spreadsheet from './types/Spreadsheet'
@@ -8,4 +14,14 @@ export * from './connect'
 
 export * from './types/ShimoSDK'
 
-export { DocumentPro, Document, Spreadsheet, Presentation, Table }
+export {
+  DocumentPro,
+  Document,
+  Spreadsheet,
+  Presentation,
+  Table,
+  APIAdaptor,
+  RequestContext,
+  RequestOptions,
+  RequestContextType
+}

@@ -7,6 +7,7 @@ import { TinyEmitter } from 'tiny-emitter'
 import forIn from 'lodash.forin'
 import { v4 as uuid } from 'uuid'
 import Base62Str from 'base62str'
+import { APIAdaptor, RequestContext } from 'shimo-js-sdk-shared'
 import {
   Message,
   ShimoSDK,
@@ -192,6 +193,16 @@ export interface ConnectOptions {
    * 是否显示内置的加载动画，只影响静态资源加载到编辑器渲染这个阶段，不影响编辑器渲染时的加载动画
    */
   showLoadingEffect?: boolean
+
+  /**
+   * 用于在编辑器发起 API 请求时，对请求参数进行修改的函数。详细用法见文档。
+   */
+  apiAdaptor?: APIAdaptor
+
+  /**
+   * 用于在编辑器发起 API 请求时，对请求参数进行修改的函数时传入的上下文数据。
+   */
+  apiAdaptorContext?: RequestContext
 }
 
 function notEmptyString(input?: string): boolean {
@@ -360,12 +371,22 @@ export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
       })
     }
 
+    const apiAdaptor = options.apiAdaptor
+      ? options.apiAdaptor.toString()
+      : undefined
+    const apiAdaptorContext = options.apiAdaptorContext
+      ? JSON.stringify(options.apiAdaptorContext)
+      : undefined
+
     // 传递初始化参数进 iframe
     ee.once(Event.SDKInit, () => {
       const opts = clone({
         ...options,
         uuid: iframeUUID
       }) as Record<string, unknown>
+
+      opts.apiAdaptor = apiAdaptor ? apiAdaptor.trim() : ''
+      opts.apiAdaptorContext = apiAdaptorContext ? apiAdaptorContext.trim() : ''
 
       forIn(options, (v, k) => {
         // 函数用 boolean 标记有设置值
