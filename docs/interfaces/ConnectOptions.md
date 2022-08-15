@@ -7,16 +7,20 @@
 ### Properties
 
 - [allowPolicy](ConnectOptions.md#allowpolicy)
+- [apiAdaptor](ConnectOptions.md#apiadaptor)
+- [apiAdaptorContext](ConnectOptions.md#apiadaptorcontext)
 - [appId](ConnectOptions.md#appid)
 - [container](ConnectOptions.md#container)
 - [debug](ConnectOptions.md#debug)
 - [deviceMode](ConnectOptions.md#devicemode)
 - [disableMentionCards](ConnectOptions.md#disablementioncards)
+- [disableSignatureComponent](ConnectOptions.md#disablesignaturecomponent)
 - [endpoint](ConnectOptions.md#endpoint)
 - [fileId](ConnectOptions.md#fileid)
 - [lang](ConnectOptions.md#lang)
 - [params](ConnectOptions.md#params)
 - [plugins](ConnectOptions.md#plugins)
+- [showLoadingEffect](ConnectOptions.md#showloadingeffect)
 - [signature](ConnectOptions.md#signature)
 - [smParams](ConnectOptions.md#smparams)
 - [token](ConnectOptions.md#token)
@@ -40,7 +44,31 @@
 
 #### Defined in
 
-[src/connect.ts:154](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/connect.ts#L154)
+[src/connect.ts:155](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L155)
+
+___
+
+### apiAdaptor
+
+• `Optional` **apiAdaptor**: [`APIAdaptor`](../modules.md#apiadaptor)
+
+用于在编辑器发起 API 请求时，对请求参数进行修改的函数。详细用法见文档。
+
+#### Defined in
+
+[src/connect.ts:200](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L200)
+
+___
+
+### apiAdaptorContext
+
+• `Optional` **apiAdaptorContext**: [`RequestContext`](RequestContext.md)
+
+用于在编辑器发起 API 请求时，对请求参数进行修改的函数时传入的上下文数据。
+
+#### Defined in
+
+[src/connect.ts:205](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L205)
 
 ___
 
@@ -52,7 +80,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:41](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/connect.ts#L41)
+[src/connect.ts:42](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L42)
 
 ___
 
@@ -64,7 +92,7 @@ iframe 挂载的目标容器
 
 #### Defined in
 
-[src/connect.ts:67](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/connect.ts#L67)
+[src/connect.ts:68](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L68)
 
 ___
 
@@ -76,7 +104,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:159](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/connect.ts#L159)
+[src/connect.ts:160](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L160)
 
 ___
 
@@ -90,7 +118,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:184](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/connect.ts#L184)
+[src/connect.ts:185](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L185)
 
 ___
 
@@ -110,7 +138,19 @@ ___
 
 #### Defined in
 
-[src/connect.ts:128](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/connect.ts#L128)
+[src/connect.ts:129](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L129)
+
+___
+
+### disableSignatureComponent
+
+• `Optional` **disableSignatureComponent**: `boolean`
+
+是否禁用默认的签名组件，以支持自定义签名组件。受版本限制，部分版本的特定类型文档才支持。
+
+#### Defined in
+
+[src/connect.ts:190](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L190)
 
 ___
 
@@ -122,7 +162,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:46](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/connect.ts#L46)
+[src/connect.ts:47](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L47)
 
 ___
 
@@ -134,7 +174,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:51](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/connect.ts#L51)
+[src/connect.ts:52](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L52)
 
 ___
 
@@ -152,7 +192,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:98](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/connect.ts#L98)
+[src/connect.ts:99](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L99)
 
 ___
 
@@ -168,7 +208,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:77](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/connect.ts#L77)
+[src/connect.ts:78](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L78)
 
 ___
 
@@ -180,7 +220,19 @@ ___
 
 #### Defined in
 
-[src/connect.ts:164](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/connect.ts#L164)
+[src/connect.ts:165](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L165)
+
+___
+
+### showLoadingEffect
+
+• `Optional` **showLoadingEffect**: `boolean`
+
+是否显示内置的加载动画，只影响静态资源加载到编辑器渲染这个阶段，不影响编辑器渲染时的加载动画
+
+#### Defined in
+
+[src/connect.ts:195](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L195)
 
 ___
 
@@ -192,7 +244,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:62](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/connect.ts#L62)
+[src/connect.ts:63](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L63)
 
 ___
 
@@ -204,7 +256,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:84](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/connect.ts#L84)
+[src/connect.ts:85](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L85)
 
 ___
 
@@ -216,7 +268,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:72](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/connect.ts#L72)
+[src/connect.ts:73](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L73)
 
 ## Methods
 
@@ -238,7 +290,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:103](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/connect.ts#L103)
+[src/connect.ts:104](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L104)
 
 ___
 
@@ -260,7 +312,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:169](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/connect.ts#L169)
+[src/connect.ts:170](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L170)
 
 ___
 
@@ -278,7 +330,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:57](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/connect.ts#L57)
+[src/connect.ts:58](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L58)
 
 ___
 
@@ -300,7 +352,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:148](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/connect.ts#L148)
+[src/connect.ts:149](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L149)
 
 ___
 
@@ -323,4 +375,4 @@ ___
 
 #### Defined in
 
-[src/connect.ts:113](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/connect.ts#L113)
+[src/connect.ts:114](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L114)

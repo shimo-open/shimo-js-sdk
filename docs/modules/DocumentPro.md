@@ -10,6 +10,7 @@
 - [CommentData](../interfaces/DocumentPro.CommentData.md)
 - [Editor](../interfaces/DocumentPro.Editor.md)
 - [EventMap](../interfaces/DocumentPro.EventMap.md)
+- [UpdateSignaturePayload](../interfaces/DocumentPro.UpdateSignaturePayload.md)
 
 ### Type aliases
 
@@ -30,7 +31,7 @@
 
 #### Defined in
 
-[src/types/DocumentPro.ts:73](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L73)
+[src/types/DocumentPro.ts:73](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/DocumentPro.ts#L73)
 
 ___
 
@@ -42,7 +43,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:84](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L84)
+[src/types/DocumentPro.ts:84](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/DocumentPro.ts#L84)
 
 ___
 
@@ -57,4 +58,4 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:81](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L81)
+[src/types/DocumentPro.ts:81](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/DocumentPro.ts#L81)

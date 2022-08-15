@@ -281,3 +281,51 @@ connect({
   smParams: paramsList
 })
 ```
+
+#### 修改编辑器 API 请求参数
+
+> 修改 API 请求有可能破坏接口行为，进而影响功能，请谨慎使用。
+
+需要修改编辑器 API 请求参数时，可使用 `ConnectOptions.apiAdaptor` 。APIAdaptor 有以下限制：
+
+- 请不要修改 `body`
+- 需要可以被 `toString()` 且可以 `new Function()` 的方式调用
+- 由于 Web Worker 的特性
+  - `apiApadator` 尽量使用标准的、目标浏览器内置的语法、方法
+  - 如果需要传递一些变量，可以使用 `ConnectOptions.apiAdaptorContext`，此对象需要可以被 `JSON.stringify()` 处理
+    - 请尽量使用 `boolean | number | string` 类型的数据，否则有可能无法通过 `postMessage` 和 `JSON.stringify()` 的处理
+- `url` 不一定带有 protocol、hostname 信息，比如 `/sdk/v2/users/me`，请注意
+- `header`、`query` 中原有的数据请尽量保留、不修改
+
+```typescript
+connect({
+  apiAdaptor(options: RequestOptions, context?: RequestContext) {
+    // 修改 URL host
+    if (options.url.includes('some_pattern')) {
+      const url = new URL(options.url, context.host)
+      url.host = context.host
+      url.protocol = context.protocol
+      options.url = url.toString()
+    }
+
+    options.headers = {
+      // 保留原 header
+      ...options.headers,
+      // 复制 context header
+      ...context.headers
+    }
+
+    // options.query 修改参考 headers
+
+    return options
+  },
+
+  apiAdaptorContext: {
+    host: 'new-host.com',
+    protocol: 'https',
+    header: {
+      'x-my-var': 'my-value'
+    }
+  }
+})
+```

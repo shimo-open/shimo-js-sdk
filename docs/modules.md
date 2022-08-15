@@ -28,16 +28,47 @@
 - [ConnectOptions](interfaces/ConnectOptions.md)
 - [Message](interfaces/Message.md)
 - [PerformanceEntry](interfaces/PerformanceEntry.md)
+- [RequestContext](interfaces/RequestContext.md)
+- [RequestOptions](interfaces/RequestOptions.md)
 
 ### Type aliases
 
+- [APIAdaptor](modules.md#apiadaptor)
 - [EventCallback](modules.md#eventcallback)
+- [RequestContextType](modules.md#requestcontexttype)
 
 ### Functions
 
 - [connect](modules.md#connect)
 
 ## Type aliases
+
+### APIAdaptor
+
+Ƭ **APIAdaptor**: (`requestOptions`: [`RequestOptions`](interfaces/RequestOptions.md), `context?`: [`RequestContext`](interfaces/RequestContext.md)) => [`RequestOptions`](interfaces/RequestOptions.md)
+
+#### Type declaration
+
+▸ (`requestOptions`, `context?`): [`RequestOptions`](interfaces/RequestOptions.md)
+
+发出 XHR 请求前，会调用这个函数对请求参数进行处理，并以最终结果发起请求。因为会被 toString() 后 eval()，因此需要确保函数体内无外部依赖。
+
+##### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `requestOptions` | [`RequestOptions`](interfaces/RequestOptions.md) | 请求参数 |
+| `context?` | [`RequestContext`](interfaces/RequestContext.md) | 用于传递上下文信息的对象 |
+
+##### Returns
+
+[`RequestOptions`](interfaces/RequestOptions.md)
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/APIAdaptor.d.ts:7
+
+___
 
 ### EventCallback
 
@@ -61,7 +92,19 @@
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:146](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/ShimoSDK.ts#L146)
+[src/types/ShimoSDK.ts:146](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/ShimoSDK.ts#L146)
+
+___
+
+### RequestContextType
+
+Ƭ **RequestContextType**: `boolean` \| `number` \| `string`
+
+APIAdaptor 上下文允许的数据类型
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/APIAdaptor.d.ts:28
 
 ## Functions
 
@@ -81,4 +124,4 @@
 
 #### Defined in
 
-[src/connect.ts:206](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/connect.ts#L206)
+[src/connect.ts:227](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L227)
