@@ -48,7 +48,7 @@
     "process": "^0.11.10",
     "proxy-polyfill": "^0.3.2",
     "shimo-broadcast-channel": "^1.0.0",
-    "shimo-js-sdk-shared": "^1.0.0",
+    "shimo-js-sdk-shared": "^1.1.1",
     "shimo-startparams": "^2.0.0",
     "tiny-emitter": "^2.1.0",
     "uuid": "^8.3.2"

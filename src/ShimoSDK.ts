@@ -24,7 +24,9 @@ import {
   ReadyStateEventPayload,
   DeviceMode,
   GenerateUrlHandler,
-  GenerateUrlInfo
+  GenerateUrlInfo,
+  APIAdaptor,
+  RequestContext
 } from 'shimo-js-sdk-shared'
 
 import {
@@ -103,6 +105,8 @@ export default class ShimoSDK extends TinyEmitter {
   private readonly targetOrigin: string
   private iframeOrigin: string
   private readonly startParams: StartParams
+  private readonly apiAdaptor: string
+  private readonly apiAdaptorContext: string
 
   constructor(options: ShimoSDKOptions) {
     super()
@@ -123,6 +127,11 @@ export default class ShimoSDK extends TinyEmitter {
       (input) => input instanceof HTMLElement,
       `container is not an HTMLElement: ${String(options.container)}`
     )
+
+    this.apiAdaptor = options.apiAdaptor ? options.apiAdaptor.toString() : ''
+    this.apiAdaptorContext = options.apiAdaptorContext
+      ? JSON.stringify(options.apiAdaptorContext)
+      : ''
 
     try {
       this.startParams = new StartParams(
@@ -427,6 +436,9 @@ export default class ShimoSDK extends TinyEmitter {
             opts[`has${k[0].toUpperCase()}${k.slice(1)}`] = true
           }
         })
+
+        opts.apiAdaptor = this.apiAdaptor
+        opts.apiAdaptorContext = this.apiAdaptorContext
 
         return {
           ...opts,
@@ -804,4 +816,14 @@ export interface ShimoSDKOptions
    * 是否显示内置的加载动画，只在静态资源加载到编辑器渲染这个阶段显示
    */
   showLoadingEffect?: boolean
+
+  /**
+   * 用于在编辑器发起 API 请求时，对请求参数进行修改的函数。详细用法见文档。
+   */
+  apiAdaptor?: APIAdaptor
+
+  /**
+   * 用于在编辑器发起 API 请求时，对请求参数进行修改的函数时传入的上下文数据。
+   */
+  apiAdaptorContext?: RequestContext
 }
