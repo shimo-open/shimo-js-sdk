@@ -421,6 +421,17 @@ export default class ShimoSDK extends TinyEmitter {
     )
 
     /**
+     * 处理错误事件
+     */
+    channel.addInvokeHandler(
+      InvokeMethod.Error,
+      (payload: unknown) => {
+        this.emit(Event.Error, payload)
+      },
+      { audience: AUD }
+    )
+
+    /**
      * 初始化编辑器，请求配置
      */
     channel.addInvokeHandler(
