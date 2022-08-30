@@ -517,8 +517,15 @@ export default class ShimoSDK extends TinyEmitter {
     channel.addInvokeHandler(
       ContainerMethod.GetFileInfoFromUrl,
       async (url: string) => {
+        const getFileInfoFromUrl = this.connectOptions.getFileInfoFromUrl
+        // 大部分情况可能不需要实现这个函数，做一个静默处理
+        if (getFileInfoFromUrl == null) {
+          return
+        }
         if (typeof this.connectOptions.getFileInfoFromUrl !== 'function') {
-          throw new Error(`"${ContainerMethod.GetFileInfoFromUrl}" not found`)
+          throw new Error(
+            `"${ContainerMethod.GetFileInfoFromUrl}" not a function`
+          )
         }
         return await this.connectOptions.getFileInfoFromUrl(url)
       },
