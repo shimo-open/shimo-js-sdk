@@ -477,8 +477,8 @@ export default class ShimoSDK extends TinyEmitter {
      */
     channel.addInvokeHandler(
       InvokeMethod.DispatchEditorEvent,
-      async (payload: MessageEventPayload) => {
-        this.emitter.emit(payload.event, ...payload.data)
+      async (event: string, payload: unknown) => {
+        this.emitter.emit(event, payload)
       },
       { audience: AUD }
     )
@@ -573,17 +573,6 @@ export default class ShimoSDK extends TinyEmitter {
           right: rect.right,
           scrollTop: document.scrollingElement?.scrollTop
         }
-      },
-      { audience: AUD }
-    )
-
-    channel.addInvokeHandler(
-      InvokeMethod.DispatchEditorEvent,
-      async (event: unknown, args: unknown[]): Promise<void> => {
-        if (typeof event !== 'string') {
-          throw new TypeError(`invalid event name: ${String(event)}`)
-        }
-        this.emitter.emit(event, ...args)
       },
       { audience: AUD }
     )
