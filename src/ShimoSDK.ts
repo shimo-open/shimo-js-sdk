@@ -90,7 +90,7 @@ export default class ShimoSDK extends TinyEmitter {
    */
   form?: Form.Editor
 
-  private readonly _fileType: FileType = FileType.Unknown
+  private _fileType: FileType = FileType.Unknown
   private readonly messageHandler: (evt: globalThis.MessageEvent) => void
 
   /**
@@ -255,16 +255,24 @@ export default class ShimoSDK extends TinyEmitter {
      * 等待编辑器 ReadyState 变化回调
      */
     await new Promise((resolve, reject) => {
-      const readyStateHandler = async (
-        state: ReadyState,
-        err?: Error | string
-      ) => {
+      const readyStateHandler = async (payload: {
+        state: ReadyState
+        error?: Error | string
+        fileType: FileType
+      }) => {
+        const { state, error, fileType } = payload
+
         this._readyState = state
+
+        if (fileType && this._fileType === FileType.Unknown) {
+          this._fileType = fileType
+        }
+
         let done = false
 
-        if (err) {
+        if (error) {
           done = true
-          reject(typeof err === 'string' ? new Error(err) : err)
+          reject(typeof error === 'string' ? new Error(error) : error)
         } else if (state === ReadyState.Ready) {
           done = true
           resolve(undefined)
@@ -409,13 +417,7 @@ export default class ShimoSDK extends TinyEmitter {
     channel.addInvokeHandler(
       InvokeMethod.ReadyState,
       (payload: ReadyStateEventPayload) => {
-        this.emit(
-          Event.ReadyState,
-          payload.state,
-          typeof payload.error === 'string'
-            ? new Error(payload.error)
-            : payload.error
-        )
+        this.emit(Event.ReadyState, payload)
       },
       { audience: AUD }
     )
@@ -475,8 +477,8 @@ export default class ShimoSDK extends TinyEmitter {
      */
     channel.addInvokeHandler(
       InvokeMethod.DispatchEditorEvent,
-      async (payload: MessageEventPayload) => {
-        this.emitter.emit(payload.event, ...payload.data)
+      async (event: string, payload: unknown) => {
+        this.emitter.emit(event, payload)
       },
       { audience: AUD }
     )
@@ -571,17 +573,6 @@ export default class ShimoSDK extends TinyEmitter {
           right: rect.right,
           scrollTop: document.scrollingElement?.scrollTop
         }
-      },
-      { audience: AUD }
-    )
-
-    channel.addInvokeHandler(
-      InvokeMethod.DispatchEditorEvent,
-      async (event: unknown, args: unknown[]): Promise<void> => {
-        if (typeof event !== 'string') {
-          throw new TypeError(`invalid event name: ${String(event)}`)
-        }
-        this.emitter.emit(event, ...args)
       },
       { audience: AUD }
     )
