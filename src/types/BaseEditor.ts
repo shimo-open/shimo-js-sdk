@@ -8,6 +8,13 @@ export interface EventMap {
      */
     status?: 'saving' | 'saved' | 'error'
   }
+
+  /**
+   * 用于类似表格打开定位到当前 tab 的用途。事件触发时，替换当前的 url 的 search params 参数，在初始化 JS SDK 时传入。
+   */
+  paramsChanged: {
+    params: string
+  }
 }
 
 export interface BaseEditor<
