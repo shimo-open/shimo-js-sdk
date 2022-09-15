@@ -44,7 +44,7 @@
 
 #### Defined in
 
-[src/connect.ts:155](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L155)
+[src/connect.ts:155](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/connect.ts#L155)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:200](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L200)
+[src/connect.ts:200](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/connect.ts#L200)
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:205](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L205)
+[src/connect.ts:205](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/connect.ts#L205)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:42](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L42)
+[src/connect.ts:42](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/connect.ts#L42)
 
 ___
 
@@ -92,7 +92,7 @@ iframe 挂载的目标容器
 
 #### Defined in
 
-[src/connect.ts:68](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L68)
+[src/connect.ts:68](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/connect.ts#L68)
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:160](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L160)
+[src/connect.ts:160](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/connect.ts#L160)
 
 ___
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:185](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L185)
+[src/connect.ts:185](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/connect.ts#L185)
 
 ___
 
@@ -138,7 +138,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:129](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L129)
+[src/connect.ts:129](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/connect.ts#L129)
 
 ___
 
@@ -150,7 +150,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:190](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L190)
+[src/connect.ts:190](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/connect.ts#L190)
 
 ___
 
@@ -162,7 +162,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:47](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L47)
+[src/connect.ts:47](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/connect.ts#L47)
 
 ___
 
@@ -174,7 +174,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:52](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L52)
+[src/connect.ts:52](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/connect.ts#L52)
 
 ___
 
@@ -192,7 +192,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:99](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L99)
+[src/connect.ts:99](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/connect.ts#L99)
 
 ___
 
@@ -208,7 +208,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:78](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L78)
+[src/connect.ts:78](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/connect.ts#L78)
 
 ___
 
@@ -220,7 +220,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:165](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L165)
+[src/connect.ts:165](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/connect.ts#L165)
 
 ___
 
@@ -232,7 +232,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:195](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L195)
+[src/connect.ts:195](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/connect.ts#L195)
 
 ___
 
@@ -244,7 +244,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:63](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L63)
+[src/connect.ts:63](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/connect.ts#L63)
 
 ___
 
@@ -256,7 +256,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:85](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L85)
+[src/connect.ts:85](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/connect.ts#L85)
 
 ___
 
@@ -268,7 +268,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:73](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L73)
+[src/connect.ts:73](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/connect.ts#L73)
 
 ## Methods
 
@@ -290,7 +290,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:104](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L104)
+[src/connect.ts:104](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/connect.ts#L104)
 
 ___
 
@@ -312,7 +312,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:170](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L170)
+[src/connect.ts:170](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/connect.ts#L170)
 
 ___
 
@@ -330,7 +330,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:58](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L58)
+[src/connect.ts:58](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/connect.ts#L58)
 
 ___
 
@@ -352,7 +352,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:149](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L149)
+[src/connect.ts:149](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/connect.ts#L149)
 
 ___
 
@@ -375,4 +375,4 @@ ___
 
 #### Defined in
 
-[src/connect.ts:114](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L114)
+[src/connect.ts:114](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/connect.ts#L114)

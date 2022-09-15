@@ -25,7 +25,7 @@
 
 #### Defined in
 
-[src/types/DocumentPro.ts:19](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/DocumentPro.ts#L19)
+[src/types/DocumentPro.ts:19](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/DocumentPro.ts#L19)
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:14](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/DocumentPro.ts#L14)
+[src/types/DocumentPro.ts:14](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/DocumentPro.ts#L14)
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:24](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/DocumentPro.ts#L24)
+[src/types/DocumentPro.ts:24](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/DocumentPro.ts#L24)
 
 ___
 
@@ -61,4 +61,4 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:29](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/DocumentPro.ts#L29)
+[src/types/DocumentPro.ts:29](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/DocumentPro.ts#L29)

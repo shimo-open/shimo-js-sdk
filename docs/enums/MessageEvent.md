@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:102](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/ShimoSDK.ts#L102)
+[src/types/ShimoSDK.ts:102](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/ShimoSDK.ts#L102)
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:100](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/ShimoSDK.ts#L100)
+[src/types/ShimoSDK.ts:100](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/ShimoSDK.ts#L100)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:99](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/ShimoSDK.ts#L99)
+[src/types/ShimoSDK.ts:99](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/ShimoSDK.ts#L99)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:98](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/ShimoSDK.ts#L98)
+[src/types/ShimoSDK.ts:98](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/ShimoSDK.ts#L98)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:101](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/ShimoSDK.ts#L101)
+[src/types/ShimoSDK.ts:101](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/ShimoSDK.ts#L101)
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:104](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/ShimoSDK.ts#L104)
+[src/types/ShimoSDK.ts:104](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/ShimoSDK.ts#L104)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:105](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/ShimoSDK.ts#L105)
+[src/types/ShimoSDK.ts:105](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/ShimoSDK.ts#L105)
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:97](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/ShimoSDK.ts#L97)
+[src/types/ShimoSDK.ts:97](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/ShimoSDK.ts#L97)
 
 ___
 
@@ -104,4 +104,4 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:103](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/ShimoSDK.ts#L103)
+[src/types/ShimoSDK.ts:103](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/ShimoSDK.ts#L103)

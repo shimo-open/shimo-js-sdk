@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- `BaseEventMap`
+- [`BaseEventMap`](BaseEventMap.md)
 
   ↳ **`EventMap`**
 
@@ -18,6 +18,7 @@
 - [MouseMove](Spreadsheet.EventMap.md#mousemove)
 - [VerticalScroll](Spreadsheet.EventMap.md#verticalscroll)
 - [error](Spreadsheet.EventMap.md#error)
+- [paramsChanged](Spreadsheet.EventMap.md#paramschanged)
 - [saveStatusChanged](Spreadsheet.EventMap.md#savestatuschanged)
 
 ## Properties
@@ -30,7 +31,7 @@
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:57](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/Spreadsheet.ts#L57)
+[src/types/Spreadsheet.ts:57](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/Spreadsheet.ts#L57)
 
 ___
 
@@ -42,7 +43,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:47](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/Spreadsheet.ts#L47)
+[src/types/Spreadsheet.ts:47](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/Spreadsheet.ts#L47)
 
 ___
 
@@ -54,7 +55,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:52](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/Spreadsheet.ts#L52)
+[src/types/Spreadsheet.ts:52](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/Spreadsheet.ts#L52)
 
 ___
 
@@ -71,7 +72,29 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:37](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/Spreadsheet.ts#L37)
+[src/types/Spreadsheet.ts:37](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/Spreadsheet.ts#L37)
+
+___
+
+### paramsChanged
+
+• **paramsChanged**: `Object`
+
+用于类似表格打开定位到当前 tab 的用途。事件触发时，替换当前的 url 的 search params 参数，在初始化 JS SDK 时传入。
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `string` |
+
+#### Inherited from
+
+[BaseEventMap](BaseEventMap.md).[paramsChanged](BaseEventMap.md#paramschanged)
+
+#### Defined in
+
+[src/types/BaseEditor.ts:5](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/BaseEditor.ts#L5)
 
 ___
 
@@ -87,4 +110,4 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:34](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/Spreadsheet.ts#L34)
+[src/types/Spreadsheet.ts:34](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/Spreadsheet.ts#L34)

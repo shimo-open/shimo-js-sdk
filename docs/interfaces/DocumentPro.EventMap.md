@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- `BaseEventMap`
+- [`BaseEventMap`](BaseEventMap.md)
 
   ↳ **`EventMap`**
 
@@ -21,6 +21,7 @@
 - [documentChanged](DocumentPro.EventMap.md#documentchanged)
 - [documentRecalculated](DocumentPro.EventMap.md#documentrecalculated)
 - [error](DocumentPro.EventMap.md#error)
+- [paramsChanged](DocumentPro.EventMap.md#paramschanged)
 - [saveStatusChanged](DocumentPro.EventMap.md#savestatuschanged)
 - [selectionEnded](DocumentPro.EventMap.md#selectionended)
 - [showSignatureComponent](DocumentPro.EventMap.md#showsignaturecomponent)
@@ -35,7 +36,7 @@
 
 #### Defined in
 
-[src/types/DocumentPro.ts:124](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/DocumentPro.ts#L124)
+[src/types/DocumentPro.ts:124](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/DocumentPro.ts#L124)
 
 ___
 
@@ -47,7 +48,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:114](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/DocumentPro.ts#L114)
+[src/types/DocumentPro.ts:114](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/DocumentPro.ts#L114)
 
 ___
 
@@ -59,7 +60,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:119](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/DocumentPro.ts#L119)
+[src/types/DocumentPro.ts:119](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/DocumentPro.ts#L119)
 
 ___
 
@@ -75,7 +76,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:93](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/DocumentPro.ts#L93)
+[src/types/DocumentPro.ts:93](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/DocumentPro.ts#L93)
 
 ___
 
@@ -85,7 +86,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:92](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/DocumentPro.ts#L92)
+[src/types/DocumentPro.ts:92](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/DocumentPro.ts#L92)
 
 ___
 
@@ -95,7 +96,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:100](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/DocumentPro.ts#L100)
+[src/types/DocumentPro.ts:100](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/DocumentPro.ts#L100)
 
 ___
 
@@ -112,7 +113,29 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:104](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/DocumentPro.ts#L104)
+[src/types/DocumentPro.ts:104](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/DocumentPro.ts#L104)
+
+___
+
+### paramsChanged
+
+• **paramsChanged**: `Object`
+
+用于类似表格打开定位到当前 tab 的用途。事件触发时，替换当前的 url 的 search params 参数，在初始化 JS SDK 时传入。
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `string` |
+
+#### Inherited from
+
+[BaseEventMap](BaseEventMap.md).[paramsChanged](BaseEventMap.md#paramschanged)
+
+#### Defined in
+
+[src/types/BaseEditor.ts:5](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/BaseEditor.ts#L5)
 
 ___
 
@@ -128,7 +151,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:101](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/DocumentPro.ts#L101)
+[src/types/DocumentPro.ts:101](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/DocumentPro.ts#L101)
 
 ___
 
@@ -138,7 +161,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:91](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/DocumentPro.ts#L91)
+[src/types/DocumentPro.ts:91](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/DocumentPro.ts#L91)
 
 ___
 
@@ -157,4 +180,4 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:129](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/DocumentPro.ts#L129)
+[src/types/DocumentPro.ts:129](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/DocumentPro.ts#L129)

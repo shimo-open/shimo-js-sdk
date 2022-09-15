@@ -23,7 +23,7 @@
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:10](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/Spreadsheet.ts#L10)
+[src/types/Spreadsheet.ts:10](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/Spreadsheet.ts#L10)
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:12](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/Spreadsheet.ts#L12)
+[src/types/Spreadsheet.ts:12](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/Spreadsheet.ts#L12)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:9](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/Spreadsheet.ts#L9)
+[src/types/Spreadsheet.ts:9](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/Spreadsheet.ts#L9)
 
 ___
 
@@ -53,4 +53,4 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/Spreadsheet.ts#L11)
+[src/types/Spreadsheet.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/Spreadsheet.ts#L11)

@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- `BaseEventMap`
+- [`BaseEventMap`](BaseEventMap.md)
 
   ↳ **`EventMap`**
 
@@ -17,6 +17,7 @@
 - [HorizontalScroll](Document.EventMap.md#horizontalscroll)
 - [MouseMove](Document.EventMap.md#mousemove)
 - [VerticalScroll](Document.EventMap.md#verticalscroll)
+- [paramsChanged](Document.EventMap.md#paramschanged)
 - [saveStatusChanged](Document.EventMap.md#savestatuschanged)
 - [saveStatusDidChange](Document.EventMap.md#savestatusdidchange)
 - [titleChange](Document.EventMap.md#titlechange)
@@ -31,7 +32,7 @@
 
 #### Defined in
 
-[src/types/Document.ts:56](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/Document.ts#L56)
+[src/types/Document.ts:56](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/Document.ts#L56)
 
 ___
 
@@ -43,7 +44,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:46](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/Document.ts#L46)
+[src/types/Document.ts:46](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/Document.ts#L46)
 
 ___
 
@@ -55,7 +56,29 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:51](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/Document.ts#L51)
+[src/types/Document.ts:51](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/Document.ts#L51)
+
+___
+
+### paramsChanged
+
+• **paramsChanged**: `Object`
+
+用于类似表格打开定位到当前 tab 的用途。事件触发时，替换当前的 url 的 search params 参数，在初始化 JS SDK 时传入。
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `string` |
+
+#### Inherited from
+
+[BaseEventMap](BaseEventMap.md).[paramsChanged](BaseEventMap.md#paramschanged)
+
+#### Defined in
+
+[src/types/BaseEditor.ts:5](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/BaseEditor.ts#L5)
 
 ___
 
@@ -73,7 +96,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/Document.ts#L26)
+[src/types/Document.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/Document.ts#L26)
 
 ___
 
@@ -92,7 +115,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:16](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/Document.ts#L16)
+[src/types/Document.ts:16](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/Document.ts#L16)
 
 ___
 
@@ -110,4 +133,4 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:36](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/Document.ts#L36)
+[src/types/Document.ts:36](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/Document.ts#L36)

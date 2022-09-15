@@ -25,6 +25,7 @@
 
 ### Interfaces
 
+- [BaseEventMap](interfaces/BaseEventMap.md)
 - [ConnectOptions](interfaces/ConnectOptions.md)
 - [Message](interfaces/Message.md)
 - [PerformanceEntry](interfaces/PerformanceEntry.md)
@@ -92,7 +93,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:146](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/types/ShimoSDK.ts#L146)
+[src/types/ShimoSDK.ts:146](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/types/ShimoSDK.ts#L146)
 
 ___
 
@@ -124,4 +125,4 @@ node_modules/shimo-js-sdk-shared/dist/APIAdaptor.d.ts:28
 
 #### Defined in
 
-[src/connect.ts:227](https://github.com/shimohq/shimo-js-sdk/blob/8051ee1/src/connect.ts#L227)
+[src/connect.ts:227](https://github.com/shimohq/shimo-js-sdk/blob/ef32014/src/connect.ts#L227)
