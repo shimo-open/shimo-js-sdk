@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- `BaseEventMap`
+- [`BaseEventMap`](BaseEventMap.md)
 
   ↳ **`EventMap`**
 
@@ -17,7 +17,7 @@
 - [HorizontalScroll](Document.EventMap.md#horizontalscroll)
 - [MouseMove](Document.EventMap.md#mousemove)
 - [VerticalScroll](Document.EventMap.md#verticalscroll)
-- [saveStatusChanged](Document.EventMap.md#savestatuschanged)
+- [paramsChanged](Document.EventMap.md#paramschanged)
 - [saveStatusDidChange](Document.EventMap.md#savestatusdidchange)
 - [titleChange](Document.EventMap.md#titlechange)
 
@@ -25,55 +25,59 @@
 
 ### HorizontalScroll
 
-• **HorizontalScroll**: `MouseMovePayload`
+• **HorizontalScroll**: [`MouseMovePayload`](MouseMovePayload.md)
 
 水平滚动事件
 
 #### Defined in
 
-[src/types/Document.ts:56](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Document.ts#L56)
+[src/types/Document.ts:27](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Document.ts#L27)
 
 ___
 
 ### MouseMove
 
-• **MouseMove**: `MouseMovePayload`
+• **MouseMove**: [`MouseMovePayload`](MouseMovePayload.md)
 
 鼠标移动事件
 
 #### Defined in
 
-[src/types/Document.ts:46](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Document.ts#L46)
+[src/types/Document.ts:17](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Document.ts#L17)
 
 ___
 
 ### VerticalScroll
 
-• **VerticalScroll**: `MouseMovePayload`
+• **VerticalScroll**: [`MouseMovePayload`](MouseMovePayload.md)
 
 垂直滚动事件
 
 #### Defined in
 
-[src/types/Document.ts:51](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Document.ts#L51)
+[src/types/Document.ts:22](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Document.ts#L22)
 
 ___
 
-### saveStatusChanged
+### paramsChanged
 
-• **saveStatusChanged**: `Object`
+• **paramsChanged**: `Object`
 
-保存状态发生变更
+用于类似表格打开定位到当前 tab 的用途。事件触发时，替换当前的 url 的 search params 参数，在初始化 JS SDK 时传入。
 
 #### Type declaration
 
 | Name | Type |
 | :------ | :------ |
-| `status?` | ``"saving"`` \| ``"saved"`` \| ``"error"`` |
+| `params` | `string` |
+
+#### Inherited from
+
+[BaseEventMap](BaseEventMap.md).[paramsChanged](BaseEventMap.md#paramschanged)
 
 #### Defined in
 
-[src/types/Document.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Document.ts#L26)
+[src/types/BaseEditor.ts:15](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/BaseEditor.ts#L15)
 
 ___
 
@@ -81,7 +85,6 @@ ___
 
 • **saveStatusDidChange**: `Object`
 
-**`deprecated`**
 保存状态发生变更
 
 #### Type declaration
@@ -90,24 +93,22 @@ ___
 | :------ | :------ |
 | `status?` | ``"saving"`` \| ``"saved"`` \| ``"error"`` |
 
+#### Inherited from
+
+[BaseEventMap](BaseEventMap.md).[saveStatusDidChange](BaseEventMap.md#savestatusdidchange)
+
 #### Defined in
 
-[src/types/Document.ts:16](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Document.ts#L16)
+[src/types/BaseEditor.ts:5](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/BaseEditor.ts#L5)
 
 ___
 
 ### titleChange
 
-• **titleChange**: `Object`
+• **titleChange**: `string`
 
 标题发生变更
 
-#### Type declaration
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `title` | `string` | 新的标题 |
-
 #### Defined in
 
-[src/types/Document.ts:36](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Document.ts#L36)
+[src/types/Document.ts:12](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Document.ts#L12)

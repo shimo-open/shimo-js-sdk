@@ -21,7 +21,7 @@
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:155](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/ShimoSDK.ts#L155)
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:272
 
 ___
 
@@ -33,4 +33,4 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:160](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/ShimoSDK.ts#L160)
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:276

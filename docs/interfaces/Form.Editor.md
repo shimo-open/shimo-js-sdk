@@ -1,12 +1,12 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / [Table](../modules/Table.md) / Editor
+[shimo-js-sdk](../README.md) / [Exports](../modules.md) / [Form](../modules/Form.md) / Editor
 
 # Interface: Editor
 
-[Table](../modules/Table.md).Editor
+[Form](../modules/Form.md).Editor
 
 ## Hierarchy
 
-- `BaseEditor`<[`EventMap`](Table.EventMap.md)\>
+- `BaseEditor`<[`EventMap`](Form.EventMap.md)\>
 
   ↳ **`Editor`**
 
@@ -14,58 +14,11 @@
 
 ### Methods
 
-- [createRevision](Table.Editor.md#createrevision)
-- [hideRevision](Table.Editor.md#hiderevision)
-- [off](Table.Editor.md#off)
-- [on](Table.Editor.md#on)
-- [setTitle](Table.Editor.md#settitle)
-- [showRevision](Table.Editor.md#showrevision)
+- [off](Form.Editor.md#off)
+- [on](Form.Editor.md#on)
+- [setTitle](Form.Editor.md#settitle)
 
 ## Methods
-
-### createRevision
-
-▸ **createRevision**(`options?`): `Promise`<`void`\>
-
-创建版本
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Object` |
-
-#### Returns
-
-`Promise`<`void`\>
-
-#### Defined in
-
-[src/types/Table.ts:24](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Table.ts#L24)
-
-___
-
-### hideRevision
-
-▸ **hideRevision**(`options?`): `Promise`<`void`\>
-
-隐藏版本侧边栏
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Object` |
-
-#### Returns
-
-`Promise`<`void`\>
-
-#### Defined in
-
-[src/types/Table.ts:20](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Table.ts#L20)
-
-___
 
 ### off
 
@@ -156,25 +109,3 @@ BaseEditor.setTitle
 #### Defined in
 
 [src/types/BaseEditor.ts:36](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/BaseEditor.ts#L36)
-
-___
-
-### showRevision
-
-▸ **showRevision**(`options?`): `Promise`<`void`\>
-
-显示版本侧边栏
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Object` |
-
-#### Returns
-
-`Promise`<`void`\>
-
-#### Defined in
-
-[src/types/Table.ts:16](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Table.ts#L16)

@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- `BaseEventMap`
+- [`BaseEventMap`](BaseEventMap.md)
 
   ↳ **`EventMap`**
 
@@ -18,43 +18,44 @@
 - [MouseMove](Spreadsheet.EventMap.md#mousemove)
 - [VerticalScroll](Spreadsheet.EventMap.md#verticalscroll)
 - [error](Spreadsheet.EventMap.md#error)
-- [saveStatusChanged](Spreadsheet.EventMap.md#savestatuschanged)
+- [paramsChanged](Spreadsheet.EventMap.md#paramschanged)
+- [saveStatusDidChange](Spreadsheet.EventMap.md#savestatusdidchange)
 
 ## Properties
 
 ### HorizontalScroll
 
-• **HorizontalScroll**: `MouseMovePayload`
+• **HorizontalScroll**: [`MouseMovePayload`](MouseMovePayload.md)
 
 水平滚动事件
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:57](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L57)
+[src/types/Spreadsheet.ts:51](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Spreadsheet.ts#L51)
 
 ___
 
 ### MouseMove
 
-• **MouseMove**: `MouseMovePayload`
+• **MouseMove**: [`MouseMovePayload`](MouseMovePayload.md)
 
 鼠标移动事件
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:47](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L47)
+[src/types/Spreadsheet.ts:41](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Spreadsheet.ts#L41)
 
 ___
 
 ### VerticalScroll
 
-• **VerticalScroll**: `MouseMovePayload`
+• **VerticalScroll**: [`MouseMovePayload`](MouseMovePayload.md)
 
 垂直滚动事件
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:52](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L52)
+[src/types/Spreadsheet.ts:46](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Spreadsheet.ts#L46)
 
 ___
 
@@ -71,13 +72,37 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:37](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L37)
+[src/types/Spreadsheet.ts:31](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Spreadsheet.ts#L31)
 
 ___
 
-### saveStatusChanged
+### paramsChanged
 
-• **saveStatusChanged**: `Object`
+• **paramsChanged**: `Object`
+
+用于类似表格打开定位到当前 tab 的用途。事件触发时，替换当前的 url 的 search params 参数，在初始化 JS SDK 时传入。
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `string` |
+
+#### Inherited from
+
+[BaseEventMap](BaseEventMap.md).[paramsChanged](BaseEventMap.md#paramschanged)
+
+#### Defined in
+
+[src/types/BaseEditor.ts:15](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/BaseEditor.ts#L15)
+
+___
+
+### saveStatusDidChange
+
+• **saveStatusDidChange**: `Object`
+
+保存状态发生变更
 
 #### Type declaration
 
@@ -85,6 +110,10 @@ ___
 | :------ | :------ |
 | `status?` | ``"saving"`` \| ``"saved"`` \| ``"error"`` |
 
+#### Inherited from
+
+[BaseEventMap](BaseEventMap.md).[saveStatusDidChange](BaseEventMap.md#savestatusdidchange)
+
 #### Defined in
 
-[src/types/Spreadsheet.ts:34](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L34)
+[src/types/BaseEditor.ts:5](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/BaseEditor.ts#L5)

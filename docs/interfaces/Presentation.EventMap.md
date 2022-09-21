@@ -9,7 +9,6 @@
 ### Properties
 
 - [error](Presentation.EventMap.md#error)
-- [saveStatusChanged](Presentation.EventMap.md#savestatuschanged)
 
 ## Properties
 
@@ -26,20 +25,4 @@
 
 #### Defined in
 
-[src/types/Presentation.ts:7](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Presentation.ts#L7)
-
-___
-
-### saveStatusChanged
-
-• **saveStatusChanged**: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `status?` | ``"saving"`` \| ``"saved"`` \| ``"error"`` |
-
-#### Defined in
-
-[src/types/Presentation.ts:4](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Presentation.ts#L4)
+[src/types/Presentation.ts:4](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Presentation.ts#L4)

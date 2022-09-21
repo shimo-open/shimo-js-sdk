@@ -66,7 +66,7 @@
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:88](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L88)
+[src/types/Spreadsheet.ts:82](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Spreadsheet.ts#L82)
 
 ___
 
@@ -93,13 +93,13 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:115](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L115)
+[src/types/Spreadsheet.ts:106](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Spreadsheet.ts#L106)
 
 ___
 
 ### createRevision
 
-▸ **createRevision**(`options`): `Promise`<`void`\>
+▸ **createRevision**(`options?`): `Promise`<`void`\>
 
 创建版本
 
@@ -107,7 +107,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -115,13 +115,13 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:80](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L80)
+[src/types/Spreadsheet.ts:74](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Spreadsheet.ts#L74)
 
 ___
 
 ### endDemonstration
 
-▸ **endDemonstration**(`options`): `Promise`<`void`\>
+▸ **endDemonstration**(`options?`): `Promise`<`void`\>
 
 离开演示模式
 
@@ -129,7 +129,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -137,7 +137,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:84](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L84)
+[src/types/Spreadsheet.ts:78](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Spreadsheet.ts#L78)
 
 ___
 
@@ -153,7 +153,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:165](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L165)
+[src/types/Spreadsheet.ts:147](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Spreadsheet.ts#L147)
 
 ___
 
@@ -176,7 +176,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:190](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L190)
+[src/types/Spreadsheet.ts:172](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Spreadsheet.ts#L172)
 
 ___
 
@@ -199,7 +199,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:183](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L183)
+[src/types/Spreadsheet.ts:165](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Spreadsheet.ts#L165)
 
 ___
 
@@ -223,7 +223,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:203](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L203)
+[src/types/Spreadsheet.ts:185](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Spreadsheet.ts#L185)
 
 ___
 
@@ -246,7 +246,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:174](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L174)
+[src/types/Spreadsheet.ts:156](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Spreadsheet.ts#L156)
 
 ___
 
@@ -269,7 +269,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:171](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L171)
+[src/types/Spreadsheet.ts:153](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Spreadsheet.ts#L153)
 
 ___
 
@@ -285,13 +285,13 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:168](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L168)
+[src/types/Spreadsheet.ts:150](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Spreadsheet.ts#L150)
 
 ___
 
 ### hideComments
 
-▸ **hideComments**(`options`): `Promise`<`void`\>
+▸ **hideComments**(`options?`): `Promise`<`void`\>
 
 关闭评论侧边栏
 
@@ -299,7 +299,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -307,13 +307,13 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:70](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L70)
+[src/types/Spreadsheet.ts:64](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Spreadsheet.ts#L64)
 
 ___
 
 ### hideHistory
 
-▸ **hideHistory**(`options`): `Promise`<`void`\>
+▸ **hideHistory**(`options?`): `Promise`<`void`\>
 
 关闭历史侧边栏
 
@@ -321,7 +321,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -329,13 +329,13 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:74](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L74)
+[src/types/Spreadsheet.ts:68](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Spreadsheet.ts#L68)
 
 ___
 
 ### hideLocks
 
-▸ **hideLocks**(`options`): `Promise`<`void`\>
+▸ **hideLocks**(`options?`): `Promise`<`void`\>
 
 关闭锁定侧边栏
 
@@ -343,7 +343,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -351,7 +351,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:78](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L78)
+[src/types/Spreadsheet.ts:72](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Spreadsheet.ts#L72)
 
 ___
 
@@ -374,13 +374,15 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:218](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L218)
+[src/types/Spreadsheet.ts:200](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Spreadsheet.ts#L200)
 
 ___
 
 ### off
 
-▸ **off**<`K`\>(`event`, `handler`): `void`
+▸ **off**<`K`\>(`event`, `handler?`): `void`
+
+取消监听事件
 
 #### Type parameters
 
@@ -393,7 +395,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `event` | `K` |
-| `handler` | `EventCallback` |
+| `handler?` | (`payload`: `T`[`K`]) => `void` |
 
 #### Returns
 
@@ -405,13 +407,15 @@ BaseEditor.off
 
 #### Defined in
 
-[src/types/BaseEditor.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/BaseEditor.ts#L11)
+[src/types/BaseEditor.ts:31](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/BaseEditor.ts#L31)
 
 ___
 
 ### on
 
 ▸ **on**<`K`\>(`event`, `handler`): `void`
+
+监听事件
 
 #### Type parameters
 
@@ -424,7 +428,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `event` | `K` |
-| `handler` | `EventCallback` |
+| `handler` | (`payload`: `T`[`K`]) => `void` |
 
 #### Returns
 
@@ -436,13 +440,13 @@ BaseEditor.on
 
 #### Defined in
 
-[src/types/BaseEditor.ts:10](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/BaseEditor.ts#L10)
+[src/types/BaseEditor.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/BaseEditor.ts#L26)
 
 ___
 
 ### print
 
-▸ **print**(`options`): `Promise`<`void`\>
+▸ **print**(`options?`): `Promise`<`void`\>
 
 打印
 
@@ -450,7 +454,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -458,7 +462,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:86](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L86)
+[src/types/Spreadsheet.ts:80](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Spreadsheet.ts#L80)
 
 ___
 
@@ -482,7 +486,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:137](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L137)
+[src/types/Spreadsheet.ts:125](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Spreadsheet.ts#L125)
 
 ___
 
@@ -505,7 +509,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:153](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L153)
+[src/types/Spreadsheet.ts:138](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Spreadsheet.ts#L138)
 
 ___
 
@@ -513,7 +517,7 @@ ___
 
 ▸ **setTitle**(`title`): `Promise`<`void`\>
 
-设置表格标题，仅用于 UI 展示数据，不触发保存操作
+设置文档标题
 
 #### Parameters
 
@@ -525,25 +529,29 @@ ___
 
 `Promise`<`void`\>
 
+#### Inherited from
+
+BaseEditor.setTitle
+
 #### Defined in
 
-[src/types/Spreadsheet.ts:223](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L223)
+[src/types/BaseEditor.ts:36](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/BaseEditor.ts#L36)
 
 ___
 
 ### showComments
 
-▸ **showComments**(`options`): `Promise`<`void`\>
+▸ **showComments**(`options?`): `Promise`<`void`\>
 
 展示评论侧边栏
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -551,13 +559,13 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:68](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L68)
+[src/types/Spreadsheet.ts:62](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Spreadsheet.ts#L62)
 
 ___
 
 ### showHistory
 
-▸ **showHistory**(`options`): `Promise`<`void`\>
+▸ **showHistory**(`options?`): `Promise`<`void`\>
 
 展示历史侧边栏
 
@@ -565,7 +573,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -573,13 +581,13 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:72](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L72)
+[src/types/Spreadsheet.ts:66](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Spreadsheet.ts#L66)
 
 ___
 
 ### showLocks
 
-▸ **showLocks**(`options`): `Promise`<`void`\>
+▸ **showLocks**(`options?`): `Promise`<`void`\>
 
 展示锁定侧边栏
 
@@ -587,7 +595,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -595,13 +603,13 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:76](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L76)
+[src/types/Spreadsheet.ts:70](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Spreadsheet.ts#L70)
 
 ___
 
 ### startDemonstration
 
-▸ **startDemonstration**(`options`): `Promise`<`void`\>
+▸ **startDemonstration**(`options?`): `Promise`<`void`\>
 
 进入演示模式
 
@@ -609,7 +617,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -617,4 +625,4 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:82](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Spreadsheet.ts#L82)
+[src/types/Spreadsheet.ts:76](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Spreadsheet.ts#L76)

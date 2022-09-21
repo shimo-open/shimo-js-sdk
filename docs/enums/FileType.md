@@ -10,9 +10,11 @@
 
 - [Document](FileType.md#document)
 - [DocumentPro](FileType.md#documentpro)
+- [Form](FileType.md#form)
 - [Presentation](FileType.md#presentation)
 - [Spreadsheet](FileType.md#spreadsheet)
 - [Table](FileType.md#table)
+- [Unknown](FileType.md#unknown)
 
 ## Enumeration members
 
@@ -24,7 +26,7 @@
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:126](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/ShimoSDK.ts#L126)
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:176
 
 ___
 
@@ -36,7 +38,19 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:121](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/ShimoSDK.ts#L121)
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:172
+
+___
+
+### Form
+
+• **Form** = `"form"`
+
+表单
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:192
 
 ___
 
@@ -48,7 +62,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:136](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/ShimoSDK.ts#L136)
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:184
 
 ___
 
@@ -60,7 +74,7 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:131](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/ShimoSDK.ts#L131)
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:180
 
 ___
 
@@ -72,4 +86,16 @@ ___
 
 #### Defined in
 
-[src/types/ShimoSDK.ts:140](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/ShimoSDK.ts#L140)
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:188
+
+___
+
+### Unknown
+
+• **Unknown** = `"unknown"`
+
+未知类型
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:196

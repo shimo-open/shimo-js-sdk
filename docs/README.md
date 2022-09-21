@@ -26,7 +26,6 @@ yarn add shimo-js-sdk
 const { connect } = require('shimo-js-sdk')
 
 connect({
-  appId: '您的 app id',
   fileId: '您系统中的 file id',
   endpoint: '石墨服务的地址',
   signature: '用您的 app id 和 secret 签发的签名',
@@ -60,12 +59,8 @@ const { connect, FileType } = require('shimo-js-sdk')
 
 #### 使用示例
 
-假设您的系统有以下接口：
-
-- `POST /files/:fileId/shimo-signature` 返回 `{ signature: '...' }`
-
 ```js
-const { connect, FileType } = require('shimo-js-sdk')
+const { connect } = require('shimo-js-sdk')
 
 const fileId = '1234'
 
@@ -73,58 +68,71 @@ const fileId = '1234'
 const { signature, token } = await getCredentialsFromServer()
 
 connect({
-  appId: '...',
   fileId: fileId,
-  endpoint: 'https://sample-endpoint.shimo.im/',
+  endpoint: 'https://shimo-sdk-endpoint/', // endpoint 因环境而异，请联系技术支持
   signature: signature,
   token: token,
   container: document.querySelector('#shimo-file') // iframe 挂载的目标容器元素
-}).then((shimoSDK) => {
-  // 判断文件类型，也可以在您的系统中记录文件类型
-  if (shimoSDK.fileType === FileType.DocumentPro) {
-    // 通过 shimoSDK.[file_type] 访问对应文件类型的 editor 示例
-
-    // 以获取传统文档评论列表为例
-    shimoSDK.documentPro
-      .getCommentList()
-      .then((comments) => showCommentPanel(comments))
-  }
+}).then((sdk) => {
+  // sdk 即为 ShimoSDK 实例
 })
 ```
 
-#### 对象文档说明
+调用 `connect()` 时，会以传入参数为基础，初始化一个 `<iframe>` 并插入 `container` 对应的元素中。
 
-具体文档请参考 `docs` 目录，此处仅作简单的使用说明。
+返回的 `sdk` 为 `ShimoSDK` 实例，用于和 SDK、编辑器交互。
 
-`connect()`
+### SDK 和编辑器实例
 
-用于生成石墨文档的 `iframe` 链接，并连接，通过 `window.postMessage()` 通信。返回 `ShimoSDK` 对象。
+石墨 JS SDK 共有两种实例用于和 JS SDK 交互：
 
-`ShimoSDK`
+- `ShimoSDK` 由 `connect()` 返回，处理初始化编辑器和编辑器交互的工作
+- `Editor` 文档编辑器，直接和文档内容交互。**`Editor` 所有接口均返回 Promise**
 
-有以下接口：
+两者之间各有独立的方法和事件，具体请查看 `docs` 目录的文档。
 
-`on(事件名，事件回调)` 和 `off(事件名，事件回调)`，用于监听事件：
-
-| 事件       | 参数   | 说明           |
-| ---------- | ------ | -------------- |
-| error      | Error  | 错误事件       |
-| readyState | string | 初始化状态事件 |
-
-- `shimoSDK.documentPro`
-- `shimoSDK.document`
-- `shimoSDK.spreadsheet`
-- `shimoSDK.presentation`
-
-石墨文档编辑器实例，根据不同类型的文件，会使用不同的实例，用于和编辑器通信，如调用接口：`shimoSDK.documentPro.getCommentList()`，**所有接口均返回 Promise**。
-
-`setSignature(signature)` 和 `setToken(token)` 用于更新签名和 token。处于安全考虑，signature 和 token 一般不建议设置太长的过期时间，而为了减少用户长时间未刷新页面，导致 API 请求鉴权失败的情况，可以在 signature 或 token 失效前进行更新。
+获取编辑器实例和与其交互：
 
 ```js
-const { connect, FileType } = require('shimo-js-sdk')
+const { FileType } = require('shimo-js-sdk')
 
-const fileId = '1234'
+// 获取编辑器实例
+const editor = sdk.getEditor()
 
+// 调用通用事件
+editor.on('saveStatusChange', (payload) => {
+  console.log(payload.status)
+})
+
+// 调用特定类型文档的方法
+if (sdk.fileType === FileType.Document) {
+  editor.showHistory()
+}
+```
+
+若为 `TypeScript`，可使用 `Generic`：
+
+```typescript
+const { Document } = require('shimo-js-sdk')
+
+const editor = sdk.getEditor<Document.Editor>()
+editor.on('saveStatusChange', (payload) => {
+  console.log(payload.status)
+})
+
+await editor.showHistory()
+```
+
+### `signature` 和 `token`
+
+- `signature` 为石墨区分请求来源，并实现数据隔离的基础
+- `token` 为您用于识别回调请求来源、是否合法的依据
+
+具体说明请查阅在线文档：[https://platform.shimo.im/v2/docs/concepts/](https://platform.shimo.im/v2/docs/concepts/)。
+
+由于 `signature` 和 `token` 有过期时间，一般也不建议设置过长的时间，但为了减少因过期导致的用户体验问题，`ShimoSDK` 提供 `setCredentials({ signature, token })` 方法用于动态更新。
+
+```js
 // 从您的后端服务获取用于石墨鉴权的签名和 token
 let { signature, token, expires } = await getCredentialsFromServer()
 
@@ -135,7 +143,10 @@ setInterval(
     // 当签名不到一分钟就过期时进行更新
     if (Date.now() - expires < 60000) {
       const resp = await getCredentialsFromServer()
-      shimoSDK.setSignature(resp.signature)
+      await shimoSDK.setCredentials({
+        signature: resp.signature,
+        token: resp.token
+      })
       expires = resp.expires
     }
   },
@@ -143,17 +154,27 @@ setInterval(
 )
 ```
 
-##### 如何和 URL 交互
+### 如何处理 URL
 
 由于石墨 SDK 以 `iframe` 的形式挂载到当前页面，`iframe.src` 对应的 URL 并不适合用于分享，而且在一些功能上，比如 @ 文件，需要用到您系统中对应的 URL 格式，比如 `https://your-domain/files/:id`。
 
 为了解决这个问题，石墨 SDK 引入 `generateUrl()` 和 `openLink()` 方法：
 
 ```js
+import { UrlSharingType } from 'shimo-js-sdk'
+
 const shimoSDK = await connect({
   ...,
 
-  generateUrl(fileId: string): string {
+  generateUrl(fileId: string, info: GenerateUrlInfo): string {
+    if (info?.sharingType === UrlSharingType.FormFill) {
+      return `https://your-domain/files/${fileId}/fill-form`
+    }
+
+    if (info?.sharingText) {
+      return `https://your-domain/files/${fileId} ${info.sharingText}`
+    }
+
     return `https://your-domain/files/${fileId}`
   },
 
@@ -171,7 +192,7 @@ const shimoSDK = await connect({
 })
 ```
 
-###### URL 的上下文信息
+#### URL 的上下文信息
 
 为了在 URL 上传递上下文信息，比如 URL 指向的段落、单元格，在调用 `generateUrl()` 生成 URL 后，会在 URL 后附加一个 `smParams=PARAMS` 的参数：
 
@@ -206,7 +227,36 @@ connect({
 })
 ```
 
-#### 打开表格编辑器时展示指定工作表 (Sheet)
+#### URL Info
+
+`generateUrl(fileId, info)` 中的 `info` 是用于对 URL 进行一些特殊处理的。
+
+`sharingText`：石墨默认提供的分享文本：比如
+
+- `https://your-domain/files/1 xxx 邀请您参与《标题》协作，请复制粘贴后在浏览器打开`
+- `https://your-domain/files/1/fill-form xxx 邀请您填写《标题》表单，……`
+
+`sharingType`：表示此次 `generateUrl()` 对应的行为类型，比如：
+
+- `UrlSharingType.Form` 代表一般的打开编辑表单的行为
+- `UrlSharingType.FormPreview` 代表打开预览表单页面的行为
+- `UrlSharingType.FormFill` 代表打开填写表单页面的行为
+
+您需要根据具体类型，生成不同的 URL，比如：
+
+- `UrlSharingType.Form`、`UrlSharingType.FormPreview` 等一般需要进行鉴权，因此可以用 `/files/${fileId}`
+- `UrlSharingType.FormFill` 填写表单一般不需要登录鉴权，因此可以用另一个独立的路由，比如 `/files/${fileId}/fill-form`
+
+在实际操作中，您可以根据 `sharingType` 按需为 URL 添加分享文本。**若添加了分享文本，则需要您在 `parseUrl()` 中对 URL 进行处理**，比如：
+
+```js
+// url: 'https://your-domain/files/1 xxx 邀请您参与《标题》协作，请复制粘贴后在浏览器打开'
+parseUrl(url: string) {
+  return url.split(' ')[0] // 返回 'https://your-domain/files/1
+}
+```
+
+### 打开表格编辑器时展示指定工作表 (Sheet)
 
 **使用本章节用法时，请先了解 [URL 的上下文信息](#url-的上下文信息) 章节**。
 
@@ -242,7 +292,7 @@ connect({
 })
 ```
 
-#### 打开编辑器时，定位至在正文中 at 某用户的位置
+### 打开编辑器时，定位至在正文中 at 某用户的位置
 
 支持类型：
 
@@ -279,5 +329,48 @@ paramsList.push({ hash: '通过 QueryString 中获取的 mentionId' })
 
 connect({
   smParams: paramsList
+})
+```
+
+### 修改编辑器 API 请求参数
+
+> 修改 API 请求有可能破坏接口行为，进而影响功能，请谨慎使用。
+> 需要修改编辑器 API 请求参数时，可使用 `ConnectOptions.apiAdaptor` 。APIAdaptor 有以下限制：
+
+- 请不要修改 `body`
+- 需要可以被 `toString()` 且可以 `new Function()` 的方式调用
+- 由于 Web Worker 的特性
+  - `apiApadator` 尽量使用标准的、目标浏览器内置的语法、方法
+  - 如果需要传递一些变量，可以使用 `ConnectOptions.apiAdaptorContext`，此对象需要可以被 `JSON.stringify()` 处理
+    - 请尽量使用 `boolean | number | string` 类型的数据，否则有可能无法通过 `postMessage` 和 `JSON.stringify()` 的处理
+- `url` 不一定带有 protocol、hostname 信息，比如 `/sdk/v2/users/me`，请注意
+- `header`、`query` 中原有的数据请尽量保留、不修改
+
+```typescript
+connect({
+  apiAdaptor(options: RequestOptions, context?: RequestContext) {
+    // 修改 URL host
+    if (options.url.includes('some_pattern')) {
+      const url = new URL(options.url, context.host)
+      url.host = context.host
+      url.protocol = context.protocol
+      options.url = url.toString()
+    }
+    options.headers = {
+      // 保留原 header
+      ...options.headers,
+      // 复制 context header
+      ...context.headers
+    }
+    // options.query 修改参考 headers
+    return options
+  },
+  apiAdaptorContext: {
+    host: 'new-host.com',
+    protocol: 'https',
+    header: {
+      'x-my-var': 'my-value'
+    }
+  }
 })
 ```

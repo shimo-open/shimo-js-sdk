@@ -37,41 +37,41 @@
 
 ### createRevision
 
-▸ **createRevision**(`options`): `Promise`<``null`` \| `errorMessage`\>
+▸ **createRevision**(`options?`): `Promise`<``null`` \| `DocumentErrorMessage`\>
 
 创建版本
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
-`Promise`<``null`` \| `errorMessage`\>
+`Promise`<``null`` \| `DocumentErrorMessage`\>
 
 #### Defined in
 
-[src/types/Document.ts:104](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Document.ts#L104)
+[src/types/Document.ts:75](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Document.ts#L75)
 
 ___
 
 ### endDemonstration
 
-▸ **endDemonstration**(`options`): `Promise`<`void`\>
+▸ **endDemonstration**(`options?`): `Promise`<`void`\>
 
 退出演示模式
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -79,23 +79,23 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:114](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Document.ts#L114)
+[src/types/Document.ts:85](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Document.ts#L85)
 
 ___
 
 ### hideComments
 
-▸ **hideComments**(`options`): `Promise`<`void`\>
+▸ **hideComments**(`options?`): `Promise`<`void`\>
 
 隐藏评论侧边栏
 
-**`since`** PD3.4
+**`since`** 22.6.1
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -103,23 +103,23 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:135](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Document.ts#L135)
+[src/types/Document.ts:101](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Document.ts#L101)
 
 ___
 
 ### hideDiscussion
 
-▸ **hideDiscussion**(`options`): `Promise`<`void`\>
+▸ **hideDiscussion**(`options?`): `Promise`<`void`\>
 
 隐藏讨论侧边栏
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -127,23 +127,23 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:89](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Document.ts#L89)
+[src/types/Document.ts:60](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Document.ts#L60)
 
 ___
 
 ### hideHistory
 
-▸ **hideHistory**(`options`): `Promise`<`void`\>
+▸ **hideHistory**(`options?`): `Promise`<`void`\>
 
 隐藏历史侧边栏
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -151,23 +151,23 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:69](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Document.ts#L69)
+[src/types/Document.ts:40](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Document.ts#L40)
 
 ___
 
 ### hideRevision
 
-▸ **hideRevision**(`options`): `Promise`<`void`\>
+▸ **hideRevision**(`options?`): `Promise`<`void`\>
 
 隐藏版本侧边栏
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -175,23 +175,23 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:79](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Document.ts#L79)
+[src/types/Document.ts:50](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Document.ts#L50)
 
 ___
 
 ### hideToc
 
-▸ **hideToc**(`options`): `Promise`<`void`\>
+▸ **hideToc**(`options?`): `Promise`<`void`\>
 
 隐藏目录
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -199,38 +199,39 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:99](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Document.ts#L99)
+[src/types/Document.ts:70](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Document.ts#L70)
 
 ___
 
 ### insertExternalApp
 
-▸ **insertExternalApp**(`options`): `Promise`<``null`` \| `errorMessage`\>
+▸ **insertExternalApp**(`url`): `Promise`<``null`` \| `DocumentErrorMessage`\>
 
-插入第三方应用
+插入第三方应用，是否可用受版本限制。
 
-**`since`** PD3.5
+**`since`** 22.6.1
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
-| `options.url` | `string` |
+| `url` | `string` |
 
 #### Returns
 
-`Promise`<``null`` \| `errorMessage`\>
+`Promise`<``null`` \| `DocumentErrorMessage`\>
 
 #### Defined in
 
-[src/types/Document.ts:140](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Document.ts#L140)
+[src/types/Document.ts:106](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Document.ts#L106)
 
 ___
 
 ### off
 
-▸ **off**<`K`\>(`event`, `handler`): `void`
+▸ **off**<`K`\>(`event`, `handler?`): `void`
+
+取消监听事件
 
 #### Type parameters
 
@@ -243,7 +244,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `event` | `K` |
-| `handler` | `EventCallback` |
+| `handler?` | (`payload`: `T`[`K`]) => `void` |
 
 #### Returns
 
@@ -255,13 +256,15 @@ BaseEditor.off
 
 #### Defined in
 
-[src/types/BaseEditor.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/BaseEditor.ts#L11)
+[src/types/BaseEditor.ts:31](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/BaseEditor.ts#L31)
 
 ___
 
 ### on
 
 ▸ **on**<`K`\>(`event`, `handler`): `void`
+
+监听事件
 
 #### Type parameters
 
@@ -274,7 +277,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `event` | `K` |
-| `handler` | `EventCallback` |
+| `handler` | (`payload`: `T`[`K`]) => `void` |
 
 #### Returns
 
@@ -286,23 +289,23 @@ BaseEditor.on
 
 #### Defined in
 
-[src/types/BaseEditor.ts:10](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/BaseEditor.ts#L10)
+[src/types/BaseEditor.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/BaseEditor.ts#L26)
 
 ___
 
 ### print
 
-▸ **print**(`options`): `Promise`<`void`\>
+▸ **print**(`options?`): `Promise`<`void`\>
 
 打印
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -310,7 +313,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:119](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Document.ts#L119)
+[src/types/Document.ts:90](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Document.ts#L90)
 
 ___
 
@@ -330,25 +333,29 @@ ___
 
 `Promise`<`void`\>
 
+#### Inherited from
+
+BaseEditor.setTitle
+
 #### Defined in
 
-[src/types/Document.ts:124](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Document.ts#L124)
+[src/types/BaseEditor.ts:36](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/BaseEditor.ts#L36)
 
 ___
 
 ### showComments
 
-▸ **showComments**(`options`): `Promise`<`void`\>
+▸ **showComments**(`options?`): `Promise`<`void`\>
 
 显示评论侧边栏
 
-**`since`** PD3.4
+**`since`** 22.6.1
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -356,23 +363,23 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:130](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Document.ts#L130)
+[src/types/Document.ts:96](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Document.ts#L96)
 
 ___
 
 ### showDiscussion
 
-▸ **showDiscussion**(`options`): `Promise`<`void`\>
+▸ **showDiscussion**(`options?`): `Promise`<`void`\>
 
 显示讨论侧边栏
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -380,23 +387,23 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:84](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Document.ts#L84)
+[src/types/Document.ts:55](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Document.ts#L55)
 
 ___
 
 ### showHistory
 
-▸ **showHistory**(`options`): `Promise`<`void`\>
+▸ **showHistory**(`options?`): `Promise`<`void`\>
 
 显示历史侧边栏
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -404,23 +411,23 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:64](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Document.ts#L64)
+[src/types/Document.ts:35](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Document.ts#L35)
 
 ___
 
 ### showRevision
 
-▸ **showRevision**(`options`): `Promise`<`void`\>
+▸ **showRevision**(`options?`): `Promise`<`void`\>
 
 显示版本侧边栏
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -428,23 +435,23 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:74](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Document.ts#L74)
+[src/types/Document.ts:45](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Document.ts#L45)
 
 ___
 
 ### showToc
 
-▸ **showToc**(`options`): `Promise`<`void`\>
+▸ **showToc**(`options?`): `Promise`<`void`\>
 
 显示目录
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -452,23 +459,23 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:94](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Document.ts#L94)
+[src/types/Document.ts:65](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Document.ts#L65)
 
 ___
 
 ### startDemonstration
 
-▸ **startDemonstration**(`options`): `Promise`<`void`\>
+▸ **startDemonstration**(`options?`): `Promise`<`void`\>
 
 进入演示模式
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -476,4 +483,4 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:109](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Document.ts#L109)
+[src/types/Document.ts:80](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Document.ts#L80)

@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- `BaseEventMap`
+- [`BaseEventMap`](BaseEventMap.md)
 
   ↳ **`EventMap`**
 
@@ -21,44 +21,46 @@
 - [documentChanged](DocumentPro.EventMap.md#documentchanged)
 - [documentRecalculated](DocumentPro.EventMap.md#documentrecalculated)
 - [error](DocumentPro.EventMap.md#error)
-- [saveStatusChanged](DocumentPro.EventMap.md#savestatuschanged)
+- [paramsChanged](DocumentPro.EventMap.md#paramschanged)
+- [saveStatusDidChange](DocumentPro.EventMap.md#savestatusdidchange)
 - [selectionEnded](DocumentPro.EventMap.md#selectionended)
+- [showSignatureComponent](DocumentPro.EventMap.md#showsignaturecomponent)
 
 ## Properties
 
 ### HorizontalScroll
 
-• **HorizontalScroll**: `MouseMovePayload`
+• **HorizontalScroll**: [`MouseMovePayload`](MouseMovePayload.md)
 
 水平滚动事件
 
 #### Defined in
 
-[src/types/DocumentPro.ts:124](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L124)
+[src/types/DocumentPro.ts:119](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L119)
 
 ___
 
 ### MouseMove
 
-• **MouseMove**: `MouseMovePayload`
+• **MouseMove**: [`MouseMovePayload`](MouseMovePayload.md)
 
 鼠标移动事件
 
 #### Defined in
 
-[src/types/DocumentPro.ts:114](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L114)
+[src/types/DocumentPro.ts:109](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L109)
 
 ___
 
 ### VerticalScroll
 
-• **VerticalScroll**: `MouseMovePayload`
+• **VerticalScroll**: [`MouseMovePayload`](MouseMovePayload.md)
 
 垂直滚动事件
 
 #### Defined in
 
-[src/types/DocumentPro.ts:119](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L119)
+[src/types/DocumentPro.ts:114](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L114)
 
 ___
 
@@ -70,11 +72,11 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `commentIds?` | `string`[] | 所有被点击的评论ID列表  **`since`** PD2.10 |
+| `commentIds?` | `string`[] | 所有被点击的评论ID列表  **`since`** 22.2.1 |
 
 #### Defined in
 
-[src/types/DocumentPro.ts:93](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L93)
+[src/types/DocumentPro.ts:90](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L90)
 
 ___
 
@@ -84,7 +86,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:92](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L92)
+[src/types/DocumentPro.ts:89](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L89)
 
 ___
 
@@ -94,7 +96,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:100](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L100)
+[src/types/DocumentPro.ts:97](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L97)
 
 ___
 
@@ -111,13 +113,37 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:104](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L104)
+[src/types/DocumentPro.ts:99](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L99)
 
 ___
 
-### saveStatusChanged
+### paramsChanged
 
-• **saveStatusChanged**: `Object`
+• **paramsChanged**: `Object`
+
+用于类似表格打开定位到当前 tab 的用途。事件触发时，替换当前的 url 的 search params 参数，在初始化 JS SDK 时传入。
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `string` |
+
+#### Inherited from
+
+[BaseEventMap](BaseEventMap.md).[paramsChanged](BaseEventMap.md#paramschanged)
+
+#### Defined in
+
+[src/types/BaseEditor.ts:15](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/BaseEditor.ts#L15)
+
+___
+
+### saveStatusDidChange
+
+• **saveStatusDidChange**: `Object`
+
+保存状态发生变更
 
 #### Type declaration
 
@@ -125,9 +151,13 @@ ___
 | :------ | :------ |
 | `status?` | ``"saving"`` \| ``"saved"`` \| ``"error"`` |
 
+#### Inherited from
+
+[BaseEventMap](BaseEventMap.md).[saveStatusDidChange](BaseEventMap.md#savestatusdidchange)
+
 #### Defined in
 
-[src/types/DocumentPro.ts:101](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L101)
+[src/types/BaseEditor.ts:5](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/BaseEditor.ts#L5)
 
 ___
 
@@ -137,4 +167,23 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:91](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L91)
+[src/types/DocumentPro.ts:88](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L88)
+
+___
+
+### showSignatureComponent
+
+• **showSignatureComponent**: `Object`
+
+请求打开签名组件
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `aspectRatio` | `number` | 签名图片的宽高比 |
+| `id` | `string` | 该签名图片的唯一 ID，用于在 `updateSignature()` 时指定想更新的签名组件 |
+
+#### Defined in
+
+[src/types/DocumentPro.ts:124](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L124)

@@ -26,7 +26,7 @@
 
 ### endDemonstration
 
-▸ **endDemonstration**(`options`): `Promise`<`void`\>
+▸ **endDemonstration**(`options?`): `Promise`<`void`\>
 
 结束本地演示
 
@@ -34,7 +34,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -42,13 +42,13 @@
 
 #### Defined in
 
-[src/types/Presentation.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Presentation.ts#L26)
+[src/types/Presentation.ts:23](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Presentation.ts#L23)
 
 ___
 
 ### hideHistory
 
-▸ **hideHistory**(`options`): `Promise`<`void`\>
+▸ **hideHistory**(`options?`): `Promise`<`void`\>
 
 隐藏历史
 
@@ -56,7 +56,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -64,13 +64,15 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:22](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Presentation.ts#L22)
+[src/types/Presentation.ts:19](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Presentation.ts#L19)
 
 ___
 
 ### off
 
-▸ **off**<`K`\>(`event`, `handler`): `void`
+▸ **off**<`K`\>(`event`, `handler?`): `void`
+
+取消监听事件
 
 #### Type parameters
 
@@ -83,7 +85,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `event` | `K` |
-| `handler` | `EventCallback` |
+| `handler?` | (`payload`: `T`[`K`]) => `void` |
 
 #### Returns
 
@@ -95,13 +97,15 @@ BaseEditor.off
 
 #### Defined in
 
-[src/types/BaseEditor.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/BaseEditor.ts#L11)
+[src/types/BaseEditor.ts:31](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/BaseEditor.ts#L31)
 
 ___
 
 ### on
 
 ▸ **on**<`K`\>(`event`, `handler`): `void`
+
+监听事件
 
 #### Type parameters
 
@@ -114,7 +118,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `event` | `K` |
-| `handler` | `EventCallback` |
+| `handler` | (`payload`: `T`[`K`]) => `void` |
 
 #### Returns
 
@@ -126,7 +130,7 @@ BaseEditor.on
 
 #### Defined in
 
-[src/types/BaseEditor.ts:10](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/BaseEditor.ts#L10)
+[src/types/BaseEditor.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/BaseEditor.ts#L26)
 
 ___
 
@@ -146,25 +150,29 @@ ___
 
 `Promise`<`void`\>
 
+#### Inherited from
+
+BaseEditor.setTitle
+
 #### Defined in
 
-[src/types/Presentation.ts:31](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Presentation.ts#L31)
+[src/types/BaseEditor.ts:36](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/BaseEditor.ts#L36)
 
 ___
 
 ### showHistory
 
-▸ **showHistory**(`options`): `Promise`<`void`\>
+▸ **showHistory**(`options?`): `Promise`<`void`\>
 
 显示历史
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -172,13 +180,13 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:20](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Presentation.ts#L20)
+[src/types/Presentation.ts:17](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Presentation.ts#L17)
 
 ___
 
 ### startDemonstration
 
-▸ **startDemonstration**(`options`): `Promise`<`void`\>
+▸ **startDemonstration**(`options?`): `Promise`<`void`\>
 
 开始本地演示
 
@@ -186,7 +194,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -194,4 +202,4 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:24](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Presentation.ts#L24)
+[src/types/Presentation.ts:21](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Presentation.ts#L21)

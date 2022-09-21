@@ -40,6 +40,7 @@
 - [showHistory](DocumentPro.Editor.md#showhistory)
 - [showToc](DocumentPro.Editor.md#showtoc)
 - [updateComment](DocumentPro.Editor.md#updatecomment)
+- [updateSignature](DocumentPro.Editor.md#updatesignature)
 - [zoom](DocumentPro.Editor.md#zoom)
 
 ## Methods
@@ -50,14 +51,14 @@
 
 添加评论
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
-| `options.text` | `string` | 评论内容  **`since`** PD2.10 |
+| `options.text` | `string` | 评论内容  **`since`** 22.2.1 |
 
 #### Returns
 
@@ -65,7 +66,7 @@
 
 #### Defined in
 
-[src/types/DocumentPro.ts:183](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L183)
+[src/types/DocumentPro.ts:199](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L199)
 
 ___
 
@@ -75,7 +76,7 @@ ___
 
 添加页码
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
@@ -83,7 +84,7 @@ ___
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
 | `options.alignment?` | [`HorizontalAlignment`](../modules/DocumentPro.md#horizontalalignment) | 页码的对齐方式  **`default`** 1 |
-| `options.position` | [`DocumentPos`](../modules/DocumentPro.md#documentpos) | 页码的插入位置  **`since`** PD2.10 |
+| `options.position` | [`DocumentPos`](../modules/DocumentPro.md#documentpos) | 页码的插入位置  **`since`** 22.2.1 |
 
 #### Returns
 
@@ -91,22 +92,22 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:319](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L319)
+[src/types/DocumentPro.ts:314](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L314)
 
 ___
 
 ### createRevision
 
-▸ **createRevision**(`options`): `Promise`<`void`\>
+▸ **createRevision**(`options?`): `Promise`<`void`\>
 
 创建版本
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `options` | `Object` | - |
-| `options.name` | `string` | 版本名 |
+| Name | Type |
+| :------ | :------ |
+| `options?` | `Object` |
+| `options.name` | `string` |
 
 #### Returns
 
@@ -114,7 +115,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:423](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L423)
+[src/types/DocumentPro.ts:403](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L403)
 
 ___
 
@@ -124,14 +125,14 @@ ___
 
 获取单条评论
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
-| `options.commentId` | `string` | 评论ID  **`since`** PD2.10 |
+| `options.commentId` | `string` | 评论ID  **`since`** 22.2.1 |
 | `options.includeChapterTitle?` | `boolean` | 包含对应的标题信息 |
 
 #### Returns
@@ -140,23 +141,23 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:154](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L154)
+[src/types/DocumentPro.ts:173](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L173)
 
 ___
 
 ### getCommentBySelection
 
-▸ **getCommentBySelection**(`options`): `Promise`<`void`\>
+▸ **getCommentBySelection**(`options?`): `Promise`<`void`\>
 
 获取一个选区已存在的评论
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -164,7 +165,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:178](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L178)
+[src/types/DocumentPro.ts:194](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L194)
 
 ___
 
@@ -174,14 +175,14 @@ ___
 
 获取所有评论
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
-| `options.includeChapterTitle?` | `boolean` | 包含对应的标题信息  **`since`** PD2.10  **`default`** false |
+| `options.includeChapterTitle?` | `boolean` | 包含对应的标题信息  **`since`** 22.2.1  **`default`** false |
 
 #### Returns
 
@@ -189,23 +190,23 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:132](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L132)
+[src/types/DocumentPro.ts:154](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L154)
 
 ___
 
 ### getSelectedText
 
-▸ **getSelectedText**(`options`): `Promise`<`void`\>
+▸ **getSelectedText**(`options?`): `Promise`<`void`\>
 
 获取选区文本
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -213,7 +214,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:295](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L295)
+[src/types/DocumentPro.ts:293](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L293)
 
 ___
 
@@ -223,14 +224,14 @@ ___
 
 跳转到评论所在位置
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
-| `options.commentId` | `string` | 评论ID  **`since`** PD2.10 |
+| `options.commentId` | `string` | 评论ID  **`since`** 22.2.1 |
 | `options.shouldScrollToComment?` | `boolean` | 是否滚动到评论所在位置  **`default`** true |
 | `options.shouldSelectComment?` | `boolean` | 是否需要选中评论正文  **`default`** false |
 
@@ -240,7 +241,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:271](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L271)
+[src/types/DocumentPro.ts:272](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L272)
 
 ___
 
@@ -250,14 +251,14 @@ ___
 
 跳转页面
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
-| `options.pageNum` | `number` | 页码  **`since`** PD2.10 |
+| `options.pageNum` | `number` | 页码  **`since`** 22.2.1 |
 
 #### Returns
 
@@ -265,23 +266,23 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:300](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L300)
+[src/types/DocumentPro.ts:298](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L298)
 
 ___
 
 ### goToTop
 
-▸ **goToTop**(`options`): `Promise`<`void`\>
+▸ **goToTop**(`options?`): `Promise`<`void`\>
 
 跳到文档顶部
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -289,13 +290,13 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:314](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L314)
+[src/types/DocumentPro.ts:309](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L309)
 
 ___
 
 ### hideHistory
 
-▸ **hideHistory**(`options`): `Promise`<`void`\>
+▸ **hideHistory**(`options?`): `Promise`<`void`\>
 
 关闭历史版本预览
 
@@ -303,7 +304,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -311,23 +312,23 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:433](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L433)
+[src/types/DocumentPro.ts:407](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L407)
 
 ___
 
 ### hideToc
 
-▸ **hideToc**(`options`): `Promise`<`void`\>
+▸ **hideToc**(`options?`): `Promise`<`void`\>
 
 隐藏文档结构图
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -335,13 +336,15 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:358](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L358)
+[src/types/DocumentPro.ts:350](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L350)
 
 ___
 
 ### off
 
-▸ **off**<`K`\>(`event`, `handler`): `void`
+▸ **off**<`K`\>(`event`, `handler?`): `void`
+
+取消监听事件
 
 #### Type parameters
 
@@ -354,7 +357,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `event` | `K` |
-| `handler` | `EventCallback` |
+| `handler?` | (`payload`: `T`[`K`]) => `void` |
 
 #### Returns
 
@@ -366,13 +369,15 @@ BaseEditor.off
 
 #### Defined in
 
-[src/types/BaseEditor.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/BaseEditor.ts#L11)
+[src/types/BaseEditor.ts:31](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/BaseEditor.ts#L31)
 
 ___
 
 ### on
 
 ▸ **on**<`K`\>(`event`, `handler`): `void`
+
+监听事件
 
 #### Type parameters
 
@@ -385,7 +390,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `event` | `K` |
-| `handler` | `EventCallback` |
+| `handler` | (`payload`: `T`[`K`]) => `void` |
 
 #### Returns
 
@@ -397,7 +402,7 @@ BaseEditor.on
 
 #### Defined in
 
-[src/types/BaseEditor.ts:10](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/BaseEditor.ts#L10)
+[src/types/BaseEditor.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/BaseEditor.ts#L26)
 
 ___
 
@@ -407,14 +412,14 @@ ___
 
 打印
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
-| `options.pageNums` | `number`[] | 页码列表  **`since`** PD2.10 |
+| `options.pageNums` | `number`[] | 页码列表 |
 
 #### Returns
 
@@ -422,23 +427,23 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:407](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L407)
+[src/types/DocumentPro.ts:389](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L389)
 
 ___
 
 ### printAll
 
-▸ **printAll**(`options`): `Promise`<`void`\>
+▸ **printAll**(`options?`): `Promise`<`void`\>
 
 打印所有页面
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -446,23 +451,23 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:421](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L421)
+[src/types/DocumentPro.ts:399](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L399)
 
 ___
 
 ### removeAllPageNums
 
-▸ **removeAllPageNums**(`options`): `Promise`<`void`\>
+▸ **removeAllPageNums**(`options?`): `Promise`<`void`\>
 
 删除所有页码
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -470,7 +475,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:338](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L338)
+[src/types/DocumentPro.ts:330](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L330)
 
 ___
 
@@ -480,14 +485,14 @@ ___
 
 删除评论
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
-| `options.commentId` | `string` | 评论ID  **`since`** PD2.10 |
+| `options.commentId` | `string` | 评论ID  **`since`** 22.2.1 |
 
 #### Returns
 
@@ -495,7 +500,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:227](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L227)
+[src/types/DocumentPro.ts:237](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L237)
 
 ___
 
@@ -505,14 +510,14 @@ ___
 
 删除回复
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
-| `options.commentDataId` | `string` | 回复数据的ID  **`since`** PD2.10 |
+| `options.commentDataId` | `string` | 回复数据的ID  **`since`** 22.2.1 |
 
 #### Returns
 
@@ -520,7 +525,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:241](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L241)
+[src/types/DocumentPro.ts:248](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L248)
 
 ___
 
@@ -530,14 +535,14 @@ ___
 
 添加回复
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
-| `options.commentId` | `string` | 评论ID  **`since`** PD2.10 |
+| `options.commentId` | `string` | 评论ID  **`since`** 22.2.1 |
 | `options.text` | `string` | 回复内容 |
 
 #### Returns
@@ -546,7 +551,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:203](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L203)
+[src/types/DocumentPro.ts:216](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L216)
 
 ___
 
@@ -556,14 +561,14 @@ ___
 
 设置加粗
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
-| `options.isBold?` | `boolean` | 是否加粗  **`since`** PD2.10  **`default`** false |
+| `options.isBold?` | `boolean` | 是否加粗  **`since`** 22.2.1  **`default`** false |
 
 #### Returns
 
@@ -571,7 +576,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:377](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L377)
+[src/types/DocumentPro.ts:369](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L369)
 
 ___
 
@@ -581,14 +586,14 @@ ___
 
 设置斜体
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `options` | `Object` | - |
-| `options.isItalic?` | `boolean` | 是否斜体  **`since`** PD2.10  **`default`** false |
+| Name | Type |
+| :------ | :------ |
+| `options` | `Object` |
+| `options.isItalic?` | `boolean` |
 
 #### Returns
 
@@ -596,7 +601,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:392](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L392)
+[src/types/DocumentPro.ts:384](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L384)
 
 ___
 
@@ -616,15 +621,19 @@ ___
 
 `Promise`<`void`\>
 
+#### Inherited from
+
+BaseEditor.setTitle
+
 #### Defined in
 
-[src/types/DocumentPro.ts:438](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L438)
+[src/types/BaseEditor.ts:36](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/BaseEditor.ts#L36)
 
 ___
 
 ### showHistory
 
-▸ **showHistory**(`options`): `Promise`<`void`\>
+▸ **showHistory**(`options?`): `Promise`<`void`\>
 
 预览历史版本
 
@@ -632,7 +641,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -640,7 +649,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:431](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L431)
+[src/types/DocumentPro.ts:405](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L405)
 
 ___
 
@@ -650,14 +659,14 @@ ___
 
 显示文档结构
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
-| `options.shouldDisableCache?` | `boolean` | 禁用文档结构图的默认缓存  **`since`** PD2.10  **`default`** true |
+| `options.shouldDisableCache?` | `boolean` | 禁用文档结构图的默认缓存  **`since`** 22.2.1  **`default`** true |
 
 #### Returns
 
@@ -665,7 +674,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:343](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L343)
+[src/types/DocumentPro.ts:335](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L335)
 
 ___
 
@@ -675,14 +684,14 @@ ___
 
 更新评论或回复
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
-| `options.commentDataId` | `string` | 评论数据或回复数据的ID  **`since`** PD2.10 |
+| `options.commentDataId` | `string` | 评论数据或回复数据的ID  **`since`** 22.2.1 |
 | `options.text` | `string` | 评论内容 |
 
 #### Returns
@@ -691,7 +700,29 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:255](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L255)
+[src/types/DocumentPro.ts:259](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L259)
+
+___
+
+### updateSignature
+
+▸ **updateSignature**(`payload`): `Promise`<`void`\>
+
+更新签名图片
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `payload` | [`UpdateSignaturePayload`](DocumentPro.UpdateSignaturePayload.md) |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/DocumentPro.ts:412](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L412)
 
 ___
 
@@ -701,14 +732,14 @@ ___
 
 文档缩放
 
-**`since`** PD2.10
+**`since`** 22.2.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
-| `options.percent` | `number` | 缩放百分比  **`since`** PD2.10 |
+| `options.percent` | `number` | 缩放百分比  **`since`** 22.2.1 |
 
 #### Returns
 
@@ -716,4 +747,4 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:363](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/DocumentPro.ts#L363)
+[src/types/DocumentPro.ts:355](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/DocumentPro.ts#L355)

@@ -9,7 +9,6 @@
 ### Properties
 
 - [error](Table.EventMap.md#error)
-- [saveStatusDidChange](Table.EventMap.md#savestatusdidchange)
 
 ## Properties
 
@@ -26,22 +25,4 @@
 
 #### Defined in
 
-[src/types/Table.ts:14](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Table.ts#L14)
-
-___
-
-### saveStatusDidChange
-
-• **saveStatusDidChange**: `Object`
-
-保存状态发生变更
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `status?` | ``"saving"`` \| ``"saved"`` \| ``"error"`` |
-
-#### Defined in
-
-[src/types/Table.ts:7](https://github.com/shimohq/shimo-js-sdk/blob/24329bf/src/types/Table.ts#L7)
+[src/types/Table.ts:4](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/Table.ts#L4)
