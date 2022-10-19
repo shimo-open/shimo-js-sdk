@@ -49,7 +49,7 @@ BaseEditor.off
 
 #### Defined in
 
-[src/types/BaseEditor.ts:31](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/BaseEditor.ts#L31)
+[src/types/BaseEditor.ts:31](https://github.com/shimohq/shimo-js-sdk/blob/9389d1f/src/types/BaseEditor.ts#L31)
 
 ___
 
@@ -82,7 +82,7 @@ BaseEditor.on
 
 #### Defined in
 
-[src/types/BaseEditor.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/BaseEditor.ts#L26)
+[src/types/BaseEditor.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/9389d1f/src/types/BaseEditor.ts#L26)
 
 ___
 
@@ -108,4 +108,4 @@ BaseEditor.setTitle
 
 #### Defined in
 
-[src/types/BaseEditor.ts:36](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/types/BaseEditor.ts#L36)
+[src/types/BaseEditor.ts:36](https://github.com/shimohq/shimo-js-sdk/blob/9389d1f/src/types/BaseEditor.ts#L36)

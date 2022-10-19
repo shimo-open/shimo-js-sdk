@@ -98,7 +98,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:3](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/connect.ts#L3)
+[src/connect.ts:3](https://github.com/shimohq/shimo-js-sdk/blob/9389d1f/src/connect.ts#L3)
 
 ___
 
@@ -139,7 +139,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:730](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/ShimoSDK.ts#L730)
+[src/ShimoSDK.ts:732](https://github.com/shimohq/shimo-js-sdk/blob/9389d1f/src/ShimoSDK.ts#L732)
 
 ___
 
@@ -227,7 +227,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:48](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/ShimoSDK.ts#L48)
+[src/ShimoSDK.ts:47](https://github.com/shimohq/shimo-js-sdk/blob/9389d1f/src/ShimoSDK.ts#L47)
 
 ## Functions
 
@@ -252,4 +252,4 @@ Promise resovled 不代表编辑器已经完整加载完毕，只代表 SDK 已�
 
 #### Defined in
 
-[src/connect.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/203a7cb/src/connect.ts#L11)
+[src/connect.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/9389d1f/src/connect.ts#L11)
