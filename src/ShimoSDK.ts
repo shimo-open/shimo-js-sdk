@@ -21,7 +21,6 @@ import {
   MouseMovePayload,
   ReadyState,
   PerformanceEntry,
-  ReadyStateEventPayload,
   DeviceMode,
   GenerateUrlHandler,
   GenerateUrlInfo,
@@ -411,13 +410,16 @@ export default class ShimoSDK extends TinyEmitter {
       { audience: '*' }
     )
 
-    /**
-     * 监听 ReadyState 变更
-     */
-    channel.addInvokeHandler(
-      InvokeMethod.ReadyState,
-      (payload: ReadyStateEventPayload) => {
-        this.emit(Event.ReadyState, payload)
+    channel.on(
+      'message',
+      (msg: ShimoMessageEvent) => {
+        const data = msg.data as any
+        /**
+         * 监听 ReadyState 变更
+         */
+        if (data?.event === InvokeMethod.ReadyState) {
+          this.emit(Event.ReadyState, data.payload)
+        }
       },
       { audience: AUD }
     )
