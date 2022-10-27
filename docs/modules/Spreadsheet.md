@@ -28,7 +28,7 @@
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:55](https://github.com/shimohq/shimo-js-sdk/blob/9389d1f/src/types/Spreadsheet.ts#L55)
+[src/types/Spreadsheet.ts:55](https://github.com/shimohq/shimo-js-sdk/blob/9325ba5/src/types/Spreadsheet.ts#L55)
 
 ___
 
@@ -43,4 +43,4 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:18](https://github.com/shimohq/shimo-js-sdk/blob/9389d1f/src/types/Spreadsheet.ts#L18)
+[src/types/Spreadsheet.ts:18](https://github.com/shimohq/shimo-js-sdk/blob/9325ba5/src/types/Spreadsheet.ts#L18)
