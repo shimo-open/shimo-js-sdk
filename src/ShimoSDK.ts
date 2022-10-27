@@ -399,16 +399,19 @@ export default class ShimoSDK extends TinyEmitter {
       this.emit('error', err)
     })
 
-    /**
-     * postMessage 时，将消息转到 iframe
-     */
-    channel.on(
-      'postMessage',
-      (evt: ShimoMessageEvent) => {
-        this.element?.contentWindow?.postMessage(evt, this.iframeOrigin)
-      },
-      { audience: '*' }
-    )
+    const endpoint = new URL(this.connectOptions.endpoint)
+    if (location.host !== endpoint.host) {
+      /**
+       * 非 same origin 时，用不了 broadcast channel，需要在 postMessage 时，将消息转到 iframe
+       */
+      channel.on(
+        'postMessage',
+        (evt: ShimoMessageEvent) => {
+          this.element?.contentWindow?.postMessage(evt, this.iframeOrigin)
+        },
+        { audience: '*' }
+      )
+    }
 
     channel.on(
       'message',
