@@ -58,6 +58,7 @@
 
 - [FileTypeAlias](modules.md#filetypealias)
 - [MessageEvent](modules.md#messageevent)
+- [START\_PARAMS\_FIELD](modules.md#start_params_field)
 
 ### Functions
 
@@ -98,7 +99,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:3](https://github.com/shimohq/shimo-js-sdk/blob/9325ba5/src/connect.ts#L3)
+[src/connect.ts:3](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/connect.ts#L3)
 
 ___
 
@@ -139,7 +140,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:735](https://github.com/shimohq/shimo-js-sdk/blob/9325ba5/src/ShimoSDK.ts#L735)
+[src/ShimoSDK.ts:735](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/ShimoSDK.ts#L735)
 
 ___
 
@@ -227,7 +228,17 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:47](https://github.com/shimohq/shimo-js-sdk/blob/9325ba5/src/ShimoSDK.ts#L47)
+[src/ShimoSDK.ts:47](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/ShimoSDK.ts#L47)
+
+___
+
+### START\_PARAMS\_FIELD
+
+• **START\_PARAMS\_FIELD**: ``"smParams"``
+
+#### Defined in
+
+[src/index.ts:25](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/index.ts#L25)
 
 ## Functions
 
@@ -252,4 +263,4 @@ Promise resovled 不代表编辑器已经完整加载完毕，只代表 SDK 已�
 
 #### Defined in
 
-[src/connect.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/9325ba5/src/connect.ts#L11)
+[src/connect.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/connect.ts#L11)
