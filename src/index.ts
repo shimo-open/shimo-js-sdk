@@ -21,3 +21,5 @@ export {
   Form,
   BaseEventMap
 }
+
+export const START_PARAMS_FIELD = 'smParams'
