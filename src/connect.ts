@@ -1,4 +1,4 @@
-import ShimoSDK, { ShimoSDKOptions } from './ShimoSDK'
+import { ShimoSDK, ShimoSDKOptions } from './ShimoSDK'
 
 export type ConnectOptions = ShimoSDKOptions
 

@@ -46,7 +46,7 @@ const SUPPORTED_LANGUAGES = ['zh-CN', 'en', 'ja']
 
 export const MessageEvent = InvokeMethod
 
-export default class ShimoSDK extends TinyEmitter {
+export class ShimoSDK extends TinyEmitter {
   /**
    * 编辑器页面对应的 iframe 元素。需要注意调整父元素大小来控制 iframe 大小。
    */

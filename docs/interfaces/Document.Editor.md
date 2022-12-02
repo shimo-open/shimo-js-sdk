@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- `BaseEditor`<[`EventMap`](Document.EventMap.md)\>
+- [`BaseEditor`](BaseEditor.md)<[`EventMap`](Document.EventMap.md)\>
 
   ↳ **`Editor`**
 
@@ -37,7 +37,7 @@
 
 ### createRevision
 
-▸ **createRevision**(`options?`): `Promise`<``null`` \| `DocumentErrorMessage`\>
+▸ **createRevision**(`options?`): `Promise`<``null`` \| [`DocumentErrorMessage`](Document.DocumentErrorMessage.md)\>
 
 创建版本
 
@@ -51,11 +51,11 @@
 
 #### Returns
 
-`Promise`<``null`` \| `DocumentErrorMessage`\>
+`Promise`<``null`` \| [`DocumentErrorMessage`](Document.DocumentErrorMessage.md)\>
 
 #### Defined in
 
-[src/types/Document.ts:75](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/types/Document.ts#L75)
+[src/types/Document.ts:75](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/types/Document.ts#L75)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:85](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/types/Document.ts#L85)
+[src/types/Document.ts:85](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/types/Document.ts#L85)
 
 ___
 
@@ -103,7 +103,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:101](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/types/Document.ts#L101)
+[src/types/Document.ts:101](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/types/Document.ts#L101)
 
 ___
 
@@ -127,7 +127,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:60](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/types/Document.ts#L60)
+[src/types/Document.ts:60](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/types/Document.ts#L60)
 
 ___
 
@@ -151,7 +151,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:40](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/types/Document.ts#L40)
+[src/types/Document.ts:40](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/types/Document.ts#L40)
 
 ___
 
@@ -175,7 +175,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:50](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/types/Document.ts#L50)
+[src/types/Document.ts:50](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/types/Document.ts#L50)
 
 ___
 
@@ -199,13 +199,13 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:70](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/types/Document.ts#L70)
+[src/types/Document.ts:70](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/types/Document.ts#L70)
 
 ___
 
 ### insertExternalApp
 
-▸ **insertExternalApp**(`url`): `Promise`<``null`` \| `DocumentErrorMessage`\>
+▸ **insertExternalApp**(`url`): `Promise`<``null`` \| [`DocumentErrorMessage`](Document.DocumentErrorMessage.md)\>
 
 插入第三方应用，是否可用受版本限制。
 
@@ -219,11 +219,11 @@ ___
 
 #### Returns
 
-`Promise`<``null`` \| `DocumentErrorMessage`\>
+`Promise`<``null`` \| [`DocumentErrorMessage`](Document.DocumentErrorMessage.md)\>
 
 #### Defined in
 
-[src/types/Document.ts:106](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/types/Document.ts#L106)
+[src/types/Document.ts:106](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/types/Document.ts#L106)
 
 ___
 
@@ -252,11 +252,11 @@ ___
 
 #### Inherited from
 
-BaseEditor.off
+[BaseEditor](BaseEditor.md).[off](BaseEditor.md#off)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:31](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/types/BaseEditor.ts#L31)
+[src/types/BaseEditor.ts:31](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/types/BaseEditor.ts#L31)
 
 ___
 
@@ -285,11 +285,11 @@ ___
 
 #### Inherited from
 
-BaseEditor.on
+[BaseEditor](BaseEditor.md).[on](BaseEditor.md#on)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/types/BaseEditor.ts#L26)
+[src/types/BaseEditor.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/types/BaseEditor.ts#L26)
 
 ___
 
@@ -313,7 +313,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:90](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/types/Document.ts#L90)
+[src/types/Document.ts:90](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/types/Document.ts#L90)
 
 ___
 
@@ -335,11 +335,11 @@ ___
 
 #### Inherited from
 
-BaseEditor.setTitle
+[BaseEditor](BaseEditor.md).[setTitle](BaseEditor.md#settitle)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:36](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/types/BaseEditor.ts#L36)
+[src/types/BaseEditor.ts:36](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/types/BaseEditor.ts#L36)
 
 ___
 
@@ -363,7 +363,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:96](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/types/Document.ts#L96)
+[src/types/Document.ts:96](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/types/Document.ts#L96)
 
 ___
 
@@ -387,7 +387,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:55](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/types/Document.ts#L55)
+[src/types/Document.ts:55](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/types/Document.ts#L55)
 
 ___
 
@@ -411,7 +411,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:35](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/types/Document.ts#L35)
+[src/types/Document.ts:35](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/types/Document.ts#L35)
 
 ___
 
@@ -435,7 +435,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:45](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/types/Document.ts#L45)
+[src/types/Document.ts:45](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/types/Document.ts#L45)
 
 ___
 
@@ -459,7 +459,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:65](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/types/Document.ts#L65)
+[src/types/Document.ts:65](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/types/Document.ts#L65)
 
 ___
 
@@ -483,4 +483,4 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:80](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/types/Document.ts#L80)
+[src/types/Document.ts:80](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/types/Document.ts#L80)
