@@ -1,0 +1,657 @@
+[shimo-js-sdk](../README.md) / [Exports](../modules.md) / ShimoSDK
+
+# Class: ShimoSDK
+
+## Hierarchy
+
+- `TinyEmitter`
+
+  ↳ **`ShimoSDK`**
+
+## Table of contents
+
+### Constructors
+
+- [constructor](ShimoSDK.md#constructor)
+
+### Properties
+
+- [\_fileType](ShimoSDK.md#_filetype)
+- [\_readyState](ShimoSDK.md#_readystate)
+- [apiAdaptor](ShimoSDK.md#apiadaptor)
+- [apiAdaptorContext](ShimoSDK.md#apiadaptorcontext)
+- [channel](ShimoSDK.md#channel)
+- [connectOptions](ShimoSDK.md#connectoptions)
+- [document](ShimoSDK.md#document)
+- [documentPro](ShimoSDK.md#documentpro)
+- [editor](ShimoSDK.md#editor)
+- [element](ShimoSDK.md#element)
+- [emitter](ShimoSDK.md#emitter)
+- [form](ShimoSDK.md#form)
+- [iframeOrigin](ShimoSDK.md#iframeorigin)
+- [messageHandler](ShimoSDK.md#messagehandler)
+- [presentation](ShimoSDK.md#presentation)
+- [spreadsheet](ShimoSDK.md#spreadsheet)
+- [startParams](ShimoSDK.md#startparams)
+- [table](ShimoSDK.md#table)
+- [targetOrigin](ShimoSDK.md#targetorigin)
+- [uuid](ShimoSDK.md#uuid)
+
+### Accessors
+
+- [fileType](ShimoSDK.md#filetype)
+- [readyState](ShimoSDK.md#readystate)
+
+### Methods
+
+- [bindContainerMethodHandlers](ShimoSDK.md#bindcontainermethodhandlers)
+- [disconnect](ShimoSDK.md#disconnect)
+- [emit](ShimoSDK.md#emit)
+- [getEditor](ShimoSDK.md#geteditor)
+- [getPerformanceEntries](ShimoSDK.md#getperformanceentries)
+- [init](ShimoSDK.md#init)
+- [initChannel](ShimoSDK.md#initchannel)
+- [initEditor](ShimoSDK.md#initeditor)
+- [initIframe](ShimoSDK.md#initiframe)
+- [off](ShimoSDK.md#off)
+- [on](ShimoSDK.md#on)
+- [once](ShimoSDK.md#once)
+- [setCredentials](ShimoSDK.md#setcredentials)
+- [setSignature](ShimoSDK.md#setsignature)
+- [setToken](ShimoSDK.md#settoken)
+
+## Constructors
+
+### constructor
+
+• **new ShimoSDK**(`options`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options` | [`ShimoSDKOptions`](../interfaces/ShimoSDKOptions.md) |
+
+#### Overrides
+
+TinyEmitter.constructor
+
+#### Defined in
+
+[src/ShimoSDK.ts:110](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L110)
+
+## Properties
+
+### \_fileType
+
+• `Private` **\_fileType**: [`FileType`](../enums/FileType.md) = `FileType.Unknown`
+
+#### Defined in
+
+[src/ShimoSDK.ts:92](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L92)
+
+___
+
+### \_readyState
+
+• `Private` **\_readyState**: [`ReadyState`](../enums/ReadyState.md) = `ReadyState.Loading`
+
+#### Defined in
+
+[src/ShimoSDK.ts:102](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L102)
+
+___
+
+### apiAdaptor
+
+• `Private` `Readonly` **apiAdaptor**: `string`
+
+#### Defined in
+
+[src/ShimoSDK.ts:107](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L107)
+
+___
+
+### apiAdaptorContext
+
+• `Private` `Readonly` **apiAdaptorContext**: `string`
+
+#### Defined in
+
+[src/ShimoSDK.ts:108](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L108)
+
+___
+
+### channel
+
+• `Private` **channel**: `default`
+
+#### Defined in
+
+[src/ShimoSDK.ts:100](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L100)
+
+___
+
+### connectOptions
+
+• `Private` `Readonly` **connectOptions**: [`ShimoSDKOptions`](../interfaces/ShimoSDKOptions.md)
+
+#### Defined in
+
+[src/ShimoSDK.ts:101](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L101)
+
+___
+
+### document
+
+• `Optional` **document**: [`Editor`](../interfaces/Document.Editor.md)
+
+轻文档编辑器实例
+
+**`deprecated`** - 用 `sdk.getEditor<T>()` 替代
+
+#### Defined in
+
+[src/ShimoSDK.ts:66](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L66)
+
+___
+
+### documentPro
+
+• `Optional` **documentPro**: [`Editor`](../interfaces/DocumentPro.Editor.md)
+
+传统文档编辑器实例
+
+**`deprecated`** - 用 `sdk.getEditor<T>()` 替代
+
+#### Defined in
+
+[src/ShimoSDK.ts:60](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L60)
+
+___
+
+### editor
+
+• `Private` **editor**: `any`
+
+#### Defined in
+
+[src/ShimoSDK.ts:103](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L103)
+
+___
+
+### element
+
+• **element**: `HTMLIFrameElement`
+
+编辑器页面对应的 iframe 元素。需要注意调整父元素大小来控制 iframe 大小。
+
+#### Defined in
+
+[src/ShimoSDK.ts:53](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L53)
+
+___
+
+### emitter
+
+• `Private` `Readonly` **emitter**: `TinyEmitter`
+
+内部 event emitter，比如用来中转 editor 事件
+
+#### Defined in
+
+[src/ShimoSDK.ts:98](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L98)
+
+___
+
+### form
+
+• `Optional` **form**: [`Editor`](../interfaces/Form.Editor.md)
+
+表单编辑器实例
+
+**`deprecated`** - 用 `sdk.getEditor<T>()` 替代
+
+#### Defined in
+
+[src/ShimoSDK.ts:90](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L90)
+
+___
+
+### iframeOrigin
+
+• `Private` **iframeOrigin**: `string`
+
+#### Defined in
+
+[src/ShimoSDK.ts:105](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L105)
+
+___
+
+### messageHandler
+
+• `Private` `Readonly` **messageHandler**: (`evt`: `MessageEvent`<`any`\>) => `void`
+
+#### Type declaration
+
+▸ (`evt`): `void`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `evt` | `MessageEvent`<`any`\> |
+
+##### Returns
+
+`void`
+
+#### Defined in
+
+[src/ShimoSDK.ts:93](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L93)
+
+___
+
+### presentation
+
+• `Optional` **presentation**: [`Editor`](../interfaces/Presentation.Editor.md)
+
+专业幻灯片编辑器实例
+
+**`deprecated`** - 用 `sdk.getEditor<T>()` 替代
+
+#### Defined in
+
+[src/ShimoSDK.ts:78](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L78)
+
+___
+
+### spreadsheet
+
+• `Optional` **spreadsheet**: [`Editor`](../interfaces/Spreadsheet.Editor.md)
+
+表格编辑器实例
+
+**`deprecated`** - 用 `sdk.getEditor<T>()` 替代
+
+#### Defined in
+
+[src/ShimoSDK.ts:72](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L72)
+
+___
+
+### startParams
+
+• `Private` `Readonly` **startParams**: `StartParams`
+
+#### Defined in
+
+[src/ShimoSDK.ts:106](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L106)
+
+___
+
+### table
+
+• `Optional` **table**: [`Editor`](../interfaces/Table.Editor.md)
+
+应用表格编辑器实例
+
+**`deprecated`** - 用 `sdk.getEditor<T>()` 替代
+
+#### Defined in
+
+[src/ShimoSDK.ts:84](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L84)
+
+___
+
+### targetOrigin
+
+• `Private` `Readonly` **targetOrigin**: `string`
+
+#### Defined in
+
+[src/ShimoSDK.ts:104](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L104)
+
+___
+
+### uuid
+
+• `Readonly` **uuid**: `string`
+
+#### Defined in
+
+[src/ShimoSDK.ts:54](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L54)
+
+## Accessors
+
+### fileType
+
+• `get` **fileType**(): [`FileType`](../enums/FileType.md)
+
+#### Returns
+
+[`FileType`](../enums/FileType.md)
+
+#### Defined in
+
+[src/ShimoSDK.ts:164](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L164)
+
+___
+
+### readyState
+
+• `get` **readyState**(): [`ReadyState`](../enums/ReadyState.md)
+
+#### Returns
+
+[`ReadyState`](../enums/ReadyState.md)
+
+#### Defined in
+
+[src/ShimoSDK.ts:168](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L168)
+
+## Methods
+
+### bindContainerMethodHandlers
+
+▸ `Private` **bindContainerMethodHandlers**(): `void`
+
+初始化处理编辑器需要容器返回数据的方法
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/ShimoSDK.ts:497](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L497)
+
+___
+
+### disconnect
+
+▸ **disconnect**(): `void`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/ShimoSDK.ts:225](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L225)
+
+___
+
+### emit
+
+▸ **emit**(`event`, ...`args`): [`ShimoSDK`](ShimoSDK.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `event` | `string` |
+| `...args` | `any`[] |
+
+#### Returns
+
+[`ShimoSDK`](ShimoSDK.md)
+
+#### Inherited from
+
+TinyEmitter.emit
+
+#### Defined in
+
+node_modules/tiny-emitter/index.d.ts:4
+
+___
+
+### getEditor
+
+▸ **getEditor**<`T`\>(): `T`
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends [`Editor`](../interfaces/DocumentPro.Editor.md) \| [`Editor`](../interfaces/Document.Editor.md) \| [`Editor`](../interfaces/Spreadsheet.Editor.md) \| [`Editor`](../interfaces/Presentation.Editor.md) \| [`Editor`](../interfaces/Table.Editor.md) \| [`Editor`](../interfaces/Form.Editor.md) \| [`BaseEditor`](../interfaces/BaseEditor.md)<{ [K: string]: `any`;  }\> = [`BaseEditor`](../interfaces/BaseEditor.md)<{ [K: string]: `any`;  }\> |
+
+#### Returns
+
+`T`
+
+#### Defined in
+
+[src/ShimoSDK.ts:172](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L172)
+
+___
+
+### getPerformanceEntries
+
+▸ **getPerformanceEntries**(): `Promise`<[`PerformanceEntry`](../interfaces/PerformanceEntry.md)[]\>
+
+获取性能信息片段列表，由于性能标记是分段的、异步的，因此每次调用时获取的列表有可能不一致
+
+#### Returns
+
+`Promise`<[`PerformanceEntry`](../interfaces/PerformanceEntry.md)[]\>
+
+#### Defined in
+
+[src/ShimoSDK.ts:217](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L217)
+
+___
+
+### init
+
+▸ **init**(): `Promise`<`void`\>
+
+初始化 SDK，返回 Promise，当 ReadState 变为 Ready 或 Failed 时，Promise 将被 resolve。
+Promise resovled 不代表编辑器已经完整加载完毕，只代表 SDK 已经准备好了。
+同时 Promise 一直 pending 也不代表编辑器加载失败，只代表无法通过 SDK 和编辑器交互。
+比如受浏览器限制无法发出 postMessage() 时，Promise 将会一直 pending。
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/ShimoSDK.ts:238](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L238)
+
+___
+
+### initChannel
+
+▸ `Private` **initChannel**(): `void`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/ShimoSDK.ts:382](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L382)
+
+___
+
+### initEditor
+
+▸ `Private` **initEditor**(): `Object`
+
+#### Returns
+
+`Object`
+
+| Name | Type |
+| :------ | :------ |
+| `off` | (`event`: `string`, `callback`: [`EventCallback`](../modules.md#eventcallback)) => `void` |
+| `on` | (`event`: `string`, `callback`: [`EventCallback`](../modules.md#eventcallback)) => `Promise`<`void`\> |
+
+#### Defined in
+
+[src/ShimoSDK.ts:586](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L586)
+
+___
+
+### initIframe
+
+▸ `Private` **initIframe**(): `Promise`<`HTMLIFrameElement`\>
+
+#### Returns
+
+`Promise`<`HTMLIFrameElement`\>
+
+#### Defined in
+
+[src/ShimoSDK.ts:308](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L308)
+
+___
+
+### off
+
+▸ **off**(`event`, `callback?`): [`ShimoSDK`](ShimoSDK.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `event` | `string` |
+| `callback?` | `Function` |
+
+#### Returns
+
+[`ShimoSDK`](ShimoSDK.md)
+
+#### Inherited from
+
+TinyEmitter.off
+
+#### Defined in
+
+node_modules/tiny-emitter/index.d.ts:5
+
+___
+
+### on
+
+▸ **on**(`event`, `callback`, `ctx?`): [`ShimoSDK`](ShimoSDK.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `event` | `string` |
+| `callback` | `Function` |
+| `ctx?` | `any` |
+
+#### Returns
+
+[`ShimoSDK`](ShimoSDK.md)
+
+#### Inherited from
+
+TinyEmitter.on
+
+#### Defined in
+
+node_modules/tiny-emitter/index.d.ts:2
+
+___
+
+### once
+
+▸ **once**(`event`, `callback`, `ctx?`): [`ShimoSDK`](ShimoSDK.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `event` | `string` |
+| `callback` | `Function` |
+| `ctx?` | `any` |
+
+#### Returns
+
+[`ShimoSDK`](ShimoSDK.md)
+
+#### Inherited from
+
+TinyEmitter.once
+
+#### Defined in
+
+node_modules/tiny-emitter/index.d.ts:3
+
+___
+
+### setCredentials
+
+▸ **setCredentials**(`payload`): `Promise`<`void`\>
+
+更新鉴权 signature 和 token
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `payload` | `Object` |
+| `payload.signature` | `string` |
+| `payload.token` | `string` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/ShimoSDK.ts:188](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L188)
+
+___
+
+### setSignature
+
+▸ **setSignature**(`signature`): `Promise`<`void`\>
+
+设置石墨的鉴权 signature。用于实时更新鉴权信息，优化用户出现因长时间放置，鉴权失败而引起的体验问题。
+
+**`deprecated`** - 用 `sdk.setCredentials()` 替代
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `signature` | `string` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/ShimoSDK.ts:198](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L198)
+
+___
+
+### setToken
+
+▸ **setToken**(`token`): `Promise`<`void`\>
+
+设置您系统的鉴权 token。用于实时更新鉴权信息，优化用户出现因长时间放置，鉴权失败而引起的体验问题。
+
+**`deprecated`** - 用 `sdk.setCredentials()` 替代
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `token` | `string` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/ShimoSDK.ts:208](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L208)

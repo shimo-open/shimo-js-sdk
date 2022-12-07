@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- `BaseEditor`<[`EventMap`](Presentation.EventMap.md)\>
+- [`BaseEditor`](BaseEditor.md)<[`EventMap`](Presentation.EventMap.md)\>
 
   ↳ **`Editor`**
 
@@ -42,7 +42,7 @@
 
 #### Defined in
 
-[src/types/Presentation.ts:23](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/types/Presentation.ts#L23)
+[src/types/Presentation.ts:23](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/types/Presentation.ts#L23)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:19](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/types/Presentation.ts#L19)
+[src/types/Presentation.ts:19](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/types/Presentation.ts#L19)
 
 ___
 
@@ -93,11 +93,11 @@ ___
 
 #### Inherited from
 
-BaseEditor.off
+[BaseEditor](BaseEditor.md).[off](BaseEditor.md#off)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:31](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/types/BaseEditor.ts#L31)
+[src/types/BaseEditor.ts:31](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/types/BaseEditor.ts#L31)
 
 ___
 
@@ -126,11 +126,11 @@ ___
 
 #### Inherited from
 
-BaseEditor.on
+[BaseEditor](BaseEditor.md).[on](BaseEditor.md#on)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/types/BaseEditor.ts#L26)
+[src/types/BaseEditor.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/types/BaseEditor.ts#L26)
 
 ___
 
@@ -152,11 +152,11 @@ ___
 
 #### Inherited from
 
-BaseEditor.setTitle
+[BaseEditor](BaseEditor.md).[setTitle](BaseEditor.md#settitle)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:36](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/types/BaseEditor.ts#L36)
+[src/types/BaseEditor.ts:36](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/types/BaseEditor.ts#L36)
 
 ___
 
@@ -180,7 +180,7 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:17](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/types/Presentation.ts#L17)
+[src/types/Presentation.ts:17](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/types/Presentation.ts#L17)
 
 ___
 
@@ -202,4 +202,4 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:21](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/types/Presentation.ts#L21)
+[src/types/Presentation.ts:21](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/types/Presentation.ts#L21)

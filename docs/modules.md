@@ -22,8 +22,13 @@
 - [ReadyState](enums/ReadyState.md)
 - [UrlSharingType](enums/UrlSharingType.md)
 
+### Classes
+
+- [ShimoSDK](classes/ShimoSDK.md)
+
 ### Interfaces
 
+- [BaseEditor](interfaces/BaseEditor.md)
 - [BaseEventMap](interfaces/BaseEventMap.md)
 - [ContainerMethodPayload](interfaces/ContainerMethodPayload.md)
 - [ContainerMethods](interfaces/ContainerMethods.md)
@@ -99,7 +104,7 @@ ___
 
 #### Defined in
 
-[src/connect.ts:3](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/connect.ts#L3)
+[src/connect.ts:3](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/connect.ts#L3)
 
 ___
 
@@ -140,7 +145,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:735](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/ShimoSDK.ts#L735)
+[src/ShimoSDK.ts:735](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L735)
 
 ___
 
@@ -228,7 +233,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:47](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/ShimoSDK.ts#L47)
+[src/ShimoSDK.ts:47](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L47)
 
 ___
 
@@ -238,13 +243,13 @@ ___
 
 #### Defined in
 
-[src/index.ts:25](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/index.ts#L25)
+[src/index.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/index.ts#L26)
 
 ## Functions
 
 ### connect
 
-▸ **connect**(`options`): `Promise`<`ShimoSDK`\>
+▸ **connect**(`options`): `Promise`<[`ShimoSDK`](classes/ShimoSDK.md)\>
 
 初始化 SDK，返回 Promise，当 ReadState 变为 Ready 或 Failed 时，Promise 将被 resolve。
 Promise resovled 不代表编辑器已经完整加载完毕，只代表 SDK 已经准备好了。
@@ -259,8 +264,8 @@ Promise resovled 不代表编辑器已经完整加载完毕，只代表 SDK 已�
 
 #### Returns
 
-`Promise`<`ShimoSDK`\>
+`Promise`<[`ShimoSDK`](classes/ShimoSDK.md)\>
 
 #### Defined in
 
-[src/connect.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/35cc9e7/src/connect.ts#L11)
+[src/connect.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/connect.ts#L11)

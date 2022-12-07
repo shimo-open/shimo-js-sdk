@@ -1,7 +1,7 @@
 import { MouseMovePayload } from 'shimo-js-sdk-shared'
 import { BaseEditor, EventMap as BaseEventMap } from './BaseEditor'
 
-interface DocumentErrorMessage {
+export interface DocumentErrorMessage {
   message: string
 }
 

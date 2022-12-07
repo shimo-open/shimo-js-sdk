@@ -1,22 +1,36 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / [Form](../modules/Form.md) / Editor
+[shimo-js-sdk](../README.md) / [Exports](../modules.md) / BaseEditor
 
-# Interface: Editor
+# Interface: BaseEditor<T\>
 
-[Form](../modules/Form.md).Editor
+## Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `Object` = { [K: string]: `any`;  } |
 
 ## Hierarchy
 
-- [`BaseEditor`](BaseEditor.md)<[`EventMap`](Form.EventMap.md)\>
+- **`BaseEditor`**
 
-  ↳ **`Editor`**
+  ↳ [`Editor`](DocumentPro.Editor.md)
+
+  ↳ [`Editor`](Document.Editor.md)
+
+  ↳ [`Editor`](Spreadsheet.Editor.md)
+
+  ↳ [`Editor`](Presentation.Editor.md)
+
+  ↳ [`Editor`](Table.Editor.md)
+
+  ↳ [`Editor`](Form.Editor.md)
 
 ## Table of contents
 
 ### Methods
 
-- [off](Form.Editor.md#off)
-- [on](Form.Editor.md#on)
-- [setTitle](Form.Editor.md#settitle)
+- [off](BaseEditor.md#off)
+- [on](BaseEditor.md#on)
+- [setTitle](BaseEditor.md#settitle)
 
 ## Methods
 
@@ -42,10 +56,6 @@
 #### Returns
 
 `void`
-
-#### Inherited from
-
-[BaseEditor](BaseEditor.md).[off](BaseEditor.md#off)
 
 #### Defined in
 
@@ -76,10 +86,6 @@ ___
 
 `void`
 
-#### Inherited from
-
-[BaseEditor](BaseEditor.md).[on](BaseEditor.md#on)
-
 #### Defined in
 
 [src/types/BaseEditor.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/types/BaseEditor.ts#L26)
@@ -101,10 +107,6 @@ ___
 #### Returns
 
 `Promise`<`void`\>
-
-#### Inherited from
-
-[BaseEditor](BaseEditor.md).[setTitle](BaseEditor.md#settitle)
 
 #### Defined in
 
