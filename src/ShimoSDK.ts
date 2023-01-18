@@ -4,9 +4,10 @@ import 'core-js/features/array/includes'
 import 'core-js/features/object/assign'
 import 'proxy-polyfill'
 import {
-  SOURCE_NAMESPACE,
   ShimoBroadcastChannel,
-  ShimoMessageEvent
+  ShimoMessageEvent,
+  isShimoMessageEventLike,
+  ShimoMessageEventLike
 } from 'shimo-broadcast-channel'
 import { StartParams } from 'shimo-startparams'
 import { v4 as uuid } from 'uuid'
@@ -27,6 +28,7 @@ import {
   APIAdaptor,
   RequestContext
 } from 'shimo-js-sdk-shared'
+import ExpireSet from 'expire-set'
 
 import {
   Document,
@@ -90,7 +92,9 @@ export class ShimoSDK extends TinyEmitter {
   form?: Form.Editor
 
   private _fileType: FileType = FileType.Unknown
-  private readonly messageHandler: (evt: globalThis.MessageEvent) => void
+  private readonly messageHandler: (
+    evt: globalThis.MessageEvent
+  ) => void = () => undefined
 
   /**
    * 内部 event emitter，比如用来中转 editor 事件
@@ -101,31 +105,38 @@ export class ShimoSDK extends TinyEmitter {
   private readonly connectOptions: ShimoSDKOptions
   private _readyState: ReadyState = ReadyState.Loading
   private editor: any
-  private readonly targetOrigin: string
-  private iframeOrigin: string
   private readonly startParams: StartParams
   private readonly apiAdaptor: string
   private readonly apiAdaptorContext: string
+  private readonly handledMessageCache: ExpireSet<string>
+  /**
+   * 消息过期时间，单位毫秒，默认 5 分钟
+   */
+  private readonly messageExpires: number
+  /**
+   * SDK 服务器的地址
+   */
+  private readonly endpoint: URL
+  private readonly sameOrigin: boolean
 
   constructor(options: ShimoSDKOptions) {
     super()
 
     this.connectOptions = options
     this.uuid = uuid()
-    this.targetOrigin = options.targetOrigin ?? globalThis.location?.origin
-
-    assert(
-      this.targetOrigin,
-      (origin: unknown) =>
-        typeof origin === 'string' && origin.trim().length > 0,
-      `invalid targetOrigin: ${this.targetOrigin}`
-    )
 
     assert<HTMLElement>(
       options.container,
       (input) => input instanceof HTMLElement,
       `container is not an HTMLElement: ${String(options.container)}`
     )
+
+    try {
+      this.endpoint = new URL(options.endpoint)
+    } catch (e) {
+      throw new Error(`invalid endpoint: "${options.endpoint}"`)
+    }
+    this.sameOrigin = this.endpoint.origin === globalThis.location.origin
 
     this.apiAdaptor = options.apiAdaptor ? options.apiAdaptor.toString() : ''
     this.apiAdaptorContext = options.apiAdaptorContext
@@ -148,15 +159,30 @@ export class ShimoSDK extends TinyEmitter {
 
     this.initChannel()
 
-    // 注册可以反注册的函数
-    this.messageHandler = (evt: globalThis.MessageEvent) => {
-      // 将消息转入 ShimoBroadcastChannel 处理
-      if (evt.data?.source === SOURCE_NAMESPACE) {
-        this.channel
-          .distributeMessage(evt.data as ShimoMessageEvent)
-          .catch((err: Error) => {
-            this.emit('error', err)
-          })
+    let messageExpires = options.messageExpires
+    if (typeof messageExpires !== 'number') {
+      messageExpires = 60 * 5 * 1000
+    }
+    this.messageExpires = assert(
+      messageExpires,
+      (input) => !isNaN(input) && input > 0,
+      `"messageExpires" is not an valid number: "${messageExpires}"`
+    )
+    this.handledMessageCache = new ExpireSet<string>(messageExpires)
+
+    if (!this.sameOrigin) {
+      // 注册可以反注册的函数
+      this.messageHandler = (evt: globalThis.MessageEvent) => {
+        // 将消息转入 ShimoBroadcastChannel 处理
+        const data = evt.data
+        if (isShimoMessageEventLike(data) && this.shouldHandleMessage(data)) {
+          this.handledMessageCache.add(data.id)
+          this.channel
+            .distributeMessage(evt.data as ShimoMessageEvent)
+            .catch((err: Error) => {
+              this.emit('error', err)
+            })
+        }
       }
     }
   }
@@ -242,7 +268,9 @@ export class ShimoSDK extends TinyEmitter {
 
     this._readyState = ReadyState.LoadingEditor
 
-    window.addEventListener('message', this.messageHandler)
+    if (!this.sameOrigin) {
+      window.addEventListener('message', this.messageHandler)
+    }
 
     this.element = await this.initIframe()
 
@@ -322,14 +350,12 @@ export class ShimoSDK extends TinyEmitter {
       iframe.allowFullscreen = true
     }
 
-    const url = new URL(options.endpoint)
+    const url = this.endpoint
     url.pathname = `${url.pathname}/collab-files/${assert<string>(
       options.fileId,
       notEmptyString,
       `"fileId" is missing or empty`
     )}`.replace(/\/+/g, '/')
-
-    this.iframeOrigin = url.origin
 
     const params = options.params
     if (params) {
@@ -399,15 +425,14 @@ export class ShimoSDK extends TinyEmitter {
       this.emit('error', err)
     })
 
-    const endpoint = new URL(this.connectOptions.endpoint)
-    if (location.host !== endpoint.host) {
-      /**
-       * 非 same origin 时，用不了 broadcast channel，需要在 postMessage 时，将消息转到 iframe
-       */
+    /**
+     * 非 same origin 时，用不了 broadcast channel，需要在 postMessage 时，将消息转到 iframe
+     */
+    if (!this.sameOrigin) {
       channel.on(
         'postMessage',
         (evt: ShimoMessageEvent) => {
-          this.element?.contentWindow?.postMessage(evt, this.iframeOrigin)
+          this.element?.contentWindow?.postMessage(evt, '*')
         },
         { audience: '*' }
       )
@@ -622,6 +647,22 @@ export class ShimoSDK extends TinyEmitter {
 
     return p
   }
+
+  private shouldHandleMessage(evt: ShimoMessageEventLike): boolean {
+    if (
+      // 不是当前 channel 的消息
+      evt.channelId !== this.channel.id ||
+      // 消息已经过期
+      /* eslint-disable-next-line @typescript-eslint/restrict-plus-operands */
+      evt.time + this.messageExpires < Date.now() ||
+      // 已经处理过
+      this.handledMessageCache.has(evt.context.messageId)
+    ) {
+      return false
+    }
+
+    return true
+  }
 }
 
 function notEmptyString(input?: string): boolean {
@@ -813,6 +854,7 @@ export interface ShimoSDKOptions
 
   /**
    * iframe postMessage 的目标 origin，默认是当前页面的 location.origin。
+   * @deprecated
    */
   targetOrigin?: string
 
@@ -840,4 +882,9 @@ export interface ShimoSDKOptions
    * 用于在编辑器发起 API 请求时，对请求参数进行修改的函数时传入的上下文数据。
    */
   apiAdaptorContext?: RequestContext
+
+  /**
+   * 用于判断通信消息过期时间，过期后的消息会被抛弃，默认 5 分钟。
+   */
+  messageExpires?: number
 }
