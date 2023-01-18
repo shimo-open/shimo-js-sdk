@@ -26,7 +26,8 @@ import {
   GenerateUrlHandler,
   GenerateUrlInfo,
   APIAdaptor,
-  RequestContext
+  RequestContext,
+  SDKEvent
 } from 'shimo-js-sdk-shared'
 import ExpireSet from 'expire-set'
 
@@ -119,6 +120,8 @@ export class ShimoSDK extends TinyEmitter {
   private readonly endpoint: URL
   private readonly sameOrigin: boolean
 
+  private readonly onViewportResize: () => void
+
   constructor(options: ShimoSDKOptions) {
     super()
 
@@ -169,6 +172,20 @@ export class ShimoSDK extends TinyEmitter {
 
     if (typeof options.debug === 'boolean') {
       this.startParams.debug = this.connectOptions.debug
+    }
+
+    this.onViewportResize = () => {
+      ;(async () => {
+        await this.channel.postMessage({
+          event: SDKEvent.ViewportResize,
+          payload: this.getContainerRect()
+        })
+      })().catch((err) => {
+        this.emit(
+          'error',
+          new Error(`Failed to emit resize event: ${String(err)}`)
+        )
+      })
     }
 
     this.initChannel()
@@ -267,6 +284,11 @@ export class ShimoSDK extends TinyEmitter {
       this.element.parentElement.removeChild(this.element)
     }
     window.removeEventListener('message', this.messageHandler)
+    if (window.visualViewport) {
+      window.visualViewport.removeEventListener('resize', this.onViewportResize)
+    } else {
+      window.removeEventListener('resize', this.onViewportResize)
+    }
   }
 
   /**
@@ -528,6 +550,12 @@ export class ShimoSDK extends TinyEmitter {
     )
 
     this.bindContainerMethodHandlers()
+
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', this.onViewportResize)
+    } else {
+      window.addEventListener('resize', this.onViewportResize)
+    }
   }
 
   /**
@@ -606,18 +634,7 @@ export class ShimoSDK extends TinyEmitter {
 
     channel.addInvokeHandler(
       ContainerMethod.GetContainerRect,
-      async () => {
-        const rect = this.element.getBoundingClientRect()
-        return {
-          viewportWidth: window.innerWidth,
-          viewportHeight: window.innerHeight,
-          top: rect.top,
-          left: rect.left,
-          bottom: rect.bottom,
-          right: rect.right,
-          scrollTop: document.scrollingElement?.scrollTop
-        }
-      },
+      async () => this.getContainerRect(),
       { audience: AUD }
     )
   }
@@ -686,6 +703,34 @@ export class ShimoSDK extends TinyEmitter {
     }
 
     return true
+  }
+
+  private getContainerRect() {
+    const rect = this.element.getBoundingClientRect()
+    const payload: ContainerRect = {
+      viewportWidth: window.innerWidth,
+      viewportHeight: window.innerHeight,
+      top: rect.top,
+      left: rect.left,
+      bottom: rect.bottom,
+      right: rect.right,
+      scrollTop: document.scrollingElement?.scrollTop,
+      visualViewport: {}
+    }
+
+    if (window.visualViewport) {
+      payload.visualViewport = {
+        width: window.visualViewport.width,
+        height: window.visualViewport.height,
+        offsetLeft: window.visualViewport.offsetLeft,
+        offsetTop: window.visualViewport.offsetTop,
+        pageLeft: window.visualViewport.pageLeft,
+        pageTop: window.visualViewport.pageTop,
+        scale: window.visualViewport.scale
+      }
+    }
+
+    return payload
   }
 }
 
