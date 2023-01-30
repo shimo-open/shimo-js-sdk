@@ -12,7 +12,7 @@
     "format": "eslint --fix .&& prettier --write .",
     "prepack": "npm run lint && NODE_ENV=production npm run build && node scripts/prepack.js",
     "prepare": "husky install",
-    "docs": "typedoc src/index.ts"
+    "docs": "typedoc --excludePrivate --excludeInternal src/index.ts"
   },
   "author": "Chris Yip <chris@yesui.co>",
   "license": "MIT",
