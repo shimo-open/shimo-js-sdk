@@ -16,25 +16,13 @@
 
 ### Properties
 
-- [\_fileType](ShimoSDK.md#_filetype)
-- [\_readyState](ShimoSDK.md#_readystate)
-- [apiAdaptor](ShimoSDK.md#apiadaptor)
-- [apiAdaptorContext](ShimoSDK.md#apiadaptorcontext)
-- [channel](ShimoSDK.md#channel)
-- [connectOptions](ShimoSDK.md#connectoptions)
 - [document](ShimoSDK.md#document)
 - [documentPro](ShimoSDK.md#documentpro)
-- [editor](ShimoSDK.md#editor)
 - [element](ShimoSDK.md#element)
-- [emitter](ShimoSDK.md#emitter)
 - [form](ShimoSDK.md#form)
-- [iframeOrigin](ShimoSDK.md#iframeorigin)
-- [messageHandler](ShimoSDK.md#messagehandler)
 - [presentation](ShimoSDK.md#presentation)
 - [spreadsheet](ShimoSDK.md#spreadsheet)
-- [startParams](ShimoSDK.md#startparams)
 - [table](ShimoSDK.md#table)
-- [targetOrigin](ShimoSDK.md#targetorigin)
 - [uuid](ShimoSDK.md#uuid)
 
 ### Accessors
@@ -44,15 +32,11 @@
 
 ### Methods
 
-- [bindContainerMethodHandlers](ShimoSDK.md#bindcontainermethodhandlers)
 - [disconnect](ShimoSDK.md#disconnect)
 - [emit](ShimoSDK.md#emit)
 - [getEditor](ShimoSDK.md#geteditor)
 - [getPerformanceEntries](ShimoSDK.md#getperformanceentries)
 - [init](ShimoSDK.md#init)
-- [initChannel](ShimoSDK.md#initchannel)
-- [initEditor](ShimoSDK.md#initeditor)
-- [initIframe](ShimoSDK.md#initiframe)
 - [off](ShimoSDK.md#off)
 - [on](ShimoSDK.md#on)
 - [once](ShimoSDK.md#once)
@@ -78,69 +62,9 @@ TinyEmitter.constructor
 
 #### Defined in
 
-[src/ShimoSDK.ts:110](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L110)
+[src/ShimoSDK.ts:122](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L122)
 
 ## Properties
-
-### \_fileType
-
-• `Private` **\_fileType**: [`FileType`](../enums/FileType.md) = `FileType.Unknown`
-
-#### Defined in
-
-[src/ShimoSDK.ts:92](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L92)
-
-___
-
-### \_readyState
-
-• `Private` **\_readyState**: [`ReadyState`](../enums/ReadyState.md) = `ReadyState.Loading`
-
-#### Defined in
-
-[src/ShimoSDK.ts:102](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L102)
-
-___
-
-### apiAdaptor
-
-• `Private` `Readonly` **apiAdaptor**: `string`
-
-#### Defined in
-
-[src/ShimoSDK.ts:107](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L107)
-
-___
-
-### apiAdaptorContext
-
-• `Private` `Readonly` **apiAdaptorContext**: `string`
-
-#### Defined in
-
-[src/ShimoSDK.ts:108](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L108)
-
-___
-
-### channel
-
-• `Private` **channel**: `default`
-
-#### Defined in
-
-[src/ShimoSDK.ts:100](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L100)
-
-___
-
-### connectOptions
-
-• `Private` `Readonly` **connectOptions**: [`ShimoSDKOptions`](../interfaces/ShimoSDKOptions.md)
-
-#### Defined in
-
-[src/ShimoSDK.ts:101](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L101)
-
-___
 
 ### document
 
@@ -152,7 +76,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:66](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L66)
+[src/ShimoSDK.ts:68](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L68)
 
 ___
 
@@ -166,17 +90,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:60](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L60)
-
-___
-
-### editor
-
-• `Private` **editor**: `any`
-
-#### Defined in
-
-[src/ShimoSDK.ts:103](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L103)
+[src/ShimoSDK.ts:62](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L62)
 
 ___
 
@@ -188,19 +102,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:53](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L53)
-
-___
-
-### emitter
-
-• `Private` `Readonly` **emitter**: `TinyEmitter`
-
-内部 event emitter，比如用来中转 editor 事件
-
-#### Defined in
-
-[src/ShimoSDK.ts:98](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L98)
+[src/ShimoSDK.ts:55](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L55)
 
 ___
 
@@ -214,41 +116,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:90](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L90)
-
-___
-
-### iframeOrigin
-
-• `Private` **iframeOrigin**: `string`
-
-#### Defined in
-
-[src/ShimoSDK.ts:105](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L105)
-
-___
-
-### messageHandler
-
-• `Private` `Readonly` **messageHandler**: (`evt`: `MessageEvent`<`any`\>) => `void`
-
-#### Type declaration
-
-▸ (`evt`): `void`
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `evt` | `MessageEvent`<`any`\> |
-
-##### Returns
-
-`void`
-
-#### Defined in
-
-[src/ShimoSDK.ts:93](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L93)
+[src/ShimoSDK.ts:92](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L92)
 
 ___
 
@@ -262,7 +130,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:78](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L78)
+[src/ShimoSDK.ts:80](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L80)
 
 ___
 
@@ -276,17 +144,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:72](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L72)
-
-___
-
-### startParams
-
-• `Private` `Readonly` **startParams**: `StartParams`
-
-#### Defined in
-
-[src/ShimoSDK.ts:106](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L106)
+[src/ShimoSDK.ts:74](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L74)
 
 ___
 
@@ -300,17 +158,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:84](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L84)
-
-___
-
-### targetOrigin
-
-• `Private` `Readonly` **targetOrigin**: `string`
-
-#### Defined in
-
-[src/ShimoSDK.ts:104](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L104)
+[src/ShimoSDK.ts:86](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L86)
 
 ___
 
@@ -320,7 +168,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:54](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L54)
+[src/ShimoSDK.ts:56](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L56)
 
 ## Accessors
 
@@ -334,7 +182,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:164](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L164)
+[src/ShimoSDK.ts:190](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L190)
 
 ___
 
@@ -348,25 +196,9 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:168](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L168)
+[src/ShimoSDK.ts:194](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L194)
 
 ## Methods
-
-### bindContainerMethodHandlers
-
-▸ `Private` **bindContainerMethodHandlers**(): `void`
-
-初始化处理编辑器需要容器返回数据的方法
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/ShimoSDK.ts:497](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L497)
-
-___
 
 ### disconnect
 
@@ -378,7 +210,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:225](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L225)
+[src/ShimoSDK.ts:251](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L251)
 
 ___
 
@@ -423,7 +255,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:172](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L172)
+[src/ShimoSDK.ts:198](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L198)
 
 ___
 
@@ -439,7 +271,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:217](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L217)
+[src/ShimoSDK.ts:243](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L243)
 
 ___
 
@@ -458,54 +290,7 @@ Promise resovled 不代表编辑器已经完整加载完毕，只代表 SDK 已�
 
 #### Defined in
 
-[src/ShimoSDK.ts:238](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L238)
-
-___
-
-### initChannel
-
-▸ `Private` **initChannel**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/ShimoSDK.ts:382](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L382)
-
-___
-
-### initEditor
-
-▸ `Private` **initEditor**(): `Object`
-
-#### Returns
-
-`Object`
-
-| Name | Type |
-| :------ | :------ |
-| `off` | (`event`: `string`, `callback`: [`EventCallback`](../modules.md#eventcallback)) => `void` |
-| `on` | (`event`: `string`, `callback`: [`EventCallback`](../modules.md#eventcallback)) => `Promise`<`void`\> |
-
-#### Defined in
-
-[src/ShimoSDK.ts:586](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L586)
-
-___
-
-### initIframe
-
-▸ `Private` **initIframe**(): `Promise`<`HTMLIFrameElement`\>
-
-#### Returns
-
-`Promise`<`HTMLIFrameElement`\>
-
-#### Defined in
-
-[src/ShimoSDK.ts:308](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L308)
+[src/ShimoSDK.ts:264](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L264)
 
 ___
 
@@ -606,7 +391,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:188](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L188)
+[src/ShimoSDK.ts:214](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L214)
 
 ___
 
@@ -630,7 +415,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:198](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L198)
+[src/ShimoSDK.ts:224](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L224)
 
 ___
 
@@ -654,4 +439,4 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:208](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L208)
+[src/ShimoSDK.ts:234](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L234)

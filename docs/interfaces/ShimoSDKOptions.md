@@ -26,6 +26,7 @@ ShimoSDK 初始化参数
 - [fileId](ShimoSDKOptions.md#fileid)
 - [generateUrl](ShimoSDKOptions.md#generateurl)
 - [lang](ShimoSDKOptions.md#lang)
+- [messageExpires](ShimoSDKOptions.md#messageexpires)
 - [params](ShimoSDKOptions.md#params)
 - [plugins](ShimoSDKOptions.md#plugins)
 - [showLoadingEffect](ShimoSDKOptions.md#showloadingeffect)
@@ -51,7 +52,7 @@ ShimoSDK 初始化参数
 
 #### Defined in
 
-[src/ShimoSDK.ts:802](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L802)
+[src/ShimoSDK.ts:843](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L843)
 
 ___
 
@@ -63,7 +64,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:837](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L837)
+[src/ShimoSDK.ts:879](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L879)
 
 ___
 
@@ -75,7 +76,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:842](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L842)
+[src/ShimoSDK.ts:884](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L884)
 
 ___
 
@@ -87,7 +88,7 @@ iframe 挂载的目标容器
 
 #### Defined in
 
-[src/ShimoSDK.ts:760](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L760)
+[src/ShimoSDK.ts:801](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L801)
 
 ___
 
@@ -99,7 +100,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:807](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L807)
+[src/ShimoSDK.ts:848](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L848)
 
 ___
 
@@ -111,7 +112,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:822](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L822)
+[src/ShimoSDK.ts:864](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L864)
 
 ___
 
@@ -123,7 +124,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:796](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L796)
+[src/ShimoSDK.ts:837](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L837)
 
 ___
 
@@ -135,7 +136,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:827](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L827)
+[src/ShimoSDK.ts:869](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L869)
 
 ___
 
@@ -147,7 +148,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:745](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L745)
+[src/ShimoSDK.ts:786](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L786)
 
 ___
 
@@ -159,7 +160,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:750](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L750)
+[src/ShimoSDK.ts:791](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L791)
 
 ___
 
@@ -175,7 +176,7 @@ Omit.generateUrl
 
 #### Defined in
 
-[src/ShimoSDK.ts:658](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L658)
+[src/ShimoSDK.ts:699](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L699)
 
 ___
 
@@ -193,7 +194,19 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:791](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L791)
+[src/ShimoSDK.ts:832](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L832)
+
+___
+
+### messageExpires
+
+• `Optional` **messageExpires**: `number`
+
+用于判断通信消息过期时间，过期后的消息会被抛弃，默认 5 分钟。
+
+#### Defined in
+
+[src/ShimoSDK.ts:889](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L889)
 
 ___
 
@@ -209,7 +222,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:770](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L770)
+[src/ShimoSDK.ts:811](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L811)
 
 ___
 
@@ -221,7 +234,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:812](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L812)
+[src/ShimoSDK.ts:853](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L853)
 
 ___
 
@@ -233,7 +246,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:832](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L832)
+[src/ShimoSDK.ts:874](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L874)
 
 ___
 
@@ -245,7 +258,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:755](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L755)
+[src/ShimoSDK.ts:796](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L796)
 
 ___
 
@@ -257,7 +270,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:777](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L777)
+[src/ShimoSDK.ts:818](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L818)
 
 ___
 
@@ -267,9 +280,11 @@ ___
 
 iframe postMessage 的目标 origin，默认是当前页面的 location.origin。
 
+**`deprecated`**
+
 #### Defined in
 
-[src/ShimoSDK.ts:817](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L817)
+[src/ShimoSDK.ts:859](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L859)
 
 ___
 
@@ -281,7 +296,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:765](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L765)
+[src/ShimoSDK.ts:806](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L806)
 
 ## Methods
 
@@ -307,7 +322,7 @@ Omit.getFileInfoFromUrl
 
 #### Defined in
 
-[src/ShimoSDK.ts:670](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L670)
+[src/ShimoSDK.ts:711](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L711)
 
 ___
 
@@ -333,7 +348,7 @@ Omit.mentionClickHandlerForMobile
 
 #### Defined in
 
-[src/ShimoSDK.ts:663](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L663)
+[src/ShimoSDK.ts:704](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L704)
 
 ___
 
@@ -360,4 +375,4 @@ Omit.openLink
 
 #### Defined in
 
-[src/ShimoSDK.ts:643](https://github.com/shimohq/shimo-js-sdk/blob/3201c39/src/ShimoSDK.ts#L643)
+[src/ShimoSDK.ts:684](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L684)
