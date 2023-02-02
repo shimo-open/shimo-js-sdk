@@ -18,6 +18,7 @@
 - [MouseMove](Document.EventMap.md#mousemove)
 - [VerticalScroll](Document.EventMap.md#verticalscroll)
 - [paramsChanged](Document.EventMap.md#paramschanged)
+- [saveStatusChanged](Document.EventMap.md#savestatuschanged)
 - [saveStatusDidChange](Document.EventMap.md#savestatusdidchange)
 - [titleChange](Document.EventMap.md#titlechange)
 
@@ -31,7 +32,7 @@
 
 #### Defined in
 
-[src/types/Document.ts:27](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/types/Document.ts#L27)
+[src/types/Document.ts:27](https://github.com/shimohq/shimo-js-sdk/blob/6435618/src/types/Document.ts#L27)
 
 ___
 
@@ -43,7 +44,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:17](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/types/Document.ts#L17)
+[src/types/Document.ts:17](https://github.com/shimohq/shimo-js-sdk/blob/6435618/src/types/Document.ts#L17)
 
 ___
 
@@ -55,7 +56,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:22](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/types/Document.ts#L22)
+[src/types/Document.ts:22](https://github.com/shimohq/shimo-js-sdk/blob/6435618/src/types/Document.ts#L22)
 
 ___
 
@@ -77,7 +78,29 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:15](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/types/BaseEditor.ts#L15)
+[src/types/BaseEditor.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/6435618/src/types/BaseEditor.ts#L26)
+
+___
+
+### saveStatusChanged
+
+• **saveStatusChanged**: `Object`
+
+保存状态发生变更
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `status?` | ``"saving"`` \| ``"saved"`` \| ``"error"`` |
+
+#### Inherited from
+
+[BaseEventMap](BaseEventMap.md).[saveStatusChanged](BaseEventMap.md#savestatuschanged)
+
+#### Defined in
+
+[src/types/BaseEditor.ts:5](https://github.com/shimohq/shimo-js-sdk/blob/6435618/src/types/BaseEditor.ts#L5)
 
 ___
 
@@ -86,6 +109,8 @@ ___
 • **saveStatusDidChange**: `Object`
 
 保存状态发生变更
+
+**`deprecated`** - use saveStatusChanged
 
 #### Type declaration
 
@@ -99,7 +124,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:5](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/types/BaseEditor.ts#L5)
+[src/types/BaseEditor.ts:16](https://github.com/shimohq/shimo-js-sdk/blob/6435618/src/types/BaseEditor.ts#L16)
 
 ___
 
@@ -111,4 +136,4 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:12](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/types/Document.ts#L12)
+[src/types/Document.ts:12](https://github.com/shimohq/shimo-js-sdk/blob/6435618/src/types/Document.ts#L12)

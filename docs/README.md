@@ -100,7 +100,7 @@ const { FileType } = require('shimo-js-sdk')
 const editor = sdk.getEditor()
 
 // 调用通用事件
-editor.on('saveStatusChange', (payload) => {
+editor.on('saveStatusChanged', (payload) => {
   console.log(payload.status)
 })
 
@@ -116,7 +116,7 @@ if (sdk.fileType === FileType.Document) {
 const { Document } = require('shimo-js-sdk')
 
 const editor = sdk.getEditor<Document.Editor>()
-editor.on('saveStatusChange', (payload) => {
+editor.on('saveStatusChanged', (payload) => {
   console.log(payload.status)
 })
 
