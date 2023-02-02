@@ -18,4 +18,4 @@
 
 #### Defined in
 
-[src/types/Document.ts:5](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/types/Document.ts#L5)
+[src/types/Document.ts:5](https://github.com/shimohq/shimo-js-sdk/blob/91b55ef/src/types/Document.ts#L5)

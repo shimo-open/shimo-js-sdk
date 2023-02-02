@@ -19,7 +19,7 @@
 - [VerticalScroll](Spreadsheet.EventMap.md#verticalscroll)
 - [error](Spreadsheet.EventMap.md#error)
 - [paramsChanged](Spreadsheet.EventMap.md#paramschanged)
-- [saveStatusDidChange](Spreadsheet.EventMap.md#savestatusdidchange)
+- [saveStatusChanged](Spreadsheet.EventMap.md#savestatuschanged)
 
 ## Properties
 
@@ -31,7 +31,7 @@
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:51](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/types/Spreadsheet.ts#L51)
+[src/types/Spreadsheet.ts:51](https://github.com/shimohq/shimo-js-sdk/blob/91b55ef/src/types/Spreadsheet.ts#L51)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:41](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/types/Spreadsheet.ts#L41)
+[src/types/Spreadsheet.ts:41](https://github.com/shimohq/shimo-js-sdk/blob/91b55ef/src/types/Spreadsheet.ts#L41)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:46](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/types/Spreadsheet.ts#L46)
+[src/types/Spreadsheet.ts:46](https://github.com/shimohq/shimo-js-sdk/blob/91b55ef/src/types/Spreadsheet.ts#L46)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:31](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/types/Spreadsheet.ts#L31)
+[src/types/Spreadsheet.ts:31](https://github.com/shimohq/shimo-js-sdk/blob/91b55ef/src/types/Spreadsheet.ts#L31)
 
 ___
 
@@ -94,13 +94,13 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:15](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/types/BaseEditor.ts#L15)
+[src/types/BaseEditor.ts:15](https://github.com/shimohq/shimo-js-sdk/blob/91b55ef/src/types/BaseEditor.ts#L15)
 
 ___
 
-### saveStatusDidChange
+### saveStatusChanged
 
-• **saveStatusDidChange**: `Object`
+• **saveStatusChanged**: `Object`
 
 保存状态发生变更
 
@@ -112,8 +112,8 @@ ___
 
 #### Inherited from
 
-[BaseEventMap](BaseEventMap.md).[saveStatusDidChange](BaseEventMap.md#savestatusdidchange)
+[BaseEventMap](BaseEventMap.md).[saveStatusChanged](BaseEventMap.md#savestatuschanged)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:5](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/types/BaseEditor.ts#L5)
+[src/types/BaseEditor.ts:5](https://github.com/shimohq/shimo-js-sdk/blob/91b55ef/src/types/BaseEditor.ts#L5)

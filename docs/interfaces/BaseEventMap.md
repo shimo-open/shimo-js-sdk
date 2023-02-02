@@ -17,7 +17,7 @@
 ### Properties
 
 - [paramsChanged](BaseEventMap.md#paramschanged)
-- [saveStatusDidChange](BaseEventMap.md#savestatusdidchange)
+- [saveStatusChanged](BaseEventMap.md#savestatuschanged)
 
 ## Properties
 
@@ -35,13 +35,13 @@
 
 #### Defined in
 
-[src/types/BaseEditor.ts:15](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/types/BaseEditor.ts#L15)
+[src/types/BaseEditor.ts:15](https://github.com/shimohq/shimo-js-sdk/blob/91b55ef/src/types/BaseEditor.ts#L15)
 
 ___
 
-### saveStatusDidChange
+### saveStatusChanged
 
-• **saveStatusDidChange**: `Object`
+• **saveStatusChanged**: `Object`
 
 保存状态发生变更
 
@@ -53,4 +53,4 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:5](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/types/BaseEditor.ts#L5)
+[src/types/BaseEditor.ts:5](https://github.com/shimohq/shimo-js-sdk/blob/91b55ef/src/types/BaseEditor.ts#L5)

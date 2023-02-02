@@ -2,7 +2,7 @@ export interface EventMap {
   /**
    * 保存状态发生变更
    */
-  saveStatusDidChange: {
+  saveStatusChanged: {
     /**
      * @since 22.2.1
      */

@@ -18,7 +18,7 @@
 
 #### Defined in
 
-[src/ShimoSDK.ts:770](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L770)
+[src/ShimoSDK.ts:770](https://github.com/shimohq/shimo-js-sdk/blob/91b55ef/src/ShimoSDK.ts#L770)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:769](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L769)
+[src/ShimoSDK.ts:769](https://github.com/shimohq/shimo-js-sdk/blob/91b55ef/src/ShimoSDK.ts#L769)
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:768](https://github.com/shimohq/shimo-js-sdk/blob/712f56a/src/ShimoSDK.ts#L768)
+[src/ShimoSDK.ts:768](https://github.com/shimohq/shimo-js-sdk/blob/91b55ef/src/ShimoSDK.ts#L768)
