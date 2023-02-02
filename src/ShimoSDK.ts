@@ -609,8 +609,17 @@ export class ShimoSDK extends TinyEmitter {
   }
 
   private initEditor() {
+    const adjustEventName = (event: string): string => {
+      // 兼容旧事件名
+      if (event === 'saveStatusDidChange') {
+        return 'saveStatusChanged'
+      }
+      return event
+    }
+
     const inst = {
       on: async (event: string, callback: EventCallback) => {
+        event = adjustEventName(event)
         this.emitter.on(event, callback)
 
         await this.channel.invoke(InvokeMethod.ListenEditorEvent, [event], {
@@ -619,6 +628,7 @@ export class ShimoSDK extends TinyEmitter {
       },
 
       off: (event: string, callback: EventCallback) => {
+        event = adjustEventName(event)
         this.emitter.off(event, callback)
       }
     }

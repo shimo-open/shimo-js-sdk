@@ -2,6 +2,17 @@ export interface EventMap {
   /**
    * 保存状态发生变更
    */
+  saveStatusChanged: {
+    /**
+     * @since 22.2.1
+     */
+    status?: 'saving' | 'saved' | 'error'
+  }
+
+  /**
+   * 保存状态发生变更
+   * @deprecated - use saveStatusChanged
+   */
   saveStatusDidChange: {
     /**
      * @since 22.2.1
