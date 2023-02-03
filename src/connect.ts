@@ -9,7 +9,15 @@ export type ConnectOptions = ShimoSDKOptions
  * 比如受浏览器限制无法发出 postMessage() 时，Promise 将会一直 pending。
  */
 export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
-  const sdk = new ShimoSDK(options)
-  await sdk.init()
-  return sdk
+  try {
+    const sdk = new ShimoSDK(options)
+    await sdk.init()
+    return sdk
+  } catch (e) {
+    console.log('Failed to init ShimoSDK', {
+      error: e,
+      options
+    })
+    throw e
+  }
 }

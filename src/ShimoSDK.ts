@@ -128,7 +128,15 @@ export class ShimoSDK extends TinyEmitter {
     assert<HTMLElement>(
       options.container,
       (input) => input instanceof HTMLElement,
-      `container is not an HTMLElement: ${String(options.container)}`
+      `container is not an HTMLElement: "${String(options.container)}"`
+    )
+    assert<HTMLElement>(
+      options.container,
+      (input: HTMLElement) =>
+        !['iframe', 'frame', 'embed', 'object'].includes(
+          input.tagName.toLowerCase()
+        ),
+      `invalid container element type: "${options.container.tagName}"，DIV are recommended.`
     )
 
     try {
@@ -137,6 +145,12 @@ export class ShimoSDK extends TinyEmitter {
       throw new Error(`invalid endpoint: "${options.endpoint}"`)
     }
     this.sameOrigin = this.endpoint.origin === globalThis.location.origin
+
+    if (/\/sdk\/v2\/*/i.test(this.endpoint.pathname) === false) {
+      console.warn(
+        `Generally the endpoint should end with "/sdk/v2", please make sure it is correct: "${this.endpoint.toString()}"`
+      )
+    }
 
     this.apiAdaptor = options.apiAdaptor ? options.apiAdaptor.toString() : ''
     this.apiAdaptorContext = options.apiAdaptorContext
@@ -354,7 +368,7 @@ export class ShimoSDK extends TinyEmitter {
     url.pathname = `${url.pathname}/collab-files/${assert<string>(
       options.fileId,
       notEmptyString,
-      `"fileId" is missing or empty`
+      `"fileId" is missing or empty: ${options.fileId}`
     )}`.replace(/\/+/g, '/')
 
     const params = options.params
@@ -387,13 +401,13 @@ export class ShimoSDK extends TinyEmitter {
     const token = assert<string>(
       options.token,
       notEmptyString,
-      `"token" is missing or empty`
+      `"token" is missing or empty: "${options.token}"`
     )
 
     const signature = assert<string>(
       options.signature,
       notEmptyString,
-      `"signature" is missing or empty`
+      `"signature" is missing or empty: "${options.signature}"`
     )
 
     url.searchParams.set('token', token)
