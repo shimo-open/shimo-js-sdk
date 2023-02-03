@@ -41,7 +41,7 @@
 
 #### Defined in
 
-[src/types/Table.ts:24](https://github.com/shimohq/shimo-js-sdk/blob/6435618/src/types/Table.ts#L24)
+[src/types/Table.ts:24](https://github.com/shimohq/shimo-js-sdk/blob/0289c44/src/types/Table.ts#L24)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[src/types/Table.ts:20](https://github.com/shimohq/shimo-js-sdk/blob/6435618/src/types/Table.ts#L20)
+[src/types/Table.ts:20](https://github.com/shimohq/shimo-js-sdk/blob/0289c44/src/types/Table.ts#L20)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:42](https://github.com/shimohq/shimo-js-sdk/blob/6435618/src/types/BaseEditor.ts#L42)
+[src/types/BaseEditor.ts:42](https://github.com/shimohq/shimo-js-sdk/blob/0289c44/src/types/BaseEditor.ts#L42)
 
 ___
 
@@ -129,7 +129,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:37](https://github.com/shimohq/shimo-js-sdk/blob/6435618/src/types/BaseEditor.ts#L37)
+[src/types/BaseEditor.ts:37](https://github.com/shimohq/shimo-js-sdk/blob/0289c44/src/types/BaseEditor.ts#L37)
 
 ___
 
@@ -155,7 +155,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:47](https://github.com/shimohq/shimo-js-sdk/blob/6435618/src/types/BaseEditor.ts#L47)
+[src/types/BaseEditor.ts:47](https://github.com/shimohq/shimo-js-sdk/blob/0289c44/src/types/BaseEditor.ts#L47)
 
 ___
 
@@ -177,4 +177,4 @@ ___
 
 #### Defined in
 
-[src/types/Table.ts:16](https://github.com/shimohq/shimo-js-sdk/blob/6435618/src/types/Table.ts#L16)
+[src/types/Table.ts:16](https://github.com/shimohq/shimo-js-sdk/blob/0289c44/src/types/Table.ts#L16)
