@@ -1,6 +1,6 @@
 import { ShimoSDK, ShimoSDKOptions } from './ShimoSDK'
 
-export type ConnectOptions = ShimoSDKOptions
+export interface ConnectOptions extends ShimoSDKOptions {}
 
 /**
  * 初始化 SDK，返回 Promise，当 ReadState 变为 Ready 或 Failed 时，Promise 将被 resolve。
