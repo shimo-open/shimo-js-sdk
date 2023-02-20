@@ -37,7 +37,7 @@ connect({
 })
 ```
 
-参数说明请参考 `docs/interfaces/connectoptions.md`。
+参数说明请参考 [docs/interfaces/connectoptions.md](docs/interfaces/ConnectOptions.md)。
 
 返回值：
 

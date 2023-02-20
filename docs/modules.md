@@ -30,6 +30,7 @@
 
 - [BaseEditor](interfaces/BaseEditor.md)
 - [BaseEventMap](interfaces/BaseEventMap.md)
+- [ConnectOptions](interfaces/ConnectOptions.md)
 - [ContainerMethodPayload](interfaces/ContainerMethodPayload.md)
 - [ContainerMethods](interfaces/ContainerMethods.md)
 - [ContainerRect](interfaces/ContainerRect.md)
@@ -51,7 +52,6 @@
 ### Type aliases
 
 - [APIAdaptor](modules.md#apiadaptor)
-- [ConnectOptions](modules.md#connectoptions)
 - [DeviceMode](modules.md#devicemode)
 - [EventCallback](modules.md#eventcallback)
 - [FileId](modules.md#fileid)
@@ -98,16 +98,6 @@ node_modules/shimo-js-sdk-shared/dist/APIAdaptor.d.ts:7
 
 ___
 
-### ConnectOptions
-
-Ƭ **ConnectOptions**: [`ShimoSDKOptions`](interfaces/ShimoSDKOptions.md)
-
-#### Defined in
-
-[src/connect.ts:3](https://github.com/shimohq/shimo-js-sdk/blob/0289c44/src/connect.ts#L3)
-
-___
-
 ### DeviceMode
 
 Ƭ **DeviceMode**: ``"pc"`` \| ``"mobile"`` \| ``"pad"``
@@ -145,7 +135,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:800](https://github.com/shimohq/shimo-js-sdk/blob/0289c44/src/ShimoSDK.ts#L800)
+[src/ShimoSDK.ts:800](https://github.com/shimohq/shimo-js-sdk/blob/f17c766/src/ShimoSDK.ts#L800)
 
 ___
 
@@ -233,7 +223,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:49](https://github.com/shimohq/shimo-js-sdk/blob/0289c44/src/ShimoSDK.ts#L49)
+[src/ShimoSDK.ts:49](https://github.com/shimohq/shimo-js-sdk/blob/f17c766/src/ShimoSDK.ts#L49)
 
 ___
 
@@ -243,7 +233,7 @@ ___
 
 #### Defined in
 
-[src/index.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/0289c44/src/index.ts#L26)
+[src/index.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/f17c766/src/index.ts#L26)
 
 ## Functions
 
@@ -260,7 +250,7 @@ Promise resovled 不代表编辑器已经完整加载完毕，只代表 SDK 已�
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`ShimoSDKOptions`](interfaces/ShimoSDKOptions.md) |
+| `options` | [`ConnectOptions`](interfaces/ConnectOptions.md) |
 
 #### Returns
 
@@ -268,4 +258,4 @@ Promise resovled 不代表编辑器已经完整加载完毕，只代表 SDK 已�
 
 #### Defined in
 
-[src/connect.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/0289c44/src/connect.ts#L11)
+[src/connect.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/f17c766/src/connect.ts#L11)
