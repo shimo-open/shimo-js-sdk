@@ -154,18 +154,10 @@ export interface Editor extends BaseEditor<EventMap> {
   getComments: (options: {
     /**
      * 包含对应的标题信息
-     * @since 22.2.1
      * @default false
      */
     includeChapterTitle?: boolean
-  }) => Promise<{
-    /**
-     * 包含对应的标题信息
-     * @since 22.2.1
-     * @default false
-     */
-    includeChapterTitle?: boolean
-  }>
+  }) => Promise<DocumentProComment[]>
   /**
    * 获取单条评论
    * @since 22.2.1
@@ -173,25 +165,17 @@ export interface Editor extends BaseEditor<EventMap> {
   getComment: (options: {
     /**
      * 评论ID
-     * @since 22.2.1
      */
     commentId: string
     /** 包含对应的标题信息 */
     includeChapterTitle?: boolean
-  }) => Promise<{
-    /**
-     * 评论ID
-     * @since 22.2.1
-     */
-    commentId: string
-    /** 包含对应的标题信息 */
-    includeChapterTitle?: boolean
-  }>
+  }) => Promise<DocumentProComment>
   /**
    * 获取一个选区已存在的评论
    * @since 22.2.1
+   * @returns 评论 ID
    */
-  getCommentBySelection: (options?: {}) => Promise<void>
+  getCommentBySelection: (options?: {}) => Promise<string>
   /**
    * 添加评论
    * @since 22.2.1
@@ -199,16 +183,9 @@ export interface Editor extends BaseEditor<EventMap> {
   addComment: (options: {
     /**
      * 评论内容
-     * @since 22.2.1
      */
     text: string
-  }) => Promise<{
-    /**
-     * 评论内容
-     * @since 22.2.1
-     */
-    text: string
-  }>
+  }) => Promise<DocumentProComment>
   /**
    * 添加回复
    * @since 22.2.1
@@ -216,20 +193,11 @@ export interface Editor extends BaseEditor<EventMap> {
   replyComment: (options: {
     /**
      * 评论ID
-     * @since 22.2.1
      */
     commentId: string
     /** 回复内容 */
     text: string
-  }) => Promise<{
-    /**
-     * 评论ID
-     * @since 22.2.1
-     */
-    commentId: string
-    /** 回复内容 */
-    text: string
-  }>
+  }) => Promise<DocumentProCommentData>
   /**
    * 删除评论
    * @since 22.2.1
@@ -237,7 +205,6 @@ export interface Editor extends BaseEditor<EventMap> {
   removeComment: (options: {
     /**
      * 评论ID
-     * @since 22.2.1
      */
     commentId: string
   }) => Promise<void>
@@ -248,7 +215,6 @@ export interface Editor extends BaseEditor<EventMap> {
   removeReply: (options: {
     /**
      * 回复数据的ID
-     * @since 22.2.1
      */
     commentDataId: string
   }) => Promise<void>
@@ -259,7 +225,6 @@ export interface Editor extends BaseEditor<EventMap> {
   updateComment: (options: {
     /**
      * 评论数据或回复数据的ID
-     * @since 22.2.1
      */
     commentDataId: string
     /** 评论内容 */
@@ -272,7 +237,6 @@ export interface Editor extends BaseEditor<EventMap> {
   goToComment: (options: {
     /**
      * 评论ID
-     * @since 22.2.1
      */
     commentId: string
     /**
@@ -298,7 +262,6 @@ export interface Editor extends BaseEditor<EventMap> {
   goToPage: (options: {
     /**
      * 页码
-     * @since 22.2.1
      */
     pageNum: number
   }) => Promise<void>
@@ -314,7 +277,6 @@ export interface Editor extends BaseEditor<EventMap> {
   addPageNum: (options: {
     /**
      * 页码的插入位置
-     * @since 22.2.1
      */
     position: DocumentPos
     /**
@@ -337,7 +299,6 @@ export interface Editor extends BaseEditor<EventMap> {
     options: {
       /**
        * 禁用文档结构图的默认缓存
-       * @since 22.2.1
        * @default true
        */
       shouldDisableCache?: boolean
@@ -357,7 +318,6 @@ export interface Editor extends BaseEditor<EventMap> {
     options: {
       /**
        * 缩放百分比
-       * @since 22.2.1
        */
       percent: number
     }
@@ -371,7 +331,6 @@ export interface Editor extends BaseEditor<EventMap> {
     options: {
       /**
        * 是否加粗
-       * @since 22.2.1
        * @default false
        */
       isBold?: boolean
@@ -410,4 +369,49 @@ export interface Editor extends BaseEditor<EventMap> {
    * 更新签名图片
    */
   updateSignature: (payload: UpdateSignaturePayload) => Promise<void>
+}
+
+export interface DocumentProComment {
+  id: string
+  /**
+   * 评论对应的文本
+   */
+  quoteText: string
+  /**
+   * 评论的数据
+   */
+  data: DocumentProCommentData
+  title?: string
+  /**
+   * 评论的位置
+   */
+  startInfo: {
+    x: number
+    y: number
+    pageNum: number
+  }
+  /**
+   * timestamp string
+   */
+  createTime: string
+  /**
+   * timestamp string
+   */
+  lastUpdateTime: string
+}
+
+export interface DocumentProCommentData {
+  id: string
+  userId: string
+  userName: string
+  text: string
+  createTime: string
+  /**
+   * timestamp string
+   */
+  lastUpdateTime: ''
+  /**
+   * 该条评论的回复
+   */
+  replies: DocumentProCommentData[]
 }
