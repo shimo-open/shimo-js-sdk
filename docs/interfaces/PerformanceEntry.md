@@ -9,6 +9,8 @@
 ### Properties
 
 - [mark](PerformanceEntry.md#mark)
+- [resourceTiming](PerformanceEntry.md#resourcetiming)
+- [timeOrigin](PerformanceEntry.md#timeorigin)
 - [timestamp](PerformanceEntry.md#timestamp)
 
 ## Properties
@@ -21,7 +23,32 @@
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:272
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:230
+
+___
+
+### resourceTiming
+
+• `Optional` **resourceTiming**: `Record`<`string`, `unknown`\>
+
+原始 PerformanceResourceTiming.toJSON()
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:243
+
+___
+
+### timeOrigin
+
+• `Optional` **timeOrigin**: `number`
+
+Performance 开始记录时间的节点，用于静态资源加载时间计算等用途
+https://developer.mozilla.org/en-US/docs/Web/API/Performance/timeOrigin
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:239
 
 ___
 
@@ -33,4 +60,4 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:276
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:234

@@ -20,6 +20,7 @@
 - [FileType](enums/FileType.md)
 - [InvokeMethod](enums/InvokeMethod.md)
 - [ReadyState](enums/ReadyState.md)
+- [SDKEvent](enums/SDKEvent.md)
 - [UrlSharingType](enums/UrlSharingType.md)
 
 ### Classes
@@ -68,6 +69,7 @@
 ### Functions
 
 - [connect](modules.md#connect)
+- [convertFileType](modules.md#convertfiletype)
 
 ## Type aliases
 
@@ -109,7 +111,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:284
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:251
 
 ___
 
@@ -135,7 +137,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:800](https://github.com/shimohq/shimo-js-sdk/blob/1c3ae23/src/ShimoSDK.ts#L800)
+[src/ShimoSDK.ts:845](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/ShimoSDK.ts#L845)
 
 ___
 
@@ -145,7 +147,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:2
+node_modules/shimo-js-sdk-shared/dist/File.d.ts:1
 
 ___
 
@@ -170,7 +172,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:285
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:252
 
 ___
 
@@ -192,7 +194,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:1
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:2
 
 ## Variables
 
@@ -213,7 +215,7 @@ node_modules/shimo-js-sdk-shared/dist/types.d.ts:1
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:198
+node_modules/shimo-js-sdk-shared/dist/File.d.ts:35
 
 ___
 
@@ -223,7 +225,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:49](https://github.com/shimohq/shimo-js-sdk/blob/1c3ae23/src/ShimoSDK.ts#L49)
+[src/ShimoSDK.ts:50](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/ShimoSDK.ts#L50)
 
 ___
 
@@ -233,7 +235,7 @@ ___
 
 #### Defined in
 
-[src/index.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/1c3ae23/src/index.ts#L26)
+[src/index.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/index.ts#L26)
 
 ## Functions
 
@@ -258,4 +260,26 @@ Promise resovled 不代表编辑器已经完整加载完毕，只代表 SDK 已�
 
 #### Defined in
 
-[src/connect.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/1c3ae23/src/connect.ts#L11)
+[src/connect.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/connect.ts#L11)
+
+___
+
+### convertFileType
+
+▸ **convertFileType**(`value`): [`FileType`](enums/FileType.md)
+
+根据传入值转换为 FileType 枚举值
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `string` \| `number` |
+
+#### Returns
+
+[`FileType`](enums/FileType.md)
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/File.d.ts:59

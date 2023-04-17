@@ -21,7 +21,7 @@
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:213
+node_modules/shimo-js-sdk-shared/dist/File.d.ts:50
 
 ___
 
@@ -33,4 +33,4 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:217
+node_modules/shimo-js-sdk-shared/dist/File.d.ts:54

@@ -26,7 +26,7 @@
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:176
+node_modules/shimo-js-sdk-shared/dist/File.d.ts:13
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:172
+node_modules/shimo-js-sdk-shared/dist/File.d.ts:9
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:192
+node_modules/shimo-js-sdk-shared/dist/File.d.ts:29
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:184
+node_modules/shimo-js-sdk-shared/dist/File.d.ts:21
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:180
+node_modules/shimo-js-sdk-shared/dist/File.d.ts:17
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:188
+node_modules/shimo-js-sdk-shared/dist/File.d.ts:25
 
 ___
 
@@ -98,4 +98,4 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:196
+node_modules/shimo-js-sdk-shared/dist/File.d.ts:33

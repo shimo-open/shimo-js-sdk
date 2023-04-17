@@ -21,7 +21,7 @@
 
 #### Defined in
 
-[src/types/DocumentPro.ts:146](https://github.com/shimohq/shimo-js-sdk/blob/1c3ae23/src/types/DocumentPro.ts#L146)
+[src/types/DocumentPro.ts:146](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/types/DocumentPro.ts#L146)
 
 ___
 
@@ -34,4 +34,4 @@ Ref: https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs
 
 #### Defined in
 
-[src/types/DocumentPro.ts:141](https://github.com/shimohq/shimo-js-sdk/blob/1c3ae23/src/types/DocumentPro.ts#L141)
+[src/types/DocumentPro.ts:141](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/types/DocumentPro.ts#L141)

@@ -15,6 +15,7 @@
 - [top](ContainerRect.md#top)
 - [viewportHeight](ContainerRect.md#viewportheight)
 - [viewportWidth](ContainerRect.md#viewportwidth)
+- [visualViewport](ContainerRect.md#visualviewport)
 
 ## Properties
 
@@ -56,7 +57,7 @@ ___
 
 ### scrollTop
 
-• **scrollTop**: `number`
+• `Optional` **scrollTop**: `number`
 
 容器在 viewport 的 scrollTop
 
@@ -99,3 +100,27 @@ ___
 #### Defined in
 
 node_modules/shimo-js-sdk-shared/dist/types.d.ts:110
+
+___
+
+### visualViewport
+
+• `Optional` **visualViewport**: `Object`
+
+window.visualViewport 的值
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `height?` | `number` |
+| `offsetLeft?` | `number` |
+| `offsetTop?` | `number` |
+| `pageLeft?` | `number` |
+| `pageTop?` | `number` |
+| `scale?` | `number` |
+| `width?` | `number` |
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:138
