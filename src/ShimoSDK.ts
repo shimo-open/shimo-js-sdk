@@ -671,18 +671,18 @@ export class ShimoSDK extends TinyEmitter {
           return (target as any)[prop]
         }
 
-        if (typeof prop !== 'string') {
-          throw new TypeError(`${String(prop)} not a string, cann't invoke`)
+        if (typeof prop === 'string') {
+          return async (...args: unknown[]) =>
+            await this.channel.invoke(
+              InvokeMethod.InvokeEditorMethod,
+              [prop, args],
+              {
+                audience: AUD
+              }
+            )
+        } else {
+          return (target as any)[prop]
         }
-
-        return async (...args: unknown[]) =>
-          await this.channel.invoke(
-            InvokeMethod.InvokeEditorMethod,
-            [prop, args],
-            {
-              audience: AUD
-            }
-          )
       }
     })
 
