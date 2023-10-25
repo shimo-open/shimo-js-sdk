@@ -112,7 +112,7 @@ connect({
 |CellHistory|单元格历史|
 |Chart|图表|
 |ClearRepeat|清除重复项|
-|CombineSheets|合并工作表(合并工作表依赖跨表格引用，如果跨表格引用设置为不可见，|合并工作表也会不可见)|
+|CombineSheets|合并工作表(合并工作表依赖跨表格引用，如果跨表格引用设置为不可见，合并工作表也会不可见)|
 |Comment|评论|
 |ConditionalFormat|条件格式|
 |ExportImage|复制为图片/导出图片|
