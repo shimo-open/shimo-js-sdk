@@ -13,6 +13,8 @@ connect({
   }
 })
 ```
+> 其中 hash 由事件推送的 selectionGuid 和 selectionTitle 拼接而成，拼接规则为 selectionGuid-selectionTitle
+
 
 ## 2.控制是否加载部分应用表格功能
 
