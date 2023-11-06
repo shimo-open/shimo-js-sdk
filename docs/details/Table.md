@@ -36,6 +36,11 @@ connect({
     FieldOptions: {
       disableRefField: true,
     },
+    Collaboration: {
+      // 传 true 表示：无权限或被删除时，不弹石墨默认的弹窗而是抛出事件
+      // 通过监听 error 事件接收具体 code -- 无权限： 8001, 文件被删除：8002
+      customNoAccessTips: true
+    }
   }
 })
 ```
