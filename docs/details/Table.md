@@ -35,6 +35,8 @@ connect({
     // 禁用列配置面板的 关连引用 & 关联公式
     FieldOptions: {
       disableRefField: true,
+      // 禁用关联引用「从其他表格选择」
+      disableExternalRefTable: true
     },
     Collaboration: {
       // 传 true 表示：无权限或被删除时，不弹石墨默认的弹窗而是抛出事件
