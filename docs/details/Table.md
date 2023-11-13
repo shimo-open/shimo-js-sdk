@@ -32,8 +32,8 @@ connect({
     BaseVersion: {
       shareVersion: false,
     },
-    // 禁用列配置面板的 关连引用 & 关联公式
     FieldOptions: {
+      // 禁用关连引用 & 关联公式
       disableRefField: true,
       // 禁用关联引用「从其他表格选择」
       disableExternalRefTable: true
