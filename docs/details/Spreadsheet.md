@@ -51,7 +51,7 @@ connect({
 import { connect } from 'shimo-js-sdk'
 connect({
   smParams: {
-    // 格式--> 单个单元格C7:C7，范围C7:C8，该参数可选，若不传该参数则会定位到指定工作表的A1单元格
+    // 格式--> 单个单元格C7:C7，范围C7:C8，该参数可选，若不传该参数则会定位到指定工作表的上一次选中的单元格（如果没打开过则默认为A1单元格）
     hash: 'anchor-C7:C7',
     sheetId: 'TEST111'
   }
