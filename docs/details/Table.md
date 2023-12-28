@@ -28,8 +28,8 @@ connect({
   plugins: {
     // 隐藏引用数据表
     CombineTables: false, 
-    // 隐藏版本分享按钮
     BaseVersion: {
+      // 隐藏版本分享按钮
       shareVersion: false,
     },
     FieldOptions: {
@@ -42,7 +42,9 @@ connect({
       // 传 true 表示：无权限或被删除时，不弹石墨默认的弹窗而是抛出事件
       // 通过监听 editor 实例上的 error 事件接收具体 code -- 无权限： 8001, 文件被删除：8002
       customNoAccessTips: true
-    }
+    },
+    // 禁用视图分享
+    ShareView: false
   }
 })
 ```
@@ -53,4 +55,5 @@ connect({
 |CombineTables|引用数据表|
 |BaseVersion|历史 & 版本|
 |FieldOptions|列配置|
+|ShareView|视图分享|
 
