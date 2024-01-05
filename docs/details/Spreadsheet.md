@@ -172,3 +172,16 @@ editor.on('paramsChanged', ({ sheetId, hash }: { sheetId: string, hash?: string 
   history.replaceState({}, '', location.href.replace(search, '?' + searchParams.toString()))
 })
 ```
+
+## 8.粘贴识别链接标题时只对指定链接做识别
+
+```typescript
+
+import { connect } from 'shimo-js-sdk'
+connect({
+  smParams: {
+    // string
+    linkRegex: 'http(s)?://'
+  }
+})
+```
