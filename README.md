@@ -138,8 +138,9 @@ const shimoSDK = await connect({ ... })
 
 setInterval(
   () => {
-    // 当签名不到一分钟就过期时进行更新
-    if (expires - Date.now() < 60000) {
+    // 建议过期时间为7天
+    // 当剩余时间不到3.5天就过期时进行更新
+    if (expires - Date.now() < 3600 * 24 * 3.5) {
       const resp = await getCredentialsFromServer()
       await shimoSDK.setCredentials({
         signature: resp.signature,
