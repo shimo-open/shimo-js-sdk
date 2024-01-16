@@ -148,6 +148,7 @@ connect({
 |DateMention|日期提醒|
 |RangeRemind|关注选区|
 |Lock|锁定|
+|Ole|浮动附件|
 
 
 
