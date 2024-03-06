@@ -198,6 +198,54 @@ export interface Editor extends BaseEditor<EventMap> {
    * 指定工作表是否可见，不传值为当前工作表
    */
   isSheetVisible: (options?: { sheetId?: string }) => Promise<boolean>
+  /**
+   * 更新环境变量
+   * @since PD3.4
+   */
+  updateRuntimeEnv: (
+    this: Editor,
+    options: {
+      /**
+       * 要更新的环境变量
+       * @since PD3.4
+       */
+      env: { [key: string]: any }
+    }
+  ) => Promise<void>
+  /**
+   * 设置文件内容
+   * @since PD3.4
+   */
+  setContent: (
+    this: Editor,
+    options: {
+      /**
+       * 要设置的文件内容，会替换当前内容，实际类型接受 string | Delta
+       * @since PD3.4
+       */
+      content: any
+    }
+  ) => Promise<void>
+  /**
+   * 设置聚焦状态
+   * @since PD3.4
+   */
+  setFocus: (
+    this: Editor,
+    options: {
+      /**
+       * 设置表格聚焦状态
+       * @since PD3.4
+       * @default true
+       */
+      isFocus?: boolean
+    }
+  ) => Promise<void>
+  /**
+   * 导出csv
+   * @since pd-3.12
+   */
+  exportCsv: (this: Editor, options: {}) => Promise<void>
 }
 
 /**

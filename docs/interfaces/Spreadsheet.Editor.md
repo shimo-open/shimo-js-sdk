@@ -18,6 +18,7 @@
 - [addSheetLock](Spreadsheet.Editor.md#addsheetlock)
 - [createRevision](Spreadsheet.Editor.md#createrevision)
 - [endDemonstration](Spreadsheet.Editor.md#enddemonstration)
+- [exportCsv](Spreadsheet.Editor.md#exportcsv)
 - [getActiveSheetId](Spreadsheet.Editor.md#getactivesheetid)
 - [getCellValue](Spreadsheet.Editor.md#getcellvalue)
 - [getColumnCount](Spreadsheet.Editor.md#getcolumncount)
@@ -34,11 +35,14 @@
 - [print](Spreadsheet.Editor.md#print)
 - [removeRangeLocksInRanges](Spreadsheet.Editor.md#removerangelocksinranges)
 - [removeSheetLock](Spreadsheet.Editor.md#removesheetlock)
+- [setContent](Spreadsheet.Editor.md#setcontent)
+- [setFocus](Spreadsheet.Editor.md#setfocus)
 - [setTitle](Spreadsheet.Editor.md#settitle)
 - [showComments](Spreadsheet.Editor.md#showcomments)
 - [showHistory](Spreadsheet.Editor.md#showhistory)
 - [showLocks](Spreadsheet.Editor.md#showlocks)
 - [startDemonstration](Spreadsheet.Editor.md#startdemonstration)
+- [updateRuntimeEnv](Spreadsheet.Editor.md#updateruntimeenv)
 
 ## Methods
 
@@ -66,7 +70,7 @@
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:82](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/types/Spreadsheet.ts#L82)
+[src/types/Spreadsheet.ts:82](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L82)
 
 ___
 
@@ -93,7 +97,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:106](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/types/Spreadsheet.ts#L106)
+[src/types/Spreadsheet.ts:106](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L106)
 
 ___
 
@@ -115,7 +119,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:74](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/types/Spreadsheet.ts#L74)
+[src/types/Spreadsheet.ts:74](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L74)
 
 ___
 
@@ -137,7 +141,31 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:78](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/types/Spreadsheet.ts#L78)
+[src/types/Spreadsheet.ts:78](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L78)
+
+___
+
+### exportCsv
+
+▸ **exportCsv**(`options`): `Promise`<`void`\>
+
+导出csv
+
+**`since`** pd-3.12
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options` | `Object` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Spreadsheet.ts:248](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L248)
 
 ___
 
@@ -153,7 +181,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:147](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/types/Spreadsheet.ts#L147)
+[src/types/Spreadsheet.ts:147](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L147)
 
 ___
 
@@ -176,7 +204,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:172](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/types/Spreadsheet.ts#L172)
+[src/types/Spreadsheet.ts:172](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L172)
 
 ___
 
@@ -199,7 +227,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:165](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/types/Spreadsheet.ts#L165)
+[src/types/Spreadsheet.ts:165](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L165)
 
 ___
 
@@ -223,7 +251,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:185](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/types/Spreadsheet.ts#L185)
+[src/types/Spreadsheet.ts:185](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L185)
 
 ___
 
@@ -246,7 +274,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:156](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/types/Spreadsheet.ts#L156)
+[src/types/Spreadsheet.ts:156](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L156)
 
 ___
 
@@ -269,7 +297,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:153](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/types/Spreadsheet.ts#L153)
+[src/types/Spreadsheet.ts:153](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L153)
 
 ___
 
@@ -285,7 +313,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:150](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/types/Spreadsheet.ts#L150)
+[src/types/Spreadsheet.ts:150](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L150)
 
 ___
 
@@ -307,7 +335,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:64](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/types/Spreadsheet.ts#L64)
+[src/types/Spreadsheet.ts:64](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L64)
 
 ___
 
@@ -329,7 +357,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:68](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/types/Spreadsheet.ts#L68)
+[src/types/Spreadsheet.ts:68](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L68)
 
 ___
 
@@ -351,7 +379,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:72](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/types/Spreadsheet.ts#L72)
+[src/types/Spreadsheet.ts:72](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L72)
 
 ___
 
@@ -374,7 +402,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:200](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/types/Spreadsheet.ts#L200)
+[src/types/Spreadsheet.ts:200](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L200)
 
 ___
 
@@ -407,7 +435,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:42](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/types/BaseEditor.ts#L42)
+[src/types/BaseEditor.ts:42](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/BaseEditor.ts#L42)
 
 ___
 
@@ -440,7 +468,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:37](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/types/BaseEditor.ts#L37)
+[src/types/BaseEditor.ts:37](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/BaseEditor.ts#L37)
 
 ___
 
@@ -462,7 +490,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:80](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/types/Spreadsheet.ts#L80)
+[src/types/Spreadsheet.ts:80](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L80)
 
 ___
 
@@ -486,7 +514,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:125](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/types/Spreadsheet.ts#L125)
+[src/types/Spreadsheet.ts:125](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L125)
 
 ___
 
@@ -509,7 +537,57 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:138](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/types/Spreadsheet.ts#L138)
+[src/types/Spreadsheet.ts:138](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L138)
+
+___
+
+### setContent
+
+▸ **setContent**(`options`): `Promise`<`void`\>
+
+设置文件内容
+
+**`since`** PD3.4
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `options` | `Object` | - |
+| `options.content` | `any` | 要设置的文件内容，会替换当前内容，实际类型接受 string \| Delta  **`since`** PD3.4 |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Spreadsheet.ts:219](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L219)
+
+___
+
+### setFocus
+
+▸ **setFocus**(`options`): `Promise`<`void`\>
+
+设置聚焦状态
+
+**`since`** PD3.4
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `options` | `Object` | - |
+| `options.isFocus?` | `boolean` | 设置表格聚焦状态  **`since`** PD3.4  **`default`** true |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Spreadsheet.ts:233](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L233)
 
 ___
 
@@ -535,7 +613,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:47](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/types/BaseEditor.ts#L47)
+[src/types/BaseEditor.ts:47](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/BaseEditor.ts#L47)
 
 ___
 
@@ -559,7 +637,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:62](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/types/Spreadsheet.ts#L62)
+[src/types/Spreadsheet.ts:62](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L62)
 
 ___
 
@@ -581,7 +659,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:66](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/types/Spreadsheet.ts#L66)
+[src/types/Spreadsheet.ts:66](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L66)
 
 ___
 
@@ -603,7 +681,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:70](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/types/Spreadsheet.ts#L70)
+[src/types/Spreadsheet.ts:70](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L70)
 
 ___
 
@@ -625,4 +703,29 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:76](https://github.com/shimohq/shimo-js-sdk/blob/e258913/src/types/Spreadsheet.ts#L76)
+[src/types/Spreadsheet.ts:76](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L76)
+
+___
+
+### updateRuntimeEnv
+
+▸ **updateRuntimeEnv**(`options`): `Promise`<`void`\>
+
+更新环境变量
+
+**`since`** PD3.4
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `options` | `Object` | - |
+| `options.env` | `Object` | 要更新的环境变量  **`since`** PD3.4 |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Spreadsheet.ts:205](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L205)
