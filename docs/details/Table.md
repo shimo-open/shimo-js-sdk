@@ -57,3 +57,20 @@ connect({
 |FieldOptions|列配置|
 |ShareView|视图分享|
 
+## 3.切换工作表时更改浏览器地址栏信息（以便从地址栏复制链接给其他用户打开时定位到相同工作表）
+```typescript
+import { connect } from 'shimo-js-sdk'
+import Base62Str from 'base62str'
+const base62Instance = Base62Str.createInstance()
+const searchParams = new URLSearchParams(location.search)
+const smParams = searchParams.get('smParams')
+const editor = await connect(...)
+// table: 数据表的guid; view: 视图的guid
+editor.on('paramsChanged', ({ table, view }: { table: string, view: string }) => {
+  const newParams = smParams ? { ...JSON.parse(base62Instance.decodeStr(smParams)), table, view } : { table, view }
+  const newSmParams = base62Instance.encodeStr(JSON.stringify(newParams))
+  searchParams.set('smParams', newSmParams)
+  // 用此方法修改浏览器地址不会刷新页面
+  history.replaceState({}, '', location.href.replace(search, '?' + searchParams.toString()))
+})
+```
