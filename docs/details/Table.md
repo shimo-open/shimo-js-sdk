@@ -74,3 +74,29 @@ editor.on('paramsChanged', ({ table, view }: { table: string, view: string }) =>
   history.replaceState({}, '', location.href.replace(search, '?' + searchParams.toString()))
 })
 ```
+
+## 4.获取视图分享链接
+#### 生成分享url
+```typescript
+const shimoSDK = await connect({
+  ...,
+  generateUrl(fileId: string, info: GenerateUrlInfo): string {
+    // 通过shareGuid判断是否是视图分享的调用
+    if (info?.shareGuid) {
+      return xxx // 你拼接的url
+    }
+    return xxx
+  }
+})
+```
+
+#### 渲染视图分享模式
+```typescript
+const shimoSDK = await connect({
+  ...,
+  smParams: {
+    ...,
+    shareViewGuid: xxx
+  }
+})
+```
