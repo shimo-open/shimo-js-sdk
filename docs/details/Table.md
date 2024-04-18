@@ -75,7 +75,7 @@ editor.on('paramsChanged', ({ table, view }: { table: string, view: string }) =>
 })
 ```
 
-## 4.获取视图分享链接
+## 4.接入视图分享
 #### 生成分享url
 ```typescript
 const shimoSDK = await connect({
