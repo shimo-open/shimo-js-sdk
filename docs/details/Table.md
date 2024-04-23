@@ -75,14 +75,44 @@ editor.on('paramsChanged', ({ table, view }: { table: string, view: string }) =>
 })
 ```
 
-## 4.接入视图分享
+## 4.generateUrl调用场景
+应用表格内涉及到生成应用表格相关的链接时会调用generateUrl，利用回调函数的第二个参数中包含一个字段`urlType`可以区分调用的场景。目前该字段仅应用表格有。
+```typescript
+const shimoSDK = await connect({
+  ...,
+  generateUrl(fileId: string, info: GenerateUrlInfo): string {
+    const urlType = info.urlType
+    
+    if(urlType === 'shareView') {
+      // 从视图分享来
+      ...
+    } else if(urlType === 'shareRecord') {
+      // 分享记录或选区
+      ...
+    }
+  }
+})
+```
+
+<i>urlType参数及其意义</i>
+
+|参数|参数意义|
+|:----|:----|
+|shareView|视图分享|
+|shareVersion|版本分享|
+|shareRecord|分享记录或选区|
+|openTable|打开外部的数据表|
+
+
+## 5.接入视图分享
 #### 生成分享url
 ```typescript
 const shimoSDK = await connect({
   ...,
   generateUrl(fileId: string, info: GenerateUrlInfo): string {
-    // 通过shareGuid判断是否是视图分享的调用
-    if (info?.shareGuid) {
+    if (info?.urlType === 'shareView') {
+      // 分享的guid，需要在初始化sdk时从smParams传入
+      const shareGuid = info.shareGuid
       return xxx // 你拼接的url
     }
     return xxx
