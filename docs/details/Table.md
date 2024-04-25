@@ -80,8 +80,8 @@ editor.on('paramsChanged', ({ table, view }: { table: string, view: string }) =>
 ```typescript
 const shimoSDK = await connect({
   ...,
-  generateUrl(fileId: string, info: GenerateUrlInfo): string {
-    const urlType = info.urlType
+  generateUrl(fileId: string, info: GenerateUrlInfo, params: StartParams /* smParams解出来的参数 */): string {
+    const urlType = params.urlType
     
     if(urlType === 'shareView') {
       // 从视图分享来
@@ -109,11 +109,11 @@ const shimoSDK = await connect({
 ```typescript
 const shimoSDK = await connect({
   ...,
-  generateUrl(fileId: string, info: GenerateUrlInfo): string {
-    if (info?.urlType === 'shareView') {
+  generateUrl(fileId: string, info: GenerateUrlInfo, params: StartParams): string {
+    if (params?.urlType === 'shareView') {
       // 分享的guid，需要在初始化sdk时从smParams传入
       const shareGuid = info.shareGuid
-      return xxx // 你拼接的url
+      return xxx // 你拼接的url，部分客户要求去除smParams，初始化sdk时需要自行拼接smParams
     }
     return xxx
   }
