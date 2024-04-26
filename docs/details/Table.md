@@ -57,7 +57,26 @@ connect({
 |FieldOptions|列配置|
 |ShareView|视图分享|
 
-## 3.切换工作表时更改浏览器地址栏信息（以便从地址栏复制链接给其他用户打开时定位到相同工作表）
+## 3.应用表格事件
+editor实例可以监听到应用表格抛出的如下事件
+
+|事件名|事件描述|
+|:----|:----|
+|saveStatusChanged|保存状态改变时触发|
+|paramsChanged|切换数据表或视图时触发|
+|error|发生错误时触发|
+|contentChanged|内容改变时触发|
+
+`错误码目前用于判断用户对文件的权限，现有的错误码如下`
+
+|错误码|错误描述|
+|:----|:----|
+|8001|对文件无权限|
+|8002|文件被删除|
+
+
+
+## 4.切换工作表时更改浏览器地址栏信息（以便从地址栏复制链接给其他用户打开时定位到相同工作表）
 ```typescript
 import { connect } from 'shimo-js-sdk'
 import Base62Str from 'base62str'
@@ -75,7 +94,7 @@ editor.on('paramsChanged', ({ table, view }: { table: string, view: string }) =>
 })
 ```
 
-## 4.generateUrl调用场景
+## 5.generateUrl调用场景
 应用表格内涉及到生成应用表格相关的链接时会调用generateUrl，利用回调函数的第二个参数中包含一个字段`urlType`可以区分调用的场景。目前该字段仅应用表格有。
 ```typescript
 const shimoSDK = await connect({
@@ -104,7 +123,7 @@ const shimoSDK = await connect({
 |openTable|打开外部的数据表|
 
 
-## 5.接入视图分享
+## 6.接入视图分享
 #### 生成分享url
 ```typescript
 const shimoSDK = await connect({
@@ -127,6 +146,16 @@ const shimoSDK = await connect({
   smParams: {
     ...,
     shareViewGuid: xxx
+  }
+})
+```
+
+#### 无权限处理
+目前应用内提供自有的无权限页，也会在此处抛出无权限事件以供客户自行处理
+```typescript
+editor.on('error', ({ code }) => {
+  if(code === 8001) {
+    ...
   }
 })
 ```
