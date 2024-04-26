@@ -566,12 +566,12 @@ export class ShimoSDK extends TinyEmitter {
 
     channel.addInvokeHandler(
       ContainerMethod.GenerateUrl,
-      async (fileId: string, info?: GenerateUrlInfo) => {
+      async (...args: any[]) => {
         if (typeof this.connectOptions.generateUrl !== 'function') {
           throw new Error(`"${ContainerMethod.GenerateUrl}" not found`)
         }
         return await Promise.resolve(
-          this.connectOptions.generateUrl(fileId, info)
+          this.connectOptions.generateUrl(...args)
         )
       },
       { audience: AUD }
