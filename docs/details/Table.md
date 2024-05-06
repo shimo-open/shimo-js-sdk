@@ -112,8 +112,7 @@ const shimoSDK = await connect({
   }
 })
 ```
-
-<i>urlType参数及其意义</i>
+urlType参数及其意义
 
 |参数|参数意义|
 |:----|:----|
@@ -131,7 +130,7 @@ const shimoSDK = await connect({
   generateUrl(fileId: string, info: GenerateUrlInfo, params: StartParams): string {
     if (params?.urlType === 'shareView') {
       // 分享的guid，需要在初始化sdk时从smParams传入
-      const shareGuid = info.shareGuid
+      const shareViewGuid = info.shareViewGuid
       return xxx // 你拼接的url，部分客户要求去除smParams，初始化sdk时需要自行拼接smParams
     }
     return xxx
@@ -151,11 +150,16 @@ const shimoSDK = await connect({
 ```
 
 #### 无权限处理
-目前应用内提供自有的无权限页，也会在此处抛出无权限事件以供客户自行处理
+目前应用内提供自有的无权限页，用户也可以在拿到editor实例后自行调用`emitNoPermissionEventIfNeed`方法，这个方法会检查用户是否无权限，无权限则会抛出无权限事件，客户可以根据事件自行处理跳转。
+
+`注意：该方法的一定要在绑定事件监听之后调用，否则无法接收到事件`
+
 ```typescript
 editor.on('error', ({ code }) => {
   if(code === 8001) {
     ...
   }
 })
+
+editor.emitNoPermissionEventIfNeed()
 ```
