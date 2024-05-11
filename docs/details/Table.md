@@ -163,3 +163,8 @@ editor.on('error', ({ code }) => {
 
 editor.emitNoPermissionEventIfNeed()
 ```
+
+## 7.获取当前激活的数据表和视图id
+```typescript
+const { table, view } = editor.getActiveTableViewId()
+```
