@@ -168,3 +168,8 @@ editor.emitNoPermissionEventIfNeed()
 ```typescript
 const { table, view } = editor.getActiveTableViewId()
 ```
+
+## 8.点击iframe外部时在内部触发mousedown事件使编辑器失焦保存
+```typescript
+editor.dispatchMouseEvent()
+```
