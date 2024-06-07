@@ -93,9 +93,8 @@ export class ShimoSDK extends TinyEmitter {
   form?: Form.Editor
 
   private _fileType: FileType = FileType.Unknown
-  private readonly messageHandler: (
-    evt: globalThis.MessageEvent
-  ) => void = () => undefined
+  private readonly messageHandler: (evt: globalThis.MessageEvent) => void =
+    () => undefined
 
   /**
    * 内部 event emitter，比如用来中转 editor 事件
@@ -383,6 +382,7 @@ export class ShimoSDK extends TinyEmitter {
         this.connectOptions.allowPolicy ??
         'fullscreen *;clipboard-read *;clipboard-write *;'
     } else {
+      // @ts-expect-error 好像永远不会走到下面这来
       iframe.allowFullscreen = true
     }
 
@@ -566,12 +566,12 @@ export class ShimoSDK extends TinyEmitter {
 
     channel.addInvokeHandler(
       ContainerMethod.GenerateUrl,
-      async (...args: any[]) => {
+      async (fileId: string, info?: GenerateUrlInfo) => {
         if (typeof this.connectOptions.generateUrl !== 'function') {
           throw new Error(`"${ContainerMethod.GenerateUrl}" not found`)
         }
         return await Promise.resolve(
-          this.connectOptions.generateUrl(...args)
+          this.connectOptions.generateUrl(fileId, info)
         )
       },
       { audience: AUD }
@@ -591,11 +591,7 @@ export class ShimoSDK extends TinyEmitter {
     channel.addInvokeHandler(
       ContainerMethod.GetFileInfoFromUrl,
       async (url: string) => {
-        const getFileInfoFromUrl = this.connectOptions.getFileInfoFromUrl
-        // 大部分情况可能不需要实现这个函数，做一个静默处理
-        if (getFileInfoFromUrl == null) {
-          return
-        }
+        // 20240607 钟立和卢阳改了 sdk-iframe-assets 的 parseUrl 函数之后，getFileInfoFromUrl 现在必须由用户提供
         if (typeof this.connectOptions.getFileInfoFromUrl !== 'function') {
           throw new Error(
             `"${ContainerMethod.GetFileInfoFromUrl}" not a function`
@@ -777,9 +773,7 @@ export interface ContainerMethods {
   /**
    * 用于从客户业务 URL 中获取对应的文件 ID，供编辑器使用。
    */
-  [ContainerMethod.GetFileInfoFromUrl]?: (
-    url: string
-  ) => Promise<
+  [ContainerMethod.GetFileInfoFromUrl]?: (url: string) => Promise<
     | {
         /**
          * 文件 ID
