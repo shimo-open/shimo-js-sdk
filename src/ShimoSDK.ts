@@ -93,8 +93,9 @@ export class ShimoSDK extends TinyEmitter {
   form?: Form.Editor
 
   private _fileType: FileType = FileType.Unknown
-  private readonly messageHandler: (evt: globalThis.MessageEvent) => void =
-    () => undefined
+  private readonly messageHandler: (
+    evt: globalThis.MessageEvent
+  ) => void = () => undefined
 
   /**
    * 内部 event emitter，比如用来中转 editor 事件
@@ -382,7 +383,6 @@ export class ShimoSDK extends TinyEmitter {
         this.connectOptions.allowPolicy ??
         'fullscreen *;clipboard-read *;clipboard-write *;'
     } else {
-      // @ts-expect-error 好像永远不会走到下面这来
       iframe.allowFullscreen = true
     }
 
@@ -773,7 +773,9 @@ export interface ContainerMethods {
   /**
    * 用于从客户业务 URL 中获取对应的文件 ID，供编辑器使用。
    */
-  [ContainerMethod.GetFileInfoFromUrl]?: (url: string) => Promise<
+  [ContainerMethod.GetFileInfoFromUrl]?: (
+    url: string
+  ) => Promise<
     | {
         /**
          * 文件 ID
