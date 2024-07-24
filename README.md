@@ -187,6 +187,18 @@ const shimoSDK = await connect({
     } else {
       window.open(url)
     }
+  },
+
+  // 从当前 url 中解析出文件 id 并返回
+  // 假设 url 是 'https://your-domain/files/123'，则返回 { fileId: '123' }
+  getFileInfoFromUrl(url: string): {fileId:string} {
+    let fromId
+    const urlWithoutParams = url.split('?')[0]
+    let splitPath = urlWithoutParams.split('/')
+    fromId = splitPath[splitPath.length - 1]
+    return Promise.resolve({
+        fileId: fromId
+    })
   }
 })
 ```
