@@ -388,7 +388,7 @@ ___
 
 #### Returns
 
-`Promise`<`undefined` \| { `fileId`: `string` ; `type`: `string`  }\>
+`Promise`<`undefined` \| { `fileId`: `string`  }\>
 
 #### Inherited from
 

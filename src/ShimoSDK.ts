@@ -785,10 +785,6 @@ export interface ContainerMethods {
          * 文件 ID
          */
         fileId: string
-        /**
-         * 文件对应的类型
-         */
-        type: string
       }
     | undefined
   >
