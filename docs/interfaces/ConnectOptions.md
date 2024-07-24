@@ -376,7 +376,7 @@ ___
 
 ### getFileInfoFromUrl
 
-▸ `Optional` **getFileInfoFromUrl**(`url`): `Promise`<`undefined` \| { `fileId`: `string` ; `type`: `string`  }\>
+▸ `Optional` **getFileInfoFromUrl**(`url`): `Promise`<`undefined` \| { `fileId`: `string` }\>
 
 用于从客户业务 URL 中获取对应的文件 ID，供编辑器使用。
 
