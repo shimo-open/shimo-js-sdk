@@ -44,7 +44,12 @@ connect({
       customNoAccessTips: true
     },
     // 禁用视图分享
-    ShareView: false
+    ShareView: false,
+    // 说明页 & 列/视图/表上的说明
+    Description: {
+      // 是否禁用说明页，禁用后将不初始化并创建隐藏入口
+      disableGuidePage: true
+    }
   }
 })
 ```
@@ -56,6 +61,7 @@ connect({
 |BaseVersion|历史 & 版本|
 |FieldOptions|列配置|
 |ShareView|视图分享|
+|Description|说明页 & 说明|
 
 ## 3.应用表格事件
 editor实例可以监听到应用表格抛出的如下事件
