@@ -51,201 +51,458 @@ export interface EventMap extends BaseEventMap {
   HorizontalScroll: MouseMovePayload
 }
 
+/** 查找结果 */
+export type SearchMatch = {
+  /**
+   * 单元格所在行号
+   */
+  row: number
+  /**
+   * 单元格所在列号
+   */
+  column: number
+  /**
+   * 单元格的text
+   */
+  text: string
+  /**
+   * 是否是链接单元格
+   */
+  isLinkCell?: boolean
+}
+
+/** 通知类型,由服务端事件推送，参见https://open.shimo.im/docs/04service-callback/push-message(https://open.shimo.im/docs/04service-callback/push-message) */
+/**
+ * comment - 评论
+ * mention_at - 提及
+ * date_mention - 日期提醒
+ */
+export type NotificationType = 'comment' | 'mention_at' | 'date_mention'
+
+/** 单元格数据信息 */
+export type RangeData = {
+  /**
+   * 单元格数据
+   */
+  value: CellValue
+  /**
+   * 单元格格式
+   */
+  format: string | undefined
+  /**
+   * 合并单元格范围
+   */
+  span: Range | undefined
+  /**
+   * 单元格格式类型
+   */
+  formatCategory: FormatCategory
+  /**
+   * 单元格数字精度
+   */
+  precision: number | undefined
+}
+
+/**
+ * 单元格格式类型
+ * auto - 常规
+ * text - 纯文本
+ * number - 数字
+ * percent - 百分比
+ * currency - 货币
+ * accounting - 会计
+ * date - 日期
+ * time - 时间
+ * fraction - 分数
+ * scientific - 科学计数
+ * special - 特殊
+ * custom - 自定义
+ */
+export type FormatCategory =
+  | 'auto' /** 常规 */
+  | 'text' /** 纯文本 */
+  | 'number' /** 数字 */
+  | 'percent' /** 百分比 */
+  | 'currency' /** 货币 */
+  | 'accounting' /** 会计 */
+  | 'date' /** 日期 */
+  | 'time' /** 时间 */
+  | 'fraction' /** 分数 */
+  | 'scientific' /** 科学计数 */
+  | 'special' /** 特殊 */
+  | 'custom' /** 自定义 */
+
 /** 单元格值类型 */
 export type CellValue = string | number | boolean | null
 
 export interface Editor extends BaseEditor<EventMap> {
   /**
    * 展示评论侧边栏
-   * @since 22.2.1
+   * @since PD2.10
    */
-  showComments: (options?: {}) => Promise<void>
-  /** 关闭评论侧边栏 */
-  hideComments: (options?: {}) => Promise<void>
-  /** 展示历史侧边栏 */
-  showHistory: (options?: {}) => Promise<void>
-  /** 关闭历史侧边栏 */
-  hideHistory: (options?: {}) => Promise<void>
-  /** 展示锁定侧边栏 */
-  showLocks: (options?: {}) => Promise<void>
-  /** 关闭锁定侧边栏 */
-  hideLocks: (options?: {}) => Promise<void>
-  /** 创建版本 */
-  createRevision: (options?: {}) => Promise<void>
-  /** 进入演示模式 */
-  startDemonstration: (options?: {}) => Promise<void>
-  /** 离开演示模式 */
-  endDemonstration: (options?: {}) => Promise<void>
-  /** 打印 */
-  print: (options?: {}) => Promise<void>
-  /** 创建单元格锁定 */
-  addRangeLock: (options: {
-    /** 用户id对应的权限 */
-    userPermissions: UserPermission
-    /**
-     * 单元格范围
-     * @default 默认当前选中区域范围
-     */
-    ranges?: Range[]
-    /**
-     * 工作表id
-     * @default 默认当前工作表id
-     */
-    sheetId?: string
-    /** 对该锁定的描述 */
-    description?: string
-    /** 部门id对应的权限 */
-    departmentPermissions?: DepartmentPermission
-    /**
-     * 其他访问者的权限
-     * @default 1
-     */
-    visitorPermission?: PermissionLevel
-  }) => Promise<void>
-  /** 创建工作表锁定 */
-  addSheetLock: (options: {
-    /** 用户id对应的权限 */
-    userPermissions: UserPermission
-    /**
-     * 工作表id
-     * @default 默认当前工作表id
-     */
-    sheetId?: string
-    /** 对该锁定的描述 */
-    description?: string
-    /** 部门id对应的权限 */
-    departmentPermissions?: DepartmentPermission
-    /**
-     * 其他访问者的权限
-     * @default 1
-     */
-    visitorPermission?: PermissionLevel
-  }) => Promise<void>
-  /** 删除指定范围内的所有单元格锁定 */
-  removeRangeLocksInRanges: (options: {
-    /**
-     * 工作表id
-     * @default 默认当前工作表id
-     */
-    sheetId?: string
-    /**
-     * 单元格范围
-     * @default 默认当前选中区域范围
-     */
-    ranges?: Range[]
-  }) => Promise<void>
-  /** 删除工作表锁定 */
-  removeSheetLock: (options: {
-    /**
-     * 工作表id
-     * @default 默认当前工作表id
-     */
-    sheetId?: string
-  }) => Promise<void>
-
-  /** 获取当前激活sheet的id */
-  getActiveSheetId: () => Promise<string>
-
-  /** 获取所有工作表的id */
-  getSheetIds: () => Promise<string[]>
-
-  /** 根据工作表 index 获取工作表 ID */
-  getSheetIdByIndex: (options: { index: number }) => Promise<string>
-
-  /** 获取指定工作表行数量 */
-  getRowCount: (options: {
-    /**
-     * 工作表 ID
-     * @default 默认当前工作表 ID
-     */
-    sheetId?: string
-  }) => Promise<number>
-
-  /** 获取指定工作表列数量 */
-  getColumnCount: (options: {
-    /**
-     * 工作表 ID
-     * @default 默认当前工作表 ID
-     */ sheetId?: string
-  }) => Promise<number>
-
-  getCellValue: (options: {
-    /**
-     * 工作表 ID
-     * @default 默认当前工作表 ID
-     * */
-    sheetId?: string
-    /** 行index */
-    row: number
-    /** 列index */
-    column: number
-  }) => Promise<CellValue>
-
-  /** 获取工作表指定范围内的单元格的值 */
-  getRangeValues: (options: {
-    /**
-     * 工作表 ID
-     * @default 默认当前工作表 ID
-     */
-    sheetId?: string
-    /**
-     * 单元格范围
-     * @default 默认当前选中范围
-     */ range?: Range[]
-  }) => Promise<CellValue[][]>
-
+  showComments(this: Editor): Promise<void>
   /**
-   * 指定工作表是否可见，不传值为当前工作表
+   * 关闭评论侧边栏
+   * @since PD2.10
    */
-  isSheetVisible: (options?: { sheetId?: string }) => Promise<boolean>
+  hideComments(this: Editor): Promise<void>
+  /**
+   * 展示历史侧边栏
+   * @since PD2.10
+   */
+  showHistory(this: Editor): Promise<void>
+  /**
+   * 关闭历史侧边栏
+   * @since PD2.10
+   */
+  hideHistory(this: Editor): Promise<void>
+  /**
+   * 展示锁定侧边栏
+   * @since PD2.10
+   */
+  showLocks(this: Editor): Promise<void>
+  /**
+   * 关闭锁定侧边栏
+   * @since PD2.10
+   */
+  hideLocks(this: Editor): Promise<void>
+  /**
+   * 创建版本
+   * @since PD2.10
+   */
+  createRevision(this: Editor): Promise<void>
+  /**
+   * 进入演示模式
+   * @since PD2.10
+   */
+  startDemonstration(this: Editor): Promise<void>
+  /**
+   * 离开演示模式
+   * @since PD2.10
+   */
+  endDemonstration(this: Editor): Promise<void>
+  /**
+   * 打印
+   * @since PD2.10
+   */
+  print(this: Editor): Promise<void>
+  /**
+   * 创建单元格锁定
+   * @since PD2.10
+   */
+  addRangeLock(
+    this: Editor,
+    options: {
+      /** 用户id对应的权限 */
+      userPermissions: UserPermission
+      /**
+       * 单元格范围
+       * @default 默认当前选中区域范围
+       */
+      ranges?: Range[]
+      /**
+       * 工作表id
+       * @default 默认当前工作表id
+       */
+      sheetId?: string
+      /** 对该锁定的描述 */
+      description?: string
+      /** 部门id对应的权限 */
+      departmentPermissions?: DepartmentPermission
+      /**
+       * 其他访问者的权限
+       * @default 1
+       */
+      visitorPermission?: PermissionLevel
+    }
+  ): Promise<void>
+  /**
+   * 创建工作表锁定
+   * @since PD2.10
+   */
+  addSheetLock(
+    this: Editor,
+    options: {
+      /** 用户id对应的权限 */
+      userPermissions: UserPermission
+      /**
+       * 工作表id
+       * @default 默认当前工作表id
+       */
+      sheetId?: string
+      /** 对该锁定的描述 */
+      description?: string
+      /** 部门id对应的权限 */
+      departmentPermissions?: DepartmentPermission
+      /**
+       * 其他访问者的权限
+       * @default 1
+       */
+      visitorPermission?: PermissionLevel
+    }
+  ): Promise<void>
+  /**
+   * 删除指定范围内的所有单元格锁定
+   * @since PD2.10
+   */
+  removeRangeLocksInRanges(
+    this: Editor,
+    options: {
+      /**
+       * 工作表id
+       * @default 默认当前工作表id
+       */
+      sheetId?: string
+      /**
+       * 单元格范围
+       * @default 默认当前选中区域范围
+       */
+      ranges?: Range[]
+    }
+  ): Promise<void>
+  /**
+   * 删除工作表锁定
+   * @since PD2.10
+   */
+  removeSheetLock(
+    this: Editor,
+    options: {
+      /**
+       * 工作表id
+       * @default 默认当前工作表id
+       */
+      sheetId?: string
+      preview?: undefined
+    }
+  ): Promise<void>
+  /**
+   * 获取当前激活sheet的id
+   * @since PD2.10
+   */
+  getActiveSheetId(this: Editor): Promise<string>
+  /**
+   * 获取所有工作表的id
+   * @since PD2.10
+   */
+  getSheetIds(this: Editor): Promise<string[]>
+  /**
+   * 根据工作表index获取工作表id
+   * @since PD2.10
+   */
+  getSheetIdByIndex(
+    this: Editor,
+    options: {
+      /** 工作表index（从0开始） */
+      index: number
+    }
+  ): Promise<string>
+  /**
+   * 获取工作表指定范围内的单元格的值
+   * @since PD2.10
+   */
+  getRangeValues(
+    this: Editor,
+    options: {
+      /**
+       * 工作表id
+       * @default 默认当前工作表id
+       */
+      sheetId?: string
+      /**
+       * 单元格范围
+       * @default 默认当前选中范围
+       */
+      range?: Range[]
+    }
+  ): Promise<CellValue[][]>
+  /**
+   * 获取指定单元格的值
+   * @since PD2.10
+   */
+  getCellValue(
+    this: Editor,
+    options: {
+      /**
+       * 工作表id
+       * @default 默认当前工作表id
+       */
+      sheetId?: string
+      /** 行index（从0开始） */
+      row: number
+      /** 列index（从0开始） */
+      column: number
+    }
+  ): Promise<CellValue>
+  /**
+   * 获取指定工作表行数量
+   * @since PD2.10
+   */
+  getRowCount(
+    this: Editor,
+    options: {
+      /**
+       * 工作表id
+       * @default 默认当前工作表id
+       */
+      sheetId?: string
+    }
+  ): Promise<number>
+  /**
+   * 获取指定工作表列数量
+   * @since PD2.10
+   */
+  getColumnCount(
+    this: Editor,
+    options: {
+      /**
+       * 工作表id
+       * @default 默认当前工作表id
+       */
+      sheetId?: string
+    }
+  ): Promise<number>
+  /**
+   * 获取指定工作表是否可见
+   * @since PD2.10
+   */
+  isSheetVisible(
+    this: Editor,
+    options: {
+      /**
+       * 工作表id
+       * @default 默认当前工作表id
+       */
+      sheetId?: string
+    }
+  ): Promise<boolean>
   /**
    * 更新环境变量
    * @since PD3.4
    */
-  updateRuntimeEnv: (
+  updateRuntimeEnv(
     this: Editor,
     options: {
-      /**
-       * 要更新的环境变量
-       * @since PD3.4
-       */
+      /** 要更新的环境变量 */
       env: { [key: string]: any }
     }
-  ) => Promise<void>
+  ): Promise<void>
   /**
    * 设置文件内容
    * @since PD3.4
    */
-  setContent: (
+  setContent(
     this: Editor,
     options: {
-      /**
-       * 要设置的文件内容，会替换当前内容，实际类型接受 string | Delta
-       * @since PD3.4
-       */
+      /** 要设置的文件内容，会替换当前内容，实际类型接受 string | Delta */
       content: any
     }
-  ) => Promise<void>
+  ): Promise<void>
   /**
    * 设置聚焦状态
    * @since PD3.4
    */
-  setFocus: (
+  setFocus(
     this: Editor,
     options: {
       /**
        * 设置表格聚焦状态
-       * @since PD3.4
        * @default true
        */
       isFocus?: boolean
     }
-  ) => Promise<void>
+  ): Promise<void>
   /**
    * 导出csv
    * @since pd-3.12
    */
-  exportCsv: (this: Editor, options: {}) => Promise<void>
+  exportCsv(this: Editor): Promise<void>
+  /**
+   * 查找表格内容并高亮
+   * @since co-1.0
+   */
+  search(
+    this: Editor,
+    options: {
+      /** 要查找的内容 */
+      text: string
+      /**
+       * 查找的范围
+       * @default 默认当前选中的范围
+       */
+      range?: Range | Range[]
+    }
+  ): Promise<SearchMatch[]>
+  /**
+   * 定位单元格
+   * @since co-1.0
+   */
+  locateCell(
+    this: Editor,
+    options: {
+      /** 要定位的单元格行坐标 */
+      row: number
+      /** 要定位的单元格列坐标 */
+      column: number
+      /**
+       * 要定位的工作表id
+       * @default 默认当前激活工作表id
+       */
+      sheetId?: string
+    }
+  ): Promise<void>
+  /**
+   * 取消搜索高亮
+   * @since co-1.0
+   */
+  cancelSearchHighlights(this: Editor): Promise<void>
+  /**
+   * 通过通知的guid定位单元格
+   * @since co-1.0
+   */
+  locateCellByGuid(
+    this: Editor,
+    options: {
+      /** 通知类型 */
+      notificationType: NotificationType
+      /** 锚点guid */
+      guid: string
+    }
+  ): Promise<void>
+  /**
+   * 设置激活工作表
+   * @since co-1.0
+   */
+  setActiveSheet(
+    this: Editor,
+    options: {
+      /** 要激活的工作表id */
+      sheetId: string
+    }
+  ): Promise<void>
+  /**
+   * 获取工作表列表信息
+   * @since co-1.0
+   */
+  getSheetList(this: Editor): Promise<{ name: string; id: string }[]>
+  /**
+   * 获取当前表格选中的范围
+   * @since co-1.0
+   */
+  getSelections(this: Editor): Promise<Range[]>
+  /**
+   * 获取工作表指定范围内的单元格的数据
+   * @since co-1.0
+   */
+  getRangeData(
+    this: Editor,
+    options: {
+      /**
+       * 范围
+       * @default 默认当前选中的范围
+       */
+      range?: Range
+    }
+  ): Promise<RangeData[][]>
 }
 
 /**
@@ -402,4 +659,24 @@ export interface PluginOptions {
    * 锁定
    */
   Lock?: boolean
+  /*
+   * PC端sheet栏
+   */
+  SheetTab?: boolean
+  /*
+   * 移动端sheet栏
+   */
+  MobileSheetTab?: boolean
+  /*
+   * PC端工具栏
+   */
+  Toolbar?: boolean
+  /*
+   * 移动端工具栏
+   */
+  MobileToolbar?: boolean
+  /*
+   * fx栏
+   */
+  FxEditor?: boolean
 }

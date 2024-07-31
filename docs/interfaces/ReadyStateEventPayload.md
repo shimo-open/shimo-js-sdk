@@ -22,7 +22,7 @@ ReadyState 事件变化数据
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:39
+node_modules/shimo-js-sdk-shared/dist/event.d.ts:71
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:35
+node_modules/shimo-js-sdk-shared/dist/event.d.ts:67
 
 ___
 
@@ -46,4 +46,4 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:31
+node_modules/shimo-js-sdk-shared/dist/event.d.ts:63

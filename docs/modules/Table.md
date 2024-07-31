@@ -8,3 +8,4 @@
 
 - [Editor](../interfaces/Table.Editor.md)
 - [EventMap](../interfaces/Table.EventMap.md)
+- [PluginOptions](../interfaces/Table.PluginOptions.md)

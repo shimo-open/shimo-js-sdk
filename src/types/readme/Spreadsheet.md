@@ -151,6 +151,11 @@ connect({
 | DateMention         | 日期提醒                                                                                                   |
 | RangeRemind         | 关注选区                                                                                                   |
 | Lock                | 锁定                                                                                                       |
+| SheetTab            | PC 端 sheet 栏                                                                                             |
+| MobileSheetTab      | 移动端 sheet 栏                                                                                            |
+| Toolbar             | PC 端工具栏                                                                                                |
+| MobileToolbar       | 移动端工具栏                                                                                               |
+| FxEditor            | fx 栏                                                                                                      |
 
 ## 7.切换工作表时更改浏览器地址栏信息（以便从地址栏复制链接给其他用户打开时定位到相同工作表）
 
@@ -161,7 +166,8 @@ import Base62Str from 'base62str'
 const base62Instance = Base62Str.createInstance()
 const searchParams = new URLSearchParams(location.search)
 const smParams = searchParams.get('smParams')
-const editor = await connect(...)
+const sdk = await connect(...)
+const editor = sdk.getEditor()
 editor.on('paramsChanged', ({ sheetId, hash }: { sheetId: string, hash?: string }) => {
   const newParams = smParams ? { ...JSON.parse(base62Instance.decodeStr(smParams)), sheetId, hash } : { sheetId, hash }
   if (newParams.hash === undefined) {
@@ -184,4 +190,49 @@ connect({
     linkRegex: 'http(s)?://'
   }
 })
+```
+
+## 8.仅渲染表格视图区域（隐藏工具栏，FX 栏和底部 sheet 栏）
+
+```typescript
+import { connect } from 'shimo-js-sdk'
+// pc
+connect({
+  smParams: {
+    plugins: {
+      // 隐藏工具栏
+      Toolbar: false,
+      // 隐藏fx栏
+      FxEditor: false,
+      // 隐藏sheet栏
+      SheetTab: false
+    }
+  }
+})
+// mobile
+connect({
+  smParams: {
+    plugins: {
+      // 隐藏工具栏
+      MobileToolbar: false,
+      // 隐藏sheet栏
+      MobileSheetTab: false
+    }
+  }
+})
+```
+
+## 9.利用 API 实现自定义查找功能
+
+```typescript
+
+const sdk = await connect(...)
+const editor = sdk.getEditor()
+// 若不传range则默认为当前工作表选中区域
+// 查找并高亮
+const results = await editor.search({ text: 'test', range: { row: 0, column: 0, rowCount: 200, columnCount: 18 } })
+// 利用results里返回的匹配信息中的row/column可依次定位单元格
+await editor.locateCell({ row: 0, column: 1 })
+// 取消搜索高亮
+editor.cancelSearchHighlights()
 ```

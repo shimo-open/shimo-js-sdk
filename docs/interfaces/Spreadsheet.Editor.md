@@ -16,25 +16,33 @@
 
 - [addRangeLock](Spreadsheet.Editor.md#addrangelock)
 - [addSheetLock](Spreadsheet.Editor.md#addsheetlock)
+- [cancelSearchHighlights](Spreadsheet.Editor.md#cancelsearchhighlights)
 - [createRevision](Spreadsheet.Editor.md#createrevision)
 - [endDemonstration](Spreadsheet.Editor.md#enddemonstration)
 - [exportCsv](Spreadsheet.Editor.md#exportcsv)
 - [getActiveSheetId](Spreadsheet.Editor.md#getactivesheetid)
 - [getCellValue](Spreadsheet.Editor.md#getcellvalue)
 - [getColumnCount](Spreadsheet.Editor.md#getcolumncount)
+- [getRangeData](Spreadsheet.Editor.md#getrangedata)
 - [getRangeValues](Spreadsheet.Editor.md#getrangevalues)
 - [getRowCount](Spreadsheet.Editor.md#getrowcount)
+- [getSelections](Spreadsheet.Editor.md#getselections)
 - [getSheetIdByIndex](Spreadsheet.Editor.md#getsheetidbyindex)
 - [getSheetIds](Spreadsheet.Editor.md#getsheetids)
+- [getSheetList](Spreadsheet.Editor.md#getsheetlist)
 - [hideComments](Spreadsheet.Editor.md#hidecomments)
 - [hideHistory](Spreadsheet.Editor.md#hidehistory)
 - [hideLocks](Spreadsheet.Editor.md#hidelocks)
 - [isSheetVisible](Spreadsheet.Editor.md#issheetvisible)
+- [locateCell](Spreadsheet.Editor.md#locatecell)
+- [locateCellByGuid](Spreadsheet.Editor.md#locatecellbyguid)
 - [off](Spreadsheet.Editor.md#off)
 - [on](Spreadsheet.Editor.md#on)
 - [print](Spreadsheet.Editor.md#print)
 - [removeRangeLocksInRanges](Spreadsheet.Editor.md#removerangelocksinranges)
 - [removeSheetLock](Spreadsheet.Editor.md#removesheetlock)
+- [search](Spreadsheet.Editor.md#search)
+- [setActiveSheet](Spreadsheet.Editor.md#setactivesheet)
 - [setContent](Spreadsheet.Editor.md#setcontent)
 - [setFocus](Spreadsheet.Editor.md#setfocus)
 - [setTitle](Spreadsheet.Editor.md#settitle)
@@ -51,6 +59,8 @@
 ▸ **addRangeLock**(`options`): `Promise`<`void`\>
 
 创建单元格锁定
+
+**`since`** PD2.10
 
 #### Parameters
 
@@ -70,7 +80,7 @@
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:82](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L82)
+[src/types/Spreadsheet.ts:193](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L193)
 
 ___
 
@@ -79,6 +89,8 @@ ___
 ▸ **addSheetLock**(`options`): `Promise`<`void`\>
 
 创建工作表锁定
+
+**`since`** PD2.10
 
 #### Parameters
 
@@ -97,21 +109,35 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:106](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L106)
+[src/types/Spreadsheet.ts:223](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L223)
+
+___
+
+### cancelSearchHighlights
+
+▸ **cancelSearchHighlights**(): `Promise`<`void`\>
+
+取消搜索高亮
+
+**`since`** co-1.0
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Spreadsheet.ts:457](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L457)
 
 ___
 
 ### createRevision
 
-▸ **createRevision**(`options?`): `Promise`<`void`\>
+▸ **createRevision**(): `Promise`<`void`\>
 
 创建版本
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Object` |
+**`since`** PD2.10
 
 #### Returns
 
@@ -119,21 +145,17 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:74](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L74)
+[src/types/Spreadsheet.ts:173](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L173)
 
 ___
 
 ### endDemonstration
 
-▸ **endDemonstration**(`options?`): `Promise`<`void`\>
+▸ **endDemonstration**(): `Promise`<`void`\>
 
 离开演示模式
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Object` |
+**`since`** PD2.10
 
 #### Returns
 
@@ -141,23 +163,17 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:78](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L78)
+[src/types/Spreadsheet.ts:183](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L183)
 
 ___
 
 ### exportCsv
 
-▸ **exportCsv**(`options`): `Promise`<`void`\>
+▸ **exportCsv**(): `Promise`<`void`\>
 
 导出csv
 
 **`since`** pd-3.12
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options` | `Object` |
 
 #### Returns
 
@@ -165,7 +181,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:248](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L248)
+[src/types/Spreadsheet.ts:418](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L418)
 
 ___
 
@@ -175,13 +191,15 @@ ___
 
 获取当前激活sheet的id
 
+**`since`** PD2.10
+
 #### Returns
 
 `Promise`<`string`\>
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:147](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L147)
+[src/types/Spreadsheet.ts:282](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L282)
 
 ___
 
@@ -189,14 +207,18 @@ ___
 
 ▸ **getCellValue**(`options`): `Promise`<[`CellValue`](../modules/Spreadsheet.md#cellvalue)\>
 
+获取指定单元格的值
+
+**`since`** PD2.10
+
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
-| `options.column` | `number` | 列index |
-| `options.row` | `number` | 行index |
-| `options.sheetId?` | `string` | 工作表 ID  **`default`** 默认当前工作表 ID |
+| `options.column` | `number` | 列index（从0开始） |
+| `options.row` | `number` | 行index（从0开始） |
+| `options.sheetId?` | `string` | 工作表id  **`default`** 默认当前工作表id |
 
 #### Returns
 
@@ -204,7 +226,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:172](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L172)
+[src/types/Spreadsheet.ts:322](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L322)
 
 ___
 
@@ -214,12 +236,14 @@ ___
 
 获取指定工作表列数量
 
+**`since`** PD2.10
+
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
-| `options.sheetId?` | `string` | 工作表 ID  **`default`** 默认当前工作表 ID |
+| `options.sheetId?` | `string` | 工作表id  **`default`** 默认当前工作表id |
 
 #### Returns
 
@@ -227,7 +251,32 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:165](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L165)
+[src/types/Spreadsheet.ts:354](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L354)
+
+___
+
+### getRangeData
+
+▸ **getRangeData**(`options`): `Promise`<[`RangeData`](../modules/Spreadsheet.md#rangedata)[][]\>
+
+获取工作表指定范围内的单元格的数据
+
+**`since`** co-1.0
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `options` | `Object` | - |
+| `options.range?` | [`Range`](Spreadsheet.Range.md) | 范围  **`default`** 默认当前选中的范围 |
+
+#### Returns
+
+`Promise`<[`RangeData`](../modules/Spreadsheet.md#rangedata)[][]\>
+
+#### Defined in
+
+[src/types/Spreadsheet.ts:496](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L496)
 
 ___
 
@@ -237,13 +286,15 @@ ___
 
 获取工作表指定范围内的单元格的值
 
+**`since`** PD2.10
+
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
 | `options.range?` | [`Range`](Spreadsheet.Range.md)[] | 单元格范围  **`default`** 默认当前选中范围 |
-| `options.sheetId?` | `string` | 工作表 ID  **`default`** 默认当前工作表 ID |
+| `options.sheetId?` | `string` | 工作表id  **`default`** 默认当前工作表id |
 
 #### Returns
 
@@ -251,7 +302,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:185](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L185)
+[src/types/Spreadsheet.ts:303](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L303)
 
 ___
 
@@ -261,12 +312,14 @@ ___
 
 获取指定工作表行数量
 
+**`since`** PD2.10
+
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
-| `options.sheetId?` | `string` | 工作表 ID  **`default`** 默认当前工作表 ID |
+| `options.sheetId?` | `string` | 工作表id  **`default`** 默认当前工作表id |
 
 #### Returns
 
@@ -274,7 +327,25 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:156](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L156)
+[src/types/Spreadsheet.ts:340](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L340)
+
+___
+
+### getSelections
+
+▸ **getSelections**(): `Promise`<[`Range`](Spreadsheet.Range.md)[]\>
+
+获取当前表格选中的范围
+
+**`since`** co-1.0
+
+#### Returns
+
+`Promise`<[`Range`](Spreadsheet.Range.md)[]\>
+
+#### Defined in
+
+[src/types/Spreadsheet.ts:491](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L491)
 
 ___
 
@@ -282,14 +353,16 @@ ___
 
 ▸ **getSheetIdByIndex**(`options`): `Promise`<`string`\>
 
-根据工作表 index 获取工作表 ID
+根据工作表index获取工作表id
+
+**`since`** PD2.10
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `options` | `Object` |
-| `options.index` | `number` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `options` | `Object` | - |
+| `options.index` | `number` | 工作表index（从0开始） |
 
 #### Returns
 
@@ -297,7 +370,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:153](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L153)
+[src/types/Spreadsheet.ts:292](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L292)
 
 ___
 
@@ -307,27 +380,43 @@ ___
 
 获取所有工作表的id
 
+**`since`** PD2.10
+
 #### Returns
 
 `Promise`<`string`[]\>
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:150](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L150)
+[src/types/Spreadsheet.ts:287](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L287)
+
+___
+
+### getSheetList
+
+▸ **getSheetList**(): `Promise`<{ `id`: `string` ; `name`: `string`  }[]\>
+
+获取工作表列表信息
+
+**`since`** co-1.0
+
+#### Returns
+
+`Promise`<{ `id`: `string` ; `name`: `string`  }[]\>
+
+#### Defined in
+
+[src/types/Spreadsheet.ts:486](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L486)
 
 ___
 
 ### hideComments
 
-▸ **hideComments**(`options?`): `Promise`<`void`\>
+▸ **hideComments**(): `Promise`<`void`\>
 
 关闭评论侧边栏
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Object` |
+**`since`** PD2.10
 
 #### Returns
 
@@ -335,21 +424,17 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:64](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L64)
+[src/types/Spreadsheet.ts:148](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L148)
 
 ___
 
 ### hideHistory
 
-▸ **hideHistory**(`options?`): `Promise`<`void`\>
+▸ **hideHistory**(): `Promise`<`void`\>
 
 关闭历史侧边栏
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Object` |
+**`since`** PD2.10
 
 #### Returns
 
@@ -357,21 +442,17 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:68](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L68)
+[src/types/Spreadsheet.ts:158](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L158)
 
 ___
 
 ### hideLocks
 
-▸ **hideLocks**(`options?`): `Promise`<`void`\>
+▸ **hideLocks**(): `Promise`<`void`\>
 
 关闭锁定侧边栏
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Object` |
+**`since`** PD2.10
 
 #### Returns
 
@@ -379,22 +460,24 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:72](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L72)
+[src/types/Spreadsheet.ts:168](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L168)
 
 ___
 
 ### isSheetVisible
 
-▸ **isSheetVisible**(`options?`): `Promise`<`boolean`\>
+▸ **isSheetVisible**(`options`): `Promise`<`boolean`\>
 
-指定工作表是否可见，不传值为当前工作表
+获取指定工作表是否可见
+
+**`since`** PD2.10
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Object` |
-| `options.sheetId?` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `options` | `Object` | - |
+| `options.sheetId?` | `string` | 工作表id  **`default`** 默认当前工作表id |
 
 #### Returns
 
@@ -402,7 +485,60 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:200](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L200)
+[src/types/Spreadsheet.ts:368](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L368)
+
+___
+
+### locateCell
+
+▸ **locateCell**(`options`): `Promise`<`void`\>
+
+定位单元格
+
+**`since`** co-1.0
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `options` | `Object` | - |
+| `options.column` | `number` | 要定位的单元格列坐标 |
+| `options.row` | `number` | 要定位的单元格行坐标 |
+| `options.sheetId?` | `string` | 要定位的工作表id  **`default`** 默认当前激活工作表id |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Spreadsheet.ts:439](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L439)
+
+___
+
+### locateCellByGuid
+
+▸ **locateCellByGuid**(`options`): `Promise`<`void`\>
+
+通过通知的guid定位单元格
+
+**`since`** co-1.0
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `options` | `Object` | - |
+| `options.guid` | `string` | 锚点guid |
+| `options.notificationType` | [`NotificationType`](../modules/Spreadsheet.md#notificationtype) | 通知类型 |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Spreadsheet.ts:462](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L462)
 
 ___
 
@@ -435,7 +571,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:42](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/BaseEditor.ts#L42)
+[src/types/BaseEditor.ts:42](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/BaseEditor.ts#L42)
 
 ___
 
@@ -468,21 +604,17 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:37](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/BaseEditor.ts#L37)
+[src/types/BaseEditor.ts:37](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/BaseEditor.ts#L37)
 
 ___
 
 ### print
 
-▸ **print**(`options?`): `Promise`<`void`\>
+▸ **print**(): `Promise`<`void`\>
 
 打印
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Object` |
+**`since`** PD2.10
 
 #### Returns
 
@@ -490,7 +622,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:80](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L80)
+[src/types/Spreadsheet.ts:188](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L188)
 
 ___
 
@@ -499,6 +631,8 @@ ___
 ▸ **removeRangeLocksInRanges**(`options`): `Promise`<`void`\>
 
 删除指定范围内的所有单元格锁定
+
+**`since`** PD2.10
 
 #### Parameters
 
@@ -514,7 +648,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:125](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L125)
+[src/types/Spreadsheet.ts:248](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L248)
 
 ___
 
@@ -524,11 +658,14 @@ ___
 
 删除工作表锁定
 
+**`since`** PD2.10
+
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
+| `options.preview?` | `undefined` | - |
 | `options.sheetId?` | `string` | 工作表id  **`default`** 默认当前工作表id |
 
 #### Returns
@@ -537,7 +674,58 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:138](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L138)
+[src/types/Spreadsheet.ts:267](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L267)
+
+___
+
+### search
+
+▸ **search**(`options`): `Promise`<[`SearchMatch`](../modules/Spreadsheet.md#searchmatch)[]\>
+
+查找表格内容并高亮
+
+**`since`** co-1.0
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `options` | `Object` | - |
+| `options.range?` | [`Range`](Spreadsheet.Range.md) \| [`Range`](Spreadsheet.Range.md)[] | 查找的范围  **`default`** 默认当前选中的范围 |
+| `options.text` | `string` | 要查找的内容 |
+
+#### Returns
+
+`Promise`<[`SearchMatch`](../modules/Spreadsheet.md#searchmatch)[]\>
+
+#### Defined in
+
+[src/types/Spreadsheet.ts:423](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L423)
+
+___
+
+### setActiveSheet
+
+▸ **setActiveSheet**(`options`): `Promise`<`void`\>
+
+设置激活工作表
+
+**`since`** co-1.0
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `options` | `Object` | - |
+| `options.sheetId` | `string` | 要激活的工作表id |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Spreadsheet.ts:475](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L475)
 
 ___
 
@@ -554,7 +742,7 @@ ___
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
-| `options.content` | `any` | 要设置的文件内容，会替换当前内容，实际类型接受 string \| Delta  **`since`** PD3.4 |
+| `options.content` | `any` | 要设置的文件内容，会替换当前内容，实际类型接受 string \| Delta |
 
 #### Returns
 
@@ -562,7 +750,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:219](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L219)
+[src/types/Spreadsheet.ts:393](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L393)
 
 ___
 
@@ -579,7 +767,7 @@ ___
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
-| `options.isFocus?` | `boolean` | 设置表格聚焦状态  **`since`** PD3.4  **`default`** true |
+| `options.isFocus?` | `boolean` | 设置表格聚焦状态  **`default`** true |
 
 #### Returns
 
@@ -587,7 +775,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:233](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L233)
+[src/types/Spreadsheet.ts:404](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L404)
 
 ___
 
@@ -613,23 +801,17 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:47](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/BaseEditor.ts#L47)
+[src/types/BaseEditor.ts:47](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/BaseEditor.ts#L47)
 
 ___
 
 ### showComments
 
-▸ **showComments**(`options?`): `Promise`<`void`\>
+▸ **showComments**(): `Promise`<`void`\>
 
 展示评论侧边栏
 
-**`since`** 22.2.1
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Object` |
+**`since`** PD2.10
 
 #### Returns
 
@@ -637,21 +819,17 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:62](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L62)
+[src/types/Spreadsheet.ts:143](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L143)
 
 ___
 
 ### showHistory
 
-▸ **showHistory**(`options?`): `Promise`<`void`\>
+▸ **showHistory**(): `Promise`<`void`\>
 
 展示历史侧边栏
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Object` |
+**`since`** PD2.10
 
 #### Returns
 
@@ -659,21 +837,17 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:66](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L66)
+[src/types/Spreadsheet.ts:153](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L153)
 
 ___
 
 ### showLocks
 
-▸ **showLocks**(`options?`): `Promise`<`void`\>
+▸ **showLocks**(): `Promise`<`void`\>
 
 展示锁定侧边栏
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Object` |
+**`since`** PD2.10
 
 #### Returns
 
@@ -681,21 +855,17 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:70](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L70)
+[src/types/Spreadsheet.ts:163](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L163)
 
 ___
 
 ### startDemonstration
 
-▸ **startDemonstration**(`options?`): `Promise`<`void`\>
+▸ **startDemonstration**(): `Promise`<`void`\>
 
 进入演示模式
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Object` |
+**`since`** PD2.10
 
 #### Returns
 
@@ -703,7 +873,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:76](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L76)
+[src/types/Spreadsheet.ts:178](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L178)
 
 ___
 
@@ -720,7 +890,7 @@ ___
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
-| `options.env` | `Object` | 要更新的环境变量  **`since`** PD3.4 |
+| `options.env` | `Object` | 要更新的环境变量 |
 
 #### Returns
 
@@ -728,4 +898,4 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:205](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/types/Spreadsheet.ts#L205)
+[src/types/Spreadsheet.ts:382](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/Spreadsheet.ts#L382)

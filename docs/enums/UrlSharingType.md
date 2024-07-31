@@ -28,7 +28,7 @@
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:283
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:282
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:287
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:286
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:295
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:294
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:303
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:302
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:299
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:298
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:307
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:306
 
 ___
 
@@ -96,8 +96,8 @@ ___
 
 • **Spreadsheet** = `"sheet"`
 
-代表分享的是轻文档链接
+代表分享的是表格链接
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:291
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:290

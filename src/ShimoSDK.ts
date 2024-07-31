@@ -915,7 +915,7 @@ export interface ShimoSDKOptions
   /**
    * 编辑器插件配置，不是所有类型的套件都支持，以套件是否提供 PluginOptions 为准
    */
-  plugins?: Spreadsheet.PluginOptions
+  plugins?: Spreadsheet.PluginOptions | Table.PluginOptions
 
   /**
    * iframe postMessage 的目标 origin，默认是当前页面的 location.origin。

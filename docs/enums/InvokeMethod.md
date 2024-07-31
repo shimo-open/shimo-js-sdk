@@ -29,7 +29,7 @@ JS SDK 之间通信用的方法。一般用在 ShimoBroadcastChannel.invoke() �
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:76
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:38
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:72
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:34
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:52
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:14
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:64
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:26
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:68
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:30
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:80
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:42
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:56
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:18
 
 ___
 
@@ -113,7 +113,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:84
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:46
 
 ___
 
@@ -125,7 +125,7 @@ SDK 初始化，用于获取配置信息
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:48
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:10
 
 ___
 
@@ -137,4 +137,4 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:60
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:22

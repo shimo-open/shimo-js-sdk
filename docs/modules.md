@@ -20,7 +20,7 @@
 - [FileType](enums/FileType.md)
 - [InvokeMethod](enums/InvokeMethod.md)
 - [ReadyState](enums/ReadyState.md)
-- [SDKEvent](enums/SDKEvent.md)
+- [SpreadsheetSharingFrom](enums/SpreadsheetSharingFrom.md)
 - [UrlSharingType](enums/UrlSharingType.md)
 
 ### Classes
@@ -37,7 +37,6 @@
 - [ContainerRect](interfaces/ContainerRect.md)
 - [DisableMentionCards](interfaces/DisableMentionCards.md)
 - [FileInfo](interfaces/FileInfo.md)
-- [GenerateUrlInfo](interfaces/GenerateUrlInfo.md)
 - [LineInfo](interfaces/LineInfo.md)
 - [MentionInfo](interfaces/MentionInfo.md)
 - [Message](interfaces/Message.md)
@@ -48,6 +47,8 @@
 - [ReadyStateEventPayload](interfaces/ReadyStateEventPayload.md)
 - [RequestContext](interfaces/RequestContext.md)
 - [RequestOptions](interfaces/RequestOptions.md)
+- [SDKEventMap](interfaces/SDKEventMap.md)
+- [SDKEventMessage](interfaces/SDKEventMessage.md)
 - [ShimoSDKOptions](interfaces/ShimoSDKOptions.md)
 
 ### Type aliases
@@ -57,19 +58,23 @@
 - [EventCallback](modules.md#eventcallback)
 - [FileId](modules.md#fileid)
 - [GenerateUrlHandler](modules.md#generateurlhandler)
+- [GenerateUrlInfo](modules.md#generateurlinfo)
 - [RequestContextType](modules.md#requestcontexttype)
+- [SharingSource](modules.md#sharingsource)
 - [UserId](modules.md#userid)
 
 ### Variables
 
 - [FileTypeAlias](modules.md#filetypealias)
 - [MessageEvent](modules.md#messageevent)
+- [SDKEvent](modules.md#sdkevent)
 - [START\_PARAMS\_FIELD](modules.md#start_params_field)
 
 ### Functions
 
 - [connect](modules.md#connect)
 - [convertFileType](modules.md#convertfiletype)
+- [isSDKEventMessage](modules.md#issdkeventmessage)
 
 ## Type aliases
 
@@ -111,7 +116,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:251
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:213
 
 ___
 
@@ -137,7 +142,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:845](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/ShimoSDK.ts#L845)
+[src/ShimoSDK.ts:841](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L841)
 
 ___
 
@@ -153,18 +158,19 @@ ___
 
 ### GenerateUrlHandler
 
-Ƭ **GenerateUrlHandler**: (`fileId`: `string`, `info?`: [`GenerateUrlInfo`](interfaces/GenerateUrlInfo.md)) => `string` \| `Promise`<`string`\>
+Ƭ **GenerateUrlHandler**: (`fileId`: `string`, `info?`: [`GenerateUrlInfo`](modules.md#generateurlinfo), `smParams?`: `Record`<`string`, `any`\>) => `string` \| `Promise`<`string`\>
 
 #### Type declaration
 
-▸ (`fileId`, `info?`): `string` \| `Promise`<`string`\>
+▸ (`fileId`, `info?`, `smParams?`): `string` \| `Promise`<`string`\>
 
 ##### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `fileId` | `string` |
-| `info?` | [`GenerateUrlInfo`](interfaces/GenerateUrlInfo.md) |
+| `info?` | [`GenerateUrlInfo`](modules.md#generateurlinfo) |
+| `smParams?` | `Record`<`string`, `any`\> |
 
 ##### Returns
 
@@ -172,7 +178,19 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:252
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:214
+
+___
+
+### GenerateUrlInfo
+
+Ƭ **GenerateUrlInfo**: { `sharingText?`: `string`  } & [`SharingSource`](modules.md#sharingsource)<[`UrlSharingType`](enums/UrlSharingType.md)\>
+
+用于生成 URL 的额外信息
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:230
 
 ___
 
@@ -185,6 +203,22 @@ APIAdaptor 上下文允许的数据类型
 #### Defined in
 
 node_modules/shimo-js-sdk-shared/dist/APIAdaptor.d.ts:28
+
+___
+
+### SharingSource
+
+Ƭ **SharingSource**<`T`\>: `T` extends [`Spreadsheet`](enums/UrlSharingType.md#spreadsheet) ? { `sharingFrom?`: [`SpreadsheetSharingFrom`](enums/SpreadsheetSharingFrom.md) ; `sharingType?`: `T`  } : { `sharingType?`: `T`  }
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends [`UrlSharingType`](enums/UrlSharingType.md) |
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:236
 
 ___
 
@@ -225,7 +259,19 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:50](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/ShimoSDK.ts#L50)
+[src/ShimoSDK.ts:50](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L50)
+
+___
+
+### SDKEvent
+
+• **SDKEvent**: `Readonly`<{ `ReadyState`: ``"ReadyState"`` ; `ViewportResize`: ``"ViewportResize"``  }\>
+
+SDK 相关的事件，和编辑器无关
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/event.d.ts:6
 
 ___
 
@@ -235,7 +281,7 @@ ___
 
 #### Defined in
 
-[src/index.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/index.ts#L26)
+[src/index.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/index.ts#L26)
 
 ## Functions
 
@@ -260,7 +306,7 @@ Promise resovled 不代表编辑器已经完整加载完毕，只代表 SDK 已�
 
 #### Defined in
 
-[src/connect.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/4cabcb1/src/connect.ts#L11)
+[src/connect.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/connect.ts#L11)
 
 ___
 
@@ -283,3 +329,25 @@ ___
 #### Defined in
 
 node_modules/shimo-js-sdk-shared/dist/File.d.ts:59
+
+___
+
+### isSDKEventMessage
+
+▸ **isSDKEventMessage**(`input`): input is SDKEventMessage
+
+判断是否是 SDKEvent 事件消息
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `input` | `unknown` |
+
+#### Returns
+
+input is SDKEventMessage
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/event.d.ts:30

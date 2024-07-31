@@ -8,12 +8,25 @@ SDK 和编辑器初始化状态
 
 ### Enumeration members
 
+- [Disconnected](ReadyState.md#disconnected)
 - [Failed](ReadyState.md#failed)
 - [Loading](ReadyState.md#loading)
 - [LoadingEditor](ReadyState.md#loadingeditor)
 - [Ready](ReadyState.md#ready)
 
 ## Enumeration members
+
+### Disconnected
+
+• **Disconnected** = `"disconnected"`
+
+已经被销毁
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/event.d.ts:54
+
+___
 
 ### Failed
 
@@ -23,7 +36,7 @@ SDK 和编辑器初始化状态
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:22
+node_modules/shimo-js-sdk-shared/dist/event.d.ts:50
 
 ___
 
@@ -35,7 +48,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:10
+node_modules/shimo-js-sdk-shared/dist/event.d.ts:38
 
 ___
 
@@ -47,7 +60,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:14
+node_modules/shimo-js-sdk-shared/dist/event.d.ts:42
 
 ___
 
@@ -59,4 +72,4 @@ SDK 和编辑器初始化完成，因编辑器含异步组件，因此仅代表�
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:18
+node_modules/shimo-js-sdk-shared/dist/event.d.ts:46

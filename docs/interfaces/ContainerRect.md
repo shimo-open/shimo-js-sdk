@@ -27,7 +27,7 @@
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:126
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:88
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:122
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:84
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:130
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:92
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:134
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:96
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:118
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:80
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:114
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:76
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:110
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:72
 
 ___
 
@@ -123,4 +123,4 @@ window.visualViewport 的值
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:138
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:100
