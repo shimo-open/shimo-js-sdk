@@ -198,26 +198,22 @@ connect({
 import { connect } from 'shimo-js-sdk'
 // pc
 connect({
-  smParams: {
-    plugins: {
-      // 隐藏工具栏
-      Toolbar: false,
-      // 隐藏fx栏
-      FxEditor: false,
-      // 隐藏sheet栏
-      SheetTab: false
-    }
+  plugins: {
+    // 隐藏工具栏
+    Toolbar: false,
+    // 隐藏fx栏
+    FxEditor: false,
+    // 隐藏sheet栏
+    SheetTab: false
   }
 })
 // mobile
 connect({
-  smParams: {
-    plugins: {
-      // 隐藏工具栏
-      MobileToolbar: false,
-      // 隐藏sheet栏
-      MobileSheetTab: false
-    }
+  plugins: {
+    // 隐藏工具栏
+    MobileToolbar: false,
+    // 隐藏sheet栏
+    MobileSheetTab: false
   }
 })
 ```
