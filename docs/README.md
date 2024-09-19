@@ -344,3 +344,21 @@ connect({
   smParams: paramsList
 })
 ```
+
+### 显示自定义toast
+支持的套件类型：
+
+- `表格` - `spreadsheet`
+
+此方法可显示接入方自定义toast，具体用法如下
+
+```typescript
+import { connect, ShowToastOptions } from 'shimo-js-sdk'
+
+const shimoSDK = await connect({
+  // 初始化sdk时传了该方法将会拦截编辑器内的toast
+  showToast: (options: ShowToastOptions) => {
+    // show your toast
+  }
+})
+```

@@ -27,7 +27,8 @@ import {
   GenerateUrlInfo,
   APIAdaptor,
   RequestContext,
-  SDKEvent
+  SDKEvent,
+  ShowToastOptions
 } from 'shimo-js-sdk-shared'
 import ExpireSet from 'expire-set'
 
@@ -383,7 +384,7 @@ export class ShimoSDK extends TinyEmitter {
         this.connectOptions.allowPolicy ??
         'fullscreen *;clipboard-read *;clipboard-write *;'
     } else {
-      iframe.allowFullscreen = true
+      ;(iframe as any).allowFullscreen = true
     }
 
     const url = this.endpoint
@@ -788,6 +789,11 @@ export interface ContainerMethods {
       }
     | undefined
   >
+
+  /**
+   * 用于显示客户自定义toast。
+   */
+  [ContainerMethod.ShowToast]?: (options: ShowToastOptions) => Promise<void>
 }
 
 export enum Event {
