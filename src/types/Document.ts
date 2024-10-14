@@ -104,4 +104,14 @@ export interface Editor extends BaseEditor<EventMap> {
    * @since 22.6.1
    */
   insertExternalApp: (url: string) => Promise<null | DocumentErrorMessage>
+  /**
+   * 显示编写者信息
+   * @since 24.11.1
+   */
+  showCollaborator: (options?: {}) => Promise<void>
+  /**
+   * 隐藏编写者信息
+   * @since 24.11.1
+   */
+  hideCollaborator: (options?: {}) => Promise<void>
 }
