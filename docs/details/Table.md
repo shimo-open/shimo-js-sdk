@@ -56,13 +56,13 @@ connect({
 
 <i>可控制的功能列表如下</i>
 
-|功能名|功能描述|
-|:----|:----|
-|CombineTables|引用数据表|
-|BaseVersion|历史 & 版本|
-|FieldOptions|列配置|
-|ShareView|视图分享|
-|Description|说明页 & 说明|
+| 功能名        | 功能描述      |
+| :------------ | :------------ |
+| CombineTables | 引用数据表    |
+| BaseVersion   | 历史 & 版本   |
+| FieldOptions  | 列配置        |
+| ShareView     | 视图分享      |
+| Description   | 说明页 & 说明 |
 
 ## 3.应用表格事件
 

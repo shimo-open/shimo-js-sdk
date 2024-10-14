@@ -16,6 +16,7 @@
 - [getFileInfoFromUrl](ContainerMethods.md#getfileinfofromurl)
 - [mentionClickHandlerForMobile](ContainerMethods.md#mentionclickhandlerformobile)
 - [openLink](ContainerMethods.md#openlink)
+- [showToast](ContainerMethods.md#showtoast)
 
 ## Properties
 
@@ -27,7 +28,7 @@
 
 #### Defined in
 
-[src/ShimoSDK.ts:768](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L768)
+[src/ShimoSDK.ts:769](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L769)
 
 ## Methods
 
@@ -43,7 +44,7 @@
 
 #### Defined in
 
-[src/ShimoSDK.ts:748](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L748)
+[src/ShimoSDK.ts:749](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L749)
 
 ___
 
@@ -65,7 +66,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:780](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L780)
+[src/ShimoSDK.ts:781](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L781)
 
 ___
 
@@ -87,7 +88,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:773](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L773)
+[src/ShimoSDK.ts:774](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L774)
 
 ___
 
@@ -110,4 +111,26 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:753](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L753)
+[src/ShimoSDK.ts:754](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L754)
+
+___
+
+### showToast
+
+▸ `Optional` **showToast**(`options`): `Promise`<`void`\>
+
+用于显示客户自定义toast。
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options` | [`ShowToastOptions`](ShowToastOptions.md) |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/ShimoSDK.ts:796](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L796)

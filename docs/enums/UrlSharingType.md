@@ -17,6 +17,7 @@
 - [FormPreview](UrlSharingType.md#formpreview)
 - [Presentation](UrlSharingType.md#presentation)
 - [Spreadsheet](UrlSharingType.md#spreadsheet)
+- [Table](UrlSharingType.md#table)
 
 ## Enumeration members
 
@@ -28,7 +29,7 @@
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:282
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:286
 
 ___
 
@@ -40,7 +41,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:286
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:290
 
 ___
 
@@ -52,7 +53,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:294
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:298
 
 ___
 
@@ -64,7 +65,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:302
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:306
 
 ___
 
@@ -76,7 +77,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:298
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:302
 
 ___
 
@@ -88,7 +89,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:306
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:310
 
 ___
 
@@ -100,4 +101,16 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:290
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:294
+
+___
+
+### Table
+
+• **Table** = `"table"`
+
+代表分享的是应用表格链接
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:314

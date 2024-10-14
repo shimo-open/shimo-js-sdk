@@ -50,6 +50,7 @@
 - [SDKEventMap](interfaces/SDKEventMap.md)
 - [SDKEventMessage](interfaces/SDKEventMessage.md)
 - [ShimoSDKOptions](interfaces/ShimoSDKOptions.md)
+- [ShowToastOptions](interfaces/ShowToastOptions.md)
 
 ### Type aliases
 
@@ -116,7 +117,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:213
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:217
 
 ___
 
@@ -142,7 +143,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:841](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L841)
+[src/ShimoSDK.ts:847](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L847)
 
 ___
 
@@ -178,7 +179,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:214
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:218
 
 ___
 
@@ -190,7 +191,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:230
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:234
 
 ___
 
@@ -218,7 +219,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:236
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:240
 
 ___
 
@@ -259,7 +260,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:50](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L50)
+[src/ShimoSDK.ts:51](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L51)
 
 ___
 
@@ -281,7 +282,7 @@ ___
 
 #### Defined in
 
-[src/index.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/index.ts#L26)
+[src/index.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/index.ts#L26)
 
 ## Functions
 
@@ -306,7 +307,7 @@ Promise resovled 不代表编辑器已经完整加载完毕，只代表 SDK 已�
 
 #### Defined in
 
-[src/connect.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/connect.ts#L11)
+[src/connect.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/connect.ts#L11)
 
 ___
 

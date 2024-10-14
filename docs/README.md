@@ -345,12 +345,13 @@ connect({
 })
 ```
 
-### 显示自定义toast
+### 显示自定义 toast
+
 支持的套件类型：
 
 - `表格` - `spreadsheet`
 
-此方法可显示接入方自定义toast，具体用法如下
+此方法可显示接入方自定义 toast，具体用法如下
 
 ```typescript
 import { connect, ShowToastOptions } from 'shimo-js-sdk'

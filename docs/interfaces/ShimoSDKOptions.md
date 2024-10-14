@@ -42,6 +42,7 @@ ShimoSDK 初始化参数
 - [getFileInfoFromUrl](ShimoSDKOptions.md#getfileinfofromurl)
 - [mentionClickHandlerForMobile](ShimoSDKOptions.md#mentionclickhandlerformobile)
 - [openLink](ShimoSDKOptions.md#openlink)
+- [showToast](ShimoSDKOptions.md#showtoast)
 
 ## Properties
 
@@ -54,7 +55,7 @@ ShimoSDK 初始化参数
 
 #### Defined in
 
-[src/ShimoSDK.ts:908](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L908)
+[src/ShimoSDK.ts:914](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L914)
 
 ___
 
@@ -66,7 +67,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:944](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L944)
+[src/ShimoSDK.ts:950](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L950)
 
 ___
 
@@ -78,7 +79,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:949](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L949)
+[src/ShimoSDK.ts:955](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L955)
 
 ___
 
@@ -90,7 +91,7 @@ iframe 挂载的目标容器
 
 #### Defined in
 
-[src/ShimoSDK.ts:866](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L866)
+[src/ShimoSDK.ts:872](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L872)
 
 ___
 
@@ -102,7 +103,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:913](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L913)
+[src/ShimoSDK.ts:919](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L919)
 
 ___
 
@@ -114,7 +115,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:929](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L929)
+[src/ShimoSDK.ts:935](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L935)
 
 ___
 
@@ -126,7 +127,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:902](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L902)
+[src/ShimoSDK.ts:908](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L908)
 
 ___
 
@@ -138,7 +139,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:934](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L934)
+[src/ShimoSDK.ts:940](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L940)
 
 ___
 
@@ -150,7 +151,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:851](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L851)
+[src/ShimoSDK.ts:857](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L857)
 
 ___
 
@@ -162,7 +163,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:856](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L856)
+[src/ShimoSDK.ts:862](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L862)
 
 ___
 
@@ -178,7 +179,7 @@ Omit.generateUrl
 
 #### Defined in
 
-[src/ShimoSDK.ts:768](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L768)
+[src/ShimoSDK.ts:769](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L769)
 
 ___
 
@@ -196,7 +197,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:897](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L897)
+[src/ShimoSDK.ts:903](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L903)
 
 ___
 
@@ -208,7 +209,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:954](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L954)
+[src/ShimoSDK.ts:960](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L960)
 
 ___
 
@@ -224,7 +225,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:876](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L876)
+[src/ShimoSDK.ts:882](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L882)
 
 ___
 
@@ -236,7 +237,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:918](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L918)
+[src/ShimoSDK.ts:924](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L924)
 
 ___
 
@@ -248,7 +249,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:939](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L939)
+[src/ShimoSDK.ts:945](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L945)
 
 ___
 
@@ -260,7 +261,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:861](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L861)
+[src/ShimoSDK.ts:867](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L867)
 
 ___
 
@@ -272,7 +273,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:883](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L883)
+[src/ShimoSDK.ts:889](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L889)
 
 ___
 
@@ -286,7 +287,7 @@ iframe postMessage 的目标 origin，默认是当前页面的 location.origin�
 
 #### Defined in
 
-[src/ShimoSDK.ts:924](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L924)
+[src/ShimoSDK.ts:930](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L930)
 
 ___
 
@@ -298,7 +299,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:871](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L871)
+[src/ShimoSDK.ts:877](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L877)
 
 ## Methods
 
@@ -324,7 +325,7 @@ Omit.getFileInfoFromUrl
 
 #### Defined in
 
-[src/ShimoSDK.ts:780](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L780)
+[src/ShimoSDK.ts:781](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L781)
 
 ___
 
@@ -350,7 +351,7 @@ Omit.mentionClickHandlerForMobile
 
 #### Defined in
 
-[src/ShimoSDK.ts:773](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L773)
+[src/ShimoSDK.ts:774](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L774)
 
 ___
 
@@ -377,4 +378,30 @@ Omit.openLink
 
 #### Defined in
 
-[src/ShimoSDK.ts:753](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/ShimoSDK.ts#L753)
+[src/ShimoSDK.ts:754](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L754)
+
+___
+
+### showToast
+
+▸ `Optional` **showToast**(`options`): `Promise`<`void`\>
+
+用于显示客户自定义toast。
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options` | [`ShowToastOptions`](ShowToastOptions.md) |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Inherited from
+
+Omit.showToast
+
+#### Defined in
+
+[src/ShimoSDK.ts:796](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L796)

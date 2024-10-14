@@ -14,6 +14,7 @@
 - [MentionClickHandlerForMobile](ContainerMethod.md#mentionclickhandlerformobile)
 - [OpenLink](ContainerMethod.md#openlink)
 - [ShowSignatureComponent](ContainerMethod.md#showsignaturecomponent)
+- [ShowToast](ContainerMethod.md#showtoast)
 
 ## Enumeration members
 
@@ -86,3 +87,15 @@ ___
 #### Defined in
 
 node_modules/shimo-js-sdk-shared/dist/types.d.ts:137
+
+___
+
+### ShowToast
+
+• **ShowToast** = `"showToast"`
+
+请求容器显示toast，受套件和版本限制
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:141

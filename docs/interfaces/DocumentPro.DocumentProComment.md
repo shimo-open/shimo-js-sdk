@@ -26,7 +26,7 @@ timestamp string
 
 #### Defined in
 
-[src/types/DocumentPro.ts:396](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/DocumentPro.ts#L396)
+[src/types/DocumentPro.ts:396](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/types/DocumentPro.ts#L396)
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:383](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/DocumentPro.ts#L383)
+[src/types/DocumentPro.ts:383](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/types/DocumentPro.ts#L383)
 
 ___
 
@@ -48,7 +48,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:375](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/DocumentPro.ts#L375)
+[src/types/DocumentPro.ts:375](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/types/DocumentPro.ts#L375)
 
 ___
 
@@ -60,7 +60,7 @@ timestamp string
 
 #### Defined in
 
-[src/types/DocumentPro.ts:400](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/DocumentPro.ts#L400)
+[src/types/DocumentPro.ts:400](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/types/DocumentPro.ts#L400)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:379](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/DocumentPro.ts#L379)
+[src/types/DocumentPro.ts:379](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/types/DocumentPro.ts#L379)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:388](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/DocumentPro.ts#L388)
+[src/types/DocumentPro.ts:388](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/types/DocumentPro.ts#L388)
 
 ___
 
@@ -102,4 +102,4 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:384](https://github.com/shimohq/shimo-js-sdk/blob/158d938/src/types/DocumentPro.ts#L384)
+[src/types/DocumentPro.ts:384](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/types/DocumentPro.ts#L384)
