@@ -638,6 +638,13 @@ export class ShimoSDK extends TinyEmitter {
       async () => this.getContainerRect(),
       { audience: AUD }
     )
+    channel.addInvokeHandler(
+      ContainerMethod.ShowToast,
+      async (options: ShowToastOptions) => {
+        this.connectOptions.showToast?.(options)
+      },
+      { audience: AUD }
+    )
   }
 
   private initEditor() {
