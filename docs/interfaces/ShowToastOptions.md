@@ -51,9 +51,9 @@ ___
 
 ### type
 
-• **type**: ``"error"`` \| ``"success"`` \| ``"warn"`` \| ``"info"``
+• `Optional` **type**: ``"error"`` \| ``"success"`` \| ``"warn"`` \| ``"info"``
 
-toast类型
+toast类型, 默认为info
 
 #### Defined in
 

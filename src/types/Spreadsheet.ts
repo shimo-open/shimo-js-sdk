@@ -503,6 +503,21 @@ export interface Editor extends BaseEditor<EventMap> {
       range?: Range
     }
   ): Promise<RangeData[][]>
+  /**
+   * 粘贴内容
+   * @since co-1.0
+   */
+  paste(
+    this: Editor,
+    options: {
+      /** 从剪切板获取的text/html */
+      html: string
+      /** 从剪切板获取的text/plain */
+      text: string
+      /** 从剪切板获取的file, 由于postMessage传输的限制，File对象需转成base64 */
+      base64File?: string
+    }
+  ): Promise<void>
 }
 
 /**

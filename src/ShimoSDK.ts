@@ -46,7 +46,7 @@ import { BaseEditor } from './types/BaseEditor'
 const globalThis = getGlobal()
 const AUD = 'smjssdk'
 const SM_PARAMS_KEY = 'smParams'
-const SUPPORTED_LANGUAGES = ['zh-CN', 'en', 'ja']
+const SUPPORTED_LANGUAGES = ['zh-CN', 'en', 'ja', 'ar-SA']
 
 export const MessageEvent = InvokeMethod
 
@@ -906,8 +906,9 @@ export interface ShimoSDKOptions
    * 1. zh-CN（简体中文）
    * 2. en（英文）
    * 3. ja（日文）
+   * 3. ar-SA（阿拉伯语）
    */
-  lang?: 'zh-CN' | 'en' | 'ja'
+  lang?: 'zh-CN' | 'en' | 'ja' | 'ar-SA'
 
   /**
    * 是否禁用提及的浮动卡片组件
