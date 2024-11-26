@@ -1,6 +1,6 @@
 {
   "name": "shimo-js-sdk",
-  "version": "1.2.6-lang.1",
+  "version": "1.2.7-lang.1",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
