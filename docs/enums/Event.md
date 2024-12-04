@@ -21,7 +21,7 @@
 
 #### Defined in
 
-[src/ShimoSDK.ts:818](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L818)
+[src/ShimoSDK.ts:825](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L825)
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:808](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L808)
+[src/ShimoSDK.ts:815](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L815)
 
 ___
 
@@ -45,7 +45,7 @@ ShimoSDK 状态变化事件
 
 #### Defined in
 
-[src/ShimoSDK.ts:813](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L813)
+[src/ShimoSDK.ts:820](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L820)
 
 ___
 
@@ -57,4 +57,4 @@ SDK 初始化事件，用于内部逻辑
 
 #### Defined in
 
-[src/ShimoSDK.ts:803](https://github.com/shimohq/shimo-js-sdk/blob/7dd52a5/src/ShimoSDK.ts#L803)
+[src/ShimoSDK.ts:810](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L810)
