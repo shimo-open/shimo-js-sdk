@@ -583,6 +583,19 @@ export class ShimoSDK extends TinyEmitter {
     )
 
     channel.addInvokeHandler(
+      ContainerMethod.HandleCustomTask,
+      async (taskId: string) => {
+        if (typeof this.connectOptions.handleCustomTask !== 'function') {
+          throw new Error(`"${ContainerMethod.HandleCustomTask}" not found`)
+        }
+        return await Promise.resolve(
+          this.connectOptions.handleCustomTask(taskId)
+        )
+      },
+      { audience: AUD }
+    )
+
+    channel.addInvokeHandler(
       ContainerMethod.OpenLink,
       async (url: string, target?: string) => {
         if (typeof this.connectOptions.openLink !== 'function') {
@@ -801,6 +814,11 @@ export interface ContainerMethods {
    * 用于显示客户自定义toast。
    */
   [ContainerMethod.ShowToast]?: (options: ShowToastOptions) => Promise<void>
+
+  /**
+   * 通知用户执行自定义操作，操作由用户自定义按钮触发
+   */
+  [ContainerMethod.HandleCustomTask]?: (taskId: string) => Promise<void>
 }
 
 export enum Event {
