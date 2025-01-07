@@ -46,7 +46,7 @@ import { BaseEditor } from './types/BaseEditor'
 const globalThis = getGlobal()
 const AUD = 'smjssdk'
 const SM_PARAMS_KEY = 'smParams'
-const SUPPORTED_LANGUAGES = ['zh-CN', 'en', 'ja']
+const SUPPORTED_LANGUAGES = ['zh-CN', 'en', 'ja', 'ar-SA']
 
 export const MessageEvent = InvokeMethod
 
@@ -94,9 +94,8 @@ export class ShimoSDK extends TinyEmitter {
   form?: Form.Editor
 
   private _fileType: FileType = FileType.Unknown
-  private readonly messageHandler: (
-    evt: globalThis.MessageEvent
-  ) => void = () => undefined
+  private readonly messageHandler: (evt: globalThis.MessageEvent) => void =
+    () => undefined
 
   /**
    * 内部 event emitter，比如用来中转 editor 事件
@@ -798,9 +797,7 @@ export interface ContainerMethods {
   /**
    * 用于从客户业务 URL 中获取对应的文件 ID，供编辑器使用。
    */
-  [ContainerMethod.GetFileInfoFromUrl]?: (
-    url: string
-  ) => Promise<
+  [ContainerMethod.GetFileInfoFromUrl]?: (url: string) => Promise<
     | {
         /**
          * 文件 ID
@@ -924,8 +921,9 @@ export interface ShimoSDKOptions
    * 1. zh-CN（简体中文）
    * 2. en（英文）
    * 3. ja（日文）
+   * 3. ar-SA（阿拉伯语）
    */
-  lang?: 'zh-CN' | 'en' | 'ja'
+  lang?: 'zh-CN' | 'en' | 'ja' | 'ar-SA'
 
   /**
    * 是否禁用提及的浮动卡片组件

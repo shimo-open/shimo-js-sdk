@@ -40,6 +40,7 @@ ShimoSDK 初始化参数
 ### Methods
 
 - [getFileInfoFromUrl](ShimoSDKOptions.md#getfileinfofromurl)
+- [handleCustomTask](ShimoSDKOptions.md#handlecustomtask)
 - [mentionClickHandlerForMobile](ShimoSDKOptions.md#mentionclickhandlerformobile)
 - [openLink](ShimoSDKOptions.md#openlink)
 - [showToast](ShimoSDKOptions.md#showtoast)
@@ -55,7 +56,7 @@ ShimoSDK 初始化参数
 
 #### Defined in
 
-[src/ShimoSDK.ts:921](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L921)
+[src/ShimoSDK.ts:940](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L940)
 
 ___
 
@@ -67,7 +68,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:957](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L957)
+[src/ShimoSDK.ts:976](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L976)
 
 ___
 
@@ -79,7 +80,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:962](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L962)
+[src/ShimoSDK.ts:981](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L981)
 
 ___
 
@@ -91,7 +92,7 @@ iframe 挂载的目标容器
 
 #### Defined in
 
-[src/ShimoSDK.ts:879](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L879)
+[src/ShimoSDK.ts:897](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L897)
 
 ___
 
@@ -103,7 +104,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:926](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L926)
+[src/ShimoSDK.ts:945](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L945)
 
 ___
 
@@ -115,7 +116,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:942](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L942)
+[src/ShimoSDK.ts:961](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L961)
 
 ___
 
@@ -127,7 +128,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:915](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L915)
+[src/ShimoSDK.ts:934](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L934)
 
 ___
 
@@ -139,7 +140,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:947](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L947)
+[src/ShimoSDK.ts:966](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L966)
 
 ___
 
@@ -151,7 +152,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:864](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L864)
+[src/ShimoSDK.ts:882](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L882)
 
 ___
 
@@ -163,7 +164,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:869](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L869)
+[src/ShimoSDK.ts:887](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L887)
 
 ___
 
@@ -179,13 +180,13 @@ Omit.generateUrl
 
 #### Defined in
 
-[src/ShimoSDK.ts:776](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L776)
+[src/ShimoSDK.ts:789](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L789)
 
 ___
 
 ### lang
 
-• `Optional` **lang**: ``"zh-CN"`` \| ``"en"`` \| ``"ja"``
+• `Optional` **lang**: ``"zh-CN"`` \| ``"en"`` \| ``"ja"`` \| ``"ar-SA"``
 
 指定石墨 SDK 编辑器界面语言，添加到 iframe URLSearchParams 的参数列表。
 若未指定，则 iframe 使用服务器设置的默认语言。
@@ -194,10 +195,11 @@ ___
 1. zh-CN（简体中文）
 2. en（英文）
 3. ja（日文）
+3. ar-SA（阿拉伯语）
 
 #### Defined in
 
-[src/ShimoSDK.ts:910](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L910)
+[src/ShimoSDK.ts:929](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L929)
 
 ___
 
@@ -209,7 +211,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:967](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L967)
+[src/ShimoSDK.ts:986](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L986)
 
 ___
 
@@ -225,7 +227,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:889](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L889)
+[src/ShimoSDK.ts:907](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L907)
 
 ___
 
@@ -237,7 +239,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:931](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L931)
+[src/ShimoSDK.ts:950](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L950)
 
 ___
 
@@ -249,7 +251,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:952](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L952)
+[src/ShimoSDK.ts:971](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L971)
 
 ___
 
@@ -261,7 +263,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:874](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L874)
+[src/ShimoSDK.ts:892](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L892)
 
 ___
 
@@ -273,7 +275,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:896](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L896)
+[src/ShimoSDK.ts:914](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L914)
 
 ___
 
@@ -287,7 +289,7 @@ iframe postMessage 的目标 origin，默认是当前页面的 location.origin�
 
 #### Defined in
 
-[src/ShimoSDK.ts:937](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L937)
+[src/ShimoSDK.ts:956](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L956)
 
 ___
 
@@ -299,7 +301,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:884](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L884)
+[src/ShimoSDK.ts:902](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L902)
 
 ## Methods
 
@@ -325,7 +327,33 @@ Omit.getFileInfoFromUrl
 
 #### Defined in
 
-[src/ShimoSDK.ts:788](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L788)
+[src/ShimoSDK.ts:801](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L801)
+
+___
+
+### handleCustomTask
+
+▸ `Optional` **handleCustomTask**(`taskId`): `Promise`<`void`\>
+
+通知用户执行自定义操作，操作由用户自定义按钮触发
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `taskId` | `string` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Inherited from
+
+Omit.handleCustomTask
+
+#### Defined in
+
+[src/ShimoSDK.ts:821](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L821)
 
 ___
 
@@ -351,7 +379,7 @@ Omit.mentionClickHandlerForMobile
 
 #### Defined in
 
-[src/ShimoSDK.ts:781](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L781)
+[src/ShimoSDK.ts:794](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L794)
 
 ___
 
@@ -378,7 +406,7 @@ Omit.openLink
 
 #### Defined in
 
-[src/ShimoSDK.ts:761](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L761)
+[src/ShimoSDK.ts:774](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L774)
 
 ___
 
@@ -404,4 +432,4 @@ Omit.showToast
 
 #### Defined in
 
-[src/ShimoSDK.ts:803](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L803)
+[src/ShimoSDK.ts:816](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L816)

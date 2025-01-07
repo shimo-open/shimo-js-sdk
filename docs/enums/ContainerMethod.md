@@ -11,6 +11,7 @@
 - [GenerateUrl](ContainerMethod.md#generateurl)
 - [GetContainerRect](ContainerMethod.md#getcontainerrect)
 - [GetFileInfoFromUrl](ContainerMethod.md#getfileinfofromurl)
+- [HandleCustomTask](ContainerMethod.md#handlecustomtask)
 - [MentionClickHandlerForMobile](ContainerMethod.md#mentionclickhandlerformobile)
 - [OpenLink](ContainerMethod.md#openlink)
 - [ShowSignatureComponent](ContainerMethod.md#showsignaturecomponent)
@@ -51,6 +52,18 @@ ___
 #### Defined in
 
 node_modules/shimo-js-sdk-shared/dist/types.d.ts:133
+
+___
+
+### HandleCustomTask
+
+• **HandleCustomTask** = `"handleCustomTask"`
+
+通知用户执行自定义操作，操作由用户自定义按钮触发
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:145
 
 ___
 

@@ -36,7 +36,7 @@
 
 #### Defined in
 
-[src/types/BaseEditor.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/types/BaseEditor.ts#L26)
+[src/types/BaseEditor.ts:26](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/types/BaseEditor.ts#L26)
 
 ___
 
@@ -50,11 +50,11 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `status?` | ``"saving"`` \| ``"saved"`` \| ``"error"`` |
+| `status?` | ``"error"`` \| ``"saving"`` \| ``"saved"`` |
 
 #### Defined in
 
-[src/types/BaseEditor.ts:5](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/types/BaseEditor.ts#L5)
+[src/types/BaseEditor.ts:5](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/types/BaseEditor.ts#L5)
 
 ___
 
@@ -70,8 +70,8 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `status?` | ``"saving"`` \| ``"saved"`` \| ``"error"`` |
+| `status?` | ``"error"`` \| ``"saving"`` \| ``"saved"`` |
 
 #### Defined in
 
-[src/types/BaseEditor.ts:16](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/types/BaseEditor.ts#L16)
+[src/types/BaseEditor.ts:16](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/types/BaseEditor.ts#L16)

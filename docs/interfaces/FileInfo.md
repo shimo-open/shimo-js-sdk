@@ -27,7 +27,7 @@ ___
 
 ### type
 
-• **type**: ``"docs"`` \| ``"docx"`` \| ``"sheets"`` \| ``"presentation"`` \| ``"table"``
+• **type**: ``"table"`` \| ``"docs"`` \| ``"docx"`` \| ``"sheets"`` \| ``"presentation"``
 
 文件对应石墨类型
 

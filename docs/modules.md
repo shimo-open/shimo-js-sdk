@@ -117,7 +117,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:217
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:221
 
 ___
 
@@ -143,7 +143,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:854](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L854)
+[src/ShimoSDK.ts:872](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L872)
 
 ___
 
@@ -179,7 +179,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:218
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:222
 
 ___
 
@@ -191,7 +191,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:234
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:238
 
 ___
 
@@ -219,7 +219,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:240
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:244
 
 ___
 
@@ -260,7 +260,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:51](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L51)
+[src/ShimoSDK.ts:51](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L51)
 
 ___
 
@@ -282,7 +282,7 @@ ___
 
 #### Defined in
 
-[src/index.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/index.ts#L26)
+[src/index.ts:26](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/index.ts#L26)
 
 ## Functions
 
@@ -307,7 +307,7 @@ Promise resovled 不代表编辑器已经完整加载完毕，只代表 SDK 已�
 
 #### Defined in
 
-[src/connect.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/connect.ts#L11)
+[src/connect.ts:11](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/connect.ts#L11)
 
 ___
 
