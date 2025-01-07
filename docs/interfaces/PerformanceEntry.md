@@ -23,7 +23,7 @@
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:196
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:200
 
 ___
 
@@ -35,7 +35,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:209
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:213
 
 ___
 
@@ -48,7 +48,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/Performance/timeOrigin
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:205
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:209
 
 ___
 
@@ -60,4 +60,4 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:200
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:204

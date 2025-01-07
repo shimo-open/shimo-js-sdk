@@ -21,7 +21,7 @@
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:332
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:336
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:328
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:332
 
 ___
 
@@ -45,7 +45,7 @@ toast标题
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:320
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:324
 
 ___
 
@@ -57,4 +57,4 @@ toast类型, 默认为info
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:324
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:328

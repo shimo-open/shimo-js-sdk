@@ -94,9 +94,8 @@ export class ShimoSDK extends TinyEmitter {
   form?: Form.Editor
 
   private _fileType: FileType = FileType.Unknown
-  private readonly messageHandler: (
-    evt: globalThis.MessageEvent
-  ) => void = () => undefined
+  private readonly messageHandler: (evt: globalThis.MessageEvent) => void =
+    () => undefined
 
   /**
    * 内部 event emitter，比如用来中转 editor 事件
@@ -583,6 +582,19 @@ export class ShimoSDK extends TinyEmitter {
     )
 
     channel.addInvokeHandler(
+      ContainerMethod.HandleCustomTask,
+      async (taskId: string) => {
+        if (typeof this.connectOptions.handleCustomTask !== 'function') {
+          throw new Error(`"${ContainerMethod.HandleCustomTask}" not found`)
+        }
+        return await Promise.resolve(
+          this.connectOptions.handleCustomTask(taskId)
+        )
+      },
+      { audience: AUD }
+    )
+
+    channel.addInvokeHandler(
       ContainerMethod.OpenLink,
       async (url: string, target?: string) => {
         if (typeof this.connectOptions.openLink !== 'function') {
@@ -785,9 +797,7 @@ export interface ContainerMethods {
   /**
    * 用于从客户业务 URL 中获取对应的文件 ID，供编辑器使用。
    */
-  [ContainerMethod.GetFileInfoFromUrl]?: (
-    url: string
-  ) => Promise<
+  [ContainerMethod.GetFileInfoFromUrl]?: (url: string) => Promise<
     | {
         /**
          * 文件 ID
@@ -801,6 +811,11 @@ export interface ContainerMethods {
    * 用于显示客户自定义toast。
    */
   [ContainerMethod.ShowToast]?: (options: ShowToastOptions) => Promise<void>
+
+  /**
+   * 通知用户执行自定义操作，操作由用户自定义按钮触发
+   */
+  [ContainerMethod.HandleCustomTask]?: (taskId: string) => Promise<void>
 }
 
 export enum Event {

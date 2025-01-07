@@ -14,6 +14,7 @@
 
 - [getContainerRect](ContainerMethods.md#getcontainerrect)
 - [getFileInfoFromUrl](ContainerMethods.md#getfileinfofromurl)
+- [handleCustomTask](ContainerMethods.md#handlecustomtask)
 - [mentionClickHandlerForMobile](ContainerMethods.md#mentionclickhandlerformobile)
 - [openLink](ContainerMethods.md#openlink)
 - [showToast](ContainerMethods.md#showtoast)
@@ -28,7 +29,7 @@
 
 #### Defined in
 
-[src/ShimoSDK.ts:776](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L776)
+[src/ShimoSDK.ts:789](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L789)
 
 ## Methods
 
@@ -44,7 +45,7 @@
 
 #### Defined in
 
-[src/ShimoSDK.ts:756](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L756)
+[src/ShimoSDK.ts:769](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L769)
 
 ___
 
@@ -66,7 +67,29 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:788](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L788)
+[src/ShimoSDK.ts:801](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L801)
+
+___
+
+### handleCustomTask
+
+▸ `Optional` **handleCustomTask**(`taskId`): `Promise`<`void`\>
+
+通知用户执行自定义操作，操作由用户自定义按钮触发
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `taskId` | `string` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/ShimoSDK.ts:821](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L821)
 
 ___
 
@@ -88,7 +111,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:781](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L781)
+[src/ShimoSDK.ts:794](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L794)
 
 ___
 
@@ -111,7 +134,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:761](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L761)
+[src/ShimoSDK.ts:774](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L774)
 
 ___
 
@@ -133,4 +156,4 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:803](https://github.com/shimohq/shimo-js-sdk/blob/adbcbcd/src/ShimoSDK.ts#L803)
+[src/ShimoSDK.ts:816](https://github.com/shimo-open/shimo-js-sdk/blob/24e3167/src/ShimoSDK.ts#L816)
