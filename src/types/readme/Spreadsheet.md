@@ -156,6 +156,7 @@ connect({
 | Toolbar             | PC 端工具栏                                                                                                |
 | MobileToolbar       | 移动端工具栏                                                                                               |
 | FxEditor            | fx 栏                                                                                                      |
+| Print               | 打印                                                                                                       |
 
 ## 7.切换工作表时更改浏览器地址栏信息（以便从地址栏复制链接给其他用户打开时定位到相同工作表）
 
