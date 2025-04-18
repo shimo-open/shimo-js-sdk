@@ -516,6 +516,10 @@ export interface Editor extends BaseEditor<EventMap> {
       text: string
       /** 从剪切板获取的file, 由于postMessage传输的限制，File对象需转成base64 */
       base64File?: string
+      /** 是否删除末尾空白行 */
+      removeTrailingEmptyRows?: boolean
+      /** 是否删除末尾空白列 */
+      removeTrailingEmptyCols?: boolean
     }
   ): Promise<void>
 }
