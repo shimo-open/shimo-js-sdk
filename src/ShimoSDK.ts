@@ -38,7 +38,8 @@ import {
   Presentation,
   Spreadsheet,
   Table,
-  Form
+  Form,
+  Diagram
 } from '.'
 import { assert } from './assert'
 import { BaseEditor } from './types/BaseEditor'
@@ -93,6 +94,12 @@ export class ShimoSDK extends TinyEmitter {
    * @deprecated - 用 `sdk.getEditor<T>()` 替代
    */
   form?: Form.Editor
+
+  /**
+   * 图谱编辑器实例
+   * @deprecated - 用 `sdk.getEditor<T>()` 替代
+   */
+  diagram?: Diagram.Editor
 
   private _fileType: FileType = FileType.Unknown
   private readonly messageHandler: (evt: globalThis.MessageEvent) => void =
@@ -236,6 +243,7 @@ export class ShimoSDK extends TinyEmitter {
       | Presentation.Editor
       | Spreadsheet.Editor
       | Form.Editor
+      | Diagram.Editor
       | Table.Editor = BaseEditor
   >(): T {
     return this.editor as T
@@ -368,6 +376,9 @@ export class ShimoSDK extends TinyEmitter {
         break
       case FileType.Form:
         this.form = this.editor as Form.Editor
+        break
+      case FileType.Diagram:
+        this.diagram = this.editor as Diagram.Editor
     }
   }
 
