@@ -57,7 +57,7 @@
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:535](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L535)
+[src/types/Spreadsheet.ts:546](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L546)
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:665](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L665)
+[src/types/Spreadsheet.ts:676](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L676)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:545](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L545)
+[src/types/Spreadsheet.ts:556](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L556)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:550](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L550)
+[src/types/Spreadsheet.ts:561](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L561)
 
 ___
 
@@ -103,7 +103,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:555](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L555)
+[src/types/Spreadsheet.ts:566](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L566)
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:560](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L560)
+[src/types/Spreadsheet.ts:571](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L571)
 
 ___
 
@@ -127,7 +127,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:565](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L565)
+[src/types/Spreadsheet.ts:576](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L576)
 
 ___
 
@@ -139,7 +139,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:570](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L570)
+[src/types/Spreadsheet.ts:581](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L581)
 
 ___
 
@@ -151,7 +151,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:575](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L575)
+[src/types/Spreadsheet.ts:586](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L586)
 
 ___
 
@@ -163,7 +163,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:580](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L580)
+[src/types/Spreadsheet.ts:591](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L591)
 
 ___
 
@@ -175,7 +175,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:585](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L585)
+[src/types/Spreadsheet.ts:596](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L596)
 
 ___
 
@@ -185,7 +185,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:650](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L650)
+[src/types/Spreadsheet.ts:661](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L661)
 
 ___
 
@@ -195,7 +195,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:655](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L655)
+[src/types/Spreadsheet.ts:666](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L666)
 
 ___
 
@@ -205,7 +205,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:590](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L590)
+[src/types/Spreadsheet.ts:601](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L601)
 
 ___
 
@@ -215,7 +215,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:595](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L595)
+[src/types/Spreadsheet.ts:606](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L606)
 
 ___
 
@@ -225,7 +225,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:675](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L675)
+[src/types/Spreadsheet.ts:686](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L686)
 
 ___
 
@@ -235,7 +235,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:600](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L600)
+[src/types/Spreadsheet.ts:611](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L611)
 
 ___
 
@@ -245,7 +245,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:700](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L700)
+[src/types/Spreadsheet.ts:711](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L711)
 
 ___
 
@@ -257,7 +257,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:540](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L540)
+[src/types/Spreadsheet.ts:551](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L551)
 
 ___
 
@@ -267,7 +267,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:605](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L605)
+[src/types/Spreadsheet.ts:616](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L616)
 
 ___
 
@@ -277,7 +277,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:645](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L645)
+[src/types/Spreadsheet.ts:656](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L656)
 
 ___
 
@@ -287,7 +287,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:660](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L660)
+[src/types/Spreadsheet.ts:671](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L671)
 
 ___
 
@@ -297,7 +297,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:610](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L610)
+[src/types/Spreadsheet.ts:621](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L621)
 
 ___
 
@@ -307,7 +307,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:680](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L680)
+[src/types/Spreadsheet.ts:691](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L691)
 
 ___
 
@@ -317,7 +317,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:670](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L670)
+[src/types/Spreadsheet.ts:681](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L681)
 
 ___
 
@@ -327,7 +327,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:688](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L688)
+[src/types/Spreadsheet.ts:699](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L699)
 
 ___
 
@@ -337,7 +337,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:696](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L696)
+[src/types/Spreadsheet.ts:707](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L707)
 
 ___
 
@@ -347,7 +347,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:615](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L615)
+[src/types/Spreadsheet.ts:626](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L626)
 
 ___
 
@@ -357,7 +357,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:620](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L620)
+[src/types/Spreadsheet.ts:631](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L631)
 
 ___
 
@@ -367,7 +367,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:625](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L625)
+[src/types/Spreadsheet.ts:636](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L636)
 
 ___
 
@@ -377,7 +377,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:630](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L630)
+[src/types/Spreadsheet.ts:641](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L641)
 
 ___
 
@@ -387,7 +387,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:684](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L684)
+[src/types/Spreadsheet.ts:695](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L695)
 
 ___
 
@@ -397,7 +397,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:635](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L635)
+[src/types/Spreadsheet.ts:646](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L646)
 
 ___
 
@@ -407,7 +407,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:640](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L640)
+[src/types/Spreadsheet.ts:651](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L651)
 
 ___
 
@@ -417,4 +417,4 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:692](https://github.com/shimohq/shimo-js-sdk/blob/c800ffa/src/types/Spreadsheet.ts#L692)
+[src/types/Spreadsheet.ts:703](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L703)
