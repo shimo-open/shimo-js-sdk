@@ -526,13 +526,7 @@ export interface Editor extends BaseEditor<EventMap> {
    * 获取表格视图区域大小
    * @since co-1.0
    */
-  getViewportSize(
-    this: Editor,
-    options: {
-      /** 是否忽略空白区域,只计算真实行列渲染区域大小（表格行列数量较少可能会存在空白区域） */
-      ignoreBlankArea?: boolean
-    }
-  ): Promise<{ width: number; height: number }>
+  getViewportSize(this: Editor): Promise<{ width: number; height: number }>
 }
 
 /**

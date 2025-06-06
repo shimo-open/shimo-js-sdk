@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:136](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L136)
+[src/types/Spreadsheet.ts:136](https://github.com/shimohq/shimo-js-sdk/blob/30c2025/src/types/Spreadsheet.ts#L136)
 
 ___
 
@@ -56,7 +56,7 @@ custom - 自定义
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:121](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L121)
+[src/types/Spreadsheet.ts:121](https://github.com/shimohq/shimo-js-sdk/blob/30c2025/src/types/Spreadsheet.ts#L121)
 
 ___
 
@@ -70,7 +70,7 @@ date_mention - 日期提醒
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:80](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L80)
+[src/types/Spreadsheet.ts:80](https://github.com/shimohq/shimo-js-sdk/blob/30c2025/src/types/Spreadsheet.ts#L80)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:18](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L18)
+[src/types/Spreadsheet.ts:18](https://github.com/shimohq/shimo-js-sdk/blob/30c2025/src/types/Spreadsheet.ts#L18)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:83](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L83)
+[src/types/Spreadsheet.ts:83](https://github.com/shimohq/shimo-js-sdk/blob/30c2025/src/types/Spreadsheet.ts#L83)
 
 ___
 
@@ -128,4 +128,4 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:55](https://github.com/shimohq/shimo-js-sdk/blob/4a5353f/src/types/Spreadsheet.ts#L55)
+[src/types/Spreadsheet.ts:55](https://github.com/shimohq/shimo-js-sdk/blob/30c2025/src/types/Spreadsheet.ts#L55)
