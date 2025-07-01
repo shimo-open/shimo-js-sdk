@@ -32,6 +32,7 @@ connect({
   token: '用于您系统识别用户请求的 token',
   container: document.querySelector('#shimo-file'), // iframe 挂载的目标容器元素
   lang: 'en' // 未指定此参数时，使用浏览器默认语言
+  userUuid: 'uuid'
 }).then((shimoSDK) => {
   // ...
 })
@@ -63,6 +64,7 @@ const { connect, FileType } = require('shimo-js-sdk')
 const { connect } = require('shimo-js-sdk')
 
 const fileId = '1234'
+const uuid = 'youruuid'
 
 // 从您的后端服务获取用于石墨鉴权的签名和 token
 const { signature, token } = await getCredentialsFromServer()
@@ -72,7 +74,8 @@ connect({
   endpoint: 'https://shimo-sdk-endpoint/', // endpoint 因环境而异，请联系技术支持
   signature: signature,
   token: token,
-  container: document.querySelector('#shimo-file') // iframe 挂载的目标容器元素
+  container: document.querySelector('#shimo-file'), // iframe 挂载的目标容器元素
+  userUuid: uuid
 }).then((sdk) => {
   // sdk 即为 ShimoSDK 实例
 })
