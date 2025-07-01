@@ -56,6 +56,7 @@ export class ShimoSDK extends TinyEmitter {
    */
   element: HTMLIFrameElement
   readonly uuid: string
+  readonly userUuid?: string
 
   /**
    * 传统文档编辑器实例
@@ -127,6 +128,7 @@ export class ShimoSDK extends TinyEmitter {
 
     this.connectOptions = options
     this.uuid = uuid()
+    this.userUuid = options.userUuid
 
     assert<HTMLElement>(
       options.container,
@@ -435,6 +437,7 @@ export class ShimoSDK extends TinyEmitter {
     url.searchParams.set('token', token)
     url.searchParams.set('signature', signature)
     url.searchParams.set('uuid', this.uuid)
+    this.userUuid && url.searchParams.set('userUuid', this.userUuid)
 
     iframe.src = url.toString()
 
@@ -981,4 +984,9 @@ export interface ShimoSDKOptions
    * 用于判断通信消息过期时间，过期后的消息会被抛弃，默认 5 分钟。
    */
   messageExpires?: number
+
+  /**
+   * 加密后的用户id
+   */
+  userUuid?: string
 }
