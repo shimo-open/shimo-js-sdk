@@ -31,8 +31,8 @@ connect({
   signature: '用您的 app id 和 secret 签发的签名',
   token: '用于您系统识别用户请求的 token',
   container: document.querySelector('#shimo-file'), // iframe 挂载的目标容器元素
-  lang: 'en' // 未指定此参数时，使用浏览器默认语言
-  userUuid: 'uuid'
+  lang: 'en', // 未指定此参数时，使用浏览器默认语言
+  userUuid：'您的uuid' // 仅在v2版本回调时需要传入(co-1.3+支持)
 }).then((shimoSDK) => {
   // ...
 })
