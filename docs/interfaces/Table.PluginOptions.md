@@ -8,14 +8,24 @@
 
 ### Properties
 
-- [BaseVersion](/interfaces/Table.PluginOptions.md#baseversion)
-- [Collaboration](/interfaces/Table.PluginOptions.md#collaboration)
 - [CombineTables](/interfaces/Table.PluginOptions.md#combinetables)
-- [Description](/interfaces/Table.PluginOptions.md#description)
+- [BaseVersion](/interfaces/Table.PluginOptions.md#baseversion)
 - [FieldOptions](/interfaces/Table.PluginOptions.md#fieldoptions)
+- [Collaboration](/interfaces/Table.PluginOptions.md#collaboration)
 - [ShareView](/interfaces/Table.PluginOptions.md#shareview)
+- [Description](/interfaces/Table.PluginOptions.md#description)
 
 ## Properties
+
+### CombineTables
+
+• `Optional` **CombineTables**: `boolean`
+
+#### Defined in
+
+[src/types/Table.ts:29](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Table.ts#L29)
+
+___
 
 ### BaseVersion
 
@@ -29,7 +39,24 @@
 
 #### Defined in
 
-[src/types/Table.ts:30](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Table.ts#L30)
+[src/types/Table.ts:30](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Table.ts#L30)
+
+___
+
+### FieldOptions
+
+• `Optional` **FieldOptions**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `disableRefField?` | `boolean` |
+| `disableExternalRefTable?` | `boolean` |
+
+#### Defined in
+
+[src/types/Table.ts:34](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Table.ts#L34)
 
 ___
 
@@ -45,17 +72,17 @@ ___
 
 #### Defined in
 
-[src/types/Table.ts:40](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Table.ts#L40)
+[src/types/Table.ts:40](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Table.ts#L40)
 
 ___
 
-### CombineTables
+### ShareView
 
-• `Optional` **CombineTables**: `boolean`
+• `Optional` **ShareView**: `boolean`
 
 #### Defined in
 
-[src/types/Table.ts:29](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Table.ts#L29)
+[src/types/Table.ts:46](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Table.ts#L46)
 
 ___
 
@@ -71,31 +98,4 @@ ___
 
 #### Defined in
 
-[src/types/Table.ts:48](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Table.ts#L48)
-
-___
-
-### FieldOptions
-
-• `Optional` **FieldOptions**: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `disableExternalRefTable?` | `boolean` |
-| `disableRefField?` | `boolean` |
-
-#### Defined in
-
-[src/types/Table.ts:34](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Table.ts#L34)
-
-___
-
-### ShareView
-
-• `Optional` **ShareView**: `boolean`
-
-#### Defined in
-
-[src/types/Table.ts:46](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Table.ts#L46)
+[src/types/Table.ts:48](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Table.ts#L48)

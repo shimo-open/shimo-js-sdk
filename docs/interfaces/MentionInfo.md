@@ -14,42 +14,14 @@
 
 ### Properties
 
-- [fileId](/interfaces/MentionInfo.md#fileid)
-- [height](/interfaces/MentionInfo.md#height)
 - [left](/interfaces/MentionInfo.md#left)
 - [top](/interfaces/MentionInfo.md#top)
-- [userId](/interfaces/MentionInfo.md#userid)
 - [width](/interfaces/MentionInfo.md#width)
+- [height](/interfaces/MentionInfo.md#height)
+- [userId](/interfaces/MentionInfo.md#userid)
+- [fileId](/interfaces/MentionInfo.md#fileid)
 
 ## Properties
-
-### fileId
-
-• `Optional` **fileId**: `string`
-
-文件 ID
-
-#### Defined in
-
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:179
-
-___
-
-### height
-
-• **height**: `number`
-
-@ 在该行的高度
-
-#### Inherited from
-
-[LineInfo](/interfaces/LineInfo.md).[height](/interfaces/LineInfo.md#height)
-
-#### Defined in
-
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:166
-
-___
 
 ### left
 
@@ -83,18 +55,6 @@ node_modules/shimo-js-sdk-shared/dist/types.d.ts:158
 
 ___
 
-### userId
-
-• `Optional` **userId**: `string`
-
-用户 ID
-
-#### Defined in
-
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:175
-
-___
-
 ### width
 
 • **width**: `number`
@@ -108,3 +68,43 @@ ___
 #### Defined in
 
 node_modules/shimo-js-sdk-shared/dist/types.d.ts:162
+
+___
+
+### height
+
+• **height**: `number`
+
+@ 在该行的高度
+
+#### Inherited from
+
+[LineInfo](/interfaces/LineInfo.md).[height](/interfaces/LineInfo.md#height)
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:166
+
+___
+
+### userId
+
+• `Optional` **userId**: `string`
+
+用户 ID
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:175
+
+___
+
+### fileId
+
+• `Optional` **fileId**: `string`
+
+文件 ID
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:179

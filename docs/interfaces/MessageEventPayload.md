@@ -6,20 +6,10 @@
 
 ### Properties
 
-- [data](/interfaces/MessageEventPayload.md#data)
 - [event](/interfaces/MessageEventPayload.md#event)
+- [data](/interfaces/MessageEventPayload.md#data)
 
 ## Properties
-
-### data
-
-• **data**: `unknown`[]
-
-#### Defined in
-
-[src/ShimoSDK.ts:866](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L866)
-
-___
 
 ### event
 
@@ -27,4 +17,14 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:865](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L865)
+[src/ShimoSDK.ts:865](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/ShimoSDK.ts#L865)
+
+___
+
+### data
+
+• **data**: `unknown`[]
+
+#### Defined in
+
+[src/ShimoSDK.ts:866](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/ShimoSDK.ts#L866)

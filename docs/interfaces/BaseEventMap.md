@@ -16,29 +16,11 @@
 
 ### Properties
 
-- [paramsChanged](/interfaces/BaseEventMap.md#paramschanged)
 - [saveStatusChanged](/interfaces/BaseEventMap.md#savestatuschanged)
 - [saveStatusDidChange](/interfaces/BaseEventMap.md#savestatusdidchange)
+- [paramsChanged](/interfaces/BaseEventMap.md#paramschanged)
 
 ## Properties
-
-### paramsChanged
-
-• **paramsChanged**: `Object`
-
-用于类似表格打开定位到当前 tab 的用途。事件触发时，替换当前的 url 的 search params 参数，在初始化 JS SDK 时传入。
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `params` | `string` |
-
-#### Defined in
-
-[src/types/BaseEditor.ts:26](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/BaseEditor.ts#L26)
-
-___
 
 ### saveStatusChanged
 
@@ -54,7 +36,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:5](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/BaseEditor.ts#L5)
+[src/types/BaseEditor.ts:5](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/BaseEditor.ts#L5)
 
 ___
 
@@ -74,4 +56,22 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:16](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/BaseEditor.ts#L16)
+[src/types/BaseEditor.ts:16](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/BaseEditor.ts#L16)
+
+___
+
+### paramsChanged
+
+• **paramsChanged**: `Object`
+
+用于类似表格打开定位到当前 tab 的用途。事件触发时，替换当前的 url 的 search params 参数，在初始化 JS SDK 时传入。
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `string` |
+
+#### Defined in
+
+[src/types/BaseEditor.ts:26](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/BaseEditor.ts#L26)

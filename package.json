@@ -12,7 +12,7 @@
     "format": "eslint --fix .&& prettier --write .",
     "prepack": "npm run lint && NODE_ENV=production npm run build && node scripts/prepack.js",
     "prepare": "husky install",
-    "docs": "typedoc --excludePrivate --excludeInternal --publicPath / src/index.ts && cp -r ./src/types/readme ./docs/details && npm run cp:docsify",
+    "docs": "typedoc --excludePrivate --excludeInternal --publicPath / --sort source-order src/index.ts && cp -r ./src/types/readme ./docs/details && npm run cp:docsify",
     "cp:docsify": "cp docs-docsify-files/index.html docs-docsify-files/_sidebar.md docs-docsify-files/_navbar.md docs-docsify-files/serve.sh docs/"
   },
   "author": "Chris Yip <chris@yesui.co>",

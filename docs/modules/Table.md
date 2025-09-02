@@ -6,6 +6,6 @@
 
 ### Interfaces
 
-- [Editor](/interfaces/Table.Editor.md)
 - [EventMap](/interfaces/Table.EventMap.md)
+- [Editor](/interfaces/Table.Editor.md)
 - [PluginOptions](/interfaces/Table.PluginOptions.md)

@@ -8,21 +8,21 @@ ReadyState 事件变化数据
 
 ### Properties
 
-- [error](/interfaces/ReadyStateEventPayload.md#error)
-- [fileType](/interfaces/ReadyStateEventPayload.md#filetype)
 - [state](/interfaces/ReadyStateEventPayload.md#state)
+- [fileType](/interfaces/ReadyStateEventPayload.md#filetype)
+- [error](/interfaces/ReadyStateEventPayload.md#error)
 
 ## Properties
 
-### error
+### state
 
-• `Optional` **error**: `Error`
+• **state**: [`ReadyState`](/enums/ReadyState.md)
 
-错误信息
+当前 ReadyState
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/event.d.ts:71
+node_modules/shimo-js-sdk-shared/dist/event.d.ts:63
 
 ___
 
@@ -38,12 +38,12 @@ node_modules/shimo-js-sdk-shared/dist/event.d.ts:67
 
 ___
 
-### state
+### error
 
-• **state**: [`ReadyState`](/enums/ReadyState.md)
+• `Optional` **error**: `Error`
 
-当前 ReadyState
+错误信息
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/event.d.ts:63
+node_modules/shimo-js-sdk-shared/dist/event.d.ts:71

@@ -6,30 +6,20 @@
 
 ### Properties
 
+- [uuid](/interfaces/Message.md#uuid)
+- [event](/interfaces/Message.md#event)
 - [body](/interfaces/Message.md#body)
 - [error](/interfaces/Message.md#error)
-- [event](/interfaces/Message.md#event)
-- [uuid](/interfaces/Message.md#uuid)
 
 ## Properties
 
-### body
+### uuid
 
-• **body**: `any`
-
-#### Defined in
-
-[src/ShimoSDK.ts:860](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L860)
-
-___
-
-### error
-
-• `Optional` **error**: `Error`
+• `Optional` **uuid**: `string`
 
 #### Defined in
 
-[src/ShimoSDK.ts:861](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L861)
+[src/ShimoSDK.ts:858](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/ShimoSDK.ts#L858)
 
 ___
 
@@ -39,14 +29,24 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:859](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L859)
+[src/ShimoSDK.ts:859](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/ShimoSDK.ts#L859)
 
 ___
 
-### uuid
+### body
 
-• `Optional` **uuid**: `string`
+• **body**: `any`
 
 #### Defined in
 
-[src/ShimoSDK.ts:858](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L858)
+[src/ShimoSDK.ts:860](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/ShimoSDK.ts#L860)
+
+___
+
+### error
+
+• `Optional` **error**: `Error`
+
+#### Defined in
+
+[src/ShimoSDK.ts:861](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/ShimoSDK.ts#L861)

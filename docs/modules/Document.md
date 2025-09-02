@@ -7,5 +7,5 @@
 ### Interfaces
 
 - [DocumentErrorMessage](/interfaces/Document.DocumentErrorMessage.md)
-- [Editor](/interfaces/Document.Editor.md)
 - [EventMap](/interfaces/Document.EventMap.md)
+- [Editor](/interfaces/Document.Editor.md)

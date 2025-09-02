@@ -4,6 +4,70 @@
 
 ## Table of contents
 
+### Type aliases
+
+- [APIAdaptor](/modules.md#apiadaptor)
+- [RequestContextType](/modules.md#requestcontexttype)
+- [FileId](/modules.md#fileid)
+- [UserId](/modules.md#userid)
+- [DeviceMode](/modules.md#devicemode)
+- [GenerateUrlHandler](/modules.md#generateurlhandler)
+- [GenerateUrlInfo](/modules.md#generateurlinfo)
+- [SharingSource](/modules.md#sharingsource)
+- [EventCallback](/modules.md#eventcallback)
+
+### Interfaces
+
+- [RequestOptions](/interfaces/RequestOptions.md)
+- [RequestContext](/interfaces/RequestContext.md)
+- [FileInfo](/interfaces/FileInfo.md)
+- [SDKEventMap](/interfaces/SDKEventMap.md)
+- [SDKEventMessage](/interfaces/SDKEventMessage.md)
+- [ReadyStateEventPayload](/interfaces/ReadyStateEventPayload.md)
+- [DisableMentionCards](/interfaces/DisableMentionCards.md)
+- [ContainerRect](/interfaces/ContainerRect.md)
+- [LineInfo](/interfaces/LineInfo.md)
+- [MentionInfo](/interfaces/MentionInfo.md)
+- [MouseMovePayload](/interfaces/MouseMovePayload.md)
+- [PerformanceEntry](/interfaces/PerformanceEntry.md)
+- [ShowToastOptions](/interfaces/ShowToastOptions.md)
+- [ContainerMethods](/interfaces/ContainerMethods.md)
+- [Message](/interfaces/Message.md)
+- [MessageEventPayload](/interfaces/MessageEventPayload.md)
+- [ContainerMethodPayload](/interfaces/ContainerMethodPayload.md)
+- [ReadyStateEvent](/interfaces/ReadyStateEvent.md)
+- [ShimoSDKOptions](/interfaces/ShimoSDKOptions.md)
+- [ConnectOptions](/interfaces/ConnectOptions.md)
+- [BaseEventMap](/interfaces/BaseEventMap.md)
+- [BaseEditor](/interfaces/BaseEditor.md)
+
+### Enumerations
+
+- [FileType](/enums/FileType.md)
+- [ReadyState](/enums/ReadyState.md)
+- [InvokeMethod](/enums/InvokeMethod.md)
+- [ContainerMethod](/enums/ContainerMethod.md)
+- [SpreadsheetSharingFrom](/enums/SpreadsheetSharingFrom.md)
+- [UrlSharingType](/enums/UrlSharingType.md)
+- [Event](/enums/Event.md)
+
+### Variables
+
+- [FileTypeAlias](/modules.md#filetypealias)
+- [SDKEvent](/modules.md#sdkevent)
+- [MessageEvent](/modules.md#messageevent)
+- [START\_PARAMS\_FIELD](/modules.md#start_params_field)
+
+### Functions
+
+- [convertFileType](/modules.md#convertfiletype)
+- [isSDKEventMessage](/modules.md#issdkeventmessage)
+- [connect](/modules.md#connect)
+
+### Classes
+
+- [ShimoSDK](/classes/ShimoSDK.md)
+
 ### Namespaces
 
 - [Document](/modules/Document.md)
@@ -13,70 +77,6 @@
 - [Presentation](/modules/Presentation.md)
 - [Spreadsheet](/modules/Spreadsheet.md)
 - [Table](/modules/Table.md)
-
-### Enumerations
-
-- [ContainerMethod](/enums/ContainerMethod.md)
-- [Event](/enums/Event.md)
-- [FileType](/enums/FileType.md)
-- [InvokeMethod](/enums/InvokeMethod.md)
-- [ReadyState](/enums/ReadyState.md)
-- [SpreadsheetSharingFrom](/enums/SpreadsheetSharingFrom.md)
-- [UrlSharingType](/enums/UrlSharingType.md)
-
-### Classes
-
-- [ShimoSDK](/classes/ShimoSDK.md)
-
-### Interfaces
-
-- [BaseEditor](/interfaces/BaseEditor.md)
-- [BaseEventMap](/interfaces/BaseEventMap.md)
-- [ConnectOptions](/interfaces/ConnectOptions.md)
-- [ContainerMethodPayload](/interfaces/ContainerMethodPayload.md)
-- [ContainerMethods](/interfaces/ContainerMethods.md)
-- [ContainerRect](/interfaces/ContainerRect.md)
-- [DisableMentionCards](/interfaces/DisableMentionCards.md)
-- [FileInfo](/interfaces/FileInfo.md)
-- [LineInfo](/interfaces/LineInfo.md)
-- [MentionInfo](/interfaces/MentionInfo.md)
-- [Message](/interfaces/Message.md)
-- [MessageEventPayload](/interfaces/MessageEventPayload.md)
-- [MouseMovePayload](/interfaces/MouseMovePayload.md)
-- [PerformanceEntry](/interfaces/PerformanceEntry.md)
-- [ReadyStateEvent](/interfaces/ReadyStateEvent.md)
-- [ReadyStateEventPayload](/interfaces/ReadyStateEventPayload.md)
-- [RequestContext](/interfaces/RequestContext.md)
-- [RequestOptions](/interfaces/RequestOptions.md)
-- [SDKEventMap](/interfaces/SDKEventMap.md)
-- [SDKEventMessage](/interfaces/SDKEventMessage.md)
-- [ShimoSDKOptions](/interfaces/ShimoSDKOptions.md)
-- [ShowToastOptions](/interfaces/ShowToastOptions.md)
-
-### Type aliases
-
-- [APIAdaptor](/modules.md#apiadaptor)
-- [DeviceMode](/modules.md#devicemode)
-- [EventCallback](/modules.md#eventcallback)
-- [FileId](/modules.md#fileid)
-- [GenerateUrlHandler](/modules.md#generateurlhandler)
-- [GenerateUrlInfo](/modules.md#generateurlinfo)
-- [RequestContextType](/modules.md#requestcontexttype)
-- [SharingSource](/modules.md#sharingsource)
-- [UserId](/modules.md#userid)
-
-### Variables
-
-- [FileTypeAlias](/modules.md#filetypealias)
-- [MessageEvent](/modules.md#messageevent)
-- [SDKEvent](/modules.md#sdkevent)
-- [START\_PARAMS\_FIELD](/modules.md#start_params_field)
-
-### Functions
-
-- [connect](/modules.md#connect)
-- [convertFileType](/modules.md#convertfiletype)
-- [isSDKEventMessage](/modules.md#issdkeventmessage)
 
 ## Type aliases
 
@@ -107,6 +107,38 @@ node_modules/shimo-js-sdk-shared/dist/APIAdaptor.d.ts:7
 
 ___
 
+### RequestContextType
+
+Ƭ **RequestContextType**: `boolean` \| `number` \| `string`
+
+APIAdaptor 上下文允许的数据类型
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/APIAdaptor.d.ts:28
+
+___
+
+### FileId
+
+Ƭ **FileId**: `string`
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/File.d.ts:1
+
+___
+
+### UserId
+
+Ƭ **UserId**: `string`
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:2
+
+___
+
 ### DeviceMode
 
 Ƭ **DeviceMode**: ``"pc"`` \| ``"mobile"`` \| ``"pad"``
@@ -119,42 +151,6 @@ ___
 #### Defined in
 
 node_modules/shimo-js-sdk-shared/dist/types.d.ts:221
-
-___
-
-### EventCallback
-
-Ƭ **EventCallback**: (...`args`: `any`[]) => `any`
-
-#### Type declaration
-
-▸ (...`args`): `any`
-
-事件回调函数
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `...args` | `any`[] |
-
-##### Returns
-
-`any`
-
-#### Defined in
-
-[src/ShimoSDK.ts:883](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L883)
-
-___
-
-### FileId
-
-Ƭ **FileId**: `string`
-
-#### Defined in
-
-node_modules/shimo-js-sdk-shared/dist/File.d.ts:1
 
 ___
 
@@ -196,21 +192,9 @@ node_modules/shimo-js-sdk-shared/dist/types.d.ts:238
 
 ___
 
-### RequestContextType
-
-Ƭ **RequestContextType**: `boolean` \| `number` \| `string`
-
-APIAdaptor 上下文允许的数据类型
-
-#### Defined in
-
-node_modules/shimo-js-sdk-shared/dist/APIAdaptor.d.ts:28
-
-___
-
 ### SharingSource
 
-Ƭ **SharingSource**<`T`\>: `T` extends [`Spreadsheet`](/enums/UrlSharingType.md#spreadsheet) ? { `sharingFrom?`: [`SpreadsheetSharingFrom`](/enums/SpreadsheetSharingFrom.md) ; `sharingType?`: `T`  } : { `sharingType?`: `T`  }
+Ƭ **SharingSource**<`T`\>: `T` extends [`Spreadsheet`](/enums/UrlSharingType.md#spreadsheet) ? { `sharingType?`: `T` ; `sharingFrom?`: [`SpreadsheetSharingFrom`](/enums/SpreadsheetSharingFrom.md)  } : { `sharingType?`: `T`  }
 
 #### Type parameters
 
@@ -224,13 +208,29 @@ node_modules/shimo-js-sdk-shared/dist/types.d.ts:244
 
 ___
 
-### UserId
+### EventCallback
 
-Ƭ **UserId**: `string`
+Ƭ **EventCallback**: (...`args`: `any`[]) => `any`
+
+#### Type declaration
+
+▸ (...`args`): `any`
+
+事件回调函数
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `...args` | `any`[] |
+
+##### Returns
+
+`any`
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:2
+[src/ShimoSDK.ts:883](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/ShimoSDK.ts#L883)
 
 ## Variables
 
@@ -242,15 +242,15 @@ node_modules/shimo-js-sdk-shared/dist/types.d.ts:2
 
 | Name | Type |
 | :------ | :------ |
-| `board` | `string` |
 | `document` | `string` |
 | `documentPro` | `string` |
-| `flowchart` | `string` |
+| `spreadsheet` | `string` |
+| `presentation` | `string` |
+| `table` | `string` |
 | `form` | `string` |
 | `mindmap` | `string` |
-| `presentation` | `string` |
-| `spreadsheet` | `string` |
-| `table` | `string` |
+| `board` | `string` |
+| `flowchart` | `string` |
 
 #### Defined in
 
@@ -258,19 +258,9 @@ node_modules/shimo-js-sdk-shared/dist/File.d.ts:47
 
 ___
 
-### MessageEvent
-
-• **MessageEvent**: typeof [`InvokeMethod`](/enums/InvokeMethod.md) = `InvokeMethod`
-
-#### Defined in
-
-[src/ShimoSDK.ts:52](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L52)
-
-___
-
 ### SDKEvent
 
-• **SDKEvent**: `Readonly`<{ `ReadyState`: ``"ReadyState"`` ; `ViewportResize`: ``"ViewportResize"``  }\>
+• **SDKEvent**: `Readonly`<{ `ViewportResize`: ``"ViewportResize"`` ; `ReadyState`: ``"ReadyState"``  }\>
 
 SDK 相关的事件，和编辑器无关
 
@@ -280,40 +270,25 @@ node_modules/shimo-js-sdk-shared/dist/event.d.ts:6
 
 ___
 
+### MessageEvent
+
+• **MessageEvent**: typeof [`InvokeMethod`](/enums/InvokeMethod.md) = `InvokeMethod`
+
+#### Defined in
+
+[src/ShimoSDK.ts:52](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/ShimoSDK.ts#L52)
+
+___
+
 ### START\_PARAMS\_FIELD
 
 • **START\_PARAMS\_FIELD**: ``"smParams"``
 
 #### Defined in
 
-[src/index.ts:28](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/index.ts#L28)
+[src/index.ts:28](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/index.ts#L28)
 
 ## Functions
-
-### connect
-
-▸ **connect**(`options`): `Promise`<[`ShimoSDK`](/classes/ShimoSDK.md)\>
-
-初始化 SDK，返回 Promise，当 ReadState 变为 Ready 或 Failed 时，Promise 将被 resolve。
-Promise resovled 不代表编辑器已经完整加载完毕，只代表 SDK 已经准备好了。
-同时 Promise 一直 pending 也不代表编辑器加载失败，只代表无法通过 SDK 和编辑器交互。
-比如受浏览器限制无法发出 postMessage() 时，Promise 将会一直 pending。
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options` | [`ConnectOptions`](/interfaces/ConnectOptions.md) |
-
-#### Returns
-
-`Promise`<[`ShimoSDK`](/classes/ShimoSDK.md)\>
-
-#### Defined in
-
-[src/connect.ts:11](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/connect.ts#L11)
-
-___
 
 ### convertFileType
 
@@ -356,3 +331,28 @@ input is SDKEventMessage
 #### Defined in
 
 node_modules/shimo-js-sdk-shared/dist/event.d.ts:30
+
+___
+
+### connect
+
+▸ **connect**(`options`): `Promise`<[`ShimoSDK`](/classes/ShimoSDK.md)\>
+
+初始化 SDK，返回 Promise，当 ReadState 变为 Ready 或 Failed 时，Promise 将被 resolve。
+Promise resovled 不代表编辑器已经完整加载完毕，只代表 SDK 已经准备好了。
+同时 Promise 一直 pending 也不代表编辑器加载失败，只代表无法通过 SDK 和编辑器交互。
+比如受浏览器限制无法发出 postMessage() 时，Promise 将会一直 pending。
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options` | [`ConnectOptions`](/interfaces/ConnectOptions.md) |
+
+#### Returns
+
+`Promise`<[`ShimoSDK`](/classes/ShimoSDK.md)\>
+
+#### Defined in
+
+[src/connect.ts:11](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/connect.ts#L11)

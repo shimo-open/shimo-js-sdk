@@ -6,20 +6,10 @@
 
 ### Properties
 
-- [args](/interfaces/ContainerMethodPayload.md#args)
 - [method](/interfaces/ContainerMethodPayload.md#method)
+- [args](/interfaces/ContainerMethodPayload.md#args)
 
 ## Properties
-
-### args
-
-• **args**: `unknown`[]
-
-#### Defined in
-
-[src/ShimoSDK.ts:871](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L871)
-
-___
 
 ### method
 
@@ -27,4 +17,14 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:870](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L870)
+[src/ShimoSDK.ts:870](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/ShimoSDK.ts#L870)
+
+___
+
+### args
+
+• **args**: `unknown`[]
+
+#### Defined in
+
+[src/ShimoSDK.ts:871](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/ShimoSDK.ts#L871)

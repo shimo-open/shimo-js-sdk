@@ -8,21 +8,21 @@
 
 ### Properties
 
-- [date](/interfaces/DisableMentionCards.md#date)
-- [file](/interfaces/DisableMentionCards.md#file)
 - [user](/interfaces/DisableMentionCards.md#user)
+- [file](/interfaces/DisableMentionCards.md#file)
+- [date](/interfaces/DisableMentionCards.md#date)
 
 ## Properties
 
-### date
+### user
 
-• `Optional` **date**: `boolean`
+• `Optional` **user**: `boolean`
 
-是否禁用提及日期的浮动卡片组件
+是否禁用提及人的浮动卡片组件
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:63
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:55
 
 ___
 
@@ -38,12 +38,12 @@ node_modules/shimo-js-sdk-shared/dist/types.d.ts:59
 
 ___
 
-### user
+### date
 
-• `Optional` **user**: `boolean`
+• `Optional` **date**: `boolean`
 
-是否禁用提及人的浮动卡片组件
+是否禁用提及日期的浮动卡片组件
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:55
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:63

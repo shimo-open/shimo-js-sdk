@@ -6,5 +6,5 @@
 
 ### Interfaces
 
-- [Editor](/interfaces/Form.Editor.md)
 - [EventMap](/interfaces/Form.EventMap.md)
+- [Editor](/interfaces/Form.Editor.md)

@@ -8,12 +8,32 @@
 
 ### Properties
 
-- [isMention](/interfaces/MouseMovePayload.md#ismention)
-- [mentionInfo](/interfaces/MouseMovePayload.md#mentioninfo)
 - [x](/interfaces/MouseMovePayload.md#x)
 - [y](/interfaces/MouseMovePayload.md#y)
+- [isMention](/interfaces/MouseMovePayload.md#ismention)
+- [mentionInfo](/interfaces/MouseMovePayload.md#mentioninfo)
 
 ## Properties
+
+### x
+
+• **x**: `number`
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:185
+
+___
+
+### y
+
+• **y**: `number`
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:186
+
+___
 
 ### isMention
 
@@ -34,23 +54,3 @@ ___
 #### Defined in
 
 node_modules/shimo-js-sdk-shared/dist/types.d.ts:191
-
-___
-
-### x
-
-• **x**: `number`
-
-#### Defined in
-
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:185
-
-___
-
-### y
-
-• **y**: `number`
-
-#### Defined in
-
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:186

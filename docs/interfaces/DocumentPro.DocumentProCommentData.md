@@ -8,25 +8,15 @@
 
 ### Properties
 
-- [createTime](/interfaces/DocumentPro.DocumentProCommentData.md#createtime)
 - [id](/interfaces/DocumentPro.DocumentProCommentData.md#id)
-- [lastUpdateTime](/interfaces/DocumentPro.DocumentProCommentData.md#lastupdatetime)
-- [replies](/interfaces/DocumentPro.DocumentProCommentData.md#replies)
-- [text](/interfaces/DocumentPro.DocumentProCommentData.md#text)
 - [userId](/interfaces/DocumentPro.DocumentProCommentData.md#userid)
 - [userName](/interfaces/DocumentPro.DocumentProCommentData.md#username)
+- [text](/interfaces/DocumentPro.DocumentProCommentData.md#text)
+- [createTime](/interfaces/DocumentPro.DocumentProCommentData.md#createtime)
+- [lastUpdateTime](/interfaces/DocumentPro.DocumentProCommentData.md#lastupdatetime)
+- [replies](/interfaces/DocumentPro.DocumentProCommentData.md#replies)
 
 ## Properties
-
-### createTime
-
-• **createTime**: `string`
-
-#### Defined in
-
-[src/types/DocumentPro.ts:410](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/DocumentPro.ts#L410)
-
-___
 
 ### id
 
@@ -34,7 +24,47 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:406](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/DocumentPro.ts#L406)
+[src/types/DocumentPro.ts:406](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/DocumentPro.ts#L406)
+
+___
+
+### userId
+
+• **userId**: `string`
+
+#### Defined in
+
+[src/types/DocumentPro.ts:407](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/DocumentPro.ts#L407)
+
+___
+
+### userName
+
+• **userName**: `string`
+
+#### Defined in
+
+[src/types/DocumentPro.ts:408](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/DocumentPro.ts#L408)
+
+___
+
+### text
+
+• **text**: `string`
+
+#### Defined in
+
+[src/types/DocumentPro.ts:409](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/DocumentPro.ts#L409)
+
+___
+
+### createTime
+
+• **createTime**: `string`
+
+#### Defined in
+
+[src/types/DocumentPro.ts:410](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/DocumentPro.ts#L410)
 
 ___
 
@@ -46,7 +76,7 @@ timestamp string
 
 #### Defined in
 
-[src/types/DocumentPro.ts:414](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/DocumentPro.ts#L414)
+[src/types/DocumentPro.ts:414](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/DocumentPro.ts#L414)
 
 ___
 
@@ -58,34 +88,4 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:418](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/DocumentPro.ts#L418)
-
-___
-
-### text
-
-• **text**: `string`
-
-#### Defined in
-
-[src/types/DocumentPro.ts:409](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/DocumentPro.ts#L409)
-
-___
-
-### userId
-
-• **userId**: `string`
-
-#### Defined in
-
-[src/types/DocumentPro.ts:407](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/DocumentPro.ts#L407)
-
-___
-
-### userName
-
-• **userName**: `string`
-
-#### Defined in
-
-[src/types/DocumentPro.ts:408](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/DocumentPro.ts#L408)
+[src/types/DocumentPro.ts:418](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/DocumentPro.ts#L418)

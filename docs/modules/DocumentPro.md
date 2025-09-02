@@ -8,17 +8,17 @@
 
 - [Comment](/interfaces/DocumentPro.Comment.md)
 - [CommentData](/interfaces/DocumentPro.CommentData.md)
-- [DocumentProComment](/interfaces/DocumentPro.DocumentProComment.md)
-- [DocumentProCommentData](/interfaces/DocumentPro.DocumentProCommentData.md)
-- [Editor](/interfaces/DocumentPro.Editor.md)
 - [EventMap](/interfaces/DocumentPro.EventMap.md)
 - [UpdateSignaturePayload](/interfaces/DocumentPro.UpdateSignaturePayload.md)
+- [Editor](/interfaces/DocumentPro.Editor.md)
+- [DocumentProComment](/interfaces/DocumentPro.DocumentProComment.md)
+- [DocumentProCommentData](/interfaces/DocumentPro.DocumentProCommentData.md)
 
 ### Type aliases
 
 - [DocumentPos](/modules/DocumentPro.md#documentpos)
-- [Events](/modules/DocumentPro.md#events)
 - [HorizontalAlignment](/modules/DocumentPro.md#horizontalalignment)
+- [Events](/modules/DocumentPro.md#events)
 
 ## Type aliases
 
@@ -33,19 +33,7 @@
 
 #### Defined in
 
-[src/types/DocumentPro.ts:70](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/DocumentPro.ts#L70)
-
-___
-
-### Events
-
-Ƭ **Events**: ``"selectionEnded"`` \| ``"documentChanged"`` \| ``"commentClicked"`` \| ``"FullRecalculated"``
-
-事件名
-
-#### Defined in
-
-[src/types/DocumentPro.ts:81](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/DocumentPro.ts#L81)
+[src/types/DocumentPro.ts:70](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/DocumentPro.ts#L70)
 
 ___
 
@@ -60,4 +48,16 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:78](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/DocumentPro.ts#L78)
+[src/types/DocumentPro.ts:78](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/DocumentPro.ts#L78)
+
+___
+
+### Events
+
+Ƭ **Events**: ``"selectionEnded"`` \| ``"documentChanged"`` \| ``"commentClicked"`` \| ``"FullRecalculated"``
+
+事件名
+
+#### Defined in
+
+[src/types/DocumentPro.ts:81](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/DocumentPro.ts#L81)

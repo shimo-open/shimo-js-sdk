@@ -20,9 +20,9 @@
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `code` | `number` | 错误码 |
 | `data?` | `unknown` | 错误信息 |
+| `code` | `number` | 错误码 |
 
 #### Defined in
 
-[src/types/Table.ts:4](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Table.ts#L4)
+[src/types/Table.ts:4](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Table.ts#L4)

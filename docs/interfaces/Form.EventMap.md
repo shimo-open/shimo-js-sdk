@@ -21,12 +21,12 @@
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `code` | `number` | 错误码 |
 | `data?` | `unknown` | 错误信息 |
+| `code` | `number` | 错误码 |
 
 #### Defined in
 
-[src/types/Form.ts:4](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Form.ts#L4)
+[src/types/Form.ts:4](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Form.ts#L4)
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-[src/types/Form.ts:14](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Form.ts#L14)
+[src/types/Form.ts:14](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Form.ts#L14)

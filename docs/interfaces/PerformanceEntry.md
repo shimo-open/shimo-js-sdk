@@ -9,9 +9,9 @@
 ### Properties
 
 - [mark](/interfaces/PerformanceEntry.md#mark)
-- [resourceTiming](/interfaces/PerformanceEntry.md#resourcetiming)
-- [timeOrigin](/interfaces/PerformanceEntry.md#timeorigin)
 - [timestamp](/interfaces/PerformanceEntry.md#timestamp)
+- [timeOrigin](/interfaces/PerformanceEntry.md#timeorigin)
+- [resourceTiming](/interfaces/PerformanceEntry.md#resourcetiming)
 
 ## Properties
 
@@ -27,15 +27,15 @@ node_modules/shimo-js-sdk-shared/dist/types.d.ts:200
 
 ___
 
-### resourceTiming
+### timestamp
 
-• `Optional` **resourceTiming**: `Record`<`string`, `unknown`\>
+• **timestamp**: `number`
 
-原始 PerformanceResourceTiming.toJSON()
+性能信息片段的标记时间，以毫秒为单位
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:213
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:204
 
 ___
 
@@ -52,12 +52,12 @@ node_modules/shimo-js-sdk-shared/dist/types.d.ts:209
 
 ___
 
-### timestamp
+### resourceTiming
 
-• **timestamp**: `number`
+• `Optional` **resourceTiming**: `Record`<`string`, `unknown`\>
 
-性能信息片段的标记时间，以毫秒为单位
+原始 PerformanceResourceTiming.toJSON()
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:204
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:213

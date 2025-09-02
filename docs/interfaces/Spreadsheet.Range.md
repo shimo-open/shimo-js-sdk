@@ -10,32 +10,12 @@
 
 ### Properties
 
-- [column](/interfaces/Spreadsheet.Range.md#column)
-- [columnCount](/interfaces/Spreadsheet.Range.md#columncount)
 - [row](/interfaces/Spreadsheet.Range.md#row)
+- [column](/interfaces/Spreadsheet.Range.md#column)
 - [rowCount](/interfaces/Spreadsheet.Range.md#rowcount)
+- [columnCount](/interfaces/Spreadsheet.Range.md#columncount)
 
 ## Properties
-
-### column
-
-• **column**: `number`
-
-#### Defined in
-
-[src/types/Spreadsheet.ts:7](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L7)
-
-___
-
-### columnCount
-
-• **columnCount**: `number`
-
-#### Defined in
-
-[src/types/Spreadsheet.ts:9](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L9)
-
-___
 
 ### row
 
@@ -43,7 +23,17 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:6](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L6)
+[src/types/Spreadsheet.ts:6](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Spreadsheet.ts#L6)
+
+___
+
+### column
+
+• **column**: `number`
+
+#### Defined in
+
+[src/types/Spreadsheet.ts:7](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Spreadsheet.ts#L7)
 
 ___
 
@@ -53,4 +43,14 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:8](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L8)
+[src/types/Spreadsheet.ts:8](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Spreadsheet.ts#L8)
+
+___
+
+### columnCount
+
+• **columnCount**: `number`
+
+#### Defined in
+
+[src/types/Spreadsheet.ts:9](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Spreadsheet.ts#L9)

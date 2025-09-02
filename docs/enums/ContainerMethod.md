@@ -8,28 +8,16 @@
 
 ### Enumeration members
 
-- [GenerateUrl](/enums/ContainerMethod.md#generateurl)
 - [GetContainerRect](/enums/ContainerMethod.md#getcontainerrect)
-- [GetFileInfoFromUrl](/enums/ContainerMethod.md#getfileinfofromurl)
-- [HandleCustomTask](/enums/ContainerMethod.md#handlecustomtask)
-- [MentionClickHandlerForMobile](/enums/ContainerMethod.md#mentionclickhandlerformobile)
 - [OpenLink](/enums/ContainerMethod.md#openlink)
+- [GenerateUrl](/enums/ContainerMethod.md#generateurl)
+- [MentionClickHandlerForMobile](/enums/ContainerMethod.md#mentionclickhandlerformobile)
+- [GetFileInfoFromUrl](/enums/ContainerMethod.md#getfileinfofromurl)
 - [ShowSignatureComponent](/enums/ContainerMethod.md#showsignaturecomponent)
 - [ShowToast](/enums/ContainerMethod.md#showtoast)
+- [HandleCustomTask](/enums/ContainerMethod.md#handlecustomtask)
 
 ## Enumeration members
-
-### GenerateUrl
-
-• **GenerateUrl** = `"generateUrl"`
-
-请求容器生成 URL
-
-#### Defined in
-
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:125
-
-___
 
 ### GetContainerRect
 
@@ -43,27 +31,27 @@ node_modules/shimo-js-sdk-shared/dist/types.d.ts:117
 
 ___
 
-### GetFileInfoFromUrl
+### OpenLink
 
-• **GetFileInfoFromUrl** = `"getFileInfoFromUrl"`
+• **OpenLink** = `"openLink"`
 
-请求容器解析 URL，并返回 FileInfo
+请求容器打开链接
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:133
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:121
 
 ___
 
-### HandleCustomTask
+### GenerateUrl
 
-• **HandleCustomTask** = `"handleCustomTask"`
+• **GenerateUrl** = `"generateUrl"`
 
-通知用户执行自定义操作，操作由用户自定义按钮触发
+请求容器生成 URL
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:145
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:125
 
 ___
 
@@ -79,15 +67,15 @@ node_modules/shimo-js-sdk-shared/dist/types.d.ts:129
 
 ___
 
-### OpenLink
+### GetFileInfoFromUrl
 
-• **OpenLink** = `"openLink"`
+• **GetFileInfoFromUrl** = `"getFileInfoFromUrl"`
 
-请求容器打开链接
+请求容器解析 URL，并返回 FileInfo
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:121
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:133
 
 ___
 
@@ -112,3 +100,15 @@ ___
 #### Defined in
 
 node_modules/shimo-js-sdk-shared/dist/types.d.ts:141
+
+___
+
+### HandleCustomTask
+
+• **HandleCustomTask** = `"handleCustomTask"`
+
+通知用户执行自定义操作，操作由用户自定义按钮触发
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:145

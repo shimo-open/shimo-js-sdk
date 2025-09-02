@@ -6,19 +6,19 @@
 
 ### Properties
 
-- [error](/interfaces/ReadyStateEvent.md#error)
-- [fileType](/interfaces/ReadyStateEvent.md#filetype)
 - [state](/interfaces/ReadyStateEvent.md#state)
+- [fileType](/interfaces/ReadyStateEvent.md#filetype)
+- [error](/interfaces/ReadyStateEvent.md#error)
 
 ## Properties
 
-### error
+### state
 
-• `Optional` **error**: `string` \| `Error`
+• **state**: [`ReadyState`](/enums/ReadyState.md)
 
 #### Defined in
 
-[src/ShimoSDK.ts:877](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L877)
+[src/ShimoSDK.ts:875](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/ShimoSDK.ts#L875)
 
 ___
 
@@ -28,14 +28,14 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:876](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L876)
+[src/ShimoSDK.ts:876](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/ShimoSDK.ts#L876)
 
 ___
 
-### state
+### error
 
-• **state**: [`ReadyState`](/enums/ReadyState.md)
+• `Optional` **error**: `string` \| `Error`
 
 #### Defined in
 
-[src/ShimoSDK.ts:875](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L875)
+[src/ShimoSDK.ts:877](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/ShimoSDK.ts#L877)

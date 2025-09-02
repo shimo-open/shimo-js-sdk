@@ -8,22 +8,10 @@
 
 ### Properties
 
-- [id](/interfaces/DocumentPro.UpdateSignaturePayload.md#id)
 - [url](/interfaces/DocumentPro.UpdateSignaturePayload.md#url)
+- [id](/interfaces/DocumentPro.UpdateSignaturePayload.md#id)
 
 ## Properties
-
-### id
-
-• **id**: `string`
-
-待更新的签名图片 ID，用于指定更新的签名组件，需要和 `showSignatureComponent` 事件中的 `id` 一致。
-
-#### Defined in
-
-[src/types/DocumentPro.ts:146](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/DocumentPro.ts#L146)
-
-___
 
 ### url
 
@@ -34,4 +22,16 @@ Ref: https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs
 
 #### Defined in
 
-[src/types/DocumentPro.ts:141](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/DocumentPro.ts#L141)
+[src/types/DocumentPro.ts:141](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/DocumentPro.ts#L141)
+
+___
+
+### id
+
+• **id**: `string`
+
+待更新的签名图片 ID，用于指定更新的签名组件，需要和 `showSignatureComponent` 事件中的 `id` 一致。
+
+#### Defined in
+
+[src/types/DocumentPro.ts:146](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/DocumentPro.ts#L146)

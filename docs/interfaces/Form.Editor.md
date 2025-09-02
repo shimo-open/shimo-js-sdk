@@ -14,44 +14,11 @@
 
 ### Methods
 
-- [off](/interfaces/Form.Editor.md#off)
 - [on](/interfaces/Form.Editor.md#on)
+- [off](/interfaces/Form.Editor.md#off)
 - [setTitle](/interfaces/Form.Editor.md#settitle)
 
 ## Methods
-
-### off
-
-▸ **off**<`K`\>(`event`, `handler?`): `void`
-
-取消监听事件
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `K` | extends `string` \| `number` \| `symbol` |
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `event` | `K` |
-| `handler?` | (`payload`: `T`[`K`]) => `void` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[BaseEditor](/interfaces/BaseEditor.md).[off](/interfaces/BaseEditor.md#off)
-
-#### Defined in
-
-[src/types/BaseEditor.ts:42](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/BaseEditor.ts#L42)
-
-___
 
 ### on
 
@@ -82,7 +49,40 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:37](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/BaseEditor.ts#L37)
+[src/types/BaseEditor.ts:37](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/BaseEditor.ts#L37)
+
+___
+
+### off
+
+▸ **off**<`K`\>(`event`, `handler?`): `void`
+
+取消监听事件
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `K` | extends `string` \| `number` \| `symbol` |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `event` | `K` |
+| `handler?` | (`payload`: `T`[`K`]) => `void` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[BaseEditor](/interfaces/BaseEditor.md).[off](/interfaces/BaseEditor.md#off)
+
+#### Defined in
+
+[src/types/BaseEditor.ts:42](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/BaseEditor.ts#L42)
 
 ___
 
@@ -108,4 +108,4 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:47](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/BaseEditor.ts#L47)
+[src/types/BaseEditor.ts:47](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/BaseEditor.ts#L47)

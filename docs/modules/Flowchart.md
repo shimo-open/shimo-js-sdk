@@ -6,5 +6,5 @@
 
 ### Interfaces
 
-- [Editor](/interfaces/Flowchart.Editor.md)
 - [EventMap](/interfaces/Flowchart.EventMap.md)
+- [Editor](/interfaces/Flowchart.Editor.md)
