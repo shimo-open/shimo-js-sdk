@@ -21,4 +21,10 @@ export interface Editor extends BaseEditor<EventMap> {
   startDemonstration: (options?: {}) => Promise<void>
   /** 结束本地演示 */
   endDemonstration: (options?: {}) => Promise<void>
+  /** 创建版本 */
+  createRevision: (options?: {}) => Promise<void>
+  /** 导出 */
+  export: (type: 'image' | 'imagePdf') => Promise<void>
+  /** 打印 */
+  print: (options?: {}) => Promise<void>
 }

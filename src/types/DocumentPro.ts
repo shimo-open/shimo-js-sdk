@@ -369,6 +369,8 @@ export interface Editor extends BaseEditor<EventMap> {
    * 更新签名图片
    */
   updateSignature: (payload: UpdateSignaturePayload) => Promise<void>
+
+  export: (type: 'image' | 'imagePdf') => Promise<void>
 }
 
 export interface DocumentProComment {
