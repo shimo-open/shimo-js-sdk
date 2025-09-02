@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / LineInfo
+[shimo-js-sdk](/README.md) / [Exports](/modules.md) / LineInfo
 
 # Interface: LineInfo
 
@@ -8,16 +8,16 @@
 
 - **`LineInfo`**
 
-  ↳ [`MentionInfo`](MentionInfo.md)
+  ↳ [`MentionInfo`](/interfaces/MentionInfo.md)
 
 ## Table of contents
 
 ### Properties
 
-- [height](LineInfo.md#height)
-- [left](LineInfo.md#left)
-- [top](LineInfo.md#top)
-- [width](LineInfo.md#width)
+- [height](/interfaces/LineInfo.md#height)
+- [left](/interfaces/LineInfo.md#left)
+- [top](/interfaces/LineInfo.md#top)
+- [width](/interfaces/LineInfo.md#width)
 
 ## Properties
 

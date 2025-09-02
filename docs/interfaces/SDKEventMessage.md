@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / SDKEventMessage
+[shimo-js-sdk](/README.md) / [Exports](/modules.md) / SDKEventMessage
 
 # Interface: SDKEventMessage
 
@@ -8,14 +8,14 @@
 
 ### Properties
 
-- [event](SDKEventMessage.md#event)
-- [payload](SDKEventMessage.md#payload)
+- [event](/interfaces/SDKEventMessage.md#event)
+- [payload](/interfaces/SDKEventMessage.md#payload)
 
 ## Properties
 
 ### event
 
-• **event**: keyof [`SDKEventMap`](SDKEventMap.md)
+• **event**: keyof [`SDKEventMap`](/interfaces/SDKEventMap.md)
 
 #### Defined in
 

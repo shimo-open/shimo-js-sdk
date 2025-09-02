@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / MentionInfo
+[shimo-js-sdk](/README.md) / [Exports](/modules.md) / MentionInfo
 
 # Interface: MentionInfo
 
@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- [`LineInfo`](LineInfo.md)
+- [`LineInfo`](/interfaces/LineInfo.md)
 
   ↳ **`MentionInfo`**
 
@@ -14,12 +14,12 @@
 
 ### Properties
 
-- [fileId](MentionInfo.md#fileid)
-- [height](MentionInfo.md#height)
-- [left](MentionInfo.md#left)
-- [top](MentionInfo.md#top)
-- [userId](MentionInfo.md#userid)
-- [width](MentionInfo.md#width)
+- [fileId](/interfaces/MentionInfo.md#fileid)
+- [height](/interfaces/MentionInfo.md#height)
+- [left](/interfaces/MentionInfo.md#left)
+- [top](/interfaces/MentionInfo.md#top)
+- [userId](/interfaces/MentionInfo.md#userid)
+- [width](/interfaces/MentionInfo.md#width)
 
 ## Properties
 
@@ -43,7 +43,7 @@ ___
 
 #### Inherited from
 
-[LineInfo](LineInfo.md).[height](LineInfo.md#height)
+[LineInfo](/interfaces/LineInfo.md).[height](/interfaces/LineInfo.md#height)
 
 #### Defined in
 
@@ -59,7 +59,7 @@ ___
 
 #### Inherited from
 
-[LineInfo](LineInfo.md).[left](LineInfo.md#left)
+[LineInfo](/interfaces/LineInfo.md).[left](/interfaces/LineInfo.md#left)
 
 #### Defined in
 
@@ -75,7 +75,7 @@ ___
 
 #### Inherited from
 
-[LineInfo](LineInfo.md).[top](LineInfo.md#top)
+[LineInfo](/interfaces/LineInfo.md).[top](/interfaces/LineInfo.md#top)
 
 #### Defined in
 
@@ -103,7 +103,7 @@ ___
 
 #### Inherited from
 
-[LineInfo](LineInfo.md).[width](LineInfo.md#width)
+[LineInfo](/interfaces/LineInfo.md).[width](/interfaces/LineInfo.md#width)
 
 #### Defined in
 

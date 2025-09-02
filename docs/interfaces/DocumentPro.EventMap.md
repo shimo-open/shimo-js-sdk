@@ -1,12 +1,12 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / [DocumentPro](../modules/DocumentPro.md) / EventMap
+[shimo-js-sdk](/README.md) / [Exports](/modules.md) / [DocumentPro](/modules/DocumentPro.md) / EventMap
 
 # Interface: EventMap
 
-[DocumentPro](../modules/DocumentPro.md).EventMap
+[DocumentPro](/modules/DocumentPro.md).EventMap
 
 ## Hierarchy
 
-- [`BaseEventMap`](BaseEventMap.md)
+- [`BaseEventMap`](/interfaces/BaseEventMap.md)
 
   ↳ **`EventMap`**
 
@@ -14,54 +14,54 @@
 
 ### Properties
 
-- [HorizontalScroll](DocumentPro.EventMap.md#horizontalscroll)
-- [MouseMove](DocumentPro.EventMap.md#mousemove)
-- [VerticalScroll](DocumentPro.EventMap.md#verticalscroll)
-- [commentClicked](DocumentPro.EventMap.md#commentclicked)
-- [documentChanged](DocumentPro.EventMap.md#documentchanged)
-- [documentRecalculated](DocumentPro.EventMap.md#documentrecalculated)
-- [error](DocumentPro.EventMap.md#error)
-- [paramsChanged](DocumentPro.EventMap.md#paramschanged)
-- [saveStatusChanged](DocumentPro.EventMap.md#savestatuschanged)
-- [saveStatusDidChange](DocumentPro.EventMap.md#savestatusdidchange)
-- [selectionEnded](DocumentPro.EventMap.md#selectionended)
-- [showSignatureComponent](DocumentPro.EventMap.md#showsignaturecomponent)
+- [HorizontalScroll](/interfaces/DocumentPro.EventMap.md#horizontalscroll)
+- [MouseMove](/interfaces/DocumentPro.EventMap.md#mousemove)
+- [VerticalScroll](/interfaces/DocumentPro.EventMap.md#verticalscroll)
+- [commentClicked](/interfaces/DocumentPro.EventMap.md#commentclicked)
+- [documentChanged](/interfaces/DocumentPro.EventMap.md#documentchanged)
+- [documentRecalculated](/interfaces/DocumentPro.EventMap.md#documentrecalculated)
+- [error](/interfaces/DocumentPro.EventMap.md#error)
+- [paramsChanged](/interfaces/DocumentPro.EventMap.md#paramschanged)
+- [saveStatusChanged](/interfaces/DocumentPro.EventMap.md#savestatuschanged)
+- [saveStatusDidChange](/interfaces/DocumentPro.EventMap.md#savestatusdidchange)
+- [selectionEnded](/interfaces/DocumentPro.EventMap.md#selectionended)
+- [showSignatureComponent](/interfaces/DocumentPro.EventMap.md#showsignaturecomponent)
 
 ## Properties
 
 ### HorizontalScroll
 
-• **HorizontalScroll**: [`MouseMovePayload`](MouseMovePayload.md)
+• **HorizontalScroll**: [`MouseMovePayload`](/interfaces/MouseMovePayload.md)
 
 水平滚动事件
 
 #### Defined in
 
-[src/types/DocumentPro.ts:119](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/DocumentPro.ts#L119)
+[src/types/DocumentPro.ts:119](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/DocumentPro.ts#L119)
 
 ___
 
 ### MouseMove
 
-• **MouseMove**: [`MouseMovePayload`](MouseMovePayload.md)
+• **MouseMove**: [`MouseMovePayload`](/interfaces/MouseMovePayload.md)
 
 鼠标移动事件
 
 #### Defined in
 
-[src/types/DocumentPro.ts:109](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/DocumentPro.ts#L109)
+[src/types/DocumentPro.ts:109](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/DocumentPro.ts#L109)
 
 ___
 
 ### VerticalScroll
 
-• **VerticalScroll**: [`MouseMovePayload`](MouseMovePayload.md)
+• **VerticalScroll**: [`MouseMovePayload`](/interfaces/MouseMovePayload.md)
 
 垂直滚动事件
 
 #### Defined in
 
-[src/types/DocumentPro.ts:114](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/DocumentPro.ts#L114)
+[src/types/DocumentPro.ts:114](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/DocumentPro.ts#L114)
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:90](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/DocumentPro.ts#L90)
+[src/types/DocumentPro.ts:90](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/DocumentPro.ts#L90)
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:89](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/DocumentPro.ts#L89)
+[src/types/DocumentPro.ts:89](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/DocumentPro.ts#L89)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:97](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/DocumentPro.ts#L97)
+[src/types/DocumentPro.ts:97](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/DocumentPro.ts#L97)
 
 ___
 
@@ -114,7 +114,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:99](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/DocumentPro.ts#L99)
+[src/types/DocumentPro.ts:99](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/DocumentPro.ts#L99)
 
 ___
 
@@ -132,11 +132,11 @@ ___
 
 #### Inherited from
 
-[BaseEventMap](BaseEventMap.md).[paramsChanged](BaseEventMap.md#paramschanged)
+[BaseEventMap](/interfaces/BaseEventMap.md).[paramsChanged](/interfaces/BaseEventMap.md#paramschanged)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:26](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L26)
+[src/types/BaseEditor.ts:26](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/BaseEditor.ts#L26)
 
 ___
 
@@ -154,11 +154,11 @@ ___
 
 #### Inherited from
 
-[BaseEventMap](BaseEventMap.md).[saveStatusChanged](BaseEventMap.md#savestatuschanged)
+[BaseEventMap](/interfaces/BaseEventMap.md).[saveStatusChanged](/interfaces/BaseEventMap.md#savestatuschanged)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:5](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L5)
+[src/types/BaseEditor.ts:5](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/BaseEditor.ts#L5)
 
 ___
 
@@ -178,11 +178,11 @@ ___
 
 #### Inherited from
 
-[BaseEventMap](BaseEventMap.md).[saveStatusDidChange](BaseEventMap.md#savestatusdidchange)
+[BaseEventMap](/interfaces/BaseEventMap.md).[saveStatusDidChange](/interfaces/BaseEventMap.md#savestatusdidchange)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:16](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L16)
+[src/types/BaseEditor.ts:16](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/BaseEditor.ts#L16)
 
 ___
 
@@ -192,7 +192,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:88](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/DocumentPro.ts#L88)
+[src/types/DocumentPro.ts:88](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/DocumentPro.ts#L88)
 
 ___
 
@@ -211,4 +211,4 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:124](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/DocumentPro.ts#L124)
+[src/types/DocumentPro.ts:124](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/DocumentPro.ts#L124)

@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / ReadyState
+[shimo-js-sdk](/README.md) / [Exports](/modules.md) / ReadyState
 
 # Enumeration: ReadyState
 
@@ -8,11 +8,11 @@ SDK 和编辑器初始化状态
 
 ### Enumeration members
 
-- [Disconnected](ReadyState.md#disconnected)
-- [Failed](ReadyState.md#failed)
-- [Loading](ReadyState.md#loading)
-- [LoadingEditor](ReadyState.md#loadingeditor)
-- [Ready](ReadyState.md#ready)
+- [Disconnected](/enums/ReadyState.md#disconnected)
+- [Failed](/enums/ReadyState.md#failed)
+- [Loading](/enums/ReadyState.md#loading)
+- [LoadingEditor](/enums/ReadyState.md#loadingeditor)
+- [Ready](/enums/ReadyState.md#ready)
 
 ## Enumeration members
 

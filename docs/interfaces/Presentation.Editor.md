@@ -1,12 +1,12 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / [Presentation](../modules/Presentation.md) / Editor
+[shimo-js-sdk](/README.md) / [Exports](/modules.md) / [Presentation](/modules/Presentation.md) / Editor
 
 # Interface: Editor
 
-[Presentation](../modules/Presentation.md).Editor
+[Presentation](/modules/Presentation.md).Editor
 
 ## Hierarchy
 
-- [`BaseEditor`](BaseEditor.md)<[`EventMap`](Presentation.EventMap.md)\>
+- [`BaseEditor`](/interfaces/BaseEditor.md)<[`EventMap`](/interfaces/Presentation.EventMap.md)\>
 
   ↳ **`Editor`**
 
@@ -14,15 +14,40 @@
 
 ### Methods
 
-- [endDemonstration](Presentation.Editor.md#enddemonstration)
-- [hideHistory](Presentation.Editor.md#hidehistory)
-- [off](Presentation.Editor.md#off)
-- [on](Presentation.Editor.md#on)
-- [setTitle](Presentation.Editor.md#settitle)
-- [showHistory](Presentation.Editor.md#showhistory)
-- [startDemonstration](Presentation.Editor.md#startdemonstration)
+- [createRevision](/interfaces/Presentation.Editor.md#createrevision)
+- [endDemonstration](/interfaces/Presentation.Editor.md#enddemonstration)
+- [export](/interfaces/Presentation.Editor.md#export)
+- [hideHistory](/interfaces/Presentation.Editor.md#hidehistory)
+- [off](/interfaces/Presentation.Editor.md#off)
+- [on](/interfaces/Presentation.Editor.md#on)
+- [print](/interfaces/Presentation.Editor.md#print)
+- [setTitle](/interfaces/Presentation.Editor.md#settitle)
+- [showHistory](/interfaces/Presentation.Editor.md#showhistory)
+- [startDemonstration](/interfaces/Presentation.Editor.md#startdemonstration)
 
 ## Methods
+
+### createRevision
+
+▸ **createRevision**(`options?`): `Promise`<`void`\>
+
+创建版本
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options?` | `Object` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Presentation.ts:25](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Presentation.ts#L25)
+
+___
 
 ### endDemonstration
 
@@ -42,7 +67,29 @@
 
 #### Defined in
 
-[src/types/Presentation.ts:23](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Presentation.ts#L23)
+[src/types/Presentation.ts:23](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Presentation.ts#L23)
+
+___
+
+### export
+
+▸ **export**(`type`): `Promise`<`void`\>
+
+导出
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `type` | ``"image"`` \| ``"imagePdf"`` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Presentation.ts:27](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Presentation.ts#L27)
 
 ___
 
@@ -64,7 +111,7 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:19](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Presentation.ts#L19)
+[src/types/Presentation.ts:19](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Presentation.ts#L19)
 
 ___
 
@@ -93,11 +140,11 @@ ___
 
 #### Inherited from
 
-[BaseEditor](BaseEditor.md).[off](BaseEditor.md#off)
+[BaseEditor](/interfaces/BaseEditor.md).[off](/interfaces/BaseEditor.md#off)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:42](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L42)
+[src/types/BaseEditor.ts:42](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/BaseEditor.ts#L42)
 
 ___
 
@@ -126,11 +173,33 @@ ___
 
 #### Inherited from
 
-[BaseEditor](BaseEditor.md).[on](BaseEditor.md#on)
+[BaseEditor](/interfaces/BaseEditor.md).[on](/interfaces/BaseEditor.md#on)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:37](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L37)
+[src/types/BaseEditor.ts:37](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/BaseEditor.ts#L37)
+
+___
+
+### print
+
+▸ **print**(`options?`): `Promise`<`void`\>
+
+打印
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options?` | `Object` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Presentation.ts:29](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Presentation.ts#L29)
 
 ___
 
@@ -152,11 +221,11 @@ ___
 
 #### Inherited from
 
-[BaseEditor](BaseEditor.md).[setTitle](BaseEditor.md#settitle)
+[BaseEditor](/interfaces/BaseEditor.md).[setTitle](/interfaces/BaseEditor.md#settitle)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:47](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L47)
+[src/types/BaseEditor.ts:47](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/BaseEditor.ts#L47)
 
 ___
 
@@ -180,7 +249,7 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:17](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Presentation.ts#L17)
+[src/types/Presentation.ts:17](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Presentation.ts#L17)
 
 ___
 
@@ -202,4 +271,4 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:21](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Presentation.ts#L21)
+[src/types/Presentation.ts:21](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Presentation.ts#L21)

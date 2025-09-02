@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / MouseMovePayload
+[shimo-js-sdk](/README.md) / [Exports](/modules.md) / MouseMovePayload
 
 # Interface: MouseMovePayload
 
@@ -8,10 +8,10 @@
 
 ### Properties
 
-- [isMention](MouseMovePayload.md#ismention)
-- [mentionInfo](MouseMovePayload.md#mentioninfo)
-- [x](MouseMovePayload.md#x)
-- [y](MouseMovePayload.md#y)
+- [isMention](/interfaces/MouseMovePayload.md#ismention)
+- [mentionInfo](/interfaces/MouseMovePayload.md#mentioninfo)
+- [x](/interfaces/MouseMovePayload.md#x)
+- [y](/interfaces/MouseMovePayload.md#y)
 
 ## Properties
 
@@ -29,7 +29,7 @@ ___
 
 ### mentionInfo
 
-• **mentionInfo**: [`MentionInfo`](MentionInfo.md)
+• **mentionInfo**: [`MentionInfo`](/interfaces/MentionInfo.md)
 
 #### Defined in
 

@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / FileType
+[shimo-js-sdk](/README.md) / [Exports](/modules.md) / FileType
 
 # Enumeration: FileType
 
@@ -8,15 +8,30 @@
 
 ### Enumeration members
 
-- [Document](FileType.md#document)
-- [DocumentPro](FileType.md#documentpro)
-- [Form](FileType.md#form)
-- [Presentation](FileType.md#presentation)
-- [Spreadsheet](FileType.md#spreadsheet)
-- [Table](FileType.md#table)
-- [Unknown](FileType.md#unknown)
+- [Board](/enums/FileType.md#board)
+- [Document](/enums/FileType.md#document)
+- [DocumentPro](/enums/FileType.md#documentpro)
+- [Flowchart](/enums/FileType.md#flowchart)
+- [Form](/enums/FileType.md#form)
+- [Mindmap](/enums/FileType.md#mindmap)
+- [Presentation](/enums/FileType.md#presentation)
+- [Spreadsheet](/enums/FileType.md#spreadsheet)
+- [Table](/enums/FileType.md#table)
+- [Unknown](/enums/FileType.md#unknown)
 
 ## Enumeration members
+
+### Board
+
+• **Board** = `"board"`
+
+白板
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/File.d.ts:41
+
+___
 
 ### Document
 
@@ -42,6 +57,18 @@ node_modules/shimo-js-sdk-shared/dist/File.d.ts:9
 
 ___
 
+### Flowchart
+
+• **Flowchart** = `"flowchart"`
+
+流程图
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/File.d.ts:33
+
+___
+
 ### Form
 
 • **Form** = `"form"`
@@ -51,6 +78,18 @@ ___
 #### Defined in
 
 node_modules/shimo-js-sdk-shared/dist/File.d.ts:29
+
+___
+
+### Mindmap
+
+• **Mindmap** = `"mindmap"`
+
+思维导图
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/File.d.ts:37
 
 ___
 
@@ -98,4 +137,4 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/File.d.ts:33
+node_modules/shimo-js-sdk-shared/dist/File.d.ts:45

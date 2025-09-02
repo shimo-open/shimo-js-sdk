@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / InvokeMethod
+[shimo-js-sdk](/README.md) / [Exports](/modules.md) / InvokeMethod
 
 # Enumeration: InvokeMethod
 
@@ -8,16 +8,16 @@ JS SDK 之间通信用的方法。一般用在 ShimoBroadcastChannel.invoke() �
 
 ### Enumeration members
 
-- [DispatchEditorEvent](InvokeMethod.md#dispatcheditorevent)
-- [DispatchSDKEvent](InvokeMethod.md#dispatchsdkevent)
-- [Error](InvokeMethod.md#error)
-- [InvokeContainerMethod](InvokeMethod.md#invokecontainermethod)
-- [InvokeEditorMethod](InvokeMethod.md#invokeeditormethod)
-- [ListenEditorEvent](InvokeMethod.md#listeneditorevent)
-- [ReadyState](InvokeMethod.md#readystate)
-- [RequestPerformanceEntries](InvokeMethod.md#requestperformanceentries)
-- [SDKInit](InvokeMethod.md#sdkinit)
-- [SetCredentials](InvokeMethod.md#setcredentials)
+- [DispatchEditorEvent](/enums/InvokeMethod.md#dispatcheditorevent)
+- [DispatchSDKEvent](/enums/InvokeMethod.md#dispatchsdkevent)
+- [Error](/enums/InvokeMethod.md#error)
+- [InvokeContainerMethod](/enums/InvokeMethod.md#invokecontainermethod)
+- [InvokeEditorMethod](/enums/InvokeMethod.md#invokeeditormethod)
+- [ListenEditorEvent](/enums/InvokeMethod.md#listeneditorevent)
+- [ReadyState](/enums/InvokeMethod.md#readystate)
+- [RequestPerformanceEntries](/enums/InvokeMethod.md#requestperformanceentries)
+- [SDKInit](/enums/InvokeMethod.md#sdkinit)
+- [SetCredentials](/enums/InvokeMethod.md#setcredentials)
 
 ## Enumeration members
 

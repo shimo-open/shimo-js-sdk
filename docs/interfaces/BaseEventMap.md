@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / BaseEventMap
+[shimo-js-sdk](/README.md) / [Exports](/modules.md) / BaseEventMap
 
 # Interface: BaseEventMap
 
@@ -6,19 +6,19 @@
 
 - **`BaseEventMap`**
 
-  ↳ [`EventMap`](DocumentPro.EventMap.md)
+  ↳ [`EventMap`](/interfaces/DocumentPro.EventMap.md)
 
-  ↳ [`EventMap`](Document.EventMap.md)
+  ↳ [`EventMap`](/interfaces/Document.EventMap.md)
 
-  ↳ [`EventMap`](Spreadsheet.EventMap.md)
+  ↳ [`EventMap`](/interfaces/Spreadsheet.EventMap.md)
 
 ## Table of contents
 
 ### Properties
 
-- [paramsChanged](BaseEventMap.md#paramschanged)
-- [saveStatusChanged](BaseEventMap.md#savestatuschanged)
-- [saveStatusDidChange](BaseEventMap.md#savestatusdidchange)
+- [paramsChanged](/interfaces/BaseEventMap.md#paramschanged)
+- [saveStatusChanged](/interfaces/BaseEventMap.md#savestatuschanged)
+- [saveStatusDidChange](/interfaces/BaseEventMap.md#savestatusdidchange)
 
 ## Properties
 
@@ -36,7 +36,7 @@
 
 #### Defined in
 
-[src/types/BaseEditor.ts:26](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L26)
+[src/types/BaseEditor.ts:26](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/BaseEditor.ts#L26)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:5](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L5)
+[src/types/BaseEditor.ts:5](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/BaseEditor.ts#L5)
 
 ___
 
@@ -74,4 +74,4 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:16](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L16)
+[src/types/BaseEditor.ts:16](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/BaseEditor.ts#L16)

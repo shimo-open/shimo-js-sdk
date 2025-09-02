@@ -1,12 +1,12 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / [Spreadsheet](../modules/Spreadsheet.md) / Editor
+[shimo-js-sdk](/README.md) / [Exports](/modules.md) / [Spreadsheet](/modules/Spreadsheet.md) / Editor
 
 # Interface: Editor
 
-[Spreadsheet](../modules/Spreadsheet.md).Editor
+[Spreadsheet](/modules/Spreadsheet.md).Editor
 
 ## Hierarchy
 
-- [`BaseEditor`](BaseEditor.md)<[`EventMap`](Spreadsheet.EventMap.md)\>
+- [`BaseEditor`](/interfaces/BaseEditor.md)<[`EventMap`](/interfaces/Spreadsheet.EventMap.md)\>
 
   ↳ **`Editor`**
 
@@ -14,45 +14,45 @@
 
 ### Methods
 
-- [addRangeLock](Spreadsheet.Editor.md#addrangelock)
-- [addSheetLock](Spreadsheet.Editor.md#addsheetlock)
-- [cancelSearchHighlights](Spreadsheet.Editor.md#cancelsearchhighlights)
-- [createRevision](Spreadsheet.Editor.md#createrevision)
-- [endDemonstration](Spreadsheet.Editor.md#enddemonstration)
-- [exportCsv](Spreadsheet.Editor.md#exportcsv)
-- [getActiveSheetId](Spreadsheet.Editor.md#getactivesheetid)
-- [getCellValue](Spreadsheet.Editor.md#getcellvalue)
-- [getColumnCount](Spreadsheet.Editor.md#getcolumncount)
-- [getRangeData](Spreadsheet.Editor.md#getrangedata)
-- [getRangeValues](Spreadsheet.Editor.md#getrangevalues)
-- [getRowCount](Spreadsheet.Editor.md#getrowcount)
-- [getSelections](Spreadsheet.Editor.md#getselections)
-- [getSheetIdByIndex](Spreadsheet.Editor.md#getsheetidbyindex)
-- [getSheetIds](Spreadsheet.Editor.md#getsheetids)
-- [getSheetList](Spreadsheet.Editor.md#getsheetlist)
-- [getViewportSize](Spreadsheet.Editor.md#getviewportsize)
-- [hideComments](Spreadsheet.Editor.md#hidecomments)
-- [hideHistory](Spreadsheet.Editor.md#hidehistory)
-- [hideLocks](Spreadsheet.Editor.md#hidelocks)
-- [isSheetVisible](Spreadsheet.Editor.md#issheetvisible)
-- [locateCell](Spreadsheet.Editor.md#locatecell)
-- [locateCellByGuid](Spreadsheet.Editor.md#locatecellbyguid)
-- [off](Spreadsheet.Editor.md#off)
-- [on](Spreadsheet.Editor.md#on)
-- [paste](Spreadsheet.Editor.md#paste)
-- [print](Spreadsheet.Editor.md#print)
-- [removeRangeLocksInRanges](Spreadsheet.Editor.md#removerangelocksinranges)
-- [removeSheetLock](Spreadsheet.Editor.md#removesheetlock)
-- [search](Spreadsheet.Editor.md#search)
-- [setActiveSheet](Spreadsheet.Editor.md#setactivesheet)
-- [setContent](Spreadsheet.Editor.md#setcontent)
-- [setFocus](Spreadsheet.Editor.md#setfocus)
-- [setTitle](Spreadsheet.Editor.md#settitle)
-- [showComments](Spreadsheet.Editor.md#showcomments)
-- [showHistory](Spreadsheet.Editor.md#showhistory)
-- [showLocks](Spreadsheet.Editor.md#showlocks)
-- [startDemonstration](Spreadsheet.Editor.md#startdemonstration)
-- [updateRuntimeEnv](Spreadsheet.Editor.md#updateruntimeenv)
+- [addRangeLock](/interfaces/Spreadsheet.Editor.md#addrangelock)
+- [addSheetLock](/interfaces/Spreadsheet.Editor.md#addsheetlock)
+- [cancelSearchHighlights](/interfaces/Spreadsheet.Editor.md#cancelsearchhighlights)
+- [createRevision](/interfaces/Spreadsheet.Editor.md#createrevision)
+- [endDemonstration](/interfaces/Spreadsheet.Editor.md#enddemonstration)
+- [exportCsv](/interfaces/Spreadsheet.Editor.md#exportcsv)
+- [getActiveSheetId](/interfaces/Spreadsheet.Editor.md#getactivesheetid)
+- [getCellValue](/interfaces/Spreadsheet.Editor.md#getcellvalue)
+- [getColumnCount](/interfaces/Spreadsheet.Editor.md#getcolumncount)
+- [getRangeData](/interfaces/Spreadsheet.Editor.md#getrangedata)
+- [getRangeValues](/interfaces/Spreadsheet.Editor.md#getrangevalues)
+- [getRowCount](/interfaces/Spreadsheet.Editor.md#getrowcount)
+- [getSelections](/interfaces/Spreadsheet.Editor.md#getselections)
+- [getSheetIdByIndex](/interfaces/Spreadsheet.Editor.md#getsheetidbyindex)
+- [getSheetIds](/interfaces/Spreadsheet.Editor.md#getsheetids)
+- [getSheetList](/interfaces/Spreadsheet.Editor.md#getsheetlist)
+- [getViewportSize](/interfaces/Spreadsheet.Editor.md#getviewportsize)
+- [hideComments](/interfaces/Spreadsheet.Editor.md#hidecomments)
+- [hideHistory](/interfaces/Spreadsheet.Editor.md#hidehistory)
+- [hideLocks](/interfaces/Spreadsheet.Editor.md#hidelocks)
+- [isSheetVisible](/interfaces/Spreadsheet.Editor.md#issheetvisible)
+- [locateCell](/interfaces/Spreadsheet.Editor.md#locatecell)
+- [locateCellByGuid](/interfaces/Spreadsheet.Editor.md#locatecellbyguid)
+- [off](/interfaces/Spreadsheet.Editor.md#off)
+- [on](/interfaces/Spreadsheet.Editor.md#on)
+- [paste](/interfaces/Spreadsheet.Editor.md#paste)
+- [print](/interfaces/Spreadsheet.Editor.md#print)
+- [removeRangeLocksInRanges](/interfaces/Spreadsheet.Editor.md#removerangelocksinranges)
+- [removeSheetLock](/interfaces/Spreadsheet.Editor.md#removesheetlock)
+- [search](/interfaces/Spreadsheet.Editor.md#search)
+- [setActiveSheet](/interfaces/Spreadsheet.Editor.md#setactivesheet)
+- [setContent](/interfaces/Spreadsheet.Editor.md#setcontent)
+- [setFocus](/interfaces/Spreadsheet.Editor.md#setfocus)
+- [setTitle](/interfaces/Spreadsheet.Editor.md#settitle)
+- [showComments](/interfaces/Spreadsheet.Editor.md#showcomments)
+- [showHistory](/interfaces/Spreadsheet.Editor.md#showhistory)
+- [showLocks](/interfaces/Spreadsheet.Editor.md#showlocks)
+- [startDemonstration](/interfaces/Spreadsheet.Editor.md#startdemonstration)
+- [updateRuntimeEnv](/interfaces/Spreadsheet.Editor.md#updateruntimeenv)
 
 ## Methods
 
@@ -69,12 +69,12 @@
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
-| `options.departmentPermissions?` | [`DepartmentPermission`](Spreadsheet.DepartmentPermission.md) | 部门id对应的权限 |
+| `options.departmentPermissions?` | [`DepartmentPermission`](/interfaces/Spreadsheet.DepartmentPermission.md) | 部门id对应的权限 |
 | `options.description?` | `string` | 对该锁定的描述 |
-| `options.ranges?` | [`Range`](Spreadsheet.Range.md)[] | 单元格范围  **`default`** 默认当前选中区域范围 |
+| `options.ranges?` | [`Range`](/interfaces/Spreadsheet.Range.md)[] | 单元格范围  **`default`** 默认当前选中区域范围 |
 | `options.sheetId?` | `string` | 工作表id  **`default`** 默认当前工作表id |
-| `options.userPermissions` | [`UserPermission`](Spreadsheet.UserPermission.md) | 用户id对应的权限 |
-| `options.visitorPermission?` | [`PermissionLevel`](../modules/Spreadsheet.md#permissionlevel) | 其他访问者的权限  **`default`** 1 |
+| `options.userPermissions` | [`UserPermission`](/interfaces/Spreadsheet.UserPermission.md) | 用户id对应的权限 |
+| `options.visitorPermission?` | [`PermissionLevel`](/modules/Spreadsheet.md#permissionlevel) | 其他访问者的权限  **`default`** 1 |
 
 #### Returns
 
@@ -82,7 +82,7 @@
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:193](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L193)
+[src/types/Spreadsheet.ts:193](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L193)
 
 ___
 
@@ -99,11 +99,11 @@ ___
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
-| `options.departmentPermissions?` | [`DepartmentPermission`](Spreadsheet.DepartmentPermission.md) | 部门id对应的权限 |
+| `options.departmentPermissions?` | [`DepartmentPermission`](/interfaces/Spreadsheet.DepartmentPermission.md) | 部门id对应的权限 |
 | `options.description?` | `string` | 对该锁定的描述 |
 | `options.sheetId?` | `string` | 工作表id  **`default`** 默认当前工作表id |
-| `options.userPermissions` | [`UserPermission`](Spreadsheet.UserPermission.md) | 用户id对应的权限 |
-| `options.visitorPermission?` | [`PermissionLevel`](../modules/Spreadsheet.md#permissionlevel) | 其他访问者的权限  **`default`** 1 |
+| `options.userPermissions` | [`UserPermission`](/interfaces/Spreadsheet.UserPermission.md) | 用户id对应的权限 |
+| `options.visitorPermission?` | [`PermissionLevel`](/modules/Spreadsheet.md#permissionlevel) | 其他访问者的权限  **`default`** 1 |
 
 #### Returns
 
@@ -111,7 +111,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:223](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L223)
+[src/types/Spreadsheet.ts:223](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L223)
 
 ___
 
@@ -129,7 +129,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:457](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L457)
+[src/types/Spreadsheet.ts:457](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L457)
 
 ___
 
@@ -147,7 +147,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:173](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L173)
+[src/types/Spreadsheet.ts:173](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L173)
 
 ___
 
@@ -165,7 +165,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:183](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L183)
+[src/types/Spreadsheet.ts:183](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L183)
 
 ___
 
@@ -183,7 +183,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:418](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L418)
+[src/types/Spreadsheet.ts:418](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L418)
 
 ___
 
@@ -201,13 +201,13 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:282](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L282)
+[src/types/Spreadsheet.ts:282](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L282)
 
 ___
 
 ### getCellValue
 
-▸ **getCellValue**(`options`): `Promise`<[`CellValue`](../modules/Spreadsheet.md#cellvalue)\>
+▸ **getCellValue**(`options`): `Promise`<[`CellValue`](/modules/Spreadsheet.md#cellvalue)\>
 
 获取指定单元格的值
 
@@ -224,11 +224,11 @@ ___
 
 #### Returns
 
-`Promise`<[`CellValue`](../modules/Spreadsheet.md#cellvalue)\>
+`Promise`<[`CellValue`](/modules/Spreadsheet.md#cellvalue)\>
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:322](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L322)
+[src/types/Spreadsheet.ts:322](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L322)
 
 ___
 
@@ -253,13 +253,13 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:354](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L354)
+[src/types/Spreadsheet.ts:354](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L354)
 
 ___
 
 ### getRangeData
 
-▸ **getRangeData**(`options`): `Promise`<[`RangeData`](../modules/Spreadsheet.md#rangedata)[][]\>
+▸ **getRangeData**(`options`): `Promise`<[`RangeData`](/modules/Spreadsheet.md#rangedata)[][]\>
 
 获取工作表指定范围内的单元格的数据
 
@@ -270,21 +270,21 @@ ___
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
-| `options.range?` | [`Range`](Spreadsheet.Range.md) | 范围  **`default`** 默认当前选中的范围 |
+| `options.range?` | [`Range`](/interfaces/Spreadsheet.Range.md) | 范围  **`default`** 默认当前选中的范围 |
 
 #### Returns
 
-`Promise`<[`RangeData`](../modules/Spreadsheet.md#rangedata)[][]\>
+`Promise`<[`RangeData`](/modules/Spreadsheet.md#rangedata)[][]\>
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:496](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L496)
+[src/types/Spreadsheet.ts:496](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L496)
 
 ___
 
 ### getRangeValues
 
-▸ **getRangeValues**(`options`): `Promise`<[`CellValue`](../modules/Spreadsheet.md#cellvalue)[][]\>
+▸ **getRangeValues**(`options`): `Promise`<[`CellValue`](/modules/Spreadsheet.md#cellvalue)[][]\>
 
 获取工作表指定范围内的单元格的值
 
@@ -295,16 +295,16 @@ ___
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
-| `options.range?` | [`Range`](Spreadsheet.Range.md)[] | 单元格范围  **`default`** 默认当前选中范围 |
+| `options.range?` | [`Range`](/interfaces/Spreadsheet.Range.md)[] | 单元格范围  **`default`** 默认当前选中范围 |
 | `options.sheetId?` | `string` | 工作表id  **`default`** 默认当前工作表id |
 
 #### Returns
 
-`Promise`<[`CellValue`](../modules/Spreadsheet.md#cellvalue)[][]\>
+`Promise`<[`CellValue`](/modules/Spreadsheet.md#cellvalue)[][]\>
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:303](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L303)
+[src/types/Spreadsheet.ts:303](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L303)
 
 ___
 
@@ -329,13 +329,13 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:340](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L340)
+[src/types/Spreadsheet.ts:340](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L340)
 
 ___
 
 ### getSelections
 
-▸ **getSelections**(): `Promise`<[`Range`](Spreadsheet.Range.md)[]\>
+▸ **getSelections**(): `Promise`<[`Range`](/interfaces/Spreadsheet.Range.md)[]\>
 
 获取当前表格选中的范围
 
@@ -343,11 +343,11 @@ ___
 
 #### Returns
 
-`Promise`<[`Range`](Spreadsheet.Range.md)[]\>
+`Promise`<[`Range`](/interfaces/Spreadsheet.Range.md)[]\>
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:491](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L491)
+[src/types/Spreadsheet.ts:491](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L491)
 
 ___
 
@@ -372,7 +372,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:292](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L292)
+[src/types/Spreadsheet.ts:292](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L292)
 
 ___
 
@@ -390,7 +390,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:287](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L287)
+[src/types/Spreadsheet.ts:287](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L287)
 
 ___
 
@@ -408,7 +408,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:486](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L486)
+[src/types/Spreadsheet.ts:486](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L486)
 
 ___
 
@@ -426,7 +426,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:529](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L529)
+[src/types/Spreadsheet.ts:529](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L529)
 
 ___
 
@@ -444,7 +444,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:148](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L148)
+[src/types/Spreadsheet.ts:148](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L148)
 
 ___
 
@@ -462,7 +462,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:158](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L158)
+[src/types/Spreadsheet.ts:158](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L158)
 
 ___
 
@@ -480,7 +480,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:168](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L168)
+[src/types/Spreadsheet.ts:168](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L168)
 
 ___
 
@@ -505,7 +505,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:368](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L368)
+[src/types/Spreadsheet.ts:368](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L368)
 
 ___
 
@@ -532,7 +532,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:439](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L439)
+[src/types/Spreadsheet.ts:439](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L439)
 
 ___
 
@@ -550,7 +550,7 @@ ___
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
 | `options.guid` | `string` | 锚点guid |
-| `options.notificationType` | [`NotificationType`](../modules/Spreadsheet.md#notificationtype) | 通知类型 |
+| `options.notificationType` | [`NotificationType`](/modules/Spreadsheet.md#notificationtype) | 通知类型 |
 
 #### Returns
 
@@ -558,7 +558,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:462](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L462)
+[src/types/Spreadsheet.ts:462](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L462)
 
 ___
 
@@ -587,11 +587,11 @@ ___
 
 #### Inherited from
 
-[BaseEditor](BaseEditor.md).[off](BaseEditor.md#off)
+[BaseEditor](/interfaces/BaseEditor.md).[off](/interfaces/BaseEditor.md#off)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:42](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L42)
+[src/types/BaseEditor.ts:42](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/BaseEditor.ts#L42)
 
 ___
 
@@ -620,11 +620,11 @@ ___
 
 #### Inherited from
 
-[BaseEditor](BaseEditor.md).[on](BaseEditor.md#on)
+[BaseEditor](/interfaces/BaseEditor.md).[on](/interfaces/BaseEditor.md#on)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:37](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L37)
+[src/types/BaseEditor.ts:37](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/BaseEditor.ts#L37)
 
 ___
 
@@ -653,7 +653,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:510](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L510)
+[src/types/Spreadsheet.ts:510](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L510)
 
 ___
 
@@ -671,7 +671,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:188](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L188)
+[src/types/Spreadsheet.ts:188](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L188)
 
 ___
 
@@ -688,7 +688,7 @@ ___
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
-| `options.ranges?` | [`Range`](Spreadsheet.Range.md)[] | 单元格范围  **`default`** 默认当前选中区域范围 |
+| `options.ranges?` | [`Range`](/interfaces/Spreadsheet.Range.md)[] | 单元格范围  **`default`** 默认当前选中区域范围 |
 | `options.sheetId?` | `string` | 工作表id  **`default`** 默认当前工作表id |
 
 #### Returns
@@ -697,7 +697,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:248](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L248)
+[src/types/Spreadsheet.ts:248](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L248)
 
 ___
 
@@ -723,13 +723,13 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:267](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L267)
+[src/types/Spreadsheet.ts:267](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L267)
 
 ___
 
 ### search
 
-▸ **search**(`options`): `Promise`<[`SearchMatch`](../modules/Spreadsheet.md#searchmatch)[]\>
+▸ **search**(`options`): `Promise`<[`SearchMatch`](/modules/Spreadsheet.md#searchmatch)[]\>
 
 查找表格内容并高亮
 
@@ -740,16 +740,16 @@ ___
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
-| `options.range?` | [`Range`](Spreadsheet.Range.md) \| [`Range`](Spreadsheet.Range.md)[] | 查找的范围  **`default`** 默认当前选中的范围 |
+| `options.range?` | [`Range`](/interfaces/Spreadsheet.Range.md) \| [`Range`](/interfaces/Spreadsheet.Range.md)[] | 查找的范围  **`default`** 默认当前选中的范围 |
 | `options.text` | `string` | 要查找的内容 |
 
 #### Returns
 
-`Promise`<[`SearchMatch`](../modules/Spreadsheet.md#searchmatch)[]\>
+`Promise`<[`SearchMatch`](/modules/Spreadsheet.md#searchmatch)[]\>
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:423](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L423)
+[src/types/Spreadsheet.ts:423](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L423)
 
 ___
 
@@ -774,7 +774,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:475](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L475)
+[src/types/Spreadsheet.ts:475](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L475)
 
 ___
 
@@ -799,7 +799,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:393](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L393)
+[src/types/Spreadsheet.ts:393](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L393)
 
 ___
 
@@ -824,7 +824,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:404](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L404)
+[src/types/Spreadsheet.ts:404](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L404)
 
 ___
 
@@ -846,11 +846,11 @@ ___
 
 #### Inherited from
 
-[BaseEditor](BaseEditor.md).[setTitle](BaseEditor.md#settitle)
+[BaseEditor](/interfaces/BaseEditor.md).[setTitle](/interfaces/BaseEditor.md#settitle)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:47](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L47)
+[src/types/BaseEditor.ts:47](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/BaseEditor.ts#L47)
 
 ___
 
@@ -868,7 +868,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:143](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L143)
+[src/types/Spreadsheet.ts:143](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L143)
 
 ___
 
@@ -886,7 +886,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:153](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L153)
+[src/types/Spreadsheet.ts:153](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L153)
 
 ___
 
@@ -904,7 +904,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:163](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L163)
+[src/types/Spreadsheet.ts:163](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L163)
 
 ___
 
@@ -922,7 +922,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:178](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L178)
+[src/types/Spreadsheet.ts:178](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L178)
 
 ___
 
@@ -947,4 +947,4 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:382](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L382)
+[src/types/Spreadsheet.ts:382](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L382)

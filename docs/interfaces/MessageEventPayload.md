@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / MessageEventPayload
+[shimo-js-sdk](/README.md) / [Exports](/modules.md) / MessageEventPayload
 
 # Interface: MessageEventPayload
 
@@ -6,8 +6,8 @@
 
 ### Properties
 
-- [data](MessageEventPayload.md#data)
-- [event](MessageEventPayload.md#event)
+- [data](/interfaces/MessageEventPayload.md#data)
+- [event](/interfaces/MessageEventPayload.md#event)
 
 ## Properties
 
@@ -17,14 +17,14 @@
 
 #### Defined in
 
-[src/ShimoSDK.ts:855](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L855)
+[src/ShimoSDK.ts:866](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L866)
 
 ___
 
 ### event
 
-• **event**: [`InvokeMethod`](../enums/InvokeMethod.md)
+• **event**: [`InvokeMethod`](/enums/InvokeMethod.md)
 
 #### Defined in
 
-[src/ShimoSDK.ts:854](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L854)
+[src/ShimoSDK.ts:865](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L865)

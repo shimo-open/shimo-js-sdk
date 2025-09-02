@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / BaseEditor
+[shimo-js-sdk](/README.md) / [Exports](/modules.md) / BaseEditor
 
 # Interface: BaseEditor<T\>
 
@@ -12,25 +12,27 @@
 
 - **`BaseEditor`**
 
-  ↳ [`Editor`](DocumentPro.Editor.md)
+  ↳ [`Editor`](/interfaces/DocumentPro.Editor.md)
 
-  ↳ [`Editor`](Document.Editor.md)
+  ↳ [`Editor`](/interfaces/Document.Editor.md)
 
-  ↳ [`Editor`](Spreadsheet.Editor.md)
+  ↳ [`Editor`](/interfaces/Spreadsheet.Editor.md)
 
-  ↳ [`Editor`](Presentation.Editor.md)
+  ↳ [`Editor`](/interfaces/Presentation.Editor.md)
 
-  ↳ [`Editor`](Table.Editor.md)
+  ↳ [`Editor`](/interfaces/Table.Editor.md)
 
-  ↳ [`Editor`](Form.Editor.md)
+  ↳ [`Editor`](/interfaces/Form.Editor.md)
+
+  ↳ [`Editor`](/interfaces/Flowchart.Editor.md)
 
 ## Table of contents
 
 ### Methods
 
-- [off](BaseEditor.md#off)
-- [on](BaseEditor.md#on)
-- [setTitle](BaseEditor.md#settitle)
+- [off](/interfaces/BaseEditor.md#off)
+- [on](/interfaces/BaseEditor.md#on)
+- [setTitle](/interfaces/BaseEditor.md#settitle)
 
 ## Methods
 
@@ -59,7 +61,7 @@
 
 #### Defined in
 
-[src/types/BaseEditor.ts:42](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L42)
+[src/types/BaseEditor.ts:42](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/BaseEditor.ts#L42)
 
 ___
 
@@ -88,7 +90,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:37](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L37)
+[src/types/BaseEditor.ts:37](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/BaseEditor.ts#L37)
 
 ___
 
@@ -110,4 +112,4 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:47](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L47)
+[src/types/BaseEditor.ts:47](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/BaseEditor.ts#L47)

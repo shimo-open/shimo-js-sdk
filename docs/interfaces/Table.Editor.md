@@ -1,12 +1,12 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / [Table](../modules/Table.md) / Editor
+[shimo-js-sdk](/README.md) / [Exports](/modules.md) / [Table](/modules/Table.md) / Editor
 
 # Interface: Editor
 
-[Table](../modules/Table.md).Editor
+[Table](/modules/Table.md).Editor
 
 ## Hierarchy
 
-- [`BaseEditor`](BaseEditor.md)<[`EventMap`](Table.EventMap.md)\>
+- [`BaseEditor`](/interfaces/BaseEditor.md)<[`EventMap`](/interfaces/Table.EventMap.md)\>
 
   ↳ **`Editor`**
 
@@ -14,12 +14,12 @@
 
 ### Methods
 
-- [createRevision](Table.Editor.md#createrevision)
-- [hideRevision](Table.Editor.md#hiderevision)
-- [off](Table.Editor.md#off)
-- [on](Table.Editor.md#on)
-- [setTitle](Table.Editor.md#settitle)
-- [showRevision](Table.Editor.md#showrevision)
+- [createRevision](/interfaces/Table.Editor.md#createrevision)
+- [hideRevision](/interfaces/Table.Editor.md#hiderevision)
+- [off](/interfaces/Table.Editor.md#off)
+- [on](/interfaces/Table.Editor.md#on)
+- [setTitle](/interfaces/Table.Editor.md#settitle)
+- [showRevision](/interfaces/Table.Editor.md#showrevision)
 
 ## Methods
 
@@ -41,7 +41,7 @@
 
 #### Defined in
 
-[src/types/Table.ts:24](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Table.ts#L24)
+[src/types/Table.ts:24](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Table.ts#L24)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[src/types/Table.ts:20](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Table.ts#L20)
+[src/types/Table.ts:20](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Table.ts#L20)
 
 ___
 
@@ -92,11 +92,11 @@ ___
 
 #### Inherited from
 
-[BaseEditor](BaseEditor.md).[off](BaseEditor.md#off)
+[BaseEditor](/interfaces/BaseEditor.md).[off](/interfaces/BaseEditor.md#off)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:42](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L42)
+[src/types/BaseEditor.ts:42](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/BaseEditor.ts#L42)
 
 ___
 
@@ -125,11 +125,11 @@ ___
 
 #### Inherited from
 
-[BaseEditor](BaseEditor.md).[on](BaseEditor.md#on)
+[BaseEditor](/interfaces/BaseEditor.md).[on](/interfaces/BaseEditor.md#on)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:37](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L37)
+[src/types/BaseEditor.ts:37](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/BaseEditor.ts#L37)
 
 ___
 
@@ -151,11 +151,11 @@ ___
 
 #### Inherited from
 
-[BaseEditor](BaseEditor.md).[setTitle](BaseEditor.md#settitle)
+[BaseEditor](/interfaces/BaseEditor.md).[setTitle](/interfaces/BaseEditor.md#settitle)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:47](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L47)
+[src/types/BaseEditor.ts:47](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/BaseEditor.ts#L47)
 
 ___
 
@@ -177,4 +177,4 @@ ___
 
 #### Defined in
 
-[src/types/Table.ts:16](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Table.ts#L16)
+[src/types/Table.ts:16](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Table.ts#L16)

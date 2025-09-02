@@ -1,4 +1,4 @@
-[shimo-js-sdk](README.md) / Exports
+[shimo-js-sdk](/README.md) / Exports
 
 # shimo-js-sdk
 
@@ -6,86 +6,87 @@
 
 ### Namespaces
 
-- [Document](modules/Document.md)
-- [DocumentPro](modules/DocumentPro.md)
-- [Form](modules/Form.md)
-- [Presentation](modules/Presentation.md)
-- [Spreadsheet](modules/Spreadsheet.md)
-- [Table](modules/Table.md)
+- [Document](/modules/Document.md)
+- [DocumentPro](/modules/DocumentPro.md)
+- [Flowchart](/modules/Flowchart.md)
+- [Form](/modules/Form.md)
+- [Presentation](/modules/Presentation.md)
+- [Spreadsheet](/modules/Spreadsheet.md)
+- [Table](/modules/Table.md)
 
 ### Enumerations
 
-- [ContainerMethod](enums/ContainerMethod.md)
-- [Event](enums/Event.md)
-- [FileType](enums/FileType.md)
-- [InvokeMethod](enums/InvokeMethod.md)
-- [ReadyState](enums/ReadyState.md)
-- [SpreadsheetSharingFrom](enums/SpreadsheetSharingFrom.md)
-- [UrlSharingType](enums/UrlSharingType.md)
+- [ContainerMethod](/enums/ContainerMethod.md)
+- [Event](/enums/Event.md)
+- [FileType](/enums/FileType.md)
+- [InvokeMethod](/enums/InvokeMethod.md)
+- [ReadyState](/enums/ReadyState.md)
+- [SpreadsheetSharingFrom](/enums/SpreadsheetSharingFrom.md)
+- [UrlSharingType](/enums/UrlSharingType.md)
 
 ### Classes
 
-- [ShimoSDK](classes/ShimoSDK.md)
+- [ShimoSDK](/classes/ShimoSDK.md)
 
 ### Interfaces
 
-- [BaseEditor](interfaces/BaseEditor.md)
-- [BaseEventMap](interfaces/BaseEventMap.md)
-- [ConnectOptions](interfaces/ConnectOptions.md)
-- [ContainerMethodPayload](interfaces/ContainerMethodPayload.md)
-- [ContainerMethods](interfaces/ContainerMethods.md)
-- [ContainerRect](interfaces/ContainerRect.md)
-- [DisableMentionCards](interfaces/DisableMentionCards.md)
-- [FileInfo](interfaces/FileInfo.md)
-- [LineInfo](interfaces/LineInfo.md)
-- [MentionInfo](interfaces/MentionInfo.md)
-- [Message](interfaces/Message.md)
-- [MessageEventPayload](interfaces/MessageEventPayload.md)
-- [MouseMovePayload](interfaces/MouseMovePayload.md)
-- [PerformanceEntry](interfaces/PerformanceEntry.md)
-- [ReadyStateEvent](interfaces/ReadyStateEvent.md)
-- [ReadyStateEventPayload](interfaces/ReadyStateEventPayload.md)
-- [RequestContext](interfaces/RequestContext.md)
-- [RequestOptions](interfaces/RequestOptions.md)
-- [SDKEventMap](interfaces/SDKEventMap.md)
-- [SDKEventMessage](interfaces/SDKEventMessage.md)
-- [ShimoSDKOptions](interfaces/ShimoSDKOptions.md)
-- [ShowToastOptions](interfaces/ShowToastOptions.md)
+- [BaseEditor](/interfaces/BaseEditor.md)
+- [BaseEventMap](/interfaces/BaseEventMap.md)
+- [ConnectOptions](/interfaces/ConnectOptions.md)
+- [ContainerMethodPayload](/interfaces/ContainerMethodPayload.md)
+- [ContainerMethods](/interfaces/ContainerMethods.md)
+- [ContainerRect](/interfaces/ContainerRect.md)
+- [DisableMentionCards](/interfaces/DisableMentionCards.md)
+- [FileInfo](/interfaces/FileInfo.md)
+- [LineInfo](/interfaces/LineInfo.md)
+- [MentionInfo](/interfaces/MentionInfo.md)
+- [Message](/interfaces/Message.md)
+- [MessageEventPayload](/interfaces/MessageEventPayload.md)
+- [MouseMovePayload](/interfaces/MouseMovePayload.md)
+- [PerformanceEntry](/interfaces/PerformanceEntry.md)
+- [ReadyStateEvent](/interfaces/ReadyStateEvent.md)
+- [ReadyStateEventPayload](/interfaces/ReadyStateEventPayload.md)
+- [RequestContext](/interfaces/RequestContext.md)
+- [RequestOptions](/interfaces/RequestOptions.md)
+- [SDKEventMap](/interfaces/SDKEventMap.md)
+- [SDKEventMessage](/interfaces/SDKEventMessage.md)
+- [ShimoSDKOptions](/interfaces/ShimoSDKOptions.md)
+- [ShowToastOptions](/interfaces/ShowToastOptions.md)
 
 ### Type aliases
 
-- [APIAdaptor](modules.md#apiadaptor)
-- [DeviceMode](modules.md#devicemode)
-- [EventCallback](modules.md#eventcallback)
-- [FileId](modules.md#fileid)
-- [GenerateUrlHandler](modules.md#generateurlhandler)
-- [GenerateUrlInfo](modules.md#generateurlinfo)
-- [RequestContextType](modules.md#requestcontexttype)
-- [SharingSource](modules.md#sharingsource)
-- [UserId](modules.md#userid)
+- [APIAdaptor](/modules.md#apiadaptor)
+- [DeviceMode](/modules.md#devicemode)
+- [EventCallback](/modules.md#eventcallback)
+- [FileId](/modules.md#fileid)
+- [GenerateUrlHandler](/modules.md#generateurlhandler)
+- [GenerateUrlInfo](/modules.md#generateurlinfo)
+- [RequestContextType](/modules.md#requestcontexttype)
+- [SharingSource](/modules.md#sharingsource)
+- [UserId](/modules.md#userid)
 
 ### Variables
 
-- [FileTypeAlias](modules.md#filetypealias)
-- [MessageEvent](modules.md#messageevent)
-- [SDKEvent](modules.md#sdkevent)
-- [START\_PARAMS\_FIELD](modules.md#start_params_field)
+- [FileTypeAlias](/modules.md#filetypealias)
+- [MessageEvent](/modules.md#messageevent)
+- [SDKEvent](/modules.md#sdkevent)
+- [START\_PARAMS\_FIELD](/modules.md#start_params_field)
 
 ### Functions
 
-- [connect](modules.md#connect)
-- [convertFileType](modules.md#convertfiletype)
-- [isSDKEventMessage](modules.md#issdkeventmessage)
+- [connect](/modules.md#connect)
+- [convertFileType](/modules.md#convertfiletype)
+- [isSDKEventMessage](/modules.md#issdkeventmessage)
 
 ## Type aliases
 
 ### APIAdaptor
 
-Ƭ **APIAdaptor**: (`requestOptions`: [`RequestOptions`](interfaces/RequestOptions.md), `context?`: [`RequestContext`](interfaces/RequestContext.md)) => [`RequestOptions`](interfaces/RequestOptions.md)
+Ƭ **APIAdaptor**: (`requestOptions`: [`RequestOptions`](/interfaces/RequestOptions.md), `context?`: [`RequestContext`](/interfaces/RequestContext.md)) => [`RequestOptions`](/interfaces/RequestOptions.md)
 
 #### Type declaration
 
-▸ (`requestOptions`, `context?`): [`RequestOptions`](interfaces/RequestOptions.md)
+▸ (`requestOptions`, `context?`): [`RequestOptions`](/interfaces/RequestOptions.md)
 
 发出 XHR 请求前，会调用这个函数对请求参数进行处理，并以最终结果发起请求。因为会被 toString() 后 eval()，因此需要确保函数体内无外部依赖。
 
@@ -93,12 +94,12 @@
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `requestOptions` | [`RequestOptions`](interfaces/RequestOptions.md) | 请求参数 |
-| `context?` | [`RequestContext`](interfaces/RequestContext.md) | 用于传递上下文信息的对象 |
+| `requestOptions` | [`RequestOptions`](/interfaces/RequestOptions.md) | 请求参数 |
+| `context?` | [`RequestContext`](/interfaces/RequestContext.md) | 用于传递上下文信息的对象 |
 
 ##### Returns
 
-[`RequestOptions`](interfaces/RequestOptions.md)
+[`RequestOptions`](/interfaces/RequestOptions.md)
 
 #### Defined in
 
@@ -143,7 +144,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:872](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L872)
+[src/ShimoSDK.ts:883](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L883)
 
 ___
 
@@ -159,7 +160,7 @@ ___
 
 ### GenerateUrlHandler
 
-Ƭ **GenerateUrlHandler**: (`fileId`: `string`, `info?`: [`GenerateUrlInfo`](modules.md#generateurlinfo), `smParams?`: `Record`<`string`, `any`\>) => `string` \| `Promise`<`string`\>
+Ƭ **GenerateUrlHandler**: (`fileId`: `string`, `info?`: [`GenerateUrlInfo`](/modules.md#generateurlinfo), `smParams?`: `Record`<`string`, `any`\>) => `string` \| `Promise`<`string`\>
 
 #### Type declaration
 
@@ -170,7 +171,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `fileId` | `string` |
-| `info?` | [`GenerateUrlInfo`](modules.md#generateurlinfo) |
+| `info?` | [`GenerateUrlInfo`](/modules.md#generateurlinfo) |
 | `smParams?` | `Record`<`string`, `any`\> |
 
 ##### Returns
@@ -185,7 +186,7 @@ ___
 
 ### GenerateUrlInfo
 
-Ƭ **GenerateUrlInfo**: { `sharingText?`: `string`  } & [`SharingSource`](modules.md#sharingsource)<[`UrlSharingType`](enums/UrlSharingType.md)\>
+Ƭ **GenerateUrlInfo**: { `sharingText?`: `string`  } & [`SharingSource`](/modules.md#sharingsource)<[`UrlSharingType`](/enums/UrlSharingType.md)\>
 
 用于生成 URL 的额外信息
 
@@ -209,13 +210,13 @@ ___
 
 ### SharingSource
 
-Ƭ **SharingSource**<`T`\>: `T` extends [`Spreadsheet`](enums/UrlSharingType.md#spreadsheet) ? { `sharingFrom?`: [`SpreadsheetSharingFrom`](enums/SpreadsheetSharingFrom.md) ; `sharingType?`: `T`  } : { `sharingType?`: `T`  }
+Ƭ **SharingSource**<`T`\>: `T` extends [`Spreadsheet`](/enums/UrlSharingType.md#spreadsheet) ? { `sharingFrom?`: [`SpreadsheetSharingFrom`](/enums/SpreadsheetSharingFrom.md) ; `sharingType?`: `T`  } : { `sharingType?`: `T`  }
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`UrlSharingType`](enums/UrlSharingType.md) |
+| `T` | extends [`UrlSharingType`](/enums/UrlSharingType.md) |
 
 #### Defined in
 
@@ -241,26 +242,29 @@ node_modules/shimo-js-sdk-shared/dist/types.d.ts:2
 
 | Name | Type |
 | :------ | :------ |
+| `board` | `string` |
 | `document` | `string` |
 | `documentPro` | `string` |
+| `flowchart` | `string` |
 | `form` | `string` |
+| `mindmap` | `string` |
 | `presentation` | `string` |
 | `spreadsheet` | `string` |
 | `table` | `string` |
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/File.d.ts:35
+node_modules/shimo-js-sdk-shared/dist/File.d.ts:47
 
 ___
 
 ### MessageEvent
 
-• **MessageEvent**: typeof [`InvokeMethod`](enums/InvokeMethod.md) = `InvokeMethod`
+• **MessageEvent**: typeof [`InvokeMethod`](/enums/InvokeMethod.md) = `InvokeMethod`
 
 #### Defined in
 
-[src/ShimoSDK.ts:51](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L51)
+[src/ShimoSDK.ts:52](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L52)
 
 ___
 
@@ -282,13 +286,13 @@ ___
 
 #### Defined in
 
-[src/index.ts:26](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/index.ts#L26)
+[src/index.ts:28](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/index.ts#L28)
 
 ## Functions
 
 ### connect
 
-▸ **connect**(`options`): `Promise`<[`ShimoSDK`](classes/ShimoSDK.md)\>
+▸ **connect**(`options`): `Promise`<[`ShimoSDK`](/classes/ShimoSDK.md)\>
 
 初始化 SDK，返回 Promise，当 ReadState 变为 Ready 或 Failed 时，Promise 将被 resolve。
 Promise resovled 不代表编辑器已经完整加载完毕，只代表 SDK 已经准备好了。
@@ -299,21 +303,21 @@ Promise resovled 不代表编辑器已经完整加载完毕，只代表 SDK 已�
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`ConnectOptions`](interfaces/ConnectOptions.md) |
+| `options` | [`ConnectOptions`](/interfaces/ConnectOptions.md) |
 
 #### Returns
 
-`Promise`<[`ShimoSDK`](classes/ShimoSDK.md)\>
+`Promise`<[`ShimoSDK`](/classes/ShimoSDK.md)\>
 
 #### Defined in
 
-[src/connect.ts:11](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/connect.ts#L11)
+[src/connect.ts:11](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/connect.ts#L11)
 
 ___
 
 ### convertFileType
 
-▸ **convertFileType**(`value`): [`FileType`](enums/FileType.md)
+▸ **convertFileType**(`value`): [`FileType`](/enums/FileType.md)
 
 根据传入值转换为 FileType 枚举值
 
@@ -325,11 +329,11 @@ ___
 
 #### Returns
 
-[`FileType`](enums/FileType.md)
+[`FileType`](/enums/FileType.md)
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/File.d.ts:59
+node_modules/shimo-js-sdk-shared/dist/File.d.ts:74
 
 ___
 

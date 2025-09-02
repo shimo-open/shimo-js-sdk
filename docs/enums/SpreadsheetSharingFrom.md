@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / SpreadsheetSharingFrom
+[shimo-js-sdk](/README.md) / [Exports](/modules.md) / SpreadsheetSharingFrom
 
 # Enumeration: SpreadsheetSharingFrom
 
@@ -6,11 +6,11 @@
 
 ### Enumeration members
 
-- [copyRangeLink](SpreadsheetSharingFrom.md#copyrangelink)
-- [copySheetLink](SpreadsheetSharingFrom.md#copysheetlink)
-- [copyViewportLink](SpreadsheetSharingFrom.md#copyviewportlink)
-- [importRange](SpreadsheetSharingFrom.md#importrange)
-- [preview](SpreadsheetSharingFrom.md#preview)
+- [copyRangeLink](/enums/SpreadsheetSharingFrom.md#copyrangelink)
+- [copySheetLink](/enums/SpreadsheetSharingFrom.md#copysheetlink)
+- [copyViewportLink](/enums/SpreadsheetSharingFrom.md#copyviewportlink)
+- [importRange](/enums/SpreadsheetSharingFrom.md#importrange)
+- [preview](/enums/SpreadsheetSharingFrom.md#preview)
 
 ## Enumeration members
 

@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / Form
+[shimo-js-sdk](/README.md) / [Exports](/modules.md) / Form
 
 # Namespace: Form
 
@@ -6,5 +6,5 @@
 
 ### Interfaces
 
-- [Editor](../interfaces/Form.Editor.md)
-- [EventMap](../interfaces/Form.EventMap.md)
+- [Editor](/interfaces/Form.Editor.md)
+- [EventMap](/interfaces/Form.EventMap.md)

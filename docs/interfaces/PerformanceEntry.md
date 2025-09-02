@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / PerformanceEntry
+[shimo-js-sdk](/README.md) / [Exports](/modules.md) / PerformanceEntry
 
 # Interface: PerformanceEntry
 
@@ -8,10 +8,10 @@
 
 ### Properties
 
-- [mark](PerformanceEntry.md#mark)
-- [resourceTiming](PerformanceEntry.md#resourcetiming)
-- [timeOrigin](PerformanceEntry.md#timeorigin)
-- [timestamp](PerformanceEntry.md#timestamp)
+- [mark](/interfaces/PerformanceEntry.md#mark)
+- [resourceTiming](/interfaces/PerformanceEntry.md#resourcetiming)
+- [timeOrigin](/interfaces/PerformanceEntry.md#timeorigin)
+- [timestamp](/interfaces/PerformanceEntry.md#timestamp)
 
 ## Properties
 

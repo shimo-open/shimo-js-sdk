@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / ReadyStateEventPayload
+[shimo-js-sdk](/README.md) / [Exports](/modules.md) / ReadyStateEventPayload
 
 # Interface: ReadyStateEventPayload
 
@@ -8,9 +8,9 @@ ReadyState 事件变化数据
 
 ### Properties
 
-- [error](ReadyStateEventPayload.md#error)
-- [fileType](ReadyStateEventPayload.md#filetype)
-- [state](ReadyStateEventPayload.md#state)
+- [error](/interfaces/ReadyStateEventPayload.md#error)
+- [fileType](/interfaces/ReadyStateEventPayload.md#filetype)
+- [state](/interfaces/ReadyStateEventPayload.md#state)
 
 ## Properties
 
@@ -28,7 +28,7 @@ ___
 
 ### fileType
 
-• **fileType**: [`FileType`](../enums/FileType.md)
+• **fileType**: [`FileType`](/enums/FileType.md)
 
 对应的文件类型
 
@@ -40,7 +40,7 @@ ___
 
 ### state
 
-• **state**: [`ReadyState`](../enums/ReadyState.md)
+• **state**: [`ReadyState`](/enums/ReadyState.md)
 
 当前 ReadyState
 

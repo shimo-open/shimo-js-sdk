@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / ContainerMethod
+[shimo-js-sdk](/README.md) / [Exports](/modules.md) / ContainerMethod
 
 # Enumeration: ContainerMethod
 
@@ -8,14 +8,14 @@
 
 ### Enumeration members
 
-- [GenerateUrl](ContainerMethod.md#generateurl)
-- [GetContainerRect](ContainerMethod.md#getcontainerrect)
-- [GetFileInfoFromUrl](ContainerMethod.md#getfileinfofromurl)
-- [HandleCustomTask](ContainerMethod.md#handlecustomtask)
-- [MentionClickHandlerForMobile](ContainerMethod.md#mentionclickhandlerformobile)
-- [OpenLink](ContainerMethod.md#openlink)
-- [ShowSignatureComponent](ContainerMethod.md#showsignaturecomponent)
-- [ShowToast](ContainerMethod.md#showtoast)
+- [GenerateUrl](/enums/ContainerMethod.md#generateurl)
+- [GetContainerRect](/enums/ContainerMethod.md#getcontainerrect)
+- [GetFileInfoFromUrl](/enums/ContainerMethod.md#getfileinfofromurl)
+- [HandleCustomTask](/enums/ContainerMethod.md#handlecustomtask)
+- [MentionClickHandlerForMobile](/enums/ContainerMethod.md#mentionclickhandlerformobile)
+- [OpenLink](/enums/ContainerMethod.md#openlink)
+- [ShowSignatureComponent](/enums/ContainerMethod.md#showsignaturecomponent)
+- [ShowToast](/enums/ContainerMethod.md#showtoast)
 
 ## Enumeration members
 

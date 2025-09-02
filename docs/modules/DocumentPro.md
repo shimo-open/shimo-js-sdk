@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / DocumentPro
+[shimo-js-sdk](/README.md) / [Exports](/modules.md) / DocumentPro
 
 # Namespace: DocumentPro
 
@@ -6,19 +6,19 @@
 
 ### Interfaces
 
-- [Comment](../interfaces/DocumentPro.Comment.md)
-- [CommentData](../interfaces/DocumentPro.CommentData.md)
-- [DocumentProComment](../interfaces/DocumentPro.DocumentProComment.md)
-- [DocumentProCommentData](../interfaces/DocumentPro.DocumentProCommentData.md)
-- [Editor](../interfaces/DocumentPro.Editor.md)
-- [EventMap](../interfaces/DocumentPro.EventMap.md)
-- [UpdateSignaturePayload](../interfaces/DocumentPro.UpdateSignaturePayload.md)
+- [Comment](/interfaces/DocumentPro.Comment.md)
+- [CommentData](/interfaces/DocumentPro.CommentData.md)
+- [DocumentProComment](/interfaces/DocumentPro.DocumentProComment.md)
+- [DocumentProCommentData](/interfaces/DocumentPro.DocumentProCommentData.md)
+- [Editor](/interfaces/DocumentPro.Editor.md)
+- [EventMap](/interfaces/DocumentPro.EventMap.md)
+- [UpdateSignaturePayload](/interfaces/DocumentPro.UpdateSignaturePayload.md)
 
 ### Type aliases
 
-- [DocumentPos](DocumentPro.md#documentpos)
-- [Events](DocumentPro.md#events)
-- [HorizontalAlignment](DocumentPro.md#horizontalalignment)
+- [DocumentPos](/modules/DocumentPro.md#documentpos)
+- [Events](/modules/DocumentPro.md#events)
+- [HorizontalAlignment](/modules/DocumentPro.md#horizontalalignment)
 
 ## Type aliases
 
@@ -33,7 +33,7 @@
 
 #### Defined in
 
-[src/types/DocumentPro.ts:70](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/DocumentPro.ts#L70)
+[src/types/DocumentPro.ts:70](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/DocumentPro.ts#L70)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:81](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/DocumentPro.ts#L81)
+[src/types/DocumentPro.ts:81](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/DocumentPro.ts#L81)
 
 ___
 
@@ -60,4 +60,4 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:78](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/DocumentPro.ts#L78)
+[src/types/DocumentPro.ts:78](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/DocumentPro.ts#L78)

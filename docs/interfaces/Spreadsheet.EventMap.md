@@ -1,12 +1,12 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / [Spreadsheet](../modules/Spreadsheet.md) / EventMap
+[shimo-js-sdk](/README.md) / [Exports](/modules.md) / [Spreadsheet](/modules/Spreadsheet.md) / EventMap
 
 # Interface: EventMap
 
-[Spreadsheet](../modules/Spreadsheet.md).EventMap
+[Spreadsheet](/modules/Spreadsheet.md).EventMap
 
 ## Hierarchy
 
-- [`BaseEventMap`](BaseEventMap.md)
+- [`BaseEventMap`](/interfaces/BaseEventMap.md)
 
   ↳ **`EventMap`**
 
@@ -14,49 +14,49 @@
 
 ### Properties
 
-- [HorizontalScroll](Spreadsheet.EventMap.md#horizontalscroll)
-- [MouseMove](Spreadsheet.EventMap.md#mousemove)
-- [VerticalScroll](Spreadsheet.EventMap.md#verticalscroll)
-- [error](Spreadsheet.EventMap.md#error)
-- [paramsChanged](Spreadsheet.EventMap.md#paramschanged)
-- [saveStatusChanged](Spreadsheet.EventMap.md#savestatuschanged)
-- [saveStatusDidChange](Spreadsheet.EventMap.md#savestatusdidchange)
+- [HorizontalScroll](/interfaces/Spreadsheet.EventMap.md#horizontalscroll)
+- [MouseMove](/interfaces/Spreadsheet.EventMap.md#mousemove)
+- [VerticalScroll](/interfaces/Spreadsheet.EventMap.md#verticalscroll)
+- [error](/interfaces/Spreadsheet.EventMap.md#error)
+- [paramsChanged](/interfaces/Spreadsheet.EventMap.md#paramschanged)
+- [saveStatusChanged](/interfaces/Spreadsheet.EventMap.md#savestatuschanged)
+- [saveStatusDidChange](/interfaces/Spreadsheet.EventMap.md#savestatusdidchange)
 
 ## Properties
 
 ### HorizontalScroll
 
-• **HorizontalScroll**: [`MouseMovePayload`](MouseMovePayload.md)
+• **HorizontalScroll**: [`MouseMovePayload`](/interfaces/MouseMovePayload.md)
 
 水平滚动事件
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:51](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L51)
+[src/types/Spreadsheet.ts:51](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L51)
 
 ___
 
 ### MouseMove
 
-• **MouseMove**: [`MouseMovePayload`](MouseMovePayload.md)
+• **MouseMove**: [`MouseMovePayload`](/interfaces/MouseMovePayload.md)
 
 鼠标移动事件
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:41](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L41)
+[src/types/Spreadsheet.ts:41](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L41)
 
 ___
 
 ### VerticalScroll
 
-• **VerticalScroll**: [`MouseMovePayload`](MouseMovePayload.md)
+• **VerticalScroll**: [`MouseMovePayload`](/interfaces/MouseMovePayload.md)
 
 垂直滚动事件
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:46](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L46)
+[src/types/Spreadsheet.ts:46](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L46)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:31](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L31)
+[src/types/Spreadsheet.ts:31](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L31)
 
 ___
 
@@ -91,11 +91,11 @@ ___
 
 #### Inherited from
 
-[BaseEventMap](BaseEventMap.md).[paramsChanged](BaseEventMap.md#paramschanged)
+[BaseEventMap](/interfaces/BaseEventMap.md).[paramsChanged](/interfaces/BaseEventMap.md#paramschanged)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:26](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L26)
+[src/types/BaseEditor.ts:26](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/BaseEditor.ts#L26)
 
 ___
 
@@ -113,11 +113,11 @@ ___
 
 #### Inherited from
 
-[BaseEventMap](BaseEventMap.md).[saveStatusChanged](BaseEventMap.md#savestatuschanged)
+[BaseEventMap](/interfaces/BaseEventMap.md).[saveStatusChanged](/interfaces/BaseEventMap.md#savestatuschanged)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:5](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L5)
+[src/types/BaseEditor.ts:5](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/BaseEditor.ts#L5)
 
 ___
 
@@ -137,8 +137,8 @@ ___
 
 #### Inherited from
 
-[BaseEventMap](BaseEventMap.md).[saveStatusDidChange](BaseEventMap.md#savestatusdidchange)
+[BaseEventMap](/interfaces/BaseEventMap.md).[saveStatusDidChange](/interfaces/BaseEventMap.md#savestatusdidchange)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:16](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L16)
+[src/types/BaseEditor.ts:16](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/BaseEditor.ts#L16)

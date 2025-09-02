@@ -1,14 +1,14 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / [Presentation](../modules/Presentation.md) / EventMap
+[shimo-js-sdk](/README.md) / [Exports](/modules.md) / [Presentation](/modules/Presentation.md) / EventMap
 
 # Interface: EventMap
 
-[Presentation](../modules/Presentation.md).EventMap
+[Presentation](/modules/Presentation.md).EventMap
 
 ## Table of contents
 
 ### Properties
 
-- [error](Presentation.EventMap.md#error)
+- [error](/interfaces/Presentation.EventMap.md#error)
 
 ## Properties
 
@@ -25,4 +25,4 @@
 
 #### Defined in
 
-[src/types/Presentation.ts:4](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Presentation.ts#L4)
+[src/types/Presentation.ts:4](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Presentation.ts#L4)

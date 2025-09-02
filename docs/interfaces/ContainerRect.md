@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / ContainerRect
+[shimo-js-sdk](/README.md) / [Exports](/modules.md) / ContainerRect
 
 # Interface: ContainerRect
 
@@ -8,14 +8,14 @@
 
 ### Properties
 
-- [bottom](ContainerRect.md#bottom)
-- [left](ContainerRect.md#left)
-- [right](ContainerRect.md#right)
-- [scrollTop](ContainerRect.md#scrolltop)
-- [top](ContainerRect.md#top)
-- [viewportHeight](ContainerRect.md#viewportheight)
-- [viewportWidth](ContainerRect.md#viewportwidth)
-- [visualViewport](ContainerRect.md#visualviewport)
+- [bottom](/interfaces/ContainerRect.md#bottom)
+- [left](/interfaces/ContainerRect.md#left)
+- [right](/interfaces/ContainerRect.md#right)
+- [scrollTop](/interfaces/ContainerRect.md#scrolltop)
+- [top](/interfaces/ContainerRect.md#top)
+- [viewportHeight](/interfaces/ContainerRect.md#viewportheight)
+- [viewportWidth](/interfaces/ContainerRect.md#viewportwidth)
+- [visualViewport](/interfaces/ContainerRect.md#visualviewport)
 
 ## Properties
 

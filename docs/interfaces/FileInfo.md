@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / FileInfo
+[shimo-js-sdk](/README.md) / [Exports](/modules.md) / FileInfo
 
 # Interface: FileInfo
 
@@ -8,8 +8,8 @@
 
 ### Properties
 
-- [fileId](FileInfo.md#fileid)
-- [type](FileInfo.md#type)
+- [fileId](/interfaces/FileInfo.md#fileid)
+- [type](/interfaces/FileInfo.md#type)
 
 ## Properties
 
@@ -21,7 +21,7 @@
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/File.d.ts:50
+node_modules/shimo-js-sdk-shared/dist/File.d.ts:65
 
 ___
 
@@ -33,4 +33,4 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/File.d.ts:54
+node_modules/shimo-js-sdk-shared/dist/File.d.ts:69

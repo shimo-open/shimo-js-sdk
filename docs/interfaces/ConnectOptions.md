@@ -1,10 +1,10 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / ConnectOptions
+[shimo-js-sdk](/README.md) / [Exports](/modules.md) / ConnectOptions
 
 # Interface: ConnectOptions
 
 ## Hierarchy
 
-- [`ShimoSDKOptions`](ShimoSDKOptions.md)
+- [`ShimoSDKOptions`](/interfaces/ShimoSDKOptions.md)
 
   ↳ **`ConnectOptions`**
 
@@ -12,35 +12,35 @@
 
 ### Properties
 
-- [allowPolicy](ConnectOptions.md#allowpolicy)
-- [apiAdaptor](ConnectOptions.md#apiadaptor)
-- [apiAdaptorContext](ConnectOptions.md#apiadaptorcontext)
-- [container](ConnectOptions.md#container)
-- [debug](ConnectOptions.md#debug)
-- [deviceMode](ConnectOptions.md#devicemode)
-- [disableMentionCards](ConnectOptions.md#disablementioncards)
-- [disableSignatureComponent](ConnectOptions.md#disablesignaturecomponent)
-- [endpoint](ConnectOptions.md#endpoint)
-- [fileId](ConnectOptions.md#fileid)
-- [generateUrl](ConnectOptions.md#generateurl)
-- [lang](ConnectOptions.md#lang)
-- [messageExpires](ConnectOptions.md#messageexpires)
-- [params](ConnectOptions.md#params)
-- [plugins](ConnectOptions.md#plugins)
-- [showLoadingEffect](ConnectOptions.md#showloadingeffect)
-- [signature](ConnectOptions.md#signature)
-- [smParams](ConnectOptions.md#smparams)
-- [targetOrigin](ConnectOptions.md#targetorigin)
-- [token](ConnectOptions.md#token)
-- [userUuid](ConnectOptions.md#useruuid)
+- [allowPolicy](/interfaces/ConnectOptions.md#allowpolicy)
+- [apiAdaptor](/interfaces/ConnectOptions.md#apiadaptor)
+- [apiAdaptorContext](/interfaces/ConnectOptions.md#apiadaptorcontext)
+- [container](/interfaces/ConnectOptions.md#container)
+- [debug](/interfaces/ConnectOptions.md#debug)
+- [deviceMode](/interfaces/ConnectOptions.md#devicemode)
+- [disableMentionCards](/interfaces/ConnectOptions.md#disablementioncards)
+- [disableSignatureComponent](/interfaces/ConnectOptions.md#disablesignaturecomponent)
+- [endpoint](/interfaces/ConnectOptions.md#endpoint)
+- [fileId](/interfaces/ConnectOptions.md#fileid)
+- [generateUrl](/interfaces/ConnectOptions.md#generateurl)
+- [lang](/interfaces/ConnectOptions.md#lang)
+- [messageExpires](/interfaces/ConnectOptions.md#messageexpires)
+- [params](/interfaces/ConnectOptions.md#params)
+- [plugins](/interfaces/ConnectOptions.md#plugins)
+- [showLoadingEffect](/interfaces/ConnectOptions.md#showloadingeffect)
+- [signature](/interfaces/ConnectOptions.md#signature)
+- [smParams](/interfaces/ConnectOptions.md#smparams)
+- [targetOrigin](/interfaces/ConnectOptions.md#targetorigin)
+- [token](/interfaces/ConnectOptions.md#token)
+- [userUuid](/interfaces/ConnectOptions.md#useruuid)
 
 ### Methods
 
-- [getFileInfoFromUrl](ConnectOptions.md#getfileinfofromurl)
-- [handleCustomTask](ConnectOptions.md#handlecustomtask)
-- [mentionClickHandlerForMobile](ConnectOptions.md#mentionclickhandlerformobile)
-- [openLink](ConnectOptions.md#openlink)
-- [showToast](ConnectOptions.md#showtoast)
+- [getFileInfoFromUrl](/interfaces/ConnectOptions.md#getfileinfofromurl)
+- [handleCustomTask](/interfaces/ConnectOptions.md#handlecustomtask)
+- [mentionClickHandlerForMobile](/interfaces/ConnectOptions.md#mentionclickhandlerformobile)
+- [openLink](/interfaces/ConnectOptions.md#openlink)
+- [showToast](/interfaces/ConnectOptions.md#showtoast)
 
 ## Properties
 
@@ -53,43 +53,43 @@
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[allowPolicy](ShimoSDKOptions.md#allowpolicy)
+[ShimoSDKOptions](/interfaces/ShimoSDKOptions.md).[allowPolicy](/interfaces/ShimoSDKOptions.md#allowpolicy)
 
 #### Defined in
 
-[src/ShimoSDK.ts:940](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L940)
+[src/ShimoSDK.ts:951](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L951)
 
 ___
 
 ### apiAdaptor
 
-• `Optional` **apiAdaptor**: [`APIAdaptor`](../modules.md#apiadaptor)
+• `Optional` **apiAdaptor**: [`APIAdaptor`](/modules.md#apiadaptor)
 
 用于在编辑器发起 API 请求时，对请求参数进行修改的函数。详细用法见文档。
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[apiAdaptor](ShimoSDKOptions.md#apiadaptor)
+[ShimoSDKOptions](/interfaces/ShimoSDKOptions.md).[apiAdaptor](/interfaces/ShimoSDKOptions.md#apiadaptor)
 
 #### Defined in
 
-[src/ShimoSDK.ts:976](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L976)
+[src/ShimoSDK.ts:987](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L987)
 
 ___
 
 ### apiAdaptorContext
 
-• `Optional` **apiAdaptorContext**: [`RequestContext`](RequestContext.md)
+• `Optional` **apiAdaptorContext**: [`RequestContext`](/interfaces/RequestContext.md)
 
 用于在编辑器发起 API 请求时，对请求参数进行修改的函数时传入的上下文数据。
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[apiAdaptorContext](ShimoSDKOptions.md#apiadaptorcontext)
+[ShimoSDKOptions](/interfaces/ShimoSDKOptions.md).[apiAdaptorContext](/interfaces/ShimoSDKOptions.md#apiadaptorcontext)
 
 #### Defined in
 
-[src/ShimoSDK.ts:981](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L981)
+[src/ShimoSDK.ts:992](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L992)
 
 ___
 
@@ -101,11 +101,11 @@ iframe 挂载的目标容器
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[container](ShimoSDKOptions.md#container)
+[ShimoSDKOptions](/interfaces/ShimoSDKOptions.md).[container](/interfaces/ShimoSDKOptions.md#container)
 
 #### Defined in
 
-[src/ShimoSDK.ts:897](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L897)
+[src/ShimoSDK.ts:908](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L908)
 
 ___
 
@@ -117,43 +117,43 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[debug](ShimoSDKOptions.md#debug)
+[ShimoSDKOptions](/interfaces/ShimoSDKOptions.md).[debug](/interfaces/ShimoSDKOptions.md#debug)
 
 #### Defined in
 
-[src/ShimoSDK.ts:945](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L945)
+[src/ShimoSDK.ts:956](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L956)
 
 ___
 
 ### deviceMode
 
-• `Optional` **deviceMode**: [`DeviceMode`](../modules.md#devicemode)
+• `Optional` **deviceMode**: [`DeviceMode`](/modules.md#devicemode)
 
 使用什么设备类型模式，会直接影响功能和样式，不传值或空字符串则默认用 user-agent 自动判断。受版本限制，不是所有类型都支持。
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[deviceMode](ShimoSDKOptions.md#devicemode)
+[ShimoSDKOptions](/interfaces/ShimoSDKOptions.md).[deviceMode](/interfaces/ShimoSDKOptions.md#devicemode)
 
 #### Defined in
 
-[src/ShimoSDK.ts:961](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L961)
+[src/ShimoSDK.ts:972](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L972)
 
 ___
 
 ### disableMentionCards
 
-• `Optional` **disableMentionCards**: [`DisableMentionCards`](DisableMentionCards.md)
+• `Optional` **disableMentionCards**: [`DisableMentionCards`](/interfaces/DisableMentionCards.md)
 
 是否禁用提及的浮动卡片组件
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[disableMentionCards](ShimoSDKOptions.md#disablementioncards)
+[ShimoSDKOptions](/interfaces/ShimoSDKOptions.md).[disableMentionCards](/interfaces/ShimoSDKOptions.md#disablementioncards)
 
 #### Defined in
 
-[src/ShimoSDK.ts:934](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L934)
+[src/ShimoSDK.ts:945](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L945)
 
 ___
 
@@ -165,11 +165,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[disableSignatureComponent](ShimoSDKOptions.md#disablesignaturecomponent)
+[ShimoSDKOptions](/interfaces/ShimoSDKOptions.md).[disableSignatureComponent](/interfaces/ShimoSDKOptions.md#disablesignaturecomponent)
 
 #### Defined in
 
-[src/ShimoSDK.ts:966](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L966)
+[src/ShimoSDK.ts:977](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L977)
 
 ___
 
@@ -181,11 +181,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[endpoint](ShimoSDKOptions.md#endpoint)
+[ShimoSDKOptions](/interfaces/ShimoSDKOptions.md).[endpoint](/interfaces/ShimoSDKOptions.md#endpoint)
 
 #### Defined in
 
-[src/ShimoSDK.ts:882](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L882)
+[src/ShimoSDK.ts:893](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L893)
 
 ___
 
@@ -197,27 +197,27 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[fileId](ShimoSDKOptions.md#fileid)
+[ShimoSDKOptions](/interfaces/ShimoSDKOptions.md).[fileId](/interfaces/ShimoSDKOptions.md#fileid)
 
 #### Defined in
 
-[src/ShimoSDK.ts:887](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L887)
+[src/ShimoSDK.ts:898](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L898)
 
 ___
 
 ### generateUrl
 
-• `Optional` **generateUrl**: [`GenerateUrlHandler`](../modules.md#generateurlhandler)
+• `Optional` **generateUrl**: [`GenerateUrlHandler`](/modules.md#generateurlhandler)
 
 生成插入到石墨文档中的链接，用于处理 @ 文件等功能需要插入的链接
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[generateUrl](ShimoSDKOptions.md#generateurl)
+[ShimoSDKOptions](/interfaces/ShimoSDKOptions.md).[generateUrl](/interfaces/ShimoSDKOptions.md#generateurl)
 
 #### Defined in
 
-[src/ShimoSDK.ts:791](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L791)
+[src/ShimoSDK.ts:802](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L802)
 
 ___
 
@@ -236,11 +236,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[lang](ShimoSDKOptions.md#lang)
+[ShimoSDKOptions](/interfaces/ShimoSDKOptions.md).[lang](/interfaces/ShimoSDKOptions.md#lang)
 
 #### Defined in
 
-[src/ShimoSDK.ts:929](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L929)
+[src/ShimoSDK.ts:940](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L940)
 
 ___
 
@@ -252,11 +252,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[messageExpires](ShimoSDKOptions.md#messageexpires)
+[ShimoSDKOptions](/interfaces/ShimoSDKOptions.md).[messageExpires](/interfaces/ShimoSDKOptions.md#messageexpires)
 
 #### Defined in
 
-[src/ShimoSDK.ts:986](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L986)
+[src/ShimoSDK.ts:997](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L997)
 
 ___
 
@@ -272,27 +272,27 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[params](ShimoSDKOptions.md#params)
+[ShimoSDKOptions](/interfaces/ShimoSDKOptions.md).[params](/interfaces/ShimoSDKOptions.md#params)
 
 #### Defined in
 
-[src/ShimoSDK.ts:907](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L907)
+[src/ShimoSDK.ts:918](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L918)
 
 ___
 
 ### plugins
 
-• `Optional` **plugins**: [`PluginOptions`](Spreadsheet.PluginOptions.md) \| [`PluginOptions`](Table.PluginOptions.md)
+• `Optional` **plugins**: [`PluginOptions`](/interfaces/Spreadsheet.PluginOptions.md) \| [`PluginOptions`](/interfaces/Table.PluginOptions.md)
 
 编辑器插件配置，不是所有类型的套件都支持，以套件是否提供 PluginOptions 为准
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[plugins](ShimoSDKOptions.md#plugins)
+[ShimoSDKOptions](/interfaces/ShimoSDKOptions.md).[plugins](/interfaces/ShimoSDKOptions.md#plugins)
 
 #### Defined in
 
-[src/ShimoSDK.ts:950](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L950)
+[src/ShimoSDK.ts:961](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L961)
 
 ___
 
@@ -304,11 +304,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[showLoadingEffect](ShimoSDKOptions.md#showloadingeffect)
+[ShimoSDKOptions](/interfaces/ShimoSDKOptions.md).[showLoadingEffect](/interfaces/ShimoSDKOptions.md#showloadingeffect)
 
 #### Defined in
 
-[src/ShimoSDK.ts:971](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L971)
+[src/ShimoSDK.ts:982](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L982)
 
 ___
 
@@ -320,11 +320,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[signature](ShimoSDKOptions.md#signature)
+[ShimoSDKOptions](/interfaces/ShimoSDKOptions.md).[signature](/interfaces/ShimoSDKOptions.md#signature)
 
 #### Defined in
 
-[src/ShimoSDK.ts:892](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L892)
+[src/ShimoSDK.ts:903](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L903)
 
 ___
 
@@ -336,11 +336,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[smParams](ShimoSDKOptions.md#smparams)
+[ShimoSDKOptions](/interfaces/ShimoSDKOptions.md).[smParams](/interfaces/ShimoSDKOptions.md#smparams)
 
 #### Defined in
 
-[src/ShimoSDK.ts:914](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L914)
+[src/ShimoSDK.ts:925](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L925)
 
 ___
 
@@ -354,11 +354,11 @@ iframe postMessage 的目标 origin，默认是当前页面的 location.origin�
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[targetOrigin](ShimoSDKOptions.md#targetorigin)
+[ShimoSDKOptions](/interfaces/ShimoSDKOptions.md).[targetOrigin](/interfaces/ShimoSDKOptions.md#targetorigin)
 
 #### Defined in
 
-[src/ShimoSDK.ts:956](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L956)
+[src/ShimoSDK.ts:967](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L967)
 
 ___
 
@@ -370,11 +370,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[token](ShimoSDKOptions.md#token)
+[ShimoSDKOptions](/interfaces/ShimoSDKOptions.md).[token](/interfaces/ShimoSDKOptions.md#token)
 
 #### Defined in
 
-[src/ShimoSDK.ts:902](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L902)
+[src/ShimoSDK.ts:913](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L913)
 
 ___
 
@@ -386,11 +386,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[userUuid](ShimoSDKOptions.md#useruuid)
+[ShimoSDKOptions](/interfaces/ShimoSDKOptions.md).[userUuid](/interfaces/ShimoSDKOptions.md#useruuid)
 
 #### Defined in
 
-[src/ShimoSDK.ts:991](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L991)
+[src/ShimoSDK.ts:1002](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L1002)
 
 ## Methods
 
@@ -412,11 +412,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[getFileInfoFromUrl](ShimoSDKOptions.md#getfileinfofromurl)
+[ShimoSDKOptions](/interfaces/ShimoSDKOptions.md).[getFileInfoFromUrl](/interfaces/ShimoSDKOptions.md#getfileinfofromurl)
 
 #### Defined in
 
-[src/ShimoSDK.ts:803](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L803)
+[src/ShimoSDK.ts:814](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L814)
 
 ___
 
@@ -438,11 +438,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[handleCustomTask](ShimoSDKOptions.md#handlecustomtask)
+[ShimoSDKOptions](/interfaces/ShimoSDKOptions.md).[handleCustomTask](/interfaces/ShimoSDKOptions.md#handlecustomtask)
 
 #### Defined in
 
-[src/ShimoSDK.ts:821](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L821)
+[src/ShimoSDK.ts:832](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L832)
 
 ___
 
@@ -456,7 +456,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `payload` | [`MouseMovePayload`](MouseMovePayload.md) |
+| `payload` | [`MouseMovePayload`](/interfaces/MouseMovePayload.md) |
 
 #### Returns
 
@@ -464,11 +464,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[mentionClickHandlerForMobile](ShimoSDKOptions.md#mentionclickhandlerformobile)
+[ShimoSDKOptions](/interfaces/ShimoSDKOptions.md).[mentionClickHandlerForMobile](/interfaces/ShimoSDKOptions.md#mentionclickhandlerformobile)
 
 #### Defined in
 
-[src/ShimoSDK.ts:796](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L796)
+[src/ShimoSDK.ts:807](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L807)
 
 ___
 
@@ -491,11 +491,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[openLink](ShimoSDKOptions.md#openlink)
+[ShimoSDKOptions](/interfaces/ShimoSDKOptions.md).[openLink](/interfaces/ShimoSDKOptions.md#openlink)
 
 #### Defined in
 
-[src/ShimoSDK.ts:776](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L776)
+[src/ShimoSDK.ts:787](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L787)
 
 ___
 
@@ -509,7 +509,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`ShowToastOptions`](ShowToastOptions.md) |
+| `options` | [`ShowToastOptions`](/interfaces/ShowToastOptions.md) |
 
 #### Returns
 
@@ -517,8 +517,8 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[showToast](ShimoSDKOptions.md#showtoast)
+[ShimoSDKOptions](/interfaces/ShimoSDKOptions.md).[showToast](/interfaces/ShimoSDKOptions.md#showtoast)
 
 #### Defined in
 
-[src/ShimoSDK.ts:816](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L816)
+[src/ShimoSDK.ts:827](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/ShimoSDK.ts#L827)

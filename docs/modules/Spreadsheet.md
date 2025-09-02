@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / Spreadsheet
+[shimo-js-sdk](/README.md) / [Exports](/modules.md) / Spreadsheet
 
 # Namespace: Spreadsheet
 
@@ -6,21 +6,21 @@
 
 ### Interfaces
 
-- [DepartmentPermission](../interfaces/Spreadsheet.DepartmentPermission.md)
-- [Editor](../interfaces/Spreadsheet.Editor.md)
-- [EventMap](../interfaces/Spreadsheet.EventMap.md)
-- [PluginOptions](../interfaces/Spreadsheet.PluginOptions.md)
-- [Range](../interfaces/Spreadsheet.Range.md)
-- [UserPermission](../interfaces/Spreadsheet.UserPermission.md)
+- [DepartmentPermission](/interfaces/Spreadsheet.DepartmentPermission.md)
+- [Editor](/interfaces/Spreadsheet.Editor.md)
+- [EventMap](/interfaces/Spreadsheet.EventMap.md)
+- [PluginOptions](/interfaces/Spreadsheet.PluginOptions.md)
+- [Range](/interfaces/Spreadsheet.Range.md)
+- [UserPermission](/interfaces/Spreadsheet.UserPermission.md)
 
 ### Type aliases
 
-- [CellValue](Spreadsheet.md#cellvalue)
-- [FormatCategory](Spreadsheet.md#formatcategory)
-- [NotificationType](Spreadsheet.md#notificationtype)
-- [PermissionLevel](Spreadsheet.md#permissionlevel)
-- [RangeData](Spreadsheet.md#rangedata)
-- [SearchMatch](Spreadsheet.md#searchmatch)
+- [CellValue](/modules/Spreadsheet.md#cellvalue)
+- [FormatCategory](/modules/Spreadsheet.md#formatcategory)
+- [NotificationType](/modules/Spreadsheet.md#notificationtype)
+- [PermissionLevel](/modules/Spreadsheet.md#permissionlevel)
+- [RangeData](/modules/Spreadsheet.md#rangedata)
+- [SearchMatch](/modules/Spreadsheet.md#searchmatch)
 
 ## Type aliases
 
@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:136](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L136)
+[src/types/Spreadsheet.ts:136](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L136)
 
 ___
 
@@ -56,7 +56,7 @@ custom - 自定义
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:121](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L121)
+[src/types/Spreadsheet.ts:121](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L121)
 
 ___
 
@@ -70,7 +70,7 @@ date_mention - 日期提醒
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:80](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L80)
+[src/types/Spreadsheet.ts:80](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L80)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:18](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L18)
+[src/types/Spreadsheet.ts:18](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L18)
 
 ___
 
@@ -100,14 +100,14 @@ ___
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `format` | `string` \| `undefined` | 单元格格式 |
-| `formatCategory` | [`FormatCategory`](Spreadsheet.md#formatcategory) | 单元格格式类型 |
+| `formatCategory` | [`FormatCategory`](/modules/Spreadsheet.md#formatcategory) | 单元格格式类型 |
 | `precision` | `number` \| `undefined` | 单元格数字精度 |
-| `span` | [`Range`](../interfaces/Spreadsheet.Range.md) \| `undefined` | 合并单元格范围 |
-| `value` | [`CellValue`](Spreadsheet.md#cellvalue) | 单元格数据 |
+| `span` | [`Range`](/interfaces/Spreadsheet.Range.md) \| `undefined` | 合并单元格范围 |
+| `value` | [`CellValue`](/modules/Spreadsheet.md#cellvalue) | 单元格数据 |
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:83](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L83)
+[src/types/Spreadsheet.ts:83](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L83)
 
 ___
 
@@ -128,4 +128,4 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:55](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Spreadsheet.ts#L55)
+[src/types/Spreadsheet.ts:55](https://github.com/byte9527/shimo-js-sdk/blob/2387f1f/src/types/Spreadsheet.ts#L55)

@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / UrlSharingType
+[shimo-js-sdk](/README.md) / [Exports](/modules.md) / UrlSharingType
 
 # Enumeration: UrlSharingType
 
@@ -10,16 +10,31 @@
 
 ### Enumeration members
 
-- [Doc](UrlSharingType.md#doc)
-- [Docx](UrlSharingType.md#docx)
-- [Form](UrlSharingType.md#form)
-- [FormFill](UrlSharingType.md#formfill)
-- [FormPreview](UrlSharingType.md#formpreview)
-- [Presentation](UrlSharingType.md#presentation)
-- [Spreadsheet](UrlSharingType.md#spreadsheet)
-- [Table](UrlSharingType.md#table)
+- [Board](/enums/UrlSharingType.md#board)
+- [Doc](/enums/UrlSharingType.md#doc)
+- [Docx](/enums/UrlSharingType.md#docx)
+- [Flowchart](/enums/UrlSharingType.md#flowchart)
+- [Form](/enums/UrlSharingType.md#form)
+- [FormFill](/enums/UrlSharingType.md#formfill)
+- [FormPreview](/enums/UrlSharingType.md#formpreview)
+- [Mindmap](/enums/UrlSharingType.md#mindmap)
+- [Presentation](/enums/UrlSharingType.md#presentation)
+- [Spreadsheet](/enums/UrlSharingType.md#spreadsheet)
+- [Table](/enums/UrlSharingType.md#table)
 
 ## Enumeration members
+
+### Board
+
+• **Board** = `"board"`
+
+代表分享的是白板链接
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:330
+
+___
 
 ### Doc
 
@@ -42,6 +57,18 @@ ___
 #### Defined in
 
 node_modules/shimo-js-sdk-shared/dist/types.d.ts:294
+
+___
+
+### Flowchart
+
+• **Flowchart** = `"flowchart"`
+
+代表分享的是流程图链接
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:322
 
 ___
 
@@ -78,6 +105,18 @@ ___
 #### Defined in
 
 node_modules/shimo-js-sdk-shared/dist/types.d.ts:306
+
+___
+
+### Mindmap
+
+• **Mindmap** = `"mindmap"`
+
+代表分享的是思维导图链接
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:326
 
 ___
 
