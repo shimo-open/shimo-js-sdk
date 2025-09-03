@@ -2,8 +2,6 @@ name: Deploy Documentation
 
 on:
   push:
-    branches: [ feat-md-preview ]   # 🚨 只在 feat-md-preview 分支触发
-  pull_request:
     branches: [ feat-md-preview ]
   workflow_dispatch:
 
@@ -22,28 +20,26 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          ref: feat-md-preview   # 🚨 确保拉取 feat-md-preview 分支
-        
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: 'npm'
-          
+
       - name: Install dependencies
         run: npm ci
-        
+
       - name: Generate documentation
-        run: npm run docs  # 生成到 docs-jsapi 下
-        
+        run: npm run docs  # 确保生成在 docs-jsapi 下
+
       - name: Setup Pages
-        uses: actions/configure-pages@v4
-        
+        uses: actions/configure-pages@v5   # ✅ 升级
+
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3   # ✅ 升级
         with:
-          path: docs-jsapi   # 🚨 指定目录为 docs-jsapi
+          path: docs-jsapi
 
   deploy:
     environment:
@@ -54,4 +50,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4   # ✅ 升级
