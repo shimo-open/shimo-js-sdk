@@ -46,7 +46,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: './docs-api'
+          path: './docs'
 
   # 部署作业
   deploy:
