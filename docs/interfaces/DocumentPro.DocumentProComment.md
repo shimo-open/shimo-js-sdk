@@ -1,4 +1,4 @@
-[shimo-js-sdk](/README.md) / [Exports](/modules.md) / [DocumentPro](/modules/DocumentPro.md) / DocumentProComment
+[shimo-js-sdk - v1.2.10](/README.md) / [DocumentPro](/modules/DocumentPro.md) / DocumentProComment
 
 # Interface: DocumentProComment
 
@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[src/types/DocumentPro.ts:377](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/DocumentPro.ts#L377)
+[src/types/DocumentPro.ts:380](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L380)
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:381](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/DocumentPro.ts#L381)
+[src/types/DocumentPro.ts:384](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L384)
 
 ___
 
@@ -48,7 +48,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:385](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/DocumentPro.ts#L385)
+[src/types/DocumentPro.ts:388](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L388)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:386](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/DocumentPro.ts#L386)
+[src/types/DocumentPro.ts:389](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L389)
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:390](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/DocumentPro.ts#L390)
+[src/types/DocumentPro.ts:393](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L393)
 
 ___
 
@@ -90,7 +90,7 @@ timestamp string
 
 #### Defined in
 
-[src/types/DocumentPro.ts:398](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/DocumentPro.ts#L398)
+[src/types/DocumentPro.ts:401](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L401)
 
 ___
 
@@ -102,4 +102,4 @@ timestamp string
 
 #### Defined in
 
-[src/types/DocumentPro.ts:402](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/DocumentPro.ts#L402)
+[src/types/DocumentPro.ts:405](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L405)

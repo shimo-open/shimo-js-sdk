@@ -1,4 +1,4 @@
-[shimo-js-sdk](/README.md) / [Exports](/modules.md) / SDKEventMessage
+[shimo-js-sdk - v1.2.10](/README.md) / SDKEventMessage
 
 # Interface: SDKEventMessage
 

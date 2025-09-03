@@ -12,19 +12,34 @@ export interface EventMap {
 export interface Editor extends BaseEditor<EventMap> {
   /**
    * 显示历史
-   * @since 22.2.1
    */
-  showHistory: (options?: {}) => Promise<void>
-  /** 隐藏历史 */
-  hideHistory: (options?: {}) => Promise<void>
-  /** 开始本地演示 */
-  startDemonstration: (options?: {}) => Promise<void>
-  /** 结束本地演示 */
-  endDemonstration: (options?: {}) => Promise<void>
-  /** 创建版本 */
-  createRevision: (options?: {}) => Promise<void>
-  /** 导出 */
+  showHistory: () => Promise<void>
+  /** 
+    隐藏历史 
+  */
+  hideHistory: () => Promise<void>
+  /** 
+    开始本地演示 
+  */
+  startDemonstration: () => Promise<void>
+  /** 
+    结束本地演示 
+  */
+  endDemonstration: () => Promise<void>
+  /**
+   * 创建版本
+   * @since co-1.5
+   */
+  createRevision: () => Promise<void>
+  /**
+   * 导出
+   * @param type image：导出图片，imagePdf: 导出pdf
+   * @since co-1.5
+   */
   export: (type: 'image' | 'imagePdf') => Promise<void>
-  /** 打印 */
-  print: (options?: {}) => Promise<void>
+  /**
+   * 打印
+   * @since co-1.5
+   */
+  print: () => Promise<void>
 }

@@ -527,6 +527,11 @@ export interface Editor extends BaseEditor<EventMap> {
    * @since co-1.0
    */
   getViewportSize(this: Editor): Promise<{ width: number; height: number }>
+  /**
+   * 导出
+   * @since co-1.5
+   */
+  export(type: 'image' | 'imagePdf'): Promise<void>
 }
 
 /**

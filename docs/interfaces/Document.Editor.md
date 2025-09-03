@@ -1,4 +1,4 @@
-[shimo-js-sdk](/README.md) / [Exports](/modules.md) / [Document](/modules/Document.md) / Editor
+[shimo-js-sdk - v1.2.10](/README.md) / [Document](/modules/Document.md) / Editor
 
 # Interface: Editor
 
@@ -66,7 +66,7 @@
 
 #### Defined in
 
-[src/types/BaseEditor.ts:37](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/BaseEditor.ts#L37)
+[src/types/BaseEditor.ts:37](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L37)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:42](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/BaseEditor.ts#L42)
+[src/types/BaseEditor.ts:42](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L42)
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:47](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/BaseEditor.ts#L47)
+[src/types/BaseEditor.ts:47](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L47)
 
 ___
 
@@ -149,7 +149,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:35](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Document.ts#L35)
+[src/types/Document.ts:35](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Document.ts#L35)
 
 ___
 
@@ -173,7 +173,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:40](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Document.ts#L40)
+[src/types/Document.ts:40](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Document.ts#L40)
 
 ___
 
@@ -197,7 +197,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:45](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Document.ts#L45)
+[src/types/Document.ts:45](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Document.ts#L45)
 
 ___
 
@@ -221,7 +221,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:50](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Document.ts#L50)
+[src/types/Document.ts:50](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Document.ts#L50)
 
 ___
 
@@ -245,7 +245,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:55](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Document.ts#L55)
+[src/types/Document.ts:55](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Document.ts#L55)
 
 ___
 
@@ -269,7 +269,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:60](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Document.ts#L60)
+[src/types/Document.ts:60](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Document.ts#L60)
 
 ___
 
@@ -293,7 +293,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:65](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Document.ts#L65)
+[src/types/Document.ts:65](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Document.ts#L65)
 
 ___
 
@@ -317,7 +317,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:70](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Document.ts#L70)
+[src/types/Document.ts:70](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Document.ts#L70)
 
 ___
 
@@ -341,7 +341,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:75](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Document.ts#L75)
+[src/types/Document.ts:75](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Document.ts#L75)
 
 ___
 
@@ -365,7 +365,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:80](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Document.ts#L80)
+[src/types/Document.ts:80](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Document.ts#L80)
 
 ___
 
@@ -389,7 +389,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:85](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Document.ts#L85)
+[src/types/Document.ts:85](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Document.ts#L85)
 
 ___
 
@@ -413,7 +413,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:90](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Document.ts#L90)
+[src/types/Document.ts:90](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Document.ts#L90)
 
 ___
 
@@ -437,7 +437,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:96](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Document.ts#L96)
+[src/types/Document.ts:96](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Document.ts#L96)
 
 ___
 
@@ -461,7 +461,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:101](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Document.ts#L101)
+[src/types/Document.ts:101](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Document.ts#L101)
 
 ___
 
@@ -485,7 +485,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:106](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Document.ts#L106)
+[src/types/Document.ts:106](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Document.ts#L106)
 
 ___
 
@@ -509,7 +509,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:111](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Document.ts#L111)
+[src/types/Document.ts:111](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Document.ts#L111)
 
 ___
 
@@ -533,4 +533,4 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:116](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Document.ts#L116)
+[src/types/Document.ts:116](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Document.ts#L116)

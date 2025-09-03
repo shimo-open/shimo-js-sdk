@@ -1,4 +1,4 @@
-[shimo-js-sdk](/README.md) / [Exports](/modules.md) / [Document](/modules/Document.md) / DocumentErrorMessage
+[shimo-js-sdk - v1.2.10](/README.md) / [Document](/modules/Document.md) / DocumentErrorMessage
 
 # Interface: DocumentErrorMessage
 
@@ -18,4 +18,4 @@
 
 #### Defined in
 
-[src/types/Document.ts:5](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Document.ts#L5)
+[src/types/Document.ts:5](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Document.ts#L5)

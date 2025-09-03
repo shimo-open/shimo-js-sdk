@@ -1,4 +1,4 @@
-[shimo-js-sdk](/README.md) / [Exports](/modules.md) / [Table](/modules/Table.md) / Editor
+[shimo-js-sdk - v1.2.10](/README.md) / [Table](/modules/Table.md) / Editor
 
 # Interface: Editor
 
@@ -52,7 +52,7 @@
 
 #### Defined in
 
-[src/types/BaseEditor.ts:37](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/BaseEditor.ts#L37)
+[src/types/BaseEditor.ts:37](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L37)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:42](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/BaseEditor.ts#L42)
+[src/types/BaseEditor.ts:42](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L42)
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:47](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/BaseEditor.ts#L47)
+[src/types/BaseEditor.ts:47](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L47)
 
 ___
 
@@ -133,7 +133,7 @@ ___
 
 #### Defined in
 
-[src/types/Table.ts:16](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Table.ts#L16)
+[src/types/Table.ts:16](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Table.ts#L16)
 
 ___
 
@@ -155,7 +155,7 @@ ___
 
 #### Defined in
 
-[src/types/Table.ts:20](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Table.ts#L20)
+[src/types/Table.ts:20](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Table.ts#L20)
 
 ___
 
@@ -177,4 +177,4 @@ ___
 
 #### Defined in
 
-[src/types/Table.ts:24](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Table.ts#L24)
+[src/types/Table.ts:24](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Table.ts#L24)

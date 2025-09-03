@@ -364,12 +364,15 @@ export interface Editor extends BaseEditor<EventMap> {
   showHistory: (options?: {}) => Promise<void>
   /** 关闭历史版本预览 */
   hideHistory: (options?: {}) => Promise<void>
-
   /**
    * 更新签名图片
    */
   updateSignature: (payload: UpdateSignaturePayload) => Promise<void>
-
+  /**
+   * 导出
+   * @param type image：导出图片，imagePdf: 导出pdf
+   * @since co-1.5
+   */
   export: (type: 'image' | 'imagePdf') => Promise<void>
 }
 

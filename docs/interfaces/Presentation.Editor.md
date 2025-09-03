@@ -1,4 +1,4 @@
-[shimo-js-sdk](/README.md) / [Exports](/modules.md) / [Presentation](/modules/Presentation.md) / Editor
+[shimo-js-sdk - v1.2.10](/README.md) / [Presentation](/modules/Presentation.md) / Editor
 
 # Interface: Editor
 
@@ -56,7 +56,7 @@
 
 #### Defined in
 
-[src/types/BaseEditor.ts:37](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/BaseEditor.ts#L37)
+[src/types/BaseEditor.ts:37](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L37)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:42](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/BaseEditor.ts#L42)
+[src/types/BaseEditor.ts:42](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L42)
 
 ___
 
@@ -115,23 +115,15 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:47](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/BaseEditor.ts#L47)
+[src/types/BaseEditor.ts:47](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L47)
 
 ___
 
 ### showHistory
 
-▸ **showHistory**(`options?`): `Promise`<`void`\>
+▸ **showHistory**(): `Promise`<`void`\>
 
 显示历史
-
-**`since`** 22.2.1
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Object` |
 
 #### Returns
 
@@ -139,21 +131,15 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:17](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Presentation.ts#L17)
+[src/types/Presentation.ts:16](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L16)
 
 ___
 
 ### hideHistory
 
-▸ **hideHistory**(`options?`): `Promise`<`void`\>
+▸ **hideHistory**(): `Promise`<`void`\>
 
 隐藏历史
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Object` |
 
 #### Returns
 
@@ -161,21 +147,15 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:19](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Presentation.ts#L19)
+[src/types/Presentation.ts:20](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L20)
 
 ___
 
 ### startDemonstration
 
-▸ **startDemonstration**(`options?`): `Promise`<`void`\>
+▸ **startDemonstration**(): `Promise`<`void`\>
 
 开始本地演示
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Object` |
 
 #### Returns
 
@@ -183,21 +163,15 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:21](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Presentation.ts#L21)
+[src/types/Presentation.ts:24](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L24)
 
 ___
 
 ### endDemonstration
 
-▸ **endDemonstration**(`options?`): `Promise`<`void`\>
+▸ **endDemonstration**(): `Promise`<`void`\>
 
 结束本地演示
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Object` |
 
 #### Returns
 
@@ -205,21 +179,17 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:23](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Presentation.ts#L23)
+[src/types/Presentation.ts:28](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L28)
 
 ___
 
 ### createRevision
 
-▸ **createRevision**(`options?`): `Promise`<`void`\>
+▸ **createRevision**(): `Promise`<`void`\>
 
 创建版本
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Object` |
+**`since`** co-1.5
 
 #### Returns
 
@@ -227,7 +197,7 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:25](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Presentation.ts#L25)
+[src/types/Presentation.ts:33](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L33)
 
 ___
 
@@ -237,11 +207,13 @@ ___
 
 导出
 
+**`since`** co-1.5
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `type` | ``"image"`` \| ``"imagePdf"`` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `type` | ``"image"`` \| ``"imagePdf"`` | image：导出图片，imagePdf: 导出pdf |
 
 #### Returns
 
@@ -249,21 +221,17 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:27](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Presentation.ts#L27)
+[src/types/Presentation.ts:39](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L39)
 
 ___
 
 ### print
 
-▸ **print**(`options?`): `Promise`<`void`\>
+▸ **print**(): `Promise`<`void`\>
 
 打印
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Object` |
+**`since`** co-1.5
 
 #### Returns
 
@@ -271,4 +239,4 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:29](https://github.com/byte9527/shimo-js-sdk/blob/8fa8b89/src/types/Presentation.ts#L29)
+[src/types/Presentation.ts:44](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L44)

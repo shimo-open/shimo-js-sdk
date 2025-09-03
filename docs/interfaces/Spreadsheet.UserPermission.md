@@ -1,4 +1,4 @@
-[shimo-js-sdk](/README.md) / [Exports](/modules.md) / [Spreadsheet](/modules/Spreadsheet.md) / UserPermission
+[shimo-js-sdk - v1.2.10](/README.md) / [Spreadsheet](/modules/Spreadsheet.md) / UserPermission
 
 # Interface: UserPermission
 

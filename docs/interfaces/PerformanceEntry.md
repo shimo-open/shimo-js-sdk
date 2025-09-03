@@ -1,4 +1,4 @@
-[shimo-js-sdk](/README.md) / [Exports](/modules.md) / PerformanceEntry
+[shimo-js-sdk - v1.2.10](/README.md) / PerformanceEntry
 
 # Interface: PerformanceEntry
 
