@@ -2,31 +2,28 @@ name: Deploy Documentation
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ feat-md-preview ]   # 🚨 只在 feat-md-preview 分支触发
   pull_request:
-    branches: [ main, master ]
-
-# 允许从 Actions 页面手动运行此工作流程
+    branches: [ feat-md-preview ]
   workflow_dispatch:
 
-# 设置 GITHUB_TOKEN 的权限以允许部署到 GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# 仅允许一个并发部署，跳过正在运行的队列中的部署
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # 构建作业
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: feat-md-preview   # 🚨 确保拉取 feat-md-preview 分支
         
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -38,7 +35,7 @@ jobs:
         run: npm ci
         
       - name: Generate documentation
-        run: npm run docs
+        run: npm run docs  # 生成到 docs-jsapi 下
         
       - name: Setup Pages
         uses: actions/configure-pages@v3
@@ -46,9 +43,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: './docs'
+          path: docs-jsapi   # 🚨 指定目录为 docs-jsapi
 
-  # 部署作业
   deploy:
     environment:
       name: github-pages
