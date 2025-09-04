@@ -264,7 +264,7 @@
     window.$docsify = {
       name: 'shimo-js-sdk',
       repo: 'https://github.com/shimo-open/shimo-js-sdk',
-      homepage: 'README.md',
+      homepage: 'summary.md',
       loadSidebar: true,
       autoHeader: true,
       subMaxLevel: 3,
@@ -273,6 +273,12 @@
       auto2top: true,
       relativePath: false,
       notFoundPage: true,
+      
+      // 路由配置
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md',
+        '/': '/summary.md'
+      },
       
       // 搜索配置
       search: {
@@ -309,6 +315,16 @@
       
       // 插件配置
       plugins: [
+        // 路由重定向插件
+        function(hook, vm) {
+          hook.init(function() {
+            // 如果是根路径，重定向到 summary.md
+            if (location.hash === '#/' || location.hash === '') {
+              location.hash = '#/summary';
+            }
+          });
+        },
+        
         // 主题切换插件
         function(hook, vm) {
           hook.mounted(function() {
