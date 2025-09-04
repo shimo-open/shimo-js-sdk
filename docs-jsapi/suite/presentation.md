@@ -184,9 +184,10 @@ await editor.print()
 
 ## 事件列表
 
-| 事件名          | 说明     | 载荷类型                       |
-| --------------- | -------- | ------------------------------ |
-| [error](#error) | 错误事件 | `{ data?: any, code: number }` |
+| 事件名                                  | 说明         | 载荷类型                                      |
+| --------------------------------------- | ------------ | --------------------------------------------- |
+| [error](#error)                         | 错误事件     | `{ data?: any, code: number }`                |
+| [saveStatusChanged](#savestatuschanged) | 保存状态变化 | `{ status?: 'saving' \| 'saved' \| 'error' }` |
 
 ---
 
@@ -237,24 +238,55 @@ editor.on('error', (payload) => {
 })
 ```
 
-### 错误处理建议
+## saveStatusChanged
+
+### 说明
+
+当演示文稿的保存状态发生变化时触发此事件。可用于监听文档的保存进度，为用户提供保存状态的反馈。
+
+### 类型定义
+
+```typescript
+saveStatusChanged: {
+  /** 保存状态 */
+  status?: 'saving' | 'saved' | 'error'
+}
+```
+
+### 参数说明
+
+- `status`: 保存状态，可选值：
+  - `'saving'`: 正在保存
+  - `'saved'`: 保存成功
+  - `'error'`: 保存失败
+
+### 示例
 
 ```javascript
-// 完整的错误处理示例
-editor.on('error', (payload) => {
-  // 记录错误日志
-  console.error(`[Presentation Error ${payload.code}]`, payload.data)
+const editor = sdk.getEditor()
 
-  // 向用户显示友好的错误提示
-  if (payload.code >= 500) {
-    alert('服务器错误，请稍后重试')
-  } else if (payload.code >= 400) {
-    alert('操作失败，请检查权限或网络连接')
-  } else {
-    alert('发生未知错误，请联系技术支持')
+// 监听保存状态变化事件
+editor.on('saveStatusChanged', (payload) => {
+  console.log('保存状态变化:', payload.status)
+
+  switch (payload.status) {
+    case 'saving':
+      console.log('正在保存文档...')
+      // 显示保存中的loading状态
+      showSavingIndicator()
+      break
+    case 'saved':
+      console.log('文档保存成功')
+      // 显示保存成功提示
+      showSavedIndicator()
+      break
+    case 'error':
+      console.log('文档保存失败')
+      // 显示保存失败提示
+      showSaveErrorIndicator()
+      break
+    default:
+      console.log('保存状态未知')
   }
-
-  // 可选：上报错误到监控系统
-  // reportError('presentation', payload.code, payload.data)
 })
 ```
