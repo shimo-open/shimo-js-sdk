@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.10](/README.md) / BaseEditor
+[shimo-js-sdk - v1.2.12](/README.md) / BaseEditor
 
 # Interface: BaseEditor<T\>
 

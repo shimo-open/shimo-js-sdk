@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.10](/README.md) / [Presentation](/modules/Presentation.md) / Editor
+[shimo-js-sdk - v1.2.12](/README.md) / [Presentation](/modules/Presentation.md) / Editor
 
 # Interface: Editor
 
@@ -131,7 +131,7 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:16](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L16)
+[src/types/Presentation.ts:25](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L25)
 
 ___
 
@@ -147,7 +147,7 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:20](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L20)
+[src/types/Presentation.ts:29](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L29)
 
 ___
 
@@ -163,7 +163,7 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:24](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L24)
+[src/types/Presentation.ts:33](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L33)
 
 ___
 
@@ -179,7 +179,7 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:28](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L28)
+[src/types/Presentation.ts:37](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L37)
 
 ___
 
@@ -197,7 +197,7 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:33](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L33)
+[src/types/Presentation.ts:42](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L42)
 
 ___
 
@@ -221,7 +221,7 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:39](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L39)
+[src/types/Presentation.ts:48](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L48)
 
 ___
 
@@ -239,4 +239,4 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:44](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L44)
+[src/types/Presentation.ts:53](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L53)

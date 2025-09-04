@@ -1,11 +1,20 @@
 import { BaseEditor } from './BaseEditor'
 
 export interface EventMap {
+  /**
+   * 错误
+   */
   error: {
     /** 错误信息 */
     data?: any
     /** 错误码 */
     code: number
+  }
+  /**
+   * 保存状态改变时触发
+   */
+  saveStatusChanged: {
+    status?: 'saving' | 'saved' | 'error'
   }
 }
 

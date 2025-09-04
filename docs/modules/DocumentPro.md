@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.10](/README.md) / DocumentPro
+[shimo-js-sdk - v1.2.12](/README.md) / DocumentPro
 
 # Namespace: DocumentPro
 

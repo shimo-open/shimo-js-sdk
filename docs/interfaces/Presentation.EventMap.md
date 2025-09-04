@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.10](/README.md) / [Presentation](/modules/Presentation.md) / EventMap
+[shimo-js-sdk - v1.2.12](/README.md) / [Presentation](/modules/Presentation.md) / EventMap
 
 # Interface: EventMap
 
@@ -9,12 +9,15 @@
 ### Properties
 
 - [error](/interfaces/Presentation.EventMap.md#error)
+- [saveStatusChanged](/interfaces/Presentation.EventMap.md#savestatuschanged)
 
 ## Properties
 
 ### error
 
 • **error**: `Object`
+
+错误
 
 #### Type declaration
 
@@ -25,4 +28,22 @@
 
 #### Defined in
 
-[src/types/Presentation.ts:4](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L4)
+[src/types/Presentation.ts:7](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L7)
+
+___
+
+### saveStatusChanged
+
+• **saveStatusChanged**: `Object`
+
+保存状态改变时触发
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `status?` | ``"error"`` \| ``"saving"`` \| ``"saved"`` |
+
+#### Defined in
+
+[src/types/Presentation.ts:16](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L16)

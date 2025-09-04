@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.10](/README.md) / ReadyStateEventPayload
+[shimo-js-sdk - v1.2.12](/README.md) / ReadyStateEventPayload
 
 # Interface: ReadyStateEventPayload
 

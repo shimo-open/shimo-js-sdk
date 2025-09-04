@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.10](/README.md) / Spreadsheet
+[shimo-js-sdk - v1.2.12](/README.md) / Spreadsheet
 
 # Namespace: Spreadsheet
 

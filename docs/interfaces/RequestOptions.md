@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.10](/README.md) / RequestOptions
+[shimo-js-sdk - v1.2.12](/README.md) / RequestOptions
 
 # Interface: RequestOptions
 
