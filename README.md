@@ -6,7 +6,7 @@
 
 _注：此 SDK 无法用于石墨文档官网产品 (即 shimo.im) 。_
 
-## 使用说明
+## [文档详情](https://shimo-open.github.io/shimo-js-sdk/#/)
 
 ### 安装
 
