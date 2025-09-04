@@ -2,7 +2,7 @@ name: Deploy Documentation
 
 on:
   push:
-    branches: [ feat-md-preview ]
+    branches: [ master ]
   workflow_dispatch:
 
 permissions:
