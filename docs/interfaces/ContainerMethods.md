@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / ContainerMethods
+[shimo-js-sdk - v1.2.10](/README.md) / ContainerMethods
 
 # Interface: ContainerMethods
 
@@ -6,112 +6,34 @@
 
 ## Table of contents
 
-### Properties
-
-- [generateUrl](ContainerMethods.md#generateurl)
-
 ### Methods
 
-- [getContainerRect](ContainerMethods.md#getcontainerrect)
-- [getFileInfoFromUrl](ContainerMethods.md#getfileinfofromurl)
-- [handleCustomTask](ContainerMethods.md#handlecustomtask)
-- [mentionClickHandlerForMobile](ContainerMethods.md#mentionclickhandlerformobile)
-- [openLink](ContainerMethods.md#openlink)
-- [showToast](ContainerMethods.md#showtoast)
+- [getContainerRect](/interfaces/ContainerMethods.md#getcontainerrect)
+- [openLink](/interfaces/ContainerMethods.md#openlink)
+- [mentionClickHandlerForMobile](/interfaces/ContainerMethods.md#mentionclickhandlerformobile)
+- [getFileInfoFromUrl](/interfaces/ContainerMethods.md#getfileinfofromurl)
+- [showToast](/interfaces/ContainerMethods.md#showtoast)
+- [handleCustomTask](/interfaces/ContainerMethods.md#handlecustomtask)
 
-## Properties
+### Properties
 
-### generateUrl
-
-• `Optional` **generateUrl**: [`GenerateUrlHandler`](../modules.md#generateurlhandler)
-
-生成插入到石墨文档中的链接，用于处理 @ 文件等功能需要插入的链接
-
-#### Defined in
-
-[src/ShimoSDK.ts:791](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L791)
+- [generateUrl](/interfaces/ContainerMethods.md#generateurl)
 
 ## Methods
 
 ### getContainerRect
 
-▸ `Optional` **getContainerRect**(): [`ContainerRect`](ContainerRect.md)
+▸ `Optional` **getContainerRect**(): [`ContainerRect`](/interfaces/ContainerRect.md)
 
 获取容器尺寸等信息
 
 #### Returns
 
-[`ContainerRect`](ContainerRect.md)
+[`ContainerRect`](/interfaces/ContainerRect.md)
 
 #### Defined in
 
-[src/ShimoSDK.ts:771](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L771)
-
-___
-
-### getFileInfoFromUrl
-
-▸ `Optional` **getFileInfoFromUrl**(`url`): `Promise`<`undefined` \| { `fileId`: `string`  }\>
-
-用于从客户业务 URL 中获取对应的文件 ID，供编辑器使用。
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
-
-#### Returns
-
-`Promise`<`undefined` \| { `fileId`: `string`  }\>
-
-#### Defined in
-
-[src/ShimoSDK.ts:803](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L803)
-
-___
-
-### handleCustomTask
-
-▸ `Optional` **handleCustomTask**(`taskId`): `Promise`<`void`\>
-
-通知用户执行自定义操作，操作由用户自定义按钮触发
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `taskId` | `string` |
-
-#### Returns
-
-`Promise`<`void`\>
-
-#### Defined in
-
-[src/ShimoSDK.ts:821](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L821)
-
-___
-
-### mentionClickHandlerForMobile
-
-▸ `Optional` **mentionClickHandlerForMobile**(`payload`): `void`
-
-用于移动端处理 @ 点击事件
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `payload` | [`MouseMovePayload`](MouseMovePayload.md) |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/ShimoSDK.ts:796](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L796)
+[src/ShimoSDK.ts:782](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L782)
 
 ___
 
@@ -134,7 +56,51 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:776](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L776)
+[src/ShimoSDK.ts:787](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L787)
+
+___
+
+### mentionClickHandlerForMobile
+
+▸ `Optional` **mentionClickHandlerForMobile**(`payload`): `void`
+
+用于移动端处理 @ 点击事件
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `payload` | [`MouseMovePayload`](/interfaces/MouseMovePayload.md) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/ShimoSDK.ts:807](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L807)
+
+___
+
+### getFileInfoFromUrl
+
+▸ `Optional` **getFileInfoFromUrl**(`url`): `Promise`<`undefined` \| { `fileId`: `string`  }\>
+
+用于从客户业务 URL 中获取对应的文件 ID，供编辑器使用。
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `url` | `string` |
+
+#### Returns
+
+`Promise`<`undefined` \| { `fileId`: `string`  }\>
+
+#### Defined in
+
+[src/ShimoSDK.ts:814](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L814)
 
 ___
 
@@ -148,7 +114,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`ShowToastOptions`](ShowToastOptions.md) |
+| `options` | [`ShowToastOptions`](/interfaces/ShowToastOptions.md) |
 
 #### Returns
 
@@ -156,4 +122,38 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:816](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L816)
+[src/ShimoSDK.ts:827](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L827)
+
+___
+
+### handleCustomTask
+
+▸ `Optional` **handleCustomTask**(`taskId`): `Promise`<`void`\>
+
+通知用户执行自定义操作，操作由用户自定义按钮触发
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `taskId` | `string` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/ShimoSDK.ts:832](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L832)
+
+## Properties
+
+### generateUrl
+
+• `Optional` **generateUrl**: [`GenerateUrlHandler`](/README.md#generateurlhandler)
+
+生成插入到石墨文档中的链接，用于处理 @ 文件等功能需要插入的链接
+
+#### Defined in
+
+[src/ShimoSDK.ts:802](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L802)

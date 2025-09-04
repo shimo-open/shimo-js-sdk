@@ -1,46 +1,22 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / [DocumentPro](../modules/DocumentPro.md) / DocumentProComment
+[shimo-js-sdk - v1.2.10](/README.md) / [DocumentPro](/modules/DocumentPro.md) / DocumentProComment
 
 # Interface: DocumentProComment
 
-[DocumentPro](../modules/DocumentPro.md).DocumentProComment
+[DocumentPro](/modules/DocumentPro.md).DocumentProComment
 
 ## Table of contents
 
 ### Properties
 
-- [createTime](DocumentPro.DocumentProComment.md#createtime)
-- [data](DocumentPro.DocumentProComment.md#data)
-- [id](DocumentPro.DocumentProComment.md#id)
-- [lastUpdateTime](DocumentPro.DocumentProComment.md#lastupdatetime)
-- [quoteText](DocumentPro.DocumentProComment.md#quotetext)
-- [startInfo](DocumentPro.DocumentProComment.md#startinfo)
-- [title](DocumentPro.DocumentProComment.md#title)
+- [id](/interfaces/DocumentPro.DocumentProComment.md#id)
+- [quoteText](/interfaces/DocumentPro.DocumentProComment.md#quotetext)
+- [data](/interfaces/DocumentPro.DocumentProComment.md#data)
+- [title](/interfaces/DocumentPro.DocumentProComment.md#title)
+- [startInfo](/interfaces/DocumentPro.DocumentProComment.md#startinfo)
+- [createTime](/interfaces/DocumentPro.DocumentProComment.md#createtime)
+- [lastUpdateTime](/interfaces/DocumentPro.DocumentProComment.md#lastupdatetime)
 
 ## Properties
-
-### createTime
-
-• **createTime**: `string`
-
-timestamp string
-
-#### Defined in
-
-[src/types/DocumentPro.ts:396](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/DocumentPro.ts#L396)
-
-___
-
-### data
-
-• **data**: [`DocumentProCommentData`](DocumentPro.DocumentProCommentData.md)
-
-评论的数据
-
-#### Defined in
-
-[src/types/DocumentPro.ts:383](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/DocumentPro.ts#L383)
-
-___
 
 ### id
 
@@ -48,19 +24,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:375](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/DocumentPro.ts#L375)
-
-___
-
-### lastUpdateTime
-
-• **lastUpdateTime**: `string`
-
-timestamp string
-
-#### Defined in
-
-[src/types/DocumentPro.ts:400](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/DocumentPro.ts#L400)
+[src/types/DocumentPro.ts:380](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L380)
 
 ___
 
@@ -72,7 +36,29 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:379](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/DocumentPro.ts#L379)
+[src/types/DocumentPro.ts:384](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L384)
+
+___
+
+### data
+
+• **data**: [`DocumentProCommentData`](/interfaces/DocumentPro.DocumentProCommentData.md)
+
+评论的数据
+
+#### Defined in
+
+[src/types/DocumentPro.ts:388](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L388)
+
+___
+
+### title
+
+• `Optional` **title**: `string`
+
+#### Defined in
+
+[src/types/DocumentPro.ts:389](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L389)
 
 ___
 
@@ -86,20 +72,34 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `pageNum` | `number` |
 | `x` | `number` |
 | `y` | `number` |
+| `pageNum` | `number` |
 
 #### Defined in
 
-[src/types/DocumentPro.ts:388](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/DocumentPro.ts#L388)
+[src/types/DocumentPro.ts:393](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L393)
 
 ___
 
-### title
+### createTime
 
-• `Optional` **title**: `string`
+• **createTime**: `string`
+
+timestamp string
 
 #### Defined in
 
-[src/types/DocumentPro.ts:384](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/DocumentPro.ts#L384)
+[src/types/DocumentPro.ts:401](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L401)
+
+___
+
+### lastUpdateTime
+
+• **lastUpdateTime**: `string`
+
+timestamp string
+
+#### Defined in
+
+[src/types/DocumentPro.ts:405](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L405)

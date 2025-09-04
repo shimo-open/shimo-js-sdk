@@ -1,8 +1,8 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / [DocumentPro](../modules/DocumentPro.md) / CommentData
+[shimo-js-sdk - v1.2.10](/README.md) / [DocumentPro](/modules/DocumentPro.md) / CommentData
 
 # Interface: CommentData
 
-[DocumentPro](../modules/DocumentPro.md).CommentData
+[DocumentPro](/modules/DocumentPro.md).CommentData
 
 评论数据
 
@@ -10,26 +10,14 @@
 
 ### Properties
 
-- [createTime](DocumentPro.CommentData.md#createtime)
-- [id](DocumentPro.CommentData.md#id)
-- [lastUpdateTime](DocumentPro.CommentData.md#lastupdatetime)
-- [replies](DocumentPro.CommentData.md#replies)
-- [userId](DocumentPro.CommentData.md#userid)
-- [userName](DocumentPro.CommentData.md#username)
+- [id](/interfaces/DocumentPro.CommentData.md#id)
+- [createTime](/interfaces/DocumentPro.CommentData.md#createtime)
+- [lastUpdateTime](/interfaces/DocumentPro.CommentData.md#lastupdatetime)
+- [userId](/interfaces/DocumentPro.CommentData.md#userid)
+- [userName](/interfaces/DocumentPro.CommentData.md#username)
+- [replies](/interfaces/DocumentPro.CommentData.md#replies)
 
 ## Properties
-
-### createTime
-
-• **createTime**: `string`
-
-评论的创建时间
-
-#### Defined in
-
-[src/types/DocumentPro.ts:41](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/DocumentPro.ts#L41)
-
-___
 
 ### id
 
@@ -39,7 +27,19 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:36](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/DocumentPro.ts#L36)
+[src/types/DocumentPro.ts:36](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L36)
+
+___
+
+### createTime
+
+• **createTime**: `string`
+
+评论的创建时间
+
+#### Defined in
+
+[src/types/DocumentPro.ts:41](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L41)
 
 ___
 
@@ -51,19 +51,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:46](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/DocumentPro.ts#L46)
-
-___
-
-### replies
-
-• **replies**: [`CommentData`](DocumentPro.CommentData.md)[]
-
-评论的所有回复
-
-#### Defined in
-
-[src/types/DocumentPro.ts:61](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/DocumentPro.ts#L61)
+[src/types/DocumentPro.ts:46](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L46)
 
 ___
 
@@ -75,7 +63,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:51](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/DocumentPro.ts#L51)
+[src/types/DocumentPro.ts:51](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L51)
 
 ___
 
@@ -87,4 +75,16 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:56](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/DocumentPro.ts#L56)
+[src/types/DocumentPro.ts:56](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L56)
+
+___
+
+### replies
+
+• **replies**: [`CommentData`](/interfaces/DocumentPro.CommentData.md)[]
+
+评论的所有回复
+
+#### Defined in
+
+[src/types/DocumentPro.ts:61](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L61)

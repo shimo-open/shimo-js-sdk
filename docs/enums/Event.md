@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / Event
+[shimo-js-sdk - v1.2.10](/README.md) / Event
 
 # Enumeration: Event
 
@@ -6,22 +6,22 @@
 
 ### Enumeration members
 
-- [EditorEvent](Event.md#editorevent)
-- [Error](Event.md#error)
-- [ReadyState](Event.md#readystate)
-- [SDKInit](Event.md#sdkinit)
+- [SDKInit](/enums/Event.md#sdkinit)
+- [Error](/enums/Event.md#error)
+- [ReadyState](/enums/Event.md#readystate)
+- [EditorEvent](/enums/Event.md#editorevent)
 
 ## Enumeration members
 
-### EditorEvent
+### SDKInit
 
-• **EditorEvent** = `"editorEvent"`
+• **SDKInit** = `"SDKInit"`
 
-编辑器事件
+SDK 初始化事件，用于内部逻辑
 
 #### Defined in
 
-[src/ShimoSDK.ts:843](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L843)
+[src/ShimoSDK.ts:839](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L839)
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:833](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L833)
+[src/ShimoSDK.ts:844](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L844)
 
 ___
 
@@ -45,16 +45,16 @@ ShimoSDK 状态变化事件
 
 #### Defined in
 
-[src/ShimoSDK.ts:838](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L838)
+[src/ShimoSDK.ts:849](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L849)
 
 ___
 
-### SDKInit
+### EditorEvent
 
-• **SDKInit** = `"SDKInit"`
+• **EditorEvent** = `"editorEvent"`
 
-SDK 初始化事件，用于内部逻辑
+编辑器事件
 
 #### Defined in
 
-[src/ShimoSDK.ts:828](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/ShimoSDK.ts#L828)
+[src/ShimoSDK.ts:854](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L854)

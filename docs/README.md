@@ -1,371 +1,358 @@
-shimo-js-sdk / [Exports](modules.md)
+shimo-js-sdk - v1.2.10
 
-# 石墨 JS SDK
+# shimo-js-sdk - v1.2.10
 
-此 SDK 对应石墨 SDK 2.0 产品，目的是让石墨 SDK 2.0 产品的客户能够快速接入 SDK，并和石墨文档套件进行前端交互。
+## Table of contents
 
-关于石墨 SDK 2.0 产品的详细内容请移步 [SDK 2.0 官网](https://platform.shimo.im/v2/)。
+### Type aliases
 
-_注：此 SDK 无法用于石墨文档官网产品 (即 shimo.im) 。_
+- [APIAdaptor](/README.md#apiadaptor)
+- [RequestContextType](/README.md#requestcontexttype)
+- [FileId](/README.md#fileid)
+- [UserId](/README.md#userid)
+- [DeviceMode](/README.md#devicemode)
+- [GenerateUrlHandler](/README.md#generateurlhandler)
+- [GenerateUrlInfo](/README.md#generateurlinfo)
+- [SharingSource](/README.md#sharingsource)
+- [EventCallback](/README.md#eventcallback)
 
-## 使用说明
+### Interfaces
 
-### 安装
+- [RequestOptions](/interfaces/RequestOptions.md)
+- [RequestContext](/interfaces/RequestContext.md)
+- [FileInfo](/interfaces/FileInfo.md)
+- [SDKEventMap](/interfaces/SDKEventMap.md)
+- [SDKEventMessage](/interfaces/SDKEventMessage.md)
+- [ReadyStateEventPayload](/interfaces/ReadyStateEventPayload.md)
+- [DisableMentionCards](/interfaces/DisableMentionCards.md)
+- [ContainerRect](/interfaces/ContainerRect.md)
+- [LineInfo](/interfaces/LineInfo.md)
+- [MentionInfo](/interfaces/MentionInfo.md)
+- [MouseMovePayload](/interfaces/MouseMovePayload.md)
+- [PerformanceEntry](/interfaces/PerformanceEntry.md)
+- [ShowToastOptions](/interfaces/ShowToastOptions.md)
+- [ContainerMethods](/interfaces/ContainerMethods.md)
+- [Message](/interfaces/Message.md)
+- [MessageEventPayload](/interfaces/MessageEventPayload.md)
+- [ContainerMethodPayload](/interfaces/ContainerMethodPayload.md)
+- [ReadyStateEvent](/interfaces/ReadyStateEvent.md)
+- [ShimoSDKOptions](/interfaces/ShimoSDKOptions.md)
+- [ConnectOptions](/interfaces/ConnectOptions.md)
+- [BaseEventMap](/interfaces/BaseEventMap.md)
+- [BaseEditor](/interfaces/BaseEditor.md)
 
-```shell
-# 通过 npm
-npm install --save shimo-js-sdk
+### Enumerations
 
-# 通过 yarn
-yarn add shimo-js-sdk
-```
+- [FileType](/enums/FileType.md)
+- [ReadyState](/enums/ReadyState.md)
+- [InvokeMethod](/enums/InvokeMethod.md)
+- [ContainerMethod](/enums/ContainerMethod.md)
+- [SpreadsheetSharingFrom](/enums/SpreadsheetSharingFrom.md)
+- [UrlSharingType](/enums/UrlSharingType.md)
+- [Event](/enums/Event.md)
 
-### 初始化 iframe
+### Variables
 
-```js
-const { connect } = require('shimo-js-sdk')
+- [FileTypeAlias](/README.md#filetypealias)
+- [SDKEvent](/README.md#sdkevent)
+- [MessageEvent](/README.md#messageevent)
+- [START\_PARAMS\_FIELD](/README.md#start_params_field)
 
-connect({
-  fileId: '您系统中的 file id',
-  endpoint: '石墨服务的地址',
-  signature: '用您的 app id 和 secret 签发的签名',
-  token: '用于您系统识别用户请求的 token',
-  container: document.querySelector('#shimo-file'), // iframe 挂载的目标容器元素
-  lang: 'en', // 未指定此参数时，使用浏览器默认语言
-  userUuid：'您的uuid' // 仅在v2版本回调时需要传入(co-1.3+支持)
-}).then((shimoSDK) => {
-  // ...
-})
-```
+### Functions
 
-参数说明请参考 [docs/interfaces/connectoptions.md](interfaces/ConnectOptions.md)。
+- [convertFileType](/README.md#convertfiletype)
+- [isSDKEventMessage](/README.md#issdkeventmessage)
+- [connect](/README.md#connect)
 
-返回值：
+### Classes
 
-```
-Promise<ShimoSDK>
-```
+- [ShimoSDK](/classes/ShimoSDK.md)
 
-**使用传统的 `<script>` 的方式加载：**
+### Namespaces
 
-1. 使用 [npm view](https://docs.npmjs.com/cli/v7/commands/npm-view) 和 [npm pack](https://docs.npmjs.com/cli/v7/commands/npm-pack) 下载代码包 (`.tgz` 格式)
-2. 将 `.tgz` 解压缩后的 `dist` 目录下的文件放置到您托管静态资源的空间，然后使用 `<script>` 引入 `index.js` 资源
-3. 通过 `window.ShimoJSSDK` 对象获取对应的方法
+- [Document](/modules/Document.md)
+- [DocumentPro](/modules/DocumentPro.md)
+- [Flowchart](/modules/Flowchart.md)
+- [Form](/modules/Form.md)
+- [Presentation](/modules/Presentation.md)
+- [Spreadsheet](/modules/Spreadsheet.md)
+- [Table](/modules/Table.md)
 
-```js
-const { connect, FileType } = window.ShimoJSSDK
-// 等价于
-const { connect, FileType } = require('shimo-js-sdk')
-```
+## Type aliases
 
-#### 使用示例
+### APIAdaptor
 
-```js
-const { connect } = require('shimo-js-sdk')
+Ƭ **APIAdaptor**: (`requestOptions`: [`RequestOptions`](/interfaces/RequestOptions.md), `context?`: [`RequestContext`](/interfaces/RequestContext.md)) => [`RequestOptions`](/interfaces/RequestOptions.md)
 
-const fileId = '1234'
-const uuid = 'youruuid'
+#### Type declaration
 
-// 从您的后端服务获取用于石墨鉴权的签名和 token
-const { signature, token } = await getCredentialsFromServer()
+▸ (`requestOptions`, `context?`): [`RequestOptions`](/interfaces/RequestOptions.md)
 
-connect({
-  fileId: fileId,
-  endpoint: 'https://shimo-sdk-endpoint/', // endpoint 因环境而异，请联系技术支持
-  signature: signature,
-  token: token,
-  container: document.querySelector('#shimo-file'), // iframe 挂载的目标容器元素
-  userUuid: uuid
-}).then((sdk) => {
-  // sdk 即为 ShimoSDK 实例
-})
-```
+发出 XHR 请求前，会调用这个函数对请求参数进行处理，并以最终结果发起请求。因为会被 toString() 后 eval()，因此需要确保函数体内无外部依赖。
 
-调用 `connect()` 时，会以传入参数为基础，初始化一个 `<iframe>` 并插入 `container` 对应的元素中。
+##### Parameters
 
-返回的 `sdk` 为 `ShimoSDK` 实例，用于和 SDK、编辑器交互。
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `requestOptions` | [`RequestOptions`](/interfaces/RequestOptions.md) | 请求参数 |
+| `context?` | [`RequestContext`](/interfaces/RequestContext.md) | 用于传递上下文信息的对象 |
 
-### SDK 和编辑器实例
+##### Returns
 
-石墨 JS SDK 共有两种实例用于和 JS SDK 交互：
+[`RequestOptions`](/interfaces/RequestOptions.md)
 
-- `ShimoSDK` 由 `connect()` 返回，处理初始化编辑器和编辑器交互的工作
-- `Editor` 文档编辑器，直接和文档内容交互。**`Editor` 所有接口均返回 Promise**
+#### Defined in
 
-两者之间各有独立的方法和事件，具体请查看 `docs` 目录的文档。
+node_modules/shimo-js-sdk-shared/dist/APIAdaptor.d.ts:7
 
-获取编辑器实例和与其交互：
+___
 
-```js
-const { FileType } = require('shimo-js-sdk')
+### RequestContextType
 
-// 获取编辑器实例
-const editor = sdk.getEditor()
-
-// 调用通用事件
-editor.on('saveStatusChanged', (payload) => {
-  console.log(payload.status)
-})
-
-// 调用特定类型文档的方法
-if (sdk.fileType === FileType.Document) {
-  editor.showHistory()
-}
-```
-
-若为 `TypeScript`，可使用 `Generic`：
-
-```typescript
-const { Document } = require('shimo-js-sdk')
-
-const editor = sdk.getEditor<Document.Editor>()
-editor.on('saveStatusChanged', (payload) => {
-  console.log(payload.status)
-})
+Ƭ **RequestContextType**: `boolean` \| `number` \| `string`
 
-await editor.showHistory()
-```
+APIAdaptor 上下文允许的数据类型
 
-### `signature` 和 `token`
+#### Defined in
 
-- `signature` 为石墨区分请求来源，并实现数据隔离的基础
-- `token` 为您用于识别回调请求来源、是否合法的依据
+node_modules/shimo-js-sdk-shared/dist/APIAdaptor.d.ts:28
 
-具体说明请查阅在线文档：[https://platform.shimo.im/v2/docs/concepts/](https://platform.shimo.im/v2/docs/concepts/)。
+___
 
-由于 `signature` 和 `token` 有过期时间，一般也不建议设置过长的时间，但为了减少因过期导致的用户体验问题，`ShimoSDK` 提供 `setCredentials({ signature, token })` 方法用于动态更新。
+### FileId
 
-```js
-// 从您的后端服务获取用于石墨鉴权的签名和 token
-let { signature, token, expires } = await getCredentialsFromServer()
+Ƭ **FileId**: `string`
 
-const shimoSDK = await connect({ ... })
+#### Defined in
 
-setInterval(
-  () => {
-    // 建议过期时间为7天
-    // 当剩余时间不到3.5天就过期时进行更新
-    if (expires - Date.now() < 1000 * 3600 * 24 * 3.5) {
-      const resp = await getCredentialsFromServer()
-      await shimoSDK.setCredentials({
-        signature: resp.signature,
-        token: resp.token
-      })
-      expires = resp.expires
-    }
-  },
-  60 * 1000
-)
-```
+node_modules/shimo-js-sdk-shared/dist/File.d.ts:1
 
-### 如何处理 URL
+___
 
-由于石墨 SDK 以 `iframe` 的形式挂载到当前页面，`iframe.src` 对应的 URL 并不适合用于分享，而且在一些功能上，比如 @ 文件，需要用到您系统中对应的 URL 格式，比如 `https://your-domain/files/:id`。
+### UserId
 
-为了解决这个问题，石墨 SDK 引入 `generateUrl()` 和 `openLink()` 方法：
+Ƭ **UserId**: `string`
 
-```js
-import { UrlSharingType } from 'shimo-js-sdk'
+#### Defined in
 
-const shimoSDK = await connect({
-  ...,
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:2
 
-  generateUrl(fileId: string, info: GenerateUrlInfo): string {
-    if (info?.sharingType === UrlSharingType.FormFill) {
-      return `https://your-domain/files/${fileId}/fill-form`
-    }
+___
 
-    if (info?.sharingText) {
-      return `https://your-domain/files/${fileId} ${info.sharingText}`
-    }
+### DeviceMode
 
-    return `https://your-domain/files/${fileId}`
-  },
+Ƭ **DeviceMode**: ``"pc"`` \| ``"mobile"`` \| ``"pad"``
 
-  openLink(url: string): void {
-    // 以 React Router 为例
+使用什么设备类型模式，会直接影响功能和样式，不传值或空字符串则默认用 user-agent 自动判断。受版本限制，不是所有类型都支持。
+- pc - 桌面模式
+- mobile - 移动模式
+- pad - 平板模式
 
-    // 假设 url 是 'https://your-domain/files/1'，在当前页跳转，其他则新窗口打开
-    if (url.includes('your-domain/files/')) {
-      const u = new URL(url)
-      history.push(u.pathname)
-    } else {
-      window.open(url)
-    }
-  },
+#### Defined in
 
-  // 从当前 url 中解析出文件 id 并返回
-  // 假设 url 是 'https://your-domain/files/123'，则返回 { fileId: '123' }
-  getFileInfoFromUrl(url: string): {fileId:string} {
-    let fromId
-    const urlWithoutParams = url.split('?')[0]
-    let splitPath = urlWithoutParams.split('/')
-    fromId = splitPath[splitPath.length - 1]
-    return Promise.resolve({
-        fileId: fromId
-    })
-  }
-})
-```
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:221
 
-#### URL 的上下文信息
+___
 
-为了在 URL 上传递上下文信息，比如 URL 指向的段落、单元格，在调用 `generateUrl()` 生成 URL 后，会在 URL 后附加一个 `smParams=PARAMS` 的参数：
+### GenerateUrlHandler
 
-```
-https://your-domain/files/:id?smParams=PARAMS
-```
+Ƭ **GenerateUrlHandler**: (`fileId`: `string`, `info?`: [`GenerateUrlInfo`](/README.md#generateurlinfo), `smParams?`: `Record`<`string`, `any`\>) => `string` \| `Promise`<`string`\>
 
-**如无特殊需要，请保留该参数。**
+#### Type declaration
 
-默认情况下，调用 `connect()` 会从当前 `location.search` 中提取 `smParams`，如果遇到需要自定义参数的场合，可以通过 `connect({ smParams: PARAMS })` 参数修改。
+▸ (`fileId`, `info?`, `smParams?`): `string` \| `Promise`<`string`\>
 
-`smParams` 为经过 [base62](https://github.com/felipecarrillo100/base62str) 序列化后的 `Record<string, unknown>` 对象。
+##### Parameters
 
-**在传入 `smParams` 参数时，将不会从 `location.search` 中获取数据**，如果想保留原有信息，可以这样传递：
+| Name | Type |
+| :------ | :------ |
+| `fileId` | `string` |
+| `info?` | [`GenerateUrlInfo`](/README.md#generateurlinfo) |
+| `smParams?` | `Record`<`string`, `any`\> |
 
-```js
-const paramsList: Array<string | Record<string, unknown>>
+##### Returns
 
-const originParams = new URLSearchParams(location.search).get('smParams')
-// 保留原来的上下文信息
-if (originParams) {
-  paramsList.push(originParams)
-}
+`string` \| `Promise`<`string`\>
 
-// 添加自定义的上下文信息
-paramsList.push({
-  myVar: 'myVal'
-})
+#### Defined in
 
-connect({
-  smParams: paramsList
-})
-```
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:222
 
-#### URL Info
+___
 
-`generateUrl(fileId, info)` 中的 `info` 是用于对 URL 进行一些特殊处理的。
+### GenerateUrlInfo
 
-`sharingText`：石墨默认提供的分享文本：比如
+Ƭ **GenerateUrlInfo**: { `sharingText?`: `string`  } & [`SharingSource`](/README.md#sharingsource)<[`UrlSharingType`](/enums/UrlSharingType.md)\>
 
-- `https://your-domain/files/1 xxx 邀请您参与《标题》协作，请复制粘贴后在浏览器打开`
-- `https://your-domain/files/1/fill-form xxx 邀请您填写《标题》表单，……`
+用于生成 URL 的额外信息
 
-`sharingType`：表示此次 `generateUrl()` 对应的行为类型，比如：
+#### Defined in
 
-- `UrlSharingType.Form` 代表一般的打开编辑表单的行为
-- `UrlSharingType.FormPreview` 代表打开预览表单页面的行为
-- `UrlSharingType.FormFill` 代表打开填写表单页面的行为
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:238
 
-您需要根据具体类型，生成不同的 URL，比如：
+___
 
-- `UrlSharingType.Form`、`UrlSharingType.FormPreview` 等一般需要进行鉴权，因此可以用 `/files/${fileId}`
-- `UrlSharingType.FormFill` 填写表单一般不需要登录鉴权，因此可以用另一个独立的路由，比如 `/files/${fileId}/fill-form`
+### SharingSource
 
-在实际操作中，您可以根据 `sharingType` 按需为 URL 添加分享文本。**若添加了分享文本，则需要您在 `parseUrl()` 中对 URL 进行处理**，比如：
+Ƭ **SharingSource**<`T`\>: `T` extends [`Spreadsheet`](/enums/UrlSharingType.md#spreadsheet) ? { `sharingType?`: `T` ; `sharingFrom?`: [`SpreadsheetSharingFrom`](/enums/SpreadsheetSharingFrom.md)  } : { `sharingType?`: `T`  }
 
-```js
-// url: 'https://your-domain/files/1 xxx 邀请您参与《标题》协作，请复制粘贴后在浏览器打开'
-parseUrl(url: string) {
-  return url.split(' ')[0] // 返回 'https://your-domain/files/1
-}
-```
+#### Type parameters
 
-### 打开表格编辑器时展示指定工作表 (Sheet)
+| Name | Type |
+| :------ | :------ |
+| `T` | extends [`UrlSharingType`](/enums/UrlSharingType.md) |
 
-**使用本章节用法时，请先了解 [URL 的上下文信息](#url-的上下文信息) 章节**。
+#### Defined in
 
-此用法适用于表格中存在多个工作表 (Sheet) ，希望在打开编辑器时，直接展示某个工作表格而非默认的第一个工作表。如用于希望直接分享表格的某个工作表链接给其他协作者，他人在打开后可直接查看指定的工作表。
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:244
 
-首先通过 `docs/interfaces/Spreadsheet.Editor.md` 表格的编辑器 `getActiveSheetId` 方法获取当前处于激活状态的工作表 ID ，此 ID 可用于追加在接入方自身的 URL 上作为参数。
+___
 
-如通过 `URL QueryString` 方式传递：`https://your-domain.com/files/abcdefg?sheetId=XXXXX&smParams=XXXXXXXXXXXXXXXXXXXXXX`
+### EventCallback
 
-`sheetId` 仅为参数名举例，接入方可结合自身业务命名。
+Ƭ **EventCallback**: (...`args`: `any`[]) => `any`
 
-```js
-const paramsList: Array<string | Record<string, unknown>>
-const queryParams = new URLSearchParams(location.search)
+#### Type declaration
 
-const originParams = queryParams.get('smParams')
-const sheetId = queryParams.get('sheetId')
+▸ (...`args`): `any`
 
-// 保留原来的上下文信息
-if (originParams) {
-  paramsList.push(originParams)
-}
-// paramsList
-// => [originParamsStringValue]
+事件回调函数
 
-// 添加自定义的上下文信息
-paramsList.push({ sheetId: '通过 QueryString 中获取的 sheetId' })
-// paramsList
-// => [originParamsStringValue, {"sheetId": "XXXXX"}]
+##### Parameters
 
-connect({
-  smParams: paramsList
-})
-```
+| Name | Type |
+| :------ | :------ |
+| `...args` | `any`[] |
 
-### 打开编辑器时，定位至在正文中 at 某用户或评论的位置
+##### Returns
 
-支持类型：
+`any`
 
-- `轻文档` - `document`
-- `表格` - `spreadsheet`
-- `传统文档` - `documentPro`
+#### Defined in
 
-**使用本章节用法时，请先了解 [URL 的上下文信息](#url-的上下文信息) 章节**。
+[src/ShimoSDK.ts:883](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L883)
 
-此用法适用于:
+## Variables
 
-- 定位@用户： 在接入方系统的文件中 at 了指定用户，在回调接口中收到 `石墨 SDK 事件` 中的 `mention_at` 类型事件，并获取 `mentionAt.guid` 字段作为参数拼接至接入方的访问链接上，在接入方系统通知对应用户时，推送的链接可直接打开对应文件并定位至当前用户被 at 的正文位置，以便于查看对应位置相关内容。
-- 新增评论： 在接入方系统的文件中新增了评论，在回调接口中收到 `石墨 SDK 事件` 中的 `comment` 类型事件，并获取 `comment.selectionGuid` 字段作为参数拼接至接入方的访问链接上，在接入方系统通知对应用户时，推送的链接可直接打开对应文件并定位至当前新增的评论位置，以便于查看对应位置相关内容。
+### FileTypeAlias
 
-如通过 `URL QueryString` 方式传递：`https://your-domain.com/files/abcdefg?mentionId=XXXXX&smParams=XXXXXXXXXXXXXXXXXXXXXX`
+• **FileTypeAlias**: `Object`
 
-`mentionId` 仅为参数名举例，接入方可结合自身业务命名。
+#### Type declaration
 
-```js
-const paramsList: Array<string | Record<string, unknown>>
-const queryParams = new URLSearchParams(location.search)
+| Name | Type |
+| :------ | :------ |
+| `document` | `string` |
+| `documentPro` | `string` |
+| `spreadsheet` | `string` |
+| `presentation` | `string` |
+| `table` | `string` |
+| `form` | `string` |
+| `mindmap` | `string` |
+| `board` | `string` |
+| `flowchart` | `string` |
 
-const originParams = queryParams.get('smParams')
-const mentionId = queryParams.get('mentionId')
+#### Defined in
 
-// 保留原来的上下文信息
-if (originParams) {
-  paramsList.push(originParams)
-}
-// paramsList
-// => [originParamsStringValue]
+node_modules/shimo-js-sdk-shared/dist/File.d.ts:47
 
-// 添加自定义的上下文信息
-paramsList.push({ hash: '通过 QueryString 中获取的 mentionId' })
-// paramsList
-// => [originParamsStringValue, {"hash": "XXXXX"}]
+___
 
-connect({
-  smParams: paramsList
-})
-```
+### SDKEvent
 
-### 显示自定义 toast
+• **SDKEvent**: `Readonly`<{ `ViewportResize`: ``"ViewportResize"`` ; `ReadyState`: ``"ReadyState"``  }\>
 
-支持的套件类型：
+SDK 相关的事件，和编辑器无关
 
-- `表格` - `spreadsheet`
+#### Defined in
 
-此方法可显示接入方自定义 toast，具体用法如下
+node_modules/shimo-js-sdk-shared/dist/event.d.ts:6
 
-```typescript
-import { connect, ShowToastOptions } from 'shimo-js-sdk'
+___
 
-const shimoSDK = await connect({
-  // 初始化sdk时传了该方法将会拦截编辑器内的toast
-  showToast: (options: ShowToastOptions) => {
-    // show your toast
-  }
-})
-```
+### MessageEvent
+
+• **MessageEvent**: typeof [`InvokeMethod`](/enums/InvokeMethod.md) = `InvokeMethod`
+
+#### Defined in
+
+[src/ShimoSDK.ts:52](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L52)
+
+___
+
+### START\_PARAMS\_FIELD
+
+• **START\_PARAMS\_FIELD**: ``"smParams"``
+
+#### Defined in
+
+[src/index.ts:28](https://github.com/byte9527/shimo-js-sdk/blob/main/src/index.ts#L28)
+
+## Functions
+
+### convertFileType
+
+▸ **convertFileType**(`value`): [`FileType`](/enums/FileType.md)
+
+根据传入值转换为 FileType 枚举值
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `string` \| `number` |
+
+#### Returns
+
+[`FileType`](/enums/FileType.md)
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/File.d.ts:74
+
+___
+
+### isSDKEventMessage
+
+▸ **isSDKEventMessage**(`input`): input is SDKEventMessage
+
+判断是否是 SDKEvent 事件消息
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `input` | `unknown` |
+
+#### Returns
+
+input is SDKEventMessage
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/event.d.ts:30
+
+___
+
+### connect
+
+▸ **connect**(`options`): `Promise`<[`ShimoSDK`](/classes/ShimoSDK.md)\>
+
+初始化 SDK，返回 Promise，当 ReadState 变为 Ready 或 Failed 时，Promise 将被 resolve。
+Promise resovled 不代表编辑器已经完整加载完毕，只代表 SDK 已经准备好了。
+同时 Promise 一直 pending 也不代表编辑器加载失败，只代表无法通过 SDK 和编辑器交互。
+比如受浏览器限制无法发出 postMessage() 时，Promise 将会一直 pending。
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options` | [`ConnectOptions`](/interfaces/ConnectOptions.md) |
+
+#### Returns
+
+`Promise`<[`ShimoSDK`](/classes/ShimoSDK.md)\>
+
+#### Defined in
+
+[src/connect.ts:11](https://github.com/byte9527/shimo-js-sdk/blob/main/src/connect.ts#L11)

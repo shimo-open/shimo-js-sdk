@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / UrlSharingType
+[shimo-js-sdk - v1.2.10](/README.md) / UrlSharingType
 
 # Enumeration: UrlSharingType
 
@@ -10,14 +10,17 @@
 
 ### Enumeration members
 
-- [Doc](UrlSharingType.md#doc)
-- [Docx](UrlSharingType.md#docx)
-- [Form](UrlSharingType.md#form)
-- [FormFill](UrlSharingType.md#formfill)
-- [FormPreview](UrlSharingType.md#formpreview)
-- [Presentation](UrlSharingType.md#presentation)
-- [Spreadsheet](UrlSharingType.md#spreadsheet)
-- [Table](UrlSharingType.md#table)
+- [Doc](/enums/UrlSharingType.md#doc)
+- [Docx](/enums/UrlSharingType.md#docx)
+- [Spreadsheet](/enums/UrlSharingType.md#spreadsheet)
+- [Form](/enums/UrlSharingType.md#form)
+- [FormPreview](/enums/UrlSharingType.md#formpreview)
+- [FormFill](/enums/UrlSharingType.md#formfill)
+- [Presentation](/enums/UrlSharingType.md#presentation)
+- [Table](/enums/UrlSharingType.md#table)
+- [Flowchart](/enums/UrlSharingType.md#flowchart)
+- [Mindmap](/enums/UrlSharingType.md#mindmap)
+- [Board](/enums/UrlSharingType.md#board)
 
 ## Enumeration members
 
@@ -45,6 +48,18 @@ node_modules/shimo-js-sdk-shared/dist/types.d.ts:294
 
 ___
 
+### Spreadsheet
+
+• **Spreadsheet** = `"sheet"`
+
+代表分享的是表格链接
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:298
+
+___
+
 ### Form
 
 • **Form** = `"form"`
@@ -54,18 +69,6 @@ ___
 #### Defined in
 
 node_modules/shimo-js-sdk-shared/dist/types.d.ts:302
-
-___
-
-### FormFill
-
-• **FormFill** = `"formFill"`
-
-代表分享的是表单填写链接
-
-#### Defined in
-
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:310
 
 ___
 
@@ -81,6 +84,18 @@ node_modules/shimo-js-sdk-shared/dist/types.d.ts:306
 
 ___
 
+### FormFill
+
+• **FormFill** = `"formFill"`
+
+代表分享的是表单填写链接
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:310
+
+___
+
 ### Presentation
 
 • **Presentation** = `"presentation"`
@@ -93,18 +108,6 @@ node_modules/shimo-js-sdk-shared/dist/types.d.ts:314
 
 ___
 
-### Spreadsheet
-
-• **Spreadsheet** = `"sheet"`
-
-代表分享的是表格链接
-
-#### Defined in
-
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:298
-
-___
-
 ### Table
 
 • **Table** = `"table"`
@@ -114,3 +117,39 @@ ___
 #### Defined in
 
 node_modules/shimo-js-sdk-shared/dist/types.d.ts:318
+
+___
+
+### Flowchart
+
+• **Flowchart** = `"flowchart"`
+
+代表分享的是流程图链接
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:322
+
+___
+
+### Mindmap
+
+• **Mindmap** = `"mindmap"`
+
+代表分享的是思维导图链接
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:326
+
+___
+
+### Board
+
+• **Board** = `"board"`
+
+代表分享的是白板链接
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:330

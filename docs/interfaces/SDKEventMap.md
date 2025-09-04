@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / SDKEventMap
+[shimo-js-sdk - v1.2.10](/README.md) / SDKEventMap
 
 # Interface: SDKEventMap
 
@@ -6,25 +6,25 @@
 
 ### Properties
 
-- [ReadyState](SDKEventMap.md#readystate)
-- [ViewportResize](SDKEventMap.md#viewportresize)
+- [ViewportResize](/interfaces/SDKEventMap.md#viewportresize)
+- [ReadyState](/interfaces/SDKEventMap.md#readystate)
 
 ## Properties
 
-### ReadyState
-
-• **ReadyState**: [`ReadyStateEventPayload`](ReadyStateEventPayload.md)
-
-#### Defined in
-
-node_modules/shimo-js-sdk-shared/dist/event.d.ts:18
-
-___
-
 ### ViewportResize
 
-• **ViewportResize**: [`ContainerRect`](ContainerRect.md)
+• **ViewportResize**: [`ContainerRect`](/interfaces/ContainerRect.md)
 
 #### Defined in
 
 node_modules/shimo-js-sdk-shared/dist/event.d.ts:17
+
+___
+
+### ReadyState
+
+• **ReadyState**: [`ReadyStateEventPayload`](/interfaces/ReadyStateEventPayload.md)
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/event.d.ts:18

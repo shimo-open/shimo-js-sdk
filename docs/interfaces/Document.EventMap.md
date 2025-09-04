@@ -1,12 +1,12 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / [Document](../modules/Document.md) / EventMap
+[shimo-js-sdk - v1.2.10](/README.md) / [Document](/modules/Document.md) / EventMap
 
 # Interface: EventMap
 
-[Document](../modules/Document.md).EventMap
+[Document](/modules/Document.md).EventMap
 
 ## Hierarchy
 
-- [`BaseEventMap`](BaseEventMap.md)
+- [`BaseEventMap`](/interfaces/BaseEventMap.md)
 
   ↳ **`EventMap`**
 
@@ -14,73 +14,15 @@
 
 ### Properties
 
-- [HorizontalScroll](Document.EventMap.md#horizontalscroll)
-- [MouseMove](Document.EventMap.md#mousemove)
-- [VerticalScroll](Document.EventMap.md#verticalscroll)
-- [paramsChanged](Document.EventMap.md#paramschanged)
-- [saveStatusChanged](Document.EventMap.md#savestatuschanged)
-- [saveStatusDidChange](Document.EventMap.md#savestatusdidchange)
-- [titleChange](Document.EventMap.md#titlechange)
+- [saveStatusChanged](/interfaces/Document.EventMap.md#savestatuschanged)
+- [saveStatusDidChange](/interfaces/Document.EventMap.md#savestatusdidchange)
+- [paramsChanged](/interfaces/Document.EventMap.md#paramschanged)
+- [titleChange](/interfaces/Document.EventMap.md#titlechange)
+- [MouseMove](/interfaces/Document.EventMap.md#mousemove)
+- [VerticalScroll](/interfaces/Document.EventMap.md#verticalscroll)
+- [HorizontalScroll](/interfaces/Document.EventMap.md#horizontalscroll)
 
 ## Properties
-
-### HorizontalScroll
-
-• **HorizontalScroll**: [`MouseMovePayload`](MouseMovePayload.md)
-
-水平滚动事件
-
-#### Defined in
-
-[src/types/Document.ts:27](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Document.ts#L27)
-
-___
-
-### MouseMove
-
-• **MouseMove**: [`MouseMovePayload`](MouseMovePayload.md)
-
-鼠标移动事件
-
-#### Defined in
-
-[src/types/Document.ts:17](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Document.ts#L17)
-
-___
-
-### VerticalScroll
-
-• **VerticalScroll**: [`MouseMovePayload`](MouseMovePayload.md)
-
-垂直滚动事件
-
-#### Defined in
-
-[src/types/Document.ts:22](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Document.ts#L22)
-
-___
-
-### paramsChanged
-
-• **paramsChanged**: `Object`
-
-用于类似表格打开定位到当前 tab 的用途。事件触发时，替换当前的 url 的 search params 参数，在初始化 JS SDK 时传入。
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `params` | `string` |
-
-#### Inherited from
-
-[BaseEventMap](BaseEventMap.md).[paramsChanged](BaseEventMap.md#paramschanged)
-
-#### Defined in
-
-[src/types/BaseEditor.ts:26](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L26)
-
-___
 
 ### saveStatusChanged
 
@@ -96,11 +38,11 @@ ___
 
 #### Inherited from
 
-[BaseEventMap](BaseEventMap.md).[saveStatusChanged](BaseEventMap.md#savestatuschanged)
+[BaseEventMap](/interfaces/BaseEventMap.md).[saveStatusChanged](/interfaces/BaseEventMap.md#savestatuschanged)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:5](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L5)
+[src/types/BaseEditor.ts:5](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L5)
 
 ___
 
@@ -120,11 +62,33 @@ ___
 
 #### Inherited from
 
-[BaseEventMap](BaseEventMap.md).[saveStatusDidChange](BaseEventMap.md#savestatusdidchange)
+[BaseEventMap](/interfaces/BaseEventMap.md).[saveStatusDidChange](/interfaces/BaseEventMap.md#savestatusdidchange)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:16](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L16)
+[src/types/BaseEditor.ts:16](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L16)
+
+___
+
+### paramsChanged
+
+• **paramsChanged**: `Object`
+
+用于类似表格打开定位到当前 tab 的用途。事件触发时，替换当前的 url 的 search params 参数，在初始化 JS SDK 时传入。
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `string` |
+
+#### Inherited from
+
+[BaseEventMap](/interfaces/BaseEventMap.md).[paramsChanged](/interfaces/BaseEventMap.md#paramschanged)
+
+#### Defined in
+
+[src/types/BaseEditor.ts:26](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L26)
 
 ___
 
@@ -136,4 +100,40 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:12](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Document.ts#L12)
+[src/types/Document.ts:12](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Document.ts#L12)
+
+___
+
+### MouseMove
+
+• **MouseMove**: [`MouseMovePayload`](/interfaces/MouseMovePayload.md)
+
+鼠标移动事件
+
+#### Defined in
+
+[src/types/Document.ts:17](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Document.ts#L17)
+
+___
+
+### VerticalScroll
+
+• **VerticalScroll**: [`MouseMovePayload`](/interfaces/MouseMovePayload.md)
+
+垂直滚动事件
+
+#### Defined in
+
+[src/types/Document.ts:22](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Document.ts#L22)
+
+___
+
+### HorizontalScroll
+
+• **HorizontalScroll**: [`MouseMovePayload`](/interfaces/MouseMovePayload.md)
+
+水平滚动事件
+
+#### Defined in
+
+[src/types/Document.ts:27](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Document.ts#L27)

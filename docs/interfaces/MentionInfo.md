@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / MentionInfo
+[shimo-js-sdk - v1.2.10](/README.md) / MentionInfo
 
 # Interface: MentionInfo
 
@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- [`LineInfo`](LineInfo.md)
+- [`LineInfo`](/interfaces/LineInfo.md)
 
   ↳ **`MentionInfo`**
 
@@ -14,42 +14,14 @@
 
 ### Properties
 
-- [fileId](MentionInfo.md#fileid)
-- [height](MentionInfo.md#height)
-- [left](MentionInfo.md#left)
-- [top](MentionInfo.md#top)
-- [userId](MentionInfo.md#userid)
-- [width](MentionInfo.md#width)
+- [left](/interfaces/MentionInfo.md#left)
+- [top](/interfaces/MentionInfo.md#top)
+- [width](/interfaces/MentionInfo.md#width)
+- [height](/interfaces/MentionInfo.md#height)
+- [userId](/interfaces/MentionInfo.md#userid)
+- [fileId](/interfaces/MentionInfo.md#fileid)
 
 ## Properties
-
-### fileId
-
-• `Optional` **fileId**: `string`
-
-文件 ID
-
-#### Defined in
-
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:179
-
-___
-
-### height
-
-• **height**: `number`
-
-@ 在该行的高度
-
-#### Inherited from
-
-[LineInfo](LineInfo.md).[height](LineInfo.md#height)
-
-#### Defined in
-
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:166
-
-___
 
 ### left
 
@@ -59,7 +31,7 @@ ___
 
 #### Inherited from
 
-[LineInfo](LineInfo.md).[left](LineInfo.md#left)
+[LineInfo](/interfaces/LineInfo.md).[left](/interfaces/LineInfo.md#left)
 
 #### Defined in
 
@@ -75,11 +47,43 @@ ___
 
 #### Inherited from
 
-[LineInfo](LineInfo.md).[top](LineInfo.md#top)
+[LineInfo](/interfaces/LineInfo.md).[top](/interfaces/LineInfo.md#top)
 
 #### Defined in
 
 node_modules/shimo-js-sdk-shared/dist/types.d.ts:158
+
+___
+
+### width
+
+• **width**: `number`
+
+@ 在该行的宽度
+
+#### Inherited from
+
+[LineInfo](/interfaces/LineInfo.md).[width](/interfaces/LineInfo.md#width)
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:162
+
+___
+
+### height
+
+• **height**: `number`
+
+@ 在该行的高度
+
+#### Inherited from
+
+[LineInfo](/interfaces/LineInfo.md).[height](/interfaces/LineInfo.md#height)
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:166
 
 ___
 
@@ -95,16 +99,12 @@ node_modules/shimo-js-sdk-shared/dist/types.d.ts:175
 
 ___
 
-### width
+### fileId
 
-• **width**: `number`
+• `Optional` **fileId**: `string`
 
-@ 在该行的宽度
-
-#### Inherited from
-
-[LineInfo](LineInfo.md).[width](LineInfo.md#width)
+文件 ID
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:162
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:179

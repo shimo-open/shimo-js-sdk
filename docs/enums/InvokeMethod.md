@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / InvokeMethod
+[shimo-js-sdk - v1.2.10](/README.md) / InvokeMethod
 
 # Enumeration: InvokeMethod
 
@@ -8,40 +8,28 @@ JS SDK 之间通信用的方法。一般用在 ShimoBroadcastChannel.invoke() �
 
 ### Enumeration members
 
-- [DispatchEditorEvent](InvokeMethod.md#dispatcheditorevent)
-- [DispatchSDKEvent](InvokeMethod.md#dispatchsdkevent)
-- [Error](InvokeMethod.md#error)
-- [InvokeContainerMethod](InvokeMethod.md#invokecontainermethod)
-- [InvokeEditorMethod](InvokeMethod.md#invokeeditormethod)
-- [ListenEditorEvent](InvokeMethod.md#listeneditorevent)
-- [ReadyState](InvokeMethod.md#readystate)
-- [RequestPerformanceEntries](InvokeMethod.md#requestperformanceentries)
-- [SDKInit](InvokeMethod.md#sdkinit)
-- [SetCredentials](InvokeMethod.md#setcredentials)
+- [SDKInit](/enums/InvokeMethod.md#sdkinit)
+- [Error](/enums/InvokeMethod.md#error)
+- [ReadyState](/enums/InvokeMethod.md#readystate)
+- [SetCredentials](/enums/InvokeMethod.md#setcredentials)
+- [InvokeContainerMethod](/enums/InvokeMethod.md#invokecontainermethod)
+- [InvokeEditorMethod](/enums/InvokeMethod.md#invokeeditormethod)
+- [DispatchSDKEvent](/enums/InvokeMethod.md#dispatchsdkevent)
+- [DispatchEditorEvent](/enums/InvokeMethod.md#dispatcheditorevent)
+- [ListenEditorEvent](/enums/InvokeMethod.md#listeneditorevent)
+- [RequestPerformanceEntries](/enums/InvokeMethod.md#requestperformanceentries)
 
 ## Enumeration members
 
-### DispatchEditorEvent
+### SDKInit
 
-• **DispatchEditorEvent** = `"dispatchEditorEvent"`
+• **SDKInit** = `"SDKInit"`
 
-派发编辑器相关的事件
-
-#### Defined in
-
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:38
-
-___
-
-### DispatchSDKEvent
-
-• **DispatchSDKEvent** = `"dispatchSDKEvent"`
-
-派发 SDK 自身相关的事件
+SDK 初始化，用于获取配置信息
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:34
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:10
 
 ___
 
@@ -54,6 +42,30 @@ ___
 #### Defined in
 
 node_modules/shimo-js-sdk-shared/dist/types.d.ts:14
+
+___
+
+### ReadyState
+
+• **ReadyState** = `"readyState"`
+
+用于处理 ReadyState 变化
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:18
+
+___
+
+### SetCredentials
+
+• **SetCredentials** = `"setCredentials"`
+
+用于更新鉴权信息
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:22
 
 ___
 
@@ -81,6 +93,30 @@ node_modules/shimo-js-sdk-shared/dist/types.d.ts:30
 
 ___
 
+### DispatchSDKEvent
+
+• **DispatchSDKEvent** = `"dispatchSDKEvent"`
+
+派发 SDK 自身相关的事件
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:34
+
+___
+
+### DispatchEditorEvent
+
+• **DispatchEditorEvent** = `"dispatchEditorEvent"`
+
+派发编辑器相关的事件
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:38
+
+___
+
 ### ListenEditorEvent
 
 • **ListenEditorEvent** = `"listenEditorEvent"`
@@ -93,18 +129,6 @@ node_modules/shimo-js-sdk-shared/dist/types.d.ts:42
 
 ___
 
-### ReadyState
-
-• **ReadyState** = `"readyState"`
-
-用于处理 ReadyState 变化
-
-#### Defined in
-
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:18
-
-___
-
 ### RequestPerformanceEntries
 
 • **RequestPerformanceEntries** = `"requestPerformanceEntries"`
@@ -114,27 +138,3 @@ ___
 #### Defined in
 
 node_modules/shimo-js-sdk-shared/dist/types.d.ts:46
-
-___
-
-### SDKInit
-
-• **SDKInit** = `"SDKInit"`
-
-SDK 初始化，用于获取配置信息
-
-#### Defined in
-
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:10
-
-___
-
-### SetCredentials
-
-• **SetCredentials** = `"setCredentials"`
-
-用于更新鉴权信息
-
-#### Defined in
-
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:22

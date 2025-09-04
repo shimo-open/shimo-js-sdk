@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / SpreadsheetSharingFrom
+[shimo-js-sdk - v1.2.10](/README.md) / SpreadsheetSharingFrom
 
 # Enumeration: SpreadsheetSharingFrom
 
@@ -6,11 +6,11 @@
 
 ### Enumeration members
 
-- [copyRangeLink](SpreadsheetSharingFrom.md#copyrangelink)
-- [copySheetLink](SpreadsheetSharingFrom.md#copysheetlink)
-- [copyViewportLink](SpreadsheetSharingFrom.md#copyviewportlink)
-- [importRange](SpreadsheetSharingFrom.md#importrange)
-- [preview](SpreadsheetSharingFrom.md#preview)
+- [copyRangeLink](/enums/SpreadsheetSharingFrom.md#copyrangelink)
+- [copyViewportLink](/enums/SpreadsheetSharingFrom.md#copyviewportlink)
+- [copySheetLink](/enums/SpreadsheetSharingFrom.md#copysheetlink)
+- [importRange](/enums/SpreadsheetSharingFrom.md#importrange)
+- [preview](/enums/SpreadsheetSharingFrom.md#preview)
 
 ## Enumeration members
 
@@ -26,18 +26,6 @@ node_modules/shimo-js-sdk-shared/dist/types.d.ts:263
 
 ___
 
-### copySheetLink
-
-• **copySheetLink** = `"copySheetLink"`
-
-复制链接到工作表的内链接
-
-#### Defined in
-
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:271
-
-___
-
 ### copyViewportLink
 
 • **copyViewportLink** = `"copyViewportLink"`
@@ -47,6 +35,18 @@ ___
 #### Defined in
 
 node_modules/shimo-js-sdk-shared/dist/types.d.ts:267
+
+___
+
+### copySheetLink
+
+• **copySheetLink** = `"copySheetLink"`
+
+复制链接到工作表的内链接
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:271
 
 ___
 

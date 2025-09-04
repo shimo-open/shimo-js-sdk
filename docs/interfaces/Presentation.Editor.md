@@ -1,12 +1,12 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / [Presentation](../modules/Presentation.md) / Editor
+[shimo-js-sdk - v1.2.10](/README.md) / [Presentation](/modules/Presentation.md) / Editor
 
 # Interface: Editor
 
-[Presentation](../modules/Presentation.md).Editor
+[Presentation](/modules/Presentation.md).Editor
 
 ## Hierarchy
 
-- [`BaseEditor`](BaseEditor.md)<[`EventMap`](Presentation.EventMap.md)\>
+- [`BaseEditor`](/interfaces/BaseEditor.md)<[`EventMap`](/interfaces/Presentation.EventMap.md)\>
 
   ↳ **`Editor`**
 
@@ -14,57 +14,49 @@
 
 ### Methods
 
-- [endDemonstration](Presentation.Editor.md#enddemonstration)
-- [hideHistory](Presentation.Editor.md#hidehistory)
-- [off](Presentation.Editor.md#off)
-- [on](Presentation.Editor.md#on)
-- [setTitle](Presentation.Editor.md#settitle)
-- [showHistory](Presentation.Editor.md#showhistory)
-- [startDemonstration](Presentation.Editor.md#startdemonstration)
+- [on](/interfaces/Presentation.Editor.md#on)
+- [off](/interfaces/Presentation.Editor.md#off)
+- [setTitle](/interfaces/Presentation.Editor.md#settitle)
+- [showHistory](/interfaces/Presentation.Editor.md#showhistory)
+- [hideHistory](/interfaces/Presentation.Editor.md#hidehistory)
+- [startDemonstration](/interfaces/Presentation.Editor.md#startdemonstration)
+- [endDemonstration](/interfaces/Presentation.Editor.md#enddemonstration)
+- [createRevision](/interfaces/Presentation.Editor.md#createrevision)
+- [export](/interfaces/Presentation.Editor.md#export)
+- [print](/interfaces/Presentation.Editor.md#print)
 
 ## Methods
 
-### endDemonstration
+### on
 
-▸ **endDemonstration**(`options?`): `Promise`<`void`\>
+▸ **on**<`K`\>(`event`, `handler`): `void`
 
-结束本地演示
+监听事件
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `K` | extends `string` \| `number` \| `symbol` |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options?` | `Object` |
+| `event` | `K` |
+| `handler` | (`payload`: `T`[`K`]) => `void` |
 
 #### Returns
 
-`Promise`<`void`\>
+`void`
+
+#### Inherited from
+
+[BaseEditor](/interfaces/BaseEditor.md).[on](/interfaces/BaseEditor.md#on)
 
 #### Defined in
 
-[src/types/Presentation.ts:23](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Presentation.ts#L23)
-
-___
-
-### hideHistory
-
-▸ **hideHistory**(`options?`): `Promise`<`void`\>
-
-隐藏历史
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Object` |
-
-#### Returns
-
-`Promise`<`void`\>
-
-#### Defined in
-
-[src/types/Presentation.ts:19](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Presentation.ts#L19)
+[src/types/BaseEditor.ts:37](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L37)
 
 ___
 
@@ -93,44 +85,11 @@ ___
 
 #### Inherited from
 
-[BaseEditor](BaseEditor.md).[off](BaseEditor.md#off)
+[BaseEditor](/interfaces/BaseEditor.md).[off](/interfaces/BaseEditor.md#off)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:42](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L42)
-
-___
-
-### on
-
-▸ **on**<`K`\>(`event`, `handler`): `void`
-
-监听事件
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `K` | extends `string` \| `number` \| `symbol` |
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `event` | `K` |
-| `handler` | (`payload`: `T`[`K`]) => `void` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[BaseEditor](BaseEditor.md).[on](BaseEditor.md#on)
-
-#### Defined in
-
-[src/types/BaseEditor.ts:37](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L37)
+[src/types/BaseEditor.ts:42](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L42)
 
 ___
 
@@ -152,27 +111,19 @@ ___
 
 #### Inherited from
 
-[BaseEditor](BaseEditor.md).[setTitle](BaseEditor.md#settitle)
+[BaseEditor](/interfaces/BaseEditor.md).[setTitle](/interfaces/BaseEditor.md#settitle)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:47](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L47)
+[src/types/BaseEditor.ts:47](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L47)
 
 ___
 
 ### showHistory
 
-▸ **showHistory**(`options?`): `Promise`<`void`\>
+▸ **showHistory**(): `Promise`<`void`\>
 
 显示历史
-
-**`since`** 22.2.1
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Object` |
 
 #### Returns
 
@@ -180,21 +131,31 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:17](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Presentation.ts#L17)
+[src/types/Presentation.ts:16](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L16)
+
+___
+
+### hideHistory
+
+▸ **hideHistory**(): `Promise`<`void`\>
+
+隐藏历史
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Presentation.ts:20](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L20)
 
 ___
 
 ### startDemonstration
 
-▸ **startDemonstration**(`options?`): `Promise`<`void`\>
+▸ **startDemonstration**(): `Promise`<`void`\>
 
 开始本地演示
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Object` |
 
 #### Returns
 
@@ -202,4 +163,80 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:21](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Presentation.ts#L21)
+[src/types/Presentation.ts:24](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L24)
+
+___
+
+### endDemonstration
+
+▸ **endDemonstration**(): `Promise`<`void`\>
+
+结束本地演示
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Presentation.ts:28](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L28)
+
+___
+
+### createRevision
+
+▸ **createRevision**(): `Promise`<`void`\>
+
+创建版本
+
+**`since`** co-1.5
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Presentation.ts:33](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L33)
+
+___
+
+### export
+
+▸ **export**(`type`): `Promise`<`void`\>
+
+导出
+
+**`since`** co-1.5
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `type` | ``"image"`` \| ``"imagePdf"`` | image：导出图片，imagePdf: 导出pdf |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Presentation.ts:39](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L39)
+
+___
+
+### print
+
+▸ **print**(): `Promise`<`void`\>
+
+打印
+
+**`since`** co-1.5
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Presentation.ts:44](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Presentation.ts#L44)

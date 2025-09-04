@@ -1,12 +1,12 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / [Form](../modules/Form.md) / Editor
+[shimo-js-sdk - v1.2.10](/README.md) / [Form](/modules/Form.md) / Editor
 
 # Interface: Editor
 
-[Form](../modules/Form.md).Editor
+[Form](/modules/Form.md).Editor
 
 ## Hierarchy
 
-- [`BaseEditor`](BaseEditor.md)<[`EventMap`](Form.EventMap.md)\>
+- [`BaseEditor`](/interfaces/BaseEditor.md)<[`EventMap`](/interfaces/Form.EventMap.md)\>
 
   ↳ **`Editor`**
 
@@ -14,44 +14,11 @@
 
 ### Methods
 
-- [off](Form.Editor.md#off)
-- [on](Form.Editor.md#on)
-- [setTitle](Form.Editor.md#settitle)
+- [on](/interfaces/Form.Editor.md#on)
+- [off](/interfaces/Form.Editor.md#off)
+- [setTitle](/interfaces/Form.Editor.md#settitle)
 
 ## Methods
-
-### off
-
-▸ **off**<`K`\>(`event`, `handler?`): `void`
-
-取消监听事件
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `K` | extends `string` \| `number` \| `symbol` |
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `event` | `K` |
-| `handler?` | (`payload`: `T`[`K`]) => `void` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[BaseEditor](BaseEditor.md).[off](BaseEditor.md#off)
-
-#### Defined in
-
-[src/types/BaseEditor.ts:42](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L42)
-
-___
 
 ### on
 
@@ -78,11 +45,44 @@ ___
 
 #### Inherited from
 
-[BaseEditor](BaseEditor.md).[on](BaseEditor.md#on)
+[BaseEditor](/interfaces/BaseEditor.md).[on](/interfaces/BaseEditor.md#on)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:37](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L37)
+[src/types/BaseEditor.ts:37](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L37)
+
+___
+
+### off
+
+▸ **off**<`K`\>(`event`, `handler?`): `void`
+
+取消监听事件
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `K` | extends `string` \| `number` \| `symbol` |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `event` | `K` |
+| `handler?` | (`payload`: `T`[`K`]) => `void` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[BaseEditor](/interfaces/BaseEditor.md).[off](/interfaces/BaseEditor.md#off)
+
+#### Defined in
+
+[src/types/BaseEditor.ts:42](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L42)
 
 ___
 
@@ -104,8 +104,8 @@ ___
 
 #### Inherited from
 
-[BaseEditor](BaseEditor.md).[setTitle](BaseEditor.md#settitle)
+[BaseEditor](/interfaces/BaseEditor.md).[setTitle](/interfaces/BaseEditor.md#settitle)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:47](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L47)
+[src/types/BaseEditor.ts:47](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L47)

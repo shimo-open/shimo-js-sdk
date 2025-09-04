@@ -1,4 +1,4 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / LineInfo
+[shimo-js-sdk - v1.2.10](/README.md) / LineInfo
 
 # Interface: LineInfo
 
@@ -8,30 +8,18 @@
 
 - **`LineInfo`**
 
-  ↳ [`MentionInfo`](MentionInfo.md)
+  ↳ [`MentionInfo`](/interfaces/MentionInfo.md)
 
 ## Table of contents
 
 ### Properties
 
-- [height](LineInfo.md#height)
-- [left](LineInfo.md#left)
-- [top](LineInfo.md#top)
-- [width](LineInfo.md#width)
+- [left](/interfaces/LineInfo.md#left)
+- [top](/interfaces/LineInfo.md#top)
+- [width](/interfaces/LineInfo.md#width)
+- [height](/interfaces/LineInfo.md#height)
 
 ## Properties
-
-### height
-
-• **height**: `number`
-
-@ 在该行的高度
-
-#### Defined in
-
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:166
-
-___
 
 ### left
 
@@ -66,3 +54,15 @@ ___
 #### Defined in
 
 node_modules/shimo-js-sdk-shared/dist/types.d.ts:162
+
+___
+
+### height
+
+• **height**: `number`
+
+@ 在该行的高度
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:166

@@ -1,12 +1,12 @@
-[shimo-js-sdk](../README.md) / [Exports](../modules.md) / [Table](../modules/Table.md) / Editor
+[shimo-js-sdk - v1.2.10](/README.md) / [Table](/modules/Table.md) / Editor
 
 # Interface: Editor
 
-[Table](../modules/Table.md).Editor
+[Table](/modules/Table.md).Editor
 
 ## Hierarchy
 
-- [`BaseEditor`](BaseEditor.md)<[`EventMap`](Table.EventMap.md)\>
+- [`BaseEditor`](/interfaces/BaseEditor.md)<[`EventMap`](/interfaces/Table.EventMap.md)\>
 
   ↳ **`Editor`**
 
@@ -14,56 +14,45 @@
 
 ### Methods
 
-- [createRevision](Table.Editor.md#createrevision)
-- [hideRevision](Table.Editor.md#hiderevision)
-- [off](Table.Editor.md#off)
-- [on](Table.Editor.md#on)
-- [setTitle](Table.Editor.md#settitle)
-- [showRevision](Table.Editor.md#showrevision)
+- [on](/interfaces/Table.Editor.md#on)
+- [off](/interfaces/Table.Editor.md#off)
+- [setTitle](/interfaces/Table.Editor.md#settitle)
+- [showRevision](/interfaces/Table.Editor.md#showrevision)
+- [hideRevision](/interfaces/Table.Editor.md#hiderevision)
+- [createRevision](/interfaces/Table.Editor.md#createrevision)
 
 ## Methods
 
-### createRevision
+### on
 
-▸ **createRevision**(`options?`): `Promise`<`void`\>
+▸ **on**<`K`\>(`event`, `handler`): `void`
 
-创建版本
+监听事件
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `K` | extends `string` \| `number` \| `symbol` |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options?` | `Object` |
+| `event` | `K` |
+| `handler` | (`payload`: `T`[`K`]) => `void` |
 
 #### Returns
 
-`Promise`<`void`\>
+`void`
+
+#### Inherited from
+
+[BaseEditor](/interfaces/BaseEditor.md).[on](/interfaces/BaseEditor.md#on)
 
 #### Defined in
 
-[src/types/Table.ts:24](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Table.ts#L24)
-
-___
-
-### hideRevision
-
-▸ **hideRevision**(`options?`): `Promise`<`void`\>
-
-隐藏版本侧边栏
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Object` |
-
-#### Returns
-
-`Promise`<`void`\>
-
-#### Defined in
-
-[src/types/Table.ts:20](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Table.ts#L20)
+[src/types/BaseEditor.ts:37](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L37)
 
 ___
 
@@ -92,44 +81,11 @@ ___
 
 #### Inherited from
 
-[BaseEditor](BaseEditor.md).[off](BaseEditor.md#off)
+[BaseEditor](/interfaces/BaseEditor.md).[off](/interfaces/BaseEditor.md#off)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:42](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L42)
-
-___
-
-### on
-
-▸ **on**<`K`\>(`event`, `handler`): `void`
-
-监听事件
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `K` | extends `string` \| `number` \| `symbol` |
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `event` | `K` |
-| `handler` | (`payload`: `T`[`K`]) => `void` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[BaseEditor](BaseEditor.md).[on](BaseEditor.md#on)
-
-#### Defined in
-
-[src/types/BaseEditor.ts:37](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L37)
+[src/types/BaseEditor.ts:42](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L42)
 
 ___
 
@@ -151,11 +107,11 @@ ___
 
 #### Inherited from
 
-[BaseEditor](BaseEditor.md).[setTitle](BaseEditor.md#settitle)
+[BaseEditor](/interfaces/BaseEditor.md).[setTitle](/interfaces/BaseEditor.md#settitle)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:47](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/BaseEditor.ts#L47)
+[src/types/BaseEditor.ts:47](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L47)
 
 ___
 
@@ -177,4 +133,48 @@ ___
 
 #### Defined in
 
-[src/types/Table.ts:16](https://github.com/shimo-open/shimo-js-sdk/blob/86bca76/src/types/Table.ts#L16)
+[src/types/Table.ts:16](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Table.ts#L16)
+
+___
+
+### hideRevision
+
+▸ **hideRevision**(`options?`): `Promise`<`void`\>
+
+隐藏版本侧边栏
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options?` | `Object` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Table.ts:20](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Table.ts#L20)
+
+___
+
+### createRevision
+
+▸ **createRevision**(`options?`): `Promise`<`void`\>
+
+创建版本
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options?` | `Object` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Table.ts:24](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/Table.ts#L24)

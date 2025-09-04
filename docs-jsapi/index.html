@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>shimo-js-sdk 文档</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <style>
+    /* 浅色主题变量 */
+    :root {
+      --theme-color: #0366d6;
+      --text-color-primary: #24292e;
+      --text-color-secondary: #586069;
+      --background-color: #ffffff;
+      --sidebar-background: #f6f8fa;
+      --border-color: #e1e4e8;
+      --code-background: #f6f8fa;
+      --blockquote-background: #f6f8fa;
+      --table-header-background: #f6f8fa;
+      --table-row-even: #f9f9f9;
+      --table-row-hover: #f1f8ff;
+      --search-background: #ffffff;
+    }
+    
+    /* 深色主题变量 - 跟随系统 */
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme]) {
+        --theme-color: #58a6ff;
+        --text-color-primary: #c9d1d9;
+        --text-color-secondary: #8b949e;
+        --background-color: #0d1117;
+        --sidebar-background: #161b22;
+        --border-color: #30363d;
+        --code-background: #161b22;
+        --blockquote-background: #161b22;
+        --table-header-background: #21262d;
+        --table-row-even: #0d1117;
+        --table-row-hover: #1c2128;
+        --search-background: #21262d;
+      }
+    }
+    
+    /* 手动浅色主题 */
+    [data-theme="light"] {
+      --theme-color: #0366d6;
+      --text-color-primary: #24292e;
+      --text-color-secondary: #586069;
+      --background-color: #ffffff;
+      --sidebar-background: #f6f8fa;
+      --border-color: #e1e4e8;
+      --code-background: #f6f8fa;
+      --blockquote-background: #f6f8fa;
+      --table-header-background: #f6f8fa;
+      --table-row-even: #f9f9f9;
+      --table-row-hover: #f1f8ff;
+      --search-background: #ffffff;
+    }
+    
+    /* 手动深色主题 */
+    [data-theme="dark"] {
+      --theme-color: #58a6ff;
+      --text-color-primary: #c9d1d9;
+      --text-color-secondary: #8b949e;
+      --background-color: #0d1117;
+      --sidebar-background: #161b22;
+      --border-color: #30363d;
+      --code-background: #161b22;
+      --blockquote-background: #161b22;
+      --table-header-background: #21262d;
+      --table-row-even: #0d1117;
+      --table-row-hover: #1c2128;
+      --search-background: #21262d;
+    }
+    
+    /* 基础布局样式 */
+    body {
+      background-color: var(--background-color);
+      color: var(--text-color-primary);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    .sidebar {
+      background: var(--sidebar-background);
+      border-right: 1px solid var(--border-color);
+    }
+    
+    .sidebar-nav li a {
+      color: var(--text-color-primary);
+      font-weight: 400;
+      transition: color 0.3s ease;
+    }
+    
+    .sidebar-nav li a:hover {
+      color: var(--theme-color);
+    }
+    
+    .sidebar-nav li.active > a {
+      color: var(--theme-color);
+      font-weight: 600;
+    }
+    
+    /* 内容区域 */
+    .content {
+      background-color: var(--background-color);
+    }
+    
+    .markdown-section {
+      max-width: none;
+      padding: 30px 30px 40px;
+      color: var(--text-color-primary);
+    }
+    
+    .markdown-section h1,
+    .markdown-section h2,
+    .markdown-section h3,
+    .markdown-section h4,
+    .markdown-section h5,
+    .markdown-section h6 {
+      color: var(--text-color-primary);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 10px;
+    }
+    
+    .markdown-section p,
+    .markdown-section blockquote {
+      color: var(--text-color-primary);
+    }
+    
+    .markdown-section blockquote {
+      background: var(--blockquote-background);
+      border-left: 4px solid var(--theme-color);
+    }
+    
+    /* 代码块样式 */
+    .markdown-section pre {
+      background: var(--code-background);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+    }
+    
+    .markdown-section pre code {
+      color: var(--text-color-primary);
+      background: transparent;
+      border: none;
+    }
+    
+    .markdown-section code {
+      background: var(--code-background);
+      color: var(--theme-color);
+      border-radius: 3px;
+      padding: 2px 4px;
+      border: 1px solid var(--border-color);
+    }
+    
+    /* 表格样式 */
+    .markdown-section table {
+      border-collapse: collapse;
+      margin: 1em 0;
+      background: var(--background-color);
+      width: 100%;
+    }
+    
+    .markdown-section th,
+    .markdown-section td {
+      border: 1px solid var(--border-color);
+      padding: 8px 13px;
+      text-align: left;
+      color: var(--text-color-primary);
+      background: var(--background-color);
+    }
+    
+    .markdown-section th {
+      background: var(--table-header-background);
+      font-weight: 600;
+    }
+    
+    /* 表格行样式 - 协调的斑马纹效果 */
+    .markdown-section tbody tr {
+      background: var(--background-color) !important;
+    }
+    
+    .markdown-section tbody tr:nth-child(2n) {
+      background: var(--table-row-even) !important;
+    }
+    
+    .markdown-section tbody tr:hover {
+      background: var(--table-row-hover) !important;
+      transition: background-color 0.2s ease;
+    }
+    
+    /* 搜索框样式 */
+    .search .input-wrap {
+      background: var(--search-background);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+    }
+    
+    .search .input-wrap input {
+      background: transparent;
+      color: var(--text-color-primary);
+    }
+    
+    .search .input-wrap input::placeholder {
+      color: var(--text-color-secondary);
+    }
+    
+    /* 搜索结果样式 */
+    .search .results-panel {
+      background: var(--background-color);
+      border: 1px solid var(--border-color);
+    }
+    
+    .search .results-panel .matching-post {
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .search .results-panel .matching-post a {
+      color: var(--text-color-primary);
+    }
+    
+    .search .results-panel .matching-post a:hover {
+      color: var(--theme-color);
+    }
+    
+    /* 链接样式 */
+    .markdown-section a {
+      color: var(--theme-color);
+    }
+    
+    .markdown-section a:hover {
+      opacity: 0.8;
+    }
+    
+    /* 导航栏样式 */
+    .app-nav {
+      background: var(--background-color);
+    }
+    
+    .app-nav a {
+      color: var(--text-color-primary);
+    }
+    
+    .app-nav a:hover {
+      color: var(--theme-color);
+    }
+    
+    /* 分页样式 */
+    .pagination-item a {
+      background: var(--sidebar-background);
+      border: 1px solid var(--border-color);
+      color: var(--text-color-primary);
+    }
+    
+    .pagination-item a:hover {
+      background: var(--theme-color);
+      color: var(--background-color);
+    }
+  </style>
+</head>
+<body>
+  <div id="app">加载中...</div>
+  <script>
+    window.$docsify = {
+      name: 'shimo-js-sdk',
+      repo: 'https://github.com/shimo-open/shimo-js-sdk',
+      homepage: 'summary.md',
+      loadSidebar: true,
+      autoHeader: true,
+      subMaxLevel: 3,
+      loadNavbar: true,
+      mergeNavbar: true,
+      auto2top: true,
+      relativePath: false,
+      notFoundPage: true,
+      
+      // 路由配置
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md',
+        '/': '/summary.md'
+      },
+      
+      // 搜索配置
+      search: {
+        maxAge: 86400000,
+        paths: 'auto',
+        placeholder: '搜索',
+        noData: '找不到结果',
+        depth: 3,
+        hideOtherSidebarContent: false
+      },
+      
+      // 分页配置
+      // pagination: {
+      //   previousText: '上一页',
+      //   nextText: '下一页',
+      //   crossChapter: true,
+      //   crossChapterText: true
+      // },
+      
+      // 代码复制
+      copyCode: {
+        buttonText: '复制代码',
+        errorText: '错误',
+        successText: '已复制'
+      },
+      
+      // 字数统计
+      count: {
+        countable: true,
+        fontsize: '0.9em',
+        color: 'rgb(90,90,90)',
+        language: 'chinese'
+      },
+      
+      // 插件配置
+      plugins: [
+        // 路由重定向插件
+        function(hook, vm) {
+          hook.init(function() {
+            // 如果是根路径，重定向到 summary.md
+            if (location.hash === '#/' || location.hash === '') {
+              location.hash = '#/summary';
+            }
+          });
+        },
+        
+        // 主题切换插件
+        function(hook, vm) {
+          hook.mounted(function() {
+            // 添加主题切换按钮
+            const themeToggle = document.createElement('div');
+            themeToggle.innerHTML = `
+              <button id="theme-toggle" style="
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 999;
+                background: var(--theme-color);
+                color: var(--background-color);
+                border: none;
+                border-radius: 50%;
+                width: 48px;
+                height: 48px;
+                cursor: pointer;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+                transition: all 0.3s ease;
+                font-size: 20px;
+              " title="切换主题">
+                🌓
+              </button>
+            `;
+            document.body.appendChild(themeToggle);
+            
+            // 主题切换逻辑
+            const toggleButton = document.getElementById('theme-toggle');
+            const currentTheme = localStorage.getItem('theme') || 'auto';
+            
+            // 应用主题
+            function applyTheme(theme) {
+              const root = document.documentElement;
+              if (theme === 'dark') {
+                root.setAttribute('data-theme', 'dark');
+                toggleButton.innerHTML = '☀️';
+                toggleButton.title = '切换到浅色主题';
+              } else if (theme === 'light') {
+                root.setAttribute('data-theme', 'light');
+                toggleButton.innerHTML = '🌙';
+                toggleButton.title = '切换到深色主题';
+              } else {
+                root.removeAttribute('data-theme');
+                toggleButton.innerHTML = '🌓';
+                toggleButton.title = '跟随系统主题';
+              }
+              localStorage.setItem('theme', theme);
+            }
+            
+            // 初始化主题
+            applyTheme(currentTheme);
+            
+            // 点击切换主题
+            toggleButton.addEventListener('click', function() {
+              const current = localStorage.getItem('theme') || 'auto';
+              let next;
+              if (current === 'auto') next = 'light';
+              else if (current === 'light') next = 'dark';
+              else next = 'auto';
+              applyTheme(next);
+            });
+          });
+        }
+      ]
+    };
+  </script>
+  
+  <!-- Docsify 核心 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+  
+  <!-- 插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination@2/dist/docsify-pagination.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code@2/dist/docsify-copy-code.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-count@3/dist/countable.min.js"></script>
+  
+  <!-- 语法高亮 -->
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-typescript.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+</body>
+</html>
+
