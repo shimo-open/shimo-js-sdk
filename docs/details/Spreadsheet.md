@@ -233,3 +233,15 @@ await editor.locateCell({ row: 0, column: 1 })
 // 取消搜索高亮
 editor.cancelSearchHighlights()
 ```
+
+## 10.初始化时不自动聚焦表格
+
+```typescript
+import { connect } from 'shimo-js-sdk'
+connect({
+  smParams: {
+    // 不自动聚焦表格(默认会自动聚焦)
+    disableAutoFocus: true
+  }
+})
+```

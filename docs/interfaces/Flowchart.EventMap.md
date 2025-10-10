@@ -25,4 +25,4 @@
 
 #### Defined in
 
-[src/types/FlowChart.ts:4](https://github.com/byte9527/shimo-js-sdk/blob/main/src/types/FlowChart.ts#L4)
+[src/types/FlowChart.ts:4](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/FlowChart.ts#L4)

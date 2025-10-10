@@ -71,7 +71,7 @@ Omit.openLink
 
 #### Defined in
 
-[src/ShimoSDK.ts:787](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L787)
+[src/ShimoSDK.ts:787](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L787)
 
 ___
 
@@ -97,7 +97,7 @@ Omit.mentionClickHandlerForMobile
 
 #### Defined in
 
-[src/ShimoSDK.ts:807](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L807)
+[src/ShimoSDK.ts:807](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L807)
 
 ___
 
@@ -123,7 +123,7 @@ Omit.getFileInfoFromUrl
 
 #### Defined in
 
-[src/ShimoSDK.ts:814](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L814)
+[src/ShimoSDK.ts:814](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L814)
 
 ___
 
@@ -149,7 +149,7 @@ Omit.showToast
 
 #### Defined in
 
-[src/ShimoSDK.ts:827](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L827)
+[src/ShimoSDK.ts:827](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L827)
 
 ___
 
@@ -175,7 +175,7 @@ Omit.handleCustomTask
 
 #### Defined in
 
-[src/ShimoSDK.ts:832](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L832)
+[src/ShimoSDK.ts:832](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L832)
 
 ## Properties
 
@@ -191,7 +191,7 @@ Omit.generateUrl
 
 #### Defined in
 
-[src/ShimoSDK.ts:802](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L802)
+[src/ShimoSDK.ts:802](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L802)
 
 ___
 
@@ -203,7 +203,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:893](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L893)
+[src/ShimoSDK.ts:893](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L893)
 
 ___
 
@@ -215,7 +215,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:898](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L898)
+[src/ShimoSDK.ts:898](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L898)
 
 ___
 
@@ -227,7 +227,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:903](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L903)
+[src/ShimoSDK.ts:903](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L903)
 
 ___
 
@@ -239,7 +239,7 @@ iframe 挂载的目标容器
 
 #### Defined in
 
-[src/ShimoSDK.ts:908](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L908)
+[src/ShimoSDK.ts:908](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L908)
 
 ___
 
@@ -251,7 +251,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:913](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L913)
+[src/ShimoSDK.ts:913](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L913)
 
 ___
 
@@ -267,7 +267,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:918](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L918)
+[src/ShimoSDK.ts:918](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L918)
 
 ___
 
@@ -279,7 +279,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:925](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L925)
+[src/ShimoSDK.ts:925](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L925)
 
 ___
 
@@ -298,7 +298,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:940](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L940)
+[src/ShimoSDK.ts:940](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L940)
 
 ___
 
@@ -310,7 +310,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:945](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L945)
+[src/ShimoSDK.ts:945](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L945)
 
 ___
 
@@ -323,7 +323,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:951](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L951)
+[src/ShimoSDK.ts:951](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L951)
 
 ___
 
@@ -335,7 +335,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:956](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L956)
+[src/ShimoSDK.ts:956](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L956)
 
 ___
 
@@ -347,7 +347,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:961](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L961)
+[src/ShimoSDK.ts:961](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L961)
 
 ___
 
@@ -361,7 +361,7 @@ iframe postMessage 的目标 origin，默认是当前页面的 location.origin�
 
 #### Defined in
 
-[src/ShimoSDK.ts:967](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L967)
+[src/ShimoSDK.ts:967](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L967)
 
 ___
 
@@ -373,7 +373,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:972](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L972)
+[src/ShimoSDK.ts:972](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L972)
 
 ___
 
@@ -385,7 +385,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:977](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L977)
+[src/ShimoSDK.ts:977](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L977)
 
 ___
 
@@ -397,7 +397,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:982](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L982)
+[src/ShimoSDK.ts:982](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L982)
 
 ___
 
@@ -409,7 +409,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:987](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L987)
+[src/ShimoSDK.ts:987](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L987)
 
 ___
 
@@ -421,7 +421,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:992](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L992)
+[src/ShimoSDK.ts:992](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L992)
 
 ___
 
@@ -433,7 +433,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:997](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L997)
+[src/ShimoSDK.ts:997](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L997)
 
 ___
 
@@ -445,4 +445,4 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:1002](https://github.com/byte9527/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L1002)
+[src/ShimoSDK.ts:1002](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L1002)

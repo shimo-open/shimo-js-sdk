@@ -282,7 +282,7 @@ connect({
 
 如果您在使用过程中遇到问题，请参考：
 
-- [详细 API 文档](https://github.com/shimo-open/shimo-js-sdk/blob/master/docs/modules.md) - 详细的接口文档
+- [详细 API 文档](https://github.com/shimo-open/shimo-js-sdk/blob/master/docs/modules) - 详细的接口文档
 - [石墨 SDK 2.0 官网](https://open.shimo.im/) - 产品详细介绍
 
 ## 注意事项
