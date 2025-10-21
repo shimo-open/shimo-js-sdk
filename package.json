@@ -19,6 +19,7 @@
   "devDependencies": {
     "@types/globalthis": "^1.0.1",
     "@types/lodash.forin": "^4.4.6",
+    "@types/minimatch": "^6.0.0",
     "@types/uuid": "^8.3.3",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "clean-webpack-plugin": "^3.0.0",
@@ -63,5 +64,8 @@
       "prettier --write"
     ],
     "*.{css,md,json}": "prettier --write"
+  },
+  "resolutions": {
+    "minimatch": "10.0.3"
   }
 }
