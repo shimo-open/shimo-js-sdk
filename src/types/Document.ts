@@ -5,6 +5,12 @@ export interface DocumentErrorMessage {
   message: string
 }
 
+export interface ExternalAppParams {
+  title?: string
+  width?: number | string
+  height?: number
+}
+
 export interface EventMap extends BaseEventMap {
   /**
    * 标题发生变更
@@ -100,11 +106,6 @@ export interface Editor extends BaseEditor<EventMap> {
    */
   hideComments: (options?: {}) => Promise<void>
   /**
-   * 插入第三方应用，是否可用受版本限制。
-   * @since 22.6.1
-   */
-  insertExternalApp: (url: string) => Promise<null | DocumentErrorMessage>
-  /**
    * 显示编写者信息
    * @since 24.11.1
    */
@@ -114,4 +115,62 @@ export interface Editor extends BaseEditor<EventMap> {
    * @since 24.11.1
    */
   hideCollaborator: (options?: {}) => Promise<void>
+  /**
+   * 获取侧边栏显示隐藏状态
+   * @since 24.11.1
+   */
+  isSidebarVisible: () => Promise<boolean>
+  /**
+   * 显示评论侧边栏
+   * @since 24.11.1
+   */
+  showComment: () => Promise<void>
+  /**
+   * 隐藏评论侧边栏
+   * @since 24.11.1
+   */
+  hideComment: () => Promise<void>
+  /**
+   * 开始跟随模式
+   * @since 24.11.1
+   */
+  startFollowMode: () => Promise<void>
+  /**
+   * 获取文档标题
+   * @since 24.11.1
+   */
+  getTitle: () => Promise<string>
+  /**
+   * 设置文档标题
+   * @since 24.11.1
+   */
+  setTitle: (value: string) => Promise<void>
+  /**
+   * 插入第三方应用
+   * @since 22.6.1
+   */
+  insertExternalApp: (
+    url: string,
+    params: ExternalAppParams
+  ) => Promise<null | DocumentErrorMessage>
+  /**
+   * 插入链接卡片
+   * @since 24.11.1
+   */
+  insertLinkCard: (url: string, title: string) => Promise<void>
+  /**
+   * 插入链接
+   * @since 24.11.1
+   */
+  insertLink: (url: string, text: string) => Promise<void>
+  /**
+   * 获取选区内容的 Markdown 格式
+   * @since 24.11.1
+   */
+  getMarkdownFromSelection: () => Promise<string>
+  /**
+   * 插入 Markdown 内容
+   * @since 24.11.1
+   */
+  insertMarkdown: (content: string) => Promise<void>
 }
