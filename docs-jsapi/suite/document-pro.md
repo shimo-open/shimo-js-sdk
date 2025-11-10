@@ -872,6 +872,7 @@ await editor.export('imagePdf')
 | [VerticalScroll](#verticalscroll)                 | 垂直滚动事件         | `MouseMovePayload`                    |
 | [HorizontalScroll](#horizontalscroll)             | 水平滚动事件         | `MouseMovePayload`                    |
 | [showSignatureComponent](#showsignaturecomponent) | 请求打开签名组件事件 | `{ aspectRatio: number, id: string }` |
+| [saveStatusChanged](#savestatuschanged)           | 保存状态变更事件     |  `{ status: 'saving' \| 'saved' \| 'error' }`             |
 
 ---
 
@@ -1130,5 +1131,41 @@ editor.on('showSignatureComponent', (payload) => {
       })
     }
   })
+})
+```
+
+## saveStatusChanged
+
+### 说明
+
+当文档保存状态发生变更时触发。
+
+### 类型定义
+
+```typescript
+saveStatusChanged: {
+  status: 'saving' | 'saved' | 'error'
+}
+```
+
+### 参数说明
+
+- `status`: 文档保存状态，可能的值包括 `'saving'`（正在保存）、`'saved'`（已保存）、`'error'`（保存出错）
+
+### 示例
+
+```javascript
+const editor = sdk.getEditor()
+
+editor.on('saveStatusChanged', (payload) => {
+  console.log('文档保存状态变更:', payload.status)
+
+  if (payload.status === 'saved') {
+    // 文档已成功保存，执行相关操作
+    showSuccessMessage('文档已保存')
+  } else if (payload.status === 'error') {
+    // 文档保存出错，执行错误处理
+    showErrorMessage('文档保存出错')
+  }
 })
 ```
