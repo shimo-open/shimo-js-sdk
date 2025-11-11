@@ -390,6 +390,8 @@ export class ShimoSDK extends TinyEmitter {
     iframe.style.overflow = 'hidden'
     iframe.style.width = '100%'
     iframe.style.height = '100%'
+    // 解决页面出现滚动条 & 顶部被截断的问题
+    iframe.style.display = 'block'
 
     if ('allow' in iframe) {
       iframe.allow =
