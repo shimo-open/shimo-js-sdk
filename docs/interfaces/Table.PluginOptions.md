@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.12](/README.md) / [Table](/modules/Table.md) / PluginOptions
+[shimo-js-sdk - v1.2.14](/README.md) / [Table](/modules/Table.md) / PluginOptions
 
 # Interface: PluginOptions
 
@@ -23,7 +23,7 @@
 
 #### Defined in
 
-[src/types/Table.ts:29](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Table.ts#L29)
+[src/types/Table.ts:29](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Table.ts#L29)
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-[src/types/Table.ts:30](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Table.ts#L30)
+[src/types/Table.ts:30](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Table.ts#L30)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[src/types/Table.ts:34](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Table.ts#L34)
+[src/types/Table.ts:34](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Table.ts#L34)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[src/types/Table.ts:40](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Table.ts#L40)
+[src/types/Table.ts:40](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Table.ts#L40)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[src/types/Table.ts:46](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Table.ts#L46)
+[src/types/Table.ts:46](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Table.ts#L46)
 
 ___
 
@@ -98,4 +98,4 @@ ___
 
 #### Defined in
 
-[src/types/Table.ts:48](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Table.ts#L48)
+[src/types/Table.ts:48](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Table.ts#L48)

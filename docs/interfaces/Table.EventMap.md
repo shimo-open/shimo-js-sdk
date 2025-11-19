@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.12](/README.md) / [Table](/modules/Table.md) / EventMap
+[shimo-js-sdk - v1.2.14](/README.md) / [Table](/modules/Table.md) / EventMap
 
 # Interface: EventMap
 
@@ -25,4 +25,4 @@
 
 #### Defined in
 
-[src/types/Table.ts:4](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Table.ts#L4)
+[src/types/Table.ts:4](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Table.ts#L4)

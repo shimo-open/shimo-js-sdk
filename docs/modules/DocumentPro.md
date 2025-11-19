@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.12](/README.md) / DocumentPro
+[shimo-js-sdk - v1.2.14](/README.md) / DocumentPro
 
 # Namespace: DocumentPro
 
@@ -33,7 +33,7 @@
 
 #### Defined in
 
-[src/types/DocumentPro.ts:70](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L70)
+[src/types/DocumentPro.ts:70](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L70)
 
 ___
 
@@ -48,7 +48,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:78](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L78)
+[src/types/DocumentPro.ts:78](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L78)
 
 ___
 
@@ -60,4 +60,4 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:81](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L81)
+[src/types/DocumentPro.ts:81](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L81)

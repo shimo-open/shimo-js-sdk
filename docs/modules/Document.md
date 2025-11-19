@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.12](/README.md) / Document
+[shimo-js-sdk - v1.2.14](/README.md) / Document
 
 # Namespace: Document
 
@@ -7,5 +7,6 @@
 ### Interfaces
 
 - [DocumentErrorMessage](/interfaces/Document.DocumentErrorMessage.md)
+- [ExternalAppParams](/interfaces/Document.ExternalAppParams.md)
 - [EventMap](/interfaces/Document.EventMap.md)
 - [Editor](/interfaces/Document.Editor.md)

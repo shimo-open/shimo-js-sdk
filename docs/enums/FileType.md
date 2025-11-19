@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.12](/README.md) / FileType
+[shimo-js-sdk - v1.2.14](/README.md) / FileType
 
 # Enumeration: FileType
 

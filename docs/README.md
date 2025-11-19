@@ -1,6 +1,6 @@
-shimo-js-sdk - v1.2.12
+shimo-js-sdk - v1.2.14
 
-# shimo-js-sdk - v1.2.12
+# shimo-js-sdk - v1.2.14
 
 ## Table of contents
 
@@ -230,7 +230,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:883](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L883)
+[src/ShimoSDK.ts:908](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L908)
 
 ## Variables
 
@@ -276,7 +276,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:52](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L52)
+[src/ShimoSDK.ts:56](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L56)
 
 ___
 
@@ -286,7 +286,7 @@ ___
 
 #### Defined in
 
-[src/index.ts:28](https://github.com/shimohq/shimo-js-sdk/blob/main/src/index.ts#L28)
+[src/index.ts:28](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/index.ts#L28)
 
 ## Functions
 
@@ -355,4 +355,4 @@ Promise resovled 不代表编辑器已经完整加载完毕，只代表 SDK 已�
 
 #### Defined in
 
-[src/connect.ts:11](https://github.com/shimohq/shimo-js-sdk/blob/main/src/connect.ts#L11)
+[src/connect.ts:11](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/connect.ts#L11)

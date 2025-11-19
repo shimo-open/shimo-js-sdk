@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.12](/README.md) / BaseEventMap
+[shimo-js-sdk - v1.2.14](/README.md) / BaseEventMap
 
 # Interface: BaseEventMap
 
@@ -19,6 +19,7 @@
 - [saveStatusChanged](/interfaces/BaseEventMap.md#savestatuschanged)
 - [saveStatusDidChange](/interfaces/BaseEventMap.md#savestatusdidchange)
 - [paramsChanged](/interfaces/BaseEventMap.md#paramschanged)
+- [collaboratorsChanged](/interfaces/BaseEventMap.md#collaboratorschanged)
 
 ## Properties
 
@@ -36,7 +37,7 @@
 
 #### Defined in
 
-[src/types/BaseEditor.ts:5](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L5)
+[src/types/BaseEditor.ts:21](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L21)
 
 ___
 
@@ -56,7 +57,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:16](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L16)
+[src/types/BaseEditor.ts:32](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L32)
 
 ___
 
@@ -74,4 +75,16 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L26)
+[src/types/BaseEditor.ts:42](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L42)
+
+___
+
+### collaboratorsChanged
+
+• **collaboratorsChanged**: `CollaboratorsChangedPayload`
+
+协作者列表发生变更
+
+#### Defined in
+
+[src/types/BaseEditor.ts:49](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L49)

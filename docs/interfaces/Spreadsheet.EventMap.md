@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.12](/README.md) / [Spreadsheet](/modules/Spreadsheet.md) / EventMap
+[shimo-js-sdk - v1.2.14](/README.md) / [Spreadsheet](/modules/Spreadsheet.md) / EventMap
 
 # Interface: EventMap
 
@@ -17,6 +17,7 @@
 - [saveStatusChanged](/interfaces/Spreadsheet.EventMap.md#savestatuschanged)
 - [saveStatusDidChange](/interfaces/Spreadsheet.EventMap.md#savestatusdidchange)
 - [paramsChanged](/interfaces/Spreadsheet.EventMap.md#paramschanged)
+- [collaboratorsChanged](/interfaces/Spreadsheet.EventMap.md#collaboratorschanged)
 - [error](/interfaces/Spreadsheet.EventMap.md#error)
 - [MouseMove](/interfaces/Spreadsheet.EventMap.md#mousemove)
 - [VerticalScroll](/interfaces/Spreadsheet.EventMap.md#verticalscroll)
@@ -42,7 +43,7 @@
 
 #### Defined in
 
-[src/types/BaseEditor.ts:5](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L5)
+[src/types/BaseEditor.ts:21](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L21)
 
 ___
 
@@ -66,7 +67,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:16](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L16)
+[src/types/BaseEditor.ts:32](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L32)
 
 ___
 
@@ -88,7 +89,23 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:26](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L26)
+[src/types/BaseEditor.ts:42](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L42)
+
+___
+
+### collaboratorsChanged
+
+• **collaboratorsChanged**: `CollaboratorsChangedPayload`
+
+协作者列表发生变更
+
+#### Inherited from
+
+[BaseEventMap](/interfaces/BaseEventMap.md).[collaboratorsChanged](/interfaces/BaseEventMap.md#collaboratorschanged)
+
+#### Defined in
+
+[src/types/BaseEditor.ts:49](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L49)
 
 ___
 
@@ -105,7 +122,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:31](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L31)
+[src/types/Spreadsheet.ts:31](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L31)
 
 ___
 
@@ -117,7 +134,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:41](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L41)
+[src/types/Spreadsheet.ts:41](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L41)
 
 ___
 
@@ -129,7 +146,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:46](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L46)
+[src/types/Spreadsheet.ts:46](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L46)
 
 ___
 
@@ -141,4 +158,4 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:51](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L51)
+[src/types/Spreadsheet.ts:51](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L51)
