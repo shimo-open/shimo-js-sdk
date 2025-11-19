@@ -1,3 +1,19 @@
+export interface Collaborator {
+  id: number | string
+  name?: string
+  avatar?: string
+  color?: string
+  [key: string]: unknown
+}
+
+export interface CollaboratorsChangedPayload {
+  type: 'snapshot' | 'enter' | 'leave'
+  collaborators: Collaborator[]
+  enterUsers?: Collaborator[]
+  leaveUsers?: Collaborator[]
+  raw?: unknown
+}
+
 export interface EventMap {
   /**
    * 保存状态发生变更
@@ -26,6 +42,11 @@ export interface EventMap {
   paramsChanged: {
     params: string
   }
+
+  /**
+   * 协作者列表发生变更
+   */
+  collaboratorsChanged: CollaboratorsChangedPayload
 }
 
 export interface BaseEditor<
@@ -45,4 +66,9 @@ export interface BaseEditor<
    * 设置文档标题
    */
   setTitle: (title: string) => Promise<void>
+
+  /**
+   * 获取当前协作者列表
+   */
+  getCollaborators: () => Collaborator[]
 }

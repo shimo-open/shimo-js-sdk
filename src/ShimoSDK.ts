@@ -42,7 +42,11 @@ import {
   Flowchart
 } from '.'
 import { assert } from './assert'
-import { BaseEditor } from './types/BaseEditor'
+import {
+  BaseEditor,
+  Collaborator,
+  CollaboratorsChangedPayload
+} from './types/BaseEditor'
 
 const globalThis = getGlobal()
 const AUD = 'smjssdk'
@@ -115,6 +119,7 @@ export class ShimoSDK extends TinyEmitter {
   private _readyState: ReadyState = ReadyState.Loading
   private editor: any
   private readonly startParams: StartParams
+  private collaborators: Collaborator[] = []
   private readonly apiAdaptor: string
   private readonly apiAdaptorContext: string
   private readonly handledMessageCache: ExpireSet<string>
@@ -560,6 +565,9 @@ export class ShimoSDK extends TinyEmitter {
     channel.addInvokeHandler(
       InvokeMethod.DispatchEditorEvent,
       async (event: string, payload: unknown) => {
+        if (event === 'collaboratorsChanged') {
+          this.updateCollaborators(payload)
+        }
         this.emitter.emit(event, payload)
       },
       { audience: AUD }
@@ -697,7 +705,9 @@ export class ShimoSDK extends TinyEmitter {
       off: (event: string, callback: EventCallback) => {
         event = adjustEventName(event)
         this.emitter.off(event, callback)
-      }
+      },
+
+      getCollaborators: () => [...this.collaborators]
     }
 
     // 通过 Proxy 代理 API 调用
@@ -767,6 +777,19 @@ export class ShimoSDK extends TinyEmitter {
     }
 
     return payload
+  }
+
+  private updateCollaborators(payload: unknown) {
+    if (
+      payload &&
+      typeof payload === 'object' &&
+      Array.isArray(
+        (payload as Partial<CollaboratorsChangedPayload>).collaborators
+      )
+    ) {
+      const data = payload as CollaboratorsChangedPayload
+      this.collaborators = [...data.collaborators]
+    }
   }
 }
 

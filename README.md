@@ -56,6 +56,44 @@ const { connect, FileType } = window.ShimoJSSDK
 const { connect, FileType } = require('shimo-js-sdk')
 ```
 
+### 协作者模块使用说明
+
+当 iframe 套件开启协作者能力后（依赖 `ENABLE_SDK_COLLABORATORS_MODULE` 开关），shimo-js-sdk 使用方可按以下方式接入：
+
+1. **确认开关**
+
+   - 容器页面需要在注入 `window.__RUNTIME_ENV__` 时设置 `ENABLE_SDK_COLLABORATORS_MODULE = true`，否则协作者事件不会触发。
+
+2. **监听 `collaboratorsChanged`**
+
+```ts
+const sdk = await connect(options)
+const editor = sdk.getEditor()
+
+editor.on('collaboratorsChanged', (payload) => {
+  // payload.type: 'snapshot' | 'enter' | 'leave'
+  // payload.collaborators: 协作者全量列表
+  renderCollaborators(payload)
+
+  if (payload.type === 'enter') {
+    console.log('新协作者进入:', payload.enterUsers)
+  } else if (payload.type === 'leave') {
+    console.log('协作者离开:', payload.leaveUsers)
+  }
+})
+```
+
+3. **主动获取协作者列表**
+
+```ts
+const collaborators = editor.getCollaborators()
+renderCollaborators({ type: 'snapshot', collaborators })
+```
+
+4. **调试提示**
+   - 未收到事件时，检查 `window.__RUNTIME_ENV__.ENABLE_SDK_COLLABORATORS_MODULE` 是否为 `true`。
+   - 可在 iframe 页面 DevTools 中查看 `collaboratorsChanged` 是否触发，或观察 WebSocket `COLLABROOM` 消息。
+
 #### 使用示例
 
 ```js
