@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.14](/README.md) / ContainerMethodPayload
+[shimo-js-sdk - v1.2.16](/README.md) / ContainerMethodPayload
 
 # Interface: ContainerMethodPayload
 

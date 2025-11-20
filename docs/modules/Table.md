@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.14](/README.md) / Table
+[shimo-js-sdk - v1.2.16](/README.md) / Table
 
 # Namespace: Table
 
