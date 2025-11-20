@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.12](/README.md) / Message
+[shimo-js-sdk - v1.2.14](/README.md) / Message
 
 # Interface: Message
 
@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[src/ShimoSDK.ts:858](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L858)
+[src/ShimoSDK.ts:883](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L883)
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:859](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L859)
+[src/ShimoSDK.ts:884](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L884)
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:860](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L860)
+[src/ShimoSDK.ts:885](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L885)
 
 ___
 
@@ -49,4 +49,4 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:861](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L861)
+[src/ShimoSDK.ts:886](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L886)

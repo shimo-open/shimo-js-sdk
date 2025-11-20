@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.12](/README.md) / [Presentation](/modules/Presentation.md) / Editor
+[shimo-js-sdk - v1.2.14](/README.md) / [Presentation](/modules/Presentation.md) / Editor
 
 # Interface: Editor
 
@@ -17,6 +17,7 @@
 - [on](/interfaces/Presentation.Editor.md#on)
 - [off](/interfaces/Presentation.Editor.md#off)
 - [setTitle](/interfaces/Presentation.Editor.md#settitle)
+- [getCollaborators](/interfaces/Presentation.Editor.md#getcollaborators)
 - [showHistory](/interfaces/Presentation.Editor.md#showhistory)
 - [hideHistory](/interfaces/Presentation.Editor.md#hidehistory)
 - [startDemonstration](/interfaces/Presentation.Editor.md#startdemonstration)
@@ -56,7 +57,7 @@
 
 #### Defined in
 
-[src/types/BaseEditor.ts:37](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L37)
+[src/types/BaseEditor.ts:58](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L58)
 
 ___
 
@@ -89,7 +90,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:42](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L42)
+[src/types/BaseEditor.ts:63](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L63)
 
 ___
 
@@ -115,7 +116,27 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:47](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L47)
+[src/types/BaseEditor.ts:68](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L68)
+
+___
+
+### getCollaborators
+
+▸ **getCollaborators**(): `Collaborator`[]
+
+获取当前协作者列表
+
+#### Returns
+
+`Collaborator`[]
+
+#### Inherited from
+
+[BaseEditor](/interfaces/BaseEditor.md).[getCollaborators](/interfaces/BaseEditor.md#getcollaborators)
+
+#### Defined in
+
+[src/types/BaseEditor.ts:73](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L73)
 
 ___
 
@@ -131,7 +152,7 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:25](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Presentation.ts#L25)
+[src/types/Presentation.ts:25](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Presentation.ts#L25)
 
 ___
 
@@ -147,7 +168,7 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:29](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Presentation.ts#L29)
+[src/types/Presentation.ts:29](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Presentation.ts#L29)
 
 ___
 
@@ -163,7 +184,7 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:33](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Presentation.ts#L33)
+[src/types/Presentation.ts:33](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Presentation.ts#L33)
 
 ___
 
@@ -179,7 +200,7 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:37](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Presentation.ts#L37)
+[src/types/Presentation.ts:37](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Presentation.ts#L37)
 
 ___
 
@@ -197,7 +218,7 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:42](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Presentation.ts#L42)
+[src/types/Presentation.ts:42](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Presentation.ts#L42)
 
 ___
 
@@ -221,7 +242,7 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:48](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Presentation.ts#L48)
+[src/types/Presentation.ts:48](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Presentation.ts#L48)
 
 ___
 
@@ -239,4 +260,4 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:53](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Presentation.ts#L53)
+[src/types/Presentation.ts:53](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Presentation.ts#L53)

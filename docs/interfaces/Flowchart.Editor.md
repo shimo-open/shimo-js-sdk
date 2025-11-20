@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.12](/README.md) / [Flowchart](/modules/Flowchart.md) / Editor
+[shimo-js-sdk - v1.2.14](/README.md) / [Flowchart](/modules/Flowchart.md) / Editor
 
 # Interface: Editor
 
@@ -17,6 +17,7 @@
 - [on](/interfaces/Flowchart.Editor.md#on)
 - [off](/interfaces/Flowchart.Editor.md#off)
 - [setTitle](/interfaces/Flowchart.Editor.md#settitle)
+- [getCollaborators](/interfaces/Flowchart.Editor.md#getcollaborators)
 
 ## Methods
 
@@ -49,7 +50,7 @@
 
 #### Defined in
 
-[src/types/BaseEditor.ts:37](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L37)
+[src/types/BaseEditor.ts:58](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L58)
 
 ___
 
@@ -82,7 +83,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:42](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L42)
+[src/types/BaseEditor.ts:63](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L63)
 
 ___
 
@@ -108,4 +109,24 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:47](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L47)
+[src/types/BaseEditor.ts:68](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L68)
+
+___
+
+### getCollaborators
+
+▸ **getCollaborators**(): `Collaborator`[]
+
+获取当前协作者列表
+
+#### Returns
+
+`Collaborator`[]
+
+#### Inherited from
+
+[BaseEditor](/interfaces/BaseEditor.md).[getCollaborators](/interfaces/BaseEditor.md#getcollaborators)
+
+#### Defined in
+
+[src/types/BaseEditor.ts:73](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L73)

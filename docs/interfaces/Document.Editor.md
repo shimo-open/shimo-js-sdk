@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.12](/README.md) / [Document](/modules/Document.md) / Editor
+[shimo-js-sdk - v1.2.14](/README.md) / [Document](/modules/Document.md) / Editor
 
 # Interface: Editor
 
@@ -16,7 +16,7 @@
 
 - [on](/interfaces/Document.Editor.md#on)
 - [off](/interfaces/Document.Editor.md#off)
-- [setTitle](/interfaces/Document.Editor.md#settitle)
+- [getCollaborators](/interfaces/Document.Editor.md#getcollaborators)
 - [showHistory](/interfaces/Document.Editor.md#showhistory)
 - [hideHistory](/interfaces/Document.Editor.md#hidehistory)
 - [showRevision](/interfaces/Document.Editor.md#showrevision)
@@ -31,9 +31,19 @@
 - [print](/interfaces/Document.Editor.md#print)
 - [showComments](/interfaces/Document.Editor.md#showcomments)
 - [hideComments](/interfaces/Document.Editor.md#hidecomments)
-- [insertExternalApp](/interfaces/Document.Editor.md#insertexternalapp)
 - [showCollaborator](/interfaces/Document.Editor.md#showcollaborator)
 - [hideCollaborator](/interfaces/Document.Editor.md#hidecollaborator)
+- [isSidebarVisible](/interfaces/Document.Editor.md#issidebarvisible)
+- [showComment](/interfaces/Document.Editor.md#showcomment)
+- [hideComment](/interfaces/Document.Editor.md#hidecomment)
+- [startFollowMode](/interfaces/Document.Editor.md#startfollowmode)
+- [getTitle](/interfaces/Document.Editor.md#gettitle)
+- [setTitle](/interfaces/Document.Editor.md#settitle)
+- [insertExternalApp](/interfaces/Document.Editor.md#insertexternalapp)
+- [insertLinkCard](/interfaces/Document.Editor.md#insertlinkcard)
+- [insertLink](/interfaces/Document.Editor.md#insertlink)
+- [getMarkdownFromSelection](/interfaces/Document.Editor.md#getmarkdownfromselection)
+- [insertMarkdown](/interfaces/Document.Editor.md#insertmarkdown)
 
 ## Methods
 
@@ -66,7 +76,7 @@
 
 #### Defined in
 
-[src/types/BaseEditor.ts:37](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L37)
+[src/types/BaseEditor.ts:58](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L58)
 
 ___
 
@@ -99,33 +109,27 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:42](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L42)
+[src/types/BaseEditor.ts:63](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L63)
 
 ___
 
-### setTitle
+### getCollaborators
 
-▸ **setTitle**(`title`): `Promise`<`void`\>
+▸ **getCollaborators**(): `Collaborator`[]
 
-设置文档标题
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `title` | `string` |
+获取当前协作者列表
 
 #### Returns
 
-`Promise`<`void`\>
+`Collaborator`[]
 
 #### Inherited from
 
-[BaseEditor](/interfaces/BaseEditor.md).[setTitle](/interfaces/BaseEditor.md#settitle)
+[BaseEditor](/interfaces/BaseEditor.md).[getCollaborators](/interfaces/BaseEditor.md#getcollaborators)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:47](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L47)
+[src/types/BaseEditor.ts:73](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L73)
 
 ___
 
@@ -149,7 +153,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:35](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Document.ts#L35)
+[src/types/Document.ts:41](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Document.ts#L41)
 
 ___
 
@@ -173,7 +177,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:40](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Document.ts#L40)
+[src/types/Document.ts:46](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Document.ts#L46)
 
 ___
 
@@ -197,7 +201,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:45](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Document.ts#L45)
+[src/types/Document.ts:51](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Document.ts#L51)
 
 ___
 
@@ -221,7 +225,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:50](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Document.ts#L50)
+[src/types/Document.ts:56](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Document.ts#L56)
 
 ___
 
@@ -245,7 +249,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:55](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Document.ts#L55)
+[src/types/Document.ts:61](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Document.ts#L61)
 
 ___
 
@@ -269,7 +273,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:60](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Document.ts#L60)
+[src/types/Document.ts:66](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Document.ts#L66)
 
 ___
 
@@ -293,7 +297,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:65](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Document.ts#L65)
+[src/types/Document.ts:71](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Document.ts#L71)
 
 ___
 
@@ -317,7 +321,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:70](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Document.ts#L70)
+[src/types/Document.ts:76](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Document.ts#L76)
 
 ___
 
@@ -341,7 +345,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:75](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Document.ts#L75)
+[src/types/Document.ts:81](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Document.ts#L81)
 
 ___
 
@@ -365,7 +369,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:80](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Document.ts#L80)
+[src/types/Document.ts:86](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Document.ts#L86)
 
 ___
 
@@ -389,7 +393,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:85](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Document.ts#L85)
+[src/types/Document.ts:91](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Document.ts#L91)
 
 ___
 
@@ -413,7 +417,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:90](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Document.ts#L90)
+[src/types/Document.ts:96](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Document.ts#L96)
 
 ___
 
@@ -437,7 +441,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:96](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Document.ts#L96)
+[src/types/Document.ts:102](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Document.ts#L102)
 
 ___
 
@@ -461,31 +465,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:101](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Document.ts#L101)
-
-___
-
-### insertExternalApp
-
-▸ **insertExternalApp**(`url`): `Promise`<``null`` \| [`DocumentErrorMessage`](/interfaces/Document.DocumentErrorMessage.md)\>
-
-插入第三方应用，是否可用受版本限制。
-
-**`since`** 22.6.1
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
-
-#### Returns
-
-`Promise`<``null`` \| [`DocumentErrorMessage`](/interfaces/Document.DocumentErrorMessage.md)\>
-
-#### Defined in
-
-[src/types/Document.ts:106](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Document.ts#L106)
+[src/types/Document.ts:107](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Document.ts#L107)
 
 ___
 
@@ -509,7 +489,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:111](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Document.ts#L111)
+[src/types/Document.ts:112](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Document.ts#L112)
 
 ___
 
@@ -533,4 +513,239 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:116](https://github.com/shimohq/shimo-js-sdk/blob/main/src/types/Document.ts#L116)
+[src/types/Document.ts:117](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Document.ts#L117)
+
+___
+
+### isSidebarVisible
+
+▸ **isSidebarVisible**(): `Promise`<`boolean`\>
+
+获取侧边栏显示隐藏状态
+
+**`since`** 24.11.1
+
+#### Returns
+
+`Promise`<`boolean`\>
+
+#### Defined in
+
+[src/types/Document.ts:122](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Document.ts#L122)
+
+___
+
+### showComment
+
+▸ **showComment**(): `Promise`<`void`\>
+
+显示评论侧边栏
+
+**`since`** 24.11.1
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Document.ts:127](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Document.ts#L127)
+
+___
+
+### hideComment
+
+▸ **hideComment**(): `Promise`<`void`\>
+
+隐藏评论侧边栏
+
+**`since`** 24.11.1
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Document.ts:132](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Document.ts#L132)
+
+___
+
+### startFollowMode
+
+▸ **startFollowMode**(): `Promise`<`void`\>
+
+开始跟随模式
+
+**`since`** 24.11.1
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Document.ts:137](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Document.ts#L137)
+
+___
+
+### getTitle
+
+▸ **getTitle**(): `Promise`<`string`\>
+
+获取文档标题
+
+**`since`** 24.11.1
+
+#### Returns
+
+`Promise`<`string`\>
+
+#### Defined in
+
+[src/types/Document.ts:142](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Document.ts#L142)
+
+___
+
+### setTitle
+
+▸ **setTitle**(`value`): `Promise`<`void`\>
+
+设置文档标题
+
+**`since`** 24.11.1
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `string` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Overrides
+
+[BaseEditor](/interfaces/BaseEditor.md).[setTitle](/interfaces/BaseEditor.md#settitle)
+
+#### Defined in
+
+[src/types/Document.ts:147](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Document.ts#L147)
+
+___
+
+### insertExternalApp
+
+▸ **insertExternalApp**(`url`, `params`): `Promise`<``null`` \| [`DocumentErrorMessage`](/interfaces/Document.DocumentErrorMessage.md)\>
+
+插入第三方应用
+
+**`since`** 22.6.1
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `url` | `string` |
+| `params` | [`ExternalAppParams`](/interfaces/Document.ExternalAppParams.md) |
+
+#### Returns
+
+`Promise`<``null`` \| [`DocumentErrorMessage`](/interfaces/Document.DocumentErrorMessage.md)\>
+
+#### Defined in
+
+[src/types/Document.ts:152](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Document.ts#L152)
+
+___
+
+### insertLinkCard
+
+▸ **insertLinkCard**(`url`, `title`): `Promise`<`void`\>
+
+插入链接卡片
+
+**`since`** 24.11.1
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `url` | `string` |
+| `title` | `string` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Document.ts:160](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Document.ts#L160)
+
+___
+
+### insertLink
+
+▸ **insertLink**(`url`, `text`): `Promise`<`void`\>
+
+插入链接
+
+**`since`** 24.11.1
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `url` | `string` |
+| `text` | `string` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Document.ts:165](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Document.ts#L165)
+
+___
+
+### getMarkdownFromSelection
+
+▸ **getMarkdownFromSelection**(): `Promise`<`string`\>
+
+获取选区内容的 Markdown 格式
+
+**`since`** 24.11.1
+
+#### Returns
+
+`Promise`<`string`\>
+
+#### Defined in
+
+[src/types/Document.ts:170](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Document.ts#L170)
+
+___
+
+### insertMarkdown
+
+▸ **insertMarkdown**(`content`): `Promise`<`void`\>
+
+插入 Markdown 内容
+
+**`since`** 24.11.1
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `content` | `string` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/types/Document.ts:175](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Document.ts#L175)

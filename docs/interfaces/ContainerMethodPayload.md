@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.12](/README.md) / ContainerMethodPayload
+[shimo-js-sdk - v1.2.14](/README.md) / ContainerMethodPayload
 
 # Interface: ContainerMethodPayload
 
@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[src/ShimoSDK.ts:870](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L870)
+[src/ShimoSDK.ts:895](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L895)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:871](https://github.com/shimohq/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L871)
+[src/ShimoSDK.ts:896](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L896)

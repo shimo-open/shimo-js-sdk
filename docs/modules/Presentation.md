@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.12](/README.md) / Presentation
+[shimo-js-sdk - v1.2.14](/README.md) / Presentation
 
 # Namespace: Presentation
 
