@@ -285,7 +285,7 @@ ___
 
 ### lang
 
-• `Optional` **lang**: ``"zh-CN"`` \| ``"en"`` \| ``"ja"`` \| ``"ar-SA"``
+• `Optional` **lang**: ``"zh-CN"`` \| ``"en"`` \| ``"ja"`` \| ``"ar-SA"`` \| ``"ru-RU"``
 
 指定石墨 SDK 编辑器界面语言，添加到 iframe URLSearchParams 的参数列表。
 若未指定，则 iframe 使用服务器设置的默认语言。
@@ -294,7 +294,8 @@ ___
 1. zh-CN（简体中文）
 2. en（英文）
 3. ja（日文）
-3. ar-SA（阿拉伯语）
+4. ar-SA（阿拉伯语）
+5. ru-RU（俄语）
 
 #### Defined in
 
