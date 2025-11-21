@@ -41,6 +41,7 @@ ShimoSDK 初始化参数
 - [deviceMode](/interfaces/ShimoSDKOptions.md#devicemode)
 - [disableSignatureComponent](/interfaces/ShimoSDKOptions.md#disablesignaturecomponent)
 - [showLoadingEffect](/interfaces/ShimoSDKOptions.md#showloadingeffect)
+- [showLoading](/interfaces/ShimoSDKOptions.md#showloading)
 - [apiAdaptor](/interfaces/ShimoSDKOptions.md#apiadaptor)
 - [apiAdaptorContext](/interfaces/ShimoSDKOptions.md#apiadaptorcontext)
 - [messageExpires](/interfaces/ShimoSDKOptions.md#messageexpires)
@@ -399,6 +400,18 @@ ___
 #### Defined in
 
 [src/ShimoSDK.ts:1008](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L1008)
+
+___
+
+### showLoading
+
+• `Optional` **showLoading**: `boolean`
+
+是否展示 SDK 默认的加载遮罩，覆盖 container，默认 false
+
+#### Defined in
+
+[src/ShimoSDK.ts:1122](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L1122)
 
 ___
 

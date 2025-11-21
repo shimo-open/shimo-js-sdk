@@ -37,6 +37,7 @@
 - [deviceMode](/interfaces/ConnectOptions.md#devicemode)
 - [disableSignatureComponent](/interfaces/ConnectOptions.md#disablesignaturecomponent)
 - [showLoadingEffect](/interfaces/ConnectOptions.md#showloadingeffect)
+- [showLoading](/interfaces/ConnectOptions.md#showloading)
 - [apiAdaptor](/interfaces/ConnectOptions.md#apiadaptor)
 - [apiAdaptorContext](/interfaces/ConnectOptions.md#apiadaptorcontext)
 - [messageExpires](/interfaces/ConnectOptions.md#messageexpires)
@@ -459,6 +460,18 @@ ___
 #### Defined in
 
 [src/ShimoSDK.ts:1008](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L1008)
+
+___
+
+### showLoading
+
+• `Optional` **showLoading**: `boolean`
+
+是否展示 SDK 默认的加载遮罩，覆盖 container，默认 false
+
+#### Defined in
+
+[src/ShimoSDK.ts:1122](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L1122)
 
 ___
 

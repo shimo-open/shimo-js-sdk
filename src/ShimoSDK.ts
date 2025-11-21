@@ -47,6 +47,7 @@ import {
   Collaborator,
   CollaboratorsChangedPayload
 } from './types/BaseEditor'
+import { LoadingSvg } from './assets/loading'
 
 const globalThis = getGlobal()
 const AUD = 'smjssdk'
@@ -108,6 +109,14 @@ export class ShimoSDK extends TinyEmitter {
   private _fileType: FileType = FileType.Unknown
   private readonly messageHandler: (evt: globalThis.MessageEvent) => void =
     () => undefined
+
+  private loadingOverlay?: {
+    overlay: HTMLDivElement
+    container: HTMLElement
+    originalPosition?: string
+  }
+
+  private iframeLoadHandler?: () => void
 
   /**
    * 内部 event emitter，比如用来中转 editor 事件
@@ -295,6 +304,11 @@ export class ShimoSDK extends TinyEmitter {
   }
 
   disconnect() {
+    this.removeLoadingOverlay()
+    if (this.iframeLoadHandler && this.element) {
+      this.element.removeEventListener('load', this.iframeLoadHandler)
+      this.iframeLoadHandler = undefined
+    }
     if (this.element?.parentElement instanceof HTMLElement) {
       this.element.parentElement.removeChild(this.element)
     }
@@ -319,49 +333,57 @@ export class ShimoSDK extends TinyEmitter {
 
     this._readyState = ReadyState.LoadingEditor
 
-    if (!this.sameOrigin) {
-      window.addEventListener('message', this.messageHandler)
-    }
+    this.setupLoadingOverlay()
 
-    this.element = await this.initIframe()
-
-    this.connectOptions.container.appendChild(this.element)
-
-    this.editor = this.initEditor()
-
-    /**
-     * 等待编辑器 ReadyState 变化回调
-     */
-    await new Promise((resolve, reject) => {
-      const readyStateHandler = async (payload: {
-        state: ReadyState
-        error?: Error | string
-        fileType: FileType
-      }) => {
-        const { state, error, fileType } = payload
-
-        this._readyState = state
-
-        if (fileType && this._fileType === FileType.Unknown) {
-          this._fileType = fileType
-        }
-
-        let done = false
-
-        if (error) {
-          done = true
-          reject(typeof error === 'string' ? new Error(error) : error)
-        } else if (state === ReadyState.Ready) {
-          done = true
-          resolve(undefined)
-        }
-
-        if (done) {
-          this.off(Event.ReadyState, readyStateHandler)
-        }
+    try {
+      if (!this.sameOrigin) {
+        window.addEventListener('message', this.messageHandler)
       }
-      this.on(Event.ReadyState, readyStateHandler)
-    })
+
+      this.element = await this.initIframe()
+
+      this.connectOptions.container.appendChild(this.element)
+
+      this.editor = this.initEditor()
+
+      /**
+       * 等待编辑器 ReadyState 变化回调
+       */
+      await new Promise((resolve, reject) => {
+        const readyStateHandler = async (payload: {
+          state: ReadyState
+          error?: Error | string
+          fileType: FileType
+        }) => {
+          const { state, error, fileType } = payload
+
+          this._readyState = state
+
+          if (fileType && this._fileType === FileType.Unknown) {
+            this._fileType = fileType
+          }
+
+          let done = false
+
+          if (error) {
+            done = true
+            reject(typeof error === 'string' ? new Error(error) : error)
+          } else if (state === ReadyState.Ready) {
+            done = true
+            resolve(undefined)
+          }
+
+          if (done) {
+            this.removeLoadingOverlay()
+            this.off(Event.ReadyState, readyStateHandler)
+          }
+        }
+        this.on(Event.ReadyState, readyStateHandler)
+      })
+    } catch (err) {
+      this.removeLoadingOverlay()
+      throw err
+    }
 
     switch (this.fileType) {
       case FileType.Document:
@@ -385,6 +407,86 @@ export class ShimoSDK extends TinyEmitter {
       case FileType.Flowchart:
         this.flowchart = this.editor as Flowchart.Editor
     }
+  }
+
+  private setupLoadingOverlay() {
+    if (this.loadingOverlay || !this.connectOptions.showLoading) {
+      return
+    }
+    const container = this.connectOptions.container
+
+    this.ensureLoadingStyle()
+
+    const overlay = document.createElement('div')
+    overlay.setAttribute('data-shimo-sdk-loading', 'true')
+    overlay.style.position = 'absolute'
+    overlay.style.top = '0'
+    overlay.style.left = '0'
+    overlay.style.right = '0'
+    overlay.style.bottom = '0'
+    overlay.style.display = 'flex'
+    overlay.style.alignItems = 'center'
+    overlay.style.justifyContent = 'center'
+    overlay.style.backgroundColor = 'rgba(255, 255, 255, 0.75)'
+    overlay.style.zIndex = '9999'
+    overlay.style.pointerEvents = 'auto'
+
+    const spinner = document.createElement('div')
+    spinner.style.width = '32px'
+    spinner.style.height = '32px'
+    spinner.style.backgroundImage = `url(${LoadingSvg})`
+    spinner.style.backgroundRepeat = 'no-repeat'
+    spinner.style.backgroundPosition = 'center'
+    spinner.style.backgroundSize = 'contain'
+    spinner.style.animation = 'shimo-sdk-loading-spin 0.8s linear infinite'
+
+    overlay.appendChild(spinner)
+
+    const position =
+      (typeof globalThis.getComputedStyle === 'function' &&
+        globalThis.getComputedStyle(container)?.position) ||
+      container.style.position
+
+    let originalPosition: string | undefined
+    if (!position || position === 'static') {
+      originalPosition = container.style.position
+      container.style.position = 'relative'
+    }
+
+    container.appendChild(overlay)
+    this.loadingOverlay = { overlay, container, originalPosition }
+  }
+
+  private removeLoadingOverlay() {
+    if (!this.loadingOverlay) {
+      return
+    }
+    const { overlay, container, originalPosition } = this.loadingOverlay
+    if (overlay.parentElement === container) {
+      container.removeChild(overlay)
+    }
+    if (originalPosition !== undefined) {
+      container.style.position = originalPosition
+    }
+    this.loadingOverlay = undefined
+  }
+
+  private ensureLoadingStyle() {
+    const styleId = 'shimo-sdk-loading-style'
+    if (globalThis.document?.getElementById(styleId)) {
+      return
+    }
+    const style = globalThis.document?.createElement('style')
+    if (!style) {
+      return
+    }
+    style.id = styleId
+    style.textContent = `
+@keyframes shimo-sdk-loading-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}`
+    globalThis.document?.head?.appendChild(style)
   }
 
   private async initIframe() {
@@ -456,6 +558,13 @@ export class ShimoSDK extends TinyEmitter {
     url.searchParams.set('signature', signature)
     url.searchParams.set('uuid', this.uuid)
     this.userUuid && url.searchParams.set('userUuid', this.userUuid)
+
+    if (this.connectOptions.showLoading) {
+      this.iframeLoadHandler = () => {
+        this.removeLoadingOverlay()
+      }
+      iframe.addEventListener('load', this.iframeLoadHandler)
+    }
 
     iframe.src = url.toString()
 
@@ -1006,6 +1115,11 @@ export interface ShimoSDKOptions
    * 是否显示内置的加载动画，只在静态资源加载到编辑器渲染这个阶段显示
    */
   showLoadingEffect?: boolean
+
+  /**
+   * 是否展示 SDK 默认的加载遮罩，覆盖 container，默认 false
+   */
+  showLoading?: boolean
 
   /**
    * 用于在编辑器发起 API 请求时，对请求参数进行修改的函数。详细用法见文档。
