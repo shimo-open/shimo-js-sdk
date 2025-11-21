@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.16](/README.md) / Event
+[shimo-js-sdk - v1.2.17](/README.md) / Event
 
 # Enumeration: Event
 
@@ -21,7 +21,7 @@ SDK 初始化事件，用于内部逻辑
 
 #### Defined in
 
-[src/ShimoSDK.ts:864](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L864)
+[src/ShimoSDK.ts:973](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L973)
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:869](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L869)
+[src/ShimoSDK.ts:978](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L978)
 
 ___
 
@@ -45,7 +45,7 @@ ShimoSDK 状态变化事件
 
 #### Defined in
 
-[src/ShimoSDK.ts:874](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L874)
+[src/ShimoSDK.ts:983](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L983)
 
 ___
 
@@ -57,4 +57,4 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:879](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L879)
+[src/ShimoSDK.ts:988](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L988)

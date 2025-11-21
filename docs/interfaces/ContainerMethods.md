@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.16](/README.md) / ContainerMethods
+[shimo-js-sdk - v1.2.17](/README.md) / ContainerMethods
 
 # Interface: ContainerMethods
 
@@ -33,7 +33,7 @@
 
 #### Defined in
 
-[src/ShimoSDK.ts:807](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L807)
+[src/ShimoSDK.ts:916](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L916)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:812](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L812)
+[src/ShimoSDK.ts:921](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L921)
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:832](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L832)
+[src/ShimoSDK.ts:941](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L941)
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:839](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L839)
+[src/ShimoSDK.ts:948](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L948)
 
 ___
 
@@ -122,7 +122,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:852](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L852)
+[src/ShimoSDK.ts:961](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L961)
 
 ___
 
@@ -144,7 +144,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:857](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L857)
+[src/ShimoSDK.ts:966](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L966)
 
 ## Properties
 
@@ -156,4 +156,4 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:827](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L827)
+[src/ShimoSDK.ts:936](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L936)

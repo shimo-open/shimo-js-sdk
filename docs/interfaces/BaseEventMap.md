@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.16](/README.md) / BaseEventMap
+[shimo-js-sdk - v1.2.17](/README.md) / BaseEventMap
 
 # Interface: BaseEventMap
 

@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.16](/README.md) / [Form](/modules/Form.md) / EventMap
+[shimo-js-sdk - v1.2.17](/README.md) / [Form](/modules/Form.md) / EventMap
 
 # Interface: EventMap
 

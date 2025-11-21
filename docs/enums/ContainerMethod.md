@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.16](/README.md) / ContainerMethod
+[shimo-js-sdk - v1.2.17](/README.md) / ContainerMethod
 
 # Enumeration: ContainerMethod
 

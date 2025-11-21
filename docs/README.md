@@ -1,6 +1,6 @@
-shimo-js-sdk - v1.2.16
+shimo-js-sdk - v1.2.17
 
-# shimo-js-sdk - v1.2.16
+# shimo-js-sdk - v1.2.17
 
 ## Table of contents
 
@@ -230,7 +230,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:908](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L908)
+[src/ShimoSDK.ts:1017](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L1017)
 
 ## Variables
 
@@ -276,7 +276,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:56](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L56)
+[src/ShimoSDK.ts:57](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L57)
 
 ___
 
