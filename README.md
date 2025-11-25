@@ -128,11 +128,7 @@ await editor.showHistory()
 
 当 iframe 套件开启协作者能力后（依赖 `ENABLE_SDK_COLLABORATORS_MODULE` 开关），shimo-js-sdk 使用方可按以下方式接入：
 
-1. **确认开关**
-
-   - 容器页面需要在注入 `window.__RUNTIME_ENV__` 时设置 `ENABLE_SDK_COLLABORATORS_MODULE = true`，否则协作者事件不会触发。
-
-2. **监听 `collaboratorsChanged`**
+1. **监听 `collaboratorsChanged`**
 
 ```ts
 const sdk = await connect(options)
