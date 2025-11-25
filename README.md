@@ -155,7 +155,7 @@ renderCollaborators({ type: 'snapshot', collaborators })
 ```
 
 4. **调试提示**
-   - 未收到事件时，检查 `window.__RUNTIME_ENV__.ENABLE_SDK_COLLABORATORS_MODULE` 是否为 `true`。
+   - 未收到事件时，检查 iframe 内的 window 对象是否有 `window.__RUNTIME_ENV__.ENABLE_SDK_COLLABORATORS_MODULE` 属性且为 true。
    - 可在 iframe 页面 DevTools 中查看 `collaboratorsChanged` 是否触发，或观察 WebSocket `COLLABROOM` 消息。
 
 ### `signature` 和 `token`
