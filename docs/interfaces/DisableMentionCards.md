@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.17](/README.md) / DisableMentionCards
+[shimo-js-sdk - v1.2.18](/README.md) / DisableMentionCards
 
 # Interface: DisableMentionCards
 

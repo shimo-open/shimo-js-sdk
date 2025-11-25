@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.17](/README.md) / [Table](/modules/Table.md) / Editor
+[shimo-js-sdk - v1.2.18](/README.md) / [Table](/modules/Table.md) / Editor
 
 # Interface: Editor
 

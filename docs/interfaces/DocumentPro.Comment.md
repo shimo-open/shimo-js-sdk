@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.17](/README.md) / [DocumentPro](/modules/DocumentPro.md) / Comment
+[shimo-js-sdk - v1.2.18](/README.md) / [DocumentPro](/modules/DocumentPro.md) / Comment
 
 # Interface: Comment
 

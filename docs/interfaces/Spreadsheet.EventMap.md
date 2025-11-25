@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.17](/README.md) / [Spreadsheet](/modules/Spreadsheet.md) / EventMap
+[shimo-js-sdk - v1.2.18](/README.md) / [Spreadsheet](/modules/Spreadsheet.md) / EventMap
 
 # Interface: EventMap
 

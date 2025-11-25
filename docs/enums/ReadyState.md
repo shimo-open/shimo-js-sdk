@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.17](/README.md) / ReadyState
+[shimo-js-sdk - v1.2.18](/README.md) / ReadyState
 
 # Enumeration: ReadyState
 
