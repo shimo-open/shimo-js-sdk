@@ -28,7 +28,8 @@ import {
   APIAdaptor,
   RequestContext,
   SDKEvent,
-  ShowToastOptions
+  ShowToastOptions,
+  Credentials
 } from 'shimo-js-sdk-shared'
 import ExpireSet from 'expire-set'
 
@@ -265,6 +266,7 @@ export class ShimoSDK extends TinyEmitter {
 
   /**
    * 更新鉴权 signature 和 token
+   * @deprecated - 用 `ShimoSDKOptions.getCredentials()` 替代
    */
   async setCredentials(payload: { signature: string; token: string }) {
     await this.channel.invoke(InvokeMethod.SetCredentials, [payload], {
@@ -790,6 +792,13 @@ export class ShimoSDK extends TinyEmitter {
       },
       { audience: AUD }
     )
+    channel.addInvokeHandler(
+      ContainerMethod.GetCredentials,
+      async () => {
+        this.connectOptions.getCredentials?.()
+      },
+      { audience: AUD }
+    )
   }
 
   private initEditor() {
@@ -819,27 +828,52 @@ export class ShimoSDK extends TinyEmitter {
       getCollaborators: () => [...this.collaborators]
     }
 
-    // 通过 Proxy 代理 API 调用
-    const p = new Proxy(inst, {
-      get: (target, prop) => {
-        if (Object.prototype.hasOwnProperty.call(target, prop) === true) {
-          return (target as any)[prop]
-        }
+    // 创建嵌套 Proxy 以支持多层级调用
+    const createNestedProxy = (path: string[] = []): any => {
+      const proxyFunc = function () {}
+      return new Proxy(proxyFunc, {
+        get: (target, prop) => {
+          // 如果是根级别的预定义方法（on/off），直接返回
+          if (
+            path.length === 0 &&
+            Object.prototype.hasOwnProperty.call(inst, prop)
+          ) {
+            return (inst as any)[prop]
+          }
 
-        if (typeof prop === 'string') {
-          return async (...args: unknown[]) =>
-            await this.channel.invoke(
+          // 对于函数的内置属性（如 call、apply、bind 等）
+          // 返回原函数的对应属性，这样编译后的代码才能正常工作
+          // 例如：editor.test() 编译后变成 editor.test.call()
+          if (
+            typeof prop === 'string' &&
+            ['call', 'apply', 'bind'].includes(prop)
+          ) {
+            return (target as any)[prop]
+          }
+
+          // 对于其他属性，返回新的嵌套 Proxy
+          if (typeof prop === 'string') {
+            return createNestedProxy([...path, prop])
+          }
+
+          return undefined
+        },
+        apply: (_target, _thisArg, args: unknown[]) => {
+          // 当作为函数调用时，将完整路径和参数发送给编辑器
+          if (path.length > 0) {
+            return this.channel.invoke(
               InvokeMethod.InvokeEditorMethod,
-              [prop, args],
+              [path.join('.'), args],
               {
                 audience: AUD
               }
             )
-        } else {
-          return (target as any)[prop]
+          }
         }
-      }
-    })
+      })
+    }
+
+    const p = createNestedProxy()
 
     return p
   }
@@ -964,6 +998,11 @@ export interface ContainerMethods {
    * 通知用户执行自定义操作，操作由用户自定义按钮触发
    */
   [ContainerMethod.HandleCustomTask]?: (taskId: string) => Promise<void>
+  /**
+   * 请求容器获取鉴权信息
+   * @returns {Credentials} 鉴权信息
+   */
+  [ContainerMethod.GetCredentials]?: () => Promise<Credentials | undefined>
 }
 
 export enum Event {
