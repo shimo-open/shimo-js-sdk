@@ -795,7 +795,7 @@ export class ShimoSDK extends TinyEmitter {
     channel.addInvokeHandler(
       ContainerMethod.GetCredentials,
       async () => {
-        this.connectOptions.getCredentials?.()
+        return await this.connectOptions.getCredentials?.()
       },
       { audience: AUD }
     )
