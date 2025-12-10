@@ -196,8 +196,8 @@ const shimoSDK = await connect({
   signature: '[your signature]',
   token: '[your token]',
   // 更新鉴权的时间间隔，单位为毫秒
-  // 若过期时间为7天，则建议设置为1000 * 3600 * 24 * 5 （5天）
-  refreshCredentialsInterval: 1000 * 3600 * 24 * 5,
+  // 若过期时间为7天，则建议设置为1000 * 3600 * 24 * 3.5 （3.5天）
+  refreshCredentialsInterval: 1000 * 3600 * 24 * 3.5,
   getCredentials: async () => {
     const res = await getCredentialsFromServer()
     return {
