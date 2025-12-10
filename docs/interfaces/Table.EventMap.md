@@ -25,4 +25,4 @@
 
 #### Defined in
 
-[src/types/Table.ts:4](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/Table.ts#L4)
+[src/types/Table.ts:4](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Table.ts#L4)

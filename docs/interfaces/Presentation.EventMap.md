@@ -28,7 +28,7 @@
 
 #### Defined in
 
-[src/types/Presentation.ts:7](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/Presentation.ts#L7)
+[src/types/Presentation.ts:7](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Presentation.ts#L7)
 
 ___
 
@@ -46,4 +46,4 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:16](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/Presentation.ts#L16)
+[src/types/Presentation.ts:16](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Presentation.ts#L16)

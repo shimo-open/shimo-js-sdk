@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[src/types/Form.ts:4](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/Form.ts#L4)
+[src/types/Form.ts:4](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Form.ts#L4)
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-[src/types/Form.ts:14](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/Form.ts#L14)
+[src/types/Form.ts:14](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Form.ts#L14)
