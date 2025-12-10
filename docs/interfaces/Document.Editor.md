@@ -76,7 +76,7 @@
 
 #### Defined in
 
-[src/types/BaseEditor.ts:58](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/BaseEditor.ts#L58)
+[src/types/BaseEditor.ts:58](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L58)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:63](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/BaseEditor.ts#L63)
+[src/types/BaseEditor.ts:63](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L63)
 
 ___
 
@@ -129,7 +129,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:73](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/BaseEditor.ts#L73)
+[src/types/BaseEditor.ts:73](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L73)
 
 ___
 
@@ -153,7 +153,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:41](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L41)
+[src/types/Document.ts:41](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L41)
 
 ___
 
@@ -177,7 +177,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:46](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L46)
+[src/types/Document.ts:46](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L46)
 
 ___
 
@@ -201,7 +201,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:51](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L51)
+[src/types/Document.ts:51](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L51)
 
 ___
 
@@ -225,7 +225,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:56](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L56)
+[src/types/Document.ts:56](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L56)
 
 ___
 
@@ -249,7 +249,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:61](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L61)
+[src/types/Document.ts:61](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L61)
 
 ___
 
@@ -273,7 +273,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:66](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L66)
+[src/types/Document.ts:66](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L66)
 
 ___
 
@@ -297,7 +297,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:71](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L71)
+[src/types/Document.ts:71](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L71)
 
 ___
 
@@ -321,7 +321,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:76](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L76)
+[src/types/Document.ts:76](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L76)
 
 ___
 
@@ -345,7 +345,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:81](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L81)
+[src/types/Document.ts:81](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L81)
 
 ___
 
@@ -369,7 +369,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:86](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L86)
+[src/types/Document.ts:86](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L86)
 
 ___
 
@@ -393,7 +393,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:91](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L91)
+[src/types/Document.ts:91](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L91)
 
 ___
 
@@ -417,7 +417,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:96](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L96)
+[src/types/Document.ts:96](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L96)
 
 ___
 
@@ -441,7 +441,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:102](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L102)
+[src/types/Document.ts:102](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L102)
 
 ___
 
@@ -465,7 +465,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:107](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L107)
+[src/types/Document.ts:107](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L107)
 
 ___
 
@@ -489,7 +489,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:112](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L112)
+[src/types/Document.ts:112](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L112)
 
 ___
 
@@ -513,7 +513,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:117](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L117)
+[src/types/Document.ts:117](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L117)
 
 ___
 
@@ -531,7 +531,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:122](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L122)
+[src/types/Document.ts:122](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L122)
 
 ___
 
@@ -549,7 +549,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:127](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L127)
+[src/types/Document.ts:127](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L127)
 
 ___
 
@@ -567,7 +567,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:132](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L132)
+[src/types/Document.ts:132](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L132)
 
 ___
 
@@ -585,7 +585,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:137](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L137)
+[src/types/Document.ts:137](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L137)
 
 ___
 
@@ -603,7 +603,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:142](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L142)
+[src/types/Document.ts:142](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L142)
 
 ___
 
@@ -631,7 +631,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:147](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L147)
+[src/types/Document.ts:147](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L147)
 
 ___
 
@@ -656,7 +656,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:152](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L152)
+[src/types/Document.ts:152](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L152)
 
 ___
 
@@ -681,7 +681,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:160](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L160)
+[src/types/Document.ts:160](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L160)
 
 ___
 
@@ -706,7 +706,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:165](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L165)
+[src/types/Document.ts:165](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L165)
 
 ___
 
@@ -724,7 +724,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:170](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L170)
+[src/types/Document.ts:170](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L170)
 
 ___
 
@@ -748,4 +748,4 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:175](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L175)
+[src/types/Document.ts:175](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L175)

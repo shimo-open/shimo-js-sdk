@@ -20,7 +20,7 @@
 
 #### Defined in
 
-[src/types/Document.ts:9](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L9)
+[src/types/Document.ts:9](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L9)
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:10](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L10)
+[src/types/Document.ts:10](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L10)
 
 ___
 
@@ -40,4 +40,4 @@ ___
 
 #### Defined in
 
-[src/types/Document.ts:11](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Document.ts#L11)
+[src/types/Document.ts:11](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Document.ts#L11)

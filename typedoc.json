@@ -6,6 +6,7 @@
   "sort": ["source-order"],
   "plugin": ["typedoc-plugin-markdown"],
   "readme": "none",
+  "gitRevision": "master",
   "hideGenerator": true,
   "includeVersion": true,
   "githubPages": true

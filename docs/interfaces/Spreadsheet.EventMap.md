@@ -43,7 +43,7 @@
 
 #### Defined in
 
-[src/types/BaseEditor.ts:21](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/BaseEditor.ts#L21)
+[src/types/BaseEditor.ts:21](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L21)
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:32](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/BaseEditor.ts#L32)
+[src/types/BaseEditor.ts:32](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L32)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:42](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/BaseEditor.ts#L42)
+[src/types/BaseEditor.ts:42](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L42)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:49](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/BaseEditor.ts#L49)
+[src/types/BaseEditor.ts:49](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L49)
 
 ___
 
@@ -122,7 +122,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:31](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Spreadsheet.ts#L31)
+[src/types/Spreadsheet.ts:31](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L31)
 
 ___
 
@@ -134,7 +134,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:41](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Spreadsheet.ts#L41)
+[src/types/Spreadsheet.ts:41](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L41)
 
 ___
 
@@ -146,7 +146,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:46](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Spreadsheet.ts#L46)
+[src/types/Spreadsheet.ts:46](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L46)
 
 ___
 
@@ -158,4 +158,4 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:51](https://github.com/shimo-open/shimo-js-sdk/blob/d40b879/src/types/Spreadsheet.ts#L51)
+[src/types/Spreadsheet.ts:51](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L51)
