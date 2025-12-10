@@ -1002,7 +1002,7 @@ export interface ContainerMethods {
    * 请求容器获取鉴权信息
    * @returns {Credentials} 鉴权信息
    */
-  [ContainerMethod.GetCredentials]?: () => Promise<Credentials | undefined>
+  [ContainerMethod.GetCredentials]: () => Promise<Credentials>
 }
 
 export enum Event {
@@ -1084,6 +1084,11 @@ export interface ShimoSDKOptions
    * 用于您系统鉴权使用的 token
    */
   token: string
+
+  /**
+   * 刷新鉴权信息的间隔时间，单位为毫秒
+   */
+  refreshCredentialsInterval: number
 
   /**
    * 添加到 iframe URLSearchParams 的参数列表

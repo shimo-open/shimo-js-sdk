@@ -168,7 +168,10 @@ renderCollaborators({ type: 'snapshot', collaborators })
 由于 `signature` 和 `token` 有过期时间，一般也不建议设置过长的时间，但为了减少因过期导致的用户体验问题，`ShimoSDK` 提供 `setCredentials({ signature, token })` 方法用于动态更新。
 
 ```js
-// 从您的后端服务获取用于石墨鉴权的签名和 token
+/**
+ * 从您的后端服务获取用于石墨鉴权的签名和 token
+ * @deprecated
+*/
 let { signature, token, expires } = await getCredentialsFromServer()
 
 const shimoSDK = await connect({ ... })
@@ -188,6 +191,21 @@ setInterval(
   },
   60 * 1000
 )
+// 以上为旧版本更新鉴权方式，新版本（v1.2.23+）请参照如下方式进行更新
+const shimoSDK = await connect({
+  signature: '[your signature]',
+  token: '[your token]',
+  // 更新鉴权的时间间隔，单位为毫秒
+  // 若过期时间为7天，则建议设置为1000 * 3600 * 24 * 5 （5天）
+  refreshCredentialsInterval: 1000 * 3600 * 24 * 3.5,
+  getCredentials: async () => {
+    const res = await getCredentialsFromServer()
+    return {
+      signature: res.signature,
+      token: res.token,
+    }
+  }
+})
 ```
 
 ### 如何处理 URL
