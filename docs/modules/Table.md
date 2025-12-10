@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.18](/README.md) / Table
+[shimo-js-sdk - v1.2.23](../README.md) / Table
 
 # Namespace: Table
 
@@ -6,6 +6,6 @@
 
 ### Interfaces
 
-- [EventMap](/interfaces/Table.EventMap.md)
-- [Editor](/interfaces/Table.Editor.md)
-- [PluginOptions](/interfaces/Table.PluginOptions.md)
+- [EventMap](../interfaces/Table.EventMap.md)
+- [Editor](../interfaces/Table.Editor.md)
+- [PluginOptions](../interfaces/Table.PluginOptions.md)

@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.18](/README.md) / SpreadsheetSharingFrom
+[shimo-js-sdk - v1.2.23](../README.md) / SpreadsheetSharingFrom
 
 # Enumeration: SpreadsheetSharingFrom
 
@@ -6,11 +6,11 @@
 
 ### Enumeration members
 
-- [copyRangeLink](/enums/SpreadsheetSharingFrom.md#copyrangelink)
-- [copyViewportLink](/enums/SpreadsheetSharingFrom.md#copyviewportlink)
-- [copySheetLink](/enums/SpreadsheetSharingFrom.md#copysheetlink)
-- [importRange](/enums/SpreadsheetSharingFrom.md#importrange)
-- [preview](/enums/SpreadsheetSharingFrom.md#preview)
+- [copyRangeLink](SpreadsheetSharingFrom.md#copyrangelink)
+- [copyViewportLink](SpreadsheetSharingFrom.md#copyviewportlink)
+- [copySheetLink](SpreadsheetSharingFrom.md#copysheetlink)
+- [importRange](SpreadsheetSharingFrom.md#importrange)
+- [preview](SpreadsheetSharingFrom.md#preview)
 
 ## Enumeration members
 
@@ -22,7 +22,7 @@
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:263
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:267
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:267
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:271
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:271
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:275
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:275
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:279
 
 ___
 
@@ -70,4 +70,4 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:279
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:283

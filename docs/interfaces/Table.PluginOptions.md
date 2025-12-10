@@ -1,19 +1,19 @@
-[shimo-js-sdk - v1.2.18](/README.md) / [Table](/modules/Table.md) / PluginOptions
+[shimo-js-sdk - v1.2.23](../README.md) / [Table](../modules/Table.md) / PluginOptions
 
 # Interface: PluginOptions
 
-[Table](/modules/Table.md).PluginOptions
+[Table](../modules/Table.md).PluginOptions
 
 ## Table of contents
 
 ### Properties
 
-- [CombineTables](/interfaces/Table.PluginOptions.md#combinetables)
-- [BaseVersion](/interfaces/Table.PluginOptions.md#baseversion)
-- [FieldOptions](/interfaces/Table.PluginOptions.md#fieldoptions)
-- [Collaboration](/interfaces/Table.PluginOptions.md#collaboration)
-- [ShareView](/interfaces/Table.PluginOptions.md#shareview)
-- [Description](/interfaces/Table.PluginOptions.md#description)
+- [CombineTables](Table.PluginOptions.md#combinetables)
+- [BaseVersion](Table.PluginOptions.md#baseversion)
+- [FieldOptions](Table.PluginOptions.md#fieldoptions)
+- [Collaboration](Table.PluginOptions.md#collaboration)
+- [ShareView](Table.PluginOptions.md#shareview)
+- [Description](Table.PluginOptions.md#description)
 
 ## Properties
 
@@ -23,7 +23,7 @@
 
 #### Defined in
 
-[src/types/Table.ts:29](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Table.ts#L29)
+[src/types/Table.ts:29](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/Table.ts#L29)
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-[src/types/Table.ts:30](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Table.ts#L30)
+[src/types/Table.ts:30](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/Table.ts#L30)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[src/types/Table.ts:34](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Table.ts#L34)
+[src/types/Table.ts:34](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/Table.ts#L34)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[src/types/Table.ts:40](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Table.ts#L40)
+[src/types/Table.ts:40](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/Table.ts#L40)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[src/types/Table.ts:46](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Table.ts#L46)
+[src/types/Table.ts:46](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/Table.ts#L46)
 
 ___
 
@@ -98,4 +98,4 @@ ___
 
 #### Defined in
 
-[src/types/Table.ts:48](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Table.ts#L48)
+[src/types/Table.ts:48](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/Table.ts#L48)

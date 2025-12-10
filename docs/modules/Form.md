@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.18](/README.md) / Form
+[shimo-js-sdk - v1.2.23](../README.md) / Form
 
 # Namespace: Form
 
@@ -6,5 +6,5 @@
 
 ### Interfaces
 
-- [EventMap](/interfaces/Form.EventMap.md)
-- [Editor](/interfaces/Form.Editor.md)
+- [EventMap](../interfaces/Form.EventMap.md)
+- [Editor](../interfaces/Form.Editor.md)

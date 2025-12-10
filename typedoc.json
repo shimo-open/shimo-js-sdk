@@ -3,11 +3,9 @@
   "out": "docs",
   "excludePrivate": true,
   "excludeInternal": true,
-  "publicPath": "/",
   "sort": ["source-order"],
   "plugin": ["typedoc-plugin-markdown"],
   "readme": "none",
-  "gitRevision": "main",
   "hideGenerator": true,
   "includeVersion": true,
   "githubPages": true

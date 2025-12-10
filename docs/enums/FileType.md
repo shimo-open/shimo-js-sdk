@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.18](/README.md) / FileType
+[shimo-js-sdk - v1.2.23](../README.md) / FileType
 
 # Enumeration: FileType
 
@@ -8,16 +8,16 @@
 
 ### Enumeration members
 
-- [DocumentPro](/enums/FileType.md#documentpro)
-- [Document](/enums/FileType.md#document)
-- [Spreadsheet](/enums/FileType.md#spreadsheet)
-- [Presentation](/enums/FileType.md#presentation)
-- [Table](/enums/FileType.md#table)
-- [Form](/enums/FileType.md#form)
-- [Flowchart](/enums/FileType.md#flowchart)
-- [Mindmap](/enums/FileType.md#mindmap)
-- [Board](/enums/FileType.md#board)
-- [Unknown](/enums/FileType.md#unknown)
+- [DocumentPro](FileType.md#documentpro)
+- [Document](FileType.md#document)
+- [Spreadsheet](FileType.md#spreadsheet)
+- [Presentation](FileType.md#presentation)
+- [Table](FileType.md#table)
+- [Form](FileType.md#form)
+- [Flowchart](FileType.md#flowchart)
+- [Mindmap](FileType.md#mindmap)
+- [Board](FileType.md#board)
+- [Unknown](FileType.md#unknown)
 
 ## Enumeration members
 

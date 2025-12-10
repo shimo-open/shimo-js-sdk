@@ -1,12 +1,12 @@
-[shimo-js-sdk - v1.2.18](/README.md) / [DocumentPro](/modules/DocumentPro.md) / Editor
+[shimo-js-sdk - v1.2.23](../README.md) / [DocumentPro](../modules/DocumentPro.md) / Editor
 
 # Interface: Editor
 
-[DocumentPro](/modules/DocumentPro.md).Editor
+[DocumentPro](../modules/DocumentPro.md).Editor
 
 ## Hierarchy
 
-- [`BaseEditor`](/interfaces/BaseEditor.md)<[`EventMap`](/interfaces/DocumentPro.EventMap.md)\>
+- [`BaseEditor`](BaseEditor.md)<[`EventMap`](DocumentPro.EventMap.md)\>
 
   ↳ **`Editor`**
 
@@ -14,36 +14,36 @@
 
 ### Methods
 
-- [on](/interfaces/DocumentPro.Editor.md#on)
-- [off](/interfaces/DocumentPro.Editor.md#off)
-- [setTitle](/interfaces/DocumentPro.Editor.md#settitle)
-- [getCollaborators](/interfaces/DocumentPro.Editor.md#getcollaborators)
-- [getComments](/interfaces/DocumentPro.Editor.md#getcomments)
-- [getComment](/interfaces/DocumentPro.Editor.md#getcomment)
-- [getCommentBySelection](/interfaces/DocumentPro.Editor.md#getcommentbyselection)
-- [addComment](/interfaces/DocumentPro.Editor.md#addcomment)
-- [replyComment](/interfaces/DocumentPro.Editor.md#replycomment)
-- [removeComment](/interfaces/DocumentPro.Editor.md#removecomment)
-- [removeReply](/interfaces/DocumentPro.Editor.md#removereply)
-- [updateComment](/interfaces/DocumentPro.Editor.md#updatecomment)
-- [goToComment](/interfaces/DocumentPro.Editor.md#gotocomment)
-- [getSelectedText](/interfaces/DocumentPro.Editor.md#getselectedtext)
-- [goToPage](/interfaces/DocumentPro.Editor.md#gotopage)
-- [goToTop](/interfaces/DocumentPro.Editor.md#gototop)
-- [addPageNum](/interfaces/DocumentPro.Editor.md#addpagenum)
-- [removeAllPageNums](/interfaces/DocumentPro.Editor.md#removeallpagenums)
-- [showToc](/interfaces/DocumentPro.Editor.md#showtoc)
-- [hideToc](/interfaces/DocumentPro.Editor.md#hidetoc)
-- [zoom](/interfaces/DocumentPro.Editor.md#zoom)
-- [setBold](/interfaces/DocumentPro.Editor.md#setbold)
-- [setItalic](/interfaces/DocumentPro.Editor.md#setitalic)
-- [print](/interfaces/DocumentPro.Editor.md#print)
-- [printAll](/interfaces/DocumentPro.Editor.md#printall)
-- [createRevision](/interfaces/DocumentPro.Editor.md#createrevision)
-- [showHistory](/interfaces/DocumentPro.Editor.md#showhistory)
-- [hideHistory](/interfaces/DocumentPro.Editor.md#hidehistory)
-- [updateSignature](/interfaces/DocumentPro.Editor.md#updatesignature)
-- [export](/interfaces/DocumentPro.Editor.md#export)
+- [on](DocumentPro.Editor.md#on)
+- [off](DocumentPro.Editor.md#off)
+- [setTitle](DocumentPro.Editor.md#settitle)
+- [getCollaborators](DocumentPro.Editor.md#getcollaborators)
+- [getComments](DocumentPro.Editor.md#getcomments)
+- [getComment](DocumentPro.Editor.md#getcomment)
+- [getCommentBySelection](DocumentPro.Editor.md#getcommentbyselection)
+- [addComment](DocumentPro.Editor.md#addcomment)
+- [replyComment](DocumentPro.Editor.md#replycomment)
+- [removeComment](DocumentPro.Editor.md#removecomment)
+- [removeReply](DocumentPro.Editor.md#removereply)
+- [updateComment](DocumentPro.Editor.md#updatecomment)
+- [goToComment](DocumentPro.Editor.md#gotocomment)
+- [getSelectedText](DocumentPro.Editor.md#getselectedtext)
+- [goToPage](DocumentPro.Editor.md#gotopage)
+- [goToTop](DocumentPro.Editor.md#gototop)
+- [addPageNum](DocumentPro.Editor.md#addpagenum)
+- [removeAllPageNums](DocumentPro.Editor.md#removeallpagenums)
+- [showToc](DocumentPro.Editor.md#showtoc)
+- [hideToc](DocumentPro.Editor.md#hidetoc)
+- [zoom](DocumentPro.Editor.md#zoom)
+- [setBold](DocumentPro.Editor.md#setbold)
+- [setItalic](DocumentPro.Editor.md#setitalic)
+- [print](DocumentPro.Editor.md#print)
+- [printAll](DocumentPro.Editor.md#printall)
+- [createRevision](DocumentPro.Editor.md#createrevision)
+- [showHistory](DocumentPro.Editor.md#showhistory)
+- [hideHistory](DocumentPro.Editor.md#hidehistory)
+- [updateSignature](DocumentPro.Editor.md#updatesignature)
+- [export](DocumentPro.Editor.md#export)
 
 ## Methods
 
@@ -72,11 +72,11 @@
 
 #### Inherited from
 
-[BaseEditor](/interfaces/BaseEditor.md).[on](/interfaces/BaseEditor.md#on)
+[BaseEditor](BaseEditor.md).[on](BaseEditor.md#on)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:58](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L58)
+[src/types/BaseEditor.ts:58](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/BaseEditor.ts#L58)
 
 ___
 
@@ -105,11 +105,11 @@ ___
 
 #### Inherited from
 
-[BaseEditor](/interfaces/BaseEditor.md).[off](/interfaces/BaseEditor.md#off)
+[BaseEditor](BaseEditor.md).[off](BaseEditor.md#off)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:63](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L63)
+[src/types/BaseEditor.ts:63](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/BaseEditor.ts#L63)
 
 ___
 
@@ -131,11 +131,11 @@ ___
 
 #### Inherited from
 
-[BaseEditor](/interfaces/BaseEditor.md).[setTitle](/interfaces/BaseEditor.md#settitle)
+[BaseEditor](BaseEditor.md).[setTitle](BaseEditor.md#settitle)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:68](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L68)
+[src/types/BaseEditor.ts:68](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/BaseEditor.ts#L68)
 
 ___
 
@@ -151,17 +151,17 @@ ___
 
 #### Inherited from
 
-[BaseEditor](/interfaces/BaseEditor.md).[getCollaborators](/interfaces/BaseEditor.md#getcollaborators)
+[BaseEditor](BaseEditor.md).[getCollaborators](BaseEditor.md#getcollaborators)
 
 #### Defined in
 
-[src/types/BaseEditor.ts:73](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L73)
+[src/types/BaseEditor.ts:73](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/BaseEditor.ts#L73)
 
 ___
 
 ### getComments
 
-▸ **getComments**(`options`): `Promise`<[`DocumentProComment`](/interfaces/DocumentPro.DocumentProComment.md)[]\>
+▸ **getComments**(`options`): `Promise`<[`DocumentProComment`](DocumentPro.DocumentProComment.md)[]\>
 
 获取所有评论
 
@@ -176,17 +176,17 @@ ___
 
 #### Returns
 
-`Promise`<[`DocumentProComment`](/interfaces/DocumentPro.DocumentProComment.md)[]\>
+`Promise`<[`DocumentProComment`](DocumentPro.DocumentProComment.md)[]\>
 
 #### Defined in
 
-[src/types/DocumentPro.ts:154](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L154)
+[src/types/DocumentPro.ts:154](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L154)
 
 ___
 
 ### getComment
 
-▸ **getComment**(`options`): `Promise`<[`DocumentProComment`](/interfaces/DocumentPro.DocumentProComment.md)\>
+▸ **getComment**(`options`): `Promise`<[`DocumentProComment`](DocumentPro.DocumentProComment.md)\>
 
 获取单条评论
 
@@ -202,11 +202,11 @@ ___
 
 #### Returns
 
-`Promise`<[`DocumentProComment`](/interfaces/DocumentPro.DocumentProComment.md)\>
+`Promise`<[`DocumentProComment`](DocumentPro.DocumentProComment.md)\>
 
 #### Defined in
 
-[src/types/DocumentPro.ts:165](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L165)
+[src/types/DocumentPro.ts:165](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L165)
 
 ___
 
@@ -232,13 +232,13 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:178](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L178)
+[src/types/DocumentPro.ts:178](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L178)
 
 ___
 
 ### addComment
 
-▸ **addComment**(`options`): `Promise`<[`DocumentProComment`](/interfaces/DocumentPro.DocumentProComment.md)\>
+▸ **addComment**(`options`): `Promise`<[`DocumentProComment`](DocumentPro.DocumentProComment.md)\>
 
 添加评论
 
@@ -253,17 +253,17 @@ ___
 
 #### Returns
 
-`Promise`<[`DocumentProComment`](/interfaces/DocumentPro.DocumentProComment.md)\>
+`Promise`<[`DocumentProComment`](DocumentPro.DocumentProComment.md)\>
 
 #### Defined in
 
-[src/types/DocumentPro.ts:183](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L183)
+[src/types/DocumentPro.ts:183](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L183)
 
 ___
 
 ### replyComment
 
-▸ **replyComment**(`options`): `Promise`<[`DocumentProCommentData`](/interfaces/DocumentPro.DocumentProCommentData.md)\>
+▸ **replyComment**(`options`): `Promise`<[`DocumentProCommentData`](DocumentPro.DocumentProCommentData.md)\>
 
 添加回复
 
@@ -279,11 +279,11 @@ ___
 
 #### Returns
 
-`Promise`<[`DocumentProCommentData`](/interfaces/DocumentPro.DocumentProCommentData.md)\>
+`Promise`<[`DocumentProCommentData`](DocumentPro.DocumentProCommentData.md)\>
 
 #### Defined in
 
-[src/types/DocumentPro.ts:193](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L193)
+[src/types/DocumentPro.ts:193](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L193)
 
 ___
 
@@ -308,7 +308,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:205](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L205)
+[src/types/DocumentPro.ts:205](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L205)
 
 ___
 
@@ -333,7 +333,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:215](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L215)
+[src/types/DocumentPro.ts:215](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L215)
 
 ___
 
@@ -359,7 +359,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:225](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L225)
+[src/types/DocumentPro.ts:225](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L225)
 
 ___
 
@@ -386,7 +386,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:237](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L237)
+[src/types/DocumentPro.ts:237](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L237)
 
 ___
 
@@ -410,7 +410,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:257](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L257)
+[src/types/DocumentPro.ts:257](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L257)
 
 ___
 
@@ -435,7 +435,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:262](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L262)
+[src/types/DocumentPro.ts:262](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L262)
 
 ___
 
@@ -459,7 +459,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:272](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L272)
+[src/types/DocumentPro.ts:272](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L272)
 
 ___
 
@@ -476,8 +476,8 @@ ___
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `options` | `Object` | - |
-| `options.position` | [`DocumentPos`](/modules/DocumentPro.md#documentpos) | 页码的插入位置 |
-| `options.alignment?` | [`HorizontalAlignment`](/modules/DocumentPro.md#horizontalalignment) | 页码的对齐方式  **`default`** 1 |
+| `options.position` | [`DocumentPos`](../modules/DocumentPro.md#documentpos) | 页码的插入位置 |
+| `options.alignment?` | [`HorizontalAlignment`](../modules/DocumentPro.md#horizontalalignment) | 页码的对齐方式  **`default`** 1 |
 
 #### Returns
 
@@ -485,7 +485,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:277](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L277)
+[src/types/DocumentPro.ts:277](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L277)
 
 ___
 
@@ -509,7 +509,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:292](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L292)
+[src/types/DocumentPro.ts:292](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L292)
 
 ___
 
@@ -534,7 +534,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:297](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L297)
+[src/types/DocumentPro.ts:297](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L297)
 
 ___
 
@@ -558,7 +558,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:311](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L311)
+[src/types/DocumentPro.ts:311](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L311)
 
 ___
 
@@ -583,7 +583,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:316](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L316)
+[src/types/DocumentPro.ts:316](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L316)
 
 ___
 
@@ -608,7 +608,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:329](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L329)
+[src/types/DocumentPro.ts:329](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L329)
 
 ___
 
@@ -633,7 +633,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:343](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L343)
+[src/types/DocumentPro.ts:343](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L343)
 
 ___
 
@@ -658,7 +658,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:348](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L348)
+[src/types/DocumentPro.ts:348](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L348)
 
 ___
 
@@ -682,7 +682,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:358](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L358)
+[src/types/DocumentPro.ts:358](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L358)
 
 ___
 
@@ -705,7 +705,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:362](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L362)
+[src/types/DocumentPro.ts:362](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L362)
 
 ___
 
@@ -727,7 +727,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:364](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L364)
+[src/types/DocumentPro.ts:364](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L364)
 
 ___
 
@@ -749,7 +749,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:366](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L366)
+[src/types/DocumentPro.ts:366](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L366)
 
 ___
 
@@ -763,7 +763,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `payload` | [`UpdateSignaturePayload`](/interfaces/DocumentPro.UpdateSignaturePayload.md) |
+| `payload` | [`UpdateSignaturePayload`](DocumentPro.UpdateSignaturePayload.md) |
 
 #### Returns
 
@@ -771,7 +771,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:370](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L370)
+[src/types/DocumentPro.ts:370](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L370)
 
 ___
 
@@ -795,4 +795,4 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:376](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L376)
+[src/types/DocumentPro.ts:376](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L376)

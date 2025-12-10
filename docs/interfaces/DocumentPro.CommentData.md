@@ -1,8 +1,8 @@
-[shimo-js-sdk - v1.2.18](/README.md) / [DocumentPro](/modules/DocumentPro.md) / CommentData
+[shimo-js-sdk - v1.2.23](../README.md) / [DocumentPro](../modules/DocumentPro.md) / CommentData
 
 # Interface: CommentData
 
-[DocumentPro](/modules/DocumentPro.md).CommentData
+[DocumentPro](../modules/DocumentPro.md).CommentData
 
 评论数据
 
@@ -10,12 +10,12 @@
 
 ### Properties
 
-- [id](/interfaces/DocumentPro.CommentData.md#id)
-- [createTime](/interfaces/DocumentPro.CommentData.md#createtime)
-- [lastUpdateTime](/interfaces/DocumentPro.CommentData.md#lastupdatetime)
-- [userId](/interfaces/DocumentPro.CommentData.md#userid)
-- [userName](/interfaces/DocumentPro.CommentData.md#username)
-- [replies](/interfaces/DocumentPro.CommentData.md#replies)
+- [id](DocumentPro.CommentData.md#id)
+- [createTime](DocumentPro.CommentData.md#createtime)
+- [lastUpdateTime](DocumentPro.CommentData.md#lastupdatetime)
+- [userId](DocumentPro.CommentData.md#userid)
+- [userName](DocumentPro.CommentData.md#username)
+- [replies](DocumentPro.CommentData.md#replies)
 
 ## Properties
 
@@ -27,7 +27,7 @@
 
 #### Defined in
 
-[src/types/DocumentPro.ts:36](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L36)
+[src/types/DocumentPro.ts:36](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L36)
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:41](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L41)
+[src/types/DocumentPro.ts:41](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L41)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:46](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L46)
+[src/types/DocumentPro.ts:46](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L46)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:51](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L51)
+[src/types/DocumentPro.ts:51](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L51)
 
 ___
 
@@ -75,16 +75,16 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:56](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L56)
+[src/types/DocumentPro.ts:56](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L56)
 
 ___
 
 ### replies
 
-• **replies**: [`CommentData`](/interfaces/DocumentPro.CommentData.md)[]
+• **replies**: [`CommentData`](DocumentPro.CommentData.md)[]
 
 评论的所有回复
 
 #### Defined in
 
-[src/types/DocumentPro.ts:61](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L61)
+[src/types/DocumentPro.ts:61](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L61)

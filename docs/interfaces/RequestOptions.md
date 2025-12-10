@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.18](/README.md) / RequestOptions
+[shimo-js-sdk - v1.2.23](../README.md) / RequestOptions
 
 # Interface: RequestOptions
 
@@ -8,10 +8,10 @@
 
 ### Properties
 
-- [url](/interfaces/RequestOptions.md#url)
-- [method](/interfaces/RequestOptions.md#method)
-- [headers](/interfaces/RequestOptions.md#headers)
-- [query](/interfaces/RequestOptions.md#query)
+- [url](RequestOptions.md#url)
+- [method](RequestOptions.md#method)
+- [headers](RequestOptions.md#headers)
+- [query](RequestOptions.md#query)
 
 ## Properties
 

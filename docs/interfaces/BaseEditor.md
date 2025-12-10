@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.18](/README.md) / BaseEditor
+[shimo-js-sdk - v1.2.23](../README.md) / BaseEditor
 
 # Interface: BaseEditor<T\>
 
@@ -12,28 +12,28 @@
 
 - **`BaseEditor`**
 
-  ↳ [`Editor`](/interfaces/DocumentPro.Editor.md)
+  ↳ [`Editor`](DocumentPro.Editor.md)
 
-  ↳ [`Editor`](/interfaces/Document.Editor.md)
+  ↳ [`Editor`](Document.Editor.md)
 
-  ↳ [`Editor`](/interfaces/Spreadsheet.Editor.md)
+  ↳ [`Editor`](Spreadsheet.Editor.md)
 
-  ↳ [`Editor`](/interfaces/Presentation.Editor.md)
+  ↳ [`Editor`](Presentation.Editor.md)
 
-  ↳ [`Editor`](/interfaces/Table.Editor.md)
+  ↳ [`Editor`](Table.Editor.md)
 
-  ↳ [`Editor`](/interfaces/Form.Editor.md)
+  ↳ [`Editor`](Form.Editor.md)
 
-  ↳ [`Editor`](/interfaces/Flowchart.Editor.md)
+  ↳ [`Editor`](Flowchart.Editor.md)
 
 ## Table of contents
 
 ### Methods
 
-- [on](/interfaces/BaseEditor.md#on)
-- [off](/interfaces/BaseEditor.md#off)
-- [setTitle](/interfaces/BaseEditor.md#settitle)
-- [getCollaborators](/interfaces/BaseEditor.md#getcollaborators)
+- [on](BaseEditor.md#on)
+- [off](BaseEditor.md#off)
+- [setTitle](BaseEditor.md#settitle)
+- [getCollaborators](BaseEditor.md#getcollaborators)
 
 ## Methods
 
@@ -62,7 +62,7 @@
 
 #### Defined in
 
-[src/types/BaseEditor.ts:58](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L58)
+[src/types/BaseEditor.ts:58](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/BaseEditor.ts#L58)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:63](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L63)
+[src/types/BaseEditor.ts:63](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/BaseEditor.ts#L63)
 
 ___
 
@@ -113,7 +113,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:68](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L68)
+[src/types/BaseEditor.ts:68](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/BaseEditor.ts#L68)
 
 ___
 
@@ -129,4 +129,4 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:73](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L73)
+[src/types/BaseEditor.ts:73](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/BaseEditor.ts#L73)

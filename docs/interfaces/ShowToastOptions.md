@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.18](/README.md) / ShowToastOptions
+[shimo-js-sdk - v1.2.23](../README.md) / ShowToastOptions
 
 # Interface: ShowToastOptions
 
@@ -6,10 +6,10 @@
 
 ### Properties
 
-- [title](/interfaces/ShowToastOptions.md#title)
-- [type](/interfaces/ShowToastOptions.md#type)
-- [duration](/interfaces/ShowToastOptions.md#duration)
-- [autoHide](/interfaces/ShowToastOptions.md#autohide)
+- [title](ShowToastOptions.md#title)
+- [type](ShowToastOptions.md#type)
+- [duration](ShowToastOptions.md#duration)
+- [autoHide](ShowToastOptions.md#autohide)
 
 ## Properties
 
@@ -21,7 +21,7 @@ toast标题
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:336
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:340
 
 ___
 
@@ -33,7 +33,7 @@ toast类型, 默认为info
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:340
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:344
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:344
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:348
 
 ___
 
@@ -57,4 +57,4 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:348
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:352

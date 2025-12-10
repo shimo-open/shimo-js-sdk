@@ -1,15 +1,15 @@
-[shimo-js-sdk - v1.2.18](/README.md) / [DocumentPro](/modules/DocumentPro.md) / UpdateSignaturePayload
+[shimo-js-sdk - v1.2.23](../README.md) / [DocumentPro](../modules/DocumentPro.md) / UpdateSignaturePayload
 
 # Interface: UpdateSignaturePayload
 
-[DocumentPro](/modules/DocumentPro.md).UpdateSignaturePayload
+[DocumentPro](../modules/DocumentPro.md).UpdateSignaturePayload
 
 ## Table of contents
 
 ### Properties
 
-- [url](/interfaces/DocumentPro.UpdateSignaturePayload.md#url)
-- [id](/interfaces/DocumentPro.UpdateSignaturePayload.md#id)
+- [url](DocumentPro.UpdateSignaturePayload.md#url)
+- [id](DocumentPro.UpdateSignaturePayload.md#id)
 
 ## Properties
 
@@ -22,7 +22,7 @@ Ref: https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs
 
 #### Defined in
 
-[src/types/DocumentPro.ts:141](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L141)
+[src/types/DocumentPro.ts:141](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L141)
 
 ___
 
@@ -34,4 +34,4 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:146](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L146)
+[src/types/DocumentPro.ts:146](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L146)

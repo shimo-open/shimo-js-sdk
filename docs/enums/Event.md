@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.18](/README.md) / Event
+[shimo-js-sdk - v1.2.23](../README.md) / Event
 
 # Enumeration: Event
 
@@ -6,10 +6,10 @@
 
 ### Enumeration members
 
-- [SDKInit](/enums/Event.md#sdkinit)
-- [Error](/enums/Event.md#error)
-- [ReadyState](/enums/Event.md#readystate)
-- [EditorEvent](/enums/Event.md#editorevent)
+- [SDKInit](Event.md#sdkinit)
+- [Error](Event.md#error)
+- [ReadyState](Event.md#readystate)
+- [EditorEvent](Event.md#editorevent)
 
 ## Enumeration members
 
@@ -21,7 +21,7 @@ SDK 初始化事件，用于内部逻辑
 
 #### Defined in
 
-[src/ShimoSDK.ts:973](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L973)
+[src/ShimoSDK.ts:1012](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/ShimoSDK.ts#L1012)
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:978](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L978)
+[src/ShimoSDK.ts:1017](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/ShimoSDK.ts#L1017)
 
 ___
 
@@ -45,7 +45,7 @@ ShimoSDK 状态变化事件
 
 #### Defined in
 
-[src/ShimoSDK.ts:983](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L983)
+[src/ShimoSDK.ts:1022](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/ShimoSDK.ts#L1022)
 
 ___
 
@@ -57,4 +57,4 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:988](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L988)
+[src/ShimoSDK.ts:1027](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/ShimoSDK.ts#L1027)

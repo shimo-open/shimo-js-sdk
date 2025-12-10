@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.18](/README.md) / Message
+[shimo-js-sdk - v1.2.23](../README.md) / Message
 
 # Interface: Message
 
@@ -6,10 +6,10 @@
 
 ### Properties
 
-- [uuid](/interfaces/Message.md#uuid)
-- [event](/interfaces/Message.md#event)
-- [body](/interfaces/Message.md#body)
-- [error](/interfaces/Message.md#error)
+- [uuid](Message.md#uuid)
+- [event](Message.md#event)
+- [body](Message.md#body)
+- [error](Message.md#error)
 
 ## Properties
 
@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[src/ShimoSDK.ts:992](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L992)
+[src/ShimoSDK.ts:1031](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/ShimoSDK.ts#L1031)
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:993](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L993)
+[src/ShimoSDK.ts:1032](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/ShimoSDK.ts#L1032)
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:994](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L994)
+[src/ShimoSDK.ts:1033](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/ShimoSDK.ts#L1033)
 
 ___
 
@@ -49,4 +49,4 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:995](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L995)
+[src/ShimoSDK.ts:1034](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/ShimoSDK.ts#L1034)

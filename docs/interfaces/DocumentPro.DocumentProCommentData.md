@@ -1,20 +1,20 @@
-[shimo-js-sdk - v1.2.18](/README.md) / [DocumentPro](/modules/DocumentPro.md) / DocumentProCommentData
+[shimo-js-sdk - v1.2.23](../README.md) / [DocumentPro](../modules/DocumentPro.md) / DocumentProCommentData
 
 # Interface: DocumentProCommentData
 
-[DocumentPro](/modules/DocumentPro.md).DocumentProCommentData
+[DocumentPro](../modules/DocumentPro.md).DocumentProCommentData
 
 ## Table of contents
 
 ### Properties
 
-- [id](/interfaces/DocumentPro.DocumentProCommentData.md#id)
-- [userId](/interfaces/DocumentPro.DocumentProCommentData.md#userid)
-- [userName](/interfaces/DocumentPro.DocumentProCommentData.md#username)
-- [text](/interfaces/DocumentPro.DocumentProCommentData.md#text)
-- [createTime](/interfaces/DocumentPro.DocumentProCommentData.md#createtime)
-- [lastUpdateTime](/interfaces/DocumentPro.DocumentProCommentData.md#lastupdatetime)
-- [replies](/interfaces/DocumentPro.DocumentProCommentData.md#replies)
+- [id](DocumentPro.DocumentProCommentData.md#id)
+- [userId](DocumentPro.DocumentProCommentData.md#userid)
+- [userName](DocumentPro.DocumentProCommentData.md#username)
+- [text](DocumentPro.DocumentProCommentData.md#text)
+- [createTime](DocumentPro.DocumentProCommentData.md#createtime)
+- [lastUpdateTime](DocumentPro.DocumentProCommentData.md#lastupdatetime)
+- [replies](DocumentPro.DocumentProCommentData.md#replies)
 
 ## Properties
 
@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[src/types/DocumentPro.ts:409](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L409)
+[src/types/DocumentPro.ts:409](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L409)
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:410](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L410)
+[src/types/DocumentPro.ts:410](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L410)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:411](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L411)
+[src/types/DocumentPro.ts:411](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L411)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:412](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L412)
+[src/types/DocumentPro.ts:412](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L412)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:413](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L413)
+[src/types/DocumentPro.ts:413](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L413)
 
 ___
 
@@ -76,16 +76,16 @@ timestamp string
 
 #### Defined in
 
-[src/types/DocumentPro.ts:417](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L417)
+[src/types/DocumentPro.ts:417](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L417)
 
 ___
 
 ### replies
 
-• **replies**: [`DocumentProCommentData`](/interfaces/DocumentPro.DocumentProCommentData.md)[]
+• **replies**: [`DocumentProCommentData`](DocumentPro.DocumentProCommentData.md)[]
 
 该条评论的回复
 
 #### Defined in
 
-[src/types/DocumentPro.ts:421](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L421)
+[src/types/DocumentPro.ts:421](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/DocumentPro.ts#L421)

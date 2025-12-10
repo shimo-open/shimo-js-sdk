@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.18](/README.md) / ContainerMethod
+[shimo-js-sdk - v1.2.23](../README.md) / ContainerMethod
 
 # Enumeration: ContainerMethod
 
@@ -8,14 +8,15 @@
 
 ### Enumeration members
 
-- [GetContainerRect](/enums/ContainerMethod.md#getcontainerrect)
-- [OpenLink](/enums/ContainerMethod.md#openlink)
-- [GenerateUrl](/enums/ContainerMethod.md#generateurl)
-- [MentionClickHandlerForMobile](/enums/ContainerMethod.md#mentionclickhandlerformobile)
-- [GetFileInfoFromUrl](/enums/ContainerMethod.md#getfileinfofromurl)
-- [ShowSignatureComponent](/enums/ContainerMethod.md#showsignaturecomponent)
-- [ShowToast](/enums/ContainerMethod.md#showtoast)
-- [HandleCustomTask](/enums/ContainerMethod.md#handlecustomtask)
+- [GetContainerRect](ContainerMethod.md#getcontainerrect)
+- [OpenLink](ContainerMethod.md#openlink)
+- [GenerateUrl](ContainerMethod.md#generateurl)
+- [MentionClickHandlerForMobile](ContainerMethod.md#mentionclickhandlerformobile)
+- [GetFileInfoFromUrl](ContainerMethod.md#getfileinfofromurl)
+- [ShowSignatureComponent](ContainerMethod.md#showsignaturecomponent)
+- [ShowToast](ContainerMethod.md#showtoast)
+- [HandleCustomTask](ContainerMethod.md#handlecustomtask)
+- [GetCredentials](ContainerMethod.md#getcredentials)
 
 ## Enumeration members
 
@@ -112,3 +113,15 @@ ___
 #### Defined in
 
 node_modules/shimo-js-sdk-shared/dist/types.d.ts:145
+
+___
+
+### GetCredentials
+
+• **GetCredentials** = `"getCredentials"`
+
+请求容器获取鉴权信息
+
+#### Defined in
+
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:149

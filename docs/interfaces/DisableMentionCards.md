@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.18](/README.md) / DisableMentionCards
+[shimo-js-sdk - v1.2.23](../README.md) / DisableMentionCards
 
 # Interface: DisableMentionCards
 
@@ -8,9 +8,9 @@
 
 ### Properties
 
-- [user](/interfaces/DisableMentionCards.md#user)
-- [file](/interfaces/DisableMentionCards.md#file)
-- [date](/interfaces/DisableMentionCards.md#date)
+- [user](DisableMentionCards.md#user)
+- [file](DisableMentionCards.md#file)
+- [date](DisableMentionCards.md#date)
 
 ## Properties
 

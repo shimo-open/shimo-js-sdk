@@ -1,15 +1,15 @@
-[shimo-js-sdk - v1.2.18](/README.md) / [Presentation](/modules/Presentation.md) / EventMap
+[shimo-js-sdk - v1.2.23](../README.md) / [Presentation](../modules/Presentation.md) / EventMap
 
 # Interface: EventMap
 
-[Presentation](/modules/Presentation.md).EventMap
+[Presentation](../modules/Presentation.md).EventMap
 
 ## Table of contents
 
 ### Properties
 
-- [error](/interfaces/Presentation.EventMap.md#error)
-- [saveStatusChanged](/interfaces/Presentation.EventMap.md#savestatuschanged)
+- [error](Presentation.EventMap.md#error)
+- [saveStatusChanged](Presentation.EventMap.md#savestatuschanged)
 
 ## Properties
 
@@ -28,7 +28,7 @@
 
 #### Defined in
 
-[src/types/Presentation.ts:7](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Presentation.ts#L7)
+[src/types/Presentation.ts:7](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/Presentation.ts#L7)
 
 ___
 
@@ -46,4 +46,4 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:16](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Presentation.ts#L16)
+[src/types/Presentation.ts:16](https://github.com/byte9527/shimo-js-sdk/blob/6fe2b75/src/types/Presentation.ts#L16)
