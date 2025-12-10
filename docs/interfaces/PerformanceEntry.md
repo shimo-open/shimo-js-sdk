@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.18](/README.md) / PerformanceEntry
+[shimo-js-sdk - v1.2.23](../README.md) / PerformanceEntry
 
 # Interface: PerformanceEntry
 
@@ -8,10 +8,10 @@
 
 ### Properties
 
-- [mark](/interfaces/PerformanceEntry.md#mark)
-- [timestamp](/interfaces/PerformanceEntry.md#timestamp)
-- [timeOrigin](/interfaces/PerformanceEntry.md#timeorigin)
-- [resourceTiming](/interfaces/PerformanceEntry.md#resourcetiming)
+- [mark](PerformanceEntry.md#mark)
+- [timestamp](PerformanceEntry.md#timestamp)
+- [timeOrigin](PerformanceEntry.md#timeorigin)
+- [resourceTiming](PerformanceEntry.md#resourcetiming)
 
 ## Properties
 
@@ -23,7 +23,7 @@
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:200
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:204
 
 ___
 
@@ -35,7 +35,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:204
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:208
 
 ___
 
@@ -48,7 +48,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/Performance/timeOrigin
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:209
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:213
 
 ___
 
@@ -60,4 +60,4 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:213
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:217

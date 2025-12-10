@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.18](/README.md) / UrlSharingType
+[shimo-js-sdk - v1.2.23](../README.md) / UrlSharingType
 
 # Enumeration: UrlSharingType
 
@@ -10,17 +10,17 @@
 
 ### Enumeration members
 
-- [Doc](/enums/UrlSharingType.md#doc)
-- [Docx](/enums/UrlSharingType.md#docx)
-- [Spreadsheet](/enums/UrlSharingType.md#spreadsheet)
-- [Form](/enums/UrlSharingType.md#form)
-- [FormPreview](/enums/UrlSharingType.md#formpreview)
-- [FormFill](/enums/UrlSharingType.md#formfill)
-- [Presentation](/enums/UrlSharingType.md#presentation)
-- [Table](/enums/UrlSharingType.md#table)
-- [Flowchart](/enums/UrlSharingType.md#flowchart)
-- [Mindmap](/enums/UrlSharingType.md#mindmap)
-- [Board](/enums/UrlSharingType.md#board)
+- [Doc](UrlSharingType.md#doc)
+- [Docx](UrlSharingType.md#docx)
+- [Spreadsheet](UrlSharingType.md#spreadsheet)
+- [Form](UrlSharingType.md#form)
+- [FormPreview](UrlSharingType.md#formpreview)
+- [FormFill](UrlSharingType.md#formfill)
+- [Presentation](UrlSharingType.md#presentation)
+- [Table](UrlSharingType.md#table)
+- [Flowchart](UrlSharingType.md#flowchart)
+- [Mindmap](UrlSharingType.md#mindmap)
+- [Board](UrlSharingType.md#board)
 
 ## Enumeration members
 
@@ -32,7 +32,7 @@
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:290
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:294
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:294
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:298
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:298
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:302
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:302
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:306
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:306
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:310
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:310
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:314
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:314
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:318
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:318
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:322
 
 ___
 
@@ -128,7 +128,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:322
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:326
 
 ___
 
@@ -140,7 +140,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:326
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:330
 
 ___
 
@@ -152,4 +152,4 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:330
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:334

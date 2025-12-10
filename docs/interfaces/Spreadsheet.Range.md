@@ -1,8 +1,8 @@
-[shimo-js-sdk - v1.2.18](/README.md) / [Spreadsheet](/modules/Spreadsheet.md) / Range
+[shimo-js-sdk - v1.2.23](../README.md) / [Spreadsheet](../modules/Spreadsheet.md) / Range
 
 # Interface: Range
 
-[Spreadsheet](/modules/Spreadsheet.md).Range
+[Spreadsheet](../modules/Spreadsheet.md).Range
 
 表格范围
 
@@ -10,10 +10,10 @@
 
 ### Properties
 
-- [row](/interfaces/Spreadsheet.Range.md#row)
-- [column](/interfaces/Spreadsheet.Range.md#column)
-- [rowCount](/interfaces/Spreadsheet.Range.md#rowcount)
-- [columnCount](/interfaces/Spreadsheet.Range.md#columncount)
+- [row](Spreadsheet.Range.md#row)
+- [column](Spreadsheet.Range.md#column)
+- [rowCount](Spreadsheet.Range.md#rowcount)
+- [columnCount](Spreadsheet.Range.md#columncount)
 
 ## Properties
 
@@ -23,7 +23,7 @@
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:6](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L6)
+[src/types/Spreadsheet.ts:6](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L6)
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:7](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L7)
+[src/types/Spreadsheet.ts:7](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L7)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:8](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L8)
+[src/types/Spreadsheet.ts:8](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L8)
 
 ___
 
@@ -53,4 +53,4 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:9](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L9)
+[src/types/Spreadsheet.ts:9](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L9)

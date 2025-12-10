@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.18](/README.md) / MentionInfo
+[shimo-js-sdk - v1.2.23](../README.md) / MentionInfo
 
 # Interface: MentionInfo
 
@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- [`LineInfo`](/interfaces/LineInfo.md)
+- [`LineInfo`](LineInfo.md)
 
   ↳ **`MentionInfo`**
 
@@ -14,12 +14,12 @@
 
 ### Properties
 
-- [left](/interfaces/MentionInfo.md#left)
-- [top](/interfaces/MentionInfo.md#top)
-- [width](/interfaces/MentionInfo.md#width)
-- [height](/interfaces/MentionInfo.md#height)
-- [userId](/interfaces/MentionInfo.md#userid)
-- [fileId](/interfaces/MentionInfo.md#fileid)
+- [left](MentionInfo.md#left)
+- [top](MentionInfo.md#top)
+- [width](MentionInfo.md#width)
+- [height](MentionInfo.md#height)
+- [userId](MentionInfo.md#userid)
+- [fileId](MentionInfo.md#fileid)
 
 ## Properties
 
@@ -31,11 +31,11 @@
 
 #### Inherited from
 
-[LineInfo](/interfaces/LineInfo.md).[left](/interfaces/LineInfo.md#left)
+[LineInfo](LineInfo.md).[left](LineInfo.md#left)
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:154
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:158
 
 ___
 
@@ -47,11 +47,11 @@ ___
 
 #### Inherited from
 
-[LineInfo](/interfaces/LineInfo.md).[top](/interfaces/LineInfo.md#top)
+[LineInfo](LineInfo.md).[top](LineInfo.md#top)
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:158
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:162
 
 ___
 
@@ -63,11 +63,11 @@ ___
 
 #### Inherited from
 
-[LineInfo](/interfaces/LineInfo.md).[width](/interfaces/LineInfo.md#width)
+[LineInfo](LineInfo.md).[width](LineInfo.md#width)
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:162
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:166
 
 ___
 
@@ -79,11 +79,11 @@ ___
 
 #### Inherited from
 
-[LineInfo](/interfaces/LineInfo.md).[height](/interfaces/LineInfo.md#height)
+[LineInfo](LineInfo.md).[height](LineInfo.md#height)
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:166
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:170
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:175
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:179
 
 ___
 
@@ -107,4 +107,4 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:179
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:183

@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.18](/README.md) / ShimoSDK
+[shimo-js-sdk - v1.2.23](../README.md) / ShimoSDK
 
 # Class: ShimoSDK
 
@@ -12,39 +12,39 @@
 
 ### Constructors
 
-- [constructor](/classes/ShimoSDK.md#constructor)
+- [constructor](ShimoSDK.md#constructor)
 
 ### Methods
 
-- [on](/classes/ShimoSDK.md#on)
-- [once](/classes/ShimoSDK.md#once)
-- [emit](/classes/ShimoSDK.md#emit)
-- [off](/classes/ShimoSDK.md#off)
-- [getEditor](/classes/ShimoSDK.md#geteditor)
-- [setCredentials](/classes/ShimoSDK.md#setcredentials)
-- [setSignature](/classes/ShimoSDK.md#setsignature)
-- [setToken](/classes/ShimoSDK.md#settoken)
-- [getPerformanceEntries](/classes/ShimoSDK.md#getperformanceentries)
-- [disconnect](/classes/ShimoSDK.md#disconnect)
-- [init](/classes/ShimoSDK.md#init)
+- [on](ShimoSDK.md#on)
+- [once](ShimoSDK.md#once)
+- [emit](ShimoSDK.md#emit)
+- [off](ShimoSDK.md#off)
+- [getEditor](ShimoSDK.md#geteditor)
+- [setCredentials](ShimoSDK.md#setcredentials)
+- [setSignature](ShimoSDK.md#setsignature)
+- [setToken](ShimoSDK.md#settoken)
+- [getPerformanceEntries](ShimoSDK.md#getperformanceentries)
+- [disconnect](ShimoSDK.md#disconnect)
+- [init](ShimoSDK.md#init)
 
 ### Properties
 
-- [element](/classes/ShimoSDK.md#element)
-- [uuid](/classes/ShimoSDK.md#uuid)
-- [userUuid](/classes/ShimoSDK.md#useruuid)
-- [documentPro](/classes/ShimoSDK.md#documentpro)
-- [document](/classes/ShimoSDK.md#document)
-- [spreadsheet](/classes/ShimoSDK.md#spreadsheet)
-- [presentation](/classes/ShimoSDK.md#presentation)
-- [table](/classes/ShimoSDK.md#table)
-- [form](/classes/ShimoSDK.md#form)
-- [flowchart](/classes/ShimoSDK.md#flowchart)
+- [element](ShimoSDK.md#element)
+- [uuid](ShimoSDK.md#uuid)
+- [userUuid](ShimoSDK.md#useruuid)
+- [documentPro](ShimoSDK.md#documentpro)
+- [document](ShimoSDK.md#document)
+- [spreadsheet](ShimoSDK.md#spreadsheet)
+- [presentation](ShimoSDK.md#presentation)
+- [table](ShimoSDK.md#table)
+- [form](ShimoSDK.md#form)
+- [flowchart](ShimoSDK.md#flowchart)
 
 ### Accessors
 
-- [fileType](/classes/ShimoSDK.md#filetype)
-- [readyState](/classes/ShimoSDK.md#readystate)
+- [fileType](ShimoSDK.md#filetype)
+- [readyState](ShimoSDK.md#readystate)
 
 ## Constructors
 
@@ -56,7 +56,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`ShimoSDKOptions`](/interfaces/ShimoSDKOptions.md) |
+| `options` | [`ShimoSDKOptions`](../interfaces/ShimoSDKOptions.md) |
 
 #### Overrides
 
@@ -64,13 +64,13 @@ TinyEmitter.constructor
 
 #### Defined in
 
-[src/ShimoSDK.ts:147](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L147)
+[src/ShimoSDK.ts:148](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L148)
 
 ## Methods
 
 ### on
 
-▸ **on**(`event`, `callback`, `ctx?`): [`ShimoSDK`](/classes/ShimoSDK.md)
+▸ **on**(`event`, `callback`, `ctx?`): [`ShimoSDK`](ShimoSDK.md)
 
 #### Parameters
 
@@ -82,7 +82,7 @@ TinyEmitter.constructor
 
 #### Returns
 
-[`ShimoSDK`](/classes/ShimoSDK.md)
+[`ShimoSDK`](ShimoSDK.md)
 
 #### Inherited from
 
@@ -96,7 +96,7 @@ ___
 
 ### once
 
-▸ **once**(`event`, `callback`, `ctx?`): [`ShimoSDK`](/classes/ShimoSDK.md)
+▸ **once**(`event`, `callback`, `ctx?`): [`ShimoSDK`](ShimoSDK.md)
 
 #### Parameters
 
@@ -108,7 +108,7 @@ ___
 
 #### Returns
 
-[`ShimoSDK`](/classes/ShimoSDK.md)
+[`ShimoSDK`](ShimoSDK.md)
 
 #### Inherited from
 
@@ -122,7 +122,7 @@ ___
 
 ### emit
 
-▸ **emit**(`event`, ...`args`): [`ShimoSDK`](/classes/ShimoSDK.md)
+▸ **emit**(`event`, ...`args`): [`ShimoSDK`](ShimoSDK.md)
 
 #### Parameters
 
@@ -133,7 +133,7 @@ ___
 
 #### Returns
 
-[`ShimoSDK`](/classes/ShimoSDK.md)
+[`ShimoSDK`](ShimoSDK.md)
 
 #### Inherited from
 
@@ -147,7 +147,7 @@ ___
 
 ### off
 
-▸ **off**(`event`, `callback?`): [`ShimoSDK`](/classes/ShimoSDK.md)
+▸ **off**(`event`, `callback?`): [`ShimoSDK`](ShimoSDK.md)
 
 #### Parameters
 
@@ -158,7 +158,7 @@ ___
 
 #### Returns
 
-[`ShimoSDK`](/classes/ShimoSDK.md)
+[`ShimoSDK`](ShimoSDK.md)
 
 #### Inherited from
 
@@ -178,7 +178,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`Editor`](/interfaces/DocumentPro.Editor.md) \| [`Editor`](/interfaces/Document.Editor.md) \| [`Editor`](/interfaces/Spreadsheet.Editor.md) \| [`Editor`](/interfaces/Presentation.Editor.md) \| [`Editor`](/interfaces/Table.Editor.md) \| [`Editor`](/interfaces/Form.Editor.md) \| [`Editor`](/interfaces/Flowchart.Editor.md) \| [`BaseEditor`](/interfaces/BaseEditor.md)<{ [K: string]: `any`;  }\> = [`BaseEditor`](/interfaces/BaseEditor.md)<{ [K: string]: `any`;  }\> |
+| `T` | extends [`Editor`](../interfaces/DocumentPro.Editor.md) \| [`Editor`](../interfaces/Document.Editor.md) \| [`Editor`](../interfaces/Spreadsheet.Editor.md) \| [`Editor`](../interfaces/Presentation.Editor.md) \| [`Editor`](../interfaces/Table.Editor.md) \| [`Editor`](../interfaces/Form.Editor.md) \| [`Editor`](../interfaces/Flowchart.Editor.md) \| [`BaseEditor`](../interfaces/BaseEditor.md)<{ [K: string]: `any`;  }\> = [`BaseEditor`](../interfaces/BaseEditor.md)<{ [K: string]: `any`;  }\> |
 
 #### Returns
 
@@ -186,7 +186,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:252](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L252)
+[src/ShimoSDK.ts:253](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L253)
 
 ___
 
@@ -195,6 +195,8 @@ ___
 ▸ **setCredentials**(`payload`): `Promise`<`void`\>
 
 更新鉴权 signature 和 token
+
+**`deprecated`** - 用 `ShimoSDKOptions.getCredentials()` 替代
 
 #### Parameters
 
@@ -210,7 +212,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:269](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L269)
+[src/ShimoSDK.ts:271](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L271)
 
 ___
 
@@ -234,7 +236,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:279](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L279)
+[src/ShimoSDK.ts:281](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L281)
 
 ___
 
@@ -258,23 +260,23 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:289](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L289)
+[src/ShimoSDK.ts:291](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L291)
 
 ___
 
 ### getPerformanceEntries
 
-▸ **getPerformanceEntries**(): `Promise`<[`PerformanceEntry`](/interfaces/PerformanceEntry.md)[]\>
+▸ **getPerformanceEntries**(): `Promise`<[`PerformanceEntry`](../interfaces/PerformanceEntry.md)[]\>
 
 获取性能信息片段列表，由于性能标记是分段的、异步的，因此每次调用时获取的列表有可能不一致
 
 #### Returns
 
-`Promise`<[`PerformanceEntry`](/interfaces/PerformanceEntry.md)[]\>
+`Promise`<[`PerformanceEntry`](../interfaces/PerformanceEntry.md)[]\>
 
 #### Defined in
 
-[src/ShimoSDK.ts:298](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L298)
+[src/ShimoSDK.ts:300](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L300)
 
 ___
 
@@ -288,7 +290,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:306](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L306)
+[src/ShimoSDK.ts:308](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L308)
 
 ___
 
@@ -307,7 +309,7 @@ Promise resovled 不代表编辑器已经完整加载完毕，只代表 SDK 已�
 
 #### Defined in
 
-[src/ShimoSDK.ts:329](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L329)
+[src/ShimoSDK.ts:331](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L331)
 
 ## Properties
 
@@ -319,7 +321,7 @@ Promise resovled 不代表编辑器已经完整加载完毕，只代表 SDK 已�
 
 #### Defined in
 
-[src/ShimoSDK.ts:63](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L63)
+[src/ShimoSDK.ts:64](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L64)
 
 ___
 
@@ -329,7 +331,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:64](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L64)
+[src/ShimoSDK.ts:65](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L65)
 
 ___
 
@@ -339,13 +341,13 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:65](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L65)
+[src/ShimoSDK.ts:66](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L66)
 
 ___
 
 ### documentPro
 
-• `Optional` **documentPro**: [`Editor`](/interfaces/DocumentPro.Editor.md)
+• `Optional` **documentPro**: [`Editor`](../interfaces/DocumentPro.Editor.md)
 
 传统文档编辑器实例
 
@@ -353,13 +355,13 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:71](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L71)
+[src/ShimoSDK.ts:72](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L72)
 
 ___
 
 ### document
 
-• `Optional` **document**: [`Editor`](/interfaces/Document.Editor.md)
+• `Optional` **document**: [`Editor`](../interfaces/Document.Editor.md)
 
 轻文档编辑器实例
 
@@ -367,13 +369,13 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:77](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L77)
+[src/ShimoSDK.ts:78](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L78)
 
 ___
 
 ### spreadsheet
 
-• `Optional` **spreadsheet**: [`Editor`](/interfaces/Spreadsheet.Editor.md)
+• `Optional` **spreadsheet**: [`Editor`](../interfaces/Spreadsheet.Editor.md)
 
 表格编辑器实例
 
@@ -381,13 +383,13 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:83](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L83)
+[src/ShimoSDK.ts:84](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L84)
 
 ___
 
 ### presentation
 
-• `Optional` **presentation**: [`Editor`](/interfaces/Presentation.Editor.md)
+• `Optional` **presentation**: [`Editor`](../interfaces/Presentation.Editor.md)
 
 专业幻灯片编辑器实例
 
@@ -395,13 +397,13 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:89](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L89)
+[src/ShimoSDK.ts:90](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L90)
 
 ___
 
 ### table
 
-• `Optional` **table**: [`Editor`](/interfaces/Table.Editor.md)
+• `Optional` **table**: [`Editor`](../interfaces/Table.Editor.md)
 
 应用表格编辑器实例
 
@@ -409,13 +411,13 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:95](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L95)
+[src/ShimoSDK.ts:96](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L96)
 
 ___
 
 ### form
 
-• `Optional` **form**: [`Editor`](/interfaces/Form.Editor.md)
+• `Optional` **form**: [`Editor`](../interfaces/Form.Editor.md)
 
 表单编辑器实例
 
@@ -423,13 +425,13 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:101](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L101)
+[src/ShimoSDK.ts:102](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L102)
 
 ___
 
 ### flowchart
 
-• `Optional` **flowchart**: [`Editor`](/interfaces/Flowchart.Editor.md)
+• `Optional` **flowchart**: [`Editor`](../interfaces/Flowchart.Editor.md)
 
 图谱编辑器实例
 
@@ -437,32 +439,32 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:107](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L107)
+[src/ShimoSDK.ts:108](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L108)
 
 ## Accessors
 
 ### fileType
 
-• `get` **fileType**(): [`FileType`](/enums/FileType.md)
+• `get` **fileType**(): [`FileType`](../enums/FileType.md)
 
 #### Returns
 
-[`FileType`](/enums/FileType.md)
+[`FileType`](../enums/FileType.md)
 
 #### Defined in
 
-[src/ShimoSDK.ts:244](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L244)
+[src/ShimoSDK.ts:245](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L245)
 
 ___
 
 ### readyState
 
-• `get` **readyState**(): [`ReadyState`](/enums/ReadyState.md)
+• `get` **readyState**(): [`ReadyState`](../enums/ReadyState.md)
 
 #### Returns
 
-[`ReadyState`](/enums/ReadyState.md)
+[`ReadyState`](../enums/ReadyState.md)
 
 #### Defined in
 
-[src/ShimoSDK.ts:248](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L248)
+[src/ShimoSDK.ts:249](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L249)

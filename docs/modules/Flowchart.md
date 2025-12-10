@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.18](/README.md) / Flowchart
+[shimo-js-sdk - v1.2.23](../README.md) / Flowchart
 
 # Namespace: Flowchart
 
@@ -6,5 +6,5 @@
 
 ### Interfaces
 
-- [EventMap](/interfaces/Flowchart.EventMap.md)
-- [Editor](/interfaces/Flowchart.Editor.md)
+- [EventMap](../interfaces/Flowchart.EventMap.md)
+- [Editor](../interfaces/Flowchart.Editor.md)

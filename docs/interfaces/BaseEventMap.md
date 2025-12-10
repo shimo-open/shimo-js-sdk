@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.18](/README.md) / BaseEventMap
+[shimo-js-sdk - v1.2.23](../README.md) / BaseEventMap
 
 # Interface: BaseEventMap
 
@@ -6,20 +6,20 @@
 
 - **`BaseEventMap`**
 
-  ↳ [`EventMap`](/interfaces/DocumentPro.EventMap.md)
+  ↳ [`EventMap`](DocumentPro.EventMap.md)
 
-  ↳ [`EventMap`](/interfaces/Document.EventMap.md)
+  ↳ [`EventMap`](Document.EventMap.md)
 
-  ↳ [`EventMap`](/interfaces/Spreadsheet.EventMap.md)
+  ↳ [`EventMap`](Spreadsheet.EventMap.md)
 
 ## Table of contents
 
 ### Properties
 
-- [saveStatusChanged](/interfaces/BaseEventMap.md#savestatuschanged)
-- [saveStatusDidChange](/interfaces/BaseEventMap.md#savestatusdidchange)
-- [paramsChanged](/interfaces/BaseEventMap.md#paramschanged)
-- [collaboratorsChanged](/interfaces/BaseEventMap.md#collaboratorschanged)
+- [saveStatusChanged](BaseEventMap.md#savestatuschanged)
+- [saveStatusDidChange](BaseEventMap.md#savestatusdidchange)
+- [paramsChanged](BaseEventMap.md#paramschanged)
+- [collaboratorsChanged](BaseEventMap.md#collaboratorschanged)
 
 ## Properties
 
@@ -37,7 +37,7 @@
 
 #### Defined in
 
-[src/types/BaseEditor.ts:21](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L21)
+[src/types/BaseEditor.ts:21](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L21)
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:32](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L32)
+[src/types/BaseEditor.ts:32](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L32)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:42](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L42)
+[src/types/BaseEditor.ts:42](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L42)
 
 ___
 
@@ -87,4 +87,4 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:49](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/BaseEditor.ts#L49)
+[src/types/BaseEditor.ts:49](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L49)

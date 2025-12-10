@@ -1,8 +1,8 @@
-[shimo-js-sdk - v1.2.18](/README.md) / [Spreadsheet](/modules/Spreadsheet.md) / PluginOptions
+[shimo-js-sdk - v1.2.23](../README.md) / [Spreadsheet](../modules/Spreadsheet.md) / PluginOptions
 
 # Interface: PluginOptions
 
-[Spreadsheet](/modules/Spreadsheet.md).PluginOptions
+[Spreadsheet](../modules/Spreadsheet.md).PluginOptions
 
 控制插件是否开启，无特殊说明默认都是 true。某些插件设置为 false 后，可能影响数据呈现。
 受后端服务版本影响，不是所有插件都可用，请以实际部署版本为准。
@@ -11,41 +11,41 @@
 
 ### Properties
 
-- [Attachment](/interfaces/Spreadsheet.PluginOptions.md#attachment)
-- [HighlightPosition](/interfaces/Spreadsheet.PluginOptions.md#highlightposition)
-- [CalcOption](/interfaces/Spreadsheet.PluginOptions.md#calcoption)
-- [CellHistory](/interfaces/Spreadsheet.PluginOptions.md#cellhistory)
-- [ChartV2](/interfaces/Spreadsheet.PluginOptions.md#chartv2)
-- [CheckList](/interfaces/Spreadsheet.PluginOptions.md#checklist)
-- [ClearRepeat](/interfaces/Spreadsheet.PluginOptions.md#clearrepeat)
-- [CombineSheets](/interfaces/Spreadsheet.PluginOptions.md#combinesheets)
-- [Comment](/interfaces/Spreadsheet.PluginOptions.md#comment)
-- [ConditionalFormat](/interfaces/Spreadsheet.PluginOptions.md#conditionalformat)
-- [CopyAsImage](/interfaces/Spreadsheet.PluginOptions.md#copyasimage)
-- [CustomNames](/interfaces/Spreadsheet.PluginOptions.md#customnames)
-- [DataValidation](/interfaces/Spreadsheet.PluginOptions.md#datavalidation)
-- [FileSlimming](/interfaces/Spreadsheet.PluginOptions.md#fileslimming)
-- [HistorySidebar](/interfaces/Spreadsheet.PluginOptions.md#historysidebar)
-- [IndependentViewport](/interfaces/Spreadsheet.PluginOptions.md#independentviewport)
-- [Outline](/interfaces/Spreadsheet.PluginOptions.md#outline)
-- [PivotTable](/interfaces/Spreadsheet.PluginOptions.md#pivottable)
-- [Remarks](/interfaces/Spreadsheet.PluginOptions.md#remarks)
-- [SheetStyles](/interfaces/Spreadsheet.PluginOptions.md#sheetstyles)
-- [Slicer](/interfaces/Spreadsheet.PluginOptions.md#slicer)
-- [SplitColumns](/interfaces/Spreadsheet.PluginOptions.md#splitcolumns)
-- [ImagePermission](/interfaces/Spreadsheet.PluginOptions.md#imagepermission)
-- [CopyRangeLink](/interfaces/Spreadsheet.PluginOptions.md#copyrangelink)
-- [CopyViewportLink](/interfaces/Spreadsheet.PluginOptions.md#copyviewportlink)
-- [ImportFormula](/interfaces/Spreadsheet.PluginOptions.md#importformula)
-- [BatchLock](/interfaces/Spreadsheet.PluginOptions.md#batchlock)
-- [Mention](/interfaces/Spreadsheet.PluginOptions.md#mention)
-- [DateMention](/interfaces/Spreadsheet.PluginOptions.md#datemention)
-- [Lock](/interfaces/Spreadsheet.PluginOptions.md#lock)
-- [SheetTab](/interfaces/Spreadsheet.PluginOptions.md#sheettab)
-- [MobileSheetTab](/interfaces/Spreadsheet.PluginOptions.md#mobilesheettab)
-- [Toolbar](/interfaces/Spreadsheet.PluginOptions.md#toolbar)
-- [MobileToolbar](/interfaces/Spreadsheet.PluginOptions.md#mobiletoolbar)
-- [FxEditor](/interfaces/Spreadsheet.PluginOptions.md#fxeditor)
+- [Attachment](Spreadsheet.PluginOptions.md#attachment)
+- [HighlightPosition](Spreadsheet.PluginOptions.md#highlightposition)
+- [CalcOption](Spreadsheet.PluginOptions.md#calcoption)
+- [CellHistory](Spreadsheet.PluginOptions.md#cellhistory)
+- [ChartV2](Spreadsheet.PluginOptions.md#chartv2)
+- [CheckList](Spreadsheet.PluginOptions.md#checklist)
+- [ClearRepeat](Spreadsheet.PluginOptions.md#clearrepeat)
+- [CombineSheets](Spreadsheet.PluginOptions.md#combinesheets)
+- [Comment](Spreadsheet.PluginOptions.md#comment)
+- [ConditionalFormat](Spreadsheet.PluginOptions.md#conditionalformat)
+- [CopyAsImage](Spreadsheet.PluginOptions.md#copyasimage)
+- [CustomNames](Spreadsheet.PluginOptions.md#customnames)
+- [DataValidation](Spreadsheet.PluginOptions.md#datavalidation)
+- [FileSlimming](Spreadsheet.PluginOptions.md#fileslimming)
+- [HistorySidebar](Spreadsheet.PluginOptions.md#historysidebar)
+- [IndependentViewport](Spreadsheet.PluginOptions.md#independentviewport)
+- [Outline](Spreadsheet.PluginOptions.md#outline)
+- [PivotTable](Spreadsheet.PluginOptions.md#pivottable)
+- [Remarks](Spreadsheet.PluginOptions.md#remarks)
+- [SheetStyles](Spreadsheet.PluginOptions.md#sheetstyles)
+- [Slicer](Spreadsheet.PluginOptions.md#slicer)
+- [SplitColumns](Spreadsheet.PluginOptions.md#splitcolumns)
+- [ImagePermission](Spreadsheet.PluginOptions.md#imagepermission)
+- [CopyRangeLink](Spreadsheet.PluginOptions.md#copyrangelink)
+- [CopyViewportLink](Spreadsheet.PluginOptions.md#copyviewportlink)
+- [ImportFormula](Spreadsheet.PluginOptions.md#importformula)
+- [BatchLock](Spreadsheet.PluginOptions.md#batchlock)
+- [Mention](Spreadsheet.PluginOptions.md#mention)
+- [DateMention](Spreadsheet.PluginOptions.md#datemention)
+- [Lock](Spreadsheet.PluginOptions.md#lock)
+- [SheetTab](Spreadsheet.PluginOptions.md#sheettab)
+- [MobileSheetTab](Spreadsheet.PluginOptions.md#mobilesheettab)
+- [Toolbar](Spreadsheet.PluginOptions.md#toolbar)
+- [MobileToolbar](Spreadsheet.PluginOptions.md#mobiletoolbar)
+- [FxEditor](Spreadsheet.PluginOptions.md#fxeditor)
 
 ## Properties
 
@@ -57,7 +57,7 @@
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:545](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L545)
+[src/types/Spreadsheet.ts:545](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L545)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:550](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L550)
+[src/types/Spreadsheet.ts:550](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L550)
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:555](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L555)
+[src/types/Spreadsheet.ts:555](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L555)
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:560](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L560)
+[src/types/Spreadsheet.ts:560](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L560)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:565](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L565)
+[src/types/Spreadsheet.ts:565](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L565)
 
 ___
 
@@ -117,7 +117,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:570](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L570)
+[src/types/Spreadsheet.ts:570](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L570)
 
 ___
 
@@ -129,7 +129,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:575](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L575)
+[src/types/Spreadsheet.ts:575](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L575)
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:580](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L580)
+[src/types/Spreadsheet.ts:580](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L580)
 
 ___
 
@@ -153,7 +153,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:585](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L585)
+[src/types/Spreadsheet.ts:585](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L585)
 
 ___
 
@@ -165,7 +165,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:590](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L590)
+[src/types/Spreadsheet.ts:590](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L590)
 
 ___
 
@@ -177,7 +177,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:595](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L595)
+[src/types/Spreadsheet.ts:595](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L595)
 
 ___
 
@@ -187,7 +187,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:600](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L600)
+[src/types/Spreadsheet.ts:600](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L600)
 
 ___
 
@@ -197,7 +197,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:605](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L605)
+[src/types/Spreadsheet.ts:605](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L605)
 
 ___
 
@@ -207,7 +207,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:610](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L610)
+[src/types/Spreadsheet.ts:610](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L610)
 
 ___
 
@@ -217,7 +217,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:615](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L615)
+[src/types/Spreadsheet.ts:615](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L615)
 
 ___
 
@@ -227,7 +227,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:620](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L620)
+[src/types/Spreadsheet.ts:620](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L620)
 
 ___
 
@@ -237,7 +237,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:625](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L625)
+[src/types/Spreadsheet.ts:625](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L625)
 
 ___
 
@@ -247,7 +247,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:630](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L630)
+[src/types/Spreadsheet.ts:630](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L630)
 
 ___
 
@@ -257,7 +257,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:635](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L635)
+[src/types/Spreadsheet.ts:635](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L635)
 
 ___
 
@@ -267,7 +267,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:640](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L640)
+[src/types/Spreadsheet.ts:640](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L640)
 
 ___
 
@@ -277,7 +277,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:645](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L645)
+[src/types/Spreadsheet.ts:645](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L645)
 
 ___
 
@@ -287,7 +287,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:650](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L650)
+[src/types/Spreadsheet.ts:650](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L650)
 
 ___
 
@@ -297,7 +297,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:655](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L655)
+[src/types/Spreadsheet.ts:655](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L655)
 
 ___
 
@@ -307,7 +307,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:660](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L660)
+[src/types/Spreadsheet.ts:660](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L660)
 
 ___
 
@@ -317,7 +317,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:665](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L665)
+[src/types/Spreadsheet.ts:665](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L665)
 
 ___
 
@@ -327,7 +327,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:670](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L670)
+[src/types/Spreadsheet.ts:670](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L670)
 
 ___
 
@@ -337,7 +337,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:675](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L675)
+[src/types/Spreadsheet.ts:675](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L675)
 
 ___
 
@@ -347,7 +347,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:680](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L680)
+[src/types/Spreadsheet.ts:680](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L680)
 
 ___
 
@@ -357,7 +357,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:685](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L685)
+[src/types/Spreadsheet.ts:685](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L685)
 
 ___
 
@@ -367,7 +367,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:690](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L690)
+[src/types/Spreadsheet.ts:690](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L690)
 
 ___
 
@@ -377,7 +377,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:694](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L694)
+[src/types/Spreadsheet.ts:694](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L694)
 
 ___
 
@@ -387,7 +387,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:698](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L698)
+[src/types/Spreadsheet.ts:698](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L698)
 
 ___
 
@@ -397,7 +397,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:702](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L702)
+[src/types/Spreadsheet.ts:702](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L702)
 
 ___
 
@@ -407,7 +407,7 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:706](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L706)
+[src/types/Spreadsheet.ts:706](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L706)
 
 ___
 
@@ -417,4 +417,4 @@ ___
 
 #### Defined in
 
-[src/types/Spreadsheet.ts:710](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/Spreadsheet.ts#L710)
+[src/types/Spreadsheet.ts:710](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Spreadsheet.ts#L710)

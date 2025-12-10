@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.18](/README.md) / LineInfo
+[shimo-js-sdk - v1.2.23](../README.md) / LineInfo
 
 # Interface: LineInfo
 
@@ -8,16 +8,16 @@
 
 - **`LineInfo`**
 
-  ↳ [`MentionInfo`](/interfaces/MentionInfo.md)
+  ↳ [`MentionInfo`](MentionInfo.md)
 
 ## Table of contents
 
 ### Properties
 
-- [left](/interfaces/LineInfo.md#left)
-- [top](/interfaces/LineInfo.md#top)
-- [width](/interfaces/LineInfo.md#width)
-- [height](/interfaces/LineInfo.md#height)
+- [left](LineInfo.md#left)
+- [top](LineInfo.md#top)
+- [width](LineInfo.md#width)
+- [height](LineInfo.md#height)
 
 ## Properties
 
@@ -29,7 +29,7 @@
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:154
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:158
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:158
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:162
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:162
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:166
 
 ___
 
@@ -65,4 +65,4 @@ ___
 
 #### Defined in
 
-node_modules/shimo-js-sdk-shared/dist/types.d.ts:166
+node_modules/shimo-js-sdk-shared/dist/types.d.ts:170

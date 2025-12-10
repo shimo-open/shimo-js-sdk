@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.18](/README.md) / Presentation
+[shimo-js-sdk - v1.2.23](../README.md) / Presentation
 
 # Namespace: Presentation
 
@@ -6,5 +6,5 @@
 
 ### Interfaces
 
-- [EventMap](/interfaces/Presentation.EventMap.md)
-- [Editor](/interfaces/Presentation.Editor.md)
+- [EventMap](../interfaces/Presentation.EventMap.md)
+- [Editor](../interfaces/Presentation.Editor.md)

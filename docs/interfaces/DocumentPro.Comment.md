@@ -1,8 +1,8 @@
-[shimo-js-sdk - v1.2.18](/README.md) / [DocumentPro](/modules/DocumentPro.md) / Comment
+[shimo-js-sdk - v1.2.23](../README.md) / [DocumentPro](../modules/DocumentPro.md) / Comment
 
 # Interface: Comment
 
-[DocumentPro](/modules/DocumentPro.md).Comment
+[DocumentPro](../modules/DocumentPro.md).Comment
 
 评论
 
@@ -10,10 +10,10 @@
 
 ### Properties
 
-- [id](/interfaces/DocumentPro.Comment.md#id)
-- [data](/interfaces/DocumentPro.Comment.md#data)
-- [quoteText](/interfaces/DocumentPro.Comment.md#quotetext)
-- [title](/interfaces/DocumentPro.Comment.md#title)
+- [id](DocumentPro.Comment.md#id)
+- [data](DocumentPro.Comment.md#data)
+- [quoteText](DocumentPro.Comment.md#quotetext)
+- [title](DocumentPro.Comment.md#title)
 
 ## Properties
 
@@ -25,19 +25,19 @@
 
 #### Defined in
 
-[src/types/DocumentPro.ts:11](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L11)
+[src/types/DocumentPro.ts:11](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/DocumentPro.ts#L11)
 
 ___
 
 ### data
 
-• **data**: [`CommentData`](/interfaces/DocumentPro.CommentData.md)
+• **data**: [`CommentData`](DocumentPro.CommentData.md)
 
 评论数据
 
 #### Defined in
 
-[src/types/DocumentPro.ts:16](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L16)
+[src/types/DocumentPro.ts:16](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/DocumentPro.ts#L16)
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:21](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L21)
+[src/types/DocumentPro.ts:21](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/DocumentPro.ts#L21)
 
 ___
 
@@ -61,4 +61,4 @@ ___
 
 #### Defined in
 
-[src/types/DocumentPro.ts:26](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/types/DocumentPro.ts#L26)
+[src/types/DocumentPro.ts:26](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/DocumentPro.ts#L26)

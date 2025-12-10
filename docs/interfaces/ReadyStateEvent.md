@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.18](/README.md) / ReadyStateEvent
+[shimo-js-sdk - v1.2.23](../README.md) / ReadyStateEvent
 
 # Interface: ReadyStateEvent
 
@@ -6,29 +6,29 @@
 
 ### Properties
 
-- [state](/interfaces/ReadyStateEvent.md#state)
-- [fileType](/interfaces/ReadyStateEvent.md#filetype)
-- [error](/interfaces/ReadyStateEvent.md#error)
+- [state](ReadyStateEvent.md#state)
+- [fileType](ReadyStateEvent.md#filetype)
+- [error](ReadyStateEvent.md#error)
 
 ## Properties
 
 ### state
 
-• **state**: [`ReadyState`](/enums/ReadyState.md)
+• **state**: [`ReadyState`](../enums/ReadyState.md)
 
 #### Defined in
 
-[src/ShimoSDK.ts:1009](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L1009)
+[src/ShimoSDK.ts:1048](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1048)
 
 ___
 
 ### fileType
 
-• **fileType**: [`FileType`](/enums/FileType.md)
+• **fileType**: [`FileType`](../enums/FileType.md)
 
 #### Defined in
 
-[src/ShimoSDK.ts:1010](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L1010)
+[src/ShimoSDK.ts:1049](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1049)
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:1011](https://github.com/shimo-open/shimo-js-sdk/blob/main/src/ShimoSDK.ts#L1011)
+[src/ShimoSDK.ts:1050](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1050)
