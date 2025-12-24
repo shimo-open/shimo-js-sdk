@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.23](../README.md) / [Document](../modules/Document.md) / ExternalAppParams
+[shimo-js-sdk - v1.2.24](../README.md) / [Document](../modules/Document.md) / ExternalAppParams
 
 # Interface: ExternalAppParams
 

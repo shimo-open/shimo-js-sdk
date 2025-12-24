@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.23](../README.md) / [Spreadsheet](../modules/Spreadsheet.md) / DepartmentPermission
+[shimo-js-sdk - v1.2.24](../README.md) / [Spreadsheet](../modules/Spreadsheet.md) / DepartmentPermission
 
 # Interface: DepartmentPermission
 

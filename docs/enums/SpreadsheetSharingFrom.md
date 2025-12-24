@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.23](../README.md) / SpreadsheetSharingFrom
+[shimo-js-sdk - v1.2.24](../README.md) / SpreadsheetSharingFrom
 
 # Enumeration: SpreadsheetSharingFrom
 

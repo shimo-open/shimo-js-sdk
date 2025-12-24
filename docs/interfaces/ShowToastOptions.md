@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.23](../README.md) / ShowToastOptions
+[shimo-js-sdk - v1.2.24](../README.md) / ShowToastOptions
 
 # Interface: ShowToastOptions
 

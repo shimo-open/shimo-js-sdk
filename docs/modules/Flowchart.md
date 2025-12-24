@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.23](../README.md) / Flowchart
+[shimo-js-sdk - v1.2.24](../README.md) / Flowchart
 
 # Namespace: Flowchart
 

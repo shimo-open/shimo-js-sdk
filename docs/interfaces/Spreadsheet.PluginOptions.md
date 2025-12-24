@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.23](../README.md) / [Spreadsheet](../modules/Spreadsheet.md) / PluginOptions
+[shimo-js-sdk - v1.2.24](../README.md) / [Spreadsheet](../modules/Spreadsheet.md) / PluginOptions
 
 # Interface: PluginOptions
 

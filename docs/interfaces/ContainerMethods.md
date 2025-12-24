@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.23](../README.md) / ContainerMethods
+[shimo-js-sdk - v1.2.24](../README.md) / ContainerMethods
 
 # Interface: ContainerMethods
 
@@ -34,7 +34,7 @@
 
 #### Defined in
 
-[src/ShimoSDK.ts:950](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L950)
+[src/ShimoSDK.ts:937](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L937)
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:955](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L955)
+[src/ShimoSDK.ts:942](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L942)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:975](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L975)
+[src/ShimoSDK.ts:962](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L962)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:982](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L982)
+[src/ShimoSDK.ts:969](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L969)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:995](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L995)
+[src/ShimoSDK.ts:982](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L982)
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:1000](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1000)
+[src/ShimoSDK.ts:987](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L987)
 
 ___
 
@@ -163,7 +163,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:1005](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1005)
+[src/ShimoSDK.ts:992](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L992)
 
 ## Properties
 
@@ -175,4 +175,4 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:970](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L970)
+[src/ShimoSDK.ts:957](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L957)

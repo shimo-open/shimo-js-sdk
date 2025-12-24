@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.23](../README.md) / [DocumentPro](../modules/DocumentPro.md) / EventMap
+[shimo-js-sdk - v1.2.24](../README.md) / [DocumentPro](../modules/DocumentPro.md) / EventMap
 
 # Interface: EventMap
 

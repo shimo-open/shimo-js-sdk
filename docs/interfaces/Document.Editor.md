@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.23](../README.md) / [Document](../modules/Document.md) / Editor
+[shimo-js-sdk - v1.2.24](../README.md) / [Document](../modules/Document.md) / Editor
 
 # Interface: Editor
 

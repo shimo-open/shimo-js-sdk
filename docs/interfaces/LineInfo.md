@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.23](../README.md) / LineInfo
+[shimo-js-sdk - v1.2.24](../README.md) / LineInfo
 
 # Interface: LineInfo
 

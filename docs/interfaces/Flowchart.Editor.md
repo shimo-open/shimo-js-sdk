@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.23](../README.md) / [Flowchart](../modules/Flowchart.md) / Editor
+[shimo-js-sdk - v1.2.24](../README.md) / [Flowchart](../modules/Flowchart.md) / Editor
 
 # Interface: Editor
 

@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.23](../README.md) / Credentials
+[shimo-js-sdk - v1.2.24](../README.md) / Credentials
 
 # Interface: Credentials
 
