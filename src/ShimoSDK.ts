@@ -117,8 +117,6 @@ export class ShimoSDK extends TinyEmitter {
     originalPosition?: string
   }
 
-  private iframeLoadHandler?: () => void
-
   /**
    * 内部 event emitter，比如用来中转 editor 事件
    */
@@ -307,10 +305,6 @@ export class ShimoSDK extends TinyEmitter {
 
   disconnect() {
     this.removeLoadingOverlay()
-    if (this.iframeLoadHandler && this.element) {
-      this.element.removeEventListener('load', this.iframeLoadHandler)
-      this.iframeLoadHandler = undefined
-    }
     if (this.element?.parentElement instanceof HTMLElement) {
       this.element.parentElement.removeChild(this.element)
     }
@@ -560,13 +554,6 @@ export class ShimoSDK extends TinyEmitter {
     url.searchParams.set('signature', signature)
     url.searchParams.set('uuid', this.uuid)
     this.userUuid && url.searchParams.set('userUuid', this.userUuid)
-
-    if (this.connectOptions.showLoading) {
-      this.iframeLoadHandler = () => {
-        this.removeLoadingOverlay()
-      }
-      iframe.addEventListener('load', this.iframeLoadHandler)
-    }
 
     iframe.src = url.toString()
 
