@@ -244,4 +244,9 @@ connect({
     disableAutoFocus: true
   }
 })
+// 数组形式传参
+const smParams = 'xxx' // base62 格式字符串(如有)
+connect({
+  smParams: [smParams, { disableAutoFocus: true }]
+})
 ```
