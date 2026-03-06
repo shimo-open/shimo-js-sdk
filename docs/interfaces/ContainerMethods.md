@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.24](../README.md) / ContainerMethods
+[shimo-js-sdk - v1.2.25](../README.md) / ContainerMethods
 
 # Interface: ContainerMethods
 

@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.24](../README.md) / InvokeMethod
+[shimo-js-sdk - v1.2.25](../README.md) / InvokeMethod
 
 # Enumeration: InvokeMethod
 

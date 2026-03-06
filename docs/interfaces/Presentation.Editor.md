@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.24](../README.md) / [Presentation](../modules/Presentation.md) / Editor
+[shimo-js-sdk - v1.2.25](../README.md) / [Presentation](../modules/Presentation.md) / Editor
 
 # Interface: Editor
 
@@ -225,7 +225,7 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:42](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Presentation.ts#L42)
+[src/types/Presentation.ts:43](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Presentation.ts#L43)
 
 ___
 
@@ -249,7 +249,7 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:48](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Presentation.ts#L48)
+[src/types/Presentation.ts:49](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Presentation.ts#L49)
 
 ___
 
@@ -267,4 +267,4 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:53](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Presentation.ts#L53)
+[src/types/Presentation.ts:54](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Presentation.ts#L54)

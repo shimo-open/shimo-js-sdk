@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.24](../README.md) / ConnectOptions
+[shimo-js-sdk - v1.2.25](../README.md) / ConnectOptions
 
 # Interface: ConnectOptions
 

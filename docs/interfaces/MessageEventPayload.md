@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.24](../README.md) / MessageEventPayload
+[shimo-js-sdk - v1.2.25](../README.md) / MessageEventPayload
 
 # Interface: MessageEventPayload
 

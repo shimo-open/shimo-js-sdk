@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.24](../README.md) / FileInfo
+[shimo-js-sdk - v1.2.25](../README.md) / FileInfo
 
 # Interface: FileInfo
 

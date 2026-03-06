@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.24](../README.md) / UrlSharingType
+[shimo-js-sdk - v1.2.25](../README.md) / UrlSharingType
 
 # Enumeration: UrlSharingType
 
