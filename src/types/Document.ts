@@ -77,8 +77,11 @@ export interface Editor extends BaseEditor<EventMap> {
   /**
    * 创建版本
    * @since 22.2.1
+   * @param options.name 版本名称，since co-1.6
    */
-  createRevision: (options?: {}) => Promise<null | DocumentErrorMessage>
+  createRevision: (options?: {
+    name?: string
+  }) => Promise<null | DocumentErrorMessage>
   /**
    * 进入演示模式
    * @since 22.2.1

@@ -335,9 +335,10 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Object` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `options?` | `Object` | - |
+| `options.name?` | `string` | 版本名称，since co-1.6 |
 
 #### Returns
 

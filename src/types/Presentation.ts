@@ -38,8 +38,9 @@ export interface Editor extends BaseEditor<EventMap> {
   /**
    * 创建版本
    * @since co-1.5
+   * @param options.name 版本名称，since co-1.6
    */
-  createRevision: () => Promise<void>
+  createRevision: (options?: { name?: string }) => Promise<void>
   /**
    * 导出
    * @param type image：导出图片，imagePdf: 导出pdf

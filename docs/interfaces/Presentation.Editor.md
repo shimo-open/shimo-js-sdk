@@ -206,11 +206,18 @@ ___
 
 ### createRevision
 
-▸ **createRevision**(): `Promise`<`void`\>
+▸ **createRevision**(`options?`): `Promise`<`void`\>
 
 创建版本
 
 **`since`** co-1.5
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `options?` | `Object` | - |
+| `options.name?` | `string` | 版本名称，since co-1.6 |
 
 #### Returns
 

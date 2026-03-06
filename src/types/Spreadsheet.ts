@@ -169,8 +169,9 @@ export interface Editor extends BaseEditor<EventMap> {
   /**
    * 创建版本
    * @since PD2.10
+   * @param options.name 版本名称，since co-1.6
    */
-  createRevision(this: Editor): Promise<void>
+  createRevision(this: Editor, options?: { name?: string }): Promise<void>
   /**
    * 进入演示模式
    * @since PD2.10
