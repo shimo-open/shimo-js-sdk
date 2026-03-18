@@ -58,6 +58,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "lint-staged": {
     "*.{js,ts}": [
       "npm run lint",
