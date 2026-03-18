@@ -37,6 +37,16 @@ export interface EventMap {
   }
 
   /**
+   * 用户确认“系统已禁止编辑”弹窗后触发
+   */
+  editForbiddenConfirmed: {
+    /**
+     * 当前仅支持 STATUS_FORBIDDEN
+     */
+    reason: 'STATUS_FORBIDDEN'
+  }
+
+  /**
    * 用于类似表格打开定位到当前 tab 的用途。事件触发时，替换当前的 url 的 search params 参数，在初始化 JS SDK 时传入。
    */
   paramsChanged: {

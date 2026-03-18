@@ -18,6 +18,7 @@
 
 - [saveStatusChanged](BaseEventMap.md#savestatuschanged)
 - [saveStatusDidChange](BaseEventMap.md#savestatusdidchange)
+- [editForbiddenConfirmed](BaseEventMap.md#editforbiddenconfirmed)
 - [paramsChanged](BaseEventMap.md#paramschanged)
 - [collaboratorsChanged](BaseEventMap.md#collaboratorschanged)
 
@@ -61,6 +62,24 @@ ___
 
 ___
 
+### editForbiddenConfirmed
+
+• **editForbiddenConfirmed**: `Object`
+
+用户确认“系统已禁止编辑”弹窗后触发
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `reason` | `"STATUS_FORBIDDEN"` | 当前仅支持 STATUS_FORBIDDEN |
+
+#### Defined in
+
+[src/types/BaseEditor.ts:41](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L41)
+
+___
+
 ### paramsChanged
 
 • **paramsChanged**: `Object`
@@ -75,7 +94,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:42](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L42)
+[src/types/BaseEditor.ts:51](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L51)
 
 ___
 
@@ -87,4 +106,4 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:49](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L49)
+[src/types/BaseEditor.ts:58](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L58)

@@ -1,6 +1,6 @@
-import { BaseEditor } from './BaseEditor'
+import { BaseEditor, EventMap as BaseEventMap } from './BaseEditor'
 
-export interface EventMap {
+export interface EventMap extends BaseEventMap {
   /**
    * 错误
    */
@@ -9,12 +9,6 @@ export interface EventMap {
     data?: any
     /** 错误码 */
     code: number
-  }
-  /**
-   * 保存状态改变时触发
-   */
-  saveStatusChanged: {
-    status?: 'saving' | 'saved' | 'error'
   }
 }
 

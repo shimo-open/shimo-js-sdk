@@ -158,6 +158,18 @@ renderCollaborators({ type: 'snapshot', collaborators })
    - 未收到事件时，检查 iframe 内的 window 对象是否有 `window.__RUNTIME_ENV__.ENABLE_SDK_COLLABORATORS_MODULE` 属性且为 true。
    - 可在 iframe 页面 DevTools 中查看 `collaboratorsChanged` 是否触发，或观察 WebSocket `COLLABROOM` 消息。
 
+### 「系统已禁止编辑」确认回调
+
+当 iframe 内因为 `STATUS_FORBIDDEN` 弹出“系统已禁止编辑”提示后，用户点击确认按钮，会额外派发一个 `editForbiddenConfirmed` 编辑器事件：
+
+```ts
+editor.on('editForbiddenConfirmed', ({ reason }) => {
+  if (reason === 'STATUS_FORBIDDEN') {
+    // 执行 iframe 外层自己的确认回调
+  }
+})
+```
+
 ### `signature` 和 `token`
 
 - `signature` 为石墨区分请求来源，并实现数据隔离的基础
