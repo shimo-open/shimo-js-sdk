@@ -1,6 +1,6 @@
-shimo-js-sdk - v1.2.25
+shimo-js-sdk - v1.2.26
 
-# shimo-js-sdk - v1.2.25
+# shimo-js-sdk - v1.2.26
 
 ## Table of contents
 

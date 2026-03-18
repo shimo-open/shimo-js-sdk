@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.25](../README.md) / [Flowchart](../modules/Flowchart.md) / EventMap
+[shimo-js-sdk - v1.2.26](../README.md) / [Flowchart](../modules/Flowchart.md) / EventMap
 
 # Interface: EventMap
 

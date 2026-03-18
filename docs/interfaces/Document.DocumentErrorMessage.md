@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.25](../README.md) / [Document](../modules/Document.md) / DocumentErrorMessage
+[shimo-js-sdk - v1.2.26](../README.md) / [Document](../modules/Document.md) / DocumentErrorMessage
 
 # Interface: DocumentErrorMessage
 

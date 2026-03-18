@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.25](../README.md) / ShimoSDKOptions
+[shimo-js-sdk - v1.2.26](../README.md) / ShimoSDKOptions
 
 # Interface: ShimoSDKOptions
 

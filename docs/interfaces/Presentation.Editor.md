@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.25](../README.md) / [Presentation](../modules/Presentation.md) / Editor
+[shimo-js-sdk - v1.2.26](../README.md) / [Presentation](../modules/Presentation.md) / Editor
 
 # Interface: Editor
 
@@ -57,7 +57,7 @@
 
 #### Defined in
 
-[src/types/BaseEditor.ts:58](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L58)
+[src/types/BaseEditor.ts:68](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L68)
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:63](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L63)
+[src/types/BaseEditor.ts:73](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L73)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:68](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L68)
+[src/types/BaseEditor.ts:78](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L78)
 
 ___
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:73](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L73)
+[src/types/BaseEditor.ts:83](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L83)
 
 ___
 
@@ -152,7 +152,7 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:25](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Presentation.ts#L25)
+[src/types/Presentation.ts:19](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Presentation.ts#L19)
 
 ___
 
@@ -168,7 +168,7 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:29](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Presentation.ts#L29)
+[src/types/Presentation.ts:23](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Presentation.ts#L23)
 
 ___
 
@@ -184,7 +184,7 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:33](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Presentation.ts#L33)
+[src/types/Presentation.ts:27](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Presentation.ts#L27)
 
 ___
 
@@ -200,7 +200,7 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:37](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Presentation.ts#L37)
+[src/types/Presentation.ts:31](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Presentation.ts#L31)
 
 ___
 
@@ -225,7 +225,7 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:43](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Presentation.ts#L43)
+[src/types/Presentation.ts:37](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Presentation.ts#L37)
 
 ___
 
@@ -249,7 +249,7 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:49](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Presentation.ts#L49)
+[src/types/Presentation.ts:43](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Presentation.ts#L43)
 
 ___
 
@@ -267,4 +267,4 @@ ___
 
 #### Defined in
 
-[src/types/Presentation.ts:54](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Presentation.ts#L54)
+[src/types/Presentation.ts:48](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Presentation.ts#L48)

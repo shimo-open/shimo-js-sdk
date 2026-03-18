@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.25](../README.md) / ShimoSDK
+[shimo-js-sdk - v1.2.26](../README.md) / ShimoSDK
 
 # Class: ShimoSDK
 

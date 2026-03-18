@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.25](../README.md) / [DocumentPro](../modules/DocumentPro.md) / Editor
+[shimo-js-sdk - v1.2.26](../README.md) / [DocumentPro](../modules/DocumentPro.md) / Editor
 
 # Interface: Editor
 
@@ -76,7 +76,7 @@
 
 #### Defined in
 
-[src/types/BaseEditor.ts:58](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L58)
+[src/types/BaseEditor.ts:68](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L68)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:63](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L63)
+[src/types/BaseEditor.ts:73](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L73)
 
 ___
 
@@ -135,7 +135,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:68](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L68)
+[src/types/BaseEditor.ts:78](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L78)
 
 ___
 
@@ -155,7 +155,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:73](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L73)
+[src/types/BaseEditor.ts:83](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L83)
 
 ___
 

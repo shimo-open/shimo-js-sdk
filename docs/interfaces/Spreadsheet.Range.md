@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.25](../README.md) / [Spreadsheet](../modules/Spreadsheet.md) / Range
+[shimo-js-sdk - v1.2.26](../README.md) / [Spreadsheet](../modules/Spreadsheet.md) / Range
 
 # Interface: Range
 

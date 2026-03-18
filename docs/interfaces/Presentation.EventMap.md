@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.25](../README.md) / [Presentation](../modules/Presentation.md) / EventMap
+[shimo-js-sdk - v1.2.26](../README.md) / [Presentation](../modules/Presentation.md) / EventMap
 
 # Interface: EventMap
 
@@ -14,33 +14,14 @@
 
 ### Properties
 
-- [error](Presentation.EventMap.md#error)
 - [saveStatusChanged](Presentation.EventMap.md#savestatuschanged)
 - [saveStatusDidChange](Presentation.EventMap.md#savestatusdidchange)
 - [editForbiddenConfirmed](Presentation.EventMap.md#editforbiddenconfirmed)
 - [paramsChanged](Presentation.EventMap.md#paramschanged)
 - [collaboratorsChanged](Presentation.EventMap.md#collaboratorschanged)
+- [error](Presentation.EventMap.md#error)
 
 ## Properties
-
-### error
-
-• **error**: `Object`
-
-错误
-
-#### Type declaration
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `data?` | `any` | 错误信息 |
-| `code` | `number` | 错误码 |
-
-#### Defined in
-
-[src/types/Presentation.ts:7](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Presentation.ts#L7)
-
-___
 
 ### saveStatusChanged
 
@@ -98,7 +79,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `reason` | `"STATUS_FORBIDDEN"` | 当前仅支持 STATUS_FORBIDDEN |
+| `reason` | ``"STATUS_FORBIDDEN"`` | 当前仅支持 STATUS_FORBIDDEN |
 
 #### Inherited from
 
@@ -106,7 +87,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:41](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L41)
+[src/types/BaseEditor.ts:42](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L42)
 
 ___
 
@@ -128,7 +109,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:51](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L51)
+[src/types/BaseEditor.ts:52](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L52)
 
 ___
 
@@ -144,4 +125,23 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:58](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L58)
+[src/types/BaseEditor.ts:59](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L59)
+
+___
+
+### error
+
+• **error**: `Object`
+
+错误
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `data?` | `any` | 错误信息 |
+| `code` | `number` | 错误码 |
+
+#### Defined in
+
+[src/types/Presentation.ts:7](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/Presentation.ts#L7)

@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.25](../README.md) / [Document](../modules/Document.md) / EventMap
+[shimo-js-sdk - v1.2.26](../README.md) / [Document](../modules/Document.md) / EventMap
 
 # Interface: EventMap
 
@@ -82,7 +82,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `reason` | `"STATUS_FORBIDDEN"` | 当前仅支持 STATUS_FORBIDDEN |
+| `reason` | ``"STATUS_FORBIDDEN"`` | 当前仅支持 STATUS_FORBIDDEN |
 
 #### Inherited from
 
@@ -90,7 +90,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:41](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L41)
+[src/types/BaseEditor.ts:42](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L42)
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:51](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L51)
+[src/types/BaseEditor.ts:52](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L52)
 
 ___
 
@@ -128,7 +128,7 @@ ___
 
 #### Defined in
 
-[src/types/BaseEditor.ts:58](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L58)
+[src/types/BaseEditor.ts:59](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/BaseEditor.ts#L59)
 
 ___
 
