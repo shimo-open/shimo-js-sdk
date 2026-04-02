@@ -11,7 +11,7 @@ export * from 'shimo-js-sdk-shared'
 
 export * from './connect'
 
-export * from './ShimoSDK'
+export * from './OfficeSDK'
 
 export {
   BaseEditor,

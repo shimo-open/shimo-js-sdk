@@ -1,6 +1,6 @@
-import { ShimoSDK, ShimoSDKOptions } from './ShimoSDK'
+import { OfficeSDK, OfficeSDKOptions } from './OfficeSDK'
 
-export interface ConnectOptions extends ShimoSDKOptions {}
+export interface ConnectOptions extends OfficeSDKOptions {}
 
 /**
  * 初始化 SDK，返回 Promise，当 ReadState 变为 Ready 或 Failed 时，Promise 将被 resolve。
@@ -8,13 +8,13 @@ export interface ConnectOptions extends ShimoSDKOptions {}
  * 同时 Promise 一直 pending 也不代表编辑器加载失败，只代表无法通过 SDK 和编辑器交互。
  * 比如受浏览器限制无法发出 postMessage() 时，Promise 将会一直 pending。
  */
-export async function connect(options: ConnectOptions): Promise<ShimoSDK> {
+export async function connect(options: ConnectOptions): Promise<OfficeSDK> {
   try {
-    const sdk = new ShimoSDK(options)
+    const sdk = new OfficeSDK(options)
     await sdk.init()
     return sdk
   } catch (e) {
-    console.log('Failed to init ShimoSDK', {
+    console.log('Failed to init OfficeSDK', {
       error: e,
       options
     })
