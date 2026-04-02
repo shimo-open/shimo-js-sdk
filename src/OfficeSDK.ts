@@ -4,11 +4,11 @@ import 'core-js/features/array/includes'
 import 'core-js/features/object/assign'
 import 'proxy-polyfill'
 import {
-  ShimoBroadcastChannel,
-  ShimoMessageEvent,
-  isShimoMessageEventLike,
-  ShimoMessageEventLike
-} from 'shimo-broadcast-channel'
+  OfficeSDKBroadcastChannel,
+  OfficeSDKMessageEvent,
+  isOfficeSDKMessageEventLike,
+  OfficeSDKEventLike
+} from 'officesdk-broadcast-channel'
 import { StartParams } from 'shimo-startparams'
 import { v4 as uuid } from 'uuid'
 import { TinyEmitter } from 'tiny-emitter'
@@ -57,7 +57,7 @@ const SUPPORTED_LANGUAGES = ['zh-CN', 'en', 'ja', 'ar-SA', 'ru-RU']
 
 export const MessageEvent = InvokeMethod
 
-export class ShimoSDK extends TinyEmitter {
+export class OfficeSDK extends TinyEmitter {
   /**
    * 编辑器页面对应的 iframe 元素。需要注意调整父元素大小来控制 iframe 大小。
    */
@@ -122,8 +122,8 @@ export class ShimoSDK extends TinyEmitter {
    */
   private readonly emitter: TinyEmitter = new TinyEmitter()
 
-  private channel: ShimoBroadcastChannel
-  private readonly connectOptions: ShimoSDKOptions
+  private channel: OfficeSDKBroadcastChannel
+  private readonly connectOptions: OfficeSDKOptions
   private _readyState: ReadyState = ReadyState.Loading
   private editor: any
   private readonly startParams: StartParams
@@ -143,7 +143,7 @@ export class ShimoSDK extends TinyEmitter {
 
   private readonly onViewportResize: () => void
 
-  constructor(options: ShimoSDKOptions) {
+  constructor(options: OfficeSDKOptions) {
     super()
 
     this.connectOptions = options
@@ -226,12 +226,15 @@ export class ShimoSDK extends TinyEmitter {
     if (!this.sameOrigin) {
       // 注册可以反注册的函数
       this.messageHandler = (evt: globalThis.MessageEvent) => {
-        // 将消息转入 ShimoBroadcastChannel 处理
+        // 将消息转入 OfficeSDKBroadcastChannel 处理
         const data = evt.data
-        if (isShimoMessageEventLike(data) && this.shouldHandleMessage(data)) {
+        if (
+          isOfficeSDKMessageEventLike(data) &&
+          this.shouldHandleMessage(data)
+        ) {
           this.handledMessageCache.add(data.id)
           this.channel
-            .distributeMessage(evt.data as ShimoMessageEvent)
+            .distributeMessage(evt.data as OfficeSDKMessageEvent)
             .catch((err: Error) => {
               this.emit('error', err)
             })
@@ -264,7 +267,7 @@ export class ShimoSDK extends TinyEmitter {
 
   /**
    * 更新鉴权 signature 和 token
-   * @deprecated - 用 `ShimoSDKOptions.getCredentials()` 替代
+   * @deprecated - 用 `OfficeSDKOptions.getCredentials()` 替代
    */
   async setCredentials(payload: { signature: string; token: string }) {
     await this.channel.invoke(InvokeMethod.SetCredentials, [payload], {
@@ -414,7 +417,7 @@ export class ShimoSDK extends TinyEmitter {
     this.ensureLoadingStyle()
 
     const overlay = document.createElement('div')
-    overlay.setAttribute('data-shimo-sdk-loading', 'true')
+    overlay.setAttribute('data-office-sdk-loading', 'true')
     overlay.style.position = 'absolute'
     overlay.style.top = '0'
     overlay.style.left = '0'
@@ -434,7 +437,7 @@ export class ShimoSDK extends TinyEmitter {
     spinner.style.backgroundRepeat = 'no-repeat'
     spinner.style.backgroundPosition = 'center'
     spinner.style.backgroundSize = 'contain'
-    spinner.style.animation = 'shimo-sdk-loading-spin 0.8s linear infinite'
+    spinner.style.animation = 'office-sdk-loading-spin 0.8s linear infinite'
 
     overlay.appendChild(spinner)
 
@@ -468,7 +471,7 @@ export class ShimoSDK extends TinyEmitter {
   }
 
   private ensureLoadingStyle() {
-    const styleId = 'shimo-sdk-loading-style'
+    const styleId = 'office-sdk-loading-style'
     if (globalThis.document?.getElementById(styleId)) {
       return
     }
@@ -478,7 +481,7 @@ export class ShimoSDK extends TinyEmitter {
     }
     style.id = styleId
     style.textContent = `
-@keyframes shimo-sdk-loading-spin {
+@keyframes office-sdk-loading-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }`
@@ -561,7 +564,7 @@ export class ShimoSDK extends TinyEmitter {
   }
 
   private initChannel() {
-    const channel = (this.channel = new ShimoBroadcastChannel({
+    const channel = (this.channel = new OfficeSDKBroadcastChannel({
       channelId: this.startParams.channelId,
       debug: this.connectOptions.debug,
       autoStructuredClone: true,
@@ -586,7 +589,7 @@ export class ShimoSDK extends TinyEmitter {
     if (!this.sameOrigin) {
       channel.on(
         'postMessage',
-        (evt: ShimoMessageEvent) => {
+        (evt: OfficeSDKMessageEvent) => {
           this.element?.contentWindow?.postMessage(evt, '*')
         },
         { audience: '*' }
@@ -595,7 +598,7 @@ export class ShimoSDK extends TinyEmitter {
 
     channel.on(
       'message',
-      (msg: ShimoMessageEvent) => {
+      (msg: OfficeSDKMessageEvent) => {
         const data = msg.data as any
         /**
          * 监听 ReadyState 变更
@@ -865,7 +868,7 @@ export class ShimoSDK extends TinyEmitter {
     return p
   }
 
-  private shouldHandleMessage(evt: ShimoMessageEventLike): boolean {
+  private shouldHandleMessage(evt: OfficeSDKEventLike): boolean {
     if (
       // 不是当前 channel 的消息
       evt.channelId !== this.channel.id ||
@@ -1004,7 +1007,7 @@ export enum Event {
   Error = 'error',
 
   /**
-   * ShimoSDK 状态变化事件
+   * OfficeSDK 状态变化事件
    */
   ReadyState = 'readyState',
 
@@ -1043,9 +1046,9 @@ export interface ReadyStateEvent {
 export type EventCallback = (...args: any[]) => any
 
 /**
- * ShimoSDK 初始化参数
+ * OfficeSDK 初始化参数
  */
-export interface ShimoSDKOptions
+export interface OfficeSDKOptions
   extends Omit<ContainerMethods, 'getContainerRect'> {
   /**
    * 石墨 SDK 服务器地址
