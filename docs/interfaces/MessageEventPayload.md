@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.26](../README.md) / MessageEventPayload
+[shimo-js-sdk - v2.0.1](../README.md) / MessageEventPayload
 
 # Interface: MessageEventPayload
 
@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[src/ShimoSDK.ts:1025](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1025)
+[src/OfficeSDK.ts:1028](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1028)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:1026](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1026)
+[src/OfficeSDK.ts:1029](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1029)

@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.26](../README.md) / [DocumentPro](../modules/DocumentPro.md) / DocumentProCommentData
+[shimo-js-sdk - v2.0.1](../README.md) / [DocumentPro](../modules/DocumentPro.md) / DocumentProCommentData
 
 # Interface: DocumentProCommentData
 

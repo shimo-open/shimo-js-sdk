@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.26](../README.md) / ContainerMethods
+[shimo-js-sdk - v2.0.1](../README.md) / ContainerMethods
 
 # Interface: ContainerMethods
 
@@ -34,7 +34,7 @@
 
 #### Defined in
 
-[src/ShimoSDK.ts:937](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L937)
+[src/OfficeSDK.ts:940](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L940)
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:942](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L942)
+[src/OfficeSDK.ts:945](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L945)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:962](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L962)
+[src/OfficeSDK.ts:965](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L965)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:969](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L969)
+[src/OfficeSDK.ts:972](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L972)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:982](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L982)
+[src/OfficeSDK.ts:985](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L985)
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:987](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L987)
+[src/OfficeSDK.ts:990](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L990)
 
 ___
 
@@ -163,7 +163,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:992](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L992)
+[src/OfficeSDK.ts:995](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L995)
 
 ## Properties
 
@@ -175,4 +175,4 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:957](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L957)
+[src/OfficeSDK.ts:960](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L960)

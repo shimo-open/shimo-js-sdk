@@ -1,6 +1,6 @@
-shimo-js-sdk - v1.2.26
+shimo-js-sdk - v2.0.1
 
-# shimo-js-sdk - v1.2.26
+# shimo-js-sdk - v2.0.1
 
 ## Table of contents
 
@@ -37,7 +37,8 @@ shimo-js-sdk - v1.2.26
 - [MessageEventPayload](interfaces/MessageEventPayload.md)
 - [ContainerMethodPayload](interfaces/ContainerMethodPayload.md)
 - [ReadyStateEvent](interfaces/ReadyStateEvent.md)
-- [ShimoSDKOptions](interfaces/ShimoSDKOptions.md)
+- [SDKToastOptions](interfaces/SDKToastOptions.md)
+- [OfficeSDKOptions](interfaces/OfficeSDKOptions.md)
 - [ConnectOptions](interfaces/ConnectOptions.md)
 - [BaseEventMap](interfaces/BaseEventMap.md)
 - [BaseEditor](interfaces/BaseEditor.md)
@@ -67,7 +68,7 @@ shimo-js-sdk - v1.2.26
 
 ### Classes
 
-- [ShimoSDK](classes/ShimoSDK.md)
+- [OfficeSDK](classes/OfficeSDK.md)
 
 ### Namespaces
 
@@ -231,7 +232,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:1043](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1043)
+[src/OfficeSDK.ts:1046](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1046)
 
 ## Variables
 
@@ -277,7 +278,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:58](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L58)
+[src/OfficeSDK.ts:58](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L58)
 
 ___
 
@@ -337,7 +338,7 @@ ___
 
 ### connect
 
-▸ **connect**(`options`): `Promise`<[`ShimoSDK`](classes/ShimoSDK.md)\>
+▸ **connect**(`options`): `Promise`<[`OfficeSDK`](classes/OfficeSDK.md)\>
 
 初始化 SDK，返回 Promise，当 ReadState 变为 Ready 或 Failed 时，Promise 将被 resolve。
 Promise resovled 不代表编辑器已经完整加载完毕，只代表 SDK 已经准备好了。
@@ -352,7 +353,7 @@ Promise resovled 不代表编辑器已经完整加载完毕，只代表 SDK 已�
 
 #### Returns
 
-`Promise`<[`ShimoSDK`](classes/ShimoSDK.md)\>
+`Promise`<[`OfficeSDK`](classes/OfficeSDK.md)\>
 
 #### Defined in
 

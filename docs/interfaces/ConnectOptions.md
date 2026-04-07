@@ -1,10 +1,10 @@
-[shimo-js-sdk - v1.2.26](../README.md) / ConnectOptions
+[shimo-js-sdk - v2.0.1](../README.md) / ConnectOptions
 
 # Interface: ConnectOptions
 
 ## Hierarchy
 
-- [`ShimoSDKOptions`](ShimoSDKOptions.md)
+- [`OfficeSDKOptions`](OfficeSDKOptions.md)
 
   ↳ **`ConnectOptions`**
 
@@ -67,11 +67,11 @@
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[openLink](ShimoSDKOptions.md#openlink)
+[OfficeSDKOptions](OfficeSDKOptions.md).[openLink](OfficeSDKOptions.md#openlink)
 
 #### Defined in
 
-[src/ShimoSDK.ts:942](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L942)
+[src/OfficeSDK.ts:945](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L945)
 
 ___
 
@@ -93,11 +93,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[mentionClickHandlerForMobile](ShimoSDKOptions.md#mentionclickhandlerformobile)
+[OfficeSDKOptions](OfficeSDKOptions.md).[mentionClickHandlerForMobile](OfficeSDKOptions.md#mentionclickhandlerformobile)
 
 #### Defined in
 
-[src/ShimoSDK.ts:962](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L962)
+[src/OfficeSDK.ts:965](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L965)
 
 ___
 
@@ -119,11 +119,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[getFileInfoFromUrl](ShimoSDKOptions.md#getfileinfofromurl)
+[OfficeSDKOptions](OfficeSDKOptions.md).[getFileInfoFromUrl](OfficeSDKOptions.md#getfileinfofromurl)
 
 #### Defined in
 
-[src/ShimoSDK.ts:969](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L969)
+[src/OfficeSDK.ts:972](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L972)
 
 ___
 
@@ -145,11 +145,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[showToast](ShimoSDKOptions.md#showtoast)
+[OfficeSDKOptions](OfficeSDKOptions.md).[showToast](OfficeSDKOptions.md#showtoast)
 
 #### Defined in
 
-[src/ShimoSDK.ts:982](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L982)
+[src/OfficeSDK.ts:985](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L985)
 
 ___
 
@@ -171,11 +171,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[handleCustomTask](ShimoSDKOptions.md#handlecustomtask)
+[OfficeSDKOptions](OfficeSDKOptions.md).[handleCustomTask](OfficeSDKOptions.md#handlecustomtask)
 
 #### Defined in
 
-[src/ShimoSDK.ts:987](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L987)
+[src/OfficeSDK.ts:990](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L990)
 
 ___
 
@@ -193,11 +193,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[getCredentials](ShimoSDKOptions.md#getcredentials)
+[OfficeSDKOptions](OfficeSDKOptions.md).[getCredentials](OfficeSDKOptions.md#getcredentials)
 
 #### Defined in
 
-[src/ShimoSDK.ts:992](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L992)
+[src/OfficeSDK.ts:995](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L995)
 
 ## Properties
 
@@ -209,11 +209,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[generateUrl](ShimoSDKOptions.md#generateurl)
+[OfficeSDKOptions](OfficeSDKOptions.md).[generateUrl](OfficeSDKOptions.md#generateurl)
 
 #### Defined in
 
-[src/ShimoSDK.ts:957](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L957)
+[src/OfficeSDK.ts:960](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L960)
 
 ___
 
@@ -225,11 +225,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[endpoint](ShimoSDKOptions.md#endpoint)
+[OfficeSDKOptions](OfficeSDKOptions.md).[endpoint](OfficeSDKOptions.md#endpoint)
 
 #### Defined in
 
-[src/ShimoSDK.ts:1053](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1053)
+[src/OfficeSDK.ts:1063](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1063)
 
 ___
 
@@ -241,11 +241,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[fileId](ShimoSDKOptions.md#fileid)
+[OfficeSDKOptions](OfficeSDKOptions.md).[fileId](OfficeSDKOptions.md#fileid)
 
 #### Defined in
 
-[src/ShimoSDK.ts:1058](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1058)
+[src/OfficeSDK.ts:1068](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1068)
 
 ___
 
@@ -257,11 +257,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[signature](ShimoSDKOptions.md#signature)
+[OfficeSDKOptions](OfficeSDKOptions.md).[signature](OfficeSDKOptions.md#signature)
 
 #### Defined in
 
-[src/ShimoSDK.ts:1063](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1063)
+[src/OfficeSDK.ts:1073](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1073)
 
 ___
 
@@ -273,11 +273,11 @@ iframe 挂载的目标容器
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[container](ShimoSDKOptions.md#container)
+[OfficeSDKOptions](OfficeSDKOptions.md).[container](OfficeSDKOptions.md#container)
 
 #### Defined in
 
-[src/ShimoSDK.ts:1068](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1068)
+[src/OfficeSDK.ts:1078](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1078)
 
 ___
 
@@ -289,11 +289,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[token](ShimoSDKOptions.md#token)
+[OfficeSDKOptions](OfficeSDKOptions.md).[token](OfficeSDKOptions.md#token)
 
 #### Defined in
 
-[src/ShimoSDK.ts:1073](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1073)
+[src/OfficeSDK.ts:1083](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1083)
 
 ___
 
@@ -305,11 +305,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[refreshCredentialsInterval](ShimoSDKOptions.md#refreshcredentialsinterval)
+[OfficeSDKOptions](OfficeSDKOptions.md).[refreshCredentialsInterval](OfficeSDKOptions.md#refreshcredentialsinterval)
 
 #### Defined in
 
-[src/ShimoSDK.ts:1078](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1078)
+[src/OfficeSDK.ts:1088](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1088)
 
 ___
 
@@ -325,11 +325,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[params](ShimoSDKOptions.md#params)
+[OfficeSDKOptions](OfficeSDKOptions.md).[params](OfficeSDKOptions.md#params)
 
 #### Defined in
 
-[src/ShimoSDK.ts:1083](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1083)
+[src/OfficeSDK.ts:1093](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1093)
 
 ___
 
@@ -341,11 +341,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[smParams](ShimoSDKOptions.md#smparams)
+[OfficeSDKOptions](OfficeSDKOptions.md).[smParams](OfficeSDKOptions.md#smparams)
 
 #### Defined in
 
-[src/ShimoSDK.ts:1090](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1090)
+[src/OfficeSDK.ts:1100](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1100)
 
 ___
 
@@ -365,11 +365,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[lang](ShimoSDKOptions.md#lang)
+[OfficeSDKOptions](OfficeSDKOptions.md).[lang](OfficeSDKOptions.md#lang)
 
 #### Defined in
 
-[src/ShimoSDK.ts:1106](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1106)
+[src/OfficeSDK.ts:1116](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1116)
 
 ___
 
@@ -381,11 +381,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[disableMentionCards](ShimoSDKOptions.md#disablementioncards)
+[OfficeSDKOptions](OfficeSDKOptions.md).[disableMentionCards](OfficeSDKOptions.md#disablementioncards)
 
 #### Defined in
 
-[src/ShimoSDK.ts:1111](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1111)
+[src/OfficeSDK.ts:1121](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1121)
 
 ___
 
@@ -393,7 +393,10 @@ ___
 
 • `Optional` **ui**: `Object`
 
-用于覆盖编辑器内部分 toast 文案。支持套件类型：`form`、`documentPro`、`presentation`、`spreadsheet`、`table`（仅对支持 `ui` 配置的套件生效）。当前已文档化支持字段：`ui.toast.tips.edit.noPermission`。其他字段暂不作为稳定公共 API 承诺。
+用于覆盖编辑器内部分 toast 文案。
+支持套件类型：form、documentPro、presentation、spreadsheet、table（仅对支持 ui 配置的套件生效）。
+当前已文档化支持字段：ui.toast.tips.edit.noPermission。
+其他字段暂不作为稳定公共 API 承诺。
 
 #### Type declaration
 
@@ -403,11 +406,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[ui](ShimoSDKOptions.md#ui)
+[OfficeSDKOptions](OfficeSDKOptions.md).[ui](OfficeSDKOptions.md#ui)
 
 #### Defined in
 
-[src/OfficeSDK.ts:1126](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1126)
+[src/OfficeSDK.ts:1129](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1129)
 
 ___
 
@@ -420,11 +423,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[allowPolicy](ShimoSDKOptions.md#allowpolicy)
+[OfficeSDKOptions](OfficeSDKOptions.md).[allowPolicy](OfficeSDKOptions.md#allowpolicy)
 
 #### Defined in
 
-[src/ShimoSDK.ts:1117](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1117)
+[src/OfficeSDK.ts:1137](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1137)
 
 ___
 
@@ -436,11 +439,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[debug](ShimoSDKOptions.md#debug)
+[OfficeSDKOptions](OfficeSDKOptions.md).[debug](OfficeSDKOptions.md#debug)
 
 #### Defined in
 
-[src/ShimoSDK.ts:1122](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1122)
+[src/OfficeSDK.ts:1142](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1142)
 
 ___
 
@@ -452,11 +455,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[plugins](ShimoSDKOptions.md#plugins)
+[OfficeSDKOptions](OfficeSDKOptions.md).[plugins](OfficeSDKOptions.md#plugins)
 
 #### Defined in
 
-[src/ShimoSDK.ts:1127](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1127)
+[src/OfficeSDK.ts:1147](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1147)
 
 ___
 
@@ -470,11 +473,11 @@ iframe postMessage 的目标 origin，默认是当前页面的 location.origin�
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[targetOrigin](ShimoSDKOptions.md#targetorigin)
+[OfficeSDKOptions](OfficeSDKOptions.md).[targetOrigin](OfficeSDKOptions.md#targetorigin)
 
 #### Defined in
 
-[src/ShimoSDK.ts:1133](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1133)
+[src/OfficeSDK.ts:1153](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1153)
 
 ___
 
@@ -486,11 +489,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[deviceMode](ShimoSDKOptions.md#devicemode)
+[OfficeSDKOptions](OfficeSDKOptions.md).[deviceMode](OfficeSDKOptions.md#devicemode)
 
 #### Defined in
 
-[src/ShimoSDK.ts:1138](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1138)
+[src/OfficeSDK.ts:1158](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1158)
 
 ___
 
@@ -502,11 +505,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[disableSignatureComponent](ShimoSDKOptions.md#disablesignaturecomponent)
+[OfficeSDKOptions](OfficeSDKOptions.md).[disableSignatureComponent](OfficeSDKOptions.md#disablesignaturecomponent)
 
 #### Defined in
 
-[src/ShimoSDK.ts:1143](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1143)
+[src/OfficeSDK.ts:1163](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1163)
 
 ___
 
@@ -518,11 +521,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[showLoadingEffect](ShimoSDKOptions.md#showloadingeffect)
+[OfficeSDKOptions](OfficeSDKOptions.md).[showLoadingEffect](OfficeSDKOptions.md#showloadingeffect)
 
 #### Defined in
 
-[src/ShimoSDK.ts:1148](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1148)
+[src/OfficeSDK.ts:1168](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1168)
 
 ___
 
@@ -534,11 +537,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[showLoading](ShimoSDKOptions.md#showloading)
+[OfficeSDKOptions](OfficeSDKOptions.md).[showLoading](OfficeSDKOptions.md#showloading)
 
 #### Defined in
 
-[src/ShimoSDK.ts:1153](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1153)
+[src/OfficeSDK.ts:1173](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1173)
 
 ___
 
@@ -550,11 +553,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[apiAdaptor](ShimoSDKOptions.md#apiadaptor)
+[OfficeSDKOptions](OfficeSDKOptions.md).[apiAdaptor](OfficeSDKOptions.md#apiadaptor)
 
 #### Defined in
 
-[src/ShimoSDK.ts:1158](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1158)
+[src/OfficeSDK.ts:1178](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1178)
 
 ___
 
@@ -566,11 +569,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[apiAdaptorContext](ShimoSDKOptions.md#apiadaptorcontext)
+[OfficeSDKOptions](OfficeSDKOptions.md).[apiAdaptorContext](OfficeSDKOptions.md#apiadaptorcontext)
 
 #### Defined in
 
-[src/ShimoSDK.ts:1163](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1163)
+[src/OfficeSDK.ts:1183](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1183)
 
 ___
 
@@ -582,11 +585,11 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[messageExpires](ShimoSDKOptions.md#messageexpires)
+[OfficeSDKOptions](OfficeSDKOptions.md).[messageExpires](OfficeSDKOptions.md#messageexpires)
 
 #### Defined in
 
-[src/ShimoSDK.ts:1168](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1168)
+[src/OfficeSDK.ts:1188](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1188)
 
 ___
 
@@ -598,8 +601,8 @@ ___
 
 #### Inherited from
 
-[ShimoSDKOptions](ShimoSDKOptions.md).[userUuid](ShimoSDKOptions.md#useruuid)
+[OfficeSDKOptions](OfficeSDKOptions.md).[userUuid](OfficeSDKOptions.md#useruuid)
 
 #### Defined in
 
-[src/ShimoSDK.ts:1173](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1173)
+[src/OfficeSDK.ts:1193](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1193)

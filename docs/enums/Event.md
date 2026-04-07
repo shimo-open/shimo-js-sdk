@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.26](../README.md) / Event
+[shimo-js-sdk - v2.0.1](../README.md) / Event
 
 # Enumeration: Event
 
@@ -21,7 +21,7 @@ SDK 初始化事件，用于内部逻辑
 
 #### Defined in
 
-[src/ShimoSDK.ts:999](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L999)
+[src/OfficeSDK.ts:1002](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1002)
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:1004](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1004)
+[src/OfficeSDK.ts:1007](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1007)
 
 ___
 
@@ -41,11 +41,11 @@ ___
 
 • **ReadyState** = `"readyState"`
 
-ShimoSDK 状态变化事件
+OfficeSDK 状态变化事件
 
 #### Defined in
 
-[src/ShimoSDK.ts:1009](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1009)
+[src/OfficeSDK.ts:1012](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1012)
 
 ___
 
@@ -57,4 +57,4 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:1014](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1014)
+[src/OfficeSDK.ts:1017](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1017)

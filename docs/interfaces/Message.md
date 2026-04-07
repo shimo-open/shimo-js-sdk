@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.26](../README.md) / Message
+[shimo-js-sdk - v2.0.1](../README.md) / Message
 
 # Interface: Message
 
@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[src/ShimoSDK.ts:1018](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1018)
+[src/OfficeSDK.ts:1021](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1021)
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:1019](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1019)
+[src/OfficeSDK.ts:1022](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1022)
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:1020](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1020)
+[src/OfficeSDK.ts:1023](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1023)
 
 ___
 
@@ -49,4 +49,4 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:1021](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1021)
+[src/OfficeSDK.ts:1024](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1024)

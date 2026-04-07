@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.26](../README.md) / ReadyStateEvent
+[shimo-js-sdk - v2.0.1](../README.md) / ReadyStateEvent
 
 # Interface: ReadyStateEvent
 
@@ -18,7 +18,7 @@
 
 #### Defined in
 
-[src/ShimoSDK.ts:1035](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1035)
+[src/OfficeSDK.ts:1038](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1038)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:1036](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1036)
+[src/OfficeSDK.ts:1039](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1039)
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-[src/ShimoSDK.ts:1037](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1037)
+[src/OfficeSDK.ts:1040](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1040)
