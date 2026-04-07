@@ -413,6 +413,38 @@ connect({
 })
 ```
 
+### 覆盖编辑器内置 toast 文案
+
+支持的套件类型：
+
+- `表单` - `form`
+- `传统文档` - `documentPro`
+- `专业幻灯片` - `presentation`
+- `表格` - `spreadsheet`
+- `应用表格` - `table`
+
+仅对支持 `ui` 配置的套件生效。
+
+当前已文档化支持字段：
+
+- `ui.toast.tips.edit.noPermission`
+
+```typescript
+import { connect } from 'shimo-js-sdk'
+
+const shimoSDK = await connect({
+  ui: {
+    toast: {
+      tips: {
+        edit: {
+          noPermission: '你没有编辑权限'
+        }
+      }
+    }
+  }
+})
+```
+
 ### 显示自定义 toast
 
 支持的套件类型：

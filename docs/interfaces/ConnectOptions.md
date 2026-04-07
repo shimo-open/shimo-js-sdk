@@ -32,6 +32,7 @@
 - [smParams](ConnectOptions.md#smparams)
 - [lang](ConnectOptions.md#lang)
 - [disableMentionCards](ConnectOptions.md#disablementioncards)
+- [ui](ConnectOptions.md#ui)
 - [allowPolicy](ConnectOptions.md#allowpolicy)
 - [debug](ConnectOptions.md#debug)
 - [plugins](ConnectOptions.md#plugins)
@@ -385,6 +386,28 @@ ___
 #### Defined in
 
 [src/ShimoSDK.ts:1111](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/ShimoSDK.ts#L1111)
+
+___
+
+### ui
+
+• `Optional` **ui**: `Object`
+
+用于覆盖编辑器内部分 toast 文案。支持套件类型：`form`、`documentPro`、`presentation`、`spreadsheet`、`table`（仅对支持 `ui` 配置的套件生效）。当前已文档化支持字段：`ui.toast.tips.edit.noPermission`。其他字段暂不作为稳定公共 API 承诺。
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `toast?` | [`SDKToastOptions`](SDKToastOptions.md) |
+
+#### Inherited from
+
+[ShimoSDKOptions](ShimoSDKOptions.md).[ui](ShimoSDKOptions.md#ui)
+
+#### Defined in
+
+[src/OfficeSDK.ts:1126](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1126)
 
 ___
 
