@@ -1043,6 +1043,13 @@ export interface ReadyStateEvent {
 export type EventCallback = (...args: any[]) => any
 
 /**
+ * SDK toast 文案配置，值仅允许字符串或嵌套对象。
+ */
+export interface SDKToastOptions {
+  [key: string]: string | SDKToastOptions | undefined
+}
+
+/**
  * ShimoSDK 初始化参数
  */
 export interface ShimoSDKOptions
@@ -1109,6 +1116,16 @@ export interface ShimoSDKOptions
    * 是否禁用提及的浮动卡片组件
    */
   disableMentionCards?: DisableMentionCards
+
+  /**
+   * 用于覆盖编辑器内部分 toast 文案。
+   * 支持套件类型：form、documentPro、presentation、spreadsheet、table（仅对支持 ui 配置的套件生效）。
+   * 当前已文档化支持字段：ui.toast.tips.edit.noPermission。
+   * 其他字段暂不作为稳定公共 API 承诺。
+   */
+  ui?: {
+    toast?: SDKToastOptions
+  }
 
   /**
    * 用于控制 iframe feature policy (https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Feature-Policy) 。

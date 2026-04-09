@@ -1,6 +1,6 @@
-shimo-js-sdk - v1.2.26
+shimo-js-sdk - v1.2.27
 
-# shimo-js-sdk - v1.2.26
+# shimo-js-sdk - v1.2.27
 
 ## Table of contents
 
@@ -37,6 +37,7 @@ shimo-js-sdk - v1.2.26
 - [MessageEventPayload](interfaces/MessageEventPayload.md)
 - [ContainerMethodPayload](interfaces/ContainerMethodPayload.md)
 - [ReadyStateEvent](interfaces/ReadyStateEvent.md)
+- [SDKToastOptions](interfaces/SDKToastOptions.md)
 - [ShimoSDKOptions](interfaces/ShimoSDKOptions.md)
 - [ConnectOptions](interfaces/ConnectOptions.md)
 - [BaseEventMap](interfaces/BaseEventMap.md)

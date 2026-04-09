@@ -1,4 +1,4 @@
-[shimo-js-sdk - v1.2.26](../README.md) / Document
+[shimo-js-sdk - v1.2.27](../README.md) / Document
 
 # Namespace: Document
 
