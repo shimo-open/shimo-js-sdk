@@ -7,7 +7,7 @@ import * as Form from './types/Form'
 import * as Flowchart from './types/FlowChart'
 import { EventMap as BaseEventMap, BaseEditor } from './types/BaseEditor'
 
-export * from 'shimo-js-sdk-shared'
+export * from 'weboffice-js-sdk-shared'
 
 export * from './connect'
 

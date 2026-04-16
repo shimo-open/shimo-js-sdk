@@ -1,4 +1,4 @@
-import { MouseMovePayload } from 'shimo-js-sdk-shared'
+import { MouseMovePayload } from 'weboffice-js-sdk-shared'
 import { BaseEditor, EventMap as BaseEventMap } from './BaseEditor'
 
 /**

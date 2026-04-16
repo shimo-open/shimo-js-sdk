@@ -5,7 +5,7 @@ const pkg = require('./package')
 
 module.exports = {
   devtool:
-    process.env.NODE_ENV === 'production' ? 'source-map' : 'inline-source-map',
+    process.env.NODE_ENV === 'production' ? undefined : 'inline-source-map',
   entry: {
     index: './src/index'
   },
@@ -34,6 +34,6 @@ module.exports = {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
     libraryTarget: 'umd',
-    library: 'ShimoJSSDK'
+    library: 'WebOfficeJSSDK'
   }
 }

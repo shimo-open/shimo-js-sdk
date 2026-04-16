@@ -1,4 +1,4 @@
-import { MouseMovePayload } from 'shimo-js-sdk-shared'
+import { MouseMovePayload } from 'weboffice-js-sdk-shared'
 import { BaseEditor, EventMap as BaseEventMap } from './BaseEditor'
 
 /** 表格范围 */
@@ -71,7 +71,7 @@ export type SearchMatch = {
   isLinkCell?: boolean
 }
 
-/** 通知类型,由服务端事件推送，参见https://open.shimo.im/docs/04service-callback/push-message(https://open.shimo.im/docs/04service-callback/push-message) */
+/** 通知类型,由服务端事件推送 */
 /**
  * comment - 评论
  * mention_at - 提及

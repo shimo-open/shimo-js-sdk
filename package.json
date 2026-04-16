@@ -1,6 +1,6 @@
 {
   "name": "shimo-js-sdk",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,9 +11,10 @@
     "lint": "eslint .",
     "format": "eslint --fix .&& prettier --write .",
     "prepack": "npm run lint && NODE_ENV=production npm run build && node scripts/prepack.js",
+    "publish:dist": "npm run prepack && npm publish ./dist",
     "prepare": "husky install",
     "docs": "typedoc && cp -r ./src/types/readme ./docs/details",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "node scripts/prepublishOnly.js"
   },
   "author": "Chris Yip <chris@yesui.co>",
   "license": "MIT",
@@ -50,8 +51,8 @@
     "process": "^0.11.10",
     "proxy-polyfill": "^0.3.2",
     "officesdk-broadcast-channel": "^1.2.0",
-    "shimo-js-sdk-shared": "^1.5.8",
-    "shimo-startparams": "^2.0.0",
+    "weboffice-js-sdk-shared": "^2.0.1",
+    "weboffice-startparams": "3.0.2",
     "tiny-emitter": "^2.1.0",
     "uuid": "^8.3.2"
   },

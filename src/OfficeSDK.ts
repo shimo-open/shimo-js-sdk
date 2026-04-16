@@ -9,7 +9,7 @@ import {
   isOfficeSDKMessageEventLike,
   OfficeSDKEventLike
 } from 'officesdk-broadcast-channel'
-import { StartParams } from 'shimo-startparams'
+import { StartParams } from 'weboffice-startparams'
 import { v4 as uuid } from 'uuid'
 import { TinyEmitter } from 'tiny-emitter'
 import getGlobal from 'globalthis/polyfill'
@@ -30,7 +30,7 @@ import {
   SDKEvent,
   ShowToastOptions,
   Credentials
-} from 'shimo-js-sdk-shared'
+} from 'weboffice-js-sdk-shared'
 import ExpireSet from 'expire-set'
 
 import {
