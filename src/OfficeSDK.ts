@@ -44,6 +44,11 @@ import {
 } from '.'
 import { assert } from './assert'
 import {
+  EmptyPageOptions,
+  NormalizedEmptyPageOptions,
+  normalizeEmptyPageOptions
+} from './types/EmptyPage'
+import {
   BaseEditor,
   Collaborator,
   CollaboratorsChangedPayload
@@ -143,12 +148,18 @@ export class OfficeSDK extends TinyEmitter {
 
   private readonly onViewportResize: () => void
 
+  /**
+   * 归一化后的缺省页配置，构造时一次算完，后续仅读取。
+   */
+  private readonly normalizedEmptyPage: NormalizedEmptyPageOptions
+
   constructor(options: OfficeSDKOptions) {
     super()
 
     this.connectOptions = options
     this.uuid = uuid()
     this.userUuid = options.userUuid
+    this.normalizedEmptyPage = normalizeEmptyPageOptions(options.emptyPage)
 
     assert<HTMLElement>(
       options.container,
@@ -299,11 +310,9 @@ export class OfficeSDK extends TinyEmitter {
    * 获取性能信息片段列表，由于性能标记是分段的、异步的，因此每次调用时获取的列表有可能不一致
    */
   async getPerformanceEntries(): Promise<PerformanceEntry[]> {
-    return await this.channel.invoke(
-      InvokeMethod.RequestPerformanceEntries,
-      [],
-      { audience: AUD }
-    )
+    return this.channel.invoke(InvokeMethod.RequestPerformanceEntries, [], {
+      audience: AUD
+    })
   }
 
   disconnect() {
@@ -640,6 +649,9 @@ export class OfficeSDK extends TinyEmitter {
 
         opts.apiAdaptor = this.apiAdaptor
         opts.apiAdaptorContext = this.apiAdaptorContext
+        // 归一化后的缺省页配置。iframe 侧（lizard-service-iframe-sdk）直接消费，
+        // 不需要再 fallback 默认值。未来如需扩展字段，在 normalizeEmptyPageOptions 内统一处理。
+        opts.emptyPage = this.normalizedEmptyPage
 
         return {
           ...opts,
@@ -668,6 +680,12 @@ export class OfficeSDK extends TinyEmitter {
       async (event: string, payload: unknown) => {
         if (event === 'collaboratorsChanged') {
           this.updateCollaborators(payload)
+        }
+        // 缺省页事件是 SDK 级事件，即使走了 editor 通道也直接外抛到 SDK 实例，
+        // 方便宿主通过 `sdk.on('emptyPageShown', ...)` 订阅。
+        // 同时仍保留 emitter.emit，避免破坏 editor.on 的订阅路径。
+        if (isEmptyPageEvent(event)) {
+          this.emit(event, payload)
         }
         this.emitter.emit(event, payload)
       },
@@ -928,6 +946,16 @@ export class OfficeSDK extends TinyEmitter {
 
 function notEmptyString(input?: string): boolean {
   return typeof input === 'string' && input.trim().length > 0
+}
+
+const EMPTY_PAGE_EVENTS = new Set<string>([
+  'emptyPageShown',
+  'emptyPageAction',
+  'emptyPageHidden'
+])
+
+function isEmptyPageEvent(event: string): boolean {
+  return EMPTY_PAGE_EVENTS.has(event)
 }
 
 /**
@@ -1191,4 +1219,15 @@ export interface OfficeSDKOptions
    * 加密后的用户id
    */
   userUuid?: string
+
+  /**
+   * 缺省页（Empty Page）配置。
+   * - 不传或传 `true`：启用默认缺省页能力
+   * - 传 `false`：完全关闭，保留旧行为
+   * - 传对象：精细控制启用的 scene、动作委托、token 过期策略
+   *
+   * 相关事件：`emptyPageShown` / `emptyPageAction` / `emptyPageHidden`。
+   * 详见 `./types/EmptyPage.ts`。
+   */
+  emptyPage?: boolean | EmptyPageOptions
 }
