@@ -1222,9 +1222,12 @@ export interface OfficeSDKOptions
 
   /**
    * 缺省页（Empty Page）配置。
-   * - 不传或传 `true`：启用默认缺省页能力
-   * - 传 `false`：完全关闭，保留旧行为
-   * - 传对象：精细控制启用的 scene、动作委托、token 过期策略
+   * - 不传或传 `true`：启用默认缺省页能力（有内置图片与默认文案，**无按钮**）
+   * - 传 `false`：完全关闭
+   * - 传对象：精细控制启用的 scene、token 过期策略，以及每个 scene 的
+   *   文案/按钮自定义（`overrides`）。默认不渲染任何按钮，宿主需要按钮时必须
+   *   在 `overrides[scene].primary/secondary` 里显式配置 label，点击统一触发
+   *   `emptyPageAction` 事件由宿主处理。
    *
    * 相关事件：`emptyPageShown` / `emptyPageAction` / `emptyPageHidden`。
    * 详见 `./types/EmptyPage.ts`。
