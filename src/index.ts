@@ -16,6 +16,8 @@ export * from './OfficeSDK'
 export type {
   EmptyPageScene,
   EmptyPageOptions,
+  EmptyPageActionOverride,
+  EmptyPageContentOverride,
   NormalizedEmptyPageOptions,
   EmptyPageShownPayload,
   EmptyPageActionPayload,
