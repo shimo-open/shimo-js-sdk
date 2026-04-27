@@ -13,6 +13,23 @@ export * from './connect'
 
 export * from './OfficeSDK'
 
+export type {
+  EmptyPageScene,
+  EmptyPageOptions,
+  EmptyPageActionOverride,
+  EmptyPageContentOverride,
+  NormalizedEmptyPageOptions,
+  EmptyPageShownPayload,
+  EmptyPageActionPayload,
+  EmptyPageHiddenPayload,
+  FileOpenFailedReason,
+  TokenExpiredStrategy
+} from './types/EmptyPage'
+export {
+  ALL_EMPTY_PAGE_SCENES,
+  normalizeEmptyPageOptions
+} from './types/EmptyPage'
+
 export {
   BaseEditor,
   DocumentPro,

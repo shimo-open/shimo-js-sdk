@@ -44,15 +44,20 @@ import {
 } from '.'
 import { assert } from './assert'
 import {
+  EmptyPageOptions,
+  NormalizedEmptyPageOptions,
+  normalizeEmptyPageOptions
+} from './types/EmptyPage'
+import {
   BaseEditor,
   Collaborator,
   CollaboratorsChangedPayload
 } from './types/BaseEditor'
-import { LoadingSvg } from './assets/loading'
 
 const globalThis = getGlobal()
 const AUD = 'smjssdk'
 const SM_PARAMS_KEY = 'smParams'
+const LOADING_OPTIONS_KEY = 'loadingOptions'
 const SUPPORTED_LANGUAGES = ['zh-CN', 'en', 'ja', 'ar-SA', 'ru-RU']
 
 export const MessageEvent = InvokeMethod
@@ -111,12 +116,6 @@ export class OfficeSDK extends TinyEmitter {
   private readonly messageHandler: (evt: globalThis.MessageEvent) => void =
     () => undefined
 
-  private loadingOverlay?: {
-    overlay: HTMLDivElement
-    container: HTMLElement
-    originalPosition?: string
-  }
-
   /**
    * 内部 event emitter，比如用来中转 editor 事件
    */
@@ -143,12 +142,18 @@ export class OfficeSDK extends TinyEmitter {
 
   private readonly onViewportResize: () => void
 
+  /**
+   * 归一化后的缺省页配置，构造时一次算完，后续仅读取。
+   */
+  private readonly normalizedEmptyPage: NormalizedEmptyPageOptions
+
   constructor(options: OfficeSDKOptions) {
     super()
 
     this.connectOptions = options
     this.uuid = uuid()
     this.userUuid = options.userUuid
+    this.normalizedEmptyPage = normalizeEmptyPageOptions(options.emptyPage)
 
     assert<HTMLElement>(
       options.container,
@@ -302,12 +307,13 @@ export class OfficeSDK extends TinyEmitter {
     return await this.channel.invoke(
       InvokeMethod.RequestPerformanceEntries,
       [],
-      { audience: AUD }
+      {
+        audience: AUD
+      }
     )
   }
 
   disconnect() {
-    this.removeLoadingOverlay()
     if (this.element?.parentElement instanceof HTMLElement) {
       this.element.parentElement.removeChild(this.element)
     }
@@ -332,57 +338,45 @@ export class OfficeSDK extends TinyEmitter {
 
     this._readyState = ReadyState.LoadingEditor
 
-    this.setupLoadingOverlay()
+    if (!this.sameOrigin) {
+      window.addEventListener('message', this.messageHandler)
+    }
 
-    try {
-      if (!this.sameOrigin) {
-        window.addEventListener('message', this.messageHandler)
+    this.element = await this.initIframe()
+
+    this.connectOptions.container.appendChild(this.element)
+
+    this.editor = this.initEditor()
+
+    /**
+     * 等待编辑器 ReadyState 变化回调
+     */
+    await new Promise<void>((resolve, reject) => {
+      let done = false
+      const readyStateHandler = (payload: ReadyStateEvent) => {
+        const { state, error, fileType } = payload
+
+        this._readyState = state
+
+        if (fileType && this._fileType === FileType.Unknown) {
+          this._fileType = fileType
+        }
+
+        if (error) {
+          done = true
+          reject(typeof error === 'string' ? new Error(error) : error)
+        } else if (state === ReadyState.Ready) {
+          done = true
+          resolve()
+        }
+
+        if (done) {
+          this.off(Event.ReadyState, readyStateHandler)
+        }
       }
 
-      this.element = await this.initIframe()
-
-      this.connectOptions.container.appendChild(this.element)
-
-      this.editor = this.initEditor()
-
-      /**
-       * 等待编辑器 ReadyState 变化回调
-       */
-      await new Promise((resolve, reject) => {
-        const readyStateHandler = async (payload: {
-          state: ReadyState
-          error?: Error | string
-          fileType: FileType
-        }) => {
-          const { state, error, fileType } = payload
-
-          this._readyState = state
-
-          if (fileType && this._fileType === FileType.Unknown) {
-            this._fileType = fileType
-          }
-
-          let done = false
-
-          if (error) {
-            done = true
-            reject(typeof error === 'string' ? new Error(error) : error)
-          } else if (state === ReadyState.Ready) {
-            done = true
-            resolve(undefined)
-          }
-
-          if (done) {
-            this.removeLoadingOverlay()
-            this.off(Event.ReadyState, readyStateHandler)
-          }
-        }
-        this.on(Event.ReadyState, readyStateHandler)
-      })
-    } catch (err) {
-      this.removeLoadingOverlay()
-      throw err
-    }
+      this.on(Event.ReadyState, readyStateHandler)
+    })
 
     switch (this.fileType) {
       case FileType.Document:
@@ -406,86 +400,6 @@ export class OfficeSDK extends TinyEmitter {
       case FileType.Flowchart:
         this.flowchart = this.editor as Flowchart.Editor
     }
-  }
-
-  private setupLoadingOverlay() {
-    if (this.loadingOverlay || !this.connectOptions.showLoading) {
-      return
-    }
-    const container = this.connectOptions.container
-
-    this.ensureLoadingStyle()
-
-    const overlay = document.createElement('div')
-    overlay.setAttribute('data-office-sdk-loading', 'true')
-    overlay.style.position = 'absolute'
-    overlay.style.top = '0'
-    overlay.style.left = '0'
-    overlay.style.right = '0'
-    overlay.style.bottom = '0'
-    overlay.style.display = 'flex'
-    overlay.style.alignItems = 'center'
-    overlay.style.justifyContent = 'center'
-    overlay.style.backgroundColor = 'rgba(255, 255, 255, 0.75)'
-    overlay.style.zIndex = '9999'
-    overlay.style.pointerEvents = 'auto'
-
-    const spinner = document.createElement('div')
-    spinner.style.width = '32px'
-    spinner.style.height = '32px'
-    spinner.style.backgroundImage = `url(${LoadingSvg})`
-    spinner.style.backgroundRepeat = 'no-repeat'
-    spinner.style.backgroundPosition = 'center'
-    spinner.style.backgroundSize = 'contain'
-    spinner.style.animation = 'office-sdk-loading-spin 0.8s linear infinite'
-
-    overlay.appendChild(spinner)
-
-    const position =
-      (typeof globalThis.getComputedStyle === 'function' &&
-        globalThis.getComputedStyle(container)?.position) ||
-      container.style.position
-
-    let originalPosition: string | undefined
-    if (!position || position === 'static') {
-      originalPosition = container.style.position
-      container.style.position = 'relative'
-    }
-
-    container.appendChild(overlay)
-    this.loadingOverlay = { overlay, container, originalPosition }
-  }
-
-  private removeLoadingOverlay() {
-    if (!this.loadingOverlay) {
-      return
-    }
-    const { overlay, container, originalPosition } = this.loadingOverlay
-    if (overlay.parentElement === container) {
-      container.removeChild(overlay)
-    }
-    if (originalPosition !== undefined) {
-      container.style.position = originalPosition
-    }
-    this.loadingOverlay = undefined
-  }
-
-  private ensureLoadingStyle() {
-    const styleId = 'office-sdk-loading-style'
-    if (globalThis.document?.getElementById(styleId)) {
-      return
-    }
-    const style = globalThis.document?.createElement('style')
-    if (!style) {
-      return
-    }
-    style.id = styleId
-    style.textContent = `
-@keyframes office-sdk-loading-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}`
-    globalThis.document?.head?.appendChild(style)
   }
 
   private async initIframe() {
@@ -527,8 +441,14 @@ export class OfficeSDK extends TinyEmitter {
 
     url.searchParams.set(SM_PARAMS_KEY, this.startParams.toString())
 
-    if (options.showLoadingEffect) {
+    if (options.showLoadingEffect || options.showLoading) {
       url.searchParams.set('loadingEffect', 'true')
+      if (options.loadingOptions) {
+        url.searchParams.set(
+          LOADING_OPTIONS_KEY,
+          JSON.stringify(options.loadingOptions)
+        )
+      }
     }
 
     // 设置当前编辑器语言
@@ -605,6 +525,8 @@ export class OfficeSDK extends TinyEmitter {
          */
         if (data?.event === InvokeMethod.ReadyState) {
           this.emit(Event.ReadyState, data.payload)
+        } else if (data?.event === EDITOR_RENDERED_EVENT) {
+          this.emit(Event.EditorRendered, data.payload)
         }
       },
       { audience: AUD }
@@ -640,6 +562,9 @@ export class OfficeSDK extends TinyEmitter {
 
         opts.apiAdaptor = this.apiAdaptor
         opts.apiAdaptorContext = this.apiAdaptorContext
+        // 归一化后的缺省页配置。iframe 侧（lizard-service-iframe-sdk）直接消费，
+        // 不需要再 fallback 默认值。未来如需扩展字段，在 normalizeEmptyPageOptions 内统一处理。
+        opts.emptyPage = this.normalizedEmptyPage
 
         return {
           ...opts,
@@ -668,6 +593,12 @@ export class OfficeSDK extends TinyEmitter {
       async (event: string, payload: unknown) => {
         if (event === 'collaboratorsChanged') {
           this.updateCollaborators(payload)
+        }
+        // 缺省页事件是 SDK 级事件，即使走了 editor 通道也直接外抛到 SDK 实例，
+        // 方便宿主通过 `sdk.on('emptyPageShown', ...)` 订阅。
+        // 同时仍保留 emitter.emit，避免破坏 editor.on 的订阅路径。
+        if (isEmptyPageEvent(event)) {
+          this.emit(event, payload)
         }
         this.emitter.emit(event, payload)
       },
@@ -930,6 +861,16 @@ function notEmptyString(input?: string): boolean {
   return typeof input === 'string' && input.trim().length > 0
 }
 
+const EMPTY_PAGE_EVENTS = new Set<string>([
+  'emptyPageShown',
+  'emptyPageAction',
+  'emptyPageHidden'
+])
+
+function isEmptyPageEvent(event: string): boolean {
+  return EMPTY_PAGE_EVENTS.has(event)
+}
+
 /**
  * 需要容器提供给编辑器使用的方法
  */
@@ -1012,10 +953,26 @@ export enum Event {
   ReadyState = 'readyState',
 
   /**
+   * 编辑器真正完成"首屏渲染"的信号。
+   *
+   * 由 iframe 内编辑器在自身渲染稳定后通过 channel 发送，SDK 侧转发为本事件。
+   * 宿主可按需监听它来区分 SDK Ready 与编辑器视觉首屏完成。
+   */
+  EditorRendered = 'editorRendered',
+
+  /**
    * 编辑器事件
    */
   EditorEvent = 'editorEvent'
 }
+
+/**
+ * iframe 内侧用来上报"编辑器已完成首屏渲染"的 channel 事件名。
+ *
+ * 与 `InvokeMethod.ReadyState` 的枚举值保持在同一命名空间，但不入 shared 包，
+ * 以免跨端版本耦合。iframe 侧约定写字符串即可。
+ */
+export const EDITOR_RENDERED_EVENT = 'editorRendered'
 
 export interface Message {
   uuid?: string
@@ -1050,6 +1007,21 @@ export type EventCallback = (...args: any[]) => any
  */
 export interface SDKToastOptions {
   [key: string]: string | SDKToastOptions | undefined
+}
+
+/**
+ * iframe 内置加载页配置，只支持可序列化字段。
+ */
+export interface LoadingOptions {
+  /**
+   * 自定义加载页 Logo。传字符串时作为图片 URL / dataURL 使用；
+   * 传 false 时隐藏 Logo；不传时使用 iframe 内默认石墨 Logo。
+   */
+  logo?: string | false
+  /**
+   * 自定义加载页提示文案。不传时使用 iframe 内默认文案。
+   */
+  tip?: string
 }
 
 /**
@@ -1168,9 +1140,16 @@ export interface OfficeSDKOptions
   showLoadingEffect?: boolean
 
   /**
-   * 是否展示 SDK 默认的加载遮罩，覆盖 container，默认 false
+   * 是否启用 iframe 内置默认加载页，默认 false。
+   * 隐藏后接入方可自定义外部 loading。
    */
   showLoading?: boolean
+
+  /**
+   * iframe 内置加载页配置。仅在 `showLoading === true`
+   * 或 `showLoadingEffect === true` 时透传给 iframe。
+   */
+  loadingOptions?: LoadingOptions
 
   /**
    * 用于在编辑器发起 API 请求时，对请求参数进行修改的函数。详细用法见文档。
@@ -1191,4 +1170,18 @@ export interface OfficeSDKOptions
    * 加密后的用户id
    */
   userUuid?: string
+
+  /**
+   * 缺省页（Empty Page）配置。
+   * - 不传或传 `true`：启用默认缺省页能力（有内置图片与默认文案，**无按钮**）
+   * - 传 `false`：完全关闭
+   * - 传对象：精细控制启用的 scene、token 过期策略，以及每个 scene 的
+   *   文案/按钮自定义（`overrides`）。默认不渲染任何按钮，宿主需要按钮时必须
+   *   在 `overrides[scene].primary/secondary` 里显式配置 label，点击统一触发
+   *   `emptyPageAction` 事件由宿主处理。
+   *
+   * 相关事件：`emptyPageShown` / `emptyPageAction` / `emptyPageHidden`。
+   * 详见 `./types/EmptyPage.ts`。
+   */
+  emptyPage?: boolean | EmptyPageOptions
 }
