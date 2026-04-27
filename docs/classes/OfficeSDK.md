@@ -1,4 +1,4 @@
-[shimo-js-sdk - v2.0.1](../README.md) / OfficeSDK
+[shimo-js-sdk - v2.0.2](../README.md) / OfficeSDK
 
 # Class: OfficeSDK
 
@@ -40,6 +40,7 @@
 - [table](OfficeSDK.md#table)
 - [form](OfficeSDK.md#form)
 - [flowchart](OfficeSDK.md#flowchart)
+- [headerBars](OfficeSDK.md#headerbars)
 
 ### Accessors
 
@@ -64,7 +65,7 @@ TinyEmitter.constructor
 
 #### Defined in
 
-[src/OfficeSDK.ts:146](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L146)
+[src/OfficeSDK.ts:226](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L226)
 
 ## Methods
 
@@ -186,7 +187,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:254](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L254)
+[src/OfficeSDK.ts:336](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L336)
 
 ___
 
@@ -212,7 +213,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:272](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L272)
+[src/OfficeSDK.ts:354](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L354)
 
 ___
 
@@ -236,7 +237,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:282](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L282)
+[src/OfficeSDK.ts:364](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L364)
 
 ___
 
@@ -260,7 +261,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:292](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L292)
+[src/OfficeSDK.ts:374](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L374)
 
 ___
 
@@ -276,7 +277,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:301](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L301)
+[src/OfficeSDK.ts:383](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L383)
 
 ___
 
@@ -290,7 +291,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:309](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L309)
+[src/OfficeSDK.ts:393](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L393)
 
 ___
 
@@ -309,7 +310,7 @@ Promise resovled 不代表编辑器已经完整加载完毕，只代表 SDK 已�
 
 #### Defined in
 
-[src/OfficeSDK.ts:328](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L328)
+[src/OfficeSDK.ts:411](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L411)
 
 ## Properties
 
@@ -321,7 +322,7 @@ Promise resovled 不代表编辑器已经完整加载完毕，只代表 SDK 已�
 
 #### Defined in
 
-[src/OfficeSDK.ts:64](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L64)
+[src/OfficeSDK.ts:129](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L129)
 
 ___
 
@@ -331,7 +332,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:65](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L65)
+[src/OfficeSDK.ts:130](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L130)
 
 ___
 
@@ -341,7 +342,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:66](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L66)
+[src/OfficeSDK.ts:131](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L131)
 
 ___
 
@@ -355,7 +356,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:72](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L72)
+[src/OfficeSDK.ts:137](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L137)
 
 ___
 
@@ -369,7 +370,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:78](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L78)
+[src/OfficeSDK.ts:143](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L143)
 
 ___
 
@@ -383,7 +384,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:84](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L84)
+[src/OfficeSDK.ts:149](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L149)
 
 ___
 
@@ -397,7 +398,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:90](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L90)
+[src/OfficeSDK.ts:155](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L155)
 
 ___
 
@@ -411,7 +412,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:96](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L96)
+[src/OfficeSDK.ts:161](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L161)
 
 ___
 
@@ -425,7 +426,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:102](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L102)
+[src/OfficeSDK.ts:167](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L167)
 
 ___
 
@@ -439,7 +440,17 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:108](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L108)
+[src/OfficeSDK.ts:173](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L173)
+
+___
+
+### headerBars
+
+• `Readonly` **headerBars**: [`HeaderBarsFacade`](../interfaces/HeaderBarsFacade.md)
+
+#### Defined in
+
+[src/OfficeSDK.ts:174](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L174)
 
 ## Accessors
 
@@ -453,7 +464,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:246](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L246)
+[src/OfficeSDK.ts:328](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L328)
 
 ___
 
@@ -467,4 +478,4 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:250](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L250)
+[src/OfficeSDK.ts:332](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L332)
