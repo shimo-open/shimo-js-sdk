@@ -59,6 +59,66 @@ const AUD = 'smjssdk'
 const SM_PARAMS_KEY = 'smParams'
 const LOADING_OPTIONS_KEY = 'loadingOptions'
 const SUPPORTED_LANGUAGES = ['zh-CN', 'en', 'ja', 'ar-SA', 'ru-RU']
+const HEADER_BARS_METHOD = {
+  getVisible: 'headerBars.getVisible',
+  setVisible: 'headerBars.setVisible',
+  addCommand: 'headerBars.addCommand',
+  getCommand: 'headerBars.getCommand',
+  setCommandVisible: 'headerBars.setCommandVisible',
+  setCommandDisabled: 'headerBars.setCommandDisabled',
+  setTitleDraft: 'headerBars.setTitleDraft',
+  confirmTitleChange: 'headerBars.confirmTitleChange',
+  listViewCommands: 'headerBars.listViewCommands',
+  handleCommandClick: 'headerBars.handleCommandClick'
+} as const
+const HEADER_BARS_CHANGED_EVENT = 'headerBars:changed'
+
+export interface HeaderBarsCommandDefinition {
+  id: string
+  section?: string
+  order?: number
+  label?: string
+  visible?: boolean
+  disabled?: boolean
+  type?: 'action' | 'structural'
+}
+
+export interface HeaderBarsCommandState extends HeaderBarsCommandDefinition {
+  type: 'action' | 'structural'
+}
+
+export interface HeaderBarsCommandRef {
+  readonly id: string
+  visible: boolean
+  disabled: boolean
+  onCommandClick?: () => void | Promise<void>
+  getState: () => HeaderBarsCommandState | undefined
+}
+
+export interface HeaderBarsFacade {
+  visible: boolean
+  getVisible: () => Promise<boolean>
+  setVisible: (visible: boolean) => Promise<void>
+  addCommand: (
+    command: HeaderBarsCommandDefinition,
+    posCommand: string,
+    pos?: 'before' | 'after'
+  ) => Promise<boolean>
+  getCommand: (id: string) => HeaderBarsCommandRef
+  listViewCommands: () => Promise<HeaderBarsCommandState[]>
+  setTitleDraft: (title: string) => Promise<void>
+  confirmTitleChange: (title: string) => Promise<void>
+}
+
+interface HeaderBarsChangedPayload {
+  reason?: string
+  commandId?: string
+  version?: number
+  snapshot?: {
+    visible: boolean
+    commands: HeaderBarsCommandState[]
+  }
+}
 
 export const MessageEvent = InvokeMethod
 
@@ -111,6 +171,7 @@ export class OfficeSDK extends TinyEmitter {
    * @deprecated - 用 `sdk.getEditor<T>()` 替代
    */
   flowchart?: Flowchart.Editor
+  readonly headerBars: HeaderBarsFacade
 
   private _fileType: FileType = FileType.Unknown
   private readonly messageHandler: (evt: globalThis.MessageEvent) => void =
@@ -139,6 +200,20 @@ export class OfficeSDK extends TinyEmitter {
    */
   private readonly endpoint: URL
   private readonly sameOrigin: boolean
+  private headerBarsVisible = true
+  private readonly headerBarsCommands = new Map<
+    string,
+    HeaderBarsCommandState
+  >()
+  private readonly headerBarsCommandOverrides = new Map<
+    string,
+    (() => void | Promise<void>) | undefined
+  >()
+
+  private readonly headerBarsCommandRefs = new Map<
+    string,
+    HeaderBarsCommandRef
+  >()
 
   private readonly onViewportResize: () => void
 
@@ -216,6 +291,7 @@ export class OfficeSDK extends TinyEmitter {
     }
 
     this.initChannel()
+    this.headerBars = this.initHeaderBarsFacade()
 
     let messageExpires = options.messageExpires
     if (typeof messageExpires !== 'number') {
@@ -580,7 +656,23 @@ export class OfficeSDK extends TinyEmitter {
     channel.addInvokeHandler(
       InvokeMethod.DispatchSDKEvent,
       async (event: string, args: unknown[]) => {
+        if (event === HEADER_BARS_CHANGED_EVENT) {
+          this.applyHeaderBarsChanged(args[0] as HeaderBarsChangedPayload)
+        }
         this.emit(event, ...args)
+      },
+      { audience: AUD }
+    )
+
+    channel.addInvokeHandler(
+      HEADER_BARS_METHOD.handleCommandClick,
+      async (id: string) => {
+        const handler = this.headerBarsCommandOverrides.get(id)
+        if (typeof handler !== 'function') {
+          return false
+        }
+        await handler()
+        return true
       },
       { audience: AUD }
     )
@@ -720,6 +812,208 @@ export class OfficeSDK extends TinyEmitter {
       },
       { audience: AUD }
     )
+  }
+
+  private initHeaderBarsFacade(): HeaderBarsFacade {
+    const facade: HeaderBarsFacade = {
+      getVisible: async () => {
+        return await this.syncHeaderBarsVisible()
+      },
+      setVisible: async (visible: boolean) => {
+        await this.setHeaderBarsVisible(visible)
+      },
+      addCommand: async (
+        command: HeaderBarsCommandDefinition,
+        posCommand: string,
+        pos: 'before' | 'after' = 'after'
+      ) => {
+        return await this.invokeHeaderBars<boolean>(
+          HEADER_BARS_METHOD.addCommand,
+          { command, posCommand, pos }
+        )
+      },
+      getCommand: (id: string) => this.getHeaderBarsCommandRef(id),
+      listViewCommands: async () => {
+        const commands = await this.invokeHeaderBars<HeaderBarsCommandState[]>(
+          HEADER_BARS_METHOD.listViewCommands
+        )
+        this.syncHeaderBarsCommands(commands)
+        return commands
+      },
+      setTitleDraft: async (title: string) => {
+        await this.invokeHeaderBars<undefined>(
+          HEADER_BARS_METHOD.setTitleDraft,
+          {
+            title
+          }
+        )
+      },
+      confirmTitleChange: async (title: string) => {
+        await this.invokeHeaderBars<undefined>(
+          HEADER_BARS_METHOD.confirmTitleChange,
+          { title }
+        )
+      }
+    }
+    Object.defineProperty(facade, 'visible', {
+      configurable: true,
+      enumerable: true,
+      get: () => this.headerBarsVisible,
+      set: (next: boolean) => {
+        this.setHeaderBarsVisible(next).catch((err: unknown) => {
+          this.emit(
+            Event.Error,
+            err instanceof Error
+              ? err
+              : new Error(`set headerBars.visible failed: ${String(err)}`)
+          )
+        })
+      }
+    })
+    return facade
+  }
+
+  private async invokeHeaderBars<T>(
+    method: string,
+    payload?: Record<string, unknown>
+  ): Promise<T> {
+    const args = payload === undefined ? [] : [payload]
+    return await this.channel.invoke(method as any, args, {
+      audience: AUD
+    })
+  }
+
+  private syncHeaderBarsCommands(commands: HeaderBarsCommandState[]) {
+    this.headerBarsCommands.clear()
+    for (const command of commands) {
+      this.headerBarsCommands.set(command.id, command)
+    }
+  }
+
+  private applyHeaderBarsChanged(payload?: HeaderBarsChangedPayload) {
+    const snapshot = payload?.snapshot
+    if (!snapshot) {
+      return
+    }
+    this.headerBarsVisible = snapshot.visible
+    this.syncHeaderBarsCommands(snapshot.commands)
+  }
+
+  private async syncHeaderBarsVisible() {
+    const payload = await this.invokeHeaderBars<{ visible: boolean }>(
+      HEADER_BARS_METHOD.getVisible
+    )
+    this.headerBarsVisible = payload.visible
+    return this.headerBarsVisible
+  }
+
+  private async setHeaderBarsVisible(visible: boolean) {
+    this.headerBarsVisible = visible
+    await this.invokeHeaderBars<undefined>(HEADER_BARS_METHOD.setVisible, {
+      visible
+    })
+  }
+
+  private getHeaderBarsCommandRef(id: string): HeaderBarsCommandRef {
+    const existing = this.headerBarsCommandRefs.get(id)
+    if (existing) {
+      return existing
+    }
+
+    if (!this.headerBarsCommands.has(id)) {
+      this.invokeHeaderBars<{ command: HeaderBarsCommandState | null }>(
+        HEADER_BARS_METHOD.getCommand,
+        { id }
+      )
+        .then((payload) => {
+          if (payload.command) {
+            this.headerBarsCommands.set(id, payload.command)
+          }
+        })
+        .catch((err: unknown) => {
+          this.emit(
+            Event.Error,
+            err instanceof Error
+              ? err
+              : new Error(`fetch headerBars command failed: ${String(err)}`)
+          )
+        })
+    }
+
+    const ref: HeaderBarsCommandRef = {
+      id,
+      visible: true,
+      disabled: false,
+      onCommandClick: undefined,
+      getState: () => this.headerBarsCommands.get(id)
+    }
+    Object.defineProperties(ref, {
+      visible: {
+        configurable: true,
+        enumerable: true,
+        get: () => this.headerBarsCommands.get(id)?.visible !== false,
+        set: (next: boolean) => {
+          const current = this.headerBarsCommands.get(id)
+          if (current) {
+            this.headerBarsCommands.set(id, { ...current, visible: next })
+          }
+          this.invokeHeaderBars<undefined>(
+            HEADER_BARS_METHOD.setCommandVisible,
+            {
+              id,
+              visible: next
+            }
+          ).catch((err: unknown) => {
+            this.emit(
+              Event.Error,
+              err instanceof Error
+                ? err
+                : new Error(
+                    `set headerBars command visible failed: ${String(err)}`
+                  )
+            )
+          })
+        }
+      },
+      disabled: {
+        configurable: true,
+        enumerable: true,
+        get: () => this.headerBarsCommands.get(id)?.disabled === true,
+        set: (next: boolean) => {
+          const current = this.headerBarsCommands.get(id)
+          if (current) {
+            this.headerBarsCommands.set(id, { ...current, disabled: next })
+          }
+          this.invokeHeaderBars<undefined>(
+            HEADER_BARS_METHOD.setCommandDisabled,
+            {
+              id,
+              disabled: next
+            }
+          ).catch((err: unknown) => {
+            this.emit(
+              Event.Error,
+              err instanceof Error
+                ? err
+                : new Error(
+                    `set headerBars command disabled failed: ${String(err)}`
+                  )
+            )
+          })
+        }
+      },
+      onCommandClick: {
+        configurable: true,
+        enumerable: true,
+        get: () => this.headerBarsCommandOverrides.get(id),
+        set: (handler: (() => void | Promise<void>) | undefined) => {
+          this.headerBarsCommandOverrides.set(id, handler)
+        }
+      }
+    })
+
+    this.headerBarsCommandRefs.set(id, ref)
+    return ref
   }
 
   private initEditor() {
@@ -1133,6 +1427,11 @@ export interface OfficeSDKOptions
    * 是否禁用默认的签名组件，以支持自定义签名组件。受版本限制，部分版本的特定类型文档才支持。
    */
   disableSignatureComponent?: boolean
+
+  /**
+   * 控制 headerbar 组件是否展示，false 表示隐藏。
+   */
+  headerBarsVisible?: boolean
 
   /**
    * 是否显示内置的加载动画，只在静态资源加载到编辑器渲染这个阶段显示

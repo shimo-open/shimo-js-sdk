@@ -2,6 +2,21 @@ shimo-js-sdk - v2.0.1
 
 # shimo-js-sdk - v2.0.1
 
+## HeaderBars Quick Example
+
+```ts
+const sdk = await connect(options)
+
+sdk.headerBars.visible = true
+await sdk.headerBars.addCommand({ id: 'custom-share', section: 'right' }, 'share')
+
+const command = sdk.headerBars.getCommand('custom-share')
+command.disabled = false
+command.onCommandClick = () => {
+  console.log('custom-share clicked')
+}
+```
+
 ## Table of contents
 
 ### Type aliases
