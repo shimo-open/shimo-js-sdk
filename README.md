@@ -124,6 +124,34 @@ editor.on('saveStatusChanged', (payload) => {
 await editor.showHistory()
 ```
 
+### HeaderBars 使用说明
+
+`sdk.headerBars` 提供显式 facade，不依赖 editor Proxy 路径猜测能力。
+
+```ts
+const sdk = await connect(options)
+
+// 顶栏显示状态（属性读写）
+sdk.headerBars.visible = false
+await sdk.headerBars.setVisible(true)
+
+// 命令增删改查
+await sdk.headerBars.addCommand(
+  { id: 'custom-export', section: 'more' },
+  'download'
+)
+const command = sdk.headerBars.getCommand('custom-export')
+
+// 命令状态（属性读写）
+command.visible = true
+command.disabled = false
+
+// 外层覆盖命令点击回调（优先于 iframe 默认回调）
+command.onCommandClick = async () => {
+  console.log('custom-export clicked')
+}
+```
+
 ### 协作者模块使用说明
 
 当 iframe 套件开启协作者能力后（依赖 `ENABLE_SDK_COLLABORATORS_MODULE` 开关），shimo-js-sdk 使用方可按以下方式接入：
