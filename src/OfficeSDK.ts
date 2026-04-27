@@ -205,6 +205,7 @@ export class OfficeSDK extends TinyEmitter {
     string,
     HeaderBarsCommandState
   >()
+
   private readonly headerBarsCommandOverrides = new Map<
     string,
     (() => void | Promise<void>) | undefined
@@ -816,6 +817,7 @@ export class OfficeSDK extends TinyEmitter {
 
   private initHeaderBarsFacade(): HeaderBarsFacade {
     const facade: HeaderBarsFacade = {
+      visible: false,
       getVisible: async () => {
         return await this.syncHeaderBarsVisible()
       },
