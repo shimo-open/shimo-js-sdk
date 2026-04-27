@@ -1,4 +1,4 @@
-[shimo-js-sdk - v2.0.1](../README.md) / [Table](../modules/Table.md) / PluginOptions
+[shimo-js-sdk - v2.0.2](../README.md) / [Table](../modules/Table.md) / PluginOptions
 
 # Interface: PluginOptions
 

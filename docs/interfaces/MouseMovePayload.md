@@ -1,4 +1,4 @@
-[shimo-js-sdk - v2.0.1](../README.md) / MouseMovePayload
+[shimo-js-sdk - v2.0.2](../README.md) / MouseMovePayload
 
 # Interface: MouseMovePayload
 
