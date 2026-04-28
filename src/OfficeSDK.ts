@@ -66,6 +66,7 @@ const HEADER_BARS_METHOD = {
   getCommand: 'headerBars.getCommand',
   setCommandVisible: 'headerBars.setCommandVisible',
   setCommandDisabled: 'headerBars.setCommandDisabled',
+  setCommandCallbackEnabled: 'headerBars.setCommandCallbackEnabled',
   setTitleDraft: 'headerBars.setTitleDraft',
   confirmTitleChange: 'headerBars.confirmTitleChange',
   listViewCommands: 'headerBars.listViewCommands',
@@ -201,6 +202,7 @@ export class OfficeSDK extends TinyEmitter {
   private readonly endpoint: URL
   private readonly sameOrigin: boolean
   private headerBarsVisible = true
+
   private readonly headerBarsCommands = new Map<
     string,
     HeaderBarsCommandState
@@ -1010,6 +1012,22 @@ export class OfficeSDK extends TinyEmitter {
         get: () => this.headerBarsCommandOverrides.get(id),
         set: (handler: (() => void | Promise<void>) | undefined) => {
           this.headerBarsCommandOverrides.set(id, handler)
+          this.invokeHeaderBars<undefined>(
+            HEADER_BARS_METHOD.setCommandCallbackEnabled,
+            {
+              id,
+              enabled: typeof handler === 'function'
+            }
+          ).catch((err: unknown) => {
+            this.emit(
+              Event.Error,
+              err instanceof Error
+                ? err
+                : new Error(
+                    `set headerBars command callback failed: ${String(err)}`
+                  )
+            )
+          })
         }
       }
     })
