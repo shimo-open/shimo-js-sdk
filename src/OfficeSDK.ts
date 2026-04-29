@@ -73,6 +73,13 @@ const HEADER_BARS_METHOD = {
   handleCommandClick: 'headerBars.handleCommandClick'
 } as const
 const HEADER_BARS_CHANGED_EVENT = 'headerBars:changed'
+const PRELOAD_MESSAGE_TYPE = {
+  READY: 'SDK_PRELOAD_READY',
+  INIT: 'SDK_PRELOAD_INIT',
+  ACK: 'SDK_PRELOAD_ACK',
+  DONE: 'SDK_PRELOAD_DONE',
+  ERROR: 'SDK_PRELOAD_ERROR'
+} as const
 
 export interface HeaderBarsCommandDefinition {
   id: string
@@ -227,6 +234,9 @@ export class OfficeSDK extends TinyEmitter {
    * 归一化后的缺省页配置，构造时一次算完，后续仅读取。
    */
   private readonly normalizedEmptyPage: NormalizedEmptyPageOptions
+  private readonly preloadAckTimeoutMs = 2000
+  private readonly preloadDoneTimeoutMs = 8000
+  private readonly preloadReadyTimeoutMs = 3000
 
   constructor(options: OfficeSDKOptions) {
     super()
@@ -427,6 +437,7 @@ export class OfficeSDK extends TinyEmitter {
     this.element = await this.initIframe()
 
     this.connectOptions.container.appendChild(this.element)
+    await this.runPreloadHandshake()
 
     this.editor = this.initEditor()
 
@@ -504,11 +515,11 @@ export class OfficeSDK extends TinyEmitter {
     }
 
     const url = this.endpoint
-    url.pathname = `${url.pathname}/collab-files/${assert<string>(
+    url.pathname = `${url.pathname}/api/${assert<string>(
       options.fileId,
       notEmptyString,
       `"fileId" is missing or empty: ${options.fileId}`
-    )}`.replace(/\/+/g, '/')
+    )}/preload`.replace(/\/+/g, '/')
 
     const params = options.params
     if (params) {
@@ -543,26 +554,148 @@ export class OfficeSDK extends TinyEmitter {
 
     url.searchParams.set('jsver', process.env.VERSION ?? '')
 
-    const token = assert<string>(
+    assert<string>(
       options.token,
       notEmptyString,
       `"token" is missing or empty: "${options.token}"`
     )
 
-    const signature = assert<string>(
+    assert<string>(
       options.signature,
       notEmptyString,
       `"signature" is missing or empty: "${options.signature}"`
     )
-
-    url.searchParams.set('token', token)
-    url.searchParams.set('signature', signature)
     url.searchParams.set('uuid', this.uuid)
     this.userUuid && url.searchParams.set('userUuid', this.userUuid)
 
     iframe.src = url.toString()
 
     return iframe
+  }
+
+  private async runPreloadHandshake() {
+    const token = this.connectOptions.token
+    const signature = this.connectOptions.signature
+    const fileGuid = this.connectOptions.fileId
+    const requestId = uuid()
+
+    type PreloadMessage = {
+      type?: string
+      requestId?: string
+      payload?: {
+        token?: string
+        signature?: string
+        fileGuid?: string
+      }
+      error?: {
+        code?: string
+        message?: string
+      }
+    }
+
+    let readyResolved = false
+    let ackResolved = false
+    let doneResolved = false
+    let ackTimer: ReturnType<typeof setTimeout> | null = null
+    let doneTimer: ReturnType<typeof setTimeout> | null = null
+
+    await new Promise<void>((resolve, reject) => {
+      const cleanup = () => {
+        if (ackTimer) {
+          clearTimeout(ackTimer)
+          ackTimer = null
+        }
+        if (doneTimer) {
+          clearTimeout(doneTimer)
+          doneTimer = null
+        }
+        window.removeEventListener('message', handleMessage)
+      }
+
+      const sendInit = () => {
+        this.element?.contentWindow?.postMessage(
+          {
+            type: PRELOAD_MESSAGE_TYPE.INIT,
+            requestId,
+            ts: Date.now(),
+            payload: {
+              token,
+              signature,
+              fileGuid
+            }
+          },
+          '*'
+        )
+      }
+
+      const handleMessage = (event: MessageEvent) => {
+        const data = event.data as PreloadMessage
+        if (
+          !data ||
+          typeof data !== 'object' ||
+          typeof data.type !== 'string'
+        ) {
+          return
+        }
+
+        if (data.type === PRELOAD_MESSAGE_TYPE.READY && !readyResolved) {
+          readyResolved = true
+          sendInit()
+          ackTimer = setTimeout(() => {
+            sendInit()
+            doneTimer = setTimeout(() => {
+              cleanup()
+              reject(new Error('preload init timeout'))
+            }, this.preloadDoneTimeoutMs)
+          }, this.preloadAckTimeoutMs)
+          return
+        }
+
+        if (data.requestId !== requestId) {
+          return
+        }
+
+        if (data.type === PRELOAD_MESSAGE_TYPE.ACK) {
+          ackResolved = true
+          if (ackTimer) {
+            clearTimeout(ackTimer)
+            ackTimer = null
+          }
+          if (!doneTimer) {
+            doneTimer = setTimeout(() => {
+              cleanup()
+              reject(new Error('preload done timeout'))
+            }, this.preloadDoneTimeoutMs)
+          }
+          return
+        }
+
+        if (data.type === PRELOAD_MESSAGE_TYPE.DONE) {
+          doneResolved = true
+          cleanup()
+          resolve()
+          return
+        }
+
+        if (data.type === PRELOAD_MESSAGE_TYPE.ERROR) {
+          cleanup()
+          reject(
+            new Error(
+              data.error?.message || data.error?.code || 'preload init failed'
+            )
+          )
+        }
+      }
+
+      window.addEventListener('message', handleMessage)
+
+      setTimeout(() => {
+        if (!readyResolved && !ackResolved && !doneResolved) {
+          cleanup()
+          reject(new Error('preload ready timeout'))
+        }
+      }, this.preloadReadyTimeoutMs)
+    })
   }
 
   private initChannel() {
