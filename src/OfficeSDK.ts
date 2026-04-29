@@ -82,6 +82,9 @@ export interface HeaderBarsCommandDefinition {
   visible?: boolean
   disabled?: boolean
   type?: 'action' | 'structural'
+  renderType?: string
+  src?: string
+  onClick?: () => void | Promise<void>
 }
 
 export interface HeaderBarsCommandState extends HeaderBarsCommandDefinition {
@@ -831,10 +834,23 @@ export class OfficeSDK extends TinyEmitter {
         posCommand: string,
         pos: 'before' | 'after' = 'after'
       ) => {
-        return await this.invokeHeaderBars<boolean>(
+        const { onClick, ...commandPayload } = command
+        const added = await this.invokeHeaderBars<boolean>(
           HEADER_BARS_METHOD.addCommand,
-          { command, posCommand, pos }
+          { command: commandPayload, posCommand, pos }
         )
+        const clickHandler = onClick
+        if (added && typeof clickHandler === 'function') {
+          this.headerBarsCommandOverrides.set(command.id, clickHandler)
+          await this.invokeHeaderBars<undefined>(
+            HEADER_BARS_METHOD.setCommandCallbackEnabled,
+            {
+              id: command.id,
+              enabled: true
+            }
+          )
+        }
+        return added
       },
       getCommand: (id: string) => this.getHeaderBarsCommandRef(id),
       listViewCommands: async () => {
