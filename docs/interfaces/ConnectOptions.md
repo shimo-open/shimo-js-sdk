@@ -29,6 +29,7 @@
 - [token](ConnectOptions.md#token)
 - [refreshCredentialsInterval](ConnectOptions.md#refreshcredentialsinterval)
 - [params](ConnectOptions.md#params)
+- [mode](ConnectOptions.md#mode)
 - [smParams](ConnectOptions.md#smparams)
 - [lang](ConnectOptions.md#lang)
 - [disableMentionCards](ConnectOptions.md#disablementioncards)
@@ -333,6 +334,22 @@ ___
 #### Defined in
 
 [src/OfficeSDK.ts:1361](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1361)
+
+___
+
+### mode
+
+• `Optional` **mode**: `"edit"` \| `"preview"`
+
+当前打开模式。`preview` 用于预览态，其余场景默认按 `edit` 处理。
+
+#### Inherited from
+
+[OfficeSDKOptions](OfficeSDKOptions.md).[mode](OfficeSDKOptions.md#mode)
+
+#### Defined in
+
+[src/OfficeSDK.ts:1366](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1366)
 
 ___
 

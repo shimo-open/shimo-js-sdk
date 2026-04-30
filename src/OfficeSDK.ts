@@ -586,6 +586,7 @@ export class OfficeSDK extends TinyEmitter {
         token?: string
         signature?: string
         fileGuid?: string
+        mode?: 'edit' | 'preview'
       }
       error?: {
         code?: string
@@ -621,7 +622,8 @@ export class OfficeSDK extends TinyEmitter {
             payload: {
               token,
               signature,
-              fileGuid
+              fileGuid,
+              mode: this.connectOptions.mode
             }
           },
           '*'
@@ -1528,6 +1530,11 @@ export interface OfficeSDKOptions
   params?: {
     [key: string]: string
   }
+
+  /**
+   * 当前打开模式。`preview` 用于预览态，其余场景默认按 `edit` 处理。
+   */
+  mode?: 'edit' | 'preview'
 
   /**
    * 石墨 SDK URL 参数 url?smParams={params}，用于传递石墨 SDK 内部需要的参数。

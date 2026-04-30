@@ -33,6 +33,7 @@ OfficeSDK 初始化参数
 - [token](OfficeSDKOptions.md#token)
 - [refreshCredentialsInterval](OfficeSDKOptions.md#refreshcredentialsinterval)
 - [params](OfficeSDKOptions.md#params)
+- [mode](OfficeSDKOptions.md#mode)
 - [smParams](OfficeSDKOptions.md#smparams)
 - [lang](OfficeSDKOptions.md#lang)
 - [disableMentionCards](OfficeSDKOptions.md#disablementioncards)
@@ -309,6 +310,18 @@ ___
 #### Defined in
 
 [src/OfficeSDK.ts:1361](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1361)
+
+___
+
+### mode
+
+• `Optional` **mode**: `"edit"` \| `"preview"`
+
+当前打开模式。`preview` 用于预览态，其余场景默认按 `edit` 处理。
+
+#### Defined in
+
+[src/OfficeSDK.ts:1366](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1366)
 
 ___
 
