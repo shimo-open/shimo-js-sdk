@@ -66,6 +66,7 @@ const HEADER_BARS_METHOD = {
   getCommand: 'headerBars.getCommand',
   setCommandVisible: 'headerBars.setCommandVisible',
   setCommandDisabled: 'headerBars.setCommandDisabled',
+  setCommandEditable: 'headerBars.setCommandEditable',
   setCommandCallbackEnabled: 'headerBars.setCommandCallbackEnabled',
   setTitleDraft: 'headerBars.setTitleDraft',
   confirmTitleChange: 'headerBars.confirmTitleChange',
@@ -88,6 +89,7 @@ export interface HeaderBarsCommandDefinition {
   label?: string
   visible?: boolean
   disabled?: boolean
+  editable?: boolean
   type?: 'action' | 'structural'
   renderType?: string
   src?: string
@@ -102,6 +104,7 @@ export interface HeaderBarsCommandRef {
   readonly id: string
   visible: boolean
   disabled: boolean
+  editable?: boolean
   onCommandClick?: () => void | Promise<void>
   getState: () => HeaderBarsCommandState | undefined
 }
@@ -1099,6 +1102,7 @@ export class OfficeSDK extends TinyEmitter {
       id,
       visible: true,
       disabled: false,
+      editable: undefined,
       onCommandClick: undefined,
       getState: () => this.headerBarsCommands.get(id)
     }
@@ -1152,6 +1156,42 @@ export class OfficeSDK extends TinyEmitter {
                 ? err
                 : new Error(
                     `set headerBars command disabled failed: ${String(err)}`
+                  )
+            )
+          })
+        }
+      },
+      editable: {
+        configurable: true,
+        enumerable: true,
+        get: () => this.headerBarsCommands.get(id)?.editable,
+        set: (next: boolean | undefined) => {
+          if (id !== 'title') {
+            this.emit(
+              Event.Error,
+              new Error(
+                'headerBars command editable is only supported for title'
+              )
+            )
+            return
+          }
+          const current = this.headerBarsCommands.get(id)
+          if (current) {
+            this.headerBarsCommands.set(id, { ...current, editable: next })
+          }
+          this.invokeHeaderBars<undefined>(
+            HEADER_BARS_METHOD.setCommandEditable,
+            {
+              id,
+              editable: next
+            }
+          ).catch((err: unknown) => {
+            this.emit(
+              Event.Error,
+              err instanceof Error
+                ? err
+                : new Error(
+                    `set headerBars command editable failed: ${String(err)}`
                   )
             )
           })
