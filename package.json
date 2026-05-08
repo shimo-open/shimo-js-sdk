@@ -1,7 +1,11 @@
 {
-  "name": "shimo-js-sdk",
+  "name": "weboffice-js-sdk",
   "version": "2.0.3",
   "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shimo-open/shimo-js-sdk.git"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
