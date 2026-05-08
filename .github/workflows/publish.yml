@@ -2,9 +2,6 @@ name: Publish Package
 
 on:
   push:
-    branches:
-      - master
-      - auto-publish
   workflow_dispatch:
 
 permissions:
