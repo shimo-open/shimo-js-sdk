@@ -29,8 +29,9 @@ jobs:
       - name: Check publish status
         id: publish_status
         run: |
-          package_name=$(node -p "require('./dist/package.json').name" 2>/dev/null || node -p "require('./package.dist.json').name")
+          package_name=$(node -p "require('./package.json').name")
           package_version=$(node -p "require('./package.json').version")
+          echo "name=${package_name}" >> "$GITHUB_OUTPUT"
           echo "version=${package_version}" >> "$GITHUB_OUTPUT"
 
           if npm view "${package_name}@${package_version}" version >/dev/null 2>&1; then
@@ -47,7 +48,7 @@ jobs:
 
       - name: Build publish package
         if: steps.publish_status.outputs.published == 'false'
-        run: npm run prepack
+        run: npm run build
 
       - name: Publish to npm
         if: steps.publish_status.outputs.published == 'false'
@@ -60,9 +61,9 @@ jobs:
             prerelease="${package_version#*-}"
             dist_tag="${prerelease%%.*}"
             echo "Publishing prerelease ${package_version} with dist-tag ${dist_tag}"
-            npm publish ./dist --tag "${dist_tag}"
+            npm publish --ignore-scripts --tag "${dist_tag}"
           else
-            npm publish ./dist
+            npm publish --ignore-scripts
           fi
 
       - name: Create and push tag
