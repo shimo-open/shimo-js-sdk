@@ -1,0 +1,81 @@
+name: Publish Package
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  id-token: write
+
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Check publish status
+        id: publish_status
+        run: |
+          package_name=$(node -p "require('./dist/package.json').name" 2>/dev/null || node -p "require('./package.dist.json').name")
+          package_version=$(node -p "require('./package.json').version")
+          echo "version=${package_version}" >> "$GITHUB_OUTPUT"
+
+          if npm view "${package_name}@${package_version}" version >/dev/null 2>&1; then
+            echo "published=true" >> "$GITHUB_OUTPUT"
+            echo "${package_name}@${package_version} is already published. Skipping publish."
+          else
+            echo "published=false" >> "$GITHUB_OUTPUT"
+            echo "${package_name}@${package_version} is not published yet."
+          fi
+
+      - name: Install dependencies
+        if: steps.publish_status.outputs.published == 'false'
+        run: npm ci
+
+      - name: Build publish package
+        if: steps.publish_status.outputs.published == 'false'
+        run: npm run prepack
+
+      - name: Publish to npm
+        if: steps.publish_status.outputs.published == 'false'
+        env:
+          NODE_AUTH_TOKEN: ''
+        run: |
+          package_version="${{ steps.publish_status.outputs.version }}"
+
+          if [[ "$package_version" == *-* ]]; then
+            prerelease="${package_version#*-}"
+            dist_tag="${prerelease%%.*}"
+            echo "Publishing prerelease ${package_version} with dist-tag ${dist_tag}"
+            npm publish ./dist --tag "${dist_tag}"
+          else
+            npm publish ./dist
+          fi
+
+      - name: Create and push tag
+        if: steps.publish_status.outputs.published == 'false'
+        run: |
+          tag_name="v${{ steps.publish_status.outputs.version }}"
+
+          if git ls-remote --tags origin "refs/tags/${tag_name}" | grep -q "${tag_name}"; then
+            echo "Tag ${tag_name} already exists on origin. Skipping tag push."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag "${tag_name}" "${GITHUB_SHA}"
+          git push origin "${tag_name}"
