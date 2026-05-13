@@ -58,7 +58,30 @@ const globalThis = getGlobal()
 const AUD = 'smjssdk'
 const SM_PARAMS_KEY = 'smParams'
 const LOADING_OPTIONS_KEY = 'loadingOptions'
-const SUPPORTED_LANGUAGES = ['zh-CN', 'en', 'ja', 'ar-SA', 'ru-RU']
+const LEGACY_LANGUAGE_MAP = {
+  en: 'en-US',
+  ja: 'ja-JP'
+} as const
+const SUPPORTED_LANGUAGES = [
+  'zh-CN',
+  'zh-TW',
+  'en-US',
+  'ja-JP',
+  'ko-KR',
+  'es-ES',
+  'pt-PT',
+  'de-DE',
+  'fr-FR',
+  'it-IT',
+  'ru-RU',
+  'id-ID',
+  'vi-VN',
+  'th-TH',
+  'ms-MY',
+  'ar-SA'
+] as const
+type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number]
+type LegacyLanguage = keyof typeof LEGACY_LANGUAGE_MAP
 const HEADER_BARS_METHOD = {
   getVisible: 'headerBars.getVisible',
   setVisible: 'headerBars.setVisible',
@@ -132,6 +155,19 @@ interface HeaderBarsChangedPayload {
     visible: boolean
     commands: HeaderBarsCommandState[]
   }
+}
+
+/**
+ * 兼容旧版语言缩写，并统一映射为标准语言代码。
+ */
+function normalizeLanguage(lang: string): SupportedLanguage | undefined {
+  const normalized = LEGACY_LANGUAGE_MAP[lang as LegacyLanguage] ?? lang
+
+  if ((SUPPORTED_LANGUAGES as readonly string[]).includes(normalized)) {
+    return normalized as SupportedLanguage
+  }
+
+  return undefined
 }
 
 export const MessageEvent = InvokeMethod
@@ -548,11 +584,11 @@ export class OfficeSDK extends TinyEmitter {
     }
 
     // 设置当前编辑器语言
-    if (
-      typeof options.lang === 'string' &&
-      SUPPORTED_LANGUAGES.includes(options.lang)
-    ) {
-      url.searchParams.set('lang', options.lang)
+    if (typeof options.lang === 'string') {
+      const normalizedLang = normalizeLanguage(options.lang)
+      if (normalizedLang) {
+        url.searchParams.set('lang', normalizedLang)
+      }
     }
 
     url.searchParams.set('jsver', process.env.VERSION ?? '')
@@ -1588,14 +1624,45 @@ export interface OfficeSDKOptions
    * 指定石墨 SDK 编辑器界面语言，添加到 iframe URLSearchParams 的参数列表。
    * 若未指定，则 iframe 使用服务器设置的默认语言。
    *
-   * 目前支持的语言取值：
+   * 目前支持的标准语言取值：
    * 1. zh-CN（简体中文）
-   * 2. en（英文）
-   * 3. ja（日文）
-   * 4. ar-SA（阿拉伯语）
-   * 5. ru-RU（俄语）
+   * 2. zh-TW（繁体中文）
+   * 3. en-US（英文）
+   * 4. ja-JP（日文）
+   * 5. ko-KR（韩文）
+   * 6. es-ES（西班牙语）
+   * 7. pt-PT（葡萄牙语）
+   * 8. de-DE（德语）
+   * 9. fr-FR（法语）
+   * 10. it-IT（意大利语）
+   * 11. ru-RU（俄语）
+   * 12. id-ID（印尼语）
+   * 13. vi-VN（越南语）
+   * 14. th-TH（泰语）
+   * 15. ms-MY（马来语）
+   * 16. ar-SA（阿拉伯语）
+   *
+   * 为兼容旧版写法，仍接受 en、ja，传入后会自动映射为 en-US、ja-JP。
    */
-  lang?: 'zh-CN' | 'en' | 'ja' | 'ar-SA' | 'ru-RU'
+  lang?:
+    | 'zh-CN'
+    | 'zh-TW'
+    | 'en-US'
+    | 'ja-JP'
+    | 'ko-KR'
+    | 'es-ES'
+    | 'pt-PT'
+    | 'de-DE'
+    | 'fr-FR'
+    | 'it-IT'
+    | 'ru-RU'
+    | 'id-ID'
+    | 'vi-VN'
+    | 'th-TH'
+    | 'ms-MY'
+    | 'ar-SA'
+    | 'en'
+    | 'ja'
 
   /**
    * 是否禁用提及的浮动卡片组件
