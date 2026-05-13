@@ -1,4 +1,4 @@
-[shimo-js-sdk - v2.0.1](../README.md) / OfficeSDKOptions
+[shimo-js-sdk - v2.0.2](../README.md) / OfficeSDKOptions
 
 # Interface: OfficeSDKOptions
 
@@ -33,6 +33,7 @@ OfficeSDK 初始化参数
 - [token](OfficeSDKOptions.md#token)
 - [refreshCredentialsInterval](OfficeSDKOptions.md#refreshcredentialsinterval)
 - [params](OfficeSDKOptions.md#params)
+- [mode](OfficeSDKOptions.md#mode)
 - [smParams](OfficeSDKOptions.md#smparams)
 - [lang](OfficeSDKOptions.md#lang)
 - [disableMentionCards](OfficeSDKOptions.md#disablementioncards)
@@ -43,12 +44,15 @@ OfficeSDK 初始化参数
 - [targetOrigin](OfficeSDKOptions.md#targetorigin)
 - [deviceMode](OfficeSDKOptions.md#devicemode)
 - [disableSignatureComponent](OfficeSDKOptions.md#disablesignaturecomponent)
+- [headerBarsVisible](OfficeSDKOptions.md#headerbarsvisible)
 - [showLoadingEffect](OfficeSDKOptions.md#showloadingeffect)
 - [showLoading](OfficeSDKOptions.md#showloading)
+- [loadingOptions](OfficeSDKOptions.md#loadingoptions)
 - [apiAdaptor](OfficeSDKOptions.md#apiadaptor)
 - [apiAdaptorContext](OfficeSDKOptions.md#apiadaptorcontext)
 - [messageExpires](OfficeSDKOptions.md#messageexpires)
 - [userUuid](OfficeSDKOptions.md#useruuid)
+- [emptyPage](OfficeSDKOptions.md#emptypage)
 
 ## Methods
 
@@ -75,7 +79,7 @@ Omit.openLink
 
 #### Defined in
 
-[src/OfficeSDK.ts:945](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L945)
+[src/OfficeSDK.ts:1182](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1182)
 
 ___
 
@@ -101,7 +105,7 @@ Omit.mentionClickHandlerForMobile
 
 #### Defined in
 
-[src/OfficeSDK.ts:965](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L965)
+[src/OfficeSDK.ts:1202](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1202)
 
 ___
 
@@ -127,7 +131,7 @@ Omit.getFileInfoFromUrl
 
 #### Defined in
 
-[src/OfficeSDK.ts:972](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L972)
+[src/OfficeSDK.ts:1209](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1209)
 
 ___
 
@@ -153,7 +157,7 @@ Omit.showToast
 
 #### Defined in
 
-[src/OfficeSDK.ts:985](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L985)
+[src/OfficeSDK.ts:1222](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1222)
 
 ___
 
@@ -179,7 +183,7 @@ Omit.handleCustomTask
 
 #### Defined in
 
-[src/OfficeSDK.ts:990](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L990)
+[src/OfficeSDK.ts:1227](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1227)
 
 ___
 
@@ -201,7 +205,7 @@ Omit.getCredentials
 
 #### Defined in
 
-[src/OfficeSDK.ts:995](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L995)
+[src/OfficeSDK.ts:1232](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1232)
 
 ## Properties
 
@@ -217,7 +221,7 @@ Omit.generateUrl
 
 #### Defined in
 
-[src/OfficeSDK.ts:960](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L960)
+[src/OfficeSDK.ts:1197](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1197)
 
 ___
 
@@ -229,7 +233,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:1063](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1063)
+[src/OfficeSDK.ts:1331](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1331)
 
 ___
 
@@ -241,7 +245,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:1068](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1068)
+[src/OfficeSDK.ts:1336](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1336)
 
 ___
 
@@ -253,7 +257,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:1073](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1073)
+[src/OfficeSDK.ts:1341](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1341)
 
 ___
 
@@ -265,7 +269,7 @@ iframe 挂载的目标容器
 
 #### Defined in
 
-[src/OfficeSDK.ts:1078](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1078)
+[src/OfficeSDK.ts:1346](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1346)
 
 ___
 
@@ -277,7 +281,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:1083](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1083)
+[src/OfficeSDK.ts:1351](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1351)
 
 ___
 
@@ -289,7 +293,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:1088](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1088)
+[src/OfficeSDK.ts:1356](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1356)
 
 ___
 
@@ -305,7 +309,19 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:1093](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1093)
+[src/OfficeSDK.ts:1361](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1361)
+
+___
+
+### mode
+
+• `Optional` **mode**: `"edit"` \| `"preview"`
+
+当前打开模式。`preview` 用于预览态，其余场景默认按 `edit` 处理。
+
+#### Defined in
+
+[src/OfficeSDK.ts:1366](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1366)
 
 ___
 
@@ -317,7 +333,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:1100](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1100)
+[src/OfficeSDK.ts:1368](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1368)
 
 ___
 
@@ -337,7 +353,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:1116](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1116)
+[src/OfficeSDK.ts:1384](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1384)
 
 ___
 
@@ -349,7 +365,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:1121](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1121)
+[src/OfficeSDK.ts:1389](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1389)
 
 ___
 
@@ -370,7 +386,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:1129](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1129)
+[src/OfficeSDK.ts:1397](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1397)
 
 ___
 
@@ -383,7 +399,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:1137](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1137)
+[src/OfficeSDK.ts:1405](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1405)
 
 ___
 
@@ -395,7 +411,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:1142](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1142)
+[src/OfficeSDK.ts:1410](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1410)
 
 ___
 
@@ -407,7 +423,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:1147](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1147)
+[src/OfficeSDK.ts:1415](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1415)
 
 ___
 
@@ -421,7 +437,7 @@ iframe postMessage 的目标 origin，默认是当前页面的 location.origin�
 
 #### Defined in
 
-[src/OfficeSDK.ts:1153](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1153)
+[src/OfficeSDK.ts:1421](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1421)
 
 ___
 
@@ -433,7 +449,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:1158](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1158)
+[src/OfficeSDK.ts:1426](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1426)
 
 ___
 
@@ -445,7 +461,19 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:1163](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1163)
+[src/OfficeSDK.ts:1431](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1431)
+
+___
+
+### headerBarsVisible
+
+• `Optional` **headerBarsVisible**: `boolean`
+
+控制 headerbar 组件是否展示，false 表示隐藏。
+
+#### Defined in
+
+[src/OfficeSDK.ts:1436](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1436)
 
 ___
 
@@ -457,7 +485,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:1168](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1168)
+[src/OfficeSDK.ts:1441](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1441)
 
 ___
 
@@ -465,11 +493,25 @@ ___
 
 • `Optional` **showLoading**: `boolean`
 
-是否展示 SDK 默认的加载遮罩，覆盖 container，默认 false
+是否启用 iframe 内置默认加载页，默认 false。
+隐藏后接入方可自定义外部 loading。
 
 #### Defined in
 
-[src/OfficeSDK.ts:1173](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1173)
+[src/OfficeSDK.ts:1447](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1447)
+
+___
+
+### loadingOptions
+
+• `Optional` **loadingOptions**: [`LoadingOptions`](LoadingOptions.md)
+
+iframe 内置加载页配置。仅在 `showLoading === true`
+或 `showLoadingEffect === true` 时透传给 iframe。
+
+#### Defined in
+
+[src/OfficeSDK.ts:1453](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1453)
 
 ___
 
@@ -481,7 +523,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:1178](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1178)
+[src/OfficeSDK.ts:1458](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1458)
 
 ___
 
@@ -493,7 +535,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:1183](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1183)
+[src/OfficeSDK.ts:1463](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1463)
 
 ___
 
@@ -505,7 +547,7 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:1188](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1188)
+[src/OfficeSDK.ts:1468](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1468)
 
 ___
 
@@ -517,4 +559,25 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:1193](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1193)
+[src/OfficeSDK.ts:1473](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1473)
+
+___
+
+### emptyPage
+
+• `Optional` **emptyPage**: `boolean` \| [`EmptyPageOptions`](EmptyPageOptions.md)
+
+缺省页（Empty Page）配置。
+- 不传或传 `true`：启用默认缺省页能力（有内置图片与默认文案，**无按钮**）
+- 传 `false`：完全关闭
+- 传对象：精细控制启用的 scene、token 过期策略，以及每个 scene 的
+  文案/按钮自定义（`overrides`）。默认不渲染任何按钮，宿主需要按钮时必须
+  在 `overrides[scene].primary/secondary` 里显式配置 label，点击统一触发
+  `emptyPageAction` 事件由宿主处理。
+
+相关事件：`emptyPageShown` / `emptyPageAction` / `emptyPageHidden`。
+详见 `./types/EmptyPage.ts`。
+
+#### Defined in
+
+[src/OfficeSDK.ts:1487](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1487)

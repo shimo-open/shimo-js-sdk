@@ -44,16 +44,131 @@ import {
 } from '.'
 import { assert } from './assert'
 import {
+  EmptyPageOptions,
+  NormalizedEmptyPageOptions,
+  normalizeEmptyPageOptions
+} from './types/EmptyPage'
+import {
   BaseEditor,
   Collaborator,
   CollaboratorsChangedPayload
 } from './types/BaseEditor'
-import { LoadingSvg } from './assets/loading'
 
 const globalThis = getGlobal()
 const AUD = 'smjssdk'
 const SM_PARAMS_KEY = 'smParams'
-const SUPPORTED_LANGUAGES = ['zh-CN', 'en', 'ja', 'ar-SA', 'ru-RU']
+const LOADING_OPTIONS_KEY = 'loadingOptions'
+const LEGACY_LANGUAGE_MAP = {
+  en: 'en-US',
+  ja: 'ja-JP'
+} as const
+const SUPPORTED_LANGUAGES = [
+  'zh-CN',
+  'zh-TW',
+  'en-US',
+  'ja-JP',
+  'ko-KR',
+  'es-ES',
+  'pt-PT',
+  'de-DE',
+  'fr-FR',
+  'it-IT',
+  'ru-RU',
+  'id-ID',
+  'vi-VN',
+  'th-TH',
+  'ms-MY',
+  'ar-SA'
+] as const
+type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number]
+type LegacyLanguage = keyof typeof LEGACY_LANGUAGE_MAP
+const HEADER_BARS_METHOD = {
+  getVisible: 'headerBars.getVisible',
+  setVisible: 'headerBars.setVisible',
+  addCommand: 'headerBars.addCommand',
+  getCommand: 'headerBars.getCommand',
+  setCommandVisible: 'headerBars.setCommandVisible',
+  setCommandDisabled: 'headerBars.setCommandDisabled',
+  setCommandEditable: 'headerBars.setCommandEditable',
+  setCommandCallbackEnabled: 'headerBars.setCommandCallbackEnabled',
+  setTitleDraft: 'headerBars.setTitleDraft',
+  confirmTitleChange: 'headerBars.confirmTitleChange',
+  listViewCommands: 'headerBars.listViewCommands',
+  handleCommandClick: 'headerBars.handleCommandClick'
+} as const
+const HEADER_BARS_CHANGED_EVENT = 'headerBars:changed'
+const PRELOAD_MESSAGE_TYPE = {
+  READY: 'SDK_PRELOAD_READY',
+  INIT: 'SDK_PRELOAD_INIT',
+  ACK: 'SDK_PRELOAD_ACK',
+  DONE: 'SDK_PRELOAD_DONE',
+  ERROR: 'SDK_PRELOAD_ERROR'
+} as const
+
+export interface HeaderBarsCommandDefinition {
+  id: string
+  section?: string
+  order?: number
+  label?: string
+  visible?: boolean
+  disabled?: boolean
+  editable?: boolean
+  type?: 'action' | 'structural'
+  renderType?: string
+  src?: string
+  onClick?: () => void | Promise<void>
+}
+
+export interface HeaderBarsCommandState extends HeaderBarsCommandDefinition {
+  type: 'action' | 'structural'
+}
+
+export interface HeaderBarsCommandRef {
+  readonly id: string
+  visible: boolean
+  disabled: boolean
+  editable?: boolean
+  onCommandClick?: () => void | Promise<void>
+  getState: () => HeaderBarsCommandState | undefined
+}
+
+export interface HeaderBarsFacade {
+  visible: boolean
+  getVisible: () => Promise<boolean>
+  setVisible: (visible: boolean) => Promise<void>
+  addCommand: (
+    command: HeaderBarsCommandDefinition,
+    posCommand: string,
+    pos?: 'before' | 'after'
+  ) => Promise<boolean>
+  getCommand: (id: string) => HeaderBarsCommandRef
+  listViewCommands: () => Promise<HeaderBarsCommandState[]>
+  setTitleDraft: (title: string) => Promise<void>
+  confirmTitleChange: (title: string) => Promise<void>
+}
+
+interface HeaderBarsChangedPayload {
+  reason?: string
+  commandId?: string
+  version?: number
+  snapshot?: {
+    visible: boolean
+    commands: HeaderBarsCommandState[]
+  }
+}
+
+/**
+ * 兼容旧版语言缩写，并统一映射为标准语言代码。
+ */
+function normalizeLanguage(lang: string): SupportedLanguage | undefined {
+  const normalized = LEGACY_LANGUAGE_MAP[lang as LegacyLanguage] ?? lang
+
+  if ((SUPPORTED_LANGUAGES as readonly string[]).includes(normalized)) {
+    return normalized as SupportedLanguage
+  }
+
+  return undefined
+}
 
 export const MessageEvent = InvokeMethod
 
@@ -106,16 +221,11 @@ export class OfficeSDK extends TinyEmitter {
    * @deprecated - 用 `sdk.getEditor<T>()` 替代
    */
   flowchart?: Flowchart.Editor
+  readonly headerBars: HeaderBarsFacade
 
   private _fileType: FileType = FileType.Unknown
   private readonly messageHandler: (evt: globalThis.MessageEvent) => void =
     () => undefined
-
-  private loadingOverlay?: {
-    overlay: HTMLDivElement
-    container: HTMLElement
-    originalPosition?: string
-  }
 
   /**
    * 内部 event emitter，比如用来中转 editor 事件
@@ -140,8 +250,32 @@ export class OfficeSDK extends TinyEmitter {
    */
   private readonly endpoint: URL
   private readonly sameOrigin: boolean
+  private headerBarsVisible = true
+
+  private readonly headerBarsCommands = new Map<
+    string,
+    HeaderBarsCommandState
+  >()
+
+  private readonly headerBarsCommandOverrides = new Map<
+    string,
+    (() => void | Promise<void>) | undefined
+  >()
+
+  private readonly headerBarsCommandRefs = new Map<
+    string,
+    HeaderBarsCommandRef
+  >()
 
   private readonly onViewportResize: () => void
+
+  /**
+   * 归一化后的缺省页配置，构造时一次算完，后续仅读取。
+   */
+  private readonly normalizedEmptyPage: NormalizedEmptyPageOptions
+  private readonly preloadAckTimeoutMs = 2000
+  private readonly preloadDoneTimeoutMs = 8000
+  private readonly preloadReadyTimeoutMs = 3000
 
   constructor(options: OfficeSDKOptions) {
     super()
@@ -149,6 +283,7 @@ export class OfficeSDK extends TinyEmitter {
     this.connectOptions = options
     this.uuid = uuid()
     this.userUuid = options.userUuid
+    this.normalizedEmptyPage = normalizeEmptyPageOptions(options.emptyPage)
 
     assert<HTMLElement>(
       options.container,
@@ -211,6 +346,7 @@ export class OfficeSDK extends TinyEmitter {
     }
 
     this.initChannel()
+    this.headerBars = this.initHeaderBarsFacade()
 
     let messageExpires = options.messageExpires
     if (typeof messageExpires !== 'number') {
@@ -302,12 +438,13 @@ export class OfficeSDK extends TinyEmitter {
     return await this.channel.invoke(
       InvokeMethod.RequestPerformanceEntries,
       [],
-      { audience: AUD }
+      {
+        audience: AUD
+      }
     )
   }
 
   disconnect() {
-    this.removeLoadingOverlay()
     if (this.element?.parentElement instanceof HTMLElement) {
       this.element.parentElement.removeChild(this.element)
     }
@@ -332,57 +469,46 @@ export class OfficeSDK extends TinyEmitter {
 
     this._readyState = ReadyState.LoadingEditor
 
-    this.setupLoadingOverlay()
+    if (!this.sameOrigin) {
+      window.addEventListener('message', this.messageHandler)
+    }
 
-    try {
-      if (!this.sameOrigin) {
-        window.addEventListener('message', this.messageHandler)
+    this.element = await this.initIframe()
+
+    this.connectOptions.container.appendChild(this.element)
+    await this.runPreloadHandshake()
+
+    this.editor = this.initEditor()
+
+    /**
+     * 等待编辑器 ReadyState 变化回调
+     */
+    await new Promise<void>((resolve, reject) => {
+      let done = false
+      const readyStateHandler = (payload: ReadyStateEvent) => {
+        const { state, error, fileType } = payload
+
+        this._readyState = state
+
+        if (fileType && this._fileType === FileType.Unknown) {
+          this._fileType = fileType
+        }
+
+        if (error) {
+          done = true
+          reject(typeof error === 'string' ? new Error(error) : error)
+        } else if (state === ReadyState.Ready) {
+          done = true
+          resolve()
+        }
+
+        if (done) {
+          this.off(Event.ReadyState, readyStateHandler)
+        }
       }
 
-      this.element = await this.initIframe()
-
-      this.connectOptions.container.appendChild(this.element)
-
-      this.editor = this.initEditor()
-
-      /**
-       * 等待编辑器 ReadyState 变化回调
-       */
-      await new Promise((resolve, reject) => {
-        const readyStateHandler = async (payload: {
-          state: ReadyState
-          error?: Error | string
-          fileType: FileType
-        }) => {
-          const { state, error, fileType } = payload
-
-          this._readyState = state
-
-          if (fileType && this._fileType === FileType.Unknown) {
-            this._fileType = fileType
-          }
-
-          let done = false
-
-          if (error) {
-            done = true
-            reject(typeof error === 'string' ? new Error(error) : error)
-          } else if (state === ReadyState.Ready) {
-            done = true
-            resolve(undefined)
-          }
-
-          if (done) {
-            this.removeLoadingOverlay()
-            this.off(Event.ReadyState, readyStateHandler)
-          }
-        }
-        this.on(Event.ReadyState, readyStateHandler)
-      })
-    } catch (err) {
-      this.removeLoadingOverlay()
-      throw err
-    }
+      this.on(Event.ReadyState, readyStateHandler)
+    })
 
     switch (this.fileType) {
       case FileType.Document:
@@ -408,86 +534,6 @@ export class OfficeSDK extends TinyEmitter {
     }
   }
 
-  private setupLoadingOverlay() {
-    if (this.loadingOverlay || !this.connectOptions.showLoading) {
-      return
-    }
-    const container = this.connectOptions.container
-
-    this.ensureLoadingStyle()
-
-    const overlay = document.createElement('div')
-    overlay.setAttribute('data-office-sdk-loading', 'true')
-    overlay.style.position = 'absolute'
-    overlay.style.top = '0'
-    overlay.style.left = '0'
-    overlay.style.right = '0'
-    overlay.style.bottom = '0'
-    overlay.style.display = 'flex'
-    overlay.style.alignItems = 'center'
-    overlay.style.justifyContent = 'center'
-    overlay.style.backgroundColor = 'rgba(255, 255, 255, 0.75)'
-    overlay.style.zIndex = '9999'
-    overlay.style.pointerEvents = 'auto'
-
-    const spinner = document.createElement('div')
-    spinner.style.width = '32px'
-    spinner.style.height = '32px'
-    spinner.style.backgroundImage = `url(${LoadingSvg})`
-    spinner.style.backgroundRepeat = 'no-repeat'
-    spinner.style.backgroundPosition = 'center'
-    spinner.style.backgroundSize = 'contain'
-    spinner.style.animation = 'office-sdk-loading-spin 0.8s linear infinite'
-
-    overlay.appendChild(spinner)
-
-    const position =
-      (typeof globalThis.getComputedStyle === 'function' &&
-        globalThis.getComputedStyle(container)?.position) ||
-      container.style.position
-
-    let originalPosition: string | undefined
-    if (!position || position === 'static') {
-      originalPosition = container.style.position
-      container.style.position = 'relative'
-    }
-
-    container.appendChild(overlay)
-    this.loadingOverlay = { overlay, container, originalPosition }
-  }
-
-  private removeLoadingOverlay() {
-    if (!this.loadingOverlay) {
-      return
-    }
-    const { overlay, container, originalPosition } = this.loadingOverlay
-    if (overlay.parentElement === container) {
-      container.removeChild(overlay)
-    }
-    if (originalPosition !== undefined) {
-      container.style.position = originalPosition
-    }
-    this.loadingOverlay = undefined
-  }
-
-  private ensureLoadingStyle() {
-    const styleId = 'office-sdk-loading-style'
-    if (globalThis.document?.getElementById(styleId)) {
-      return
-    }
-    const style = globalThis.document?.createElement('style')
-    if (!style) {
-      return
-    }
-    style.id = styleId
-    style.textContent = `
-@keyframes office-sdk-loading-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}`
-    globalThis.document?.head?.appendChild(style)
-  }
-
   private async initIframe() {
     const options = this.connectOptions
 
@@ -508,11 +554,11 @@ export class OfficeSDK extends TinyEmitter {
     }
 
     const url = this.endpoint
-    url.pathname = `${url.pathname}/collab-files/${assert<string>(
+    url.pathname = `${url.pathname}/api/${assert<string>(
       options.fileId,
       notEmptyString,
       `"fileId" is missing or empty: ${options.fileId}`
-    )}`.replace(/\/+/g, '/')
+    )}/preload`.replace(/\/+/g, '/')
 
     const params = options.params
     if (params) {
@@ -527,40 +573,170 @@ export class OfficeSDK extends TinyEmitter {
 
     url.searchParams.set(SM_PARAMS_KEY, this.startParams.toString())
 
-    if (options.showLoadingEffect) {
+    if (options.showLoadingEffect || options.showLoading) {
       url.searchParams.set('loadingEffect', 'true')
+      if (options.loadingOptions) {
+        url.searchParams.set(
+          LOADING_OPTIONS_KEY,
+          JSON.stringify(options.loadingOptions)
+        )
+      }
     }
 
     // 设置当前编辑器语言
-    if (
-      typeof options.lang === 'string' &&
-      SUPPORTED_LANGUAGES.includes(options.lang)
-    ) {
-      url.searchParams.set('lang', options.lang)
+    if (typeof options.lang === 'string') {
+      const normalizedLang = normalizeLanguage(options.lang)
+      if (normalizedLang) {
+        url.searchParams.set('lang', normalizedLang)
+      }
     }
 
     url.searchParams.set('jsver', process.env.VERSION ?? '')
 
-    const token = assert<string>(
+    assert<string>(
       options.token,
       notEmptyString,
       `"token" is missing or empty: "${options.token}"`
     )
 
-    const signature = assert<string>(
+    assert<string>(
       options.signature,
       notEmptyString,
       `"signature" is missing or empty: "${options.signature}"`
     )
-
-    url.searchParams.set('token', token)
-    url.searchParams.set('signature', signature)
     url.searchParams.set('uuid', this.uuid)
     this.userUuid && url.searchParams.set('userUuid', this.userUuid)
 
     iframe.src = url.toString()
 
     return iframe
+  }
+
+  private async runPreloadHandshake() {
+    const token = this.connectOptions.token
+    const signature = this.connectOptions.signature
+    const fileGuid = this.connectOptions.fileId
+    const requestId = uuid()
+
+    type PreloadMessage = {
+      type?: string
+      requestId?: string
+      payload?: {
+        token?: string
+        signature?: string
+        fileGuid?: string
+        mode?: 'edit' | 'preview'
+      }
+      error?: {
+        code?: string
+        message?: string
+      }
+    }
+
+    let readyResolved = false
+    let ackResolved = false
+    let doneResolved = false
+    let ackTimer: ReturnType<typeof setTimeout> | null = null
+    let doneTimer: ReturnType<typeof setTimeout> | null = null
+
+    await new Promise<void>((resolve, reject) => {
+      const cleanup = () => {
+        if (ackTimer) {
+          clearTimeout(ackTimer)
+          ackTimer = null
+        }
+        if (doneTimer) {
+          clearTimeout(doneTimer)
+          doneTimer = null
+        }
+        window.removeEventListener('message', handleMessage)
+      }
+
+      const sendInit = () => {
+        this.element?.contentWindow?.postMessage(
+          {
+            type: PRELOAD_MESSAGE_TYPE.INIT,
+            requestId,
+            ts: Date.now(),
+            payload: {
+              token,
+              signature,
+              fileGuid,
+              mode: this.connectOptions.mode
+            }
+          },
+          '*'
+        )
+      }
+
+      const handleMessage = (event: MessageEvent) => {
+        const data = event.data as PreloadMessage
+        if (
+          !data ||
+          typeof data !== 'object' ||
+          typeof data.type !== 'string'
+        ) {
+          return
+        }
+
+        if (data.type === PRELOAD_MESSAGE_TYPE.READY && !readyResolved) {
+          readyResolved = true
+          sendInit()
+          ackTimer = setTimeout(() => {
+            sendInit()
+            doneTimer = setTimeout(() => {
+              cleanup()
+              reject(new Error('preload init timeout'))
+            }, this.preloadDoneTimeoutMs)
+          }, this.preloadAckTimeoutMs)
+          return
+        }
+
+        if (data.requestId !== requestId) {
+          return
+        }
+
+        if (data.type === PRELOAD_MESSAGE_TYPE.ACK) {
+          ackResolved = true
+          if (ackTimer) {
+            clearTimeout(ackTimer)
+            ackTimer = null
+          }
+          if (!doneTimer) {
+            doneTimer = setTimeout(() => {
+              cleanup()
+              reject(new Error('preload done timeout'))
+            }, this.preloadDoneTimeoutMs)
+          }
+          return
+        }
+
+        if (data.type === PRELOAD_MESSAGE_TYPE.DONE) {
+          doneResolved = true
+          cleanup()
+          resolve()
+          return
+        }
+
+        if (data.type === PRELOAD_MESSAGE_TYPE.ERROR) {
+          cleanup()
+          reject(
+            new Error(
+              data.error?.message || data.error?.code || 'preload init failed'
+            )
+          )
+        }
+      }
+
+      window.addEventListener('message', handleMessage)
+
+      setTimeout(() => {
+        if (!readyResolved && !ackResolved && !doneResolved) {
+          cleanup()
+          reject(new Error('preload ready timeout'))
+        }
+      }, this.preloadReadyTimeoutMs)
+    })
   }
 
   private initChannel() {
@@ -605,6 +781,8 @@ export class OfficeSDK extends TinyEmitter {
          */
         if (data?.event === InvokeMethod.ReadyState) {
           this.emit(Event.ReadyState, data.payload)
+        } else if (data?.event === EDITOR_RENDERED_EVENT) {
+          this.emit(Event.EditorRendered, data.payload)
         }
       },
       { audience: AUD }
@@ -640,6 +818,9 @@ export class OfficeSDK extends TinyEmitter {
 
         opts.apiAdaptor = this.apiAdaptor
         opts.apiAdaptorContext = this.apiAdaptorContext
+        // 归一化后的缺省页配置。iframe 侧（lizard-service-iframe-sdk）直接消费，
+        // 不需要再 fallback 默认值。未来如需扩展字段，在 normalizeEmptyPageOptions 内统一处理。
+        opts.emptyPage = this.normalizedEmptyPage
 
         return {
           ...opts,
@@ -655,7 +836,23 @@ export class OfficeSDK extends TinyEmitter {
     channel.addInvokeHandler(
       InvokeMethod.DispatchSDKEvent,
       async (event: string, args: unknown[]) => {
+        if (event === HEADER_BARS_CHANGED_EVENT) {
+          this.applyHeaderBarsChanged(args[0] as HeaderBarsChangedPayload)
+        }
         this.emit(event, ...args)
+      },
+      { audience: AUD }
+    )
+
+    channel.addInvokeHandler(
+      HEADER_BARS_METHOD.handleCommandClick,
+      async (id: string) => {
+        const handler = this.headerBarsCommandOverrides.get(id)
+        if (typeof handler !== 'function') {
+          return false
+        }
+        await handler()
+        return true
       },
       { audience: AUD }
     )
@@ -668,6 +865,12 @@ export class OfficeSDK extends TinyEmitter {
       async (event: string, payload: unknown) => {
         if (event === 'collaboratorsChanged') {
           this.updateCollaborators(payload)
+        }
+        // 缺省页事件是 SDK 级事件，即使走了 editor 通道也直接外抛到 SDK 实例，
+        // 方便宿主通过 `sdk.on('emptyPageShown', ...)` 订阅。
+        // 同时仍保留 emitter.emit，避免破坏 editor.on 的订阅路径。
+        if (isEmptyPageEvent(event)) {
+          this.emit(event, payload)
         }
         this.emitter.emit(event, payload)
       },
@@ -789,6 +992,275 @@ export class OfficeSDK extends TinyEmitter {
       },
       { audience: AUD }
     )
+  }
+
+  private initHeaderBarsFacade(): HeaderBarsFacade {
+    const facade: HeaderBarsFacade = {
+      visible: false,
+      getVisible: async () => {
+        return await this.syncHeaderBarsVisible()
+      },
+      setVisible: async (visible: boolean) => {
+        await this.setHeaderBarsVisible(visible)
+      },
+      addCommand: async (
+        command: HeaderBarsCommandDefinition,
+        posCommand: string,
+        pos: 'before' | 'after' = 'after'
+      ) => {
+        const { onClick, ...commandPayload } = command
+        const added = await this.invokeHeaderBars<boolean>(
+          HEADER_BARS_METHOD.addCommand,
+          { command: commandPayload, posCommand, pos }
+        )
+        const clickHandler = onClick
+        if (added && typeof clickHandler === 'function') {
+          this.headerBarsCommandOverrides.set(command.id, clickHandler)
+          await this.invokeHeaderBars<undefined>(
+            HEADER_BARS_METHOD.setCommandCallbackEnabled,
+            {
+              id: command.id,
+              enabled: true
+            }
+          )
+        }
+        return added
+      },
+      getCommand: (id: string) => this.getHeaderBarsCommandRef(id),
+      listViewCommands: async () => {
+        const commands = await this.invokeHeaderBars<HeaderBarsCommandState[]>(
+          HEADER_BARS_METHOD.listViewCommands
+        )
+        this.syncHeaderBarsCommands(commands)
+        return commands
+      },
+      setTitleDraft: async (title: string) => {
+        await this.invokeHeaderBars<undefined>(
+          HEADER_BARS_METHOD.setTitleDraft,
+          {
+            title
+          }
+        )
+      },
+      confirmTitleChange: async (title: string) => {
+        await this.invokeHeaderBars<undefined>(
+          HEADER_BARS_METHOD.confirmTitleChange,
+          { title }
+        )
+      }
+    }
+    Object.defineProperty(facade, 'visible', {
+      configurable: true,
+      enumerable: true,
+      get: () => this.headerBarsVisible,
+      set: (next: boolean) => {
+        this.setHeaderBarsVisible(next).catch((err: unknown) => {
+          this.emit(
+            Event.Error,
+            err instanceof Error
+              ? err
+              : new Error(`set headerBars.visible failed: ${String(err)}`)
+          )
+        })
+      }
+    })
+    return facade
+  }
+
+  private async invokeHeaderBars<T>(
+    method: string,
+    payload?: Record<string, unknown>
+  ): Promise<T> {
+    const args = payload === undefined ? [] : [payload]
+    return await this.channel.invoke(method as any, args, {
+      audience: AUD
+    })
+  }
+
+  private syncHeaderBarsCommands(commands: HeaderBarsCommandState[]) {
+    this.headerBarsCommands.clear()
+    for (const command of commands) {
+      this.headerBarsCommands.set(command.id, command)
+    }
+  }
+
+  private applyHeaderBarsChanged(payload?: HeaderBarsChangedPayload) {
+    const snapshot = payload?.snapshot
+    if (!snapshot) {
+      return
+    }
+    this.headerBarsVisible = snapshot.visible
+    this.syncHeaderBarsCommands(snapshot.commands)
+  }
+
+  private async syncHeaderBarsVisible() {
+    const payload = await this.invokeHeaderBars<{ visible: boolean }>(
+      HEADER_BARS_METHOD.getVisible
+    )
+    this.headerBarsVisible = payload.visible
+    return this.headerBarsVisible
+  }
+
+  private async setHeaderBarsVisible(visible: boolean) {
+    this.headerBarsVisible = visible
+    await this.invokeHeaderBars<undefined>(HEADER_BARS_METHOD.setVisible, {
+      visible
+    })
+  }
+
+  private getHeaderBarsCommandRef(id: string): HeaderBarsCommandRef {
+    const existing = this.headerBarsCommandRefs.get(id)
+    if (existing) {
+      return existing
+    }
+
+    if (!this.headerBarsCommands.has(id)) {
+      this.invokeHeaderBars<{ command: HeaderBarsCommandState | null }>(
+        HEADER_BARS_METHOD.getCommand,
+        { id }
+      )
+        .then((payload) => {
+          if (payload.command) {
+            this.headerBarsCommands.set(id, payload.command)
+          }
+        })
+        .catch((err: unknown) => {
+          this.emit(
+            Event.Error,
+            err instanceof Error
+              ? err
+              : new Error(`fetch headerBars command failed: ${String(err)}`)
+          )
+        })
+    }
+
+    const ref: HeaderBarsCommandRef = {
+      id,
+      visible: true,
+      disabled: false,
+      editable: undefined,
+      onCommandClick: undefined,
+      getState: () => this.headerBarsCommands.get(id)
+    }
+    Object.defineProperties(ref, {
+      visible: {
+        configurable: true,
+        enumerable: true,
+        get: () => this.headerBarsCommands.get(id)?.visible !== false,
+        set: (next: boolean) => {
+          const current = this.headerBarsCommands.get(id)
+          if (current) {
+            this.headerBarsCommands.set(id, { ...current, visible: next })
+          }
+          this.invokeHeaderBars<undefined>(
+            HEADER_BARS_METHOD.setCommandVisible,
+            {
+              id,
+              visible: next
+            }
+          ).catch((err: unknown) => {
+            this.emit(
+              Event.Error,
+              err instanceof Error
+                ? err
+                : new Error(
+                    `set headerBars command visible failed: ${String(err)}`
+                  )
+            )
+          })
+        }
+      },
+      disabled: {
+        configurable: true,
+        enumerable: true,
+        get: () => this.headerBarsCommands.get(id)?.disabled === true,
+        set: (next: boolean) => {
+          const current = this.headerBarsCommands.get(id)
+          if (current) {
+            this.headerBarsCommands.set(id, { ...current, disabled: next })
+          }
+          this.invokeHeaderBars<undefined>(
+            HEADER_BARS_METHOD.setCommandDisabled,
+            {
+              id,
+              disabled: next
+            }
+          ).catch((err: unknown) => {
+            this.emit(
+              Event.Error,
+              err instanceof Error
+                ? err
+                : new Error(
+                    `set headerBars command disabled failed: ${String(err)}`
+                  )
+            )
+          })
+        }
+      },
+      editable: {
+        configurable: true,
+        enumerable: true,
+        get: () => this.headerBarsCommands.get(id)?.editable,
+        set: (next: boolean | undefined) => {
+          if (id !== 'title') {
+            this.emit(
+              Event.Error,
+              new Error(
+                'headerBars command editable is only supported for title'
+              )
+            )
+            return
+          }
+          const current = this.headerBarsCommands.get(id)
+          if (current) {
+            this.headerBarsCommands.set(id, { ...current, editable: next })
+          }
+          this.invokeHeaderBars<undefined>(
+            HEADER_BARS_METHOD.setCommandEditable,
+            {
+              id,
+              editable: next
+            }
+          ).catch((err: unknown) => {
+            this.emit(
+              Event.Error,
+              err instanceof Error
+                ? err
+                : new Error(
+                    `set headerBars command editable failed: ${String(err)}`
+                  )
+            )
+          })
+        }
+      },
+      onCommandClick: {
+        configurable: true,
+        enumerable: true,
+        get: () => this.headerBarsCommandOverrides.get(id),
+        set: (handler: (() => void | Promise<void>) | undefined) => {
+          this.headerBarsCommandOverrides.set(id, handler)
+          this.invokeHeaderBars<undefined>(
+            HEADER_BARS_METHOD.setCommandCallbackEnabled,
+            {
+              id,
+              enabled: typeof handler === 'function'
+            }
+          ).catch((err: unknown) => {
+            this.emit(
+              Event.Error,
+              err instanceof Error
+                ? err
+                : new Error(
+                    `set headerBars command callback failed: ${String(err)}`
+                  )
+            )
+          })
+        }
+      }
+    })
+
+    this.headerBarsCommandRefs.set(id, ref)
+    return ref
   }
 
   private initEditor() {
@@ -930,6 +1402,16 @@ function notEmptyString(input?: string): boolean {
   return typeof input === 'string' && input.trim().length > 0
 }
 
+const EMPTY_PAGE_EVENTS = new Set<string>([
+  'emptyPageShown',
+  'emptyPageAction',
+  'emptyPageHidden'
+])
+
+function isEmptyPageEvent(event: string): boolean {
+  return EMPTY_PAGE_EVENTS.has(event)
+}
+
 /**
  * 需要容器提供给编辑器使用的方法
  */
@@ -1012,10 +1494,26 @@ export enum Event {
   ReadyState = 'readyState',
 
   /**
+   * 编辑器真正完成"首屏渲染"的信号。
+   *
+   * 由 iframe 内编辑器在自身渲染稳定后通过 channel 发送，SDK 侧转发为本事件。
+   * 宿主可按需监听它来区分 SDK Ready 与编辑器视觉首屏完成。
+   */
+  EditorRendered = 'editorRendered',
+
+  /**
    * 编辑器事件
    */
   EditorEvent = 'editorEvent'
 }
+
+/**
+ * iframe 内侧用来上报"编辑器已完成首屏渲染"的 channel 事件名。
+ *
+ * 与 `InvokeMethod.ReadyState` 的枚举值保持在同一命名空间，但不入 shared 包，
+ * 以免跨端版本耦合。iframe 侧约定写字符串即可。
+ */
+export const EDITOR_RENDERED_EVENT = 'editorRendered'
 
 export interface Message {
   uuid?: string
@@ -1050,6 +1548,21 @@ export type EventCallback = (...args: any[]) => any
  */
 export interface SDKToastOptions {
   [key: string]: string | SDKToastOptions | undefined
+}
+
+/**
+ * iframe 内置加载页配置，只支持可序列化字段。
+ */
+export interface LoadingOptions {
+  /**
+   * 自定义加载页 Logo。传字符串时作为图片 URL / dataURL 使用；
+   * 传 false 时隐藏 Logo；不传时使用 iframe 内默认石墨 Logo。
+   */
+  logo?: string | false
+  /**
+   * 自定义加载页提示文案。不传时使用 iframe 内默认文案。
+   */
+  tip?: string
 }
 
 /**
@@ -1095,6 +1608,11 @@ export interface OfficeSDKOptions
   }
 
   /**
+   * 当前打开模式。`preview` 用于预览态，其余场景默认按 `edit` 处理。
+   */
+  mode?: 'edit' | 'preview'
+
+  /**
    * 石墨 SDK URL 参数 url?smParams={params}，用于传递石墨 SDK 内部需要的参数。
    */
   smParams?:
@@ -1106,14 +1624,45 @@ export interface OfficeSDKOptions
    * 指定石墨 SDK 编辑器界面语言，添加到 iframe URLSearchParams 的参数列表。
    * 若未指定，则 iframe 使用服务器设置的默认语言。
    *
-   * 目前支持的语言取值：
+   * 目前支持的标准语言取值：
    * 1. zh-CN（简体中文）
-   * 2. en（英文）
-   * 3. ja（日文）
-   * 4. ar-SA（阿拉伯语）
-   * 5. ru-RU（俄语）
+   * 2. zh-TW（繁体中文）
+   * 3. en-US（英文）
+   * 4. ja-JP（日文）
+   * 5. ko-KR（韩文）
+   * 6. es-ES（西班牙语）
+   * 7. pt-PT（葡萄牙语）
+   * 8. de-DE（德语）
+   * 9. fr-FR（法语）
+   * 10. it-IT（意大利语）
+   * 11. ru-RU（俄语）
+   * 12. id-ID（印尼语）
+   * 13. vi-VN（越南语）
+   * 14. th-TH（泰语）
+   * 15. ms-MY（马来语）
+   * 16. ar-SA（阿拉伯语）
+   *
+   * 为兼容旧版写法，仍接受 en、ja，传入后会自动映射为 en-US、ja-JP。
    */
-  lang?: 'zh-CN' | 'en' | 'ja' | 'ar-SA' | 'ru-RU'
+  lang?:
+    | 'zh-CN'
+    | 'zh-TW'
+    | 'en-US'
+    | 'ja-JP'
+    | 'ko-KR'
+    | 'es-ES'
+    | 'pt-PT'
+    | 'de-DE'
+    | 'fr-FR'
+    | 'it-IT'
+    | 'ru-RU'
+    | 'id-ID'
+    | 'vi-VN'
+    | 'th-TH'
+    | 'ms-MY'
+    | 'ar-SA'
+    | 'en'
+    | 'ja'
 
   /**
    * 是否禁用提及的浮动卡片组件
@@ -1163,14 +1712,26 @@ export interface OfficeSDKOptions
   disableSignatureComponent?: boolean
 
   /**
+   * 控制 headerbar 组件是否展示，false 表示隐藏。
+   */
+  headerBarsVisible?: boolean
+
+  /**
    * 是否显示内置的加载动画，只在静态资源加载到编辑器渲染这个阶段显示
    */
   showLoadingEffect?: boolean
 
   /**
-   * 是否展示 SDK 默认的加载遮罩，覆盖 container，默认 false
+   * 是否启用 iframe 内置默认加载页，默认 false。
+   * 隐藏后接入方可自定义外部 loading。
    */
   showLoading?: boolean
+
+  /**
+   * iframe 内置加载页配置。仅在 `showLoading === true`
+   * 或 `showLoadingEffect === true` 时透传给 iframe。
+   */
+  loadingOptions?: LoadingOptions
 
   /**
    * 用于在编辑器发起 API 请求时，对请求参数进行修改的函数。详细用法见文档。
@@ -1191,4 +1752,18 @@ export interface OfficeSDKOptions
    * 加密后的用户id
    */
   userUuid?: string
+
+  /**
+   * 缺省页（Empty Page）配置。
+   * - 不传或传 `true`：启用默认缺省页能力（有内置图片与默认文案，**无按钮**）
+   * - 传 `false`：完全关闭
+   * - 传对象：精细控制启用的 scene、token 过期策略，以及每个 scene 的
+   *   文案/按钮自定义（`overrides`）。默认不渲染任何按钮，宿主需要按钮时必须
+   *   在 `overrides[scene].primary/secondary` 里显式配置 label，点击统一触发
+   *   `emptyPageAction` 事件由宿主处理。
+   *
+   * 相关事件：`emptyPageShown` / `emptyPageAction` / `emptyPageHidden`。
+   * 详见 `./types/EmptyPage.ts`。
+   */
+  emptyPage?: boolean | EmptyPageOptions
 }

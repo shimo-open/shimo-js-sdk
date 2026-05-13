@@ -1,6 +1,6 @@
-shimo-js-sdk - v2.0.1
+shimo-js-sdk - v2.0.2
 
-# shimo-js-sdk - v2.0.1
+# shimo-js-sdk - v2.0.2
 
 ## Table of contents
 
@@ -15,6 +15,9 @@ shimo-js-sdk - v2.0.1
 - [GenerateUrlInfo](README.md#generateurlinfo)
 - [SharingSource](README.md#sharingsource)
 - [EventCallback](README.md#eventcallback)
+- [EmptyPageScene](README.md#emptypagescene)
+- [FileOpenFailedReason](README.md#fileopenfailedreason)
+- [TokenExpiredStrategy](README.md#tokenexpiredstrategy)
 
 ### Interfaces
 
@@ -32,16 +35,28 @@ shimo-js-sdk - v2.0.1
 - [PerformanceEntry](interfaces/PerformanceEntry.md)
 - [ShowToastOptions](interfaces/ShowToastOptions.md)
 - [Credentials](interfaces/Credentials.md)
+- [HeaderBarsCommandDefinition](interfaces/HeaderBarsCommandDefinition.md)
+- [HeaderBarsCommandState](interfaces/HeaderBarsCommandState.md)
+- [HeaderBarsCommandRef](interfaces/HeaderBarsCommandRef.md)
+- [HeaderBarsFacade](interfaces/HeaderBarsFacade.md)
 - [ContainerMethods](interfaces/ContainerMethods.md)
 - [Message](interfaces/Message.md)
 - [MessageEventPayload](interfaces/MessageEventPayload.md)
 - [ContainerMethodPayload](interfaces/ContainerMethodPayload.md)
 - [ReadyStateEvent](interfaces/ReadyStateEvent.md)
 - [SDKToastOptions](interfaces/SDKToastOptions.md)
+- [LoadingOptions](interfaces/LoadingOptions.md)
 - [OfficeSDKOptions](interfaces/OfficeSDKOptions.md)
 - [ConnectOptions](interfaces/ConnectOptions.md)
 - [BaseEventMap](interfaces/BaseEventMap.md)
 - [BaseEditor](interfaces/BaseEditor.md)
+- [EmptyPageActionOverride](interfaces/EmptyPageActionOverride.md)
+- [EmptyPageContentOverride](interfaces/EmptyPageContentOverride.md)
+- [EmptyPageOptions](interfaces/EmptyPageOptions.md)
+- [NormalizedEmptyPageOptions](interfaces/NormalizedEmptyPageOptions.md)
+- [EmptyPageShownPayload](interfaces/EmptyPageShownPayload.md)
+- [EmptyPageActionPayload](interfaces/EmptyPageActionPayload.md)
+- [EmptyPageHiddenPayload](interfaces/EmptyPageHiddenPayload.md)
 
 ### Enumerations
 
@@ -58,13 +73,16 @@ shimo-js-sdk - v2.0.1
 - [FileTypeAlias](README.md#filetypealias)
 - [SDKEvent](README.md#sdkevent)
 - [MessageEvent](README.md#messageevent)
+- [EDITOR\_RENDERED\_EVENT](README.md#editor_rendered_event)
 - [START\_PARAMS\_FIELD](README.md#start_params_field)
+- [ALL\_EMPTY\_PAGE\_SCENES](README.md#all_empty_page_scenes)
 
 ### Functions
 
 - [convertFileType](README.md#convertfiletype)
 - [isSDKEventMessage](README.md#issdkeventmessage)
 - [connect](README.md#connect)
+- [normalizeEmptyPageOptions](README.md#normalizeemptypageoptions)
 
 ### Classes
 
@@ -232,7 +250,42 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:1046](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1046)
+[src/OfficeSDK.ts:1299](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1299)
+
+___
+
+### EmptyPageScene
+
+Ƭ **EmptyPageScene**: ``"file-open-failed"`` \| ``"no-permission"`` \| ``"network-error"`` \| ``"token-expired"``
+
+缺省页场景枚举，必须与 `lizard-service-iframe-sdk` 侧完全一致。
+
+#### Defined in
+
+[src/types/EmptyPage.ts:12](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/EmptyPage.ts#L12)
+
+___
+
+### FileOpenFailedReason
+
+Ƭ **FileOpenFailedReason**: ``"file-not-found"`` \| ``"file-deleted"`` \| ``"file-load-failed"`` \| ``"unknown"``
+
+`file-open-failed` 下可细分的子原因，承载 HTTP 协议级差异；
+保持 scene 枚举粒度稳定，细节通过 reason 下钻。
+
+#### Defined in
+
+[src/types/EmptyPage.ts:22](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/EmptyPage.ts#L22)
+
+___
+
+### TokenExpiredStrategy
+
+Ƭ **TokenExpiredStrategy**: ``"refresh-first"`` \| ``"show-immediately"``
+
+#### Defined in
+
+[src/types/EmptyPage.ts:28](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/EmptyPage.ts#L28)
 
 ## Variables
 
@@ -278,7 +331,22 @@ ___
 
 #### Defined in
 
-[src/OfficeSDK.ts:58](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L58)
+[src/OfficeSDK.ts:123](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L123)
+
+___
+
+### EDITOR\_RENDERED\_EVENT
+
+• **EDITOR\_RENDERED\_EVENT**: ``"editorRendered"``
+
+iframe 内侧用来上报"编辑器已完成首屏渲染"的 channel 事件名。
+
+与 `InvokeMethod.ReadyState` 的枚举值保持在同一命名空间，但不入 shared 包，
+以免跨端版本耦合。iframe 侧约定写字符串即可。
+
+#### Defined in
+
+[src/OfficeSDK.ts:1271](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L1271)
 
 ___
 
@@ -288,7 +356,19 @@ ___
 
 #### Defined in
 
-[src/index.ts:28](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/index.ts#L28)
+[src/index.ts:45](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/index.ts#L45)
+
+___
+
+### ALL\_EMPTY\_PAGE\_SCENES
+
+• **ALL\_EMPTY\_PAGE\_SCENES**: [`EmptyPageScene`](README.md#emptypagescene)[]
+
+完整的 scene 列表，用于作为默认值与合法性校验。
+
+#### Defined in
+
+[src/types/EmptyPage.ts:133](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/EmptyPage.ts#L133)
 
 ## Functions
 
@@ -358,3 +438,30 @@ Promise resovled 不代表编辑器已经完整加载完毕，只代表 SDK 已�
 #### Defined in
 
 [src/connect.ts:11](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/connect.ts#L11)
+
+___
+
+### normalizeEmptyPageOptions
+
+▸ **normalizeEmptyPageOptions**(`input?`): [`NormalizedEmptyPageOptions`](interfaces/NormalizedEmptyPageOptions.md)
+
+把宿主传入的 `emptyPage` 配置归一化成完整对象。
+
+- 未传 / undefined：启用全部 scene，使用默认 tokenExpiredStrategy，不携带 overrides
+- 传 true：等价于 `{ enabled: true }`
+- 传 false：等价于 `{ enabled: false }`，其余字段仍填充默认以保证形状一致
+- 传对象：按字段覆盖，未覆盖部分使用默认
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `input?` | `boolean` \| [`EmptyPageOptions`](interfaces/EmptyPageOptions.md) |
+
+#### Returns
+
+[`NormalizedEmptyPageOptions`](interfaces/NormalizedEmptyPageOptions.md)
+
+#### Defined in
+
+[src/types/EmptyPage.ts:248](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/types/EmptyPage.ts#L248)
