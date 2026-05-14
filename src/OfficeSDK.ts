@@ -91,8 +91,6 @@ const HEADER_BARS_METHOD = {
   setCommandDisabled: 'headerBars.setCommandDisabled',
   setCommandEditable: 'headerBars.setCommandEditable',
   setCommandCallbackEnabled: 'headerBars.setCommandCallbackEnabled',
-  setTitleDraft: 'headerBars.setTitleDraft',
-  confirmTitleChange: 'headerBars.confirmTitleChange',
   listViewCommands: 'headerBars.listViewCommands',
   handleCommandClick: 'headerBars.handleCommandClick'
 } as const
@@ -132,8 +130,13 @@ export interface HeaderBarsCommandRef {
   getState: () => HeaderBarsCommandState | undefined
 }
 
+export type HeaderBarsTitleChangeHandler = (
+  title: string
+) => void | Promise<void>
+
 export interface HeaderBarsFacade {
   visible: boolean
+  onTitleChange?: HeaderBarsTitleChangeHandler
   getVisible: () => Promise<boolean>
   setVisible: (visible: boolean) => Promise<void>
   addCommand: (
@@ -143,8 +146,6 @@ export interface HeaderBarsFacade {
   ) => Promise<boolean>
   getCommand: (id: string) => HeaderBarsCommandRef
   listViewCommands: () => Promise<HeaderBarsCommandState[]>
-  setTitleDraft: (title: string) => Promise<void>
-  confirmTitleChange: (title: string) => Promise<void>
 }
 
 interface HeaderBarsChangedPayload {
@@ -266,6 +267,9 @@ export class OfficeSDK extends TinyEmitter {
     string,
     HeaderBarsCommandRef
   >()
+
+  private headerBarsTitleChangeHandler?: HeaderBarsTitleChangeHandler
+  private headerBarsTitleChangeSubscribed = false
 
   private readonly onViewportResize: () => void
 
@@ -997,6 +1001,7 @@ export class OfficeSDK extends TinyEmitter {
   private initHeaderBarsFacade(): HeaderBarsFacade {
     const facade: HeaderBarsFacade = {
       visible: false,
+      onTitleChange: undefined,
       getVisible: async () => {
         return await this.syncHeaderBarsVisible()
       },
@@ -1033,20 +1038,6 @@ export class OfficeSDK extends TinyEmitter {
         )
         this.syncHeaderBarsCommands(commands)
         return commands
-      },
-      setTitleDraft: async (title: string) => {
-        await this.invokeHeaderBars<undefined>(
-          HEADER_BARS_METHOD.setTitleDraft,
-          {
-            title
-          }
-        )
-      },
-      confirmTitleChange: async (title: string) => {
-        await this.invokeHeaderBars<undefined>(
-          HEADER_BARS_METHOD.confirmTitleChange,
-          { title }
-        )
       }
     }
     Object.defineProperty(facade, 'visible', {
@@ -1064,7 +1055,58 @@ export class OfficeSDK extends TinyEmitter {
         })
       }
     })
+    Object.defineProperty(facade, 'onTitleChange', {
+      configurable: true,
+      enumerable: true,
+      get: () => this.headerBarsTitleChangeHandler,
+      set: (handler: HeaderBarsTitleChangeHandler | undefined) => {
+        this.headerBarsTitleChangeHandler = handler
+        if (typeof handler !== 'function') {
+          return
+        }
+        this.ensureHeaderBarsTitleChangeSubscription().catch((err: unknown) => {
+          this.emit(
+            Event.Error,
+            err instanceof Error
+              ? err
+              : new Error(
+                  `subscribe headerBars titleChange failed: ${String(err)}`
+                )
+          )
+        })
+      }
+    })
     return facade
+  }
+
+  /**
+   * 订阅 iframe 侧 titleChange 事件，并在宿主设置了 headerBars.onTitleChange 时转发标题值。
+   * 输入：无。
+   * 输出：监听建立成功后返回 Promise<void>；重复调用只会订阅一次。
+   */
+  private async ensureHeaderBarsTitleChangeSubscription(): Promise<void> {
+    if (this.headerBarsTitleChangeSubscribed) {
+      return
+    }
+    this.headerBarsTitleChangeSubscribed = true
+    this.emitter.on('titleChange', (title: unknown) => {
+      if (typeof title !== 'string') {
+        return
+      }
+      this.headerBarsTitleChangeHandler?.(title)
+    })
+    try {
+      await this.channel.invoke(
+        InvokeMethod.ListenEditorEvent,
+        ['titleChange'],
+        {
+          audience: AUD
+        }
+      )
+    } catch (error: unknown) {
+      this.headerBarsTitleChangeSubscribed = false
+      throw error
+    }
   }
 
   private async invokeHeaderBars<T>(

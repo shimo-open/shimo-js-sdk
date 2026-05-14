@@ -76,7 +76,33 @@ getVisible(): Promise<boolean>
 const visible = await sdk.headerBars.getVisible()
 ```
 
-### 2.3 `sdk.headerBars.setVisible(visible)`
+### 2.3 `sdk.headerBars.onTitleChange`
+
+```ts
+onTitleChange?: (title: string) => void | Promise<void>
+```
+
+用途：
+
+- 监听 iframe 侧确认后的标题变更
+- 支持通过属性赋值的方式直接替换宿主回调
+
+行为说明：
+
+- 首次赋值为函数时，SDK 会自动订阅 editor `titleChange` 事件
+- 后续再次赋值会替换为新的 handler
+- 赋值为 `undefined` 会停止宿主侧回调分发，但不会主动取消 iframe 已建立的监听
+- 回调收到的是确认后的标题字符串
+
+示例：
+
+```ts
+sdk.headerBars.onTitleChange = (title) => {
+  console.log('title changed:', title)
+}
+```
+
+### 2.4 `sdk.headerBars.setVisible(visible)`
 
 ```ts
 setVisible(visible: boolean): Promise<void>
@@ -97,7 +123,7 @@ await sdk.headerBars.setVisible(true)
 await sdk.headerBars.setVisible(false)
 ```
 
-### 2.4 `sdk.headerBars.addCommand(command, posCommand, pos?)`
+### 2.5 `sdk.headerBars.addCommand(command, posCommand, pos?)`
 
 ```ts
 addCommand(
@@ -176,7 +202,7 @@ await sdk.headerBars.addCommand(
 )
 ```
 
-### 2.5 `sdk.headerBars.getCommand(id)`
+### 2.6 `sdk.headerBars.getCommand(id)`
 
 ```ts
 getCommand(id: string): HeaderBarsCommandRef
@@ -206,7 +232,7 @@ getCommand(id: string): HeaderBarsCommandRef
 const command = sdk.headerBars.getCommand('custom-export')
 ```
 
-### 2.6 `sdk.headerBars.listViewCommands()`
+### 2.7 `sdk.headerBars.listViewCommands()`
 
 ```ts
 listViewCommands(): Promise<HeaderBarsCommandState[]>
@@ -237,48 +263,6 @@ interface HeaderBarsCommandState extends HeaderBarsCommandDefinition {
 ```ts
 const commands = await sdk.headerBars.listViewCommands()
 ```
-
-### 2.7 `sdk.headerBars.setTitleDraft(title)`
-
-```ts
-setTitleDraft(title: string): Promise<void>
-```
-
-用途：
-
-- 设置标题草稿态
-
-参数：
-
-- `title`: draft title
-
-示例：
-
-```ts
-await sdk.headerBars.setTitleDraft('Draft Title')
-```
-
-### 2.8 `sdk.headerBars.confirmTitleChange(title)`
-
-```ts
-confirmTitleChange(title: string): Promise<void>
-```
-
-用途：
-
-- 确认标题修改
-
-参数：
-
-- `title`: final title
-
-示例：
-
-```ts
-await sdk.headerBars.confirmTitleChange('Final Title')
-```
-
----
 
 ## 3. `HeaderBarsCommandRef`
 
@@ -413,8 +397,6 @@ const HEADER_BARS_METHOD = {
   setCommandVisible: 'headerBars.setCommandVisible',
   setCommandDisabled: 'headerBars.setCommandDisabled',
   setCommandCallbackEnabled: 'headerBars.setCommandCallbackEnabled',
-  setTitleDraft: 'headerBars.setTitleDraft',
-  confirmTitleChange: 'headerBars.confirmTitleChange',
   listViewCommands: 'headerBars.listViewCommands',
   handleCommandClick: 'headerBars.handleCommandClick'
 } as const
@@ -429,8 +411,6 @@ const HEADER_BARS_METHOD = {
 | `addCommand(command, posCommand, pos)` | `headerBars.addCommand`                |
 | `getCommand(id)`                       | `headerBars.getCommand`                |
 | `listViewCommands()`                   | `headerBars.listViewCommands`          |
-| `setTitleDraft(title)`                 | `headerBars.setTitleDraft`             |
-| `confirmTitleChange(title)`            | `headerBars.confirmTitleChange`        |
 | `commandRef.visible = next`            | `headerBars.setCommandVisible`         |
 | `commandRef.disabled = next`           | `headerBars.setCommandDisabled`        |
 | `commandRef.onCommandClick = handler`  | `headerBars.setCommandCallbackEnabled` |
@@ -518,26 +498,6 @@ type Response = undefined
 type Request = {
   id: string
   enabled: boolean
-}
-
-type Response = undefined
-```
-
-`headerBars.setTitleDraft`
-
-```ts
-type Request = {
-  title: string
-}
-
-type Response = undefined
-```
-
-`headerBars.confirmTitleChange`
-
-```ts
-type Request = {
-  title: string
 }
 
 type Response = undefined
@@ -661,9 +621,6 @@ command.disabled = false
 
 const commands = await sdk.headerBars.listViewCommands()
 console.log(commands)
-
-await sdk.headerBars.setTitleDraft('Draft Title')
-await sdk.headerBars.confirmTitleChange('Final Title')
 ```
 
 ---

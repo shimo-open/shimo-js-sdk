@@ -15,8 +15,6 @@
 - [addCommand](HeaderBarsFacade.md#addcommand)
 - [getCommand](HeaderBarsFacade.md#getcommand)
 - [listViewCommands](HeaderBarsFacade.md#listviewcommands)
-- [setTitleDraft](HeaderBarsFacade.md#settitledraft)
-- [confirmTitleChange](HeaderBarsFacade.md#confirmtitlechange)
 
 ## Properties
 
@@ -117,43 +115,3 @@ ___
 #### Defined in
 
 [src/OfficeSDK.ts:108](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L108)
-
-___
-
-### setTitleDraft
-
-▸ **setTitleDraft**(`title`): `Promise`<`void`\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `title` | `string` |
-
-#### Returns
-
-`Promise`<`void`\>
-
-#### Defined in
-
-[src/OfficeSDK.ts:109](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L109)
-
-___
-
-### confirmTitleChange
-
-▸ **confirmTitleChange**(`title`): `Promise`<`void`\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `title` | `string` |
-
-#### Returns
-
-`Promise`<`void`\>
-
-#### Defined in
-
-[src/OfficeSDK.ts:110](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L110)
