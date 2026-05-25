@@ -89,6 +89,8 @@ const HEADER_BARS_METHOD = {
   getCommand: 'headerBars.getCommand',
   setCommandVisible: 'headerBars.setCommandVisible',
   setCommandDisabled: 'headerBars.setCommandDisabled',
+  setCommandSrc: 'headerBars.setCommandSrc',
+  setCommandLabel: 'headerBars.setCommandLabel',
   setCommandEditable: 'headerBars.setCommandEditable',
   setCommandCallbackEnabled: 'headerBars.setCommandCallbackEnabled',
   listViewCommands: 'headerBars.listViewCommands',
@@ -125,6 +127,8 @@ export interface HeaderBarsCommandRef {
   readonly id: string
   visible: boolean
   disabled: boolean
+  src?: string
+  label?: string
   editable?: boolean
   onCommandClick?: () => void | Promise<void>
   getState: () => HeaderBarsCommandState | undefined
@@ -1180,6 +1184,8 @@ export class OfficeSDK extends TinyEmitter {
       id,
       visible: true,
       disabled: false,
+      src: undefined,
+      label: undefined,
       editable: undefined,
       onCommandClick: undefined,
       getState: () => this.headerBarsCommands.get(id)
@@ -1234,6 +1240,62 @@ export class OfficeSDK extends TinyEmitter {
                 ? err
                 : new Error(
                     `set headerBars command disabled failed: ${String(err)}`
+                  )
+            )
+          })
+        }
+      },
+      src: {
+        configurable: true,
+        enumerable: true,
+        get: () => this.headerBarsCommands.get(id)?.src,
+        set: (next: string | undefined) => {
+          if (typeof next !== 'string') {
+            return
+          }
+          const current = this.headerBarsCommands.get(id)
+          if (current) {
+            this.headerBarsCommands.set(id, { ...current, src: next })
+          }
+          this.invokeHeaderBars<undefined>(HEADER_BARS_METHOD.setCommandSrc, {
+            id,
+            src: next
+          }).catch((err: unknown) => {
+            this.emit(
+              Event.Error,
+              err instanceof Error
+                ? err
+                : new Error(`set headerBars command src failed: ${String(err)}`)
+            )
+          })
+        }
+      },
+      label: {
+        configurable: true,
+        enumerable: true,
+        get: () => this.headerBarsCommands.get(id)?.label,
+        set: (next: string | undefined) => {
+          if (
+            typeof next !== 'string' ||
+            id === 'title' ||
+            id === 'save-status'
+          ) {
+            return
+          }
+          const current = this.headerBarsCommands.get(id)
+          if (current) {
+            this.headerBarsCommands.set(id, { ...current, label: next })
+          }
+          this.invokeHeaderBars<undefined>(HEADER_BARS_METHOD.setCommandLabel, {
+            id,
+            label: next
+          }).catch((err: unknown) => {
+            this.emit(
+              Event.Error,
+              err instanceof Error
+                ? err
+                : new Error(
+                    `set headerBars command label failed: ${String(err)}`
                   )
             )
           })
