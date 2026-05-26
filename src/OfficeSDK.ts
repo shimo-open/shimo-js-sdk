@@ -152,6 +152,50 @@ export interface HeaderBarsFacade {
   listViewCommands: () => Promise<HeaderBarsCommandState[]>
 }
 
+export interface TitleFacade {
+  addChangedListener: (listener: (title: string) => void) => () => void
+  setTitle: (title: string) => Promise<void>
+}
+
+export interface CommentsFacade {
+  show: (type?: 'list' | 'card') => Promise<void>
+  hide: (type?: 'list' | 'card') => Promise<void>
+}
+
+export interface HistoryFacade {
+  show: () => Promise<void>
+  hide: () => Promise<void>
+}
+
+export interface LocksFacade {
+  show: () => Promise<void>
+  hide: () => Promise<void>
+  addRangeLock: (options: Record<string, unknown>) => Promise<void>
+  addSheetLock: (options: Record<string, unknown>) => Promise<void>
+  removeRangeLocksInRanges: (options: Record<string, unknown>) => Promise<void>
+  removeSheetLock: (options: Record<string, unknown>) => Promise<void>
+}
+
+export interface MentionFacade {
+  locateCellByGuid: (guid: string, notificationType?: string) => Promise<void>
+}
+
+export interface ContentFacade {
+  setContent: (content: unknown) => Promise<void>
+}
+
+export interface VersionFacade {
+  createRevision: (options?: { name?: string }) => Promise<void>
+}
+
+export interface PresentationFacade {
+  start: (index?: number) => Promise<void>
+  quit: () => Promise<void>
+  startFromCurrent: () => Promise<void>
+  startRemoteLive: () => Promise<void>
+  startSpeakerView: () => Promise<void>
+}
+
 interface HeaderBarsChangedPayload {
   reason?: string
   commandId?: string
@@ -204,10 +248,44 @@ export class OfficeSDK extends TinyEmitter {
   spreadsheet?: Spreadsheet.Editor
 
   /**
-   * 专业幻灯片编辑器实例
-   * @deprecated - 用 `sdk.getEditor<T>()` 替代
+   * 当前套件支持的标题能力。
    */
-  presentation?: Presentation.Editor
+  title?: TitleFacade
+
+  /**
+   * 当前套件支持的历史能力。
+   */
+  history?: HistoryFacade
+
+  /**
+   * 当前套件支持的评论能力。
+   */
+  comments?: CommentsFacade
+
+  /**
+   * 当前套件支持的锁定能力。
+   */
+  locks?: LocksFacade
+
+  /**
+   * 当前套件支持的提及定位能力。
+   */
+  mention?: MentionFacade
+
+  /**
+   * 当前套件支持的内容写入能力。
+   */
+  content?: ContentFacade
+
+  /**
+   * 当前套件支持的版本能力。
+   */
+  version?: VersionFacade
+
+  /**
+   * 当前套件支持的演示能力。
+   */
+  presentation?: PresentationFacade
 
   /**
    * 应用表格编辑器实例
@@ -528,9 +606,6 @@ export class OfficeSDK extends TinyEmitter {
       case FileType.Spreadsheet:
         this.spreadsheet = this.editor as Spreadsheet.Editor
         break
-      case FileType.Presentation:
-        this.presentation = this.editor as Presentation.Editor
-        break
       case FileType.Table:
         this.table = this.editor as Table.Editor
         break
@@ -540,6 +615,8 @@ export class OfficeSDK extends TinyEmitter {
       case FileType.Flowchart:
         this.flowchart = this.editor as Flowchart.Editor
     }
+
+    this.installRootFacade()
   }
 
   private async initIframe() {
@@ -1365,6 +1442,193 @@ export class OfficeSDK extends TinyEmitter {
 
     this.headerBarsCommandRefs.set(id, ref)
     return ref
+  }
+
+  /**
+   * 按当前套件挂载根级能力命名空间。
+   * 输入：无，读取当前 fileType。
+   * 输出：直接更新 SDK 实例上的根级 facade 字段。
+   */
+  private installRootFacade() {
+    this.clearRootFacade()
+
+    const titleFacade: TitleFacade = {
+      addChangedListener: (listener: (title: string) => void) => {
+        return this.listenEditorEvent<string>('titleChange', listener)
+      },
+      setTitle: async (title: string) => {
+        await this.invokeEditorFacade('title.setTitle', [title])
+      }
+    }
+    const commentsFacade: CommentsFacade = {
+      show: async (type?: 'list' | 'card') => {
+        await this.invokeEditorFacade(
+          'comments.show',
+          typeof type === 'undefined' ? [] : [type]
+        )
+      },
+      hide: async (type?: 'list' | 'card') => {
+        await this.invokeEditorFacade(
+          'comments.hide',
+          typeof type === 'undefined' ? [] : [type]
+        )
+      }
+    }
+    const historyFacade: HistoryFacade = {
+      show: async () => {
+        await this.invokeEditorFacade('history.show')
+      },
+      hide: async () => {
+        await this.invokeEditorFacade('history.hide')
+      }
+    }
+    const locksFacade: LocksFacade = {
+      show: async () => {
+        await this.invokeEditorFacade('locks.show')
+      },
+      hide: async () => {
+        await this.invokeEditorFacade('locks.hide')
+      },
+      addRangeLock: async (options: Record<string, unknown>) => {
+        await this.invokeEditorFacade('locks.addRangeLock', [options])
+      },
+      addSheetLock: async (options: Record<string, unknown>) => {
+        await this.invokeEditorFacade('locks.addSheetLock', [options])
+      },
+      removeRangeLocksInRanges: async (options: Record<string, unknown>) => {
+        await this.invokeEditorFacade('locks.removeRangeLocksInRanges', [
+          options
+        ])
+      },
+      removeSheetLock: async (options: Record<string, unknown>) => {
+        await this.invokeEditorFacade('locks.removeSheetLock', [options])
+      }
+    }
+    const mentionFacade: MentionFacade = {
+      locateCellByGuid: async (guid: string, notificationType?: string) => {
+        await this.invokeEditorFacade('mention.locateCellByGuid', [
+          guid,
+          notificationType
+        ])
+      }
+    }
+    const contentFacade: ContentFacade = {
+      setContent: async (content: unknown) => {
+        await this.invokeEditorFacade('content.setContent', [content])
+      }
+    }
+    const versionFacade: VersionFacade = {
+      createRevision: async (options?: { name?: string }) => {
+        await this.invokeEditorFacade('version.createRevision', [options])
+      }
+    }
+    const presentationFacade: PresentationFacade = {
+      start: async (index?: number) => {
+        await this.invokeEditorFacade(
+          'presentation.start',
+          typeof index === 'number' ? [index] : []
+        )
+      },
+      quit: async () => {
+        await this.invokeEditorFacade('presentation.quit')
+      },
+      startFromCurrent: async () => {
+        await this.invokeEditorFacade('presentation.startFromCurrent')
+      },
+      startRemoteLive: async () => {
+        await this.invokeEditorFacade('presentation.startRemoteLive')
+      },
+      startSpeakerView: async () => {
+        await this.invokeEditorFacade('presentation.startSpeakerView')
+      }
+    }
+
+    switch (this.fileType) {
+      case FileType.Document:
+      case FileType.DocumentPro:
+        this.title = titleFacade
+        this.comments = commentsFacade
+        this.presentation = presentationFacade
+        break
+      case FileType.Spreadsheet:
+        this.history = historyFacade
+        this.comments = commentsFacade
+        this.locks = locksFacade
+        this.mention = mentionFacade
+        this.content = contentFacade
+        this.version = versionFacade
+        this.presentation = presentationFacade
+        break
+      case FileType.Presentation:
+        this.history = historyFacade
+        this.comments = commentsFacade
+        this.version = versionFacade
+        this.presentation = presentationFacade
+        break
+      default:
+        break
+    }
+  }
+
+  /**
+   * 重置根级能力命名空间，避免不同套件间字段残留。
+   * 输入：无。
+   * 输出：将所有 facade 字段置空。
+   */
+  private clearRootFacade() {
+    this.title = undefined
+    this.history = undefined
+    this.comments = undefined
+    this.locks = undefined
+    this.mention = undefined
+    this.content = undefined
+    this.version = undefined
+    this.presentation = undefined
+  }
+
+  /**
+   * 调用显式 editor facade method-path。
+   * 输入：method-path 与参数数组。
+   * 输出：返回 iframe 侧序列化结果。
+   */
+  private async invokeEditorFacade<T>(
+    method: string,
+    args: unknown[] = []
+  ): Promise<T> {
+    return await this.channel.invoke(
+      InvokeMethod.InvokeEditorMethod,
+      [method, args],
+      {
+        audience: AUD
+      }
+    )
+  }
+
+  /**
+   * 为结构化 facade 建立 editor 事件监听，并返回取消监听函数。
+   * 输入：事件名与监听器。
+   * 输出：返回一个可取消当前监听的函数。
+   */
+  private listenEditorEvent<T>(
+    event: string,
+    listener: (payload: T) => void
+  ): () => void {
+    this.emitter.on(event, listener as EventCallback)
+    this.channel
+      .invoke(InvokeMethod.ListenEditorEvent, [event], {
+        audience: AUD
+      })
+      .catch((err: unknown) => {
+        this.emit(
+          Event.Error,
+          err instanceof Error
+            ? err
+            : new Error(`listen editor event failed: ${String(err)}`)
+        )
+      })
+    return () => {
+      this.emitter.off(event, listener as EventCallback)
+    }
   }
 
   private initEditor() {
