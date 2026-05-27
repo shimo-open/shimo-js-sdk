@@ -2,568 +2,189 @@
 
 ## 方法
 
+### 调用方式
+
+```typescript
+const sdk = await connect(options)
+
+await sdk.title?.setTitle('Weekly Report')
+await sdk.comments?.show('list')
+await sdk.presentation?.start()
+```
+
+### 新旧兼容
+
+```typescript
+const sdk = await connect(options)
+
+// 旧写法
+await sdk.getEditor().setTitle?.('Weekly Report')
+await sdk.getEditor().showComments?.()
+
+// 新写法
+await sdk.title?.setTitle('Weekly Report')
+await sdk.comments?.show()
+```
+
 ### 方法列表
 
-| 方法                                      | 说明           |
-| ----------------------------------------- | -------------- |
-| [showHistory](#showhistory)               | 显示历史侧边栏 |
-| [hideHistory](#hidehistory)               | 隐藏历史侧边栏 |
-| [showRevision](#showrevision)             | 显示版本侧边栏 |
-| [hideRevision](#hiderevision)             | 隐藏版本侧边栏 |
-| [showDiscussion](#showdiscussion)         | 显示讨论侧边栏 |
-| [hideDiscussion](#hidediscussion)         | 隐藏讨论侧边栏 |
-| [showToc](#showtoc)                       | 显示目录       |
-| [hideToc](#hidetoc)                       | 隐藏目录       |
-| [createRevision](#createrevision)         | 创建版本       |
-| [startDemonstration](#startdemonstration) | 进入演示模式   |
-| [endDemonstration](#enddemonstration)     | 退出演示模式   |
-| [print](#print)                           | 打印           |
-| [showComments](#showcomments)             | 显示评论侧边栏 |
-| [hideComments](#hidecomments)             | 隐藏评论侧边栏 |
-| [insertExternalApp](#insertexternalapp)   | 插入第三方应用 |
-| [showCollaborator](#showcollaborator)     | 显示编写者信息 |
-| [hideCollaborator](#hidecollaborator)     | 隐藏编写者信息 |
+| 方法                                                                | 说明         |
+| ------------------------------------------------------------------- | ------------ |
+| [sdk.title.addChangedListener](#sdktitleaddchangedlistenerlistener) | 监听标题变化 |
+| [sdk.title.setTitle](#sdktitlesettitletitle)                        | 设置标题     |
+| [sdk.comments.show](#sdkcommentsshowtype)                           | 显示评论     |
+| [sdk.comments.hide](#sdkcommentshidetype)                           | 隐藏评论     |
+| [sdk.presentation.start](#sdkpresentationstartindex)                | 启动演示     |
 
 ---
 
-### showHistory
+### sdk.title.addChangedListener(listener)
 
 #### 说明
 
-显示历史侧边栏，用于查看文档的历史版本。
-
-_自 22.2.1 版本开始支持_
+监听文档标题变化。
 
 #### 类型定义
 
 ```typescript
-showHistory: (options?: {}) => Promise<void>
-```
-
-#### 示例
-
-```javascript
-const editor = sdk.getEditor()
-await editor.showHistory()
-```
-
----
-
-### hideHistory
-
-#### 说明
-
-隐藏历史侧边栏。
-
-_自 22.2.1 版本开始支持_
-
-#### 类型定义
-
-```typescript
-hideHistory: (options?: {}) => Promise<void>
-```
-
-#### 示例
-
-```javascript
-const editor = sdk.getEditor()
-await editor.hideHistory()
-```
-
----
-
-### showRevision
-
-#### 说明
-
-显示版本侧边栏，用于查看和管理文档版本。
-
-_自 22.2.1 版本开始支持_
-
-#### 类型定义
-
-```typescript
-showRevision: (options?: {}) => Promise<void>
-```
-
-#### 示例
-
-```javascript
-const editor = sdk.getEditor()
-await editor.showRevision()
-```
-
----
-
-### hideRevision
-
-#### 说明
-
-隐藏版本侧边栏。
-
-_自 22.2.1 版本开始支持_
-
-#### 类型定义
-
-```typescript
-hideRevision: (options?: {}) => Promise<void>
-```
-
-#### 示例
-
-```javascript
-const editor = sdk.getEditor()
-await editor.hideRevision()
-```
-
----
-
-### showDiscussion
-
-#### 说明
-
-显示讨论侧边栏，用于团队协作讨论。
-
-_自 22.2.1 版本开始支持_
-
-#### 类型定义
-
-```typescript
-showDiscussion: (options?: {}) => Promise<void>
-```
-
-#### 示例
-
-```javascript
-const editor = sdk.getEditor()
-await editor.showDiscussion()
-```
-
----
-
-### hideDiscussion
-
-#### 说明
-
-隐藏讨论侧边栏。
-
-_自 22.2.1 版本开始支持_
-
-#### 类型定义
-
-```typescript
-hideDiscussion: (options?: {}) => Promise<void>
-```
-
-#### 示例
-
-```javascript
-const editor = sdk.getEditor()
-await editor.hideDiscussion()
-```
-
----
-
-### showToc
-
-#### 说明
-
-显示文档目录，方便快速导航到文档的不同章节。
-
-_自 22.2.1 版本开始支持_
-
-#### 类型定义
-
-```typescript
-showToc: (options?: {}) => Promise<void>
-```
-
-#### 示例
-
-```javascript
-const editor = sdk.getEditor()
-await editor.showToc()
-```
-
----
-
-### hideToc
-
-#### 说明
-
-隐藏文档目录。
-
-_自 22.2.1 版本开始支持_
-
-#### 类型定义
-
-```typescript
-hideToc: (options?: {}) => Promise<void>
-```
-
-#### 示例
-
-```javascript
-const editor = sdk.getEditor()
-await editor.hideToc()
-```
-
----
-
-### createRevision
-
-#### 说明
-
-创建文档版本，保存当前状态为一个版本快照。
-
-_自 22.2.1 版本开始支持_
-
-#### 类型定义
-
-```typescript
-createRevision: (options?: {}) => Promise<null | DocumentErrorMessage>
-```
-
-#### 返回值
-
-- 成功时返回 `null`
-- 失败时返回包含错误信息的对象
-
-#### 示例
-
-```javascript
-const editor = sdk.getEditor()
-
-try {
-  const result = await editor.createRevision()
-  if (result?.message) {
-    console.error('创建版本失败:', result.message)
-  } else {
-    console.log('版本创建成功')
-  }
-} catch (error) {
-  console.error('创建版本时发生错误:', error)
-}
-```
-
----
-
-### startDemonstration
-
-#### 说明
-
-进入演示模式，开始文档演示。
-
-_自 22.2.1 版本开始支持_
-
-#### 类型定义
-
-```typescript
-startDemonstration: (options?: {}) => Promise<void>
-```
-
-#### 示例
-
-```javascript
-const editor = sdk.getEditor()
-await editor.startDemonstration()
-```
-
----
-
-### endDemonstration
-
-#### 说明
-
-退出演示模式，结束文档演示。
-
-_自 22.2.1 版本开始支持_
-
-#### 类型定义
-
-```typescript
-endDemonstration: (options?: {}) => Promise<void>
-```
-
-#### 示例
-
-```javascript
-const editor = sdk.getEditor()
-await editor.endDemonstration()
-```
-
----
-
-### print
-
-#### 说明
-
-打印文档。
-
-_自 22.2.1 版本开始支持_
-
-#### 类型定义
-
-```typescript
-print: (options?: {}) => Promise<void>
-```
-
-#### 示例
-
-```javascript
-const editor = sdk.getEditor()
-await editor.print()
-```
-
----
-
-### showComments
-
-#### 说明
-
-显示评论侧边栏，用于查看和管理文档评论。
-
-_自 22.6.1 版本开始支持_
-
-#### 类型定义
-
-```typescript
-showComments: (options?: {}) => Promise<void>
-```
-
-#### 示例
-
-```javascript
-const editor = sdk.getEditor()
-await editor.showComments()
-```
-
----
-
-### hideComments
-
-#### 说明
-
-隐藏评论侧边栏。
-
-_自 22.6.1 版本开始支持_
-
-#### 类型定义
-
-```typescript
-hideComments: (options?: {}) => Promise<void>
-```
-
-#### 示例
-
-```javascript
-const editor = sdk.getEditor()
-await editor.hideComments()
-```
-
----
-
-### insertExternalApp
-
-#### 说明
-
-插入第三方应用到文档中。功能可用性受版本限制。
-
-_自 22.6.1 版本开始支持_
-
-#### 类型定义
-
-```typescript
-insertExternalApp: (url: string) => Promise<null | DocumentErrorMessage>
+sdk.title?.addChangedListener(
+  listener: (title: string) => void
+): (() => void) | undefined
 ```
 
 #### 参数
 
-- `url`: 第三方应用的 URL 地址
+- `listener`: 标题变化时触发的回调函数
 
 #### 返回值
 
-- 成功时返回 `null`
-- 失败时返回包含错误信息的对象
+- `() => void`：取消当前监听函数
 
 #### 示例
 
-```javascript
-const editor = sdk.getEditor()
+```typescript
+const sdk = await connect(options)
 
-try {
-  const result = await editor.insertExternalApp('https://your-app-url.com')
-  if (result?.message) {
-    console.error('插入应用失败:', result.message)
-  } else {
-    console.log('应用插入成功')
-  }
-} catch (error) {
-  console.error('插入应用时发生错误:', error)
-}
+const dispose = sdk.title?.addChangedListener((title) => {
+  console.log('title changed:', title)
+})
+
+dispose?.()
 ```
 
 ---
 
-### showCollaborator
+### sdk.title.setTitle(title)
 
 #### 说明
 
-显示编写者信息，展示当前文档的协作者列表。
-
-_自 24.11.1 版本开始支持_
+设置当前文档标题。
 
 #### 类型定义
 
 ```typescript
-showCollaborator: (options?: {}) => Promise<void>
+sdk.title?.setTitle(title: string): Promise<void>
 ```
+
+#### 参数
+
+- `title`: 要设置的新标题
 
 #### 示例
 
-```javascript
-const editor = sdk.getEditor()
-await editor.showCollaborator()
+```typescript
+const sdk = await connect(options)
+
+await sdk.title?.setTitle('Weekly Report')
 ```
 
 ---
 
-### hideCollaborator
+### sdk.comments.show(type?)
 
 #### 说明
 
-隐藏编写者信息。
-
-_自 24.11.1 版本开始支持_
+显示评论能力入口。
 
 #### 类型定义
 
 ```typescript
-hideCollaborator: (options?: {}) => Promise<void>
+sdk.comments?.show(type?: 'list' | 'card'): Promise<void>
 ```
+
+#### 参数
+
+- `type`: 可选的评论展示类型
 
 #### 示例
 
-```javascript
-const editor = sdk.getEditor()
-await editor.hideCollaborator()
+```typescript
+const sdk = await connect(options)
+
+await sdk.comments?.show()
+await sdk.comments?.show('list')
 ```
 
 ---
 
-# EventMap
+### sdk.comments.hide(type?)
 
-## 事件列表
+#### 说明
 
-| 事件名                                | 说明         | 载荷类型           |
-| ------------------------------------- | ------------ | ------------------ |
-| [titleChange](#titlechange)           | 标题发生变更 | `string`           |
-| [MouseMove](#mousemove)               | 鼠标移动事件 | `MouseMovePayload` |
-| [VerticalScroll](#verticalscroll)     | 垂直滚动事件 | `MouseMovePayload` |
-| [HorizontalScroll](#horizontalscroll) | 水平滚动事件 | `MouseMovePayload` |
+隐藏评论能力入口。
 
----
-
-## titleChange
-
-### 说明
-
-当文档标题发生变更时触发此事件。
-
-### 类型定义
+#### 类型定义
 
 ```typescript
-titleChange: string
+sdk.comments?.hide(type?: 'list' | 'card'): Promise<void>
 ```
 
-### 示例
+#### 参数
 
-```javascript
-const editor = sdk.getEditor()
+- `type`: 可选的评论展示类型
 
-// 监听标题变更事件
-editor.on('titleChange', (newTitle) => {
-  console.log('文档标题已更改为:', newTitle)
+#### 示例
 
-  // 可以在这里更新页面标题或其他UI元素
-  document.title = newTitle
-})
+```typescript
+const sdk = await connect(options)
+
+await sdk.comments?.hide()
 ```
 
 ---
 
-## MouseMove
+### sdk.presentation.start(index?)
 
-### 说明
+#### 说明
 
-当鼠标在文档中移动时触发此事件。
+启动文档演示模式。
 
-### 类型定义
+#### 类型定义
 
 ```typescript
-MouseMove: MouseMovePayload
+sdk.presentation?.start(index?: number): Promise<void>
 ```
 
-### 示例
+#### 参数
 
-```javascript
-const editor = sdk.getEditor()
+- `index`: 可选的起始位置参数
 
-// 监听鼠标移动事件
-editor.on('MouseMove', (payload) => {
-  console.log('鼠标移动:', payload)
-  // 可以用于实现自定义的鼠标跟踪功能
-})
+#### 示例
+
+```typescript
+const sdk = await connect(options)
+
+await sdk.presentation?.start()
 ```
 
 ---
 
-## VerticalScroll
+## 兼容说明
 
-### 说明
-
-当文档发生垂直滚动时触发此事件。
-
-### 类型定义
-
-```typescript
-VerticalScroll: MouseMovePayload
-```
-
-### 示例
-
-```javascript
-const editor = sdk.getEditor()
-
-// 监听垂直滚动事件
-editor.on('VerticalScroll', (payload) => {
-  console.log('垂直滚动:', payload)
-  // 可以用于实现滚动位置的记录或同步
-})
-```
-
----
-
-## HorizontalScroll
-
-### 说明
-
-当文档发生水平滚动时触发此事件。
-
-### 类型定义
-
-```typescript
-HorizontalScroll: MouseMovePayload
-```
-
-### 示例
-
-```javascript
-const editor = sdk.getEditor()
-
-// 监听水平滚动事件
-editor.on('HorizontalScroll', (payload) => {
-  console.log('水平滚动:', payload)
-  // 可以用于实现滚动位置的记录或同步
-})
-```
+- 本页仅描述根级 facade 的调用方式
+- `document` 当前只支持 `sdk.presentation?.start(index?)`
+- 以下方法当前未在 `document` 套件承接：
+  - `sdk.presentation?.quit()`
+  - `sdk.presentation?.startFromCurrent()`
+  - `sdk.presentation?.startRemoteLive()`
+  - `sdk.presentation?.startSpeakerView()`
