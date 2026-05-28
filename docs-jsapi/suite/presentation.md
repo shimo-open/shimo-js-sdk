@@ -10,8 +10,8 @@
 const sdk = await connect(options)
 
 await sdk.history?.show()
-await sdk.comments?.show()
-await sdk.presentation?.startFromCurrent()
+const slide = await sdk.slides?.getCurrentSlide()
+await slide?.insertTextBox?.({ text: 'Hello' })
 ```
 
 ### 新旧兼容
@@ -21,26 +21,31 @@ const sdk = await connect(options)
 
 // 旧写法
 await sdk.getEditor().showHistory?.()
-await sdk.getEditor().createRevision?.()
 
 // 新写法
 await sdk.history?.show()
-await sdk.version?.createRevision()
 ```
 
 ### 方法列表
 
-| 方法                                                                  | 说明             | 平台      |
-| --------------------------------------------------------------------- | ---------------- | --------- |
-| [sdk.history.show](#sdkhistoryshow)                                   | 显示历史         | `PC only` |
-| [sdk.history.hide](#sdkhistoryhide)                                   | 隐藏历史         | `PC only` |
-| [sdk.comments.show](#sdkcommentsshowtype)                             | 显示评论         | `PC only` |
-| [sdk.comments.hide](#sdkcommentshidetype)                             | 隐藏评论         | `PC only` |
-| [sdk.version.createRevision](#sdkversioncreaterevisionoptions)        | 创建版本         | `PC only` |
-| [sdk.presentation.start](#sdkpresentationstartindex)                  | 启动演示         | `PC only` |
-| [sdk.presentation.quit](#sdkpresentationquit)                         | 退出演示         | `PC only` |
-| [sdk.presentation.startFromCurrent](#sdkpresentationstartfromcurrent) | 从当前页开始演示 | `PC only` |
-| [sdk.presentation.startSpeakerView](#sdkpresentationstartspeakerview) | 启动演讲者视图   | `PC only` |
+| 方法                                                           | 说明           | 平台      |
+| -------------------------------------------------------------- | -------------- | --------- |
+| [sdk.history.show](#sdkhistoryshow)                            | 显示历史       | `PC only` |
+| [sdk.history.hide](#sdkhistoryhide)                            | 隐藏历史       | `PC only` |
+| [sdk.comments.show](#sdkcommentsshowtype)                      | 显示评论       | `PC only` |
+| [sdk.comments.hide](#sdkcommentshidetype)                      | 隐藏评论       | `PC only` |
+| [sdk.version.createRevision](#sdkversioncreaterevisionoptions) | 创建版本       | `PC only` |
+| [sdk.presentation](#sdkpresentation)                           | 演示模式能力   | `PC only` |
+| [sdk.slides](#sdkslides)                                       | 幻灯片集合能力 | `PC only` |
+| [sdk.slides.slide](#sdkslidesslide)                            | 单个幻灯片能力 | `PC only` |
+| [sdk.selection](#sdkselection)                                 | 选区能力       | `PC only` |
+| [sdk.selection.textRange](#sdkselectiontextrange)              | 文本范围能力   | `PC only` |
+| [sdk.text](#sdktext)                                           | 文本格式能力   | `PC only` |
+| [sdk.zoom](#sdkzoom)                                           | 缩放能力       | `PC only` |
+| [sdk.eventSubscription](#sdkeventsubscription)                 | 事件订阅能力   | `PC only` |
+| [sdk.batchChanges](#sdkbatchchangescallback)                   | 批量变更       | `PC only` |
+| [sdk.print](#sdkprint)                                         | 打印           | `PC only` |
+| [sdk.export](#sdkexporttype)                                   | 导出           | `PC only` |
 
 ---
 
@@ -50,20 +55,10 @@ await sdk.version?.createRevision()
 
 显示演示文稿历史侧边栏。
 
-`PC only`
-
 #### 类型定义
 
 ```typescript
 sdk.history?.show(): Promise<void>
-```
-
-#### 示例
-
-```typescript
-const sdk = await connect(options)
-
-await sdk.history?.show()
 ```
 
 ---
@@ -74,20 +69,10 @@ await sdk.history?.show()
 
 隐藏演示文稿历史侧边栏。
 
-`PC only`
-
 #### 类型定义
 
 ```typescript
 sdk.history?.hide(): Promise<void>
-```
-
-#### 示例
-
-```typescript
-const sdk = await connect(options)
-
-await sdk.history?.hide()
 ```
 
 ---
@@ -98,24 +83,10 @@ await sdk.history?.hide()
 
 显示评论能力入口。
 
-`PC only`
-
 #### 类型定义
 
 ```typescript
 sdk.comments?.show(type?: 'list' | 'card'): Promise<void>
-```
-
-#### 参数
-
-- `type`: 可选的评论展示类型
-
-#### 示例
-
-```typescript
-const sdk = await connect(options)
-
-await sdk.comments?.show()
 ```
 
 ---
@@ -126,24 +97,10 @@ await sdk.comments?.show()
 
 隐藏评论能力入口。
 
-`PC only`
-
 #### 类型定义
 
 ```typescript
 sdk.comments?.hide(type?: 'list' | 'card'): Promise<void>
-```
-
-#### 参数
-
-- `type`: 可选的评论展示类型
-
-#### 示例
-
-```typescript
-const sdk = await connect(options)
-
-await sdk.comments?.hide()
 ```
 
 ---
@@ -154,124 +111,222 @@ await sdk.comments?.hide()
 
 创建演示文稿版本。
 
-`PC only`
-
 #### 类型定义
 
 ```typescript
 sdk.version?.createRevision(options?: { name?: string }): Promise<void>
 ```
 
-#### 参数
-
-- `options`: 可选的版本参数
-
-#### 示例
-
-```typescript
-const sdk = await connect(options)
-
-await sdk.version?.createRevision({ name: 'presentation-v1' })
-```
-
 ---
 
-### sdk.presentation.start(index?)
+### sdk.presentation
 
 #### 说明
 
-启动演示文稿演示模式。
-
-`PC only`
+演示模式能力。
 
 #### 类型定义
 
 ```typescript
-sdk.presentation?.start(index?: number): Promise<void>
+sdk.presentation?.start(index?)
+sdk.presentation?.quit()
+sdk.presentation?.startFromCurrent()
+sdk.presentation?.startSpeakerView()
 ```
 
-#### 参数
+#### 说明补充
 
-- `index`: 可选的起始位置参数
-
-#### 示例
-
-```typescript
-const sdk = await connect(options)
-
-await sdk.presentation?.start()
-```
+- `sdk.presentation?.startRemoteLive()` 当前未在 `presentation` 套件承接
 
 ---
 
-### sdk.presentation.quit()
+### sdk.slides
 
 #### 说明
 
-退出演示模式。
-
-`PC only`
+幻灯片集合能力。
 
 #### 类型定义
 
 ```typescript
-sdk.presentation?.quit(): Promise<void>
-```
-
-#### 示例
-
-```typescript
-const sdk = await connect(options)
-
-await sdk.presentation?.quit()
-```
-
----
-
-### sdk.presentation.startFromCurrent()
-
-#### 说明
-
-从当前页开始演示。
-
-`PC only`
-
-#### 类型定义
-
-```typescript
-sdk.presentation?.startFromCurrent(): Promise<void>
-```
-
-#### 示例
-
-```typescript
-const sdk = await connect(options)
-
-await sdk.presentation?.startFromCurrent()
+sdk.slides?.getCurrentSlide()
+sdk.slides?.setCurrentSlideIndex(slideId)
+sdk.slides?.getSlideIndex(slideId)
+sdk.slides?.getSlidesCount()
+sdk.slides?.getSlides()
+sdk.slides?.getSlideById(slideId)
+sdk.slides?.getSelectedSlides(ids?)
+sdk.slides?.setSelectedSlides(ids)
+sdk.slides?.addSlide()
+sdk.slides?.duplicateSlide(slideId)
+sdk.slides?.deleteSlide(slideId)
+sdk.slides?.hideSlide(slideId)
 ```
 
 ---
 
-### sdk.presentation.startSpeakerView()
+### sdk.slides.slide
 
 #### 说明
 
-启动演讲者视图。
-
-`PC only`
+`sdk.slides` 返回的单个幻灯片对象能力。
 
 #### 类型定义
 
 ```typescript
-sdk.presentation?.startSpeakerView(): Promise<void>
+slide.id
+slide.getIndex()
+slide.getShapes()
+slide.getTables()
+slide.insertShape(options)
+slide.insertTextBox(options)
+slide.insertTable(options)
+slide.insertImage(image, size?, offset?)
+slide.insertAudio(data, size?, offset?, name?)
+slide.insertVideo(data, size?, offset?, name?)
+slide.insertAttachment(file, size?, offset?, name?)
 ```
 
-#### 示例
+---
+
+### sdk.selection
+
+#### 说明
+
+演示文稿选区能力。
+
+#### 类型定义
 
 ```typescript
-const sdk = await connect(options)
+sdk.selection?.getTextRange(value?)
+sdk.selection?.setTextRange(value)
+sdk.selection?.getSelectedShapes(ids?)
+sdk.selection?.setSelectedShapes(ids)
+sdk.selection?.addRangeListener(listener)
+```
 
-await sdk.presentation?.startSpeakerView()
+---
+
+### sdk.selection.textRange
+
+#### 说明
+
+`sdk.selection.getTextRange()` 返回的文本范围对象能力。
+
+#### 类型定义
+
+```typescript
+range.start
+range.end
+range.getText()
+range.setText(text)
+range.getHtml()
+range.setHtml(html)
+range.getBounding()
+range.setStyle(style)
+range.setVerticalAlign(vertical)
+range.setHorizontalAlign(align)
+range.setListStyle(style)
+range.setLineSpacing(spacing)
+range.increaseIndent()
+range.decreaseIndent()
+range.setTextDirection(direction)
+range.clearStyle()
+range.clearContent()
+range.clearAll()
+range.insertLink(url, text)
+```
+
+---
+
+### sdk.text
+
+#### 说明
+
+文本格式能力。
+
+#### 类型定义
+
+```typescript
+sdk.text?.get(range?)
+sdk.text?.apply(format, range?)
+sdk.text?.clear(range)
+```
+
+---
+
+### sdk.zoom
+
+#### 说明
+
+缩放能力。
+
+#### 类型定义
+
+```typescript
+sdk.zoom?.getPercentage()
+sdk.zoom?.setPercentage(percentage)
+sdk.zoom?.setFitMode(mode)
+sdk.zoom?.getFitMode()
+sdk.zoom?.zoomIn()
+sdk.zoom?.zoomOut()
+```
+
+---
+
+### sdk.eventSubscription
+
+#### 说明
+
+事件订阅能力。
+
+#### 类型定义
+
+```typescript
+sdk.eventSubscription?.addErrorListener(listener)
+sdk.eventSubscription?.addLoadedListener(listener)
+```
+
+---
+
+### sdk.batchChanges(callback)
+
+#### 说明
+
+将一组演示文稿变更放在同一个批处理中执行。
+
+#### 类型定义
+
+```typescript
+sdk.batchChanges?.<T>(callback: () => T | Promise<T>): Promise<Awaited<T>>
+```
+
+---
+
+### sdk.print
+
+#### 说明
+
+打印演示文稿。
+
+#### 类型定义
+
+```typescript
+sdk.print?.(): Promise<void>
+```
+
+---
+
+### sdk.export(type)
+
+#### 说明
+
+导出演示文稿。
+
+#### 类型定义
+
+```typescript
+sdk.export?.(type: string): Promise<void>
 ```
 
 ---
@@ -279,4 +334,5 @@ await sdk.presentation?.startSpeakerView()
 ## 兼容说明
 
 - 本页仅描述根级 facade 的调用方式
+- 本页新增接口均为 `PC only`
 - `sdk.presentation?.startRemoteLive()` 当前未在 `presentation` 套件承接，不应视为已支持接口

@@ -102,6 +102,7 @@ const HEADER_BARS_METHOD = {
   handleCommandClick: 'headerBars.handleCommandClick'
 } as const
 const HEADER_BARS_CHANGED_EVENT = 'headerBars:changed'
+const EDITOR_FACADE_CALLBACK_METHOD = 'editorFacade.handleCallback'
 const SLASH_MENU_METHOD = {
   handleButtonClick: 'slashMenu.handleButtonClick'
 } as const
@@ -203,6 +204,332 @@ export interface PresentationFacade {
   startRemoteLive: () => Promise<void>
   startSpeakerView: () => Promise<void>
 }
+
+export interface DocsRangeFacade {
+  start: number
+  end: number
+  isCaret: boolean
+  getText: () => Promise<string>
+  getHtml: () => Promise<string>
+  setText: (text: string) => Promise<void>
+  setHtml: (html: string) => Promise<void>
+  getBounding: () => Promise<unknown>
+  setStyle: (style: unknown) => Promise<void>
+  continueWriting: (
+    content: string,
+    type: unknown,
+    abort?: () => void
+  ) => Promise<boolean>
+  setListStyle: (style: unknown) => Promise<void>
+  insertLink: (
+    href: string,
+    text: string,
+    viewType: 'link' | 'card' | 'preview'
+  ) => Promise<void>
+  insertImage: (data: File | string) => Promise<void>
+  insertAttachment: (
+    data: File,
+    viewType: 'link' | 'card' | 'preview'
+  ) => Promise<void>
+  setParagraphType: (type: unknown) => Promise<void>
+  clearStyle: () => Promise<void>
+  clearContent: () => Promise<void>
+  clearAll: () => Promise<void>
+  insertHorizontalRule: () => Promise<void>
+  insertQuote: () => Promise<void>
+}
+
+export interface DocsSelectionFacade {
+  getRange: (value?: unknown) => Promise<DocsRangeFacade | null>
+  setRange: (value: unknown | null) => Promise<void>
+  addRangeListener: (listener: (value: unknown | null) => void) => () => void
+  getWholeRange: () => Promise<DocsRangeFacade | null>
+  insertText: (text: string) => Promise<unknown>
+  insertHtml: (html: string) => Promise<unknown>
+  insertTable: (
+    rowCount: number,
+    columnCount: number
+  ) => Promise<{ tableId: string }>
+  insertCodeBlock: (options?: unknown) => Promise<void>
+}
+
+export interface DocsSearchFacade {
+  findOne: (params: unknown) => Promise<unknown>
+  findAll: (params: unknown) => Promise<unknown>
+  replaceOne: (id: string, params: unknown) => Promise<unknown>
+  replaceAll: (params: unknown) => Promise<void>
+  clear: () => Promise<void>
+}
+
+export interface DocsTOCsFacade {
+  getOpen: () => Promise<boolean>
+  setOpen: (isOpen: boolean) => Promise<void>
+  getAll: () => Promise<unknown[]>
+  getOne: (id: string) => Promise<unknown>
+  deleteAll: () => Promise<boolean>
+  deleteOne: (id: string) => Promise<boolean>
+  add: (item: unknown) => Promise<boolean>
+}
+
+export interface DocsSidebarFacade {
+  show: (tab?: string) => Promise<void>
+  close: () => Promise<void>
+  getState: () => Promise<unknown>
+}
+
+export interface DocsTableCellFacade {
+  tableId: string
+  row: number
+  column: number
+  setFormula: (formula: 'sum' | 'average', ranges: unknown[]) => Promise<void>
+  removeFormula: () => Promise<void>
+  setStyle: (style: unknown) => Promise<void>
+  clearStyle: () => Promise<void>
+}
+
+export interface DocsTableRangeFacade {
+  tableId: string
+  selection: unknown
+  setStyle: (style: unknown) => Promise<void>
+  clearStyle: () => Promise<void>
+  setSpan: () => Promise<void>
+  removeSpan: () => Promise<void>
+}
+
+export interface DocsTableFacade {
+  tableId: string
+  insertRows: (
+    index: number,
+    count: number,
+    placement?: unknown
+  ) => Promise<void>
+  insertColumns: (
+    index: number,
+    count: number,
+    placement?: unknown
+  ) => Promise<void>
+  deleteRows: (index: number, count: number) => Promise<void>
+  deleteColumns: (index: number, count: number) => Promise<void>
+  setRowHeight: (index: number, height: number) => Promise<void>
+  setColumnWidth: (index: number, width: number) => Promise<void>
+  setFullscreen: (status: boolean) => Promise<void>
+  getCell: (row: number, column: number) => Promise<DocsTableCellFacade | null>
+  getRange: (selection: unknown) => Promise<DocsTableRangeFacade | null>
+}
+
+export interface DocsTablesFacade {
+  getAll: () => Promise<DocsTableFacade[]>
+  getOne: (tableId: string) => Promise<DocsTableFacade | null>
+  deleteOne: (tableId: string) => Promise<boolean>
+}
+
+export interface DocsSettingsFacade {
+  getPageWidth: () => Promise<unknown>
+  setPageWidth: (width: unknown) => Promise<void>
+  getDefaultStyle: () => Promise<unknown>
+  setDefaultStyle: (style: Partial<Record<string, unknown>>) => Promise<void>
+}
+
+export interface SheetRangeFacade {
+  sheetId?: string
+  row: number
+  column: number
+  rowCount: number
+  columnCount: number
+  getText: (format?: unknown) => Promise<string | string[][]>
+  setText: (text: unknown) => Promise<void>
+  getHtml: () => Promise<string>
+  setHtml: (html: string) => Promise<void>
+  getValue: () => Promise<unknown[][]>
+  setValue: (values: unknown[][]) => Promise<void>
+  getData: () => Promise<unknown[][]>
+  getFormula: () => Promise<(string | null)[][]>
+  setFormula: (formula: (string | null)[][]) => Promise<void>
+  setData: (data: unknown[][]) => Promise<void>
+  setSpan: () => Promise<void>
+  removeSpan: () => Promise<void>
+  getSpans: () => Promise<unknown>
+  clearContent: () => Promise<void>
+  clearStyle: () => Promise<void>
+  clearAll: () => Promise<void>
+}
+
+export interface SheetCellFacade {
+  sheetId?: string
+  row: number
+  column: number
+  getCellText: () => Promise<string>
+  setCellText: (text: string) => Promise<void>
+  getCellValue: () => Promise<unknown>
+  getCellData: () => Promise<unknown>
+  getCellFormula: () => Promise<string | null>
+  setCellFormula: (formula: string) => Promise<void>
+  setCellValue: (value: unknown) => Promise<void>
+  setCellData: (data: unknown) => Promise<void>
+  setCheckbox: (checked: boolean) => Promise<void>
+  setScore: (score: 0 | 1 | 2 | 3 | 4 | 5) => Promise<void>
+  setProgress: (progress: number) => Promise<void>
+  insertImage: (data: File | string) => Promise<void>
+  insertMention: (userId: number, userName: string) => Promise<void>
+  insertAttachmentLink: (data: File) => Promise<void>
+  clearContent: () => Promise<void>
+  clearStyle: () => Promise<void>
+  clearAll: () => Promise<void>
+}
+
+export interface SheetWorksheetFacade {
+  id?: string
+  name?: string
+  getSelections: () => Promise<unknown[] | null>
+  getRange: (value: unknown) => Promise<SheetRangeFacade | null>
+  addRangeListener: (listener: (value: unknown) => void) => () => void
+  getBounding: (range: unknown) => Promise<unknown>
+  locateCell: (row: number, column: number) => Promise<void>
+  getCell: (row: number, column: number) => Promise<SheetCellFacade | null>
+  getActiveCell: () => Promise<SheetCellFacade | null>
+  setActiveCell: (options: { row: number; column: number }) => Promise<void>
+  search: (text: string, range?: unknown) => Promise<unknown>
+  cancelSearch: () => Promise<void>
+  paste: (params: unknown) => Promise<void>
+  getViewportSize: () => Promise<{ width: number; height: number }>
+  endEdit: () => Promise<void>
+  addRows: (index: number, count: number) => Promise<void>
+  addColumns: (index: number, count: number) => Promise<void>
+  deleteRows: (index: number, count: number) => Promise<void>
+  deleteColumns: (index: number, count: number) => Promise<void>
+  appendData: (data: unknown[][], axis?: unknown) => Promise<void>
+  setRowsHeight: (data: Array<{ row: number; height: number }>) => Promise<void>
+  setColumnsWidth: (
+    data: Array<{ column: number; width: number }>
+  ) => Promise<void>
+  setRowsVisible: (rows: number[], visible: boolean) => Promise<void>
+  setColumnsVisible: (columns: number[], visible: boolean) => Promise<void>
+  setFrozenRowCount: (count: number) => Promise<void>
+  setFrozenColumnCount: (count: number) => Promise<void>
+  setTabColor: (color: string) => Promise<void>
+  rename: (name: string) => Promise<void>
+  setVisible: (visible: boolean) => Promise<void>
+}
+
+export interface SheetWorkbookFacade {
+  getWorksheets: () => Promise<SheetWorksheetFacade[]>
+  getWorksheetById: (sheetId: string) => Promise<SheetWorksheetFacade | null>
+  getActiveWorksheet: () => Promise<SheetWorksheetFacade>
+  setActiveWorksheet: (sheetId: string) => Promise<void>
+  save: () => Promise<unknown>
+  addWorksheet: (name?: string, index?: number) => Promise<void>
+  deleteWorksheet: (sheetId: string) => Promise<void>
+  moveWorksheet: (sheetId: string, index: number) => Promise<void>
+}
+
+export interface SheetChartsFacade {
+  addChartFromSelection: (params?: unknown) => Promise<unknown>
+}
+
+export interface SheetSelectionsFacade {
+  getAll: () => Promise<unknown[]>
+}
+
+export interface PresentationSlideFacade {
+  id: string
+  getIndex: () => Promise<number>
+  getShapes: () => Promise<unknown[]>
+  getTables: () => Promise<unknown[]>
+  insertShape: (options: unknown) => Promise<void>
+  insertTextBox: (options: unknown) => Promise<void>
+  insertTable: (options: unknown) => Promise<void>
+  insertImage: (image: File, size?: unknown, offset?: unknown) => Promise<void>
+  insertAudio: (
+    data: File,
+    size?: unknown,
+    offset?: unknown,
+    name?: string
+  ) => Promise<void>
+  insertVideo: (
+    data: File,
+    size?: unknown,
+    offset?: unknown,
+    name?: string
+  ) => Promise<void>
+  insertAttachment: (
+    file: File,
+    size?: unknown,
+    offset?: unknown,
+    name?: string
+  ) => Promise<void>
+}
+
+export interface PresentationSlidesFacade {
+  getCurrentSlide: () => Promise<PresentationSlideFacade>
+  setCurrentSlideIndex: (slideId: string) => Promise<void>
+  getSlideIndex: (slideId: string) => Promise<number>
+  getSlidesCount: () => Promise<number>
+  getSlides: () => Promise<PresentationSlideFacade[]>
+  getSlideById: (slideId: string) => Promise<PresentationSlideFacade | null>
+  getSelectedSlides: (ids?: string[]) => Promise<PresentationSlideFacade[]>
+  setSelectedSlides: (ids: string[]) => Promise<void>
+  addSlide: () => Promise<PresentationSlideFacade>
+  duplicateSlide: (slideId: string) => Promise<PresentationSlideFacade>
+  deleteSlide: (slideId: string) => Promise<void>
+  hideSlide: (slideId: string) => Promise<void>
+}
+
+export interface PresentationTextRangeFacade {
+  start: string
+  end: string
+  getText: () => Promise<string>
+  setText: (text: string) => Promise<void>
+  getHtml: () => Promise<string>
+  setHtml: (html: string) => Promise<void>
+  getBounding: () => Promise<unknown>
+  setStyle: (style: unknown) => Promise<void>
+  setVerticalAlign: (vertical: unknown) => Promise<void>
+  setHorizontalAlign: (align: unknown) => Promise<void>
+  setListStyle: (style: unknown) => Promise<void>
+  setLineSpacing: (spacing: unknown) => Promise<void>
+  increaseIndent: () => Promise<void>
+  decreaseIndent: () => Promise<void>
+  setTextDirection: (direction: 'ltr' | 'rtl') => Promise<void>
+  clearStyle: () => Promise<void>
+  clearContent: () => Promise<void>
+  clearAll: () => Promise<void>
+  insertLink: (url: string, text: string) => Promise<void>
+}
+
+export interface PresentationSelectionFacade {
+  getTextRange: (value?: unknown) => Promise<PresentationTextRangeFacade | null>
+  setTextRange: (value: unknown | null) => Promise<void>
+  getSelectedShapes: (ids?: string[]) => Promise<unknown[] | null>
+  setSelectedShapes: (ids: string[] | null) => Promise<void>
+  addRangeListener: (listener: (value: unknown | null) => void) => () => void
+}
+
+export interface PresentationTextFacade {
+  get: (range?: unknown) => Promise<Partial<Record<string, unknown>>>
+  apply: (
+    format: Partial<Record<string, unknown>>,
+    range?: unknown
+  ) => Promise<Partial<Record<string, unknown>>>
+  clear: (range: unknown) => Promise<void>
+}
+
+export interface PresentationZoomFacade {
+  getPercentage: () => Promise<number>
+  setPercentage: (percentage: number) => Promise<void>
+  setFitMode: (mode: 'none' | 'window') => Promise<void>
+  getFitMode: () => Promise<'none' | 'window'>
+  zoomIn: () => Promise<void>
+  zoomOut: () => Promise<void>
+}
+
+export interface PresentationEventSubscriptionFacade {
+  addErrorListener: (
+    listener: (error: { code: number | string; message?: string }) => void
+  ) => () => void
+  addLoadedListener: (listener: () => void) => () => void
+}
+
+type EditorFacadeCallback = (...args: unknown[]) => unknown | Promise<unknown>
 
 interface HeaderBarsChangedPayload {
   reason?: string
@@ -318,6 +645,96 @@ export class OfficeSDK extends TinyEmitter {
   presentation?: PresentationFacade
 
   /**
+   * 当前套件支持的选区能力。
+   */
+  selection?: DocsSelectionFacade | PresentationSelectionFacade
+
+  /**
+   * 当前套件支持的搜索能力。
+   */
+  search?: DocsSearchFacade
+
+  /**
+   * 当前套件支持的目录能力。
+   */
+  TOCs?: DocsTOCsFacade
+
+  /**
+   * 当前套件支持的侧边栏能力。
+   */
+  sidebar?: DocsSidebarFacade
+
+  /**
+   * 当前套件支持的表格集合能力。
+   */
+  tables?: DocsTablesFacade
+
+  /**
+   * 当前套件支持的设置能力。
+   */
+  settings?: DocsSettingsFacade
+
+  /**
+   * 当前套件支持的工作簿能力。
+   */
+  workbook?: SheetWorkbookFacade
+
+  /**
+   * 当前套件支持的当前工作表能力。
+   */
+  activeSheet?: SheetWorksheetFacade
+
+  /**
+   * 当前套件支持的图表能力。
+   */
+  charts?: SheetChartsFacade
+
+  /**
+   * 当前套件支持的多选区能力。
+   */
+  selections?: SheetSelectionsFacade
+
+  /**
+   * 当前套件支持的幻灯片集合能力。
+   */
+  slides?: PresentationSlidesFacade
+
+  /**
+   * 当前套件支持的文本能力。
+   */
+  text?: PresentationTextFacade
+
+  /**
+   * 当前套件支持的缩放能力。
+   */
+  zoom?: PresentationZoomFacade
+
+  /**
+   * 当前套件支持的事件订阅能力。
+   */
+  eventSubscription?: PresentationEventSubscriptionFacade
+
+  /**
+   * 当前套件支持的批量变更能力。
+   */
+  batchChanges?: <T>(callback: () => T | Promise<T>) => Promise<Awaited<T>>
+
+  /**
+   * 当前套件支持的导出能力。
+   */
+  export?: (type: string) => Promise<void>
+
+  /**
+   * 当前套件支持的打印能力。
+   */
+  print?: () => Promise<void>
+
+  /**
+   * 当前套件支持的聚焦能力。
+   */
+  setFocus?: (isFocus: boolean) => Promise<void>
+
+  /**
    * 应用表格编辑器实例
    * @deprecated - 用 `sdk.getEditor<T>()` 替代
    */
@@ -376,6 +793,10 @@ export class OfficeSDK extends TinyEmitter {
   >()
 
   private readonly slashMenuCallbacks = new Map<string, () => void>()
+  private readonly editorFacadeCallbacks = new Map<
+    string,
+    EditorFacadeCallback
+  >()
 
   private readonly headerBarsCommandRefs = new Map<
     string,
@@ -679,6 +1100,7 @@ export class OfficeSDK extends TinyEmitter {
 
   disconnect() {
     this.slashMenuCallbacks.clear()
+    this.editorFacadeCallbacks.clear()
     if (this.element?.parentElement instanceof HTMLElement) {
       this.element.parentElement.removeChild(this.element)
     }
@@ -765,6 +1187,16 @@ export class OfficeSDK extends TinyEmitter {
     }
 
     this.installRootFacade()
+  }
+
+  /**
+   * 等待 SDK 进入 Ready 状态。若已 ready，则直接返回。
+   */
+  async ready() {
+    if (this.readyState === ReadyState.Ready) {
+      return
+    }
+    await this.init()
   }
 
   private async initIframe() {
@@ -1108,6 +1540,21 @@ export class OfficeSDK extends TinyEmitter {
         }
         await Promise.resolve(handler())
         return true
+      },
+      { audience: AUD }
+    )
+
+    channel.addInvokeHandler(
+      EDITOR_FACADE_CALLBACK_METHOD,
+      async (callbackId: string, args: unknown[] = []) => {
+        const handler = this.editorFacadeCallbacks.get(callbackId)
+        if (typeof handler !== 'function') {
+          console.error(
+            `[editorFacade] callback not found: ${String(callbackId)}`
+          )
+          return undefined
+        }
+        return await Promise.resolve(handler(...args))
       },
       { audience: AUD }
     )
@@ -1615,6 +2062,269 @@ export class OfficeSDK extends TinyEmitter {
   }
 
   /**
+   * 注册一个可供 iframe 侧反向调用的 facade callback。
+   * 输入：宿主侧 callback。
+   * 输出：供跨窗协议使用的 callbackId。
+   */
+  private registerEditorFacadeCallback(callback: EditorFacadeCallback) {
+    const callbackId = `editor-facade:${uuid()}`
+    this.editorFacadeCallbacks.set(callbackId, callback)
+    return callbackId
+  }
+
+  /**
+   * 注销已注册的 facade callback。
+   * 输入：callbackId。
+   * 输出：无。
+   */
+  private unregisterEditorFacadeCallback(callbackId: string) {
+    this.editorFacadeCallbacks.delete(callbackId)
+  }
+
+  /**
+   * 创建基于 method-path 的模块 facade。
+   * 输入：模块前缀与少量自定义实现覆盖。
+   * 输出：其余方法按 `${prefix}.${method}` 自动桥接。
+   */
+  private createEditorFacadeModule<T extends object>(
+    prefix: string,
+    overrides: Partial<T>
+  ): T {
+    return new Proxy(overrides as T, {
+      get: (target, prop) => {
+        if (typeof prop !== 'string') {
+          return undefined
+        }
+        if (Object.prototype.hasOwnProperty.call(target, prop)) {
+          return target[prop as keyof T]
+        }
+        return async (...args: unknown[]) =>
+          await this.invokeEditorFacade(`${prefix}.${prop}`, args)
+      }
+    })
+  }
+
+  /**
+   * 为 value-based locator 创建本地对象 facade。
+   * 输入：method-path 前缀、locator 和静态属性。
+   * 输出：支持继续远程调用的本地 facade。
+   */
+  private createValueObjectFacade<T extends object>(
+    prefix: string,
+    locator: Record<string, unknown>,
+    staticFields: Partial<T>
+  ): T {
+    return new Proxy(staticFields as T, {
+      get: (target, prop) => {
+        if (typeof prop !== 'string') {
+          return undefined
+        }
+        if (Object.prototype.hasOwnProperty.call(target, prop)) {
+          return target[prop as keyof T]
+        }
+        return async (...args: unknown[]) =>
+          await this.invokeEditorFacade(`${prefix}.${prop}`, [locator, ...args])
+      }
+    })
+  }
+
+  /**
+   * 注册一个基于 callback 协议的 listener。
+   * 输入：注册方法名与监听器。
+   * 输出：供宿主侧取消注册的函数。
+   */
+  private registerEditorFacadeListener<T>(
+    method: string,
+    listener: (payload: T) => void
+  ): () => void {
+    const callbackId = this.registerEditorFacadeCallback(async (payload: T) =>
+      listener(payload)
+    )
+    this.invokeEditorFacade(method, [callbackId]).catch((err: unknown) => {
+      this.emit(
+        Event.Error,
+        err instanceof Error
+          ? err
+          : new Error(`register editor facade listener failed: ${String(err)}`)
+      )
+    })
+    return () => {
+      this.unregisterEditorFacadeCallback(callbackId)
+    }
+  }
+
+  private createDocsRangeFacade(
+    locator: { start: number; end: number } | null | undefined
+  ): DocsRangeFacade | null {
+    if (!locator) {
+      return null
+    }
+    return this.createValueObjectFacade<DocsRangeFacade>(
+      'selection.range',
+      locator,
+      {
+        start: locator.start,
+        end: locator.end,
+        isCaret: locator.start === locator.end
+      }
+    )
+  }
+
+  private createDocsTableFacade(locator: { tableId: string }): DocsTableFacade {
+    return this.createValueObjectFacade<DocsTableFacade>(
+      'tables.item',
+      locator,
+      {
+        tableId: locator.tableId,
+        getCell: async (row: number, column: number) => {
+          const nextLocator = await this.invokeEditorFacade<{
+            tableId: string
+            row: number
+            column: number
+          } | null>('tables.item.getCell', [locator, row, column])
+          if (!nextLocator) {
+            return null
+          }
+          return this.createValueObjectFacade<DocsTableCellFacade>(
+            'tables.cell',
+            nextLocator,
+            {
+              tableId: nextLocator.tableId,
+              row: nextLocator.row,
+              column: nextLocator.column
+            }
+          )
+        },
+        getRange: async (selection: unknown) => {
+          const nextLocator = await this.invokeEditorFacade<{
+            tableId: string
+            selection: unknown
+          } | null>('tables.item.getRange', [locator, selection])
+          if (!nextLocator) {
+            return null
+          }
+          return this.createValueObjectFacade<DocsTableRangeFacade>(
+            'tables.range',
+            nextLocator,
+            {
+              tableId: nextLocator.tableId,
+              selection: nextLocator.selection
+            }
+          )
+        }
+      }
+    )
+  }
+
+  private createSheetRangeFacade(
+    locator:
+      | {
+          sheetId?: string
+          row: number
+          column: number
+          rowCount: number
+          columnCount: number
+        }
+      | null
+      | undefined
+  ): SheetRangeFacade | null {
+    if (!locator) {
+      return null
+    }
+    return this.createValueObjectFacade<SheetRangeFacade>(
+      'sheet.range',
+      locator,
+      locator
+    )
+  }
+
+  private createSheetCellFacade(
+    locator:
+      | { sheetId?: string; row: number; column: number }
+      | null
+      | undefined
+  ): SheetCellFacade | null {
+    if (!locator) {
+      return null
+    }
+    return this.createValueObjectFacade<SheetCellFacade>(
+      'sheet.cell',
+      locator,
+      locator
+    )
+  }
+
+  private createSheetWorksheetFacade(locator: {
+    sheetId?: string
+    id?: string
+    name?: string
+    active?: boolean
+  }): SheetWorksheetFacade {
+    return this.createValueObjectFacade<SheetWorksheetFacade>(
+      'sheet.worksheet',
+      locator,
+      {
+        id: locator.id,
+        name: locator.name,
+        getRange: async (value: unknown) => {
+          const rangeLocator = await this.invokeEditorFacade<{
+            sheetId?: string
+            row: number
+            column: number
+            rowCount: number
+            columnCount: number
+          } | null>('sheet.worksheet.getRange', [locator, value])
+          return this.createSheetRangeFacade(rangeLocator)
+        },
+        getCell: async (row: number, column: number) => {
+          const cellLocator = await this.invokeEditorFacade<{
+            sheetId?: string
+            row: number
+            column: number
+          } | null>('sheet.worksheet.getCell', [locator, row, column])
+          return this.createSheetCellFacade(cellLocator)
+        },
+        getActiveCell: async () => {
+          const cellLocator = await this.invokeEditorFacade<{
+            sheetId?: string
+            row: number
+            column: number
+          } | null>('sheet.worksheet.getActiveCell', [locator])
+          return this.createSheetCellFacade(cellLocator)
+        }
+      }
+    )
+  }
+
+  private createPresentationTextRangeFacade(
+    locator: { start: string; end: string } | null | undefined
+  ): PresentationTextRangeFacade | null {
+    if (!locator) {
+      return null
+    }
+    return this.createValueObjectFacade<PresentationTextRangeFacade>(
+      'selection.textRange',
+      locator,
+      {
+        start: locator.start,
+        end: locator.end
+      }
+    )
+  }
+
+  private createPresentationSlideFacade(locator: {
+    slideId: string
+  }): PresentationSlideFacade {
+    return this.createValueObjectFacade<PresentationSlideFacade>(
+      'slides.slide',
+      locator,
+      {
+        id: locator.slideId
+      }
+    )
+  }
+
+  /**
    * 按当前套件挂载根级能力命名空间。
    * 输入：无，读取当前 fileType。
    * 输出：直接更新 SDK 实例上的根级 facade 字段。
@@ -1712,6 +2422,172 @@ export class OfficeSDK extends TinyEmitter {
         await this.invokeEditorFacade('presentation.startSpeakerView')
       }
     }
+    const batchChangesFacade = async <T>(
+      callback: () => T | Promise<T>
+    ): Promise<Awaited<T>> => {
+      const callbackId = this.registerEditorFacadeCallback(callback)
+      try {
+        return await this.invokeEditorFacade('batchChanges', [callbackId])
+      } finally {
+        this.unregisterEditorFacadeCallback(callbackId)
+      }
+    }
+    const printFacade = async () => {
+      await this.invokeEditorFacade('print')
+    }
+    const exportFacade = async (type: string) => {
+      await this.invokeEditorFacade('export', [type])
+    }
+    const setFocusFacade = async (isFocus: boolean) => {
+      await this.invokeEditorFacade('setFocus', [isFocus])
+    }
+    const docsSelectionFacade =
+      this.createEditorFacadeModule<DocsSelectionFacade>('selection', {
+        getRange: async (value?: unknown) => {
+          const locator = await this.invokeEditorFacade<{
+            start: number
+            end: number
+          } | null>(
+            'selection.getRange',
+            typeof value === 'undefined' ? [] : [value]
+          )
+          return this.createDocsRangeFacade(locator)
+        },
+        getWholeRange: async () => {
+          const locator = await this.invokeEditorFacade<{
+            start: number
+            end: number
+          } | null>('selection.getWholeRange')
+          return this.createDocsRangeFacade(locator)
+        },
+        addRangeListener: (listener: (payload: unknown) => void) =>
+          this.registerEditorFacadeListener(
+            'selection.addRangeListener',
+            listener
+          )
+      })
+    const docsTablesFacade = this.createEditorFacadeModule<DocsTablesFacade>(
+      'tables',
+      {
+        getAll: async () => {
+          const tables = await this.invokeEditorFacade<
+            Array<{ tableId: string }>
+          >('tables.getAll')
+          return tables.map((table) => this.createDocsTableFacade(table))
+        },
+        getOne: async (tableId: string) => {
+          const table = await this.invokeEditorFacade<{
+            tableId: string
+          } | null>('tables.getOne', [tableId])
+          return table ? this.createDocsTableFacade(table) : null
+        }
+      }
+    )
+    const sheetWorkbookFacade =
+      this.createEditorFacadeModule<SheetWorkbookFacade>('workbook', {
+        getWorksheets: async () => {
+          const worksheets = await this.invokeEditorFacade<
+            Array<{ sheetId?: string; id?: string; name?: string }>
+          >('workbook.getWorksheets')
+          return worksheets.map((sheet) =>
+            this.createSheetWorksheetFacade(sheet)
+          )
+        },
+        getWorksheetById: async (sheetId: string) => {
+          const worksheet = await this.invokeEditorFacade<{
+            sheetId?: string
+            id?: string
+            name?: string
+          } | null>('workbook.getWorksheetById', [sheetId])
+          return worksheet ? this.createSheetWorksheetFacade(worksheet) : null
+        },
+        getActiveWorksheet: async () => {
+          const worksheet = await this.invokeEditorFacade<{
+            sheetId?: string
+            id?: string
+            name?: string
+            active?: boolean
+          }>('workbook.getActiveWorksheet')
+          return this.createSheetWorksheetFacade(worksheet)
+        }
+      })
+    const presentationSlidesFacade =
+      this.createEditorFacadeModule<PresentationSlidesFacade>('slides', {
+        getCurrentSlide: async () => {
+          const slide = await this.invokeEditorFacade<{ slideId: string }>(
+            'slides.getCurrentSlide'
+          )
+          return this.createPresentationSlideFacade(slide)
+        },
+        getSlides: async () => {
+          const slides = await this.invokeEditorFacade<
+            Array<{ slideId: string }>
+          >('slides.getSlides')
+          return slides.map((slide) =>
+            this.createPresentationSlideFacade(slide)
+          )
+        },
+        getSlideById: async (slideId: string) => {
+          const slide = await this.invokeEditorFacade<{
+            slideId: string
+          } | null>('slides.getSlideById', [slideId])
+          return slide ? this.createPresentationSlideFacade(slide) : null
+        },
+        getSelectedSlides: async (ids?: string[]) => {
+          const slides = await this.invokeEditorFacade<
+            Array<{ slideId: string }>
+          >('slides.getSelectedSlides', typeof ids === 'undefined' ? [] : [ids])
+          return slides.map((slide) =>
+            this.createPresentationSlideFacade(slide)
+          )
+        },
+        addSlide: async () => {
+          const slide = await this.invokeEditorFacade<{ slideId: string }>(
+            'slides.addSlide'
+          )
+          return this.createPresentationSlideFacade(slide)
+        },
+        duplicateSlide: async (slideId: string) => {
+          const slide = await this.invokeEditorFacade<{ slideId: string }>(
+            'slides.duplicateSlide',
+            [slideId]
+          )
+          return this.createPresentationSlideFacade(slide)
+        }
+      })
+    const presentationSelectionFacade =
+      this.createEditorFacadeModule<PresentationSelectionFacade>('selection', {
+        getTextRange: async (value?: unknown) => {
+          const locator = await this.invokeEditorFacade<{
+            start: string
+            end: string
+          } | null>(
+            'selection.getTextRange',
+            typeof value === 'undefined' ? [] : [value]
+          )
+          return this.createPresentationTextRangeFacade(locator)
+        },
+        addRangeListener: (listener: (payload: unknown) => void) =>
+          this.registerEditorFacadeListener(
+            'selection.addRangeListener',
+            listener
+          )
+      })
+    const presentationEventSubscriptionFacade: PresentationEventSubscriptionFacade =
+      {
+        addErrorListener: (
+          listener: (error: { code: number | string; message?: string }) => void
+        ) =>
+          this.registerEditorFacadeListener(
+            'eventSubscription.addErrorListener',
+            listener
+          ),
+        addLoadedListener: (listener: () => void) =>
+          this.registerEditorFacadeListener(
+            'eventSubscription.addLoadedListener',
+            listener
+          )
+      }
 
     switch (this.fileType) {
       case FileType.Document:
@@ -1719,6 +2595,22 @@ export class OfficeSDK extends TinyEmitter {
         this.title = titleFacade
         this.comments = commentsFacade
         this.presentation = presentationFacade
+        this.selection = docsSelectionFacade
+        this.settings = this.createEditorFacadeModule<DocsSettingsFacade>(
+          'settings',
+          {}
+        )
+        this.search = this.createEditorFacadeModule<DocsSearchFacade>(
+          'search',
+          {}
+        )
+        this.TOCs = this.createEditorFacadeModule<DocsTOCsFacade>('TOCs', {})
+        this.sidebar = this.createEditorFacadeModule<DocsSidebarFacade>(
+          'sidebar',
+          {}
+        )
+        this.tables = docsTablesFacade
+        this.batchChanges = batchChangesFacade
         break
       case FileType.Spreadsheet:
         this.history = historyFacade
@@ -1728,12 +2620,42 @@ export class OfficeSDK extends TinyEmitter {
         this.content = contentFacade
         this.version = versionFacade
         this.presentation = presentationFacade
+        this.workbook = sheetWorkbookFacade
+        this.activeSheet = this.createSheetWorksheetFacade({
+          active: true
+        })
+        this.charts = this.createEditorFacadeModule<SheetChartsFacade>(
+          'charts',
+          {}
+        )
+        this.selections = this.createEditorFacadeModule<SheetSelectionsFacade>(
+          'selections',
+          {}
+        )
+        this.batchChanges = batchChangesFacade
+        this.print = printFacade
+        this.export = exportFacade
+        this.setFocus = setFocusFacade
         break
       case FileType.Presentation:
         this.history = historyFacade
         this.comments = commentsFacade
         this.version = versionFacade
         this.presentation = presentationFacade
+        this.slides = presentationSlidesFacade
+        this.selection = presentationSelectionFacade
+        this.text = this.createEditorFacadeModule<PresentationTextFacade>(
+          'text',
+          {}
+        )
+        this.zoom = this.createEditorFacadeModule<PresentationZoomFacade>(
+          'zoom',
+          {}
+        )
+        this.eventSubscription = presentationEventSubscriptionFacade
+        this.batchChanges = batchChangesFacade
+        this.print = printFacade
+        this.export = exportFacade
         break
       default:
         break
@@ -1754,6 +2676,24 @@ export class OfficeSDK extends TinyEmitter {
     this.content = undefined
     this.version = undefined
     this.presentation = undefined
+    this.selection = undefined
+    this.search = undefined
+    this.TOCs = undefined
+    this.sidebar = undefined
+    this.tables = undefined
+    this.settings = undefined
+    this.workbook = undefined
+    this.activeSheet = undefined
+    this.charts = undefined
+    this.selections = undefined
+    this.slides = undefined
+    this.text = undefined
+    this.zoom = undefined
+    this.eventSubscription = undefined
+    this.batchChanges = undefined
+    this.export = undefined
+    this.print = undefined
+    this.setFocus = undefined
   }
 
   /**
