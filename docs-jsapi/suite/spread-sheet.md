@@ -2,9 +2,31 @@
 
 ## 方法
 
-### 调用方式
+### 方法列表
 
-以下新增 API 均为 `PC only`。
+| 方法                                                                             | 说明                                   |
+| -------------------------------------------------------------------------------- | -------------------------------------- |
+| [sdk.history.show](#sdkhistoryshow)                                              | 显示历史（PC only，`co-1.8+`）         |
+| [sdk.history.hide](#sdkhistoryhide)                                              | 隐藏历史（PC only，`co-1.8+`）         |
+| [sdk.comments.show](#sdkcommentsshowtype)                                        | 显示评论（PC only，`co-1.8+`）         |
+| [sdk.comments.hide](#sdkcommentshidetype)                                        | 隐藏评论（PC only，`co-1.8+`）         |
+| [sdk.locks](#sdklocks)                                                           | 锁定能力（PC only，`co-1.8+`）         |
+| [sdk.mention.locateCellByGuid](#sdkmentionlocatecellbyguidguid-notificationtype) | 按通知定位单元格（PC only，`co-1.8+`） |
+| [sdk.content.setContent](#sdkcontentsetcontentcontent)                           | 设置内容（PC only，`co-1.8+`）         |
+| [sdk.version.createRevision](#sdkversioncreaterevisionoptions)                   | 创建版本（PC only，`co-1.8+`）         |
+| [sdk.presentation](#sdkpresentation)                                             | 演示模式能力（PC only，`co-1.8+`）     |
+| [sdk.workbook](#sdkworkbook)                                                     | 工作簿能力（PC only，`co-1.8+`）       |
+| [sdk.activeSheet](#sdkactivesheet)                                               | 当前工作表能力（PC only，`co-1.8+`）   |
+| [sdk.sheet.range](#sdksheetrange)                                                | 工作表范围能力（PC only，`co-1.8+`）   |
+| [sdk.sheet.cell](#sdksheetcell)                                                  | 工作表单元格能力（PC only，`co-1.8+`） |
+| [sdk.charts](#sdkcharts)                                                         | 图表能力（PC only，`co-1.8+`）         |
+| [sdk.selections](#sdkselections)                                                 | 多选区能力（PC only，`co-1.8+`）       |
+| [sdk.batchChanges](#sdkbatchchangescallback)                                     | 批量变更（PC only，`co-1.8+`）         |
+| [sdk.print](#sdkprint)                                                           | 打印（PC only，`co-1.8+`）             |
+| [sdk.export](#sdkexporttype)                                                     | 导出（PC only，`co-1.8+`）             |
+| [sdk.setFocus](#sdksetfocusisfocus)                                              | 设置聚焦状态（PC only，`co-1.8+`）     |
+
+### facade 调用方式
 
 ```typescript
 const sdk = await connect(options)
@@ -26,32 +48,6 @@ await sdk.getEditor().showHistory?.()
 // 新写法
 await sdk.history?.show()
 ```
-
-### 方法列表
-
-| 方法                                                                             | 说明             | 平台      |
-| -------------------------------------------------------------------------------- | ---------------- | --------- |
-| [sdk.history.show](#sdkhistoryshow)                                              | 显示历史         | `PC only` |
-| [sdk.history.hide](#sdkhistoryhide)                                              | 隐藏历史         | `PC only` |
-| [sdk.comments.show](#sdkcommentsshowtype)                                        | 显示评论         | `PC only` |
-| [sdk.comments.hide](#sdkcommentshidetype)                                        | 隐藏评论         | `PC only` |
-| [sdk.locks](#sdklocks)                                                           | 锁定能力         | `PC only` |
-| [sdk.mention.locateCellByGuid](#sdkmentionlocatecellbyguidguid-notificationtype) | 按通知定位单元格 | `PC only` |
-| [sdk.content.setContent](#sdkcontentsetcontentcontent)                           | 设置内容         | `PC only` |
-| [sdk.version.createRevision](#sdkversioncreaterevisionoptions)                   | 创建版本         | `PC only` |
-| [sdk.presentation](#sdkpresentation)                                             | 演示模式能力     | `PC only` |
-| [sdk.workbook](#sdkworkbook)                                                     | 工作簿能力       | `PC only` |
-| [sdk.activeSheet](#sdkactivesheet)                                               | 当前工作表能力   | `PC only` |
-| [sdk.sheet.range](#sdksheetrange)                                                | 工作表范围能力   | `PC only` |
-| [sdk.sheet.cell](#sdksheetcell)                                                  | 工作表单元格能力 | `PC only` |
-| [sdk.charts](#sdkcharts)                                                         | 图表能力         | `PC only` |
-| [sdk.selections](#sdkselections)                                                 | 多选区能力       | `PC only` |
-| [sdk.batchChanges](#sdkbatchchangescallback)                                     | 批量变更         | `PC only` |
-| [sdk.print](#sdkprint)                                                           | 打印             | `PC only` |
-| [sdk.export](#sdkexporttype)                                                     | 导出             | `PC only` |
-| [sdk.setFocus](#sdksetfocusisfocus)                                              | 设置聚焦状态     | `PC only` |
-
----
 
 ### sdk.history.show()
 
@@ -154,8 +150,12 @@ sdk.mention?.locateCellByGuid(
 #### 类型定义
 
 ```typescript
-sdk.content?.setContent(content: unknown): Promise<void>
+sdk.content?.setContent(content: Content): Promise<void>
 ```
+
+#### 相关类型
+
+- [Content](#content)
 
 ---
 
@@ -182,8 +182,8 @@ sdk.version?.createRevision(options?: { name?: string }): Promise<void>
 #### 类型定义
 
 ```typescript
-sdk.presentation?.start(index?)
-sdk.presentation?.quit()
+sdk.presentation?.start(index?: number): Promise<void>
+sdk.presentation?.quit(): Promise<void>
 ```
 
 ---
@@ -197,15 +197,22 @@ sdk.presentation?.quit()
 #### 类型定义
 
 ```typescript
-sdk.workbook?.getWorksheets()
-sdk.workbook?.getWorksheetById(sheetId)
-sdk.workbook?.getActiveWorksheet()
-sdk.workbook?.setActiveWorksheet(sheetId)
-sdk.workbook?.save()
-sdk.workbook?.addWorksheet(name?, index?)
-sdk.workbook?.deleteWorksheet(sheetId)
-sdk.workbook?.moveWorksheet(sheetId, index)
+sdk.workbook?.getWorksheets(): Promise<SheetWorksheetFacade[]>
+sdk.workbook?.getWorksheetById(
+  sheetId: string
+): Promise<SheetWorksheetFacade | null>
+sdk.workbook?.getActiveWorksheet(): Promise<SheetWorksheetFacade>
+sdk.workbook?.setActiveWorksheet(sheetId: string): Promise<void>
+sdk.workbook?.save(): Promise<EditorSaveResult>
+sdk.workbook?.addWorksheet(name?: string, index?: number): Promise<void>
+sdk.workbook?.deleteWorksheet(sheetId: string): Promise<void>
+sdk.workbook?.moveWorksheet(sheetId: string, index: number): Promise<void>
 ```
+
+#### 相关类型
+
+- [SheetWorksheetFacade](#sheetworksheetfacade)
+- [EditorSaveResult](#editorsaveresult)
 
 #### 示例
 
@@ -228,34 +235,67 @@ await sdk.workbook?.setActiveWorksheet('sheet-id')
 #### 类型定义
 
 ```typescript
-sdk.activeSheet?.getSelections()
-sdk.activeSheet?.getRange(value)
-sdk.activeSheet?.addRangeListener(listener)
-sdk.activeSheet?.getBounding(range)
-sdk.activeSheet?.locateCell(row, column)
-sdk.activeSheet?.getCell(row, column)
-sdk.activeSheet?.getActiveCell()
-sdk.activeSheet?.setActiveCell({ row, column })
-sdk.activeSheet?.search(text, range?)
-sdk.activeSheet?.cancelSearch()
-sdk.activeSheet?.paste(params)
-sdk.activeSheet?.getViewportSize()
-sdk.activeSheet?.endEdit()
-sdk.activeSheet?.addRows(index, count)
-sdk.activeSheet?.addColumns(index, count)
-sdk.activeSheet?.deleteRows(index, count)
-sdk.activeSheet?.deleteColumns(index, count)
-sdk.activeSheet?.appendData(data, axis?)
-sdk.activeSheet?.setRowsHeight(data)
-sdk.activeSheet?.setColumnsWidth(data)
-sdk.activeSheet?.setRowsVisible(rows, visible)
-sdk.activeSheet?.setColumnsVisible(columns, visible)
-sdk.activeSheet?.setFrozenRowCount(count)
-sdk.activeSheet?.setFrozenColumnCount(count)
-sdk.activeSheet?.setTabColor(color)
-sdk.activeSheet?.rename(name)
-sdk.activeSheet?.setVisible(visible)
+sdk.activeSheet?.getSelections(): Promise<SheetSelection[] | null>
+sdk.activeSheet?.getRange(value: SheetRangeValue): Promise<SheetRangeFacade | null>
+sdk.activeSheet?.addRangeListener(
+  listener: (value: { sheet: string; ranges: SheetRangeValue[] | null }) => void
+): (() => void) | undefined
+sdk.activeSheet?.getBounding(
+  range: SheetRangeValue
+): Promise<{ left: number; top: number; width: number; height: number } | null>
+sdk.activeSheet?.locateCell(row: number, column: number): Promise<void>
+sdk.activeSheet?.getCell(
+  row: number,
+  column: number
+): Promise<SheetCellFacade | null>
+sdk.activeSheet?.getActiveCell(): Promise<SheetCellFacade | null>
+sdk.activeSheet?.setActiveCell(options: {
+  row: number
+  column: number
+}): Promise<void>
+sdk.activeSheet?.search(
+  text: string,
+  range?: SheetRangeValue | SheetRangeValue[]
+): Promise<void>
+sdk.activeSheet?.cancelSearch(): Promise<void>
+sdk.activeSheet?.paste(params: ClipboardPasteParams): Promise<void>
+sdk.activeSheet?.getViewportSize(): Promise<{ width: number; height: number }>
+sdk.activeSheet?.endEdit(): Promise<void>
+sdk.activeSheet?.addRows(index: number, count: number): Promise<void>
+sdk.activeSheet?.addColumns(index: number, count: number): Promise<void>
+sdk.activeSheet?.deleteRows(index: number, count: number): Promise<void>
+sdk.activeSheet?.deleteColumns(index: number, count: number): Promise<void>
+sdk.activeSheet?.appendData(
+  data: SheetWritableCellData[][],
+  axis?: SheetAppendDataAxis
+): Promise<void>
+sdk.activeSheet?.setRowsHeight(
+  data: Array<{ row: number; height: number }>
+): Promise<void>
+sdk.activeSheet?.setColumnsWidth(
+  data: Array<{ column: number; width: number }>
+): Promise<void>
+sdk.activeSheet?.setRowsVisible(rows: number[], visible: boolean): Promise<void>
+sdk.activeSheet?.setColumnsVisible(
+  columns: number[],
+  visible: boolean
+): Promise<void>
+sdk.activeSheet?.setFrozenRowCount(count: number): Promise<void>
+sdk.activeSheet?.setFrozenColumnCount(count: number): Promise<void>
+sdk.activeSheet?.setTabColor(color: string): Promise<void>
+sdk.activeSheet?.rename(name: string): Promise<void>
+sdk.activeSheet?.setVisible(visible: boolean): Promise<void>
 ```
+
+#### 相关类型
+
+- [SheetSelection](#sheetselection)
+- [SheetRangeValue](#sheetrangevalue)
+- [SheetRangeFacade](#sheetrangefacade)
+- [SheetCellFacade](#sheetcellfacade)
+- [ClipboardPasteParams](#clipboardpasteparams)
+- [SheetWritableCellData](#sheetwritablecelldata)
+- [SheetAppendDataAxis](#sheetappenddataaxis)
 
 ---
 
@@ -268,23 +308,33 @@ sdk.activeSheet?.setVisible(visible)
 #### 类型定义
 
 ```typescript
-range.getText(format?)
-range.setText(text)
-range.getHtml()
-range.setHtml(html)
-range.getValue()
-range.setValue(values)
-range.getData()
-range.getFormula()
-range.setFormula(formula)
-range.setData(data)
-range.setSpan()
-range.removeSpan()
-range.getSpans()
-range.clearContent()
-range.clearStyle()
-range.clearAll()
+range.getText(format?: 'plain' | 'matrix'): Promise<string | string[][]>
+range.setText(text: SheetRangeText): Promise<void>
+range.getHtml(): Promise<string>
+range.setHtml(html: string): Promise<void>
+range.getValue(): Promise<(SheetCellValue | null)[][]>
+range.setValue(values: (SheetWritableCellValue | null)[][]): Promise<void>
+range.getData(): Promise<SheetCellData[][]>
+range.getFormula(): Promise<(string | null)[][]>
+range.setFormula(formula: (string | null)[][]): Promise<void>
+range.setData(data: SheetWritableCellData[][]): Promise<void>
+range.setSpan(): Promise<void>
+range.removeSpan(): Promise<void>
+range.getSpans(): Promise<SheetCellRange[] | null>
+range.clearContent(): Promise<void>
+range.clearStyle(): Promise<void>
+range.clearAll(): Promise<void>
 ```
+
+#### 相关类型
+
+- [SheetRangeFacade](#sheetrangefacade)
+- [SheetRangeText](#sheetrangetext)
+- [SheetCellValue](#sheetcellvalue)
+- [SheetWritableCellValue](#sheetwritablecellvalue)
+- [SheetCellData](#sheetcelldata)
+- [SheetWritableCellData](#sheetwritablecelldata)
+- [SheetCellRange](#sheetcellrange)
 
 ---
 
@@ -297,24 +347,32 @@ range.clearAll()
 #### 类型定义
 
 ```typescript
-cell.getCellText()
-cell.setCellText(text)
-cell.getCellValue()
-cell.getCellData()
-cell.getCellFormula()
-cell.setCellFormula(formula)
-cell.setCellValue(value)
-cell.setCellData(data)
-cell.setCheckbox(checked)
-cell.setScore(score)
-cell.setProgress(progress)
-cell.insertImage(data)
-cell.insertMention(userId, userName)
-cell.insertAttachmentLink(data)
-cell.clearContent()
-cell.clearStyle()
-cell.clearAll()
+cell.getCellText(): Promise<string>
+cell.setCellText(text: string): Promise<void>
+cell.getCellValue(): Promise<SheetCellValue | null>
+cell.getCellData(): Promise<SheetCellData>
+cell.getCellFormula(): Promise<string | null>
+cell.setCellFormula(formula: string): Promise<void>
+cell.setCellValue(value: SheetWritableCellValue | null): Promise<void>
+cell.setCellData(data: SheetWritableCellData): Promise<void>
+cell.setCheckbox(checked: boolean): Promise<void>
+cell.setScore(score: 0 | 1 | 2 | 3 | 4 | 5): Promise<void>
+cell.setProgress(progress: number): Promise<void>
+cell.insertImage(data: File | string): Promise<void>
+cell.insertMention(userId: number, userName: string): Promise<void>
+cell.insertAttachmentLink(data: File): Promise<void>
+cell.clearContent(): Promise<void>
+cell.clearStyle(): Promise<void>
+cell.clearAll(): Promise<void>
 ```
+
+#### 相关类型
+
+- [SheetCellFacade](#sheetcellfacade)
+- [SheetCellValue](#sheetcellvalue)
+- [SheetCellData](#sheetcelldata)
+- [SheetWritableCellValue](#sheetwritablecellvalue)
+- [SheetWritableCellData](#sheetwritablecelldata)
 
 ---
 
@@ -327,8 +385,15 @@ cell.clearAll()
 #### 类型定义
 
 ```typescript
-sdk.charts?.addChartFromSelection(params?)
+sdk.charts?.addChartFromSelection(
+  params?: AddChartFromSelectionParams
+): Promise<AddChartFromSelectionResult | undefined>
 ```
+
+#### 相关类型
+
+- [AddChartFromSelectionParams](#addchartfromselectionparams)
+- [AddChartFromSelectionResult](#addchartfromselectionresult)
 
 ---
 
@@ -341,8 +406,12 @@ sdk.charts?.addChartFromSelection(params?)
 #### 类型定义
 
 ```typescript
-sdk.selections?.getAll()
+sdk.selections?.getAll(): Promise<SheetRangeValue[]>
 ```
+
+#### 相关类型
+
+- [SheetRangeValue](#sheetrangevalue)
 
 ---
 
@@ -402,8 +471,209 @@ sdk.setFocus?.(isFocus: boolean): Promise<void>
 
 ---
 
-## 兼容说明
+## 类型定义
+
+### Content
+
+```typescript
+type Content = string | ArrayBuffer | object
+```
+
+### EditorSaveResult
+
+```typescript
+interface EditorSaveResult {
+  status: 0 | 1 | 2
+}
+```
+
+### SheetRangeFacade
+
+```typescript
+interface SheetRangeFacade {
+  row: number
+  column: number
+  rowCount: number
+  columnCount: number
+}
+```
+
+### SheetWorksheetFacade
+
+```typescript
+interface SheetWorksheetFacade {
+  id: string
+  name?: string
+}
+```
+
+### SheetCellFacade
+
+```typescript
+interface SheetCellFacade {
+  row: number
+  column: number
+}
+```
+
+### SheetSelection
+
+```typescript
+interface SheetSelection {
+  getRange(value?: SheetRangeValue): SheetRangeFacade | null
+  setRange(value: SheetRangeValue | null): Promise<void>
+}
+```
+
+### SheetRangeValue
+
+```typescript
+type SheetRangeValue =
+  | {
+      type: 'cells'
+      row: number
+      rowCount: number
+      column: number
+      columnCount: number
+    }
+  | {
+      type: 'rows'
+      row: number
+      rowCount: number
+    }
+  | {
+      type: 'columns'
+      column: number
+      columnCount: number
+    }
+  | {
+      type: 'sheet'
+    }
+```
+
+### ClipboardPasteParams
+
+```typescript
+interface ClipboardPasteParams {
+  html: string
+  text: string
+  base64File?: string
+  removeTrailingEmptyRows?: boolean
+  removeTrailingEmptyColumns?: boolean
+}
+```
+
+### SheetAppendDataAxis
+
+```typescript
+type SheetAppendDataAxis = 'row' | 'column'
+```
+
+### SheetRangeText
+
+```typescript
+type SheetRangeText = string | string[][]
+```
+
+### SheetCellValue
+
+```typescript
+type SheetCellValue =
+  | { type: 'primitive'; value: string | number | boolean }
+  | { type: 'date'; value: number }
+  | { type: 'calcError'; value: { error: string } }
+```
+
+### SheetWritableCellValue
+
+```typescript
+type SheetWritableCellValue =
+  | { type: 'primitive'; value: string | number | boolean }
+  | { type: 'date'; value: number }
+```
+
+### SheetCellRange
+
+```typescript
+type SheetCellRange = {
+  row: number
+  rowCount: number
+  column: number
+  columnCount: number
+}
+```
+
+### SheetCellData
+
+```typescript
+interface SheetCellData {
+  value: SheetCellValue | null
+  formula: string | null
+  text: string
+  format?: string
+  span?: SheetCellRange
+  color?: string
+  background?: string
+  fontFamily?: string
+  fontSize?: number
+}
+```
+
+### SheetWritableCellMeta
+
+```typescript
+interface SheetWritableCellMeta {
+  color?: string
+  background?: string
+  fontFamily?: string
+  fontSize?: number
+}
+```
+
+### SheetWritableCellData
+
+```typescript
+type SheetWritableCellData =
+  | ({
+      value: string | number | boolean | Date | null
+    } & SheetWritableCellMeta)
+  | ({
+      formula: string | null
+      quotePrefix?: boolean
+    } & SheetWritableCellMeta)
+  | ({
+      text: string | null
+    } & SheetWritableCellMeta)
+```
+
+### AddChartFromSelectionParams
+
+```typescript
+type AddChartFromSelectionParams = {
+  chartType?: string
+  series?: {
+    orientation?: 'auto' | 'horizontal' | 'vertical'
+    trimPaddings?: boolean
+    firstAs?: 'auto' | 'seriesLabel' | 'categoryLabel' | 'none'
+  }
+  recommendationMode?: 'builtin' | 'external'
+}
+```
+
+### AddChartFromSelectionResult
+
+```typescript
+interface AddChartFromSelectionResult {
+  chartId: string
+  chartType: string
+}
+```
+
+---
+
+## 注意事项
 
 - 本页仅描述根级 facade 的调用方式
 - 本页新增接口均为 `PC only`
+- 本页新增接口均需 `co-1.8+`
 - `sdk.presentation?.start(index?)` 当前表格侧按无参启动演示处理，不承诺 `index` 生效

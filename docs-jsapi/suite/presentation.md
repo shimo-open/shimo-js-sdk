@@ -2,9 +2,28 @@
 
 ## 方法
 
-### 调用方式
+### 方法列表
 
-以下新增 API 均为 `PC only`。
+| 方法                                                           | 说明                                 |
+| -------------------------------------------------------------- | ------------------------------------ |
+| [sdk.history.show](#sdkhistoryshow)                            | 显示历史（PC only，`co-1.8+`）       |
+| [sdk.history.hide](#sdkhistoryhide)                            | 隐藏历史（PC only，`co-1.8+`）       |
+| [sdk.comments.show](#sdkcommentsshowtype)                      | 显示评论（PC only，`co-1.8+`）       |
+| [sdk.comments.hide](#sdkcommentshidetype)                      | 隐藏评论（PC only，`co-1.8+`）       |
+| [sdk.version.createRevision](#sdkversioncreaterevisionoptions) | 创建版本（PC only，`co-1.8+`）       |
+| [sdk.presentation](#sdkpresentation)                           | 演示模式能力（PC only，`co-1.8+`）   |
+| [sdk.slides](#sdkslides)                                       | 幻灯片集合能力（PC only，`co-1.8+`） |
+| [sdk.slides.slide](#sdkslidesslide)                            | 单个幻灯片能力（PC only，`co-1.8+`） |
+| [sdk.selection](#sdkselection)                                 | 选区能力（PC only，`co-1.8+`）       |
+| [sdk.selection.textRange](#sdkselectiontextrange)              | 文本范围能力（PC only，`co-1.8+`）   |
+| [sdk.text](#sdktext)                                           | 文本格式能力（PC only，`co-1.8+`）   |
+| [sdk.zoom](#sdkzoom)                                           | 缩放能力（PC only，`co-1.8+`）       |
+| [sdk.eventSubscription](#sdkeventsubscription)                 | 事件订阅能力（PC only，`co-1.8+`）   |
+| [sdk.batchChanges](#sdkbatchchangescallback)                   | 批量变更（PC only，`co-1.8+`）       |
+| [sdk.print](#sdkprint)                                         | 打印（PC only，`co-1.8+`）           |
+| [sdk.export](#sdkexporttype)                                   | 导出（PC only，`co-1.8+`）           |
+
+### facade 调用方式
 
 ```typescript
 const sdk = await connect(options)
@@ -25,29 +44,6 @@ await sdk.getEditor().showHistory?.()
 // 新写法
 await sdk.history?.show()
 ```
-
-### 方法列表
-
-| 方法                                                           | 说明           | 平台      |
-| -------------------------------------------------------------- | -------------- | --------- |
-| [sdk.history.show](#sdkhistoryshow)                            | 显示历史       | `PC only` |
-| [sdk.history.hide](#sdkhistoryhide)                            | 隐藏历史       | `PC only` |
-| [sdk.comments.show](#sdkcommentsshowtype)                      | 显示评论       | `PC only` |
-| [sdk.comments.hide](#sdkcommentshidetype)                      | 隐藏评论       | `PC only` |
-| [sdk.version.createRevision](#sdkversioncreaterevisionoptions) | 创建版本       | `PC only` |
-| [sdk.presentation](#sdkpresentation)                           | 演示模式能力   | `PC only` |
-| [sdk.slides](#sdkslides)                                       | 幻灯片集合能力 | `PC only` |
-| [sdk.slides.slide](#sdkslidesslide)                            | 单个幻灯片能力 | `PC only` |
-| [sdk.selection](#sdkselection)                                 | 选区能力       | `PC only` |
-| [sdk.selection.textRange](#sdkselectiontextrange)              | 文本范围能力   | `PC only` |
-| [sdk.text](#sdktext)                                           | 文本格式能力   | `PC only` |
-| [sdk.zoom](#sdkzoom)                                           | 缩放能力       | `PC only` |
-| [sdk.eventSubscription](#sdkeventsubscription)                 | 事件订阅能力   | `PC only` |
-| [sdk.batchChanges](#sdkbatchchangescallback)                   | 批量变更       | `PC only` |
-| [sdk.print](#sdkprint)                                         | 打印           | `PC only` |
-| [sdk.export](#sdkexporttype)                                   | 导出           | `PC only` |
-
----
 
 ### sdk.history.show()
 
@@ -128,10 +124,10 @@ sdk.version?.createRevision(options?: { name?: string }): Promise<void>
 #### 类型定义
 
 ```typescript
-sdk.presentation?.start(index?)
-sdk.presentation?.quit()
-sdk.presentation?.startFromCurrent()
-sdk.presentation?.startSpeakerView()
+sdk.presentation?.start(index?: number): Promise<void>
+sdk.presentation?.quit(): Promise<void>
+sdk.presentation?.startFromCurrent(): Promise<void>
+sdk.presentation?.startSpeakerView(): Promise<void>
 ```
 
 #### 说明补充
@@ -149,19 +145,25 @@ sdk.presentation?.startSpeakerView()
 #### 类型定义
 
 ```typescript
-sdk.slides?.getCurrentSlide()
-sdk.slides?.setCurrentSlideIndex(slideId)
-sdk.slides?.getSlideIndex(slideId)
-sdk.slides?.getSlidesCount()
-sdk.slides?.getSlides()
-sdk.slides?.getSlideById(slideId)
-sdk.slides?.getSelectedSlides(ids?)
-sdk.slides?.setSelectedSlides(ids)
-sdk.slides?.addSlide()
-sdk.slides?.duplicateSlide(slideId)
-sdk.slides?.deleteSlide(slideId)
-sdk.slides?.hideSlide(slideId)
+sdk.slides?.getCurrentSlide(): Promise<PresentationSlideFacade>
+sdk.slides?.setCurrentSlideIndex(slideId: string): Promise<void>
+sdk.slides?.getSlideIndex(slideId: string): Promise<number>
+sdk.slides?.getSlidesCount(): Promise<number>
+sdk.slides?.getSlides(): Promise<PresentationSlideFacade[]>
+sdk.slides?.getSlideById(
+  slideId: string
+): Promise<PresentationSlideFacade | null>
+sdk.slides?.getSelectedSlides(ids?: string[]): Promise<PresentationSlideFacade[]>
+sdk.slides?.setSelectedSlides(ids: string[]): Promise<void>
+sdk.slides?.addSlide(): Promise<PresentationSlideFacade>
+sdk.slides?.duplicateSlide(slideId: string): Promise<PresentationSlideFacade>
+sdk.slides?.deleteSlide(slideId: string): Promise<void>
+sdk.slides?.hideSlide(slideId: string): Promise<void>
 ```
+
+#### 相关类型
+
+- [PresentationSlideFacade](#presentationslidefacade)
 
 ---
 
@@ -174,18 +176,50 @@ sdk.slides?.hideSlide(slideId)
 #### 类型定义
 
 ```typescript
-slide.id
-slide.getIndex()
-slide.getShapes()
-slide.getTables()
-slide.insertShape(options)
-slide.insertTextBox(options)
-slide.insertTable(options)
-slide.insertImage(image, size?, offset?)
-slide.insertAudio(data, size?, offset?, name?)
-slide.insertVideo(data, size?, offset?, name?)
-slide.insertAttachment(file, size?, offset?, name?)
+slide.id: string
+slide.getIndex(): Promise<number>
+slide.getShapes(): Promise<PresentationShape[]>
+slide.getTables(): Promise<PresentationTableItem[]>
+slide.insertShape(
+  options: PresentationInsertShapeOptions
+): Promise<PresentationShape>
+slide.insertTextBox(options: PresentationTextBoxOptions): Promise<PresentationShape>
+slide.insertTable(options: PresentationTableOptions): Promise<PresentationTableItem>
+slide.insertImage(
+  image: File,
+  size?: PresentationSize,
+  offset?: PresentationOffset
+): Promise<void>
+slide.insertAudio(
+  data: File,
+  size?: PresentationSize,
+  offset?: PresentationOffset,
+  name?: string
+): Promise<void>
+slide.insertVideo(
+  data: File,
+  size?: PresentationSize,
+  offset?: PresentationOffset,
+  name?: string
+): Promise<void>
+slide.insertAttachment(
+  file: File,
+  size?: PresentationSize,
+  offset?: PresentationOffset,
+  name?: string
+): Promise<void>
 ```
+
+#### 相关类型
+
+- [PresentationSlideFacade](#presentationslidefacade)
+- [PresentationShape](#presentationshape)
+- [PresentationTableItem](#presentationtableitem)
+- [PresentationInsertShapeOptions](#presentationinsertshapeoptions)
+- [PresentationTextBoxOptions](#presentationtextboxoptions)
+- [PresentationTableOptions](#presentationtableoptions)
+- [PresentationSize](#presentationsize)
+- [PresentationOffset](#presentationoffset)
 
 ---
 
@@ -198,12 +232,22 @@ slide.insertAttachment(file, size?, offset?, name?)
 #### 类型定义
 
 ```typescript
-sdk.selection?.getTextRange(value?)
-sdk.selection?.setTextRange(value)
-sdk.selection?.getSelectedShapes(ids?)
-sdk.selection?.setSelectedShapes(ids)
-sdk.selection?.addRangeListener(listener)
+sdk.selection?.getTextRange(
+  value?: PresentationTextRangeValue
+): Promise<PresentationTextRangeFacade | null>
+sdk.selection?.setTextRange(value: PresentationTextRangeValue | null): Promise<void>
+sdk.selection?.getSelectedShapes(ids?: string[]): Promise<PresentationShape[] | null>
+sdk.selection?.setSelectedShapes(ids: string[] | null): Promise<void>
+sdk.selection?.addRangeListener(
+  listener: (value: PresentationTextRangeValue | null) => void
+): (() => void) | undefined
 ```
+
+#### 相关类型
+
+- [PresentationTextRangeValue](#presentationtextrangevalue)
+- [PresentationTextRangeFacade](#presentationtextrangefacade)
+- [PresentationShape](#presentationshape)
 
 ---
 
@@ -216,26 +260,35 @@ sdk.selection?.addRangeListener(listener)
 #### 类型定义
 
 ```typescript
-range.start
-range.end
-range.getText()
-range.setText(text)
-range.getHtml()
-range.setHtml(html)
-range.getBounding()
-range.setStyle(style)
-range.setVerticalAlign(vertical)
-range.setHorizontalAlign(align)
-range.setListStyle(style)
-range.setLineSpacing(spacing)
-range.increaseIndent()
-range.decreaseIndent()
-range.setTextDirection(direction)
-range.clearStyle()
-range.clearContent()
-range.clearAll()
-range.insertLink(url, text)
+range.start: string
+range.end: string
+range.getText(): Promise<string>
+range.setText(text: string): Promise<void>
+range.getHtml(): Promise<string>
+range.setHtml(html: string): Promise<void>
+range.getBounding(): Promise<{ left: number; top: number; width: number; height: number } | null>
+range.setStyle(style: PresentationTextStyle): Promise<void>
+range.setVerticalAlign(vertical: PresentationVerticalAlign): Promise<void>
+range.setHorizontalAlign(align: PresentationHorizontalAlign): Promise<void>
+range.setListStyle(style: PresentationListType): Promise<void>
+range.setLineSpacing(spacing: PresentationParagraphLineSpacing): Promise<void>
+range.increaseIndent(): Promise<void>
+range.decreaseIndent(): Promise<void>
+range.setTextDirection(direction: 'ltr' | 'rtl'): Promise<void>
+range.clearStyle(): Promise<void>
+range.clearContent(): Promise<void>
+range.clearAll(): Promise<void>
+range.insertLink(url: string, text: string): Promise<void>
 ```
+
+#### 相关类型
+
+- [PresentationTextRangeFacade](#presentationtextrangefacade)
+- [PresentationTextStyle](#presentationtextstyle)
+- [PresentationVerticalAlign](#presentationverticalalign)
+- [PresentationHorizontalAlign](#presentationhorizontalalign)
+- [PresentationListType](#presentationlisttype)
+- [PresentationParagraphLineSpacing](#presentationparagraphlinespacing)
 
 ---
 
@@ -248,10 +301,20 @@ range.insertLink(url, text)
 #### 类型定义
 
 ```typescript
-sdk.text?.get(range?)
-sdk.text?.apply(format, range?)
-sdk.text?.clear(range)
+sdk.text?.get(
+  range?: PresentationTextRangeValue
+): Promise<Partial<EditorTextFormat>>
+sdk.text?.apply(
+  format: Partial<EditorTextFormat>,
+  range?: PresentationTextRangeValue
+): Promise<Partial<EditorTextFormat>>
+sdk.text?.clear(range: PresentationTextRangeValue): Promise<void>
 ```
+
+#### 相关类型
+
+- [PresentationTextRangeValue](#presentationtextrangevalue)
+- [EditorTextFormat](#editortextformat)
 
 ---
 
@@ -264,12 +327,12 @@ sdk.text?.clear(range)
 #### 类型定义
 
 ```typescript
-sdk.zoom?.getPercentage()
-sdk.zoom?.setPercentage(percentage)
-sdk.zoom?.setFitMode(mode)
-sdk.zoom?.getFitMode()
-sdk.zoom?.zoomIn()
-sdk.zoom?.zoomOut()
+sdk.zoom?.getPercentage(): Promise<number>
+sdk.zoom?.setPercentage(percentage: number): Promise<void>
+sdk.zoom?.setFitMode(mode: 'none' | 'window'): Promise<void>
+sdk.zoom?.getFitMode(): Promise<'none' | 'window'>
+sdk.zoom?.zoomIn(): Promise<void>
+sdk.zoom?.zoomOut(): Promise<void>
 ```
 
 ---
@@ -283,8 +346,12 @@ sdk.zoom?.zoomOut()
 #### 类型定义
 
 ```typescript
-sdk.eventSubscription?.addErrorListener(listener)
-sdk.eventSubscription?.addLoadedListener(listener)
+sdk.eventSubscription?.addErrorListener(
+  listener: (error: { code: number | string; message?: string }) => void
+): (() => void) | undefined
+sdk.eventSubscription?.addLoadedListener(
+  listener: () => void
+): (() => void) | undefined
 ```
 
 ---
@@ -331,8 +398,203 @@ sdk.export?.(type: string): Promise<void>
 
 ---
 
-## 兼容说明
+## 类型定义
+
+### PresentationShape
+
+```typescript
+interface PresentationShape {
+  id: string
+  name: string
+  type: string
+  textContent?: string
+}
+```
+
+### PresentationSlideFacade
+
+```typescript
+interface PresentationSlideFacade {
+  id: string
+}
+```
+
+### PresentationTextRangeFacade
+
+```typescript
+interface PresentationTextRangeFacade {
+  start: string
+  end: string
+}
+```
+
+### PresentationOffset
+
+```typescript
+interface PresentationOffset {
+  x: number
+  y: number
+}
+```
+
+### PresentationSize
+
+```typescript
+interface PresentationSize {
+  width: number
+  height: number
+}
+```
+
+### PresentationTextStyle
+
+```typescript
+interface PresentationTextStyle {
+  bold?: boolean
+  italic?: boolean
+  underline?: boolean
+  strikethrough?: boolean
+  fontSize?: number
+  fontFamily?: string
+}
+```
+
+### PresentationParagraph
+
+```typescript
+interface PresentationParagraph {
+  text: string
+  textStyle?: PresentationTextStyle
+  paragraphStyle?: {
+    align?: PresentationHorizontalAlign
+    vertical?: PresentationVerticalAlign
+    direction?: 'ltr' | 'rtl'
+    listType?: PresentationListType
+  }
+}
+```
+
+### PresentationInsertShapeOptions
+
+```typescript
+type PresentationInsertShapeOptions =
+  | {
+      type: string
+      offset: PresentationOffset
+      size: PresentationSize
+      content?: never
+    }
+  | {
+      type: string
+      offset: PresentationOffset
+      size: PresentationSize
+      content?: string | PresentationParagraph[]
+    }
+```
+
+### PresentationTextBoxOptions
+
+```typescript
+interface PresentationTextBoxOptions {
+  offset: PresentationOffset
+  size: PresentationSize
+  content?: string | PresentationParagraph[]
+  direction?: 'horizontal' | 'vertical'
+}
+```
+
+### PresentationTableItem
+
+```typescript
+interface PresentationTableItem {
+  id: string
+  rowCount: number
+  columnCount: number
+}
+```
+
+### PresentationTableOptions
+
+```typescript
+interface PresentationTableOptions {
+  offset: PresentationOffset
+  rowCount: number
+  columnCount: number
+  rowHeights: number[]
+  columnWidths: number[]
+  content?: string | PresentationParagraph[]
+}
+```
+
+### PresentationTextRangeValue
+
+```typescript
+interface PresentationTextRangeValue {
+  start: string
+  end: string
+}
+```
+
+### PresentationVerticalAlign
+
+```typescript
+type PresentationVerticalAlign =
+  | 'top'
+  | 'mid'
+  | 'bottom'
+  | 'wordArtVert'
+  | 'eaVert'
+  | 'mongolianVert'
+  | 'vert'
+  | 'vert270'
+```
+
+### PresentationHorizontalAlign
+
+```typescript
+type PresentationHorizontalAlign =
+  | 'left'
+  | 'center'
+  | 'right'
+  | 'justify'
+  | 'dist'
+```
+
+### PresentationListType
+
+```typescript
+type PresentationListType =
+  | { type: 'none' }
+  | { type: 'bullet'; subType?: string; char?: string }
+  | { type: 'ordered'; subType?: string; startAt?: number }
+```
+
+### PresentationParagraphLineSpacing
+
+```typescript
+type PresentationParagraphLineSpacing = 0.9 | 1.0 | 1.15 | 1.5 | 2.0 | 2.5 | 3.0
+```
+
+### EditorTextFormat
+
+```typescript
+interface EditorTextFormat {
+  bold: boolean
+  italic: boolean
+  underline: boolean
+  strike: boolean
+  color: string
+  highlight: string
+  size: number | string
+  family: string
+}
+```
+
+---
+
+## 注意事项
 
 - 本页仅描述根级 facade 的调用方式
 - 本页新增接口均为 `PC only`
+- 本页新增接口均需 `co-1.8+`
 - `sdk.presentation?.startRemoteLive()` 当前未在 `presentation` 套件承接，不应视为已支持接口

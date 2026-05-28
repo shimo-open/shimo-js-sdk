@@ -1,10 +1,34 @@
-import type { OfficeSDK } from './OfficeSDK'
+import type {
+  AddChartFromSelectionResult,
+  DocsRangeFacade,
+  DocsRangeValue,
+  DocsTableFacade,
+  EditorTextFormat,
+  OfficeSDK,
+  PresentationSlideFacade,
+  PresentationShape,
+  PresentationTextRangeFacade,
+  PresentationTextRangeValue,
+  SheetRangeValue,
+  SheetRangeFacade,
+  SheetSelection
+} from './OfficeSDK'
 
 type IsAssignable<T, U> = T extends U ? true : false
 type Assert<T extends true> = T
 type RootSelection = NonNullable<OfficeSDK['selection']>
-type DocsSelection = Extract<RootSelection, { getRange: unknown }>
-type PresentationSelection = Extract<RootSelection, { getTextRange: unknown }>
+type DocsSelection = Extract<
+  RootSelection,
+  { getRange: (value?: DocsRangeValue) => Promise<DocsRangeFacade | null> }
+>
+type PresentationSelection = Extract<
+  RootSelection,
+  {
+    getTextRange: (
+      value?: PresentationTextRangeValue
+    ) => Promise<PresentationTextRangeFacade | null>
+  }
+>
 
 export type EditorFacadeContractAssertions = [
   Assert<
@@ -22,7 +46,7 @@ export type EditorFacadeContractAssertions = [
   Assert<
     IsAssignable<
       NonNullable<OfficeSDK['locks']>['addRangeLock'],
-      (options: Record<string, unknown>) => Promise<void>
+      (options: import('./OfficeSDK').AddRangeLockParams) => Promise<void>
     >
   >,
   Assert<
@@ -31,13 +55,16 @@ export type EditorFacadeContractAssertions = [
   Assert<
     IsAssignable<
       NonNullable<OfficeSDK['mention']>['locateCellByGuid'],
-      (guid: string, notificationType?: string) => Promise<void>
+      (
+        guid: string,
+        notificationType?: import('./OfficeSDK').MentionTypes
+      ) => Promise<void>
     >
   >,
   Assert<
     IsAssignable<
       NonNullable<OfficeSDK['version']>['createRevision'],
-      (options?: { name?: string }) => Promise<void>
+      (options?: import('./OfficeSDK').RevisionCreateOptions) => Promise<void>
     >
   >,
   Assert<
@@ -74,46 +101,83 @@ export type EditorFacadeContractAssertions = [
   Assert<
     IsAssignable<
       DocsSelection['getRange'],
-      (value?: unknown) => Promise<unknown>
+      (value?: DocsRangeValue) => Promise<DocsRangeFacade | null>
     >
   >,
   Assert<
     IsAssignable<
       PresentationSelection['getTextRange'],
-      (value?: unknown) => Promise<unknown>
+      (
+        value?: PresentationTextRangeValue
+      ) => Promise<PresentationTextRangeFacade | null>
     >
   >,
   Assert<
     IsAssignable<
       NonNullable<OfficeSDK['tables']>['getAll'],
-      () => Promise<unknown[]>
+      () => Promise<DocsTableFacade[]>
     >
   >,
   Assert<
     IsAssignable<
       NonNullable<OfficeSDK['workbook']>['getWorksheets'],
-      () => Promise<unknown[]>
+      () => Promise<import('./OfficeSDK').SheetWorksheetFacade[]>
     >
   >,
   Assert<
     IsAssignable<
       NonNullable<OfficeSDK['activeSheet']>['getCell'],
-      (row: number, column: number) => Promise<unknown>
+      (
+        row: number,
+        column: number
+      ) => Promise<import('./OfficeSDK').SheetCellFacade | null>
     >
   >,
   Assert<
     IsAssignable<
       NonNullable<OfficeSDK['slides']>['getCurrentSlide'],
-      () => Promise<unknown>
+      () => Promise<PresentationSlideFacade>
     >
   >,
   Assert<
     IsAssignable<
       NonNullable<OfficeSDK['text']>['apply'],
       (
-        format: Partial<Record<string, unknown>>,
-        range?: unknown
-      ) => Promise<Partial<Record<string, unknown>>>
+        format: Partial<EditorTextFormat>,
+        range?: PresentationTextRangeValue
+      ) => Promise<Partial<EditorTextFormat>>
+    >
+  >,
+  Assert<
+    IsAssignable<
+      NonNullable<OfficeSDK['activeSheet']>['getSelections'],
+      () => Promise<SheetSelection[] | null>
+    >
+  >,
+  Assert<
+    IsAssignable<
+      NonNullable<OfficeSDK['activeSheet']>['getRange'],
+      (value: SheetRangeValue) => Promise<SheetRangeFacade | null>
+    >
+  >,
+  Assert<
+    IsAssignable<
+      NonNullable<OfficeSDK['selections']>['getAll'],
+      () => Promise<SheetRangeValue[]>
+    >
+  >,
+  Assert<
+    IsAssignable<
+      NonNullable<OfficeSDK['charts']>['addChartFromSelection'],
+      (
+        params?: import('./OfficeSDK').AddChartFromSelectionParams
+      ) => Promise<AddChartFromSelectionResult | undefined>
+    >
+  >,
+  Assert<
+    IsAssignable<
+      PresentationSelection['getSelectedShapes'],
+      (ids?: string[]) => Promise<PresentationShape[] | null>
     >
   >,
   Assert<

@@ -58,6 +58,53 @@ import {
   SlashMenuEntry,
   SlashMenuOptions
 } from './types/SlashMenu'
+import {
+  applyHeaderBarsChanged,
+  ensureHeaderBarsTitleChangeSubscription,
+  getHeaderBarsCommandRef,
+  HEADER_BARS_CHANGED_EVENT,
+  HEADER_BARS_METHOD,
+  initHeaderBarsFacade,
+  setHeaderBarsVisible,
+  syncHeaderBarsCommands,
+  syncHeaderBarsVisible
+} from './OfficeSDK.headerBars'
+import { buildRootFacadeState } from './OfficeSDK.facade'
+import type {
+  CommentsFacade,
+  ContentFacade,
+  DocsSearchFacade,
+  DocsSelectionFacade,
+  DocsSettingsFacade,
+  DocsSidebarFacade,
+  DocsTOCsFacade,
+  DocsTablesFacade,
+  HistoryFacade,
+  LocksFacade,
+  MentionFacade,
+  PresentationEventSubscriptionFacade,
+  PresentationFacade,
+  PresentationSelectionFacade,
+  PresentationSlidesFacade,
+  PresentationTextFacade,
+  PresentationZoomFacade,
+  SheetChartsFacade,
+  SheetSelectionsFacade,
+  SheetWorkbookFacade,
+  SheetWorksheetFacade,
+  TitleFacade,
+  VersionFacade
+} from './OfficeSDK.facade.types'
+import type {
+  HeaderBarsChangedPayload,
+  HeaderBarsCommandRef,
+  HeaderBarsCommandState,
+  HeaderBarsFacade,
+  HeaderBarsTitleChangeHandler
+} from './OfficeSDK.headerBars'
+
+export * from './OfficeSDK.facade.types'
+export * from './OfficeSDK.headerBars'
 
 const globalThis = getGlobal()
 const AUD = 'smjssdk'
@@ -87,21 +134,6 @@ const SUPPORTED_LANGUAGES = [
 ] as const
 type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number]
 type LegacyLanguage = keyof typeof LEGACY_LANGUAGE_MAP
-const HEADER_BARS_METHOD = {
-  getVisible: 'headerBars.getVisible',
-  setVisible: 'headerBars.setVisible',
-  addCommand: 'headerBars.addCommand',
-  getCommand: 'headerBars.getCommand',
-  setCommandVisible: 'headerBars.setCommandVisible',
-  setCommandDisabled: 'headerBars.setCommandDisabled',
-  setCommandSrc: 'headerBars.setCommandSrc',
-  setCommandLabel: 'headerBars.setCommandLabel',
-  setCommandEditable: 'headerBars.setCommandEditable',
-  setCommandCallbackEnabled: 'headerBars.setCommandCallbackEnabled',
-  listViewCommands: 'headerBars.listViewCommands',
-  handleCommandClick: 'headerBars.handleCommandClick'
-} as const
-const HEADER_BARS_CHANGED_EVENT = 'headerBars:changed'
 const EDITOR_FACADE_CALLBACK_METHOD = 'editorFacade.handleCallback'
 const SLASH_MENU_METHOD = {
   handleButtonClick: 'slashMenu.handleButtonClick'
@@ -114,432 +146,7 @@ const PRELOAD_MESSAGE_TYPE = {
   ERROR: 'SDK_PRELOAD_ERROR'
 } as const
 
-export interface HeaderBarsCommandDefinition {
-  id: string
-  section?: string
-  order?: number
-  label?: string
-  visible?: boolean
-  disabled?: boolean
-  editable?: boolean
-  type?: 'action' | 'structural'
-  renderType?: string
-  src?: string
-  onClick?: () => void | Promise<void>
-}
-
-export interface HeaderBarsCommandState extends HeaderBarsCommandDefinition {
-  type: 'action' | 'structural'
-}
-
-export interface HeaderBarsCommandRef {
-  readonly id: string
-  visible: boolean
-  disabled: boolean
-  src?: string
-  label?: string
-  editable?: boolean
-  onCommandClick?: () => void | Promise<void>
-  getState: () => HeaderBarsCommandState | undefined
-}
-
-export type HeaderBarsTitleChangeHandler = (
-  title: string
-) => void | Promise<void>
-
-export interface HeaderBarsFacade {
-  visible: boolean
-  onTitleChange?: HeaderBarsTitleChangeHandler
-  getVisible: () => Promise<boolean>
-  setVisible: (visible: boolean) => Promise<void>
-  addCommand: (
-    command: HeaderBarsCommandDefinition,
-    posCommand: string,
-    pos?: 'before' | 'after'
-  ) => Promise<boolean>
-  getCommand: (id: string) => HeaderBarsCommandRef
-  listViewCommands: () => Promise<HeaderBarsCommandState[]>
-}
-
-export interface TitleFacade {
-  addChangedListener: (listener: (title: string) => void) => () => void
-  setTitle: (title: string) => Promise<void>
-}
-
-export interface CommentsFacade {
-  show: (type?: 'list' | 'card') => Promise<void>
-  hide: (type?: 'list' | 'card') => Promise<void>
-}
-
-export interface HistoryFacade {
-  show: () => Promise<void>
-  hide: () => Promise<void>
-}
-
-export interface LocksFacade {
-  show: () => Promise<void>
-  hide: () => Promise<void>
-  addRangeLock: (options: Record<string, unknown>) => Promise<void>
-  addSheetLock: (options: Record<string, unknown>) => Promise<void>
-  removeRangeLocksInRanges: (options: Record<string, unknown>) => Promise<void>
-  removeSheetLock: (options: Record<string, unknown>) => Promise<void>
-}
-
-export interface MentionFacade {
-  locateCellByGuid: (guid: string, notificationType?: string) => Promise<void>
-}
-
-export interface ContentFacade {
-  setContent: (content: unknown) => Promise<void>
-}
-
-export interface VersionFacade {
-  createRevision: (options?: { name?: string }) => Promise<void>
-}
-
-export interface PresentationFacade {
-  start: (index?: number) => Promise<void>
-  quit: () => Promise<void>
-  startFromCurrent: () => Promise<void>
-  startRemoteLive: () => Promise<void>
-  startSpeakerView: () => Promise<void>
-}
-
-export interface DocsRangeFacade {
-  start: number
-  end: number
-  isCaret: boolean
-  getText: () => Promise<string>
-  getHtml: () => Promise<string>
-  setText: (text: string) => Promise<void>
-  setHtml: (html: string) => Promise<void>
-  getBounding: () => Promise<unknown>
-  setStyle: (style: unknown) => Promise<void>
-  continueWriting: (
-    content: string,
-    type: unknown,
-    abort?: () => void
-  ) => Promise<boolean>
-  setListStyle: (style: unknown) => Promise<void>
-  insertLink: (
-    href: string,
-    text: string,
-    viewType: 'link' | 'card' | 'preview'
-  ) => Promise<void>
-  insertImage: (data: File | string) => Promise<void>
-  insertAttachment: (
-    data: File,
-    viewType: 'link' | 'card' | 'preview'
-  ) => Promise<void>
-  setParagraphType: (type: unknown) => Promise<void>
-  clearStyle: () => Promise<void>
-  clearContent: () => Promise<void>
-  clearAll: () => Promise<void>
-  insertHorizontalRule: () => Promise<void>
-  insertQuote: () => Promise<void>
-}
-
-export interface DocsSelectionFacade {
-  getRange: (value?: unknown) => Promise<DocsRangeFacade | null>
-  setRange: (value: unknown | null) => Promise<void>
-  addRangeListener: (listener: (value: unknown | null) => void) => () => void
-  getWholeRange: () => Promise<DocsRangeFacade | null>
-  insertText: (text: string) => Promise<unknown>
-  insertHtml: (html: string) => Promise<unknown>
-  insertTable: (
-    rowCount: number,
-    columnCount: number
-  ) => Promise<{ tableId: string }>
-  insertCodeBlock: (options?: unknown) => Promise<void>
-}
-
-export interface DocsSearchFacade {
-  findOne: (params: unknown) => Promise<unknown>
-  findAll: (params: unknown) => Promise<unknown>
-  replaceOne: (id: string, params: unknown) => Promise<unknown>
-  replaceAll: (params: unknown) => Promise<void>
-  clear: () => Promise<void>
-}
-
-export interface DocsTOCsFacade {
-  getOpen: () => Promise<boolean>
-  setOpen: (isOpen: boolean) => Promise<void>
-  getAll: () => Promise<unknown[]>
-  getOne: (id: string) => Promise<unknown>
-  deleteAll: () => Promise<boolean>
-  deleteOne: (id: string) => Promise<boolean>
-  add: (item: unknown) => Promise<boolean>
-}
-
-export interface DocsSidebarFacade {
-  show: (tab?: string) => Promise<void>
-  close: () => Promise<void>
-  getState: () => Promise<unknown>
-}
-
-export interface DocsTableCellFacade {
-  tableId: string
-  row: number
-  column: number
-  setFormula: (formula: 'sum' | 'average', ranges: unknown[]) => Promise<void>
-  removeFormula: () => Promise<void>
-  setStyle: (style: unknown) => Promise<void>
-  clearStyle: () => Promise<void>
-}
-
-export interface DocsTableRangeFacade {
-  tableId: string
-  selection: unknown
-  setStyle: (style: unknown) => Promise<void>
-  clearStyle: () => Promise<void>
-  setSpan: () => Promise<void>
-  removeSpan: () => Promise<void>
-}
-
-export interface DocsTableFacade {
-  tableId: string
-  insertRows: (
-    index: number,
-    count: number,
-    placement?: unknown
-  ) => Promise<void>
-  insertColumns: (
-    index: number,
-    count: number,
-    placement?: unknown
-  ) => Promise<void>
-  deleteRows: (index: number, count: number) => Promise<void>
-  deleteColumns: (index: number, count: number) => Promise<void>
-  setRowHeight: (index: number, height: number) => Promise<void>
-  setColumnWidth: (index: number, width: number) => Promise<void>
-  setFullscreen: (status: boolean) => Promise<void>
-  getCell: (row: number, column: number) => Promise<DocsTableCellFacade | null>
-  getRange: (selection: unknown) => Promise<DocsTableRangeFacade | null>
-}
-
-export interface DocsTablesFacade {
-  getAll: () => Promise<DocsTableFacade[]>
-  getOne: (tableId: string) => Promise<DocsTableFacade | null>
-  deleteOne: (tableId: string) => Promise<boolean>
-}
-
-export interface DocsSettingsFacade {
-  getPageWidth: () => Promise<unknown>
-  setPageWidth: (width: unknown) => Promise<void>
-  getDefaultStyle: () => Promise<unknown>
-  setDefaultStyle: (style: Partial<Record<string, unknown>>) => Promise<void>
-}
-
-export interface SheetRangeFacade {
-  sheetId?: string
-  row: number
-  column: number
-  rowCount: number
-  columnCount: number
-  getText: (format?: unknown) => Promise<string | string[][]>
-  setText: (text: unknown) => Promise<void>
-  getHtml: () => Promise<string>
-  setHtml: (html: string) => Promise<void>
-  getValue: () => Promise<unknown[][]>
-  setValue: (values: unknown[][]) => Promise<void>
-  getData: () => Promise<unknown[][]>
-  getFormula: () => Promise<(string | null)[][]>
-  setFormula: (formula: (string | null)[][]) => Promise<void>
-  setData: (data: unknown[][]) => Promise<void>
-  setSpan: () => Promise<void>
-  removeSpan: () => Promise<void>
-  getSpans: () => Promise<unknown>
-  clearContent: () => Promise<void>
-  clearStyle: () => Promise<void>
-  clearAll: () => Promise<void>
-}
-
-export interface SheetCellFacade {
-  sheetId?: string
-  row: number
-  column: number
-  getCellText: () => Promise<string>
-  setCellText: (text: string) => Promise<void>
-  getCellValue: () => Promise<unknown>
-  getCellData: () => Promise<unknown>
-  getCellFormula: () => Promise<string | null>
-  setCellFormula: (formula: string) => Promise<void>
-  setCellValue: (value: unknown) => Promise<void>
-  setCellData: (data: unknown) => Promise<void>
-  setCheckbox: (checked: boolean) => Promise<void>
-  setScore: (score: 0 | 1 | 2 | 3 | 4 | 5) => Promise<void>
-  setProgress: (progress: number) => Promise<void>
-  insertImage: (data: File | string) => Promise<void>
-  insertMention: (userId: number, userName: string) => Promise<void>
-  insertAttachmentLink: (data: File) => Promise<void>
-  clearContent: () => Promise<void>
-  clearStyle: () => Promise<void>
-  clearAll: () => Promise<void>
-}
-
-export interface SheetWorksheetFacade {
-  id?: string
-  name?: string
-  getSelections: () => Promise<unknown[] | null>
-  getRange: (value: unknown) => Promise<SheetRangeFacade | null>
-  addRangeListener: (listener: (value: unknown) => void) => () => void
-  getBounding: (range: unknown) => Promise<unknown>
-  locateCell: (row: number, column: number) => Promise<void>
-  getCell: (row: number, column: number) => Promise<SheetCellFacade | null>
-  getActiveCell: () => Promise<SheetCellFacade | null>
-  setActiveCell: (options: { row: number; column: number }) => Promise<void>
-  search: (text: string, range?: unknown) => Promise<unknown>
-  cancelSearch: () => Promise<void>
-  paste: (params: unknown) => Promise<void>
-  getViewportSize: () => Promise<{ width: number; height: number }>
-  endEdit: () => Promise<void>
-  addRows: (index: number, count: number) => Promise<void>
-  addColumns: (index: number, count: number) => Promise<void>
-  deleteRows: (index: number, count: number) => Promise<void>
-  deleteColumns: (index: number, count: number) => Promise<void>
-  appendData: (data: unknown[][], axis?: unknown) => Promise<void>
-  setRowsHeight: (data: Array<{ row: number; height: number }>) => Promise<void>
-  setColumnsWidth: (
-    data: Array<{ column: number; width: number }>
-  ) => Promise<void>
-  setRowsVisible: (rows: number[], visible: boolean) => Promise<void>
-  setColumnsVisible: (columns: number[], visible: boolean) => Promise<void>
-  setFrozenRowCount: (count: number) => Promise<void>
-  setFrozenColumnCount: (count: number) => Promise<void>
-  setTabColor: (color: string) => Promise<void>
-  rename: (name: string) => Promise<void>
-  setVisible: (visible: boolean) => Promise<void>
-}
-
-export interface SheetWorkbookFacade {
-  getWorksheets: () => Promise<SheetWorksheetFacade[]>
-  getWorksheetById: (sheetId: string) => Promise<SheetWorksheetFacade | null>
-  getActiveWorksheet: () => Promise<SheetWorksheetFacade>
-  setActiveWorksheet: (sheetId: string) => Promise<void>
-  save: () => Promise<unknown>
-  addWorksheet: (name?: string, index?: number) => Promise<void>
-  deleteWorksheet: (sheetId: string) => Promise<void>
-  moveWorksheet: (sheetId: string, index: number) => Promise<void>
-}
-
-export interface SheetChartsFacade {
-  addChartFromSelection: (params?: unknown) => Promise<unknown>
-}
-
-export interface SheetSelectionsFacade {
-  getAll: () => Promise<unknown[]>
-}
-
-export interface PresentationSlideFacade {
-  id: string
-  getIndex: () => Promise<number>
-  getShapes: () => Promise<unknown[]>
-  getTables: () => Promise<unknown[]>
-  insertShape: (options: unknown) => Promise<void>
-  insertTextBox: (options: unknown) => Promise<void>
-  insertTable: (options: unknown) => Promise<void>
-  insertImage: (image: File, size?: unknown, offset?: unknown) => Promise<void>
-  insertAudio: (
-    data: File,
-    size?: unknown,
-    offset?: unknown,
-    name?: string
-  ) => Promise<void>
-  insertVideo: (
-    data: File,
-    size?: unknown,
-    offset?: unknown,
-    name?: string
-  ) => Promise<void>
-  insertAttachment: (
-    file: File,
-    size?: unknown,
-    offset?: unknown,
-    name?: string
-  ) => Promise<void>
-}
-
-export interface PresentationSlidesFacade {
-  getCurrentSlide: () => Promise<PresentationSlideFacade>
-  setCurrentSlideIndex: (slideId: string) => Promise<void>
-  getSlideIndex: (slideId: string) => Promise<number>
-  getSlidesCount: () => Promise<number>
-  getSlides: () => Promise<PresentationSlideFacade[]>
-  getSlideById: (slideId: string) => Promise<PresentationSlideFacade | null>
-  getSelectedSlides: (ids?: string[]) => Promise<PresentationSlideFacade[]>
-  setSelectedSlides: (ids: string[]) => Promise<void>
-  addSlide: () => Promise<PresentationSlideFacade>
-  duplicateSlide: (slideId: string) => Promise<PresentationSlideFacade>
-  deleteSlide: (slideId: string) => Promise<void>
-  hideSlide: (slideId: string) => Promise<void>
-}
-
-export interface PresentationTextRangeFacade {
-  start: string
-  end: string
-  getText: () => Promise<string>
-  setText: (text: string) => Promise<void>
-  getHtml: () => Promise<string>
-  setHtml: (html: string) => Promise<void>
-  getBounding: () => Promise<unknown>
-  setStyle: (style: unknown) => Promise<void>
-  setVerticalAlign: (vertical: unknown) => Promise<void>
-  setHorizontalAlign: (align: unknown) => Promise<void>
-  setListStyle: (style: unknown) => Promise<void>
-  setLineSpacing: (spacing: unknown) => Promise<void>
-  increaseIndent: () => Promise<void>
-  decreaseIndent: () => Promise<void>
-  setTextDirection: (direction: 'ltr' | 'rtl') => Promise<void>
-  clearStyle: () => Promise<void>
-  clearContent: () => Promise<void>
-  clearAll: () => Promise<void>
-  insertLink: (url: string, text: string) => Promise<void>
-}
-
-export interface PresentationSelectionFacade {
-  getTextRange: (value?: unknown) => Promise<PresentationTextRangeFacade | null>
-  setTextRange: (value: unknown | null) => Promise<void>
-  getSelectedShapes: (ids?: string[]) => Promise<unknown[] | null>
-  setSelectedShapes: (ids: string[] | null) => Promise<void>
-  addRangeListener: (listener: (value: unknown | null) => void) => () => void
-}
-
-export interface PresentationTextFacade {
-  get: (range?: unknown) => Promise<Partial<Record<string, unknown>>>
-  apply: (
-    format: Partial<Record<string, unknown>>,
-    range?: unknown
-  ) => Promise<Partial<Record<string, unknown>>>
-  clear: (range: unknown) => Promise<void>
-}
-
-export interface PresentationZoomFacade {
-  getPercentage: () => Promise<number>
-  setPercentage: (percentage: number) => Promise<void>
-  setFitMode: (mode: 'none' | 'window') => Promise<void>
-  getFitMode: () => Promise<'none' | 'window'>
-  zoomIn: () => Promise<void>
-  zoomOut: () => Promise<void>
-}
-
-export interface PresentationEventSubscriptionFacade {
-  addErrorListener: (
-    listener: (error: { code: number | string; message?: string }) => void
-  ) => () => void
-  addLoadedListener: (listener: () => void) => () => void
-}
-
 type EditorFacadeCallback = (...args: unknown[]) => unknown | Promise<unknown>
-
-interface HeaderBarsChangedPayload {
-  reason?: string
-  commandId?: string
-  version?: number
-  snapshot?: {
-    visible: boolean
-    commands: HeaderBarsCommandState[]
-  }
-}
 
 interface SerializedSlashMenuButton extends Omit<SlashMenuButton, 'callback'> {
   callbackId?: string
@@ -1697,84 +1304,42 @@ export class OfficeSDK extends TinyEmitter {
   }
 
   private initHeaderBarsFacade(): HeaderBarsFacade {
-    const facade: HeaderBarsFacade = {
-      visible: false,
-      onTitleChange: undefined,
-      getVisible: async () => {
-        return await this.syncHeaderBarsVisible()
+    return initHeaderBarsFacade({
+      getVisibleState: () => this.headerBarsVisible,
+      setVisibleState: (visible: boolean) => {
+        this.headerBarsVisible = visible
       },
-      setVisible: async (visible: boolean) => {
-        await this.setHeaderBarsVisible(visible)
-      },
-      addCommand: async (
-        command: HeaderBarsCommandDefinition,
-        posCommand: string,
-        pos: 'before' | 'after' = 'after'
-      ) => {
-        const { onClick, ...commandPayload } = command
-        const added = await this.invokeHeaderBars<boolean>(
-          HEADER_BARS_METHOD.addCommand,
-          { command: commandPayload, posCommand, pos }
-        )
-        const clickHandler = onClick
-        if (added && typeof clickHandler === 'function') {
-          this.headerBarsCommandOverrides.set(command.id, clickHandler)
-          await this.invokeHeaderBars<undefined>(
-            HEADER_BARS_METHOD.setCommandCallbackEnabled,
-            {
-              id: command.id,
-              enabled: true
-            }
-          )
-        }
-        return added
-      },
-      getCommand: (id: string) => this.getHeaderBarsCommandRef(id),
-      listViewCommands: async () => {
-        const commands = await this.invokeHeaderBars<HeaderBarsCommandState[]>(
-          HEADER_BARS_METHOD.listViewCommands
-        )
-        this.syncHeaderBarsCommands(commands)
-        return commands
-      }
-    }
-    Object.defineProperty(facade, 'visible', {
-      configurable: true,
-      enumerable: true,
-      get: () => this.headerBarsVisible,
-      set: (next: boolean) => {
-        this.setHeaderBarsVisible(next).catch((err: unknown) => {
-          this.emit(
-            Event.Error,
-            err instanceof Error
-              ? err
-              : new Error(`set headerBars.visible failed: ${String(err)}`)
-          )
-        })
-      }
-    })
-    Object.defineProperty(facade, 'onTitleChange', {
-      configurable: true,
-      enumerable: true,
-      get: () => this.headerBarsTitleChangeHandler,
-      set: (handler: HeaderBarsTitleChangeHandler | undefined) => {
+      getCommandsMap: () => this.headerBarsCommands,
+      getOverridesMap: () => this.headerBarsCommandOverrides,
+      getRefsMap: () => this.headerBarsCommandRefs,
+      getTitleHandler: () => this.headerBarsTitleChangeHandler,
+      setTitleHandler: (handler: HeaderBarsTitleChangeHandler | undefined) => {
         this.headerBarsTitleChangeHandler = handler
-        if (typeof handler !== 'function') {
-          return
-        }
-        this.ensureHeaderBarsTitleChangeSubscription().catch((err: unknown) => {
-          this.emit(
-            Event.Error,
-            err instanceof Error
-              ? err
-              : new Error(
-                  `subscribe headerBars titleChange failed: ${String(err)}`
-                )
-          )
-        })
+      },
+      isTitleSubscribed: () => this.headerBarsTitleChangeSubscribed,
+      setTitleSubscribed: (subscribed: boolean) => {
+        this.headerBarsTitleChangeSubscribed = subscribed
+      },
+      invokeHeaderBars: this.invokeHeaderBars.bind(this),
+      emitHeaderBarsError: (message: string, err: unknown) => {
+        this.emit(
+          Event.Error,
+          err instanceof Error ? err : new Error(`${message}: ${String(err)}`)
+        )
+      },
+      onInternalTitleChange: (listener: (title: unknown) => void) => {
+        this.emitter.on('titleChange', listener)
+      },
+      subscribeEditorTitleChange: async () => {
+        await this.channel.invoke(
+          InvokeMethod.ListenEditorEvent,
+          ['titleChange'],
+          {
+            audience: AUD
+          }
+        )
       }
     })
-    return facade
   }
 
   /**
@@ -1783,28 +1348,7 @@ export class OfficeSDK extends TinyEmitter {
    * 输出：监听建立成功后返回 Promise<void>；重复调用只会订阅一次。
    */
   private async ensureHeaderBarsTitleChangeSubscription(): Promise<void> {
-    if (this.headerBarsTitleChangeSubscribed) {
-      return
-    }
-    this.headerBarsTitleChangeSubscribed = true
-    this.emitter.on('titleChange', (title: unknown) => {
-      if (typeof title !== 'string') {
-        return
-      }
-      this.headerBarsTitleChangeHandler?.(title)
-    })
-    try {
-      await this.channel.invoke(
-        InvokeMethod.ListenEditorEvent,
-        ['titleChange'],
-        {
-          audience: AUD
-        }
-      )
-    } catch (error: unknown) {
-      this.headerBarsTitleChangeSubscribed = false
-      throw error
-    }
+    await ensureHeaderBarsTitleChangeSubscription(this.createHeaderBarsHost())
   }
 
   private async invokeHeaderBars<T>(
@@ -1818,247 +1362,62 @@ export class OfficeSDK extends TinyEmitter {
   }
 
   private syncHeaderBarsCommands(commands: HeaderBarsCommandState[]) {
-    this.headerBarsCommands.clear()
-    for (const command of commands) {
-      this.headerBarsCommands.set(command.id, command)
+    syncHeaderBarsCommands(this.createHeaderBarsHost(), commands)
+  }
+
+  private createHeaderBarsHost() {
+    return {
+      getVisibleState: () => this.headerBarsVisible,
+      setVisibleState: (visible: boolean) => {
+        this.headerBarsVisible = visible
+      },
+      getCommandsMap: () => this.headerBarsCommands,
+      getOverridesMap: () => this.headerBarsCommandOverrides,
+      getRefsMap: () => this.headerBarsCommandRefs,
+      getTitleHandler: () => this.headerBarsTitleChangeHandler,
+      setTitleHandler: (handler: HeaderBarsTitleChangeHandler | undefined) => {
+        this.headerBarsTitleChangeHandler = handler
+      },
+      isTitleSubscribed: () => this.headerBarsTitleChangeSubscribed,
+      setTitleSubscribed: (subscribed: boolean) => {
+        this.headerBarsTitleChangeSubscribed = subscribed
+      },
+      invokeHeaderBars: this.invokeHeaderBars.bind(this),
+      emitHeaderBarsError: (message: string, err: unknown) => {
+        this.emit(
+          Event.Error,
+          err instanceof Error ? err : new Error(`${message}: ${String(err)}`)
+        )
+      },
+      onInternalTitleChange: (listener: (title: unknown) => void) => {
+        this.emitter.on('titleChange', listener)
+      },
+      subscribeEditorTitleChange: async () => {
+        await this.channel.invoke(
+          InvokeMethod.ListenEditorEvent,
+          ['titleChange'],
+          {
+            audience: AUD
+          }
+        )
+      }
     }
   }
 
   private applyHeaderBarsChanged(payload?: HeaderBarsChangedPayload) {
-    const snapshot = payload?.snapshot
-    if (!snapshot) {
-      return
-    }
-    this.headerBarsVisible = snapshot.visible
-    this.syncHeaderBarsCommands(snapshot.commands)
+    applyHeaderBarsChanged(this.createHeaderBarsHost(), payload)
   }
 
   private async syncHeaderBarsVisible() {
-    const payload = await this.invokeHeaderBars<{ visible: boolean }>(
-      HEADER_BARS_METHOD.getVisible
-    )
-    this.headerBarsVisible = payload.visible
-    return this.headerBarsVisible
+    return await syncHeaderBarsVisible(this.createHeaderBarsHost())
   }
 
   private async setHeaderBarsVisible(visible: boolean) {
-    this.headerBarsVisible = visible
-    await this.invokeHeaderBars<undefined>(HEADER_BARS_METHOD.setVisible, {
-      visible
-    })
+    await setHeaderBarsVisible(this.createHeaderBarsHost(), visible)
   }
 
   private getHeaderBarsCommandRef(id: string): HeaderBarsCommandRef {
-    const existing = this.headerBarsCommandRefs.get(id)
-    if (existing) {
-      return existing
-    }
-
-    if (!this.headerBarsCommands.has(id)) {
-      this.invokeHeaderBars<{ command: HeaderBarsCommandState | null }>(
-        HEADER_BARS_METHOD.getCommand,
-        { id }
-      )
-        .then((payload) => {
-          if (payload.command) {
-            this.headerBarsCommands.set(id, payload.command)
-          }
-        })
-        .catch((err: unknown) => {
-          this.emit(
-            Event.Error,
-            err instanceof Error
-              ? err
-              : new Error(`fetch headerBars command failed: ${String(err)}`)
-          )
-        })
-    }
-
-    const ref: HeaderBarsCommandRef = {
-      id,
-      visible: true,
-      disabled: false,
-      src: undefined,
-      label: undefined,
-      editable: undefined,
-      onCommandClick: undefined,
-      getState: () => this.headerBarsCommands.get(id)
-    }
-    Object.defineProperties(ref, {
-      visible: {
-        configurable: true,
-        enumerable: true,
-        get: () => this.headerBarsCommands.get(id)?.visible !== false,
-        set: (next: boolean) => {
-          const current = this.headerBarsCommands.get(id)
-          if (current) {
-            this.headerBarsCommands.set(id, { ...current, visible: next })
-          }
-          this.invokeHeaderBars<undefined>(
-            HEADER_BARS_METHOD.setCommandVisible,
-            {
-              id,
-              visible: next
-            }
-          ).catch((err: unknown) => {
-            this.emit(
-              Event.Error,
-              err instanceof Error
-                ? err
-                : new Error(
-                    `set headerBars command visible failed: ${String(err)}`
-                  )
-            )
-          })
-        }
-      },
-      disabled: {
-        configurable: true,
-        enumerable: true,
-        get: () => this.headerBarsCommands.get(id)?.disabled === true,
-        set: (next: boolean) => {
-          const current = this.headerBarsCommands.get(id)
-          if (current) {
-            this.headerBarsCommands.set(id, { ...current, disabled: next })
-          }
-          this.invokeHeaderBars<undefined>(
-            HEADER_BARS_METHOD.setCommandDisabled,
-            {
-              id,
-              disabled: next
-            }
-          ).catch((err: unknown) => {
-            this.emit(
-              Event.Error,
-              err instanceof Error
-                ? err
-                : new Error(
-                    `set headerBars command disabled failed: ${String(err)}`
-                  )
-            )
-          })
-        }
-      },
-      src: {
-        configurable: true,
-        enumerable: true,
-        get: () => this.headerBarsCommands.get(id)?.src,
-        set: (next: string | undefined) => {
-          if (typeof next !== 'string') {
-            return
-          }
-          const current = this.headerBarsCommands.get(id)
-          if (current) {
-            this.headerBarsCommands.set(id, { ...current, src: next })
-          }
-          this.invokeHeaderBars<undefined>(HEADER_BARS_METHOD.setCommandSrc, {
-            id,
-            src: next
-          }).catch((err: unknown) => {
-            this.emit(
-              Event.Error,
-              err instanceof Error
-                ? err
-                : new Error(`set headerBars command src failed: ${String(err)}`)
-            )
-          })
-        }
-      },
-      label: {
-        configurable: true,
-        enumerable: true,
-        get: () => this.headerBarsCommands.get(id)?.label,
-        set: (next: string | undefined) => {
-          if (
-            typeof next !== 'string' ||
-            id === 'title' ||
-            id === 'save-status'
-          ) {
-            return
-          }
-          const current = this.headerBarsCommands.get(id)
-          if (current) {
-            this.headerBarsCommands.set(id, { ...current, label: next })
-          }
-          this.invokeHeaderBars<undefined>(HEADER_BARS_METHOD.setCommandLabel, {
-            id,
-            label: next
-          }).catch((err: unknown) => {
-            this.emit(
-              Event.Error,
-              err instanceof Error
-                ? err
-                : new Error(
-                    `set headerBars command label failed: ${String(err)}`
-                  )
-            )
-          })
-        }
-      },
-      editable: {
-        configurable: true,
-        enumerable: true,
-        get: () => this.headerBarsCommands.get(id)?.editable,
-        set: (next: boolean | undefined) => {
-          if (id !== 'title') {
-            this.emit(
-              Event.Error,
-              new Error(
-                'headerBars command editable is only supported for title'
-              )
-            )
-            return
-          }
-          const current = this.headerBarsCommands.get(id)
-          if (current) {
-            this.headerBarsCommands.set(id, { ...current, editable: next })
-          }
-          this.invokeHeaderBars<undefined>(
-            HEADER_BARS_METHOD.setCommandEditable,
-            {
-              id,
-              editable: next
-            }
-          ).catch((err: unknown) => {
-            this.emit(
-              Event.Error,
-              err instanceof Error
-                ? err
-                : new Error(
-                    `set headerBars command editable failed: ${String(err)}`
-                  )
-            )
-          })
-        }
-      },
-      onCommandClick: {
-        configurable: true,
-        enumerable: true,
-        get: () => this.headerBarsCommandOverrides.get(id),
-        set: (handler: (() => void | Promise<void>) | undefined) => {
-          this.headerBarsCommandOverrides.set(id, handler)
-          this.invokeHeaderBars<undefined>(
-            HEADER_BARS_METHOD.setCommandCallbackEnabled,
-            {
-              id,
-              enabled: typeof handler === 'function'
-            }
-          ).catch((err: unknown) => {
-            this.emit(
-              Event.Error,
-              err instanceof Error
-                ? err
-                : new Error(
-                    `set headerBars command callback failed: ${String(err)}`
-                  )
-            )
-          })
-        }
-      }
-    })
-
-    this.headerBarsCommandRefs.set(id, ref)
-    return ref
+    return getHeaderBarsCommandRef(this.createHeaderBarsHost(), id)
   }
 
   /**
@@ -2153,513 +1512,24 @@ export class OfficeSDK extends TinyEmitter {
     }
   }
 
-  private createDocsRangeFacade(
-    locator: { start: number; end: number } | null | undefined
-  ): DocsRangeFacade | null {
-    if (!locator) {
-      return null
-    }
-    return this.createValueObjectFacade<DocsRangeFacade>(
-      'selection.range',
-      locator,
-      {
-        start: locator.start,
-        end: locator.end,
-        isCaret: locator.start === locator.end
-      }
-    )
-  }
-
-  private createDocsTableFacade(locator: { tableId: string }): DocsTableFacade {
-    return this.createValueObjectFacade<DocsTableFacade>(
-      'tables.item',
-      locator,
-      {
-        tableId: locator.tableId,
-        getCell: async (row: number, column: number) => {
-          const nextLocator = await this.invokeEditorFacade<{
-            tableId: string
-            row: number
-            column: number
-          } | null>('tables.item.getCell', [locator, row, column])
-          if (!nextLocator) {
-            return null
-          }
-          return this.createValueObjectFacade<DocsTableCellFacade>(
-            'tables.cell',
-            nextLocator,
-            {
-              tableId: nextLocator.tableId,
-              row: nextLocator.row,
-              column: nextLocator.column
-            }
-          )
-        },
-        getRange: async (selection: unknown) => {
-          const nextLocator = await this.invokeEditorFacade<{
-            tableId: string
-            selection: unknown
-          } | null>('tables.item.getRange', [locator, selection])
-          if (!nextLocator) {
-            return null
-          }
-          return this.createValueObjectFacade<DocsTableRangeFacade>(
-            'tables.range',
-            nextLocator,
-            {
-              tableId: nextLocator.tableId,
-              selection: nextLocator.selection
-            }
-          )
-        }
-      }
-    )
-  }
-
-  private createSheetRangeFacade(
-    locator:
-      | {
-          sheetId?: string
-          row: number
-          column: number
-          rowCount: number
-          columnCount: number
-        }
-      | null
-      | undefined
-  ): SheetRangeFacade | null {
-    if (!locator) {
-      return null
-    }
-    return this.createValueObjectFacade<SheetRangeFacade>(
-      'sheet.range',
-      locator,
-      locator
-    )
-  }
-
-  private createSheetCellFacade(
-    locator:
-      | { sheetId?: string; row: number; column: number }
-      | null
-      | undefined
-  ): SheetCellFacade | null {
-    if (!locator) {
-      return null
-    }
-    return this.createValueObjectFacade<SheetCellFacade>(
-      'sheet.cell',
-      locator,
-      locator
-    )
-  }
-
-  private createSheetWorksheetFacade(locator: {
-    sheetId?: string
-    id?: string
-    name?: string
-    active?: boolean
-  }): SheetWorksheetFacade {
-    return this.createValueObjectFacade<SheetWorksheetFacade>(
-      'sheet.worksheet',
-      locator,
-      {
-        id: locator.id,
-        name: locator.name,
-        getRange: async (value: unknown) => {
-          const rangeLocator = await this.invokeEditorFacade<{
-            sheetId?: string
-            row: number
-            column: number
-            rowCount: number
-            columnCount: number
-          } | null>('sheet.worksheet.getRange', [locator, value])
-          return this.createSheetRangeFacade(rangeLocator)
-        },
-        getCell: async (row: number, column: number) => {
-          const cellLocator = await this.invokeEditorFacade<{
-            sheetId?: string
-            row: number
-            column: number
-          } | null>('sheet.worksheet.getCell', [locator, row, column])
-          return this.createSheetCellFacade(cellLocator)
-        },
-        getActiveCell: async () => {
-          const cellLocator = await this.invokeEditorFacade<{
-            sheetId?: string
-            row: number
-            column: number
-          } | null>('sheet.worksheet.getActiveCell', [locator])
-          return this.createSheetCellFacade(cellLocator)
-        }
-      }
-    )
-  }
-
-  private createPresentationTextRangeFacade(
-    locator: { start: string; end: string } | null | undefined
-  ): PresentationTextRangeFacade | null {
-    if (!locator) {
-      return null
-    }
-    return this.createValueObjectFacade<PresentationTextRangeFacade>(
-      'selection.textRange',
-      locator,
-      {
-        start: locator.start,
-        end: locator.end
-      }
-    )
-  }
-
-  private createPresentationSlideFacade(locator: {
-    slideId: string
-  }): PresentationSlideFacade {
-    return this.createValueObjectFacade<PresentationSlideFacade>(
-      'slides.slide',
-      locator,
-      {
-        id: locator.slideId
-      }
-    )
-  }
-
-  /**
-   * 按当前套件挂载根级能力命名空间。
-   * 输入：无，读取当前 fileType。
-   * 输出：直接更新 SDK 实例上的根级 facade 字段。
-   */
   private installRootFacade() {
     this.clearRootFacade()
-
-    const titleFacade: TitleFacade = {
-      addChangedListener: (listener: (title: string) => void) => {
-        return this.listenEditorEvent<string>('titleChange', listener)
-      },
-      setTitle: async (title: string) => {
-        await this.invokeEditorFacade('title.setTitle', [title])
-      }
-    }
-    const commentsFacade: CommentsFacade = {
-      show: async (type?: 'list' | 'card') => {
-        await this.invokeEditorFacade(
-          'comments.show',
-          typeof type === 'undefined' ? [] : [type]
-        )
-      },
-      hide: async (type?: 'list' | 'card') => {
-        await this.invokeEditorFacade(
-          'comments.hide',
-          typeof type === 'undefined' ? [] : [type]
-        )
-      }
-    }
-    const historyFacade: HistoryFacade = {
-      show: async () => {
-        await this.invokeEditorFacade('history.show')
-      },
-      hide: async () => {
-        await this.invokeEditorFacade('history.hide')
-      }
-    }
-    const locksFacade: LocksFacade = {
-      show: async () => {
-        await this.invokeEditorFacade('locks.show')
-      },
-      hide: async () => {
-        await this.invokeEditorFacade('locks.hide')
-      },
-      addRangeLock: async (options: Record<string, unknown>) => {
-        await this.invokeEditorFacade('locks.addRangeLock', [options])
-      },
-      addSheetLock: async (options: Record<string, unknown>) => {
-        await this.invokeEditorFacade('locks.addSheetLock', [options])
-      },
-      removeRangeLocksInRanges: async (options: Record<string, unknown>) => {
-        await this.invokeEditorFacade('locks.removeRangeLocksInRanges', [
-          options
-        ])
-      },
-      removeSheetLock: async (options: Record<string, unknown>) => {
-        await this.invokeEditorFacade('locks.removeSheetLock', [options])
-      }
-    }
-    const mentionFacade: MentionFacade = {
-      locateCellByGuid: async (guid: string, notificationType?: string) => {
-        await this.invokeEditorFacade('mention.locateCellByGuid', [
-          guid,
-          notificationType
-        ])
-      }
-    }
-    const contentFacade: ContentFacade = {
-      setContent: async (content: unknown) => {
-        await this.invokeEditorFacade('content.setContent', [content])
-      }
-    }
-    const versionFacade: VersionFacade = {
-      createRevision: async (options?: { name?: string }) => {
-        await this.invokeEditorFacade('version.createRevision', [options])
-      }
-    }
-    const presentationFacade: PresentationFacade = {
-      start: async (index?: number) => {
-        await this.invokeEditorFacade(
-          'presentation.start',
-          typeof index === 'number' ? [index] : []
-        )
-      },
-      quit: async () => {
-        await this.invokeEditorFacade('presentation.quit')
-      },
-      startFromCurrent: async () => {
-        await this.invokeEditorFacade('presentation.startFromCurrent')
-      },
-      startRemoteLive: async () => {
-        await this.invokeEditorFacade('presentation.startRemoteLive')
-      },
-      startSpeakerView: async () => {
-        await this.invokeEditorFacade('presentation.startSpeakerView')
-      }
-    }
-    const batchChangesFacade = async <T>(
-      callback: () => T | Promise<T>
-    ): Promise<Awaited<T>> => {
-      const callbackId = this.registerEditorFacadeCallback(callback)
-      try {
-        return await this.invokeEditorFacade('batchChanges', [callbackId])
-      } finally {
-        this.unregisterEditorFacadeCallback(callbackId)
-      }
-    }
-    const printFacade = async () => {
-      await this.invokeEditorFacade('print')
-    }
-    const exportFacade = async (type: string) => {
-      await this.invokeEditorFacade('export', [type])
-    }
-    const setFocusFacade = async (isFocus: boolean) => {
-      await this.invokeEditorFacade('setFocus', [isFocus])
-    }
-    const docsSelectionFacade =
-      this.createEditorFacadeModule<DocsSelectionFacade>('selection', {
-        getRange: async (value?: unknown) => {
-          const locator = await this.invokeEditorFacade<{
-            start: number
-            end: number
-          } | null>(
-            'selection.getRange',
-            typeof value === 'undefined' ? [] : [value]
-          )
-          return this.createDocsRangeFacade(locator)
-        },
-        getWholeRange: async () => {
-          const locator = await this.invokeEditorFacade<{
-            start: number
-            end: number
-          } | null>('selection.getWholeRange')
-          return this.createDocsRangeFacade(locator)
-        },
-        addRangeListener: (listener: (payload: unknown) => void) =>
-          this.registerEditorFacadeListener(
-            'selection.addRangeListener',
-            listener
-          )
+    Object.assign(
+      this,
+      buildRootFacadeState({
+        fileType: this.fileType,
+        invokeEditorFacade: this.invokeEditorFacade.bind(this),
+        listenEditorEvent: this.listenEditorEvent.bind(this),
+        createEditorFacadeModule: this.createEditorFacadeModule.bind(this),
+        createValueObjectFacade: this.createValueObjectFacade.bind(this),
+        registerEditorFacadeListener:
+          this.registerEditorFacadeListener.bind(this),
+        registerEditorFacadeCallback:
+          this.registerEditorFacadeCallback.bind(this),
+        unregisterEditorFacadeCallback:
+          this.unregisterEditorFacadeCallback.bind(this)
       })
-    const docsTablesFacade = this.createEditorFacadeModule<DocsTablesFacade>(
-      'tables',
-      {
-        getAll: async () => {
-          const tables = await this.invokeEditorFacade<
-            Array<{ tableId: string }>
-          >('tables.getAll')
-          return tables.map((table) => this.createDocsTableFacade(table))
-        },
-        getOne: async (tableId: string) => {
-          const table = await this.invokeEditorFacade<{
-            tableId: string
-          } | null>('tables.getOne', [tableId])
-          return table ? this.createDocsTableFacade(table) : null
-        }
-      }
     )
-    const sheetWorkbookFacade =
-      this.createEditorFacadeModule<SheetWorkbookFacade>('workbook', {
-        getWorksheets: async () => {
-          const worksheets = await this.invokeEditorFacade<
-            Array<{ sheetId?: string; id?: string; name?: string }>
-          >('workbook.getWorksheets')
-          return worksheets.map((sheet) =>
-            this.createSheetWorksheetFacade(sheet)
-          )
-        },
-        getWorksheetById: async (sheetId: string) => {
-          const worksheet = await this.invokeEditorFacade<{
-            sheetId?: string
-            id?: string
-            name?: string
-          } | null>('workbook.getWorksheetById', [sheetId])
-          return worksheet ? this.createSheetWorksheetFacade(worksheet) : null
-        },
-        getActiveWorksheet: async () => {
-          const worksheet = await this.invokeEditorFacade<{
-            sheetId?: string
-            id?: string
-            name?: string
-            active?: boolean
-          }>('workbook.getActiveWorksheet')
-          return this.createSheetWorksheetFacade(worksheet)
-        }
-      })
-    const presentationSlidesFacade =
-      this.createEditorFacadeModule<PresentationSlidesFacade>('slides', {
-        getCurrentSlide: async () => {
-          const slide = await this.invokeEditorFacade<{ slideId: string }>(
-            'slides.getCurrentSlide'
-          )
-          return this.createPresentationSlideFacade(slide)
-        },
-        getSlides: async () => {
-          const slides = await this.invokeEditorFacade<
-            Array<{ slideId: string }>
-          >('slides.getSlides')
-          return slides.map((slide) =>
-            this.createPresentationSlideFacade(slide)
-          )
-        },
-        getSlideById: async (slideId: string) => {
-          const slide = await this.invokeEditorFacade<{
-            slideId: string
-          } | null>('slides.getSlideById', [slideId])
-          return slide ? this.createPresentationSlideFacade(slide) : null
-        },
-        getSelectedSlides: async (ids?: string[]) => {
-          const slides = await this.invokeEditorFacade<
-            Array<{ slideId: string }>
-          >('slides.getSelectedSlides', typeof ids === 'undefined' ? [] : [ids])
-          return slides.map((slide) =>
-            this.createPresentationSlideFacade(slide)
-          )
-        },
-        addSlide: async () => {
-          const slide = await this.invokeEditorFacade<{ slideId: string }>(
-            'slides.addSlide'
-          )
-          return this.createPresentationSlideFacade(slide)
-        },
-        duplicateSlide: async (slideId: string) => {
-          const slide = await this.invokeEditorFacade<{ slideId: string }>(
-            'slides.duplicateSlide',
-            [slideId]
-          )
-          return this.createPresentationSlideFacade(slide)
-        }
-      })
-    const presentationSelectionFacade =
-      this.createEditorFacadeModule<PresentationSelectionFacade>('selection', {
-        getTextRange: async (value?: unknown) => {
-          const locator = await this.invokeEditorFacade<{
-            start: string
-            end: string
-          } | null>(
-            'selection.getTextRange',
-            typeof value === 'undefined' ? [] : [value]
-          )
-          return this.createPresentationTextRangeFacade(locator)
-        },
-        addRangeListener: (listener: (payload: unknown) => void) =>
-          this.registerEditorFacadeListener(
-            'selection.addRangeListener',
-            listener
-          )
-      })
-    const presentationEventSubscriptionFacade: PresentationEventSubscriptionFacade =
-      {
-        addErrorListener: (
-          listener: (error: { code: number | string; message?: string }) => void
-        ) =>
-          this.registerEditorFacadeListener(
-            'eventSubscription.addErrorListener',
-            listener
-          ),
-        addLoadedListener: (listener: () => void) =>
-          this.registerEditorFacadeListener(
-            'eventSubscription.addLoadedListener',
-            listener
-          )
-      }
-
-    switch (this.fileType) {
-      case FileType.Document:
-      case FileType.DocumentPro:
-        this.title = titleFacade
-        this.comments = commentsFacade
-        this.presentation = presentationFacade
-        this.selection = docsSelectionFacade
-        this.settings = this.createEditorFacadeModule<DocsSettingsFacade>(
-          'settings',
-          {}
-        )
-        this.search = this.createEditorFacadeModule<DocsSearchFacade>(
-          'search',
-          {}
-        )
-        this.TOCs = this.createEditorFacadeModule<DocsTOCsFacade>('TOCs', {})
-        this.sidebar = this.createEditorFacadeModule<DocsSidebarFacade>(
-          'sidebar',
-          {}
-        )
-        this.tables = docsTablesFacade
-        this.batchChanges = batchChangesFacade
-        break
-      case FileType.Spreadsheet:
-        this.history = historyFacade
-        this.comments = commentsFacade
-        this.locks = locksFacade
-        this.mention = mentionFacade
-        this.content = contentFacade
-        this.version = versionFacade
-        this.presentation = presentationFacade
-        this.workbook = sheetWorkbookFacade
-        this.activeSheet = this.createSheetWorksheetFacade({
-          active: true
-        })
-        this.charts = this.createEditorFacadeModule<SheetChartsFacade>(
-          'charts',
-          {}
-        )
-        this.selections = this.createEditorFacadeModule<SheetSelectionsFacade>(
-          'selections',
-          {}
-        )
-        this.batchChanges = batchChangesFacade
-        this.print = printFacade
-        this.export = exportFacade
-        this.setFocus = setFocusFacade
-        break
-      case FileType.Presentation:
-        this.history = historyFacade
-        this.comments = commentsFacade
-        this.version = versionFacade
-        this.presentation = presentationFacade
-        this.slides = presentationSlidesFacade
-        this.selection = presentationSelectionFacade
-        this.text = this.createEditorFacadeModule<PresentationTextFacade>(
-          'text',
-          {}
-        )
-        this.zoom = this.createEditorFacadeModule<PresentationZoomFacade>(
-          'zoom',
-          {}
-        )
-        this.eventSubscription = presentationEventSubscriptionFacade
-        this.batchChanges = batchChangesFacade
-        this.print = printFacade
-        this.export = exportFacade
-        break
-      default:
-        break
-    }
   }
 
   /**
