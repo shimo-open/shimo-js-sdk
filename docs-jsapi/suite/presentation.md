@@ -23,7 +23,7 @@
 | [sdk.print](#sdkprint)                                         | 打印（PC only，`co-1.8+`）           |
 | [sdk.export](#sdkexporttype)                                   | 导出（PC only，`co-1.8+`）           |
 
-### facade 调用方式
+### API 调用方式
 
 ```typescript
 const sdk = await connect(options)
@@ -59,9 +59,9 @@ await sdk.history?.show()
 | `sdk.getEditor().print()`                  | 打印           | `sdk.print?.()`                         |
 | `sdk.getEditor().export(type)`             | 导出           | `sdk.export?.(type)`                    |
 
-### 新增 facade 方法
+### 新增 API 方法
 
-以下方法为本次补充的根级 facade 调用方式。
+以下方法为本次补充的根级 API 调用方式。
 
 ### sdk.history.show()
 
@@ -609,10 +609,3 @@ interface EditorTextFormat {
 ```
 
 ---
-
-## 注意事项
-
-- 本页仅描述根级 facade 的调用方式
-- 本页新增接口均为 `PC only`
-- 本页新增接口均需 `co-1.8+`
-- `sdk.presentation?.startRemoteLive()` 当前未在 `presentation` 套件承接，不应视为已支持接口

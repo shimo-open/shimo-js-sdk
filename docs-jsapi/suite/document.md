@@ -32,7 +32,7 @@
 | [sdk.batchChanges](#sdkbatchchangescallback)                        | 批量变更（PC only，`co-1.8+`）       |
 | [sdk.print](#sdkprint)                                              | 打印（PC only，`co-1.8+`）           |
 
-### facade 调用方式
+### API 调用方式
 
 ```typescript
 const sdk = await connect(options)
@@ -80,9 +80,9 @@ await sdk.title?.setTitle('Weekly Report')
 | `sdk.getEditor().hideCollaborator()`              | 隐藏编写者信息 | `sdk.collaborator?.hide()`              |
 | `sdk.getEditor().insertExternalApp(url, params?)` | 插入第三方应用 | `sdk.externalApp?.insert(url, params?)` |
 
-### 新增 facade 方法
+### 新增 API 方法
 
-以下方法为本次补充的根级 facade 调用方式。
+以下方法为本次补充的根级 API 调用方式。
 
 ### sdk.title.addChangedListener(listener)
 
@@ -949,13 +949,3 @@ interface DocsDefaultStyle {
 ```
 
 ---
-
-## 注意事项
-
-- 本页仅描述根级 facade 的调用方式
-- 本页新增接口均为 `PC only`
-- 本页新增接口均需 `co-1.8+`
-- 以下方法当前未在 `document` 套件承接：
-  - `sdk.presentation?.startFromCurrent()`
-  - `sdk.presentation?.startRemoteLive()`
-  - `sdk.presentation?.startSpeakerView()`
