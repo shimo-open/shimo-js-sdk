@@ -4,6 +4,8 @@
 
 ### 调用方式
 
+以下新增 API 均为 `PC only`。
+
 ```typescript
 const sdk = await connect(options)
 
@@ -28,13 +30,13 @@ await sdk.comments?.show()
 
 ### 方法列表
 
-| 方法                                                                | 说明         |
-| ------------------------------------------------------------------- | ------------ |
-| [sdk.title.addChangedListener](#sdktitleaddchangedlistenerlistener) | 监听标题变化 |
-| [sdk.title.setTitle](#sdktitlesettitletitle)                        | 设置标题     |
-| [sdk.comments.show](#sdkcommentsshowtype)                           | 显示评论     |
-| [sdk.comments.hide](#sdkcommentshidetype)                           | 隐藏评论     |
-| [sdk.presentation.start](#sdkpresentationstartindex)                | 启动演示     |
+| 方法                                                                | 说明         | 平台      |
+| ------------------------------------------------------------------- | ------------ | --------- |
+| [sdk.title.addChangedListener](#sdktitleaddchangedlistenerlistener) | 监听标题变化 | `PC only` |
+| [sdk.title.setTitle](#sdktitlesettitletitle)                        | 设置标题     | `PC only` |
+| [sdk.comments.show](#sdkcommentsshowtype)                           | 显示评论     | `PC only` |
+| [sdk.comments.hide](#sdkcommentshidetype)                           | 隐藏评论     | `PC only` |
+| [sdk.presentation.start](#sdkpresentationstartindex)                | 启动演示     | `PC only` |
 
 ---
 
@@ -43,6 +45,8 @@ await sdk.comments?.show()
 #### 说明
 
 监听文档标题变化。
+
+`PC only`
 
 #### 类型定义
 
@@ -80,6 +84,8 @@ dispose?.()
 
 设置当前文档标题。
 
+`PC only`
+
 #### 类型定义
 
 ```typescript
@@ -105,6 +111,8 @@ await sdk.title?.setTitle('Weekly Report')
 #### 说明
 
 显示评论能力入口。
+
+`PC only`
 
 #### 类型定义
 
@@ -133,6 +141,8 @@ await sdk.comments?.show('list')
 
 隐藏评论能力入口。
 
+`PC only`
+
 #### 类型定义
 
 ```typescript
@@ -158,6 +168,8 @@ await sdk.comments?.hide()
 #### 说明
 
 启动文档演示模式。
+
+`PC only`
 
 #### 类型定义
 

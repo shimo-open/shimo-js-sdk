@@ -25,6 +25,11 @@ export type {
   FileOpenFailedReason,
   TokenExpiredStrategy
 } from './types/EmptyPage'
+export type {
+  SlashMenuButton,
+  SlashMenuEntry,
+  SlashMenuOptions
+} from './types/SlashMenu'
 export {
   ALL_EMPTY_PAGE_SCENES,
   normalizeEmptyPageOptions

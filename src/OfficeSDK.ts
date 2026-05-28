@@ -53,6 +53,11 @@ import {
   Collaborator,
   CollaboratorsChangedPayload
 } from './types/BaseEditor'
+import {
+  SlashMenuButton,
+  SlashMenuEntry,
+  SlashMenuOptions
+} from './types/SlashMenu'
 
 const globalThis = getGlobal()
 const AUD = 'smjssdk'
@@ -97,6 +102,9 @@ const HEADER_BARS_METHOD = {
   handleCommandClick: 'headerBars.handleCommandClick'
 } as const
 const HEADER_BARS_CHANGED_EVENT = 'headerBars:changed'
+const SLASH_MENU_METHOD = {
+  handleButtonClick: 'slashMenu.handleButtonClick'
+} as const
 const PRELOAD_MESSAGE_TYPE = {
   READY: 'SDK_PRELOAD_READY',
   INIT: 'SDK_PRELOAD_INIT',
@@ -206,6 +214,22 @@ interface HeaderBarsChangedPayload {
   }
 }
 
+interface SerializedSlashMenuButton extends Omit<SlashMenuButton, 'callback'> {
+  callbackId?: string
+}
+
+interface SerializedSlashMenuEntry extends Omit<SlashMenuEntry, 'children'> {
+  children?: SerializedSlashMenuItem[]
+}
+
+type SerializedSlashMenuItem =
+  | SerializedSlashMenuButton
+  | SerializedSlashMenuEntry
+
+interface SerializedSlashMenuOptions {
+  entries: SerializedSlashMenuItem[]
+}
+
 /**
  * 兼容旧版语言缩写，并统一映射为标准语言代码。
  */
@@ -217,6 +241,12 @@ function normalizeLanguage(lang: string): SupportedLanguage | undefined {
   }
 
   return undefined
+}
+
+function isSlashMenuEntry(
+  item: SlashMenuEntry | SlashMenuButton
+): item is SlashMenuEntry {
+  return item.type === 'entry'
 }
 
 export const MessageEvent = InvokeMethod
@@ -344,6 +374,8 @@ export class OfficeSDK extends TinyEmitter {
     string,
     (() => void | Promise<void>) | undefined
   >()
+
+  private readonly slashMenuCallbacks = new Map<string, () => void>()
 
   private readonly headerBarsCommandRefs = new Map<
     string,
@@ -473,6 +505,121 @@ export class OfficeSDK extends TinyEmitter {
     return this._readyState
   }
 
+  /**
+   * 判断当前实例是否应该向 iframe 暴露 slashMenu。
+   * 输入：无，读取当前文件类型与 startParams.type 提示。
+   * 输出：仅在明确是 docs，或尚未拿到文件类型且没有明确非 docs 提示时返回 true。
+   */
+  private shouldExposeSlashMenu() {
+    if (!this.connectOptions.slashMenu) {
+      return false
+    }
+
+    if (this.fileType === FileType.Document) {
+      return true
+    }
+
+    if (this.fileType !== FileType.Unknown) {
+      return false
+    }
+
+    const hintedType = this.getSlashMenuTypeHint()
+    if (typeof hintedType !== 'string') {
+      return true
+    }
+
+    return ['doc', 'docs', 'document'].includes(hintedType)
+  }
+
+  /**
+   * 从 startParams 中提取文件类型提示。
+   * 输入：无。
+   * 输出：标准化后的 type 字符串；若未配置则返回 undefined。
+   */
+  private getSlashMenuTypeHint() {
+    const type = (this.startParams as Record<string, unknown>).type
+    if (typeof type !== 'string') {
+      return undefined
+    }
+
+    const normalized = type.trim().toLowerCase()
+    return normalized || undefined
+  }
+
+  /**
+   * 将宿主传入的 slashMenu 转成可跨 iframe 传输的纯数据结构。
+   * 输入：当前实例上的 `OfficeSDKOptions.slashMenu`。
+   * 输出：去除真实函数、附带 callbackId 的 slashMenu 配置；不适用时返回 undefined。
+   */
+  private createSerializedSlashMenu(): SerializedSlashMenuOptions | undefined {
+    this.slashMenuCallbacks.clear()
+
+    if (!this.shouldExposeSlashMenu()) {
+      return undefined
+    }
+
+    const { slashMenu } = this.connectOptions
+    if (!slashMenu || !Array.isArray(slashMenu.entries)) {
+      return undefined
+    }
+
+    return {
+      entries: this.serializeSlashMenuItems(slashMenu.entries, ['entries'])
+    }
+  }
+
+  /**
+   * 递归序列化 slashMenu 菜单项，并登记 button callback。
+   * 输入：菜单项数组与当前递归路径。
+   * 输出：仅包含结构化克隆安全字段的菜单项数组。
+   */
+  private serializeSlashMenuItems(
+    items: Array<SlashMenuEntry | SlashMenuButton>,
+    path: string[]
+  ): SerializedSlashMenuItem[] {
+    return items.map((item, index) => {
+      const nextPath = [...path, `${index}`, item.name]
+      if (isSlashMenuEntry(item)) {
+        return {
+          ...item,
+          children: item.children
+            ? this.serializeSlashMenuItems(item.children, nextPath)
+            : undefined
+        }
+      }
+
+      const callbackId = this.registerSlashMenuCallback(nextPath, item.callback)
+      const serializedItem: SerializedSlashMenuButton = {
+        name: item.name,
+        type: item.type,
+        disabled: item.disabled,
+        label: item.label,
+        icon: item.icon
+      }
+
+      if (callbackId) {
+        serializedItem.callbackId = callbackId
+      }
+
+      return serializedItem
+    })
+  }
+
+  /**
+   * 为 slashMenu button callback 生成稳定 id 并注册到内存表。
+   * 输入：菜单路径与可选 callback。
+   * 输出：注册后的 callbackId；若未提供 callback 则返回 undefined。
+   */
+  private registerSlashMenuCallback(path: string[], callback?: () => void) {
+    if (typeof callback !== 'function') {
+      return undefined
+    }
+
+    const callbackId = `slash-menu:${path.join(':')}`
+    this.slashMenuCallbacks.set(callbackId, callback)
+    return callbackId
+  }
+
   getEditor<
     T extends
       | BaseEditor
@@ -531,6 +678,7 @@ export class OfficeSDK extends TinyEmitter {
   }
 
   disconnect() {
+    this.slashMenuCallbacks.clear()
     if (this.element?.parentElement instanceof HTMLElement) {
       this.element.parentElement.removeChild(this.element)
     }
@@ -893,6 +1041,9 @@ export class OfficeSDK extends TinyEmitter {
         const opts: Record<string, unknown> = {}
 
         Object.keys(this.connectOptions).forEach((k) => {
+          if (k === 'slashMenu') {
+            return
+          }
           const v = this.connectOptions[k as keyof typeof this.connectOptions]
           opts[k] = v
           // 函数用 boolean 标记有设置值
@@ -900,6 +1051,11 @@ export class OfficeSDK extends TinyEmitter {
             opts[`has${k[0].toUpperCase()}${k.slice(1)}`] = true
           }
         })
+
+        const slashMenu = this.createSerializedSlashMenu()
+        if (slashMenu) {
+          opts.slashMenu = slashMenu
+        }
 
         opts.apiAdaptor = this.apiAdaptor
         opts.apiAdaptorContext = this.apiAdaptorContext
@@ -937,6 +1093,20 @@ export class OfficeSDK extends TinyEmitter {
           return false
         }
         await handler()
+        return true
+      },
+      { audience: AUD }
+    )
+
+    channel.addInvokeHandler(
+      SLASH_MENU_METHOD.handleButtonClick,
+      async (callbackId: string) => {
+        const handler = this.slashMenuCallbacks.get(callbackId)
+        if (typeof handler !== 'function') {
+          console.error(`[slashMenu] callback not found: ${String(callbackId)}`)
+          return false
+        }
+        await Promise.resolve(handler())
         return true
       },
       { audience: AUD }
@@ -2083,6 +2253,13 @@ export interface OfficeSDKOptions
    * 控制 headerbar 组件是否展示，false 表示隐藏。
    */
   headerBarsVisible?: boolean
+
+  /**
+   * docs 斜杠菜单配置。
+   * 仅 docs 文件类型生效；`button.callback` 实际运行在宿主页，
+   * 会在 iframe 内点击菜单按钮后通过 postMessage/channel 回调触发。
+   */
+  slashMenu?: SlashMenuOptions
 
   /**
    * 是否显示内置的加载动画，只在静态资源加载到编辑器渲染这个阶段显示

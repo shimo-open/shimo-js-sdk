@@ -4,6 +4,8 @@
 
 ### 调用方式
 
+以下新增 API 均为 `PC only`。
+
 ```typescript
 const sdk = await connect(options)
 
@@ -29,23 +31,23 @@ await sdk.version?.createRevision()
 
 ### 方法列表
 
-| 方法                                                                             | 说明             |
-| -------------------------------------------------------------------------------- | ---------------- |
-| [sdk.history.show](#sdkhistoryshow)                                              | 显示历史         |
-| [sdk.history.hide](#sdkhistoryhide)                                              | 隐藏历史         |
-| [sdk.comments.show](#sdkcommentsshowtype)                                        | 显示评论         |
-| [sdk.comments.hide](#sdkcommentshidetype)                                        | 隐藏评论         |
-| [sdk.locks.show](#sdklocksshow)                                                  | 显示锁定侧边栏   |
-| [sdk.locks.hide](#sdklockshide)                                                  | 隐藏锁定侧边栏   |
-| [sdk.locks.addRangeLock](#sdklocksaddrangelockoptions)                           | 创建单元格锁定   |
-| [sdk.locks.addSheetLock](#sdklocksaddsheetlockoptions)                           | 创建工作表锁定   |
-| [sdk.locks.removeRangeLocksInRanges](#sdklocksremoverangelocksinrangesoptions)   | 删除范围锁定     |
-| [sdk.locks.removeSheetLock](#sdklocksremovesheetlockoptions)                     | 删除工作表锁定   |
-| [sdk.mention.locateCellByGuid](#sdkmentionlocatecellbyguidguid-notificationtype) | 按通知定位单元格 |
-| [sdk.content.setContent](#sdkcontentsetcontentcontent)                           | 设置内容         |
-| [sdk.version.createRevision](#sdkversioncreaterevisionoptions)                   | 创建版本         |
-| [sdk.presentation.start](#sdkpresentationstartindex)                             | 启动演示         |
-| [sdk.presentation.quit](#sdkpresentationquit)                                    | 退出演示         |
+| 方法                                                                             | 说明             | 平台      |
+| -------------------------------------------------------------------------------- | ---------------- | --------- |
+| [sdk.history.show](#sdkhistoryshow)                                              | 显示历史         | `PC only` |
+| [sdk.history.hide](#sdkhistoryhide)                                              | 隐藏历史         | `PC only` |
+| [sdk.comments.show](#sdkcommentsshowtype)                                        | 显示评论         | `PC only` |
+| [sdk.comments.hide](#sdkcommentshidetype)                                        | 隐藏评论         | `PC only` |
+| [sdk.locks.show](#sdklocksshow)                                                  | 显示锁定侧边栏   | `PC only` |
+| [sdk.locks.hide](#sdklockshide)                                                  | 隐藏锁定侧边栏   | `PC only` |
+| [sdk.locks.addRangeLock](#sdklocksaddrangelockoptions)                           | 创建单元格锁定   | `PC only` |
+| [sdk.locks.addSheetLock](#sdklocksaddsheetlockoptions)                           | 创建工作表锁定   | `PC only` |
+| [sdk.locks.removeRangeLocksInRanges](#sdklocksremoverangelocksinrangesoptions)   | 删除范围锁定     | `PC only` |
+| [sdk.locks.removeSheetLock](#sdklocksremovesheetlockoptions)                     | 删除工作表锁定   | `PC only` |
+| [sdk.mention.locateCellByGuid](#sdkmentionlocatecellbyguidguid-notificationtype) | 按通知定位单元格 | `PC only` |
+| [sdk.content.setContent](#sdkcontentsetcontentcontent)                           | 设置内容         | `PC only` |
+| [sdk.version.createRevision](#sdkversioncreaterevisionoptions)                   | 创建版本         | `PC only` |
+| [sdk.presentation.start](#sdkpresentationstartindex)                             | 启动演示         | `PC only` |
+| [sdk.presentation.quit](#sdkpresentationquit)                                    | 退出演示         | `PC only` |
 
 ---
 
@@ -54,6 +56,8 @@ await sdk.version?.createRevision()
 #### 说明
 
 显示表格历史侧边栏。
+
+`PC only`
 
 #### 类型定义
 
@@ -77,6 +81,8 @@ await sdk.history?.show()
 
 隐藏表格历史侧边栏。
 
+`PC only`
+
 #### 类型定义
 
 ```typescript
@@ -98,6 +104,8 @@ await sdk.history?.hide()
 #### 说明
 
 显示评论能力入口。
+
+`PC only`
 
 #### 类型定义
 
@@ -125,6 +133,8 @@ await sdk.comments?.show()
 
 隐藏评论能力入口。
 
+`PC only`
+
 #### 类型定义
 
 ```typescript
@@ -151,6 +161,8 @@ await sdk.comments?.hide()
 
 显示锁定侧边栏。
 
+`PC only`
+
 #### 类型定义
 
 ```typescript
@@ -173,6 +185,8 @@ await sdk.locks?.show()
 
 隐藏锁定侧边栏。
 
+`PC only`
+
 #### 类型定义
 
 ```typescript
@@ -194,6 +208,8 @@ await sdk.locks?.hide()
 #### 说明
 
 创建单元格范围锁定。
+
+`PC only`
 
 #### 类型定义
 
@@ -224,6 +240,8 @@ await sdk.locks?.addRangeLock({
 
 创建工作表锁定。
 
+`PC only`
+
 #### 类型定义
 
 ```typescript
@@ -252,6 +270,8 @@ await sdk.locks?.addSheetLock({
 #### 说明
 
 删除指定范围内的单元格锁定。
+
+`PC only`
 
 #### 类型定义
 
@@ -283,6 +303,8 @@ await sdk.locks?.removeRangeLocksInRanges({
 
 删除工作表锁定。
 
+`PC only`
+
 #### 类型定义
 
 ```typescript
@@ -310,6 +332,8 @@ await sdk.locks?.removeSheetLock({
 #### 说明
 
 根据通知 guid 定位到对应单元格。
+
+`PC only`
 
 #### 类型定义
 
@@ -341,6 +365,8 @@ await sdk.mention?.locateCellByGuid('message-guid', 'comment')
 
 设置表格内容。
 
+`PC only`
+
 #### 类型定义
 
 ```typescript
@@ -369,6 +395,8 @@ await sdk.content?.setContent({
 
 创建表格版本。
 
+`PC only`
+
 #### 类型定义
 
 ```typescript
@@ -395,6 +423,8 @@ await sdk.version?.createRevision({ name: 'v1' })
 
 启动表格演示模式。
 
+`PC only`
+
 #### 类型定义
 
 ```typescript
@@ -420,6 +450,8 @@ await sdk.presentation?.start()
 #### 说明
 
 退出表格演示模式。
+
+`PC only`
 
 #### 类型定义
 
