@@ -8,20 +8,29 @@
 | ------------------------------------------------------------------- | ------------------------------------ |
 | [sdk.title.addChangedListener](#sdktitleaddchangedlistenerlistener) | 监听标题变化（PC only，`co-1.8+`）   |
 | [sdk.title.setTitle](#sdktitlesettitletitle)                        | 设置标题（PC only，`co-1.8+`）       |
+| [sdk.history.show](#sdkhistoryshow)                                 | 显示历史（PC only，`co-1.8+`）       |
+| [sdk.history.hide](#sdkhistoryhide)                                 | 隐藏历史（PC only，`co-1.8+`）       |
 | [sdk.comments.show](#sdkcommentsshowtype)                           | 显示评论（PC only，`co-1.8+`）       |
 | [sdk.comments.hide](#sdkcommentshidetype)                           | 隐藏评论（PC only，`co-1.8+`）       |
+| [sdk.discussion.show](#sdkdiscussionshow)                           | 显示讨论（PC only，`co-1.8+`）       |
+| [sdk.discussion.hide](#sdkdiscussionhide)                           | 隐藏讨论（PC only，`co-1.8+`）       |
+| [sdk.version](#sdkversion)                                          | 版本能力（PC only，`co-1.8+`）       |
 | [sdk.presentation.start](#sdkpresentationstartindex)                | 启动演示（PC only，`co-1.8+`）       |
 | [sdk.selection](#sdkselection)                                      | 选区能力（PC only，`co-1.8+`）       |
 | [sdk.selection.range](#sdkselectionrange)                           | 选区范围能力（PC only，`co-1.8+`）   |
 | [sdk.search](#sdksearch)                                            | 搜索与替换（PC only，`co-1.8+`）     |
 | [sdk.TOCs](#sdktocs)                                                | 目录能力（PC only，`co-1.8+`）       |
 | [sdk.sidebar](#sdksidebar)                                          | 侧边栏能力（PC only，`co-1.8+`）     |
+| [sdk.collaborator.show](#sdkcollaboratorshow)                       | 显示编写者信息（PC only，`co-1.8+`） |
+| [sdk.collaborator.hide](#sdkcollaboratorhide)                       | 隐藏编写者信息（PC only，`co-1.8+`） |
+| [sdk.externalApp.insert](#sdkexternalappinserturl-params)           | 插入第三方应用（PC only，`co-1.8+`） |
 | [sdk.tables](#sdktables)                                            | 表格集合能力（PC only，`co-1.8+`）   |
 | [sdk.tables.item](#sdktablesitem)                                   | 单个表格能力（PC only，`co-1.8+`）   |
 | [sdk.tables.cell](#sdktablescell)                                   | 表格单元格能力（PC only，`co-1.8+`） |
 | [sdk.tables.range](#sdktablesrange)                                 | 表格范围能力（PC only，`co-1.8+`）   |
 | [sdk.settings](#sdksettings)                                        | 文档设置能力（PC only，`co-1.8+`）   |
 | [sdk.batchChanges](#sdkbatchchangescallback)                        | 批量变更（PC only，`co-1.8+`）       |
+| [sdk.print](#sdkprint)                                              | 打印（PC only，`co-1.8+`）           |
 
 ### facade 调用方式
 
@@ -45,6 +54,35 @@ await sdk.getEditor().setTitle?.('Weekly Report')
 // 新写法
 await sdk.title?.setTitle('Weekly Report')
 ```
+
+### 旧方法兼容
+
+以下旧方法调用方式继续保留说明；如存在根级 facade，优先使用新写法。
+
+| 旧方法                                            | 说明           | 推荐新写法                              |
+| ------------------------------------------------- | -------------- | --------------------------------------- |
+| `sdk.getEditor().setTitle(title)`                 | 设置文档标题   | `sdk.title?.setTitle(title)`            |
+| `sdk.getEditor().showComments()`                  | 显示评论侧边栏 | `sdk.comments?.show()`                  |
+| `sdk.getEditor().hideComments()`                  | 隐藏评论侧边栏 | `sdk.comments?.hide()`                  |
+| `sdk.getEditor().startDemonstration()`            | 启动演示       | `sdk.presentation?.start(index?)`       |
+| `sdk.getEditor().showHistory()`                   | 显示历史侧边栏 | `sdk.history?.show()`                   |
+| `sdk.getEditor().hideHistory()`                   | 隐藏历史侧边栏 | `sdk.history?.hide()`                   |
+| `sdk.getEditor().showRevision()`                  | 显示版本侧边栏 | `sdk.version?.show?.()`                 |
+| `sdk.getEditor().hideRevision()`                  | 隐藏版本侧边栏 | `sdk.version?.hide?.()`                 |
+| `sdk.getEditor().showDiscussion()`                | 显示讨论侧边栏 | `sdk.discussion?.show()`                |
+| `sdk.getEditor().hideDiscussion()`                | 隐藏讨论侧边栏 | `sdk.discussion?.hide()`                |
+| `sdk.getEditor().showToc()`                       | 显示目录       | `sdk.TOCs?.show()`                      |
+| `sdk.getEditor().hideToc()`                       | 隐藏目录       | `sdk.TOCs?.hide()`                      |
+| `sdk.getEditor().createRevision(options?)`        | 创建版本       | `sdk.version?.createRevision(options?)` |
+| `sdk.getEditor().endDemonstration()`              | 退出演示       | `sdk.presentation?.quit()`              |
+| `sdk.getEditor().print()`                         | 打印           | `sdk.print?.()`                         |
+| `sdk.getEditor().showCollaborator()`              | 显示编写者信息 | `sdk.collaborator?.show()`              |
+| `sdk.getEditor().hideCollaborator()`              | 隐藏编写者信息 | `sdk.collaborator?.hide()`              |
+| `sdk.getEditor().insertExternalApp(url, params?)` | 插入第三方应用 | `sdk.externalApp?.insert(url, params?)` |
+
+### 新增 facade 方法
+
+以下方法为本次补充的根级 facade 调用方式。
 
 ### sdk.title.addChangedListener(listener)
 
@@ -88,6 +126,34 @@ sdk.title?.setTitle(title: string): Promise<void>
 
 ---
 
+### sdk.history.show()
+
+#### 说明
+
+显示文档历史侧边栏。
+
+#### 类型定义
+
+```typescript
+sdk.history?.show(): Promise<void>
+```
+
+---
+
+### sdk.history.hide()
+
+#### 说明
+
+隐藏文档历史侧边栏。
+
+#### 类型定义
+
+```typescript
+sdk.history?.hide(): Promise<void>
+```
+
+---
+
 ### sdk.comments.show(type?)
 
 #### 说明
@@ -124,6 +190,57 @@ sdk.comments?.hide(type?: 'list' | 'card'): Promise<void>
 
 ---
 
+### sdk.discussion.show()
+
+#### 说明
+
+显示文档讨论侧边栏。
+
+#### 类型定义
+
+```typescript
+sdk.discussion?.show(): Promise<void>
+```
+
+---
+
+### sdk.discussion.hide()
+
+#### 说明
+
+隐藏文档讨论侧边栏。
+
+#### 类型定义
+
+```typescript
+sdk.discussion?.hide(): Promise<void>
+```
+
+---
+
+### sdk.version
+
+#### 说明
+
+文档版本能力。
+
+#### 类型定义
+
+```typescript
+sdk.version?.show?.(): Promise<void>
+sdk.version?.hide?.(): Promise<void>
+sdk.version?.createRevision(
+  options?: RevisionCreateOptions
+): Promise<void | null | DocumentErrorMessage>
+```
+
+#### 相关类型
+
+- [RevisionCreateOptions](#revisioncreateoptions)
+- [DocumentErrorMessage](#documenterrormessage)
+
+---
+
 ### sdk.presentation.start(index?)
 
 #### 说明
@@ -139,6 +256,20 @@ sdk.presentation?.start(index?: number): Promise<void>
 #### 参数
 
 - `index`: 可选的起始位置参数
+
+---
+
+### sdk.presentation.quit()
+
+#### 说明
+
+退出文档演示模式。
+
+#### 类型定义
+
+```typescript
+sdk.presentation?.quit(): Promise<void>
+```
 
 ---
 
@@ -283,6 +414,8 @@ sdk.search?.clear(): Promise<void>
 
 ```typescript
 sdk.TOCs?.getOpen(): Promise<boolean>
+sdk.TOCs?.show(): Promise<void>
+sdk.TOCs?.hide(): Promise<void>
 sdk.TOCs?.setOpen(isOpen: boolean): Promise<void>
 sdk.TOCs?.getAll(): Promise<DocsTOCItem[]>
 sdk.TOCs?.getOne(id: string): Promise<DocsTOCItem | null>
@@ -314,6 +447,61 @@ sdk.sidebar?.getState(): Promise<DocsSidebarState>
 #### 相关类型
 
 - [DocsSidebarState](#docssidebarstate)
+
+---
+
+### sdk.collaborator.show()
+
+#### 说明
+
+显示编写者信息侧边栏。
+
+#### 类型定义
+
+```typescript
+sdk.collaborator?.show(): Promise<void>
+```
+
+---
+
+### sdk.collaborator.hide()
+
+#### 说明
+
+隐藏编写者信息侧边栏。
+
+#### 类型定义
+
+```typescript
+sdk.collaborator?.hide(): Promise<void>
+```
+
+---
+
+### sdk.externalApp.insert(url, params?)
+
+#### 说明
+
+向文档中插入第三方应用。
+
+#### 类型定义
+
+```typescript
+sdk.externalApp?.insert(
+  url: string,
+  params?: ExternalAppParams
+): Promise<null | DocumentErrorMessage>
+```
+
+#### 参数
+
+- `url`: 第三方应用地址
+- `params`: 可选的应用展示参数
+
+#### 相关类型
+
+- [ExternalAppParams](#externalappparams)
+- [DocumentErrorMessage](#documenterrormessage)
 
 ---
 
@@ -487,7 +675,47 @@ await sdk.batchChanges?.(async () => {
 
 ---
 
+### sdk.print
+
+#### 说明
+
+打印文档。
+
+#### 类型定义
+
+```typescript
+sdk.print?.(): Promise<void>
+```
+
+---
+
 ## 类型定义
+
+### DocumentErrorMessage
+
+```typescript
+interface DocumentErrorMessage {
+  message: string
+}
+```
+
+### RevisionCreateOptions
+
+```typescript
+interface RevisionCreateOptions {
+  name?: string
+}
+```
+
+### ExternalAppParams
+
+```typescript
+interface ExternalAppParams {
+  title?: string
+  width?: number | string
+  height?: number
+}
+```
 
 ### DocsRangeValue
 
@@ -727,9 +955,7 @@ interface DocsDefaultStyle {
 - 本页仅描述根级 facade 的调用方式
 - 本页新增接口均为 `PC only`
 - 本页新增接口均需 `co-1.8+`
-- `document` 当前只支持 `sdk.presentation?.start(index?)`
 - 以下方法当前未在 `document` 套件承接：
-  - `sdk.presentation?.quit()`
   - `sdk.presentation?.startFromCurrent()`
   - `sdk.presentation?.startRemoteLive()`
   - `sdk.presentation?.startSpeakerView()`

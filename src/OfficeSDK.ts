@@ -71,14 +71,17 @@ import {
 } from './OfficeSDK.headerBars'
 import { buildRootFacadeState } from './OfficeSDK.facade'
 import type {
+  CollaboratorFacade,
   CommentsFacade,
   ContentFacade,
+  DiscussionFacade,
   DocsSearchFacade,
   DocsSelectionFacade,
   DocsSettingsFacade,
   DocsSidebarFacade,
   DocsTOCsFacade,
   DocsTablesFacade,
+  ExternalAppFacade,
   HistoryFacade,
   LocksFacade,
   MentionFacade,
@@ -225,6 +228,21 @@ export class OfficeSDK extends TinyEmitter {
    * 当前套件支持的评论能力。
    */
   comments?: CommentsFacade
+
+  /**
+   * 当前套件支持的讨论能力。
+   */
+  discussion?: DiscussionFacade
+
+  /**
+   * 当前套件支持的编写者侧边栏能力。
+   */
+  collaborator?: CollaboratorFacade
+
+  /**
+   * 当前套件支持的第三方应用插入能力。
+   */
+  externalApp?: ExternalAppFacade
 
   /**
    * 当前套件支持的锁定能力。

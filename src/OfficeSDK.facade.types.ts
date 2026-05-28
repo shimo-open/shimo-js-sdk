@@ -1,3 +1,5 @@
+import type { DocumentErrorMessage, ExternalAppParams } from './types/Document'
+
 export interface TitleFacade {
   addChangedListener: (listener: (title: string) => void) => () => void
   setTitle: (title: string) => Promise<void>
@@ -11,6 +13,23 @@ export interface CommentsFacade {
 export interface HistoryFacade {
   show: () => Promise<void>
   hide: () => Promise<void>
+}
+
+export interface DiscussionFacade {
+  show: () => Promise<void>
+  hide: () => Promise<void>
+}
+
+export interface CollaboratorFacade {
+  show: () => Promise<void>
+  hide: () => Promise<void>
+}
+
+export interface ExternalAppFacade {
+  insert: (
+    url: string,
+    params?: ExternalAppParams
+  ) => Promise<null | DocumentErrorMessage>
 }
 
 export interface DocsRangeBounding {
@@ -730,7 +749,11 @@ export interface ContentFacade {
 }
 
 export interface VersionFacade {
-  createRevision: (options?: RevisionCreateOptions) => Promise<void>
+  show?: () => Promise<void>
+  hide?: () => Promise<void>
+  createRevision: (
+    options?: RevisionCreateOptions
+  ) => Promise<undefined | null | DocumentErrorMessage>
 }
 
 export interface PresentationFacade {
@@ -803,6 +826,8 @@ export interface DocsSearchFacade {
 }
 
 export interface DocsTOCsFacade {
+  show: () => Promise<void>
+  hide: () => Promise<void>
   getOpen: () => Promise<boolean>
   setOpen: (isOpen: boolean) => Promise<void>
   getAll: () => Promise<DocsTOCItem[]>
@@ -934,9 +959,7 @@ export interface SheetWorksheetFacade {
       ranges: SheetRangeValue[] | null
     }) => void
   ) => () => void
-  getBounding: (
-    range: SheetRangeValue
-  ) => Promise<{
+  getBounding: (range: SheetRangeValue) => Promise<{
     left: number
     top: number
     width: number
@@ -1120,6 +1143,9 @@ export interface OfficeSDKRootFacadeState {
   title?: TitleFacade
   history?: HistoryFacade
   comments?: CommentsFacade
+  discussion?: DiscussionFacade
+  collaborator?: CollaboratorFacade
+  externalApp?: ExternalAppFacade
   locks?: LocksFacade
   mention?: MentionFacade
   content?: ContentFacade

@@ -1,10 +1,12 @@
 import { FileType } from 'weboffice-js-sdk-shared'
 
 import type {
+  CollaboratorFacade,
   AddRangeLockParams,
   AddSheetLockParams,
   Content,
   ContentFacade,
+  DiscussionFacade,
   DocsRangeFacade,
   DocsRangeValue,
   DocsSearchFacade,
@@ -17,6 +19,7 @@ import type {
   DocsTableRangeFacade,
   DocsTableSelection,
   DocsTablesFacade,
+  ExternalAppFacade,
   HistoryFacade,
   LocksFacade,
   MentionFacade,
@@ -291,6 +294,30 @@ export function buildRootFacadeState(
     }
   }
 
+  const discussionFacade: DiscussionFacade = {
+    show: async () => {
+      await host.invokeEditorFacade('showDiscussion')
+    },
+    hide: async () => {
+      await host.invokeEditorFacade('hideDiscussion')
+    }
+  }
+
+  const collaboratorFacade: CollaboratorFacade = {
+    show: async () => {
+      await host.invokeEditorFacade('showCollaborator')
+    },
+    hide: async () => {
+      await host.invokeEditorFacade('hideCollaborator')
+    }
+  }
+
+  const externalAppFacade: ExternalAppFacade = {
+    insert: async (url, params) => {
+      return await host.invokeEditorFacade('insertExternalApp', [url, params])
+    }
+  }
+
   const locksFacade: LocksFacade = {
     show: async () => {
       await host.invokeEditorFacade('locks.show')
@@ -330,6 +357,28 @@ export function buildRootFacadeState(
   const versionFacade: VersionFacade = {
     createRevision: async (options?: RevisionCreateOptions) => {
       await host.invokeEditorFacade('version.createRevision', [options])
+      return undefined
+    }
+  }
+
+  const docsHistoryFacade: HistoryFacade = {
+    show: async () => {
+      await host.invokeEditorFacade('showHistory')
+    },
+    hide: async () => {
+      await host.invokeEditorFacade('hideHistory')
+    }
+  }
+
+  const docsVersionFacade: VersionFacade = {
+    show: async () => {
+      await host.invokeEditorFacade('showRevision')
+    },
+    hide: async () => {
+      await host.invokeEditorFacade('hideRevision')
+    },
+    createRevision: async (options?: RevisionCreateOptions) => {
+      return await host.invokeEditorFacade('createRevision', [options])
     }
   }
 
@@ -351,6 +400,13 @@ export function buildRootFacadeState(
     },
     startSpeakerView: async () => {
       await host.invokeEditorFacade('presentation.startSpeakerView')
+    }
+  }
+
+  const docsPresentationFacade: PresentationFacade = {
+    ...presentationFacade,
+    quit: async () => {
+      await host.invokeEditorFacade('endDemonstration')
     }
   }
 
@@ -535,21 +591,34 @@ export function buildRootFacadeState(
     case FileType.DocumentPro:
       return {
         title: titleFacade,
+        history: docsHistoryFacade,
         comments: commentsFacade,
-        presentation: presentationFacade,
+        discussion: discussionFacade,
+        collaborator: collaboratorFacade,
+        externalApp: externalAppFacade,
+        version: docsVersionFacade,
+        presentation: docsPresentationFacade,
         selection: docsSelectionFacade,
         settings: host.createEditorFacadeModule<DocsSettingsFacade>(
           'settings',
           {}
         ),
         search: host.createEditorFacadeModule<DocsSearchFacade>('search', {}),
-        TOCs: host.createEditorFacadeModule<DocsTOCsFacade>('TOCs', {}),
+        TOCs: host.createEditorFacadeModule<DocsTOCsFacade>('TOCs', {
+          show: async () => {
+            await host.invokeEditorFacade('showToc')
+          },
+          hide: async () => {
+            await host.invokeEditorFacade('hideToc')
+          }
+        }),
         sidebar: host.createEditorFacadeModule<DocsSidebarFacade>(
           'sidebar',
           {}
         ),
         tables: docsTablesFacade,
-        batchChanges: batchChangesFacade
+        batchChanges: batchChangesFacade,
+        print: printFacade
       }
     case FileType.Spreadsheet:
       return {

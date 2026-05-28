@@ -64,7 +64,11 @@ export type EditorFacadeContractAssertions = [
   Assert<
     IsAssignable<
       NonNullable<OfficeSDK['version']>['createRevision'],
-      (options?: import('./OfficeSDK').RevisionCreateOptions) => Promise<void>
+      (
+        options?: import('./OfficeSDK').RevisionCreateOptions
+      ) => Promise<
+        undefined | null | import('./types/Document').DocumentErrorMessage
+      >
     >
   >,
   Assert<

@@ -45,6 +45,24 @@ await sdk.getEditor().showHistory?.()
 await sdk.history?.show()
 ```
 
+### 旧方法兼容
+
+以下旧方法调用方式继续保留说明；如存在根级 facade，优先使用新写法。
+
+| 旧方法                                     | 说明           | 推荐新写法                              |
+| ------------------------------------------ | -------------- | --------------------------------------- |
+| `sdk.getEditor().showHistory()`            | 显示历史侧边栏 | `sdk.history?.show()`                   |
+| `sdk.getEditor().hideHistory()`            | 隐藏历史侧边栏 | `sdk.history?.hide()`                   |
+| `sdk.getEditor().createRevision(options?)` | 创建版本       | `sdk.version?.createRevision(options?)` |
+| `sdk.getEditor().startDemonstration()`     | 启动本地演示   | `sdk.presentation?.start(index?)`       |
+| `sdk.getEditor().endDemonstration()`       | 退出本地演示   | `sdk.presentation?.quit()`              |
+| `sdk.getEditor().print()`                  | 打印           | `sdk.print?.()`                         |
+| `sdk.getEditor().export(type)`             | 导出           | `sdk.export?.(type)`                    |
+
+### 新增 facade 方法
+
+以下方法为本次补充的根级 facade 调用方式。
+
 ### sdk.history.show()
 
 #### 说明

@@ -49,6 +49,32 @@ await sdk.getEditor().showHistory?.()
 await sdk.history?.show()
 ```
 
+### 旧方法兼容
+
+以下旧方法调用方式继续保留说明；如存在根级 facade，优先使用新写法。
+
+| 旧方法                                                      | 说明             | 推荐新写法                                               |
+| ----------------------------------------------------------- | ---------------- | -------------------------------------------------------- |
+| `sdk.getEditor().showHistory()`                             | 显示历史侧边栏   | `sdk.history?.show()`                                    |
+| `sdk.getEditor().hideHistory()`                             | 隐藏历史侧边栏   | `sdk.history?.hide()`                                    |
+| `sdk.getEditor().showComments()`                            | 显示评论侧边栏   | `sdk.comments?.show()`                                   |
+| `sdk.getEditor().hideComments()`                            | 隐藏评论侧边栏   | `sdk.comments?.hide()`                                   |
+| `sdk.getEditor().showLocks()`                               | 显示锁定侧边栏   | `sdk.locks?.show()`                                      |
+| `sdk.getEditor().hideLocks()`                               | 隐藏锁定侧边栏   | `sdk.locks?.hide()`                                      |
+| `sdk.getEditor().addRangeLock(options)`                     | 创建单元格锁定   | `sdk.locks?.addRangeLock(options)`                       |
+| `sdk.getEditor().addSheetLock(options)`                     | 创建工作表锁定   | `sdk.locks?.addSheetLock(options)`                       |
+| `sdk.getEditor().removeRangeLocksInRanges(options)`         | 删除范围锁定     | `sdk.locks?.removeRangeLocksInRanges(options)`           |
+| `sdk.getEditor().removeSheetLock(options)`                  | 删除工作表锁定   | `sdk.locks?.removeSheetLock(options)`                    |
+| `sdk.getEditor().locateCellByGuid(guid, notificationType?)` | 按通知定位单元格 | `sdk.mention?.locateCellByGuid(guid, notificationType?)` |
+| `sdk.getEditor().setContent(content)`                       | 设置内容         | `sdk.content?.setContent(content)`                       |
+| `sdk.getEditor().createRevision(options?)`                  | 创建版本         | `sdk.version?.createRevision(options?)`                  |
+| `sdk.getEditor().startDemonstration()`                      | 启动演示         | `sdk.presentation?.start(index?)`                        |
+| `sdk.getEditor().endDemonstration()`                        | 退出演示         | `sdk.presentation?.quit()`                               |
+
+### 新增 facade 方法
+
+以下方法为本次补充的根级 facade 调用方式。
+
 ### sdk.history.show()
 
 #### 说明
