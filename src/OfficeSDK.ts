@@ -53,6 +53,61 @@ import {
   Collaborator,
   CollaboratorsChangedPayload
 } from './types/BaseEditor'
+import {
+  SlashMenuButton,
+  SlashMenuEntry,
+  SlashMenuOptions
+} from './types/SlashMenu'
+import {
+  applyHeaderBarsChanged,
+  ensureHeaderBarsTitleChangeSubscription,
+  getHeaderBarsCommandRef,
+  HEADER_BARS_CHANGED_EVENT,
+  HEADER_BARS_METHOD,
+  initHeaderBarsFacade,
+  setHeaderBarsVisible,
+  syncHeaderBarsCommands,
+  syncHeaderBarsVisible
+} from './OfficeSDK.headerBars'
+import { buildRootFacadeState } from './OfficeSDK.facade'
+import type {
+  CollaboratorFacade,
+  CommentsFacade,
+  ContentFacade,
+  DiscussionFacade,
+  DocsSearchFacade,
+  DocsSelectionFacade,
+  DocsSettingsFacade,
+  DocsSidebarFacade,
+  DocsTOCsFacade,
+  DocsTablesFacade,
+  ExternalAppFacade,
+  HistoryFacade,
+  LocksFacade,
+  MentionFacade,
+  PresentationEventSubscriptionFacade,
+  PresentationFacade,
+  PresentationSelectionFacade,
+  PresentationSlidesFacade,
+  PresentationTextFacade,
+  PresentationZoomFacade,
+  SheetChartsFacade,
+  SheetSelectionsFacade,
+  SheetWorkbookFacade,
+  SheetWorksheetFacade,
+  TitleFacade,
+  VersionFacade
+} from './OfficeSDK.facade.types'
+import type {
+  HeaderBarsChangedPayload,
+  HeaderBarsCommandRef,
+  HeaderBarsCommandState,
+  HeaderBarsFacade,
+  HeaderBarsTitleChangeHandler
+} from './OfficeSDK.headerBars'
+
+export * from './OfficeSDK.facade.types'
+export * from './OfficeSDK.headerBars'
 
 const globalThis = getGlobal()
 const AUD = 'smjssdk'
@@ -82,19 +137,10 @@ const SUPPORTED_LANGUAGES = [
 ] as const
 type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number]
 type LegacyLanguage = keyof typeof LEGACY_LANGUAGE_MAP
-const HEADER_BARS_METHOD = {
-  getVisible: 'headerBars.getVisible',
-  setVisible: 'headerBars.setVisible',
-  addCommand: 'headerBars.addCommand',
-  getCommand: 'headerBars.getCommand',
-  setCommandVisible: 'headerBars.setCommandVisible',
-  setCommandDisabled: 'headerBars.setCommandDisabled',
-  setCommandEditable: 'headerBars.setCommandEditable',
-  setCommandCallbackEnabled: 'headerBars.setCommandCallbackEnabled',
-  listViewCommands: 'headerBars.listViewCommands',
-  handleCommandClick: 'headerBars.handleCommandClick'
+const EDITOR_FACADE_CALLBACK_METHOD = 'editorFacade.handleCallback'
+const SLASH_MENU_METHOD = {
+  handleButtonClick: 'slashMenu.handleButtonClick'
 } as const
-const HEADER_BARS_CHANGED_EVENT = 'headerBars:changed'
 const PRELOAD_MESSAGE_TYPE = {
   READY: 'SDK_PRELOAD_READY',
   INIT: 'SDK_PRELOAD_INIT',
@@ -103,59 +149,22 @@ const PRELOAD_MESSAGE_TYPE = {
   ERROR: 'SDK_PRELOAD_ERROR'
 } as const
 
-export interface HeaderBarsCommandDefinition {
-  id: string
-  section?: string
-  order?: number
-  label?: string
-  visible?: boolean
-  disabled?: boolean
-  editable?: boolean
-  type?: 'action' | 'structural'
-  renderType?: string
-  src?: string
-  onClick?: () => void | Promise<void>
+type EditorFacadeCallback = (...args: unknown[]) => unknown | Promise<unknown>
+
+interface SerializedSlashMenuButton extends Omit<SlashMenuButton, 'callback'> {
+  callbackId?: string
 }
 
-export interface HeaderBarsCommandState extends HeaderBarsCommandDefinition {
-  type: 'action' | 'structural'
+interface SerializedSlashMenuEntry extends Omit<SlashMenuEntry, 'children'> {
+  children?: SerializedSlashMenuItem[]
 }
 
-export interface HeaderBarsCommandRef {
-  readonly id: string
-  visible: boolean
-  disabled: boolean
-  editable?: boolean
-  onCommandClick?: () => void | Promise<void>
-  getState: () => HeaderBarsCommandState | undefined
-}
+type SerializedSlashMenuItem =
+  | SerializedSlashMenuButton
+  | SerializedSlashMenuEntry
 
-export type HeaderBarsTitleChangeHandler = (
-  title: string
-) => void | Promise<void>
-
-export interface HeaderBarsFacade {
-  visible: boolean
-  onTitleChange?: HeaderBarsTitleChangeHandler
-  getVisible: () => Promise<boolean>
-  setVisible: (visible: boolean) => Promise<void>
-  addCommand: (
-    command: HeaderBarsCommandDefinition,
-    posCommand: string,
-    pos?: 'before' | 'after'
-  ) => Promise<boolean>
-  getCommand: (id: string) => HeaderBarsCommandRef
-  listViewCommands: () => Promise<HeaderBarsCommandState[]>
-}
-
-interface HeaderBarsChangedPayload {
-  reason?: string
-  commandId?: string
-  version?: number
-  snapshot?: {
-    visible: boolean
-    commands: HeaderBarsCommandState[]
-  }
+interface SerializedSlashMenuOptions {
+  entries: SerializedSlashMenuItem[]
 }
 
 /**
@@ -169,6 +178,12 @@ function normalizeLanguage(lang: string): SupportedLanguage | undefined {
   }
 
   return undefined
+}
+
+function isSlashMenuEntry(
+  item: SlashMenuEntry | SlashMenuButton
+): item is SlashMenuEntry {
+  return item.type === 'entry'
 }
 
 export const MessageEvent = InvokeMethod
@@ -200,10 +215,149 @@ export class OfficeSDK extends TinyEmitter {
   spreadsheet?: Spreadsheet.Editor
 
   /**
-   * 专业幻灯片编辑器实例
-   * @deprecated - 用 `sdk.getEditor<T>()` 替代
+   * 当前套件支持的标题能力。
    */
-  presentation?: Presentation.Editor
+  title?: TitleFacade
+
+  /**
+   * 当前套件支持的历史能力。
+   */
+  history?: HistoryFacade
+
+  /**
+   * 当前套件支持的评论能力。
+   */
+  comments?: CommentsFacade
+
+  /**
+   * 当前套件支持的讨论能力。
+   */
+  discussion?: DiscussionFacade
+
+  /**
+   * 当前套件支持的编写者侧边栏能力。
+   */
+  collaborator?: CollaboratorFacade
+
+  /**
+   * 当前套件支持的第三方应用插入能力。
+   */
+  externalApp?: ExternalAppFacade
+
+  /**
+   * 当前套件支持的锁定能力。
+   */
+  locks?: LocksFacade
+
+  /**
+   * 当前套件支持的提及定位能力。
+   */
+  mention?: MentionFacade
+
+  /**
+   * 当前套件支持的内容写入能力。
+   */
+  content?: ContentFacade
+
+  /**
+   * 当前套件支持的版本能力。
+   */
+  version?: VersionFacade
+
+  /**
+   * 当前套件支持的演示能力。
+   */
+  presentation?: PresentationFacade
+
+  /**
+   * 当前套件支持的选区能力。
+   */
+  selection?: DocsSelectionFacade | PresentationSelectionFacade
+
+  /**
+   * 当前套件支持的搜索能力。
+   */
+  search?: DocsSearchFacade
+
+  /**
+   * 当前套件支持的目录能力。
+   */
+  TOCs?: DocsTOCsFacade
+
+  /**
+   * 当前套件支持的侧边栏能力。
+   */
+  sidebar?: DocsSidebarFacade
+
+  /**
+   * 当前套件支持的表格集合能力。
+   */
+  tables?: DocsTablesFacade
+
+  /**
+   * 当前套件支持的设置能力。
+   */
+  settings?: DocsSettingsFacade
+
+  /**
+   * 当前套件支持的工作簿能力。
+   */
+  workbook?: SheetWorkbookFacade
+
+  /**
+   * 当前套件支持的当前工作表能力。
+   */
+  activeSheet?: SheetWorksheetFacade
+
+  /**
+   * 当前套件支持的图表能力。
+   */
+  charts?: SheetChartsFacade
+
+  /**
+   * 当前套件支持的多选区能力。
+   */
+  selections?: SheetSelectionsFacade
+
+  /**
+   * 当前套件支持的幻灯片集合能力。
+   */
+  slides?: PresentationSlidesFacade
+
+  /**
+   * 当前套件支持的文本能力。
+   */
+  text?: PresentationTextFacade
+
+  /**
+   * 当前套件支持的缩放能力。
+   */
+  zoom?: PresentationZoomFacade
+
+  /**
+   * 当前套件支持的事件订阅能力。
+   */
+  eventSubscription?: PresentationEventSubscriptionFacade
+
+  /**
+   * 当前套件支持的批量变更能力。
+   */
+  batchChanges?: <T>(callback: () => T | Promise<T>) => Promise<Awaited<T>>
+
+  /**
+   * 当前套件支持的导出能力。
+   */
+  export?: (type: string) => Promise<void>
+
+  /**
+   * 当前套件支持的打印能力。
+   */
+  print?: () => Promise<void>
+
+  /**
+   * 当前套件支持的聚焦能力。
+   */
+  setFocus?: (isFocus: boolean) => Promise<void>
 
   /**
    * 应用表格编辑器实例
@@ -261,6 +415,12 @@ export class OfficeSDK extends TinyEmitter {
   private readonly headerBarsCommandOverrides = new Map<
     string,
     (() => void | Promise<void>) | undefined
+  >()
+
+  private readonly slashMenuCallbacks = new Map<string, () => void>()
+  private readonly editorFacadeCallbacks = new Map<
+    string,
+    EditorFacadeCallback
   >()
 
   private readonly headerBarsCommandRefs = new Map<
@@ -391,6 +551,121 @@ export class OfficeSDK extends TinyEmitter {
     return this._readyState
   }
 
+  /**
+   * 判断当前实例是否应该向 iframe 暴露 slashMenu。
+   * 输入：无，读取当前文件类型与 startParams.type 提示。
+   * 输出：仅在明确是 docs，或尚未拿到文件类型且没有明确非 docs 提示时返回 true。
+   */
+  private shouldExposeSlashMenu() {
+    if (!this.connectOptions.slashMenu) {
+      return false
+    }
+
+    if (this.fileType === FileType.Document) {
+      return true
+    }
+
+    if (this.fileType !== FileType.Unknown) {
+      return false
+    }
+
+    const hintedType = this.getSlashMenuTypeHint()
+    if (typeof hintedType !== 'string') {
+      return true
+    }
+
+    return ['doc', 'docs', 'document'].includes(hintedType)
+  }
+
+  /**
+   * 从 startParams 中提取文件类型提示。
+   * 输入：无。
+   * 输出：标准化后的 type 字符串；若未配置则返回 undefined。
+   */
+  private getSlashMenuTypeHint() {
+    const type = (this.startParams as Record<string, unknown>).type
+    if (typeof type !== 'string') {
+      return undefined
+    }
+
+    const normalized = type.trim().toLowerCase()
+    return normalized || undefined
+  }
+
+  /**
+   * 将宿主传入的 slashMenu 转成可跨 iframe 传输的纯数据结构。
+   * 输入：当前实例上的 `OfficeSDKOptions.slashMenu`。
+   * 输出：去除真实函数、附带 callbackId 的 slashMenu 配置；不适用时返回 undefined。
+   */
+  private createSerializedSlashMenu(): SerializedSlashMenuOptions | undefined {
+    this.slashMenuCallbacks.clear()
+
+    if (!this.shouldExposeSlashMenu()) {
+      return undefined
+    }
+
+    const { slashMenu } = this.connectOptions
+    if (!slashMenu || !Array.isArray(slashMenu.entries)) {
+      return undefined
+    }
+
+    return {
+      entries: this.serializeSlashMenuItems(slashMenu.entries, ['entries'])
+    }
+  }
+
+  /**
+   * 递归序列化 slashMenu 菜单项，并登记 button callback。
+   * 输入：菜单项数组与当前递归路径。
+   * 输出：仅包含结构化克隆安全字段的菜单项数组。
+   */
+  private serializeSlashMenuItems(
+    items: Array<SlashMenuEntry | SlashMenuButton>,
+    path: string[]
+  ): SerializedSlashMenuItem[] {
+    return items.map((item, index) => {
+      const nextPath = [...path, `${index}`, item.name]
+      if (isSlashMenuEntry(item)) {
+        return {
+          ...item,
+          children: item.children
+            ? this.serializeSlashMenuItems(item.children, nextPath)
+            : undefined
+        }
+      }
+
+      const callbackId = this.registerSlashMenuCallback(nextPath, item.callback)
+      const serializedItem: SerializedSlashMenuButton = {
+        name: item.name,
+        type: item.type,
+        disabled: item.disabled,
+        label: item.label,
+        icon: item.icon
+      }
+
+      if (callbackId) {
+        serializedItem.callbackId = callbackId
+      }
+
+      return serializedItem
+    })
+  }
+
+  /**
+   * 为 slashMenu button callback 生成稳定 id 并注册到内存表。
+   * 输入：菜单路径与可选 callback。
+   * 输出：注册后的 callbackId；若未提供 callback 则返回 undefined。
+   */
+  private registerSlashMenuCallback(path: string[], callback?: () => void) {
+    if (typeof callback !== 'function') {
+      return undefined
+    }
+
+    const callbackId = `slash-menu:${path.join(':')}`
+    this.slashMenuCallbacks.set(callbackId, callback)
+    return callbackId
+  }
+
   getEditor<
     T extends
       | BaseEditor
@@ -449,6 +724,8 @@ export class OfficeSDK extends TinyEmitter {
   }
 
   disconnect() {
+    this.slashMenuCallbacks.clear()
+    this.editorFacadeCallbacks.clear()
     if (this.element?.parentElement instanceof HTMLElement) {
       this.element.parentElement.removeChild(this.element)
     }
@@ -524,9 +801,6 @@ export class OfficeSDK extends TinyEmitter {
       case FileType.Spreadsheet:
         this.spreadsheet = this.editor as Spreadsheet.Editor
         break
-      case FileType.Presentation:
-        this.presentation = this.editor as Presentation.Editor
-        break
       case FileType.Table:
         this.table = this.editor as Table.Editor
         break
@@ -536,6 +810,18 @@ export class OfficeSDK extends TinyEmitter {
       case FileType.Flowchart:
         this.flowchart = this.editor as Flowchart.Editor
     }
+
+    this.installRootFacade()
+  }
+
+  /**
+   * 等待 SDK 进入 Ready 状态。若已 ready，则直接返回。
+   */
+  async ready() {
+    if (this.readyState === ReadyState.Ready) {
+      return
+    }
+    await this.init()
   }
 
   private async initIframe() {
@@ -812,6 +1098,9 @@ export class OfficeSDK extends TinyEmitter {
         const opts: Record<string, unknown> = {}
 
         Object.keys(this.connectOptions).forEach((k) => {
+          if (k === 'slashMenu') {
+            return
+          }
           const v = this.connectOptions[k as keyof typeof this.connectOptions]
           opts[k] = v
           // 函数用 boolean 标记有设置值
@@ -819,6 +1108,11 @@ export class OfficeSDK extends TinyEmitter {
             opts[`has${k[0].toUpperCase()}${k.slice(1)}`] = true
           }
         })
+
+        const slashMenu = this.createSerializedSlashMenu()
+        if (slashMenu) {
+          opts.slashMenu = slashMenu
+        }
 
         opts.apiAdaptor = this.apiAdaptor
         opts.apiAdaptorContext = this.apiAdaptorContext
@@ -857,6 +1151,35 @@ export class OfficeSDK extends TinyEmitter {
         }
         await handler()
         return true
+      },
+      { audience: AUD }
+    )
+
+    channel.addInvokeHandler(
+      SLASH_MENU_METHOD.handleButtonClick,
+      async (callbackId: string) => {
+        const handler = this.slashMenuCallbacks.get(callbackId)
+        if (typeof handler !== 'function') {
+          console.error(`[slashMenu] callback not found: ${String(callbackId)}`)
+          return false
+        }
+        await Promise.resolve(handler())
+        return true
+      },
+      { audience: AUD }
+    )
+
+    channel.addInvokeHandler(
+      EDITOR_FACADE_CALLBACK_METHOD,
+      async (callbackId: string, args: unknown[] = []) => {
+        const handler = this.editorFacadeCallbacks.get(callbackId)
+        if (typeof handler !== 'function') {
+          console.error(
+            `[editorFacade] callback not found: ${String(callbackId)}`
+          )
+          return undefined
+        }
+        return await Promise.resolve(handler(...args))
       },
       { audience: AUD }
     )
@@ -999,84 +1322,42 @@ export class OfficeSDK extends TinyEmitter {
   }
 
   private initHeaderBarsFacade(): HeaderBarsFacade {
-    const facade: HeaderBarsFacade = {
-      visible: false,
-      onTitleChange: undefined,
-      getVisible: async () => {
-        return await this.syncHeaderBarsVisible()
+    return initHeaderBarsFacade({
+      getVisibleState: () => this.headerBarsVisible,
+      setVisibleState: (visible: boolean) => {
+        this.headerBarsVisible = visible
       },
-      setVisible: async (visible: boolean) => {
-        await this.setHeaderBarsVisible(visible)
-      },
-      addCommand: async (
-        command: HeaderBarsCommandDefinition,
-        posCommand: string,
-        pos: 'before' | 'after' = 'after'
-      ) => {
-        const { onClick, ...commandPayload } = command
-        const added = await this.invokeHeaderBars<boolean>(
-          HEADER_BARS_METHOD.addCommand,
-          { command: commandPayload, posCommand, pos }
-        )
-        const clickHandler = onClick
-        if (added && typeof clickHandler === 'function') {
-          this.headerBarsCommandOverrides.set(command.id, clickHandler)
-          await this.invokeHeaderBars<undefined>(
-            HEADER_BARS_METHOD.setCommandCallbackEnabled,
-            {
-              id: command.id,
-              enabled: true
-            }
-          )
-        }
-        return added
-      },
-      getCommand: (id: string) => this.getHeaderBarsCommandRef(id),
-      listViewCommands: async () => {
-        const commands = await this.invokeHeaderBars<HeaderBarsCommandState[]>(
-          HEADER_BARS_METHOD.listViewCommands
-        )
-        this.syncHeaderBarsCommands(commands)
-        return commands
-      }
-    }
-    Object.defineProperty(facade, 'visible', {
-      configurable: true,
-      enumerable: true,
-      get: () => this.headerBarsVisible,
-      set: (next: boolean) => {
-        this.setHeaderBarsVisible(next).catch((err: unknown) => {
-          this.emit(
-            Event.Error,
-            err instanceof Error
-              ? err
-              : new Error(`set headerBars.visible failed: ${String(err)}`)
-          )
-        })
-      }
-    })
-    Object.defineProperty(facade, 'onTitleChange', {
-      configurable: true,
-      enumerable: true,
-      get: () => this.headerBarsTitleChangeHandler,
-      set: (handler: HeaderBarsTitleChangeHandler | undefined) => {
+      getCommandsMap: () => this.headerBarsCommands,
+      getOverridesMap: () => this.headerBarsCommandOverrides,
+      getRefsMap: () => this.headerBarsCommandRefs,
+      getTitleHandler: () => this.headerBarsTitleChangeHandler,
+      setTitleHandler: (handler: HeaderBarsTitleChangeHandler | undefined) => {
         this.headerBarsTitleChangeHandler = handler
-        if (typeof handler !== 'function') {
-          return
-        }
-        this.ensureHeaderBarsTitleChangeSubscription().catch((err: unknown) => {
-          this.emit(
-            Event.Error,
-            err instanceof Error
-              ? err
-              : new Error(
-                  `subscribe headerBars titleChange failed: ${String(err)}`
-                )
-          )
-        })
+      },
+      isTitleSubscribed: () => this.headerBarsTitleChangeSubscribed,
+      setTitleSubscribed: (subscribed: boolean) => {
+        this.headerBarsTitleChangeSubscribed = subscribed
+      },
+      invokeHeaderBars: this.invokeHeaderBars.bind(this),
+      emitHeaderBarsError: (message: string, err: unknown) => {
+        this.emit(
+          Event.Error,
+          err instanceof Error ? err : new Error(`${message}: ${String(err)}`)
+        )
+      },
+      onInternalTitleChange: (listener: (title: unknown) => void) => {
+        this.emitter.on('titleChange', listener)
+      },
+      subscribeEditorTitleChange: async () => {
+        await this.channel.invoke(
+          InvokeMethod.ListenEditorEvent,
+          ['titleChange'],
+          {
+            audience: AUD
+          }
+        )
       }
     })
-    return facade
   }
 
   /**
@@ -1085,28 +1366,7 @@ export class OfficeSDK extends TinyEmitter {
    * 输出：监听建立成功后返回 Promise<void>；重复调用只会订阅一次。
    */
   private async ensureHeaderBarsTitleChangeSubscription(): Promise<void> {
-    if (this.headerBarsTitleChangeSubscribed) {
-      return
-    }
-    this.headerBarsTitleChangeSubscribed = true
-    this.emitter.on('titleChange', (title: unknown) => {
-      if (typeof title !== 'string') {
-        return
-      }
-      this.headerBarsTitleChangeHandler?.(title)
-    })
-    try {
-      await this.channel.invoke(
-        InvokeMethod.ListenEditorEvent,
-        ['titleChange'],
-        {
-          audience: AUD
-        }
-      )
-    } catch (error: unknown) {
-      this.headerBarsTitleChangeSubscribed = false
-      throw error
-    }
+    await ensureHeaderBarsTitleChangeSubscription(this.createHeaderBarsHost())
   }
 
   private async invokeHeaderBars<T>(
@@ -1120,189 +1380,253 @@ export class OfficeSDK extends TinyEmitter {
   }
 
   private syncHeaderBarsCommands(commands: HeaderBarsCommandState[]) {
-    this.headerBarsCommands.clear()
-    for (const command of commands) {
-      this.headerBarsCommands.set(command.id, command)
+    syncHeaderBarsCommands(this.createHeaderBarsHost(), commands)
+  }
+
+  private createHeaderBarsHost() {
+    return {
+      getVisibleState: () => this.headerBarsVisible,
+      setVisibleState: (visible: boolean) => {
+        this.headerBarsVisible = visible
+      },
+      getCommandsMap: () => this.headerBarsCommands,
+      getOverridesMap: () => this.headerBarsCommandOverrides,
+      getRefsMap: () => this.headerBarsCommandRefs,
+      getTitleHandler: () => this.headerBarsTitleChangeHandler,
+      setTitleHandler: (handler: HeaderBarsTitleChangeHandler | undefined) => {
+        this.headerBarsTitleChangeHandler = handler
+      },
+      isTitleSubscribed: () => this.headerBarsTitleChangeSubscribed,
+      setTitleSubscribed: (subscribed: boolean) => {
+        this.headerBarsTitleChangeSubscribed = subscribed
+      },
+      invokeHeaderBars: this.invokeHeaderBars.bind(this),
+      emitHeaderBarsError: (message: string, err: unknown) => {
+        this.emit(
+          Event.Error,
+          err instanceof Error ? err : new Error(`${message}: ${String(err)}`)
+        )
+      },
+      onInternalTitleChange: (listener: (title: unknown) => void) => {
+        this.emitter.on('titleChange', listener)
+      },
+      subscribeEditorTitleChange: async () => {
+        await this.channel.invoke(
+          InvokeMethod.ListenEditorEvent,
+          ['titleChange'],
+          {
+            audience: AUD
+          }
+        )
+      }
     }
   }
 
   private applyHeaderBarsChanged(payload?: HeaderBarsChangedPayload) {
-    const snapshot = payload?.snapshot
-    if (!snapshot) {
-      return
-    }
-    this.headerBarsVisible = snapshot.visible
-    this.syncHeaderBarsCommands(snapshot.commands)
+    applyHeaderBarsChanged(this.createHeaderBarsHost(), payload)
   }
 
   private async syncHeaderBarsVisible() {
-    const payload = await this.invokeHeaderBars<{ visible: boolean }>(
-      HEADER_BARS_METHOD.getVisible
-    )
-    this.headerBarsVisible = payload.visible
-    return this.headerBarsVisible
+    return await syncHeaderBarsVisible(this.createHeaderBarsHost())
   }
 
   private async setHeaderBarsVisible(visible: boolean) {
-    this.headerBarsVisible = visible
-    await this.invokeHeaderBars<undefined>(HEADER_BARS_METHOD.setVisible, {
-      visible
-    })
+    await setHeaderBarsVisible(this.createHeaderBarsHost(), visible)
   }
 
   private getHeaderBarsCommandRef(id: string): HeaderBarsCommandRef {
-    const existing = this.headerBarsCommandRefs.get(id)
-    if (existing) {
-      return existing
-    }
+    return getHeaderBarsCommandRef(this.createHeaderBarsHost(), id)
+  }
 
-    if (!this.headerBarsCommands.has(id)) {
-      this.invokeHeaderBars<{ command: HeaderBarsCommandState | null }>(
-        HEADER_BARS_METHOD.getCommand,
-        { id }
-      )
-        .then((payload) => {
-          if (payload.command) {
-            this.headerBarsCommands.set(id, payload.command)
-          }
-        })
-        .catch((err: unknown) => {
-          this.emit(
-            Event.Error,
-            err instanceof Error
-              ? err
-              : new Error(`fetch headerBars command failed: ${String(err)}`)
-          )
-        })
-    }
+  /**
+   * 注册一个可供 iframe 侧反向调用的 facade callback。
+   * 输入：宿主侧 callback。
+   * 输出：供跨窗协议使用的 callbackId。
+   */
+  private registerEditorFacadeCallback(callback: EditorFacadeCallback) {
+    const callbackId = `editor-facade:${uuid()}`
+    this.editorFacadeCallbacks.set(callbackId, callback)
+    return callbackId
+  }
 
-    const ref: HeaderBarsCommandRef = {
-      id,
-      visible: true,
-      disabled: false,
-      editable: undefined,
-      onCommandClick: undefined,
-      getState: () => this.headerBarsCommands.get(id)
-    }
-    Object.defineProperties(ref, {
-      visible: {
-        configurable: true,
-        enumerable: true,
-        get: () => this.headerBarsCommands.get(id)?.visible !== false,
-        set: (next: boolean) => {
-          const current = this.headerBarsCommands.get(id)
-          if (current) {
-            this.headerBarsCommands.set(id, { ...current, visible: next })
-          }
-          this.invokeHeaderBars<undefined>(
-            HEADER_BARS_METHOD.setCommandVisible,
-            {
-              id,
-              visible: next
-            }
-          ).catch((err: unknown) => {
-            this.emit(
-              Event.Error,
-              err instanceof Error
-                ? err
-                : new Error(
-                    `set headerBars command visible failed: ${String(err)}`
-                  )
-            )
-          })
+  /**
+   * 注销已注册的 facade callback。
+   * 输入：callbackId。
+   * 输出：无。
+   */
+  private unregisterEditorFacadeCallback(callbackId: string) {
+    this.editorFacadeCallbacks.delete(callbackId)
+  }
+
+  /**
+   * 创建基于 method-path 的模块 facade。
+   * 输入：模块前缀与少量自定义实现覆盖。
+   * 输出：其余方法按 `${prefix}.${method}` 自动桥接。
+   */
+  private createEditorFacadeModule<T extends object>(
+    prefix: string,
+    overrides: Partial<T>
+  ): T {
+    return new Proxy(overrides as T, {
+      get: (target, prop) => {
+        if (typeof prop !== 'string') {
+          return undefined
         }
-      },
-      disabled: {
-        configurable: true,
-        enumerable: true,
-        get: () => this.headerBarsCommands.get(id)?.disabled === true,
-        set: (next: boolean) => {
-          const current = this.headerBarsCommands.get(id)
-          if (current) {
-            this.headerBarsCommands.set(id, { ...current, disabled: next })
-          }
-          this.invokeHeaderBars<undefined>(
-            HEADER_BARS_METHOD.setCommandDisabled,
-            {
-              id,
-              disabled: next
-            }
-          ).catch((err: unknown) => {
-            this.emit(
-              Event.Error,
-              err instanceof Error
-                ? err
-                : new Error(
-                    `set headerBars command disabled failed: ${String(err)}`
-                  )
-            )
-          })
+        if (Object.prototype.hasOwnProperty.call(target, prop)) {
+          return target[prop as keyof T]
         }
-      },
-      editable: {
-        configurable: true,
-        enumerable: true,
-        get: () => this.headerBarsCommands.get(id)?.editable,
-        set: (next: boolean | undefined) => {
-          if (id !== 'title') {
-            this.emit(
-              Event.Error,
-              new Error(
-                'headerBars command editable is only supported for title'
-              )
-            )
-            return
-          }
-          const current = this.headerBarsCommands.get(id)
-          if (current) {
-            this.headerBarsCommands.set(id, { ...current, editable: next })
-          }
-          this.invokeHeaderBars<undefined>(
-            HEADER_BARS_METHOD.setCommandEditable,
-            {
-              id,
-              editable: next
-            }
-          ).catch((err: unknown) => {
-            this.emit(
-              Event.Error,
-              err instanceof Error
-                ? err
-                : new Error(
-                    `set headerBars command editable failed: ${String(err)}`
-                  )
-            )
-          })
-        }
-      },
-      onCommandClick: {
-        configurable: true,
-        enumerable: true,
-        get: () => this.headerBarsCommandOverrides.get(id),
-        set: (handler: (() => void | Promise<void>) | undefined) => {
-          this.headerBarsCommandOverrides.set(id, handler)
-          this.invokeHeaderBars<undefined>(
-            HEADER_BARS_METHOD.setCommandCallbackEnabled,
-            {
-              id,
-              enabled: typeof handler === 'function'
-            }
-          ).catch((err: unknown) => {
-            this.emit(
-              Event.Error,
-              err instanceof Error
-                ? err
-                : new Error(
-                    `set headerBars command callback failed: ${String(err)}`
-                  )
-            )
-          })
-        }
+        return async (...args: unknown[]) =>
+          await this.invokeEditorFacade(`${prefix}.${prop}`, args)
       }
     })
+  }
 
-    this.headerBarsCommandRefs.set(id, ref)
-    return ref
+  /**
+   * 为 value-based locator 创建本地对象 facade。
+   * 输入：method-path 前缀、locator 和静态属性。
+   * 输出：支持继续远程调用的本地 facade。
+   */
+  private createValueObjectFacade<T extends object>(
+    prefix: string,
+    locator: Record<string, unknown>,
+    staticFields: Partial<T>
+  ): T {
+    return new Proxy(staticFields as T, {
+      get: (target, prop) => {
+        if (typeof prop !== 'string') {
+          return undefined
+        }
+        if (Object.prototype.hasOwnProperty.call(target, prop)) {
+          return target[prop as keyof T]
+        }
+        return async (...args: unknown[]) =>
+          await this.invokeEditorFacade(`${prefix}.${prop}`, [locator, ...args])
+      }
+    })
+  }
+
+  /**
+   * 注册一个基于 callback 协议的 listener。
+   * 输入：注册方法名与监听器。
+   * 输出：供宿主侧取消注册的函数。
+   */
+  private registerEditorFacadeListener<T>(
+    method: string,
+    listener: (payload: T) => void
+  ): () => void {
+    const callbackId = this.registerEditorFacadeCallback(async (payload: T) =>
+      listener(payload)
+    )
+    this.invokeEditorFacade(method, [callbackId]).catch((err: unknown) => {
+      this.emit(
+        Event.Error,
+        err instanceof Error
+          ? err
+          : new Error(`register editor facade listener failed: ${String(err)}`)
+      )
+    })
+    return () => {
+      this.unregisterEditorFacadeCallback(callbackId)
+    }
+  }
+
+  private installRootFacade() {
+    this.clearRootFacade()
+    Object.assign(
+      this,
+      buildRootFacadeState({
+        fileType: this.fileType,
+        invokeEditorFacade: this.invokeEditorFacade.bind(this),
+        listenEditorEvent: this.listenEditorEvent.bind(this),
+        createEditorFacadeModule: this.createEditorFacadeModule.bind(this),
+        createValueObjectFacade: this.createValueObjectFacade.bind(this),
+        registerEditorFacadeListener:
+          this.registerEditorFacadeListener.bind(this),
+        registerEditorFacadeCallback:
+          this.registerEditorFacadeCallback.bind(this),
+        unregisterEditorFacadeCallback:
+          this.unregisterEditorFacadeCallback.bind(this)
+      })
+    )
+  }
+
+  /**
+   * 重置根级能力命名空间，避免不同套件间字段残留。
+   * 输入：无。
+   * 输出：将所有 facade 字段置空。
+   */
+  private clearRootFacade() {
+    this.title = undefined
+    this.history = undefined
+    this.comments = undefined
+    this.locks = undefined
+    this.mention = undefined
+    this.content = undefined
+    this.version = undefined
+    this.presentation = undefined
+    this.selection = undefined
+    this.search = undefined
+    this.TOCs = undefined
+    this.sidebar = undefined
+    this.tables = undefined
+    this.settings = undefined
+    this.workbook = undefined
+    this.activeSheet = undefined
+    this.charts = undefined
+    this.selections = undefined
+    this.slides = undefined
+    this.text = undefined
+    this.zoom = undefined
+    this.eventSubscription = undefined
+    this.batchChanges = undefined
+    this.export = undefined
+    this.print = undefined
+    this.setFocus = undefined
+  }
+
+  /**
+   * 调用显式 editor facade method-path。
+   * 输入：method-path 与参数数组。
+   * 输出：返回 iframe 侧序列化结果。
+   */
+  private async invokeEditorFacade<T>(
+    method: string,
+    args: unknown[] = []
+  ): Promise<T> {
+    return await this.channel.invoke(
+      InvokeMethod.InvokeEditorMethod,
+      [method, args],
+      {
+        audience: AUD
+      }
+    )
+  }
+
+  /**
+   * 为结构化 facade 建立 editor 事件监听，并返回取消监听函数。
+   * 输入：事件名与监听器。
+   * 输出：返回一个可取消当前监听的函数。
+   */
+  private listenEditorEvent<T>(
+    event: string,
+    listener: (payload: T) => void
+  ): () => void {
+    this.emitter.on(event, listener as EventCallback)
+    this.channel
+      .invoke(InvokeMethod.ListenEditorEvent, [event], {
+        audience: AUD
+      })
+      .catch((err: unknown) => {
+        this.emit(
+          Event.Error,
+          err instanceof Error
+            ? err
+            : new Error(`listen editor event failed: ${String(err)}`)
+        )
+      })
+    return () => {
+      this.emitter.off(event, listener as EventCallback)
+    }
   }
 
   private initEditor() {
@@ -1757,6 +2081,13 @@ export interface OfficeSDKOptions
    * 控制 headerbar 组件是否展示，false 表示隐藏。
    */
   headerBarsVisible?: boolean
+
+  /**
+   * docs 斜杠菜单配置。
+   * 仅 docs 文件类型生效；`button.callback` 实际运行在宿主页，
+   * 会在 iframe 内点击菜单按钮后通过 postMessage/channel 回调触发。
+   */
+  slashMenu?: SlashMenuOptions
 
   /**
    * 是否显示内置的加载动画，只在静态资源加载到编辑器渲染这个阶段显示

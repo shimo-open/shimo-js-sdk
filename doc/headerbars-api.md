@@ -176,7 +176,7 @@ interface HeaderBarsCommandDefinition {
 - `disabled`: 初始禁用状态
 - `type`: command 类型
 - `renderType`: 渲染类型，当前仅透传
-- `src`: 资源地址，当前仅透传
+- `src`: 资源地址；初始化可配置，运行时支持通过 `commandRef.src = next`
 - `onClick`: 宿主侧点击处理函数
 
 注意事项：
@@ -273,6 +273,8 @@ interface HeaderBarsCommandRef {
   readonly id: string
   visible: boolean
   disabled: boolean
+  src?: string
+  label?: string
   onCommandClick?: () => void | Promise<void>
   getState: () => HeaderBarsCommandState | undefined
 }
@@ -360,7 +362,53 @@ command.onCommandClick = async () => {
 }
 ```
 
-### 3.5 `commandRef.getState()`
+### 3.5 `commandRef.src`
+
+```ts
+src?: string
+```
+
+用途：
+
+- 读写 logo / 自定义 icon command 的图片地址
+
+行为说明：
+
+- getter 从本地 cache 读取
+- setter 会先更新本地 cache，再异步调用 `headerBars.setCommandSrc`
+- 仅 `logo` 与 `renderType === 'icon'` 的 command 保证生效
+
+示例：
+
+```ts
+const logo = sdk.headerBars.getCommand('logo')
+logo.src = 'https://cdn.example.com/brand.svg'
+```
+
+### 3.6 `commandRef.label`
+
+```ts
+label?: string
+```
+
+用途：
+
+- 读写普通展示 command 的展示文案
+
+行为说明：
+
+- getter 从本地 cache 读取
+- setter 会先更新本地 cache，再异步调用 `headerBars.setCommandLabel`
+- `title` / `save-status` 不支持通过该 setter 更新，仍需走专用 API
+
+示例：
+
+```ts
+const command = sdk.headerBars.getCommand('history')
+command.label = 'Timeline'
+```
+
+### 3.7 `commandRef.getState()`
 
 ```ts
 getState(): HeaderBarsCommandState | undefined
@@ -396,6 +444,8 @@ const HEADER_BARS_METHOD = {
   getCommand: 'headerBars.getCommand',
   setCommandVisible: 'headerBars.setCommandVisible',
   setCommandDisabled: 'headerBars.setCommandDisabled',
+  setCommandSrc: 'headerBars.setCommandSrc',
+  setCommandLabel: 'headerBars.setCommandLabel',
   setCommandCallbackEnabled: 'headerBars.setCommandCallbackEnabled',
   listViewCommands: 'headerBars.listViewCommands',
   handleCommandClick: 'headerBars.handleCommandClick'
@@ -413,6 +463,8 @@ const HEADER_BARS_METHOD = {
 | `listViewCommands()`                   | `headerBars.listViewCommands`          |
 | `commandRef.visible = next`            | `headerBars.setCommandVisible`         |
 | `commandRef.disabled = next`           | `headerBars.setCommandDisabled`        |
+| `commandRef.src = next`                | `headerBars.setCommandSrc`             |
+| `commandRef.label = next`              | `headerBars.setCommandLabel`           |
 | `commandRef.onCommandClick = handler`  | `headerBars.setCommandCallbackEnabled` |
 | iframe 通知宿主执行点击回调            | `headerBars.handleCommandClick`        |
 

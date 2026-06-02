@@ -152,6 +152,35 @@ command.onCommandClick = async () => {
 }
 ```
 
+### Docs `slashMenu` 初始化参数
+
+`connect()` 支持为 docs 套件透传 `slashMenu` 初始化参数。该配置只在 docs 文件类型下生效，`button.callback` 会保留在宿主页执行，iframe 内点击按钮后会通过 SDK 通道回调到宿主。
+
+```ts
+const sdk = await connect({
+  ...options,
+  slashMenu: {
+    entries: [
+      {
+        name: 'aiMenu',
+        type: 'entry',
+        label: '智能 AI',
+        children: [
+          {
+            name: 'openDocsAiPanel',
+            type: 'button',
+            label: '打开 AI 面板',
+            callback: () => {
+              console.log('docs slash menu clicked')
+            }
+          }
+        ]
+      }
+    ]
+  }
+})
+```
+
 ### 协作者模块使用说明
 
 当 iframe 套件开启协作者能力后（依赖 `ENABLE_SDK_COLLABORATORS_MODULE` 开关），shimo-js-sdk 使用方可按以下方式接入：

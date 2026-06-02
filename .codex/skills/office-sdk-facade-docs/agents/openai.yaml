@@ -1,0 +1,4 @@
+interface:
+  display_name: "Office SDK Facade Docs"
+  short_description: "补 root facade、兼容旧 API 并同步 suite 文档流程"
+  default_prompt: "Use $office-sdk-facade-docs to add missing root facade support and keep suite docs aligned with backward-compatible OfficeSDK usage."

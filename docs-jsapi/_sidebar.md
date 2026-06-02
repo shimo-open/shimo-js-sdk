@@ -2,8 +2,11 @@
 
 - **SDK**
   - [概述](./summary.md)
+  - [API 总览](./api-overview.md)
+  - [公共处理方法](./common-api.md)
   - [快速开始](./quick-start.md)
 - **jsAPI**
+  - [HeaderBars](./headerbars.md)
   - [轻文档](./suite/document.md)
   - [传统文档](./suite/document-pro.md)
   - [表格](./suite/spread-sheet.md)
