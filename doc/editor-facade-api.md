@@ -4,7 +4,7 @@
 
 根级 facade 直接挂载在 `OfficeSDK` 实例上。除原有 `title` / `comments` / `history` / `presentation` 等根级能力外，当前实现还会按文件类型暴露结构化模块，例如：
 
-- docs：`sdk.selection`、`sdk.search`、`sdk.sidebar`、`sdk.TOCs`、`sdk.tables`、`sdk.settings`、`sdk.batchChanges`
+- docs：`sdk.selection`、`sdk.search`、`sdk.sidebar`、`sdk.outline`、`sdk.tables`、`sdk.settings`、`sdk.batchChanges`
 - sheet：`sdk.workbook`、`sdk.activeSheet`、`sdk.charts`、`sdk.batchChanges`、`sdk.print`、`sdk.export`、`sdk.setFocus`
 - presentation：`sdk.slides`、`sdk.selection`、`sdk.text`、`sdk.zoom`、`sdk.eventSubscription`、`sdk.batchChanges`、`sdk.print`、`sdk.export`
 
@@ -26,7 +26,7 @@
 | docs         | `comments`                                           | `sdk.comments`                                                                                                       | 旧根级 `comments`；receiver `comments.*`                                |
 | docs         | `search`                                             | `sdk.search`                                                                                                         | receiver `search.*`                                                     |
 | docs         | `title`                                              | `sdk.title`                                                                                                          | 旧根级 `title`；receiver `title.*`                                      |
-| docs         | `TOCs`                                               | `sdk.TOCs`                                                                                                           | receiver `TOCs.*`                                                       |
+| docs         | `outline`                                            | `sdk.outline`（兼容 `sdk.TOCs`）                                                                                     | receiver `outline.*`（兼容别名 `sdk.TOCs`）                             |
 | docs         | `sidebar`                                            | `sdk.sidebar`                                                                                                        | receiver `sidebar.*`                                                    |
 | docs         | `tables`                                             | `sdk.tables`                                                                                                         | receiver `tables.*`、`tables.item.*`、`tables.cell.*`、`tables.range.*` |
 | docs         | `presentation`                                       | `sdk.presentation`                                                                                                   | 旧根级 `presentation`；receiver `presentation.*`                        |
@@ -107,7 +107,8 @@ await sdk.history?.show()
 | `sdk.presentation?.startSpeakerView()`                   | 启动演讲者视图               | `PC only` |
 | `sdk.selection?.*`                                       | docs / presentation 选区能力 | `PC only` |
 | `sdk.search?.*`                                          | docs 搜索与替换              | `PC only` |
-| `sdk.TOCs?.*`                                            | docs 目录能力                | `PC only` |
+| `sdk.outline?.*`                                         | docs 目录能力                | `PC only` |
+| `sdk.TOCs?.*`                                            | docs 目录能力（兼容别名）    | `PC only` |
 | `sdk.sidebar?.*`                                         | docs 侧边栏能力              | `PC only` |
 | `sdk.tables?.*`                                          | docs 表格能力                | `PC only` |
 | `sdk.settings?.*`                                        | docs 设置能力                | `PC only` |
@@ -137,7 +138,8 @@ await sdk.history?.show()
 - `sdk.presentation?.start(index?)`
 - `sdk.selection?.*`
 - `sdk.search?.*`
-- `sdk.TOCs?.*`
+- `sdk.outline?.*`
+- `sdk.TOCs?.*`（兼容别名）
 - `sdk.sidebar?.*`
 - `sdk.tables?.*`
 - `sdk.settings?.*`

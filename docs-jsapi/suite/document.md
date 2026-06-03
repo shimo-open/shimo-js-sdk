@@ -19,7 +19,7 @@
 | [sdk.selection](#sdkselection)                                      | 选区能力（PC only，`co-1.8+`）       |
 | [sdk.selection.range](#sdkselectionrange)                           | 选区范围能力（PC only，`co-1.8+`）   |
 | [sdk.search](#sdksearch)                                            | 搜索与替换（PC only，`co-1.8+`）     |
-| [sdk.TOCs](#sdktocs)                                                | 目录能力（PC only，`co-1.8+`）       |
+| [sdk.outline](#sdkoutline)                                          | 目录能力（PC only，`co-1.8+`）       |
 | [sdk.sidebar](#sdksidebar)                                          | 侧边栏能力（PC only，`co-1.8+`）     |
 | [sdk.collaborator.show](#sdkcollaboratorshow)                       | 显示编写者信息（PC only，`co-1.8+`） |
 | [sdk.collaborator.hide](#sdkcollaboratorhide)                       | 隐藏编写者信息（PC only，`co-1.8+`） |
@@ -71,8 +71,8 @@ await sdk.title?.setTitle('Weekly Report')
 | `sdk.getEditor().hideRevision()`                  | 隐藏版本侧边栏 | `sdk.version?.hide?.()`                 |
 | `sdk.getEditor().showDiscussion()`                | 显示讨论侧边栏 | `sdk.discussion?.show()`                |
 | `sdk.getEditor().hideDiscussion()`                | 隐藏讨论侧边栏 | `sdk.discussion?.hide()`                |
-| `sdk.getEditor().showToc()`                       | 显示目录       | `sdk.TOCs?.show()`                      |
-| `sdk.getEditor().hideToc()`                       | 隐藏目录       | `sdk.TOCs?.hide()`                      |
+| `sdk.getEditor().showToc()`                       | 显示目录       | `sdk.outline?.show()`                   |
+| `sdk.getEditor().hideToc()`                       | 隐藏目录       | `sdk.outline?.hide()`                   |
 | `sdk.getEditor().createRevision(options?)`        | 创建版本       | `sdk.version?.createRevision(options?)` |
 | `sdk.getEditor().endDemonstration()`              | 退出演示       | `sdk.presentation?.quit()`              |
 | `sdk.getEditor().print()`                         | 打印           | `sdk.print?.()`                         |
@@ -404,7 +404,7 @@ sdk.search?.clear(): Promise<void>
 
 ---
 
-### sdk.TOCs
+### sdk.outline
 
 #### 说明
 
@@ -413,15 +413,15 @@ sdk.search?.clear(): Promise<void>
 #### 类型定义
 
 ```typescript
-sdk.TOCs?.getOpen(): Promise<boolean>
-sdk.TOCs?.show(): Promise<void>
-sdk.TOCs?.hide(): Promise<void>
-sdk.TOCs?.setOpen(isOpen: boolean): Promise<void>
-sdk.TOCs?.getAll(): Promise<DocsTOCItem[]>
-sdk.TOCs?.getOne(id: string): Promise<DocsTOCItem | null>
-sdk.TOCs?.deleteAll(): Promise<boolean>
-sdk.TOCs?.deleteOne(id: string): Promise<boolean>
-sdk.TOCs?.add(item: Omit<DocsTOCItem, 'id'>): Promise<boolean>
+sdk.outline?.getOpen(): Promise<boolean>
+sdk.outline?.show(): Promise<void>
+sdk.outline?.hide(): Promise<void>
+sdk.outline?.setOpen(isOpen: boolean): Promise<void>
+sdk.outline?.getAll(): Promise<DocsTOCItem[]>
+sdk.outline?.getOne(id: string): Promise<DocsTOCItem | null>
+sdk.outline?.deleteAll(): Promise<boolean>
+sdk.outline?.deleteOne(id: string): Promise<boolean>
+sdk.outline?.add(item: Omit<DocsTOCItem, 'id'>): Promise<boolean>
 ```
 
 #### 相关类型

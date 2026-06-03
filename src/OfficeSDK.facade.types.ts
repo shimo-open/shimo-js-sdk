@@ -825,7 +825,7 @@ export interface DocsSearchFacade {
   clear: () => Promise<void>
 }
 
-export interface DocsTOCsFacade {
+export interface DocsOutlineFacade {
   show: () => Promise<void>
   hide: () => Promise<void>
   getOpen: () => Promise<boolean>
@@ -1153,7 +1153,7 @@ export interface OfficeSDKRootFacadeState {
   presentation?: PresentationFacade
   selection?: DocsSelectionFacade | PresentationSelectionFacade
   search?: DocsSearchFacade
-  TOCs?: DocsTOCsFacade
+  outline?: DocsOutlineFacade
   sidebar?: DocsSidebarFacade
   tables?: DocsTablesFacade
   settings?: DocsSettingsFacade

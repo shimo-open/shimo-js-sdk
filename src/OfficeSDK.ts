@@ -75,11 +75,11 @@ import type {
   CommentsFacade,
   ContentFacade,
   DiscussionFacade,
+  DocsOutlineFacade,
   DocsSearchFacade,
   DocsSelectionFacade,
   DocsSettingsFacade,
   DocsSidebarFacade,
-  DocsTOCsFacade,
   DocsTablesFacade,
   ExternalAppFacade,
   HistoryFacade,
@@ -282,7 +282,7 @@ export class OfficeSDK extends TinyEmitter {
   /**
    * 当前套件支持的目录能力。
    */
-  TOCs?: DocsTOCsFacade
+  outline?: DocsOutlineFacade
 
   /**
    * 当前套件支持的侧边栏能力。
@@ -1566,7 +1566,7 @@ export class OfficeSDK extends TinyEmitter {
     this.presentation = undefined
     this.selection = undefined
     this.search = undefined
-    this.TOCs = undefined
+    this.outline = undefined
     this.sidebar = undefined
     this.tables = undefined
     this.settings = undefined

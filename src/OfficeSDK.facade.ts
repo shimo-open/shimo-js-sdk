@@ -13,7 +13,7 @@ import type {
   DocsSelectionFacade,
   DocsSettingsFacade,
   DocsSidebarFacade,
-  DocsTOCsFacade,
+  DocsOutlineFacade,
   DocsTableCellFacade,
   DocsTableFacade,
   DocsTableRangeFacade,
@@ -294,21 +294,21 @@ export function buildRootFacadeState(
     }
   }
 
-  const discussionFacade: DiscussionFacade = {
+  const docDiscussionFacade: DiscussionFacade = {
     show: async () => {
-      await host.invokeEditorFacade('showDiscussion')
+      await host.invokeEditorFacade('show', ['discussion'])
     },
     hide: async () => {
-      await host.invokeEditorFacade('hideDiscussion')
+      await host.invokeEditorFacade('close', ['discussion'])
     }
   }
 
   const collaboratorFacade: CollaboratorFacade = {
     show: async () => {
-      await host.invokeEditorFacade('showCollaborator')
+      await host.invokeEditorFacade('collaborator.show')
     },
     hide: async () => {
-      await host.invokeEditorFacade('hideCollaborator')
+      await host.invokeEditorFacade('collaborator.hide')
     }
   }
 
@@ -586,13 +586,25 @@ export function buildRootFacadeState(
         )
     }
 
+  const docsOutlineFacade = host.createEditorFacadeModule<DocsOutlineFacade>(
+    'outline',
+    {
+      show: async () => {
+        await host.invokeEditorFacade('outline.setOpen', [true])
+      },
+      hide: async () => {
+        await host.invokeEditorFacade('outline.setOpen', [false])
+      }
+    }
+  )
+
   switch (host.fileType) {
     case FileType.Document:
       return {
         title: titleFacade,
         history: docsHistoryFacade,
         comments: commentsFacade,
-        discussion: discussionFacade,
+        discussion: docDiscussionFacade,
         collaborator: collaboratorFacade,
         externalApp: externalAppFacade,
         version: docsVersionFacade,
@@ -603,14 +615,7 @@ export function buildRootFacadeState(
           {}
         ),
         search: host.createEditorFacadeModule<DocsSearchFacade>('search', {}),
-        TOCs: host.createEditorFacadeModule<DocsTOCsFacade>('TOCs', {
-          show: async () => {
-            await host.invokeEditorFacade('showToc')
-          },
-          hide: async () => {
-            await host.invokeEditorFacade('hideToc')
-          }
-        }),
+        outline: docsOutlineFacade,
         sidebar: host.createEditorFacadeModule<DocsSidebarFacade>(
           'sidebar',
           {}
