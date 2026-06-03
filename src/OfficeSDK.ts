@@ -148,6 +148,7 @@ const PRELOAD_MESSAGE_TYPE = {
   DONE: 'SDK_PRELOAD_DONE',
   ERROR: 'SDK_PRELOAD_ERROR'
 } as const
+const PROMISE_LIKE_PROXY_PROPS = new Set(['then', 'catch', 'finally'])
 
 type EditorFacadeCallback = (...args: unknown[]) => unknown | Promise<unknown>
 
@@ -184,6 +185,10 @@ function isSlashMenuEntry(
   item: SlashMenuEntry | SlashMenuButton
 ): item is SlashMenuEntry {
   return item.type === 'entry'
+}
+
+function shouldSkipFacadeProxyProp(prop: string): boolean {
+  return PROMISE_LIKE_PROXY_PROPS.has(prop)
 }
 
 export const MessageEvent = InvokeMethod
@@ -1472,6 +1477,9 @@ export class OfficeSDK extends TinyEmitter {
         if (typeof prop !== 'string') {
           return undefined
         }
+        if (shouldSkipFacadeProxyProp(prop)) {
+          return undefined
+        }
         if (Object.prototype.hasOwnProperty.call(target, prop)) {
           return target[prop as keyof T]
         }
@@ -1494,6 +1502,9 @@ export class OfficeSDK extends TinyEmitter {
     return new Proxy(staticFields as T, {
       get: (target, prop) => {
         if (typeof prop !== 'string') {
+          return undefined
+        }
+        if (shouldSkipFacadeProxyProp(prop)) {
           return undefined
         }
         if (Object.prototype.hasOwnProperty.call(target, prop)) {
@@ -1661,6 +1672,10 @@ export class OfficeSDK extends TinyEmitter {
       const proxyFunc = function () {}
       return new Proxy(proxyFunc, {
         get: (target, prop) => {
+          if (typeof prop === 'string' && shouldSkipFacadeProxyProp(prop)) {
+            return undefined
+          }
+
           // 如果是根级别的预定义方法（on/off），直接返回
           if (
             path.length === 0 &&
