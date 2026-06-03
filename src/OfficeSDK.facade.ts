@@ -588,7 +588,6 @@ export function buildRootFacadeState(
 
   switch (host.fileType) {
     case FileType.Document:
-    case FileType.DocumentPro:
       return {
         title: titleFacade,
         history: docsHistoryFacade,
