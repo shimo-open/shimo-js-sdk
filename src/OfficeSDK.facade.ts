@@ -400,7 +400,12 @@ export function buildRootFacadeState(
     },
     startSpeakerView: async () => {
       await host.invokeEditorFacade('presentation.startSpeakerView')
-    }
+    },
+    addChangeListener: (listener: (payload: unknown) => void) =>
+      host.registerEditorFacadeListener(
+        'presentation.addChangeListener',
+        listener
+      )
   }
 
   const docsPresentationFacade: PresentationFacade = {

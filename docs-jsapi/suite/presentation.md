@@ -183,6 +183,10 @@ sdk.slides?.hideSlide(slideId: string): Promise<void>
 
 - [PresentationSlideFacade](#presentationslidefacade)
 
+#### 说明补充
+
+- 上述 `slides` API 继续对外保留；其中 `addSlide`、`duplicateSlide`、`deleteSlide`、`hideSlide` 需等待底层 runtime 承接后再复测。
+
 ---
 
 ### sdk.slides.slide
@@ -238,6 +242,10 @@ slide.insertAttachment(
 - [PresentationTableOptions](#presentationtableoptions)
 - [PresentationSize](#presentationsize)
 - [PresentationOffset](#presentationoffset)
+
+#### 说明补充
+
+- 上述 `slide` API 继续对外保留；`getTables` 和各类插入/写入接口需等待底层 runtime 承接后再复测。
 
 ---
 
@@ -434,6 +442,37 @@ interface PresentationShape {
 ```typescript
 interface PresentationSlideFacade {
   id: string
+  getIndex(): Promise<number>
+  getShapes(): Promise<PresentationShape[]>
+  getTables(): Promise<PresentationTableItem[]>
+  insertShape(
+    options: PresentationInsertShapeOptions
+  ): Promise<PresentationShape>
+  insertTextBox(options: PresentationTextBoxOptions): Promise<PresentationShape>
+  insertTable(options: PresentationTableOptions): Promise<PresentationTableItem>
+  insertImage(
+    image: File,
+    size?: PresentationSize,
+    offset?: PresentationOffset
+  ): Promise<void>
+  insertAudio(
+    data: File,
+    size?: PresentationSize,
+    offset?: PresentationOffset,
+    name?: string
+  ): Promise<void>
+  insertVideo(
+    data: File,
+    size?: PresentationSize,
+    offset?: PresentationOffset,
+    name?: string
+  ): Promise<void>
+  insertAttachment(
+    file: File,
+    size?: PresentationSize,
+    offset?: PresentationOffset,
+    name?: string
+  ): Promise<void>
 }
 ```
 

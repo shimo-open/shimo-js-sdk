@@ -85,6 +85,12 @@ export type EditorFacadeContractAssertions = [
   >,
   Assert<
     IsAssignable<
+      NonNullable<OfficeSDK['presentation']>['addChangeListener'],
+      (listener: (payload: unknown) => void) => () => void
+    >
+  >,
+  Assert<
+    IsAssignable<
       NonNullable<OfficeSDK['batchChanges']>,
       <T>(callback: () => T | Promise<T>) => Promise<Awaited<T>>
     >

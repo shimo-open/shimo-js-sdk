@@ -762,6 +762,7 @@ export interface PresentationFacade {
   startFromCurrent: () => Promise<void>
   startRemoteLive: () => Promise<void>
   startSpeakerView: () => Promise<void>
+  addChangeListener: (listener: (payload: unknown) => void) => () => void
 }
 
 export interface DocsRangeFacade {
