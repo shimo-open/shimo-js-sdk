@@ -4,33 +4,33 @@
 
 ### 方法列表
 
-| 方法                                                                | 说明                                 |
-| ------------------------------------------------------------------- | ------------------------------------ |
-| [sdk.title.addChangedListener](#sdktitleaddchangedlistenerlistener) | 监听标题变化（PC only，`co-1.8+`）   |
-| [sdk.title.setTitle](#sdktitlesettitletitle)                        | 设置标题（PC only，`co-1.8+`）       |
-| [sdk.history.show](#sdkhistoryshow)                                 | 显示历史（PC only，`co-1.8+`）       |
-| [sdk.history.hide](#sdkhistoryhide)                                 | 隐藏历史（PC only，`co-1.8+`）       |
-| [sdk.comments.show](#sdkcommentsshowtype)                           | 显示评论（PC only，`co-1.8+`）       |
-| [sdk.comments.hide](#sdkcommentshidetype)                           | 隐藏评论（PC only，`co-1.8+`）       |
-| [sdk.discussion.show](#sdkdiscussionshow)                           | 显示讨论（PC only，`co-1.8+`）       |
-| [sdk.discussion.hide](#sdkdiscussionhide)                           | 隐藏讨论（PC only，`co-1.8+`）       |
-| [sdk.version](#sdkversion)                                          | 版本能力（PC only，`co-1.8+`）       |
-| [sdk.presentation.start](#sdkpresentationstartindex)                | 启动演示（PC only，`co-1.8+`）       |
-| [sdk.selection](#sdkselection)                                      | 选区能力（PC only，`co-1.8+`）       |
-| [sdk.selection.range](#sdkselectionrange)                           | 选区范围能力（PC only，`co-1.8+`）   |
-| [sdk.search](#sdksearch)                                            | 搜索与替换（PC only，`co-1.8+`）     |
-| [sdk.outline](#sdkoutline)                                          | 目录能力（PC only，`co-1.8+`）       |
-| [sdk.sidebar](#sdksidebar)                                          | 侧边栏能力（PC only，`co-1.8+`）     |
-| [sdk.collaborator.show](#sdkcollaboratorshow)                       | 显示编写者信息（PC only，`co-1.8+`） |
-| [sdk.collaborator.hide](#sdkcollaboratorhide)                       | 隐藏编写者信息（PC only，`co-1.8+`） |
-| [sdk.externalApp.insert](#sdkexternalappinserturl-params)           | 插入第三方应用（PC only，`co-1.8+`） |
-| [sdk.tables](#sdktables)                                            | 表格集合能力（PC only，`co-1.8+`）   |
-| [sdk.tables.item](#sdktablesitem)                                   | 单个表格能力（PC only，`co-1.8+`）   |
-| [sdk.tables.cell](#sdktablescell)                                   | 表格单元格能力（PC only，`co-1.8+`） |
-| [sdk.tables.range](#sdktablesrange)                                 | 表格范围能力（PC only，`co-1.8+`）   |
-| [sdk.settings](#sdksettings)                                        | 文档设置能力（PC only，`co-1.8+`）   |
-| [sdk.batchChanges](#sdkbatchchangescallback)                        | 批量变更（PC only，`co-1.8+`）       |
-| [sdk.print](#sdkprint)                                              | 打印（PC only，`co-1.8+`）           |
+| 方法                                                                | 说明                                     |
+| ------------------------------------------------------------------- | ---------------------------------------- |
+| [sdk.title.addChangedListener](#sdktitleaddchangedlistenerlistener) | 监听标题变化（PC only，`co-1.8+`）       |
+| [sdk.title.setTitle](#sdktitlesettitletitle)                        | 设置标题（PC only，`co-1.8+`）           |
+| [sdk.history.show](#sdkhistoryshow)                                 | 显示历史（PC only，`co-1.8+`）           |
+| [sdk.history.hide](#sdkhistoryhide)                                 | 隐藏历史（PC only，`co-1.8+`）           |
+| [sdk.comments.show](#sdkcommentsshowtype)                           | 显示评论（PC only，`co-1.8+`）           |
+| [sdk.comments.hide](#sdkcommentshidetype)                           | 隐藏评论（PC only，`co-1.8+`）           |
+| [sdk.discussion.show](#sdkdiscussionshow)                           | 显示讨论（PC only，`co-1.8+`）           |
+| [sdk.discussion.hide](#sdkdiscussionhide)                           | 隐藏讨论（PC only，`co-1.8+`）           |
+| [sdk.version](#sdkversion)                                          | 版本能力（PC only，`co-1.8+`）           |
+| [sdk.presentation.start](#sdkpresentationstartindex)                | 启动演示（PC only，`co-1.8+`）           |
+| [sdk.selection](#sdkselection)                                      | 选区能力（PC only，`co-1.8+`）           |
+| [range: DocsRangeFacade](#sdkselectionrange)                        | 选区范围对象能力（PC only，`co-1.8+`）   |
+| [sdk.search](#sdksearch)                                            | 搜索与替换（PC only，`co-1.8+`）         |
+| [sdk.outline](#sdkoutline)                                          | 目录能力（PC only，`co-1.8+`）           |
+| [sdk.sidebar](#sdksidebar)                                          | 侧边栏能力（PC only，`co-1.8+`）         |
+| [sdk.collaborator.show](#sdkcollaboratorshow)                       | 显示编写者信息（PC only，`co-1.8+`）     |
+| [sdk.collaborator.hide](#sdkcollaboratorhide)                       | 隐藏编写者信息（PC only，`co-1.8+`）     |
+| [sdk.externalApp.insert](#sdkexternalappinserturl-params)           | 插入第三方应用（PC only，`co-1.8+`）     |
+| [sdk.tables](#sdktables)                                            | 表格集合能力（PC only，`co-1.8+`）       |
+| [table: DocsTableFacade](#sdktablesitem)                            | 单个表格对象能力（PC only，`co-1.8+`）   |
+| [cell: DocsTableCellFacade](#sdktablescell)                         | 表格单元格对象能力（PC only，`co-1.8+`） |
+| [range: DocsTableRangeFacade](#sdktablesrange)                      | 表格范围对象能力（PC only，`co-1.8+`）   |
+| [sdk.settings](#sdksettings)                                        | 文档设置能力（PC only，`co-1.8+`）       |
+| [sdk.batchChanges](#sdkbatchchangescallback)                        | 批量变更（PC only，`co-1.8+`）           |
+| [sdk.print](#sdkprint)                                              | 打印（PC only，`co-1.8+`）               |
 
 ### API 调用方式
 
@@ -314,11 +314,11 @@ await sdk.selection?.insertText('Hello')
 
 ---
 
-### sdk.selection.range
+<h3 id="sdkselectionrange">range: DocsRangeFacade</h3>
 
 #### 说明
 
-`sdk.selection.getRange()` 或 `sdk.selection.getWholeRange()` 返回的范围对象能力。
+通过 `const range = await sdk.selection?.getRange()` 或 `const range = await sdk.selection?.getWholeRange()` 获取 `range: DocsRangeFacade`，再调用其上的实例 API。
 
 #### 类型定义
 
@@ -534,11 +534,11 @@ const table = await sdk.tables?.getOne('table-id')
 
 ---
 
-### sdk.tables.item
+<h3 id="sdktablesitem">table: DocsTableFacade</h3>
 
 #### 说明
 
-`sdk.tables.getAll()` 或 `sdk.tables.getOne()` 返回的表格对象能力。
+先通过 `const table = await sdk.tables?.getOne(tableId)` 或 `const tables = await sdk.tables?.getAll()` 获取 `table: DocsTableFacade`，再调用其上的实例 API。
 
 #### 类型定义
 
@@ -574,11 +574,11 @@ table.getRange(
 
 ---
 
-### sdk.tables.cell
+<h3 id="sdktablescell">cell: DocsTableCellFacade</h3>
 
 #### 说明
 
-文档表格单元格能力。
+通过 `const cell = await table?.getCell(row, column)` 获取 `cell: DocsTableCellFacade`，再调用其上的实例 API。
 
 #### 类型定义
 
@@ -603,11 +603,11 @@ cell.clearStyle(): Promise<void>
 
 ---
 
-### sdk.tables.range
+<h3 id="sdktablesrange">range: DocsTableRangeFacade</h3>
 
 #### 说明
 
-文档表格范围能力。
+通过 `const range = await table?.getRange(selection)` 获取 `range: DocsTableRangeFacade`，再调用其上的实例 API。
 
 #### 类型定义
 

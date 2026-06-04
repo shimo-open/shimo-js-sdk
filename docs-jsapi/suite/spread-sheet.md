@@ -4,27 +4,27 @@
 
 ### 方法列表
 
-| 方法                                                                             | 说明                                   |
-| -------------------------------------------------------------------------------- | -------------------------------------- |
-| [sdk.history.show](#sdkhistoryshow)                                              | 显示历史（PC only，`co-1.8+`）         |
-| [sdk.history.hide](#sdkhistoryhide)                                              | 隐藏历史（PC only，`co-1.8+`）         |
-| [sdk.comments.show](#sdkcommentsshowtype)                                        | 显示评论（PC only，`co-1.8+`）         |
-| [sdk.comments.hide](#sdkcommentshidetype)                                        | 隐藏评论（PC only，`co-1.8+`）         |
-| [sdk.locks](#sdklocks)                                                           | 锁定能力（PC only，`co-1.8+`）         |
-| [sdk.mention.locateCellByGuid](#sdkmentionlocatecellbyguidguid-notificationtype) | 按通知定位单元格（PC only，`co-1.8+`） |
-| [sdk.content.setContent](#sdkcontentsetcontentcontent)                           | 设置内容（PC only，`co-1.8+`）         |
-| [sdk.version.createRevision](#sdkversioncreaterevisionoptions)                   | 创建版本（PC only，`co-1.8+`）         |
-| [sdk.presentation](#sdkpresentation)                                             | 演示模式能力（PC only，`co-1.8+`）     |
-| [sdk.workbook](#sdkworkbook)                                                     | 工作簿能力（PC only，`co-1.8+`）       |
-| [sdk.activeSheet](#sdkactivesheet)                                               | 当前工作表能力（PC only，`co-1.8+`）   |
-| [sdk.sheet.range](#sdksheetrange)                                                | 工作表范围能力（PC only，`co-1.8+`）   |
-| [sdk.sheet.cell](#sdksheetcell)                                                  | 工作表单元格能力（PC only，`co-1.8+`） |
-| [sdk.charts](#sdkcharts)                                                         | 图表能力（PC only，`co-1.8+`）         |
-| [sdk.selections](#sdkselections)                                                 | 多选区能力（PC only，`co-1.8+`）       |
-| [sdk.batchChanges](#sdkbatchchangescallback)                                     | 批量变更（PC only，`co-1.8+`）         |
-| [sdk.print](#sdkprint)                                                           | 打印（PC only，`co-1.8+`）             |
-| [sdk.export](#sdkexporttype)                                                     | 导出（PC only，`co-1.8+`）             |
-| [sdk.setFocus](#sdksetfocusisfocus)                                              | 设置聚焦状态（PC only，`co-1.8+`）     |
+| 方法                                                                             | 说明                                       |
+| -------------------------------------------------------------------------------- | ------------------------------------------ |
+| [sdk.history.show](#sdkhistoryshow)                                              | 显示历史（PC only，`co-1.8+`）             |
+| [sdk.history.hide](#sdkhistoryhide)                                              | 隐藏历史（PC only，`co-1.8+`）             |
+| [sdk.comments.show](#sdkcommentsshowtype)                                        | 显示评论（PC only，`co-1.8+`）             |
+| [sdk.comments.hide](#sdkcommentshidetype)                                        | 隐藏评论（PC only，`co-1.8+`）             |
+| [sdk.locks](#sdklocks)                                                           | 锁定能力（PC only，`co-1.8+`）             |
+| [sdk.mention.locateCellByGuid](#sdkmentionlocatecellbyguidguid-notificationtype) | 按通知定位单元格（PC only，`co-1.8+`）     |
+| [sdk.content.setContent](#sdkcontentsetcontentcontent)                           | 设置内容（PC only，`co-1.8+`）             |
+| [sdk.version.createRevision](#sdkversioncreaterevisionoptions)                   | 创建版本（PC only，`co-1.8+`）             |
+| [sdk.presentation](#sdkpresentation)                                             | 演示模式能力（PC only，`co-1.8+`）         |
+| [sdk.workbook](#sdkworkbook)                                                     | 工作簿能力（PC only，`co-1.8+`）           |
+| [sdk.activeSheet](#sdkactivesheet)                                               | 当前工作表能力（PC only，`co-1.8+`）       |
+| [range: SheetRangeFacade](#sdksheetrange)                                        | 工作表范围对象能力（PC only，`co-1.8+`）   |
+| [cell: SheetCellFacade](#sdksheetcell)                                           | 工作表单元格对象能力（PC only，`co-1.8+`） |
+| [sdk.charts](#sdkcharts)                                                         | 图表能力（PC only，`co-1.8+`）             |
+| [sdk.selections](#sdkselections)                                                 | 多选区能力（PC only，`co-1.8+`）           |
+| [sdk.batchChanges](#sdkbatchchangescallback)                                     | 批量变更（PC only，`co-1.8+`）             |
+| [sdk.print](#sdkprint)                                                           | 打印（PC only，`co-1.8+`）                 |
+| [sdk.export](#sdkexporttype)                                                     | 导出（PC only，`co-1.8+`）                 |
+| [sdk.setFocus](#sdksetfocusisfocus)                                              | 设置聚焦状态（PC only，`co-1.8+`）         |
 
 ### API 调用方式
 
@@ -325,11 +325,11 @@ sdk.activeSheet?.setVisible(visible: boolean): Promise<void>
 
 ---
 
-### sdk.sheet.range
+<h3 id="sdksheetrange">range: SheetRangeFacade</h3>
 
 #### 说明
 
-`sdk.activeSheet.getRange()` 返回的范围对象能力。
+通过 `const range = await sdk.activeSheet?.getRange(value)` 获取 `range: SheetRangeFacade`，再调用其上的实例 API。
 
 #### 类型定义
 
@@ -364,11 +364,11 @@ range.clearAll(): Promise<void>
 
 ---
 
-### sdk.sheet.cell
+<h3 id="sdksheetcell">cell: SheetCellFacade</h3>
 
 #### 说明
 
-`sdk.activeSheet.getCell()` 或 `sdk.activeSheet.getActiveCell()` 返回的单元格对象能力。
+通过 `const cell = await sdk.activeSheet?.getCell(row, column)` 或 `const cell = await sdk.activeSheet?.getActiveCell()` 获取 `cell: SheetCellFacade`，再调用其上的实例 API。
 
 #### 类型定义
 

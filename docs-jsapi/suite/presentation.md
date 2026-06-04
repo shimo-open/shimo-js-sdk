@@ -4,24 +4,24 @@
 
 ### 方法列表
 
-| 方法                                                           | 说明                                 |
-| -------------------------------------------------------------- | ------------------------------------ |
-| [sdk.history.show](#sdkhistoryshow)                            | 显示历史（PC only，`co-1.8+`）       |
-| [sdk.history.hide](#sdkhistoryhide)                            | 隐藏历史（PC only，`co-1.8+`）       |
-| [sdk.comments.show](#sdkcommentsshowtype)                      | 显示评论（PC only，`co-1.8+`）       |
-| [sdk.comments.hide](#sdkcommentshidetype)                      | 隐藏评论（PC only，`co-1.8+`）       |
-| [sdk.version.createRevision](#sdkversioncreaterevisionoptions) | 创建版本（PC only，`co-1.8+`）       |
-| [sdk.presentation](#sdkpresentation)                           | 演示模式能力（PC only，`co-1.8+`）   |
-| [sdk.slides](#sdkslides)                                       | 幻灯片集合能力（PC only，`co-1.8+`） |
-| [sdk.slides.slide](#sdkslidesslide)                            | 单个幻灯片能力（PC only，`co-1.8+`） |
-| [sdk.selection](#sdkselection)                                 | 选区能力（PC only，`co-1.8+`）       |
-| [sdk.selection.textRange](#sdkselectiontextrange)              | 文本范围能力（PC only，`co-1.8+`）   |
-| [sdk.text](#sdktext)                                           | 文本格式能力（PC only，`co-1.8+`）   |
-| [sdk.zoom](#sdkzoom)                                           | 缩放能力（PC only，`co-1.8+`）       |
-| [sdk.eventSubscription](#sdkeventsubscription)                 | 事件订阅能力（PC only，`co-1.8+`）   |
-| [sdk.batchChanges](#sdkbatchchangescallback)                   | 批量变更（PC only，`co-1.8+`）       |
-| [sdk.print](#sdkprint)                                         | 打印（PC only，`co-1.8+`）           |
-| [sdk.export](#sdkexporttype)                                   | 导出（PC only，`co-1.8+`）           |
+| 方法                                                             | 说明                                     |
+| ---------------------------------------------------------------- | ---------------------------------------- |
+| [sdk.history.show](#sdkhistoryshow)                              | 显示历史（PC only，`co-1.8+`）           |
+| [sdk.history.hide](#sdkhistoryhide)                              | 隐藏历史（PC only，`co-1.8+`）           |
+| [sdk.comments.show](#sdkcommentsshowtype)                        | 显示评论（PC only，`co-1.8+`）           |
+| [sdk.comments.hide](#sdkcommentshidetype)                        | 隐藏评论（PC only，`co-1.8+`）           |
+| [sdk.version.createRevision](#sdkversioncreaterevisionoptions)   | 创建版本（PC only，`co-1.8+`）           |
+| [sdk.presentation](#sdkpresentation)                             | 演示模式能力（PC only，`co-1.8+`）       |
+| [sdk.slides](#sdkslides)                                         | 幻灯片集合能力（PC only，`co-1.8+`）     |
+| [slide: PresentationSlideFacade](#sdkslidesslide)                | 单个幻灯片对象能力（PC only，`co-1.8+`） |
+| [sdk.selection](#sdkselection)                                   | 选区能力（PC only，`co-1.8+`）           |
+| [textRange: PresentationTextRangeFacade](#sdkselectiontextrange) | 文本范围对象能力（PC only，`co-1.8+`）   |
+| [sdk.text](#sdktext)                                             | 文本格式能力（PC only，`co-1.8+`）       |
+| [sdk.zoom](#sdkzoom)                                             | 缩放能力（PC only，`co-1.8+`）           |
+| [sdk.eventSubscription](#sdkeventsubscription)                   | 事件订阅能力（PC only，`co-1.8+`）       |
+| [sdk.batchChanges](#sdkbatchchangescallback)                     | 批量变更（PC only，`co-1.8+`）           |
+| [sdk.print](#sdkprint)                                           | 打印（PC only，`co-1.8+`）               |
+| [sdk.export](#sdkexporttype)                                     | 导出（PC only，`co-1.8+`）               |
 
 ### API 调用方式
 
@@ -189,11 +189,11 @@ sdk.slides?.hideSlide(slideId: string): Promise<void>
 
 ---
 
-### sdk.slides.slide
+<h3 id="sdkslidesslide">slide: PresentationSlideFacade</h3>
 
 #### 说明
 
-`sdk.slides` 返回的单个幻灯片对象能力。
+通过 `const slide = await sdk.slides?.getCurrentSlide()`、`getSlideById()`、`getSlides()` 等方法获取 `slide: PresentationSlideFacade`，再调用其上的实例 API。
 
 #### 类型定义
 
@@ -277,11 +277,11 @@ sdk.selection?.addRangeListener(
 
 ---
 
-### sdk.selection.textRange
+<h3 id="sdkselectiontextrange">textRange: PresentationTextRangeFacade</h3>
 
 #### 说明
 
-`sdk.selection.getTextRange()` 返回的文本范围对象能力。
+这里的 `sdk.selection.textRange` 仅用于文档章节索引，并不是可直接通过 `sdk.selection.textRange` 调用的模块；实际应先通过 `const textRange = await sdk.selection?.getTextRange()` 获取 `textRange: PresentationTextRangeFacade`，再调用其上的实例 API。
 
 #### 类型定义
 
