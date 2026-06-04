@@ -294,12 +294,12 @@ export function buildRootFacadeState(
     }
   }
 
-  const docDiscussionFacade: DiscussionFacade = {
+  const discussionFacade: DiscussionFacade = {
     show: async () => {
-      await host.invokeEditorFacade('show', ['discussion'])
+      await host.invokeEditorFacade('discussion.show')
     },
     hide: async () => {
-      await host.invokeEditorFacade('close', ['discussion'])
+      await host.invokeEditorFacade('discussion.hide')
     }
   }
 
@@ -355,30 +355,15 @@ export function buildRootFacadeState(
   }
 
   const versionFacade: VersionFacade = {
+    show: async () => {
+      await host.invokeEditorFacade('version.show')
+    },
+    hide: async () => {
+      await host.invokeEditorFacade('version.hide')
+    },
     createRevision: async (options?: RevisionCreateOptions) => {
       await host.invokeEditorFacade('version.createRevision', [options])
       return undefined
-    }
-  }
-
-  const docsHistoryFacade: HistoryFacade = {
-    show: async () => {
-      await host.invokeEditorFacade('showHistory')
-    },
-    hide: async () => {
-      await host.invokeEditorFacade('hideHistory')
-    }
-  }
-
-  const docsVersionFacade: VersionFacade = {
-    show: async () => {
-      await host.invokeEditorFacade('showRevision')
-    },
-    hide: async () => {
-      await host.invokeEditorFacade('hideRevision')
-    },
-    createRevision: async (options?: RevisionCreateOptions) => {
-      return await host.invokeEditorFacade('createRevision', [options])
     }
   }
 
@@ -406,13 +391,6 @@ export function buildRootFacadeState(
         'presentation.addChangeListener',
         listener
       )
-  }
-
-  const docsPresentationFacade: PresentationFacade = {
-    ...presentationFacade,
-    quit: async () => {
-      await host.invokeEditorFacade('endDemonstration')
-    }
   }
 
   const batchChangesFacade = async <T>(
@@ -607,13 +585,13 @@ export function buildRootFacadeState(
     case FileType.Document:
       return {
         title: titleFacade,
-        history: docsHistoryFacade,
+        history: historyFacade,
         comments: commentsFacade,
-        discussion: docDiscussionFacade,
+        discussion: discussionFacade,
         collaborator: collaboratorFacade,
         externalApp: externalAppFacade,
-        version: docsVersionFacade,
-        presentation: docsPresentationFacade,
+        version: versionFacade,
+        presentation: presentationFacade,
         selection: docsSelectionFacade,
         settings: host.createEditorFacadeModule<DocsSettingsFacade>(
           'settings',
