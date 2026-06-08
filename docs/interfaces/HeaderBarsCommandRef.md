@@ -9,6 +9,7 @@
 - [id](HeaderBarsCommandRef.md#id)
 - [visible](HeaderBarsCommandRef.md#visible)
 - [disabled](HeaderBarsCommandRef.md#disabled)
+- [active](HeaderBarsCommandRef.md#active)
 
 ### Methods
 
@@ -44,6 +45,16 @@ ___
 #### Defined in
 
 [src/OfficeSDK.ts:93](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L93)
+
+___
+
+### active
+
+• **active**: `boolean`
+
+#### Defined in
+
+[src/OfficeSDK.ts:94](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L94)
 
 ## Methods
 

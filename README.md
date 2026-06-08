@@ -145,6 +145,7 @@ const command = sdk.headerBars.getCommand('custom-export')
 // 命令状态（属性读写）
 command.visible = true
 command.disabled = false
+command.active = true
 
 // 外层覆盖命令点击回调（优先于 iframe 默认回调）
 command.onCommandClick = async () => {

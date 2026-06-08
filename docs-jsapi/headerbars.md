@@ -38,6 +38,7 @@
 | [sdk.headerBars.listViewCommands](#sdkheaderbarslistviewcommands)                  | 获取当前顶栏命令列表（PC only，`co-1.8+`） |
 | [sdk.headerBars.commandRef.visible](#sdkheaderbarscommandrefvisible)               | 设置命令显示状态（PC only，`co-1.8+`）     |
 | [sdk.headerBars.commandRef.disabled](#sdkheaderbarscommandrefdisabled)             | 设置命令禁用状态（PC only，`co-1.8+`）     |
+| [sdk.headerBars.commandRef.active](#sdkheaderbarscommandrefactive)                 | 设置命令激活状态（PC only，`co-1.8+`）     |
 | [sdk.headerBars.commandRef.src](#sdkheaderbarscommandrefsrc)                       | 设置命令图标地址（PC only，`co-1.8+`）     |
 | [sdk.headerBars.commandRef.label](#sdkheaderbarscommandreflabel)                   | 设置命令文案（PC only，`co-1.8+`）         |
 | [sdk.headerBars.commandRef.editable](#sdkheaderbarscommandrefeditable)             | 设置命令可编辑状态（PC only，`co-1.8+`）   |
@@ -481,6 +482,34 @@ titleCommand.editable = true
 
 ---
 
+### sdk.headerBars.commandRef.active
+
+#### 说明
+
+命令激活状态属性。
+
+#### 类型定义
+
+```typescript
+command.active: boolean
+```
+
+#### 说明补充
+
+- getter 从本地 cache 读取当前激活状态
+- setter 会先更新本地 cache，再异步触发 iframe 侧 `headerBars.setCommandActive`
+
+#### 示例
+
+```typescript
+const sdk = await connect(options)
+
+const command = sdk.headerBars.getCommand('toggle-toc')
+command.active = true
+```
+
+---
+
 ### sdk.headerBars.commandRef.onCommandClick
 
 #### 说明
@@ -572,6 +601,7 @@ interface HeaderBarsCommandDefinition {
   label?: string
   visible?: boolean
   disabled?: boolean
+  active?: boolean
   editable?: boolean
   type?: HeaderBarsCommandType
   renderType?: string
@@ -599,6 +629,7 @@ interface HeaderBarsCommandRef {
   readonly id: string
   visible: boolean
   disabled: boolean
+  active: boolean
   src?: string
   label?: string
   editable?: boolean
@@ -633,4 +664,4 @@ interface HeaderBarsChangedPayload {
 - `sdk.headerBars` 不属于 `sdk.getEditor()` 的旧扁平方法分组
 - `command.label` 当前不支持修改 `title`、`save-status`
 - `command.editable` 当前仅支持 `title`
-- `command.visible`、`command.disabled`、`command.src`、`command.label`、`command.editable` 的属性写入均为异步触发 iframe 更新；如需更严格状态对齐，建议结合 `listViewCommands()` 或 `getState()` 做结果确认
+- `command.visible`、`command.disabled`、`command.active`、`command.src`、`command.label`、`command.editable` 的属性写入均为异步触发 iframe 更新；如需更严格状态对齐，建议结合 `listViewCommands()` 或 `getState()` 做结果确认

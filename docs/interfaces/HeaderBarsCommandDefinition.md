@@ -18,6 +18,7 @@
 - [label](HeaderBarsCommandDefinition.md#label)
 - [visible](HeaderBarsCommandDefinition.md#visible)
 - [disabled](HeaderBarsCommandDefinition.md#disabled)
+- [active](HeaderBarsCommandDefinition.md#active)
 - [type](HeaderBarsCommandDefinition.md#type)
 
 ## Properties
@@ -82,10 +83,20 @@ ___
 
 ___
 
+### active
+
+• `Optional` **active**: `boolean`
+
+#### Defined in
+
+[src/OfficeSDK.ts:83](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L83)
+
+___
+
 ### type
 
 • `Optional` **type**: ``"action"`` \| ``"structural"``
 
 #### Defined in
 
-[src/OfficeSDK.ts:83](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L83)
+[src/OfficeSDK.ts:84](https://github.com/shimo-open/shimo-js-sdk/blob/master/src/OfficeSDK.ts#L84)
