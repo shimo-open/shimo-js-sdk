@@ -29,14 +29,23 @@ connect({
   signature: '用您的 app id 和 secret 签发的签名',
   token: '用于您系统识别用户请求的 token',
   container: document.querySelector('#shimo-file'), // iframe 挂载的目标容器元素
-  lang: 'en' // 未指定此参数时，使用浏览器默认语言
-  userUuid：'您的uuid', // 仅在v2版本回调时需要传入(co-1.3+支持)
+  lang: 'en', // 未指定此参数时，使用浏览器默认语言
+  disableAiEntry: true, // 可选，隐藏 iframe 内 AI 入口
+  theme: {
+    name: 'light'
+  }, // 可选，透传给 iframe 内编辑器主题配置
+  userUuid：'您的uuid' // 仅在v2版本回调时需要传入(co-1.3+支持)
 }).then((shimoSDK) => {
   // ...
 })
 ```
 
 参数说明请参考 [docs/interfaces/connectoptions.md](docs/interfaces/ConnectOptions.md)。
+
+其中：
+
+- `disableAiEntry` 为可选布尔值，透传到 iframe 内 `ShimoSDK` 的 AI 入口开关能力。
+- `theme` 为可选主题对象，宿主侧仅负责透传；未传时 iframe 内仍使用默认主题配置。
 
 返回值：
 

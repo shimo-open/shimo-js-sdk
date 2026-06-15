@@ -96,6 +96,119 @@ command.disabled = false
 
 - `sdk.headerBars.listViewCommands()`
 
+### 全量 Command ID
+
+当前 `HeaderBars` 中可操作的命令 id 分为两类：
+
+- 内置 command id：由 `suite-components-header-bar` 内置定义，可用于 `getCommand(id)`、`addCommand(..., posCommand)` 等场景
+- 自定义 command id：由接入方在 `addCommand()` 时自行定义
+
+#### 内置 command id 一览
+
+以下列表基于 `suite-components/packages/suite-components-header-bar/src/HeaderBar/types.ts`、`schema.ts` 与测试用例整理。
+
+##### 结构类 command
+
+| Command ID      | 说明             | 补充说明                                     |
+| --------------- | ---------------- | -------------------------------------------- |
+| `header`        | 顶栏根容器命令   | 结构占位命令，用于整体可见性控制             |
+| `left-section`  | 左侧区域容器命令 | 结构占位命令                                 |
+| `right-section` | 右侧区域容器命令 | 结构占位命令                                 |
+| `logo`          | 品牌 Logo 命令   | 支持通过 `src` 修改图标地址                  |
+| `title`         | 标题命令         | 支持 `editable`；不支持通过 `label` 修改文案 |
+| `save-status`   | 保存状态命令     | 不支持通过 `label` 修改文案                  |
+| `collaborators` | 协作者命令       | 用于展示协作者头像与当前用户入口             |
+| `more-menus`    | 更多菜单入口命令 | 用于承载 `more` 区域命令                     |
+
+##### 顶栏主命令
+
+| Command ID           | 说明               | 补充说明                                            |
+| -------------------- | ------------------ | --------------------------------------------------- |
+| `edit`               | 编辑命令           | 默认归属左侧区域                                    |
+| `history`            | 历史入口命令       | 支持默认图标；可通过 `label` 改写文案               |
+| `follow`             | 跟随入口命令       | 支持默认图标                                        |
+| `favorite`           | 收藏命令           | 默认归属 `more` 菜单                                |
+| `rename`             | 重命名命令         | 常用于文件名相关操作                                |
+| `move`               | 移动命令           | 常用于文件移动操作                                  |
+| `download`           | 下载入口命令       | 常用于作为 `addCommand(..., posCommand)` 的参考锚点 |
+| `print`              | 打印命令           | 默认归属 `more` 菜单                                |
+| `save-template`      | 另存为模板命令     | 由类型定义提供                                      |
+| `save-version`       | 保存版本命令       | 默认归属 `more` 菜单                                |
+| `show`               | 显示设置命令       | 可展开默认二级菜单                                  |
+| `show-ppt`           | 演示入口命令       | 可展开默认二级菜单                                  |
+| `add-comment`        | 添加评论命令       | 默认归属 `more` 菜单                                |
+| `view-comment`       | 查看评论命令       | 默认归属 `more` 菜单                                |
+| `view-history`       | 查看历史命令       | 默认归属 `more` 菜单                                |
+| `view-comment-list`  | 查看评论列表命令   | 默认归属 `more` 菜单                                |
+| `view-locked-sheets` | 查看锁定工作表命令 | 默认归属 `more` 菜单                                |
+| `file-info`          | 文件信息命令       | 由类型定义提供                                      |
+| `toggle-comments`    | 显示/隐藏评论命令  | 常作为显示设置子命令                                |
+| `toggle-menu`        | 显示/隐藏菜单命令  | 可展开默认二级菜单                                  |
+| `toggle-toc`         | 显示/隐藏目录命令  | 常用于通过 `active` 控制激活状态                    |
+| `toggle-writer`      | 显示/隐藏作者命令  | 常作为显示设置子命令                                |
+
+##### 下载相关子命令
+
+| Command ID       | 说明            | 补充说明                         |
+| ---------------- | --------------- | -------------------------------- |
+| `down-image`     | 下载为图片      | 可由 `downloadTemplate` 自动展开 |
+| `down-word`      | 下载为 Word     | 可由 `downloadTemplate` 自动展开 |
+| `down-pdf`       | 下载为 PDF      | 可由 `downloadTemplate` 自动展开 |
+| `down-markdown`  | 下载为 Markdown | 可由 `downloadTemplate` 自动展开 |
+| `down-wps`       | 下载为 WPS      | 可由 `downloadTemplate` 自动展开 |
+| `down-image-pdf` | 下载为长图 PDF  | 可由 `downloadTemplate` 自动展开 |
+| `down-excel`     | 下载为 Excel    | 可由 `downloadTemplate` 自动展开 |
+| `down-pptx`      | 下载为 PPTX     | 可由 `downloadTemplate` 自动展开 |
+| `down-xmind`     | 下载为 XMind    | 可由 `downloadTemplate` 自动展开 |
+
+##### 演示与显示类二级命令
+
+| Command ID              | 说明           | 补充说明                |
+| ----------------------- | -------------- | ----------------------- |
+| `show-ppt-start`        | 从头开始播放   | `show-ppt` 的默认子命令 |
+| `show-ppt-current`      | 从当前页播放   | `show-ppt` 的默认子命令 |
+| `show-ppt-speaker-view` | 打开演讲者视图 | `show-ppt` 的默认子命令 |
+
+##### 补充说明
+
+- `download` 在传入 `downloadTemplate` 时，会自动展开内置下载子命令
+- `show` 在 `menuContext === 'document'` 时，会默认展开 `toggle-comments`、`toggle-menu`、`toggle-writer`
+- `toggle-menu` 默认会再展开 `toggle-comments`、`toggle-toc`、`toggle-writer`
+- `show-ppt` 默认会展开 `show-ppt-start`、`show-ppt-current`、`show-ppt-speaker-view`
+
+##### 示例中已出现但当前类型字面量未纳入的命令
+
+| Command ID | 说明     | 补充说明                                                                                                |
+| ---------- | -------- | ------------------------------------------------------------------------------------------------------- |
+| `share`    | 分享命令 | `README` 与测试中有使用，但当前 `HeaderBarCommandId` 类型里被注释掉，接入时建议以运行时实际支持情况为准 |
+
+#### 自定义 command id
+
+接入方通过 `sdk.headerBars.addCommand()` 插入命令时，`command.id` 可自定义，例如：
+
+```typescript
+await sdk.headerBars.addCommand(
+  {
+    id: 'custom-export',
+    section: 'more',
+    label: '导出'
+  },
+  'download'
+)
+```
+
+此时：
+
+- `custom-export` 就是接入方自定义的 command id
+- 后续可通过 `sdk.headerBars.getCommand('custom-export')` 获取并更新该命令
+- `download` 是内置 command id，这里仅作为插入定位锚点使用
+
+#### 使用建议
+
+- 需要插入自定义命令时，优先使用稳定的内置 command id 作为 `posCommand`
+- 需要精确确认当前视图实际返回了哪些命令时，建议运行 `await sdk.headerBars.listViewCommands()`
+- 如果 iframe 后续新增内置命令，返回结果可能比本节列出的列表更多，应以运行时返回为准
+
 ### 新旧兼容
 
 ```typescript

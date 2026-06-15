@@ -1932,6 +1932,14 @@ export interface SDKToastOptions {
 }
 
 /**
+ * 透传给 iframe 编辑器的主题配置。
+ * 当前 shimo-js-sdk 仅负责跨 iframe 传输，不在宿主侧约束字段细节。
+ */
+export interface CommonThemeConfig {
+  [key: string]: unknown
+}
+
+/**
  * iframe 内置加载页配置，只支持可序列化字段。
  */
 export interface LoadingOptions {
@@ -2096,6 +2104,18 @@ export interface OfficeSDKOptions
    * 控制 headerbar 组件是否展示，false 表示隐藏。
    */
   headerBarsVisible?: boolean
+
+  /**
+   * 是否隐藏 iframe 内 AI 入口。
+   * 对应 iframe 内 ShimoSDK 的现有 AI 入口开关能力。
+   */
+  disableAiEntry?: boolean
+
+  /**
+   * 编辑器主题配置。
+   * 该参数会透传到 iframe 内各套件初始化链路；未传时保持 iframe 默认主题。
+   */
+  theme?: CommonThemeConfig
 
   /**
    * docs 斜杠菜单配置。
