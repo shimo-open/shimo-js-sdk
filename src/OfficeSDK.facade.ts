@@ -27,6 +27,9 @@ import type {
   OfficeSDKRootFacadeState,
   PresentationEventSubscriptionFacade,
   PresentationFacade,
+  PresentationShape,
+  PresentationShapeBase,
+  PresentationTextShape,
   PresentationSelectionFacade,
   PresentationSlideFacade,
   PresentationSlidesFacade,
@@ -243,17 +246,86 @@ function createPresentationTextRangeFacade(
   )
 }
 
+interface PresentationShapeLocator {
+  slideId: string
+  shapeId: string
+  name: string
+  type: string
+  textContent?: string
+}
+
+function createPresentationShapeFacade(
+  host: FacadeHost,
+  locator: PresentationShapeLocator | null | undefined
+): PresentationShape | null {
+  if (!locator) {
+    return null
+  }
+
+  const staticFields: Partial<PresentationShapeBase> & {
+    id: string
+    name: string
+    type: string
+    textContent?: string
+  } = {
+    id: locator.shapeId,
+    name: locator.name,
+    type: locator.type,
+    textContent: locator.textContent
+  }
+
+  return host.createValueObjectFacade<PresentationShape>(
+    'slides.slide.shape',
+    locator as unknown as Record<string, unknown>,
+    staticFields as Partial<PresentationShape>
+  )
+}
+
 function createPresentationSlideFacade(
   host: FacadeHost,
   locator: {
     slideId: string
   }
 ): PresentationSlideFacade {
+  const insertShape = (async (options: unknown) => {
+    const shape =
+      await host.invokeEditorFacade<PresentationShapeLocator | null>(
+        'slides.slide.insertShape',
+        [locator, options]
+      )
+    const facade = createPresentationShapeFacade(host, shape)
+    if (!facade) {
+      throw new Error('presentation shape not found')
+    }
+    return facade
+  }) as PresentationSlideFacade['insertShape']
+
   return host.createValueObjectFacade<PresentationSlideFacade>(
     'slides.slide',
     locator,
     {
-      id: locator.slideId
+      id: locator.slideId,
+      getShapes: async () => {
+        const shapes = await host.invokeEditorFacade<
+          PresentationShapeLocator[]
+        >('slides.slide.getShapes', [locator])
+        return shapes
+          .map((shape) => createPresentationShapeFacade(host, shape))
+          .filter((shape): shape is PresentationShape => shape !== null)
+      },
+      insertShape,
+      insertTextBox: async (options) => {
+        const shape =
+          await host.invokeEditorFacade<PresentationShapeLocator | null>(
+            'slides.slide.insertTextBox',
+            [locator, options]
+          )
+        const facade = createPresentationShapeFacade(host, shape)
+        if (!facade) {
+          throw new Error('presentation text shape not found')
+        }
+        return facade as PresentationTextShape
+      }
     }
   )
 }
@@ -550,7 +622,21 @@ export function buildRootFacadeState(
         host.registerEditorFacadeListener(
           'selection.addRangeListener',
           listener
+        ),
+      getSelectedShapes: async (ids?: string[]) => {
+        const shapes = await host.invokeEditorFacade<
+          PresentationShapeLocator[] | null
+        >(
+          'selection.getSelectedShapes',
+          typeof ids === 'undefined' ? [] : [ids]
         )
+        if (!shapes) {
+          return null
+        }
+        return shapes
+          .map((shape) => createPresentationShapeFacade(host, shape))
+          .filter((shape): shape is PresentationShape => shape !== null)
+      }
     })
 
   const presentationEventSubscriptionFacade: PresentationEventSubscriptionFacade =

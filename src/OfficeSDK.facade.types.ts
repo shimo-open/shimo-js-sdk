@@ -636,20 +636,34 @@ export type PresentationInsertShapeOptions =
       content?: never
     })
   | (PresentationShapeBaseOptions & {
-      type: Exclude<PresentationShapeType, PresentationLineShapeType>
+      type: PresentationTextShapeType
       content?: PresentationShapeContent
     })
 
-export interface PresentationShape {
+export interface PresentationShapeBase {
   id: string
   name: string
   type: PresentationShapeType
-  textContent?: string
   setFill: (fill: PresentationShapeFill) => void
   setLine: (line: PresentationShapeLine) => void
   setLayout: (layout: PresentationShapeLayout) => void
   remove: () => void
 }
+
+export type PresentationTextShapeType = Exclude<
+  PresentationShapeType,
+  PresentationLineShapeType
+>
+
+export interface PresentationTextShape extends PresentationShapeBase {
+  type: PresentationTextShapeType
+  textContent?: string
+  setContent: (content: PresentationShapeContent) => void
+  appendText: (text: string) => void
+  appendParagraphs: (paragraphs: PresentationParagraph[]) => void
+}
+
+export type PresentationShape = PresentationShapeBase | PresentationTextShape
 
 export type PresentationParagraphLineSpacing =
   | 0.9
@@ -1025,12 +1039,23 @@ export interface PresentationSlideFacade {
   getIndex: () => Promise<number>
   getShapes: () => Promise<PresentationShape[]>
   getTables: () => Promise<PresentationTableItem[]>
-  insertShape: (
-    options: PresentationInsertShapeOptions
-  ) => Promise<PresentationShape>
+  insertShape: {
+    (
+      options: Extract<
+        PresentationInsertShapeOptions,
+        { type: PresentationLineShapeType }
+      >
+    ): Promise<PresentationShapeBase>
+    (
+      options: Extract<
+        PresentationInsertShapeOptions,
+        { type: PresentationTextShapeType }
+      >
+    ): Promise<PresentationTextShape>
+  }
   insertTextBox: (
     options: PresentationTextBoxOptions
-  ) => Promise<PresentationShape>
+  ) => Promise<PresentationTextShape>
   insertTable: (
     options: PresentationTableOptions
   ) => Promise<PresentationTableItem>

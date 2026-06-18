@@ -253,15 +253,15 @@ slide.insertShape(
 ): Promise<PresentationShape>
 ```
 
-功能说明：在当前幻灯片中插入一个形状。
+功能说明：在当前幻灯片中插入一个形状。线条类型返回 `PresentationShapeBase`，可承载文本的形状返回 `PresentationTextShape`。
 
 #### slide.insertTextBox(options)
 
 ```typescript
-slide.insertTextBox(options: PresentationTextBoxOptions): Promise<PresentationShape>
+slide.insertTextBox(options: PresentationTextBoxOptions): Promise<PresentationTextShape>
 ```
 
-功能说明：在当前幻灯片中插入一个文本框。
+功能说明：在当前幻灯片中插入一个文本框，并返回可编辑文本内容的形状对象。
 
 #### slide.insertTable(options)
 
@@ -673,13 +673,26 @@ sdk.export?.(type: string): Promise<void>
 ### PresentationShape
 
 ```typescript
-interface PresentationShape {
+interface PresentationShapeBase {
   id: string
   name: string
   type: string
+  setFill(fill: PresentationShapeFill): void
+  setLine(line: PresentationShapeLine): void
+  setLayout(layout: PresentationShapeLayout): void
+  remove(): void
+}
+
+interface PresentationTextShape extends PresentationShapeBase {
+  type: PresentationTextShapeType
   textContent?: string
+  setContent(content: PresentationShapeContent): void
+  appendText(text: string): void
+  appendParagraphs(paragraphs: PresentationParagraph[]): void
 }
 ```
+
+`PresentationShape` 为 `PresentationShapeBase | PresentationTextShape` 联合类型。
 
 ### PresentationSlideFacade
 
@@ -689,10 +702,23 @@ interface PresentationSlideFacade {
   getIndex(): Promise<number>
   getShapes(): Promise<PresentationShape[]>
   getTables(): Promise<PresentationTableItem[]>
-  insertShape(
-    options: PresentationInsertShapeOptions
-  ): Promise<PresentationShape>
-  insertTextBox(options: PresentationTextBoxOptions): Promise<PresentationShape>
+  insertShape: {
+    (
+      options: Extract<
+        PresentationInsertShapeOptions,
+        { type: PresentationLineShapeType }
+      >
+    ): Promise<PresentationShapeBase>
+    (
+      options: Extract<
+        PresentationInsertShapeOptions,
+        { type: PresentationTextShapeType }
+      >
+    ): Promise<PresentationTextShape>
+  }
+  insertTextBox(
+    options: PresentationTextBoxOptions
+  ): Promise<PresentationTextShape>
   insertTable(options: PresentationTableOptions): Promise<PresentationTableItem>
   insertImage(
     image: File,
