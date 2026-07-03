@@ -13,7 +13,7 @@ import type {
   DocsSelectionFacade,
   DocsSettingsFacade,
   DocsSidebarFacade,
-  DocsTOCsFacade,
+  DocsOutlineFacade,
   DocsTableCellFacade,
   DocsTableFacade,
   DocsTableRangeFacade,
@@ -27,6 +27,9 @@ import type {
   OfficeSDKRootFacadeState,
   PresentationEventSubscriptionFacade,
   PresentationFacade,
+  PresentationShape,
+  PresentationShapeBase,
+  PresentationTextShape,
   PresentationSelectionFacade,
   PresentationSlideFacade,
   PresentationSlidesFacade,
@@ -243,17 +246,86 @@ function createPresentationTextRangeFacade(
   )
 }
 
+interface PresentationShapeLocator {
+  slideId: string
+  shapeId: string
+  name: string
+  type: string
+  textContent?: string
+}
+
+function createPresentationShapeFacade(
+  host: FacadeHost,
+  locator: PresentationShapeLocator | null | undefined
+): PresentationShape | null {
+  if (!locator) {
+    return null
+  }
+
+  const staticFields: Partial<PresentationShapeBase> & {
+    id: string
+    name: string
+    type: string
+    textContent?: string
+  } = {
+    id: locator.shapeId,
+    name: locator.name,
+    type: locator.type,
+    textContent: locator.textContent
+  }
+
+  return host.createValueObjectFacade<PresentationShape>(
+    'slides.slide.shape',
+    locator as unknown as Record<string, unknown>,
+    staticFields as Partial<PresentationShape>
+  )
+}
+
 function createPresentationSlideFacade(
   host: FacadeHost,
   locator: {
     slideId: string
   }
 ): PresentationSlideFacade {
+  const insertShape = (async (options: unknown) => {
+    const shape =
+      await host.invokeEditorFacade<PresentationShapeLocator | null>(
+        'slides.slide.insertShape',
+        [locator, options]
+      )
+    const facade = createPresentationShapeFacade(host, shape)
+    if (!facade) {
+      throw new Error('presentation shape not found')
+    }
+    return facade
+  }) as PresentationSlideFacade['insertShape']
+
   return host.createValueObjectFacade<PresentationSlideFacade>(
     'slides.slide',
     locator,
     {
-      id: locator.slideId
+      id: locator.slideId,
+      getShapes: async () => {
+        const shapes = await host.invokeEditorFacade<
+          PresentationShapeLocator[]
+        >('slides.slide.getShapes', [locator])
+        return shapes
+          .map((shape) => createPresentationShapeFacade(host, shape))
+          .filter((shape): shape is PresentationShape => shape !== null)
+      },
+      insertShape,
+      insertTextBox: async (options) => {
+        const shape =
+          await host.invokeEditorFacade<PresentationShapeLocator | null>(
+            'slides.slide.insertTextBox',
+            [locator, options]
+          )
+        const facade = createPresentationShapeFacade(host, shape)
+        if (!facade) {
+          throw new Error('presentation text shape not found')
+        }
+        return facade as PresentationTextShape
+      }
     }
   )
 }
@@ -296,19 +368,19 @@ export function buildRootFacadeState(
 
   const discussionFacade: DiscussionFacade = {
     show: async () => {
-      await host.invokeEditorFacade('showDiscussion')
+      await host.invokeEditorFacade('discussion.show')
     },
     hide: async () => {
-      await host.invokeEditorFacade('hideDiscussion')
+      await host.invokeEditorFacade('discussion.hide')
     }
   }
 
   const collaboratorFacade: CollaboratorFacade = {
     show: async () => {
-      await host.invokeEditorFacade('showCollaborator')
+      await host.invokeEditorFacade('collaborator.show')
     },
     hide: async () => {
-      await host.invokeEditorFacade('hideCollaborator')
+      await host.invokeEditorFacade('collaborator.hide')
     }
   }
 
@@ -355,30 +427,15 @@ export function buildRootFacadeState(
   }
 
   const versionFacade: VersionFacade = {
+    show: async () => {
+      await host.invokeEditorFacade('version.show')
+    },
+    hide: async () => {
+      await host.invokeEditorFacade('version.hide')
+    },
     createRevision: async (options?: RevisionCreateOptions) => {
       await host.invokeEditorFacade('version.createRevision', [options])
       return undefined
-    }
-  }
-
-  const docsHistoryFacade: HistoryFacade = {
-    show: async () => {
-      await host.invokeEditorFacade('showHistory')
-    },
-    hide: async () => {
-      await host.invokeEditorFacade('hideHistory')
-    }
-  }
-
-  const docsVersionFacade: VersionFacade = {
-    show: async () => {
-      await host.invokeEditorFacade('showRevision')
-    },
-    hide: async () => {
-      await host.invokeEditorFacade('hideRevision')
-    },
-    createRevision: async (options?: RevisionCreateOptions) => {
-      return await host.invokeEditorFacade('createRevision', [options])
     }
   }
 
@@ -400,14 +457,12 @@ export function buildRootFacadeState(
     },
     startSpeakerView: async () => {
       await host.invokeEditorFacade('presentation.startSpeakerView')
-    }
-  }
-
-  const docsPresentationFacade: PresentationFacade = {
-    ...presentationFacade,
-    quit: async () => {
-      await host.invokeEditorFacade('endDemonstration')
-    }
+    },
+    addChangeListener: (listener: (payload: unknown) => void) =>
+      host.registerEditorFacadeListener(
+        'presentation.addChangeListener',
+        listener
+      )
   }
 
   const batchChangesFacade = async <T>(
@@ -567,7 +622,21 @@ export function buildRootFacadeState(
         host.registerEditorFacadeListener(
           'selection.addRangeListener',
           listener
+        ),
+      getSelectedShapes: async (ids?: string[]) => {
+        const shapes = await host.invokeEditorFacade<
+          PresentationShapeLocator[] | null
+        >(
+          'selection.getSelectedShapes',
+          typeof ids === 'undefined' ? [] : [ids]
         )
+        if (!shapes) {
+          return null
+        }
+        return shapes
+          .map((shape) => createPresentationShapeFacade(host, shape))
+          .filter((shape): shape is PresentationShape => shape !== null)
+      }
     })
 
   const presentationEventSubscriptionFacade: PresentationEventSubscriptionFacade =
@@ -586,32 +655,36 @@ export function buildRootFacadeState(
         )
     }
 
+  const docsOutlineFacade = host.createEditorFacadeModule<DocsOutlineFacade>(
+    'outline',
+    {
+      show: async () => {
+        await host.invokeEditorFacade('outline.setOpen', [true])
+      },
+      hide: async () => {
+        await host.invokeEditorFacade('outline.setOpen', [false])
+      }
+    }
+  )
+
   switch (host.fileType) {
     case FileType.Document:
-    case FileType.DocumentPro:
       return {
         title: titleFacade,
-        history: docsHistoryFacade,
+        history: historyFacade,
         comments: commentsFacade,
         discussion: discussionFacade,
         collaborator: collaboratorFacade,
         externalApp: externalAppFacade,
-        version: docsVersionFacade,
-        presentation: docsPresentationFacade,
+        version: versionFacade,
+        presentation: presentationFacade,
         selection: docsSelectionFacade,
         settings: host.createEditorFacadeModule<DocsSettingsFacade>(
           'settings',
           {}
         ),
         search: host.createEditorFacadeModule<DocsSearchFacade>('search', {}),
-        TOCs: host.createEditorFacadeModule<DocsTOCsFacade>('TOCs', {
-          show: async () => {
-            await host.invokeEditorFacade('showToc')
-          },
-          hide: async () => {
-            await host.invokeEditorFacade('hideToc')
-          }
-        }),
+        outline: docsOutlineFacade,
         sidebar: host.createEditorFacadeModule<DocsSidebarFacade>(
           'sidebar',
           {}

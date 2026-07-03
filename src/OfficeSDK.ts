@@ -75,11 +75,11 @@ import type {
   CommentsFacade,
   ContentFacade,
   DiscussionFacade,
+  DocsOutlineFacade,
   DocsSearchFacade,
   DocsSelectionFacade,
   DocsSettingsFacade,
   DocsSidebarFacade,
-  DocsTOCsFacade,
   DocsTablesFacade,
   ExternalAppFacade,
   HistoryFacade,
@@ -148,6 +148,7 @@ const PRELOAD_MESSAGE_TYPE = {
   DONE: 'SDK_PRELOAD_DONE',
   ERROR: 'SDK_PRELOAD_ERROR'
 } as const
+const PROMISE_LIKE_PROXY_PROPS = new Set(['then', 'catch', 'finally'])
 
 type EditorFacadeCallback = (...args: unknown[]) => unknown | Promise<unknown>
 
@@ -184,6 +185,10 @@ function isSlashMenuEntry(
   item: SlashMenuEntry | SlashMenuButton
 ): item is SlashMenuEntry {
   return item.type === 'entry'
+}
+
+function shouldSkipFacadeProxyProp(prop: string): boolean {
+  return PROMISE_LIKE_PROXY_PROPS.has(prop)
 }
 
 export const MessageEvent = InvokeMethod
@@ -282,7 +287,7 @@ export class OfficeSDK extends TinyEmitter {
   /**
    * 当前套件支持的目录能力。
    */
-  TOCs?: DocsTOCsFacade
+  outline?: DocsOutlineFacade
 
   /**
    * 当前套件支持的侧边栏能力。
@@ -1472,6 +1477,9 @@ export class OfficeSDK extends TinyEmitter {
         if (typeof prop !== 'string') {
           return undefined
         }
+        if (shouldSkipFacadeProxyProp(prop)) {
+          return undefined
+        }
         if (Object.prototype.hasOwnProperty.call(target, prop)) {
           return target[prop as keyof T]
         }
@@ -1494,6 +1502,9 @@ export class OfficeSDK extends TinyEmitter {
     return new Proxy(staticFields as T, {
       get: (target, prop) => {
         if (typeof prop !== 'string') {
+          return undefined
+        }
+        if (shouldSkipFacadeProxyProp(prop)) {
           return undefined
         }
         if (Object.prototype.hasOwnProperty.call(target, prop)) {
@@ -1566,7 +1577,7 @@ export class OfficeSDK extends TinyEmitter {
     this.presentation = undefined
     this.selection = undefined
     this.search = undefined
-    this.TOCs = undefined
+    this.outline = undefined
     this.sidebar = undefined
     this.tables = undefined
     this.settings = undefined
@@ -1661,6 +1672,10 @@ export class OfficeSDK extends TinyEmitter {
       const proxyFunc = function () {}
       return new Proxy(proxyFunc, {
         get: (target, prop) => {
+          if (typeof prop === 'string' && shouldSkipFacadeProxyProp(prop)) {
+            return undefined
+          }
+
           // 如果是根级别的预定义方法（on/off），直接返回
           if (
             path.length === 0 &&
@@ -1917,6 +1932,14 @@ export interface SDKToastOptions {
 }
 
 /**
+ * 透传给 iframe 编辑器的主题配置。
+ * 当前 shimo-js-sdk 仅负责跨 iframe 传输，不在宿主侧约束字段细节。
+ */
+export interface CommonThemeConfig {
+  [key: string]: unknown
+}
+
+/**
  * iframe 内置加载页配置，只支持可序列化字段。
  */
 export interface LoadingOptions {
@@ -2081,6 +2104,18 @@ export interface OfficeSDKOptions
    * 控制 headerbar 组件是否展示，false 表示隐藏。
    */
   headerBarsVisible?: boolean
+
+  /**
+   * 是否隐藏 iframe 内 AI 入口。
+   * 对应 iframe 内 ShimoSDK 的现有 AI 入口开关能力。
+   */
+  disableAiEntry?: boolean
+
+  /**
+   * 编辑器主题配置。
+   * 该参数会透传到 iframe 内各套件初始化链路；未传时保持 iframe 默认主题。
+   */
+  theme?: CommonThemeConfig
 
   /**
    * docs 斜杠菜单配置。

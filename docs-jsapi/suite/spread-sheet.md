@@ -4,27 +4,27 @@
 
 ### 方法列表
 
-| 方法                                                                             | 说明                                   |
-| -------------------------------------------------------------------------------- | -------------------------------------- |
-| [sdk.history.show](#sdkhistoryshow)                                              | 显示历史（PC only，`co-1.8+`）         |
-| [sdk.history.hide](#sdkhistoryhide)                                              | 隐藏历史（PC only，`co-1.8+`）         |
-| [sdk.comments.show](#sdkcommentsshowtype)                                        | 显示评论（PC only，`co-1.8+`）         |
-| [sdk.comments.hide](#sdkcommentshidetype)                                        | 隐藏评论（PC only，`co-1.8+`）         |
-| [sdk.locks](#sdklocks)                                                           | 锁定能力（PC only，`co-1.8+`）         |
-| [sdk.mention.locateCellByGuid](#sdkmentionlocatecellbyguidguid-notificationtype) | 按通知定位单元格（PC only，`co-1.8+`） |
-| [sdk.content.setContent](#sdkcontentsetcontentcontent)                           | 设置内容（PC only，`co-1.8+`）         |
-| [sdk.version.createRevision](#sdkversioncreaterevisionoptions)                   | 创建版本（PC only，`co-1.8+`）         |
-| [sdk.presentation](#sdkpresentation)                                             | 演示模式能力（PC only，`co-1.8+`）     |
-| [sdk.workbook](#sdkworkbook)                                                     | 工作簿能力（PC only，`co-1.8+`）       |
-| [sdk.activeSheet](#sdkactivesheet)                                               | 当前工作表能力（PC only，`co-1.8+`）   |
-| [sdk.sheet.range](#sdksheetrange)                                                | 工作表范围能力（PC only，`co-1.8+`）   |
-| [sdk.sheet.cell](#sdksheetcell)                                                  | 工作表单元格能力（PC only，`co-1.8+`） |
-| [sdk.charts](#sdkcharts)                                                         | 图表能力（PC only，`co-1.8+`）         |
-| [sdk.selections](#sdkselections)                                                 | 多选区能力（PC only，`co-1.8+`）       |
-| [sdk.batchChanges](#sdkbatchchangescallback)                                     | 批量变更（PC only，`co-1.8+`）         |
-| [sdk.print](#sdkprint)                                                           | 打印（PC only，`co-1.8+`）             |
-| [sdk.export](#sdkexporttype)                                                     | 导出（PC only，`co-1.8+`）             |
-| [sdk.setFocus](#sdksetfocusisfocus)                                              | 设置聚焦状态（PC only，`co-1.8+`）     |
+| 方法                                                                             | 说明                                       |
+| -------------------------------------------------------------------------------- | ------------------------------------------ |
+| [sdk.history.show](#sdkhistoryshow)                                              | 显示历史（PC only，`co-1.8+`）             |
+| [sdk.history.hide](#sdkhistoryhide)                                              | 隐藏历史（PC only，`co-1.8+`）             |
+| [sdk.comments.show](#sdkcommentsshowtype)                                        | 显示评论（PC only，`co-1.8+`）             |
+| [sdk.comments.hide](#sdkcommentshidetype)                                        | 隐藏评论（PC only，`co-1.8+`）             |
+| [sdk.locks](#sdklocks)                                                           | 锁定能力（PC only，`co-1.8+`）             |
+| [sdk.mention.locateCellByGuid](#sdkmentionlocatecellbyguidguid-notificationtype) | 按通知定位单元格（PC only，`co-1.8+`）     |
+| [sdk.content.setContent](#sdkcontentsetcontentcontent)                           | 设置内容（PC only，`co-1.8+`）             |
+| [sdk.version.createRevision](#sdkversioncreaterevisionoptions)                   | 创建版本（PC only，`co-1.8+`）             |
+| [sdk.presentation](#sdkpresentation)                                             | 演示模式能力（PC only，`co-1.8+`）         |
+| [sdk.workbook](#sdkworkbook)                                                     | 工作簿能力（PC only，`co-1.8+`）           |
+| [sdk.activeSheet](#sdkactivesheet)                                               | 当前工作表能力（PC only，`co-1.8+`）       |
+| [range: SheetRangeFacade](#sdksheetrange)                                        | 工作表范围对象能力（PC only，`co-1.8+`）   |
+| [cell: SheetCellFacade](#sdksheetcell)                                           | 工作表单元格对象能力（PC only，`co-1.8+`） |
+| [sdk.charts](#sdkcharts)                                                         | 图表能力（PC only，`co-1.8+`）             |
+| [sdk.selections](#sdkselections)                                                 | 多选区能力（PC only，`co-1.8+`）           |
+| [sdk.batchChanges](#sdkbatchchangescallback)                                     | 批量变更（PC only，`co-1.8+`）             |
+| [sdk.print](#sdkprint)                                                           | 打印（PC only，`co-1.8+`）                 |
+| [sdk.export](#sdkexporttype)                                                     | 导出（PC only，`co-1.8+`）                 |
+| [sdk.setFocus](#sdksetfocusisfocus)                                              | 设置聚焦状态（PC only，`co-1.8+`）         |
 
 ### API 调用方式
 
@@ -325,32 +325,162 @@ sdk.activeSheet?.setVisible(visible: boolean): Promise<void>
 
 ---
 
-### sdk.sheet.range
+<h3 id="sdksheetrange">range: SheetRangeFacade</h3>
 
 #### 说明
 
-`sdk.activeSheet.getRange()` 返回的范围对象能力。
+通过 `const range = await sdk.activeSheet?.getRange(value)` 获取 `range: SheetRangeFacade`，再调用其上的实例 API。
 
-#### 类型定义
+#### API 一览表
+
+| API                                                                           | 说明         |
+| ----------------------------------------------------------------------------- | ------------ |
+| `range.getText(format?: 'plain' \| 'matrix'): Promise<string \| string[][]>`  | 获取文本     |
+| `range.setText(text: SheetRangeText): Promise<void>`                          | 设置文本     |
+| `range.getHtml(): Promise<string>`                                            | 获取 HTML    |
+| `range.setHtml(html: string): Promise<void>`                                  | 设置 HTML    |
+| `range.getValue(): Promise<(SheetCellValue \| null)[][]>`                     | 获取值       |
+| `range.setValue(values: (SheetWritableCellValue \| null)[][]): Promise<void>` | 设置值       |
+| `range.getData(): Promise<SheetCellData[][]>`                                 | 获取数据     |
+| `range.getFormula(): Promise<(string \| null)[][]>`                           | 获取公式     |
+| `range.setFormula(formula: (string \| null)[][]): Promise<void>`              | 设置公式     |
+| `range.setData(data: SheetWritableCellData[][]): Promise<void>`               | 设置数据     |
+| `range.setSpan(): Promise<void>`                                              | 合并单元格   |
+| `range.removeSpan(): Promise<void>`                                           | 取消合并     |
+| `range.getSpans(): Promise<SheetCellRange[] \| null>`                         | 获取合并区域 |
+| `range.clearContent(): Promise<void>`                                         | 清除内容     |
+| `range.clearStyle(): Promise<void>`                                           | 清除样式     |
+| `range.clearAll(): Promise<void>`                                             | 清除全部     |
+
+#### 逐条类型定义
+
+#### range.getText(format?)
 
 ```typescript
 range.getText(format?: 'plain' | 'matrix'): Promise<string | string[][]>
+```
+
+功能说明：获取当前范围的文本内容。
+
+#### range.setText(text)
+
+```typescript
 range.setText(text: SheetRangeText): Promise<void>
+```
+
+功能说明：设置当前范围的文本内容。
+
+#### range.getHtml()
+
+```typescript
 range.getHtml(): Promise<string>
+```
+
+功能说明：获取当前范围的 HTML 内容。
+
+#### range.setHtml(html)
+
+```typescript
 range.setHtml(html: string): Promise<void>
+```
+
+功能说明：设置当前范围的 HTML 内容。
+
+#### range.getValue()
+
+```typescript
 range.getValue(): Promise<(SheetCellValue | null)[][]>
+```
+
+功能说明：获取当前范围的单元格值矩阵。
+
+#### range.setValue(values)
+
+```typescript
 range.setValue(values: (SheetWritableCellValue | null)[][]): Promise<void>
+```
+
+功能说明：批量设置当前范围的单元格值。
+
+#### range.getData()
+
+```typescript
 range.getData(): Promise<SheetCellData[][]>
+```
+
+功能说明：获取当前范围的完整单元格数据。
+
+#### range.getFormula()
+
+```typescript
 range.getFormula(): Promise<(string | null)[][]>
+```
+
+功能说明：获取当前范围内的公式矩阵。
+
+#### range.setFormula(formula)
+
+```typescript
 range.setFormula(formula: (string | null)[][]): Promise<void>
+```
+
+功能说明：批量设置当前范围内的公式。
+
+#### range.setData(data)
+
+```typescript
 range.setData(data: SheetWritableCellData[][]): Promise<void>
+```
+
+功能说明：批量设置当前范围的单元格数据。
+
+#### range.setSpan()
+
+```typescript
 range.setSpan(): Promise<void>
+```
+
+功能说明：合并当前范围内的单元格。
+
+#### range.removeSpan()
+
+```typescript
 range.removeSpan(): Promise<void>
+```
+
+功能说明：取消当前范围内的单元格合并。
+
+#### range.getSpans()
+
+```typescript
 range.getSpans(): Promise<SheetCellRange[] | null>
+```
+
+功能说明：获取当前范围内的合并区域信息。
+
+#### range.clearContent()
+
+```typescript
 range.clearContent(): Promise<void>
+```
+
+功能说明：清除当前范围的内容。
+
+#### range.clearStyle()
+
+```typescript
 range.clearStyle(): Promise<void>
+```
+
+功能说明：清除当前范围的样式。
+
+#### range.clearAll()
+
+```typescript
 range.clearAll(): Promise<void>
 ```
+
+功能说明：清除当前范围的内容和样式。
 
 #### 相关类型
 
@@ -364,33 +494,171 @@ range.clearAll(): Promise<void>
 
 ---
 
-### sdk.sheet.cell
+<h3 id="sdksheetcell">cell: SheetCellFacade</h3>
 
 #### 说明
 
-`sdk.activeSheet.getCell()` 或 `sdk.activeSheet.getActiveCell()` 返回的单元格对象能力。
+通过 `const cell = await sdk.activeSheet?.getCell(row, column)` 或 `const cell = await sdk.activeSheet?.getActiveCell()` 获取 `cell: SheetCellFacade`，再调用其上的实例 API。
 
-#### 类型定义
+#### API 一览表
+
+| API                                                                       | 说明         |
+| ------------------------------------------------------------------------- | ------------ |
+| `cell.getCellText(): Promise<string>`                                     | 获取文本     |
+| `cell.setCellText(text: string): Promise<void>`                           | 设置文本     |
+| `cell.getCellValue(): Promise<SheetCellValue \| null>`                    | 获取值       |
+| `cell.getCellData(): Promise<SheetCellData>`                              | 获取数据     |
+| `cell.getCellFormula(): Promise<string \| null>`                          | 获取公式     |
+| `cell.setCellFormula(formula: string): Promise<void>`                     | 设置公式     |
+| `cell.setCellValue(value: SheetWritableCellValue \| null): Promise<void>` | 设置值       |
+| `cell.setCellData(data: SheetWritableCellData): Promise<void>`            | 设置数据     |
+| `cell.setCheckbox(checked: boolean): Promise<void>`                       | 设置复选框   |
+| `cell.setScore(score: 0 \| 1 \| 2 \| 3 \| 4 \| 5): Promise<void>`         | 设置评分     |
+| `cell.setProgress(progress: number): Promise<void>`                       | 设置进度     |
+| `cell.insertImage(data: File \| string): Promise<void>`                   | 插入图片     |
+| `cell.insertMention(userId: number, userName: string): Promise<void>`     | 插入提及     |
+| `cell.insertAttachmentLink(data: File): Promise<void>`                    | 插入附件链接 |
+| `cell.clearContent(): Promise<void>`                                      | 清除内容     |
+| `cell.clearStyle(): Promise<void>`                                        | 清除样式     |
+| `cell.clearAll(): Promise<void>`                                          | 清除全部     |
+
+#### 逐条类型定义
+
+#### cell.getCellText()
 
 ```typescript
 cell.getCellText(): Promise<string>
+```
+
+功能说明：获取当前单元格的文本内容。
+
+#### cell.setCellText(text)
+
+```typescript
 cell.setCellText(text: string): Promise<void>
+```
+
+功能说明：设置当前单元格的文本内容。
+
+#### cell.getCellValue()
+
+```typescript
 cell.getCellValue(): Promise<SheetCellValue | null>
+```
+
+功能说明：获取当前单元格的值。
+
+#### cell.getCellData()
+
+```typescript
 cell.getCellData(): Promise<SheetCellData>
+```
+
+功能说明：获取当前单元格的完整数据。
+
+#### cell.getCellFormula()
+
+```typescript
 cell.getCellFormula(): Promise<string | null>
+```
+
+功能说明：获取当前单元格的公式。
+
+#### cell.setCellFormula(formula)
+
+```typescript
 cell.setCellFormula(formula: string): Promise<void>
+```
+
+功能说明：设置当前单元格的公式。
+
+#### cell.setCellValue(value)
+
+```typescript
 cell.setCellValue(value: SheetWritableCellValue | null): Promise<void>
+```
+
+功能说明：设置当前单元格的值。
+
+#### cell.setCellData(data)
+
+```typescript
 cell.setCellData(data: SheetWritableCellData): Promise<void>
+```
+
+功能说明：设置当前单元格的完整数据。
+
+#### cell.setCheckbox(checked)
+
+```typescript
 cell.setCheckbox(checked: boolean): Promise<void>
+```
+
+功能说明：设置当前单元格复选框的勾选状态。
+
+#### cell.setScore(score)
+
+```typescript
 cell.setScore(score: 0 | 1 | 2 | 3 | 4 | 5): Promise<void>
+```
+
+功能说明：设置当前单元格的评分值。
+
+#### cell.setProgress(progress)
+
+```typescript
 cell.setProgress(progress: number): Promise<void>
+```
+
+功能说明：设置当前单元格的进度值。
+
+#### cell.insertImage(data)
+
+```typescript
 cell.insertImage(data: File | string): Promise<void>
+```
+
+功能说明：向当前单元格插入图片。
+
+#### cell.insertMention(userId, userName)
+
+```typescript
 cell.insertMention(userId: number, userName: string): Promise<void>
+```
+
+功能说明：向当前单元格插入提及内容。
+
+#### cell.insertAttachmentLink(data)
+
+```typescript
 cell.insertAttachmentLink(data: File): Promise<void>
+```
+
+功能说明：向当前单元格插入附件链接。
+
+#### cell.clearContent()
+
+```typescript
 cell.clearContent(): Promise<void>
+```
+
+功能说明：清除当前单元格的内容。
+
+#### cell.clearStyle()
+
+```typescript
 cell.clearStyle(): Promise<void>
+```
+
+功能说明：清除当前单元格的样式。
+
+#### cell.clearAll()
+
+```typescript
 cell.clearAll(): Promise<void>
 ```
+
+功能说明：清除当前单元格的内容和样式。
 
 #### 相关类型
 

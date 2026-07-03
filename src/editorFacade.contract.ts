@@ -7,6 +7,8 @@ import type {
   OfficeSDK,
   PresentationSlideFacade,
   PresentationShape,
+  PresentationShapeBase,
+  PresentationTextShape,
   PresentationTextRangeFacade,
   PresentationTextRangeValue,
   SheetRangeValue,
@@ -85,6 +87,12 @@ export type EditorFacadeContractAssertions = [
   >,
   Assert<
     IsAssignable<
+      NonNullable<OfficeSDK['presentation']>['addChangeListener'],
+      (listener: (payload: unknown) => void) => () => void
+    >
+  >,
+  Assert<
+    IsAssignable<
       NonNullable<OfficeSDK['batchChanges']>,
       <T>(callback: () => T | Promise<T>) => Promise<Awaited<T>>
     >
@@ -141,6 +149,36 @@ export type EditorFacadeContractAssertions = [
     IsAssignable<
       NonNullable<OfficeSDK['slides']>['getCurrentSlide'],
       () => Promise<PresentationSlideFacade>
+    >
+  >,
+  Assert<
+    IsAssignable<
+      PresentationSlideFacade['insertTextBox'],
+      (
+        options: import('./OfficeSDK').PresentationTextBoxOptions
+      ) => Promise<PresentationTextShape>
+    >
+  >,
+  Assert<
+    IsAssignable<
+      PresentationSlideFacade['insertShape'],
+      (
+        options: Extract<
+          import('./OfficeSDK').PresentationInsertShapeOptions,
+          { type: import('./OfficeSDK').PresentationLineShapeType }
+        >
+      ) => Promise<PresentationShapeBase>
+    >
+  >,
+  Assert<
+    IsAssignable<
+      PresentationSlideFacade['insertShape'],
+      (
+        options: Extract<
+          import('./OfficeSDK').PresentationInsertShapeOptions,
+          { type: import('./OfficeSDK').PresentationTextShapeType }
+        >
+      ) => Promise<PresentationTextShape>
     >
   >,
   Assert<

@@ -7,6 +7,7 @@ export const HEADER_BARS_METHOD = {
   getCommand: 'headerBars.getCommand',
   setCommandVisible: 'headerBars.setCommandVisible',
   setCommandDisabled: 'headerBars.setCommandDisabled',
+  setCommandActive: 'headerBars.setCommandActive',
   setCommandSrc: 'headerBars.setCommandSrc',
   setCommandLabel: 'headerBars.setCommandLabel',
   setCommandEditable: 'headerBars.setCommandEditable',
@@ -24,6 +25,7 @@ export interface HeaderBarsCommandDefinition {
   label?: string
   visible?: boolean
   disabled?: boolean
+  active?: boolean
   editable?: boolean
   type?: 'action' | 'structural'
   renderType?: string
@@ -39,6 +41,7 @@ export interface HeaderBarsCommandRef {
   readonly id: string
   visible: boolean
   disabled: boolean
+  active: boolean
   src?: string
   label?: string
   editable?: boolean
@@ -260,6 +263,7 @@ export function getHeaderBarsCommandRef(
     id,
     visible: true,
     disabled: false,
+    active: false,
     src: undefined,
     label: undefined,
     editable: undefined,
@@ -307,6 +311,28 @@ export function getHeaderBarsCommandRef(
           .catch((err: unknown) => {
             host.emitHeaderBarsError(
               'set headerBars command disabled failed',
+              err
+            )
+          })
+      }
+    },
+    active: {
+      configurable: true,
+      enumerable: true,
+      get: () => commands.get(id)?.active === true,
+      set: (next: boolean) => {
+        const current = commands.get(id)
+        if (current) {
+          commands.set(id, { ...current, active: next })
+        }
+        host
+          .invokeHeaderBars<undefined>(HEADER_BARS_METHOD.setCommandActive, {
+            id,
+            active: next
+          })
+          .catch((err: unknown) => {
+            host.emitHeaderBarsError(
+              'set headerBars command active failed',
               err
             )
           })

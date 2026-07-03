@@ -159,6 +159,7 @@ interface HeaderBarsCommandDefinition {
   label?: string
   visible?: boolean
   disabled?: boolean
+  active?: boolean
   type?: 'action' | 'structural'
   renderType?: string
   src?: string
@@ -174,6 +175,7 @@ interface HeaderBarsCommandDefinition {
 - `label`: 展示文案
 - `visible`: 初始显示状态
 - `disabled`: 初始禁用状态
+- `active`: 初始激活状态
 - `type`: command 类型
 - `renderType`: 渲染类型，当前仅透传
 - `src`: 资源地址；初始化可配置，运行时支持通过 `commandRef.src = next`
@@ -273,6 +275,7 @@ interface HeaderBarsCommandRef {
   readonly id: string
   visible: boolean
   disabled: boolean
+  active: boolean
   src?: string
   label?: string
   onCommandClick?: () => void | Promise<void>
@@ -336,7 +339,30 @@ command.disabled = true
 command.disabled = false
 ```
 
-### 3.4 `commandRef.onCommandClick`
+### 3.4 `commandRef.active`
+
+```ts
+active: boolean
+```
+
+用途：
+
+- 读写 command 激活状态
+
+行为说明：
+
+- getter 从本地 cache 读取
+- setter 会先更新本地 cache，再异步调用 `headerBars.setCommandActive`
+
+示例：
+
+```ts
+const command = sdk.headerBars.getCommand('toggle-toc')
+command.active = true
+command.active = false
+```
+
+### 3.5 `commandRef.onCommandClick`
 
 ```ts
 onCommandClick?: () => void | Promise<void>
@@ -444,6 +470,7 @@ const HEADER_BARS_METHOD = {
   getCommand: 'headerBars.getCommand',
   setCommandVisible: 'headerBars.setCommandVisible',
   setCommandDisabled: 'headerBars.setCommandDisabled',
+  setCommandActive: 'headerBars.setCommandActive',
   setCommandSrc: 'headerBars.setCommandSrc',
   setCommandLabel: 'headerBars.setCommandLabel',
   setCommandCallbackEnabled: 'headerBars.setCommandCallbackEnabled',
@@ -463,6 +490,7 @@ const HEADER_BARS_METHOD = {
 | `listViewCommands()`                   | `headerBars.listViewCommands`          |
 | `commandRef.visible = next`            | `headerBars.setCommandVisible`         |
 | `commandRef.disabled = next`           | `headerBars.setCommandDisabled`        |
+| `commandRef.active = next`             | `headerBars.setCommandActive`          |
 | `commandRef.src = next`                | `headerBars.setCommandSrc`             |
 | `commandRef.label = next`              | `headerBars.setCommandLabel`           |
 | `commandRef.onCommandClick = handler`  | `headerBars.setCommandCallbackEnabled` |
@@ -539,6 +567,17 @@ type Response = undefined
 type Request = {
   id: string
   disabled: boolean
+}
+
+type Response = undefined
+```
+
+`headerBars.setCommandActive`
+
+```ts
+type Request = {
+  id: string
+  active: boolean
 }
 
 type Response = undefined
@@ -683,7 +722,7 @@ console.log(commands)
 - 当前没有整对象级别的 `updateCommand` API
 - `getCommand(id)` 返回的是 ref，不保证远端状态已同步完成
 - `getState()` 只读本地 cache，不是强一致接口
-- `visible` / `disabled` / `onCommandClick` 的属性写入都是异步 side effect
+- `visible` / `disabled` / `active` / `onCommandClick` 的属性写入都是异步 side effect
 - 属性 setter 失败时不会自动回滚本地状态，错误通过 SDK 的错误事件上抛
 - `addCommand()` 里 `onClick` 仅用于宿主侧回调覆盖，不属于直接透传字段
 
