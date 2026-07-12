@@ -356,6 +356,9 @@ export function getHeaderBarsCommandRef(
             src: next
           })
           .catch((err: unknown) => {
+            if (current) {
+              commands.set(id, current)
+            }
             host.emitHeaderBarsError('set headerBars command src failed', err)
           })
       }

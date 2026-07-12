@@ -69,6 +69,11 @@ import {
   syncHeaderBarsCommands,
   syncHeaderBarsVisible
 } from './OfficeSDK.headerBars'
+import {
+  applyBrandingChanged,
+  BRANDING_CHANGED_EVENT,
+  initBrandingFacade
+} from './OfficeSDK.branding'
 import { buildRootFacadeState } from './OfficeSDK.facade'
 import type {
   CollaboratorFacade,
@@ -105,9 +110,15 @@ import type {
   HeaderBarsFacade,
   HeaderBarsTitleChangeHandler
 } from './OfficeSDK.headerBars'
+import type {
+  BrandingChangedPayload,
+  BrandingFacade,
+  SDKBrandConfig
+} from './OfficeSDK.branding'
 
 export * from './OfficeSDK.facade.types'
 export * from './OfficeSDK.headerBars'
+export * from './OfficeSDK.branding'
 
 const globalThis = getGlobal()
 const AUD = 'smjssdk'
@@ -382,6 +393,7 @@ export class OfficeSDK extends TinyEmitter {
    */
   flowchart?: Flowchart.Editor
   readonly headerBars: HeaderBarsFacade
+  readonly branding: BrandingFacade
 
   private _fileType: FileType = FileType.Unknown
   private readonly messageHandler: (evt: globalThis.MessageEvent) => void =
@@ -435,6 +447,7 @@ export class OfficeSDK extends TinyEmitter {
 
   private headerBarsTitleChangeHandler?: HeaderBarsTitleChangeHandler
   private headerBarsTitleChangeSubscribed = false
+  private editorFooterLogo?: SDKBrandConfig
 
   private readonly onViewportResize: () => void
 
@@ -516,6 +529,7 @@ export class OfficeSDK extends TinyEmitter {
 
     this.initChannel()
     this.headerBars = this.initHeaderBarsFacade()
+    this.branding = this.initBrandingFacade()
 
     let messageExpires = options.messageExpires
     if (typeof messageExpires !== 'number') {
@@ -1142,6 +1156,9 @@ export class OfficeSDK extends TinyEmitter {
         if (event === HEADER_BARS_CHANGED_EVENT) {
           this.applyHeaderBarsChanged(args[0] as HeaderBarsChangedPayload)
         }
+        if (event === BRANDING_CHANGED_EVENT) {
+          this.applyBrandingChanged(args[0] as BrandingChangedPayload)
+        }
         this.emit(event, ...args)
       },
       { audience: AUD }
@@ -1365,6 +1382,10 @@ export class OfficeSDK extends TinyEmitter {
     })
   }
 
+  private initBrandingFacade(): BrandingFacade {
+    return initBrandingFacade(this.createBrandingHost())
+  }
+
   /**
    * 订阅 iframe 侧 titleChange 事件，并在宿主设置了 headerBars.onTitleChange 时转发标题值。
    * 输入：无。
@@ -1375,6 +1396,16 @@ export class OfficeSDK extends TinyEmitter {
   }
 
   private async invokeHeaderBars<T>(
+    method: string,
+    payload?: Record<string, unknown>
+  ): Promise<T> {
+    const args = payload === undefined ? [] : [payload]
+    return await this.channel.invoke(method as any, args, {
+      audience: AUD
+    })
+  }
+
+  private async invokeBranding<T>(
     method: string,
     payload?: Record<string, unknown>
   ): Promise<T> {
@@ -1427,8 +1458,28 @@ export class OfficeSDK extends TinyEmitter {
     }
   }
 
+  private createBrandingHost() {
+    return {
+      getEditorFooterLogoState: () => this.editorFooterLogo,
+      setEditorFooterLogoState: (config: SDKBrandConfig | undefined) => {
+        this.editorFooterLogo = config
+      },
+      invokeBranding: this.invokeBranding.bind(this),
+      emitBrandingError: (message: string, err: unknown) => {
+        this.emit(
+          Event.Error,
+          err instanceof Error ? err : new Error(`${message}: ${String(err)}`)
+        )
+      }
+    }
+  }
+
   private applyHeaderBarsChanged(payload?: HeaderBarsChangedPayload) {
     applyHeaderBarsChanged(this.createHeaderBarsHost(), payload)
+  }
+
+  private applyBrandingChanged(payload?: BrandingChangedPayload) {
+    applyBrandingChanged(this.createBrandingHost(), payload)
   }
 
   private async syncHeaderBarsVisible() {
