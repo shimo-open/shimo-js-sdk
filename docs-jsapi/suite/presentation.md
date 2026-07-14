@@ -4,24 +4,26 @@
 
 ### 方法列表
 
-| 方法                                                             | 说明                                     |
-| ---------------------------------------------------------------- | ---------------------------------------- |
-| [sdk.history.show](#sdkhistoryshow)                              | 显示历史（PC only，`co-1.8+`）           |
-| [sdk.history.hide](#sdkhistoryhide)                              | 隐藏历史（PC only，`co-1.8+`）           |
-| [sdk.comments.show](#sdkcommentsshowtype)                        | 显示评论（PC only，`co-1.8+`）           |
-| [sdk.comments.hide](#sdkcommentshidetype)                        | 隐藏评论（PC only，`co-1.8+`）           |
-| [sdk.version.createRevision](#sdkversioncreaterevisionoptions)   | 创建版本（PC only，`co-1.8+`）           |
-| [sdk.presentation](#sdkpresentation)                             | 演示模式能力（PC only，`co-1.8+`）       |
-| [sdk.slides](#sdkslides)                                         | 幻灯片集合能力（PC only，`co-1.8+`）     |
-| [slide: PresentationSlideFacade](#sdkslidesslide)                | 单个幻灯片对象能力（PC only，`co-1.8+`） |
-| [sdk.selection](#sdkselection)                                   | 选区能力（PC only，`co-1.8+`）           |
-| [textRange: PresentationTextRangeFacade](#sdkselectiontextrange) | 文本范围对象能力（PC only，`co-1.8+`）   |
-| [sdk.text](#sdktext)                                             | 文本格式能力（PC only，`co-1.8+`）       |
-| [sdk.zoom](#sdkzoom)                                             | 缩放能力（PC only，`co-1.8+`）           |
-| [sdk.eventSubscription](#sdkeventsubscription)                   | 事件订阅能力（PC only，`co-1.8+`）       |
-| [sdk.batchChanges](#sdkbatchchangescallback)                     | 批量变更（PC only，`co-1.8+`）           |
-| [sdk.print](#sdkprint)                                           | 打印（PC only，`co-1.8+`）               |
-| [sdk.export](#sdkexporttype)                                     | 导出（PC only，`co-1.8+`）               |
+| 方法                                                                         | 说明                                           |
+| ---------------------------------------------------------------------------- | ---------------------------------------------- |
+| [sdk.history.show](#sdkhistoryshow)                                          | 显示历史（PC only，`co-1.8+`）                 |
+| [sdk.history.hide](#sdkhistoryhide)                                          | 隐藏历史（PC only，`co-1.8+`）                 |
+| [sdk.branding.getEditorFooterLogo](#sdkbrandinggeteditorfooterlogo)          | 获取编辑器底栏 Logo 配置（PC only，`co-1.8+`） |
+| [sdk.branding.setEditorFooterLogoSrc](#sdkbrandingseteditorfooterlogosrcsrc) | 设置编辑器底栏 Logo（PC only，`co-1.8+`）      |
+| [sdk.comments.show](#sdkcommentsshowtype)                                    | 显示评论（PC only，`co-1.8+`）                 |
+| [sdk.comments.hide](#sdkcommentshidetype)                                    | 隐藏评论（PC only，`co-1.8+`）                 |
+| [sdk.version.createRevision](#sdkversioncreaterevisionoptions)               | 创建版本（PC only，`co-1.8+`）                 |
+| [sdk.presentation](#sdkpresentation)                                         | 演示模式能力（PC only，`co-1.8+`）             |
+| [sdk.slides](#sdkslides)                                                     | 幻灯片集合能力（PC only，`co-1.8+`）           |
+| [slide: PresentationSlideFacade](#sdkslidesslide)                            | 单个幻灯片对象能力（PC only，`co-1.8+`）       |
+| [sdk.selection](#sdkselection)                                               | 选区能力（PC only，`co-1.8+`）                 |
+| [textRange: PresentationTextRangeFacade](#sdkselectiontextrange)             | 文本范围对象能力（PC only，`co-1.8+`）         |
+| [sdk.text](#sdktext)                                                         | 文本格式能力（PC only，`co-1.8+`）             |
+| [sdk.zoom](#sdkzoom)                                                         | 缩放能力（PC only，`co-1.8+`）                 |
+| [sdk.eventSubscription](#sdkeventsubscription)                               | 事件订阅能力（PC only，`co-1.8+`）             |
+| [sdk.batchChanges](#sdkbatchchangescallback)                                 | 批量变更（PC only，`co-1.8+`）                 |
+| [sdk.print](#sdkprint)                                                       | 打印（PC only，`co-1.8+`）                     |
+| [sdk.export](#sdkexporttype)                                                 | 导出（PC only，`co-1.8+`）                     |
 
 ### API 调用方式
 
@@ -29,6 +31,7 @@
 const sdk = await connect(options)
 
 await sdk.history?.show()
+await sdk.branding.setEditorFooterLogoSrc('https://cdn.example.com/brand.svg')
 const slide = await sdk.slides?.getCurrentSlide()
 await slide?.insertTextBox?.({ text: 'Hello' })
 ```
@@ -62,6 +65,48 @@ await sdk.history?.show()
 ### 新增 API 方法
 
 以下方法为本次补充的根级 API 调用方式。
+
+### sdk.branding.getEditorFooterLogo()
+
+#### 说明
+
+获取当前编辑器底栏 Logo 的品牌配置。当前没有可用配置时返回 `undefined`。
+
+#### 类型定义
+
+```typescript
+sdk.branding.getEditorFooterLogo(): Promise<SDKBrandConfig | undefined>
+```
+
+#### 相关类型
+
+- [SDKBrandConfig](#sdkbrandconfig)
+- [SDKBrandMode](#sdkbrandmode)
+- [SDKBrandSource](#sdkbrandsource)
+
+---
+
+### sdk.branding.setEditorFooterLogoSrc(src)
+
+#### 说明
+
+设置当前编辑器底栏 Logo 的图片地址。Logo 自定义权限由 iframe 的 checkpoint mode 校验。
+
+#### 类型定义
+
+```typescript
+sdk.branding.setEditorFooterLogoSrc(src: string): Promise<void>
+```
+
+#### 参数
+
+- `src`: 新的 Logo 图片地址
+
+#### 返回值
+
+- `Promise<void>`：设置成功后完成；如果 iframe 拒绝修改或调用失败，Promise 会被拒绝
+
+---
 
 ### sdk.history.show()
 
@@ -916,5 +961,38 @@ interface EditorTextFormat {
   family: string
 }
 ```
+
+### SDKBrandConfig
+
+```typescript
+interface SDKBrandConfig {
+  mode: SDKBrandMode
+  customAddress?: string
+  source: SDKBrandSource
+}
+```
+
+- `mode`: iframe 返回的品牌模式标识
+- `customAddress`: 当前自定义 Logo 图片地址
+- `source`: iframe 返回的品牌来源标识
+
+### SDKBrandMode
+
+```typescript
+type SDKBrandMode = '0' | '1' | '2'
+```
+
+### SDKBrandSource
+
+```typescript
+type SDKBrandSource = 0 | 1 | 2 | 3
+```
+
+## 注意事项
+
+- `sdk.branding` 是根级 API，没有对应的旧 `sdk.getEditor()` 方法
+- Logo 自定义权限由 iframe 的 checkpoint mode 校验；没有权限或调用失败时，`setEditorFooterLogoSrc()` 会拒绝 Promise
+- `getEditorFooterLogo()` 在当前编辑器没有可用配置时返回 `undefined`
+- `sdk.headerBars.getCommand('logo').src` 修改的是 HeaderBars Logo，不是编辑器底栏 Logo
 
 ---

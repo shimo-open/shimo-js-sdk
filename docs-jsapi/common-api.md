@@ -10,6 +10,7 @@
 - 读取当前文件类型和加载状态
 - 监听 SDK / 编辑器通用事件
 - 获取当前编辑器实例
+- 查询和设置编辑器底栏 Logo
 - 断开连接
 - 更新鉴权信息
 
@@ -26,6 +27,9 @@ const sdk = await connect(options)
 
 await sdk.ready()
 
+const logoConfig = await sdk.branding.getEditorFooterLogo()
+await sdk.branding.setEditorFooterLogoSrc('https://cdn.example.com/brand.svg')
+
 sdk.on(Event.Error, (error) => {
   console.error(error)
 })
@@ -40,21 +44,23 @@ if (sdk.fileType === FileType.Spreadsheet) {
 
 ## 方法列表
 
-| API                           | 说明                                  |
-| ----------------------------- | ------------------------------------- |
-| `connect(options)`            | 创建并连接 SDK，返回 `OfficeSDK` 实例 |
-| `sdk.ready()`                 | 等待 SDK 进入可交互状态               |
-| `sdk.on(event, listener)`     | 监听事件                              |
-| `sdk.once(event, listener)`   | 监听一次性事件                        |
-| `sdk.off(event, listener?)`   | 取消事件监听                          |
-| `sdk.fileType`                | 获取当前文件类型                      |
-| `sdk.readyState`              | 获取当前 SDK 状态                     |
-| `sdk.getEditor()`             | 获取当前编辑器实例                    |
-| `sdk.disconnect()`            | 断开连接并移除 iframe                 |
-| `sdk.setCredentials(payload)` | 更新鉴权信息                          |
-| `sdk.setSignature(signature)` | 仅更新 signature，已废弃              |
-| `sdk.setToken(token)`         | 仅更新 token，已废弃                  |
-| `sdk.getPerformanceEntries()` | 获取性能信息片段列表                  |
+| API                                        | 说明                                  |
+| ------------------------------------------ | ------------------------------------- |
+| `connect(options)`                         | 创建并连接 SDK，返回 `OfficeSDK` 实例 |
+| `sdk.ready()`                              | 等待 SDK 进入可交互状态               |
+| `sdk.on(event, listener)`                  | 监听事件                              |
+| `sdk.once(event, listener)`                | 监听一次性事件                        |
+| `sdk.off(event, listener?)`                | 取消事件监听                          |
+| `sdk.fileType`                             | 获取当前文件类型                      |
+| `sdk.readyState`                           | 获取当前 SDK 状态                     |
+| `sdk.getEditor()`                          | 获取当前编辑器实例                    |
+| `sdk.branding.getEditorFooterLogo()`       | 获取编辑器底栏 Logo 配置              |
+| `sdk.branding.setEditorFooterLogoSrc(src)` | 设置编辑器底栏 Logo 图片地址          |
+| `sdk.disconnect()`                         | 断开连接并移除 iframe                 |
+| `sdk.setCredentials(payload)`              | 更新鉴权信息                          |
+| `sdk.setSignature(signature)`              | 仅更新 signature，已废弃              |
+| `sdk.setToken(token)`                      | 仅更新 token，已废弃                  |
+| `sdk.getPerformanceEntries()`              | 获取性能信息片段列表                  |
 
 ---
 
@@ -265,6 +271,56 @@ await editor.showHistory?.()
 
 ---
 
+## sdk.branding.getEditorFooterLogo()
+
+### 说明
+
+获取当前编辑器底栏 Logo 的品牌配置（PC only，`co-1.8+`）。
+
+```typescript
+const config = await sdk.branding.getEditorFooterLogo()
+
+console.log(config?.customAddress)
+```
+
+### 返回值
+
+返回 `Promise<SDKBrandConfig | undefined>`。当前编辑器没有可用的底栏 Logo 配置时返回 `undefined`。
+
+### 相关类型
+
+- [SDKBrandConfig](#sdkbrandconfig)
+- [SDKBrandMode](#sdkbrandmode)
+- [SDKBrandSource](#sdkbrandsource)
+
+---
+
+## sdk.branding.setEditorFooterLogoSrc(src)
+
+### 说明
+
+设置当前编辑器底栏 Logo 的图片地址（PC only，`co-1.8+`）。
+
+```typescript
+await sdk.branding.setEditorFooterLogoSrc('https://cdn.example.com/brand.svg')
+```
+
+### 参数
+
+- `src`：新的 Logo 图片地址
+
+### 返回值
+
+返回 `Promise<void>`。如果 iframe 拒绝修改或调用失败，Promise 会被拒绝，并通过 `Event.Error` 发出错误。
+
+### 说明补充
+
+- Logo 自定义权限由 iframe 的 checkpoint mode 校验
+- 该能力是 `sdk` 根级 API，没有对应的旧 `sdk.getEditor()` 方法
+- `sdk.headerBars.getCommand('logo').src` 修改的是 HeaderBars Logo，不是编辑器底栏 Logo
+
+---
+
 ## sdk.disconnect()
 
 ### 说明
@@ -371,3 +427,33 @@ console.log(entries)
 
 - 该列表是分段、异步采集的
 - 不同时间调用，返回结果可能不完全一致
+
+---
+
+## 品牌类型定义
+
+### SDKBrandConfig
+
+```typescript
+interface SDKBrandConfig {
+  mode: SDKBrandMode
+  customAddress?: string
+  source: SDKBrandSource
+}
+```
+
+- `mode`：iframe 返回的品牌模式标识
+- `customAddress`：当前自定义 Logo 图片地址
+- `source`：iframe 返回的品牌来源标识
+
+### SDKBrandMode
+
+```typescript
+type SDKBrandMode = '0' | '1' | '2'
+```
+
+### SDKBrandSource
+
+```typescript
+type SDKBrandSource = 0 | 1 | 2 | 3
+```
