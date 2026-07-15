@@ -4,7 +4,6 @@
 
 根级 facade 直接挂载在 `OfficeSDK` 实例上。除原有 `title` / `comments` / `history` / `presentation` 等根级能力外，当前实现还会按文件类型暴露结构化模块，例如：
 
-- 通用：`sdk.branding.getEditorFooterLogo()`、`sdk.branding.setEditorFooterLogoSrc(src)`
 - docs：`sdk.selection`、`sdk.search`、`sdk.sidebar`、`sdk.outline`、`sdk.tables`、`sdk.settings`、`sdk.batchChanges`
 - sheet：`sdk.workbook`、`sdk.activeSheet`、`sdk.charts`、`sdk.batchChanges`、`sdk.print`、`sdk.export`、`sdk.setFocus`
 - presentation：`sdk.slides`、`sdk.selection`、`sdk.text`、`sdk.zoom`、`sdk.eventSubscription`、`sdk.batchChanges`、`sdk.print`、`sdk.export`
@@ -19,45 +18,43 @@
 
 以下映射以 `AI 编辑器能力 API 说明.md` 以及 `docs.d.ts`、`sheet.d.ts`、`presentation.d.ts` 的命名层级为基线。宿主侧 facade 公开结构不少于文档基线；对象型子能力通过 value-based locator 回传，并在宿主侧重建本地 facade。
 
-| 套件         | 文档 API 基线                                        | 当前 facade 模块                                                                                                     | 兼容旧入口 / iframe receiver path                                          |
-| ------------ | ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| all          | `branding`                                           | `sdk.branding`                                                                                                       | receiver `branding.getEditorFooterLogo`、`branding.setEditorFooterLogoSrc` |
-| docs         | `ready`                                              | `sdk.ready()`                                                                                                        | 旧 `sdk.ready()`；receiver `ready`                                         |
-| docs         | `selection / selection.range`                        | `sdk.selection`、`range.getText()` 等                                                                                | 兼容旧动态 proxy；receiver `selection.*`、`selection.range.*`              |
-| docs         | `settings`                                           | `sdk.settings`                                                                                                       | receiver `settings.*`                                                      |
-| docs         | `comments`                                           | `sdk.comments`                                                                                                       | 旧根级 `comments`；receiver `comments.*`                                   |
-| docs         | `search`                                             | `sdk.search`                                                                                                         | receiver `search.*`                                                        |
-| docs         | `title`                                              | `sdk.title`                                                                                                          | 旧根级 `title`；receiver `title.*`                                         |
-| docs         | `outline`                                            | `sdk.outline`（兼容 `sdk.TOCs`）                                                                                     | receiver `outline.*`（兼容别名 `sdk.TOCs`）                                |
-| docs         | `sidebar`                                            | `sdk.sidebar`                                                                                                        | receiver `sidebar.*`                                                       |
-| docs         | `tables`                                             | `sdk.tables`                                                                                                         | receiver `tables.*`、`tables.item.*`、`tables.cell.*`、`tables.range.*`    |
-| docs         | `presentation`                                       | `sdk.presentation`                                                                                                   | 旧根级 `presentation`；receiver `presentation.*`                           |
-| docs         | `batchChanges`                                       | `sdk.batchChanges()`                                                                                                 | receiver `batchChanges` + `editorFacade.handleCallback`                    |
-| sheet        | `comments`                                           | `sdk.comments`                                                                                                       | 旧根级 `comments`；receiver `comments.*`                                   |
-| sheet        | `charts`                                             | `sdk.charts`                                                                                                         | receiver `charts.*`                                                        |
-| sheet        | `activeSheet / activeSheet.range / activeSheet.cell` | `sdk.activeSheet`                                                                                                    | receiver `sheet.worksheet.*`、`sheet.range.*`、`sheet.cell.*`              |
-| sheet        | `workbook`                                           | `sdk.workbook`                                                                                                       | receiver `workbook.*`                                                      |
-| sheet        | `batchChanges`                                       | `sdk.batchChanges()`                                                                                                 | receiver `batchChanges` + `editorFacade.handleCallback`                    |
-| sheet        | `print`                                              | `sdk.print()`                                                                                                        | receiver `print`                                                           |
-| sheet        | `setFocus`                                           | `sdk.setFocus()`                                                                                                     | receiver `setFocus`                                                        |
-| sheet        | 已承接补充                                           | `sdk.selections / sdk.history / sdk.locks / sdk.presentation / sdk.mention / sdk.content / sdk.export / sdk.version` | 旧根级 facade + receiver 对应 path                                         |
-| presentation | `ready`                                              | `sdk.ready()`                                                                                                        | 旧 `sdk.ready()`；receiver `ready`                                         |
-| presentation | `slides / slides.slide`                              | `sdk.slides`                                                                                                         | receiver `slides.*`、`slides.slide.*`、`slides.slide.shape.*`              |
-| presentation | `selection / selection.textRange`                    | `sdk.selection`                                                                                                      | receiver `selection.*`、`selection.textRange.*`                            |
-| presentation | `text`                                               | `sdk.text`                                                                                                           | receiver `text.*`                                                          |
-| presentation | `zoom`                                               | `sdk.zoom`                                                                                                           | receiver `zoom.*`                                                          |
-| presentation | `comments`                                           | `sdk.comments`                                                                                                       | 旧根级 `comments`；receiver `comments.*`                                   |
-| presentation | `eventSubscription`                                  | `sdk.eventSubscription`                                                                                              | receiver `eventSubscription.*`                                             |
-| presentation | `presentation`                                       | `sdk.presentation`                                                                                                   | 旧根级 `presentation`；receiver `presentation.*`                           |
-| presentation | `export / print`                                     | `sdk.export()`、`sdk.print()`                                                                                        | receiver `export`、`print`                                                 |
-| presentation | `batchChanges`                                       | `sdk.batchChanges()`                                                                                                 | receiver `batchChanges` + `editorFacade.handleCallback`                    |
+| 套件         | 文档 API 基线                                        | 当前 facade 模块                                                                                                     | 兼容旧入口 / iframe receiver path                                       |
+| ------------ | ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| docs         | `ready`                                              | `sdk.ready()`                                                                                                        | 旧 `sdk.ready()`；receiver `ready`                                      |
+| docs         | `selection / selection.range`                        | `sdk.selection`、`range.getText()` 等                                                                                | 兼容旧动态 proxy；receiver `selection.*`、`selection.range.*`           |
+| docs         | `settings`                                           | `sdk.settings`                                                                                                       | receiver `settings.*`                                                   |
+| docs         | `comments`                                           | `sdk.comments`                                                                                                       | 旧根级 `comments`；receiver `comments.*`                                |
+| docs         | `search`                                             | `sdk.search`                                                                                                         | receiver `search.*`                                                     |
+| docs         | `title`                                              | `sdk.title`                                                                                                          | 旧根级 `title`；receiver `title.*`                                      |
+| docs         | `outline`                                            | `sdk.outline`（兼容 `sdk.TOCs`）                                                                                     | receiver `outline.*`（兼容别名 `sdk.TOCs`）                             |
+| docs         | `sidebar`                                            | `sdk.sidebar`                                                                                                        | receiver `sidebar.*`                                                    |
+| docs         | `tables`                                             | `sdk.tables`                                                                                                         | receiver `tables.*`、`tables.item.*`、`tables.cell.*`、`tables.range.*` |
+| docs         | `presentation`                                       | `sdk.presentation`                                                                                                   | 旧根级 `presentation`；receiver `presentation.*`                        |
+| docs         | `batchChanges`                                       | `sdk.batchChanges()`                                                                                                 | receiver `batchChanges` + `editorFacade.handleCallback`                 |
+| sheet        | `comments`                                           | `sdk.comments`                                                                                                       | 旧根级 `comments`；receiver `comments.*`                                |
+| sheet        | `charts`                                             | `sdk.charts`                                                                                                         | receiver `charts.*`                                                     |
+| sheet        | `activeSheet / activeSheet.range / activeSheet.cell` | `sdk.activeSheet`                                                                                                    | receiver `sheet.worksheet.*`、`sheet.range.*`、`sheet.cell.*`           |
+| sheet        | `workbook`                                           | `sdk.workbook`                                                                                                       | receiver `workbook.*`                                                   |
+| sheet        | `batchChanges`                                       | `sdk.batchChanges()`                                                                                                 | receiver `batchChanges` + `editorFacade.handleCallback`                 |
+| sheet        | `print`                                              | `sdk.print()`                                                                                                        | receiver `print`                                                        |
+| sheet        | `setFocus`                                           | `sdk.setFocus()`                                                                                                     | receiver `setFocus`                                                     |
+| sheet        | 已承接补充                                           | `sdk.selections / sdk.history / sdk.locks / sdk.presentation / sdk.mention / sdk.content / sdk.export / sdk.version` | 旧根级 facade + receiver 对应 path                                      |
+| presentation | `ready`                                              | `sdk.ready()`                                                                                                        | 旧 `sdk.ready()`；receiver `ready`                                      |
+| presentation | `slides / slides.slide`                              | `sdk.slides`                                                                                                         | receiver `slides.*`、`slides.slide.*`、`slides.slide.shape.*`           |
+| presentation | `selection / selection.textRange`                    | `sdk.selection`                                                                                                      | receiver `selection.*`、`selection.textRange.*`                         |
+| presentation | `text`                                               | `sdk.text`                                                                                                           | receiver `text.*`                                                       |
+| presentation | `zoom`                                               | `sdk.zoom`                                                                                                           | receiver `zoom.*`                                                       |
+| presentation | `comments`                                           | `sdk.comments`                                                                                                       | 旧根级 `comments`；receiver `comments.*`                                |
+| presentation | `eventSubscription`                                  | `sdk.eventSubscription`                                                                                              | receiver `eventSubscription.*`                                          |
+| presentation | `presentation`                                       | `sdk.presentation`                                                                                                   | 旧根级 `presentation`；receiver `presentation.*`                        |
+| presentation | `export / print`                                     | `sdk.export()`、`sdk.print()`                                                                                        | receiver `export`、`print`                                              |
+| presentation | `batchChanges`                                       | `sdk.batchChanges()`                                                                                                 | receiver `batchChanges` + `editorFacade.handleCallback`                 |
 
 说明：
 
 - 旧 `sdk.getEditor()` 扁平 API 仍然保留，用作兼容层。
 - 对象型能力通过 value-based locator 回传，再由宿主重建本地 facade。
 - 部分额外已承接能力，如 `history / locks / mention / content / version`，仍继续挂在根级 facade。
-- `sdk.branding` 没有对应的旧 `sdk.getEditor()` 方法；Logo 自定义权限由 iframe 的 checkpoint mode 校验。
 
 ```typescript
 const sdk = await connect(options)
@@ -66,8 +63,6 @@ await sdk.title?.setTitle('Weekly Report')
 await sdk.comments?.show()
 await sdk.history?.show()
 await sdk.presentation?.start()
-const logoConfig = await sdk.branding.getEditorFooterLogo()
-await sdk.branding.setEditorFooterLogoSrc('https://cdn.example.com/brand.svg')
 ```
 
 ## 新旧兼容
@@ -96,8 +91,6 @@ await sdk.history?.show()
 | `sdk.comments?.hide(type?)`                              | 隐藏评论                     | `PC only` |
 | `sdk.history?.show()`                                    | 显示历史                     | `PC only` |
 | `sdk.history?.hide()`                                    | 隐藏历史                     | `PC only` |
-| `sdk.branding.getEditorFooterLogo()`                     | 获取编辑器底栏 Logo 配置     | `PC only` |
-| `sdk.branding.setEditorFooterLogoSrc(src)`               | 设置编辑器底栏 Logo 图片地址 | `PC only` |
 | `sdk.locks?.show()`                                      | 显示锁定侧边栏               | `PC only` |
 | `sdk.locks?.hide()`                                      | 隐藏锁定侧边栏               | `PC only` |
 | `sdk.locks?.addRangeLock(options)`                       | 创建单元格锁定               | `PC only` |
@@ -140,8 +133,6 @@ await sdk.history?.show()
 
 - `sdk.title?.addChangedListener(listener)`
 - `sdk.title?.setTitle(title)`
-- `sdk.branding.getEditorFooterLogo()`
-- `sdk.branding.setEditorFooterLogoSrc(src)`
 - `sdk.comments?.show(type?)`
 - `sdk.comments?.hide(type?)`
 - `sdk.presentation?.start(index?)`
@@ -167,8 +158,6 @@ await sdk.history?.show()
 
 - `sdk.history?.show()`
 - `sdk.history?.hide()`
-- `sdk.branding.getEditorFooterLogo()`
-- `sdk.branding.setEditorFooterLogoSrc(src)`
 - `sdk.comments?.show(type?)`
 - `sdk.comments?.hide(type?)`
 - `sdk.locks?.show()`
@@ -201,8 +190,6 @@ await sdk.history?.show()
 
 - `sdk.history?.show()`
 - `sdk.history?.hide()`
-- `sdk.branding.getEditorFooterLogo()`
-- `sdk.branding.setEditorFooterLogoSrc(src)`
 - `sdk.comments?.show(type?)`
 - `sdk.comments?.hide(type?)`
 - `sdk.version?.createRevision(options?)`
@@ -222,10 +209,3 @@ await sdk.history?.show()
 未支持：
 
 - `sdk.presentation?.startRemoteLive()`
-
-## Branding 说明
-
-- `sdk.branding.getEditorFooterLogo()` 返回 `Promise<SDKBrandConfig | undefined>`
-- `SDKBrandConfig` 包含 `mode`、可选的 `customAddress` 和 `source`
-- `sdk.branding.setEditorFooterLogoSrc(src)` 返回 `Promise<void>`；iframe 拒绝修改或调用失败时 Promise 会被拒绝
-- `sdk.headerBars.getCommand('logo').src` 修改的是 HeaderBars Logo，不是编辑器底栏 Logo

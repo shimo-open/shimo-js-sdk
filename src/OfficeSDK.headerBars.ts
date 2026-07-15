@@ -18,6 +18,17 @@ export const HEADER_BARS_METHOD = {
 
 export const HEADER_BARS_CHANGED_EVENT = 'headerBars:changed'
 
+const READONLY_HEADER_BARS_COMMAND_IDS = new Set(['about', 'official-website'])
+
+/**
+ * 是否为只读命令
+ * @param id Command ID
+ * @returns 是否为只读命令
+ */
+function isReadonlyHeaderBarsCommand(id: string): boolean {
+  return READONLY_HEADER_BARS_COMMAND_IDS.has(id)
+}
+
 export interface HeaderBarsCommandDefinition {
   id: string
   section?: string
@@ -96,6 +107,21 @@ interface HeaderBarsHost {
   subscribeEditorTitleChange(): Promise<void>
 }
 
+function preventReadonlyHeaderBarsCommandMutation(
+  host: HeaderBarsHost,
+  id: string,
+  property: string
+): boolean {
+  if (!isReadonlyHeaderBarsCommand(id)) {
+    return false
+  }
+  const error = new Error(
+    `headerBars command "${id}" is readonly; "${property}" cannot be modified`
+  )
+  host.emitHeaderBarsError(error.message, error)
+  return true
+}
+
 export function initHeaderBarsFacade(host: HeaderBarsHost): HeaderBarsFacade {
   const facade: HeaderBarsFacade = {
     visible: false,
@@ -111,6 +137,11 @@ export function initHeaderBarsFacade(host: HeaderBarsHost): HeaderBarsFacade {
       posCommand: string,
       pos: 'before' | 'after' = 'after'
     ) => {
+      if (
+        preventReadonlyHeaderBarsCommandMutation(host, command.id, 'addCommand')
+      ) {
+        return false
+      }
       const { onClick, ...commandPayload } = command
       const added = await host.invokeHeaderBars<boolean>(
         HEADER_BARS_METHOD.addCommand,
@@ -277,6 +308,9 @@ export function getHeaderBarsCommandRef(
       enumerable: true,
       get: () => commands.get(id)?.visible !== false,
       set: (next: boolean) => {
+        if (preventReadonlyHeaderBarsCommandMutation(host, id, 'visible')) {
+          return
+        }
         const current = commands.get(id)
         if (current) {
           commands.set(id, { ...current, visible: next })
@@ -299,6 +333,9 @@ export function getHeaderBarsCommandRef(
       enumerable: true,
       get: () => commands.get(id)?.disabled === true,
       set: (next: boolean) => {
+        if (preventReadonlyHeaderBarsCommandMutation(host, id, 'disabled')) {
+          return
+        }
         const current = commands.get(id)
         if (current) {
           commands.set(id, { ...current, disabled: next })
@@ -321,6 +358,9 @@ export function getHeaderBarsCommandRef(
       enumerable: true,
       get: () => commands.get(id)?.active === true,
       set: (next: boolean) => {
+        if (preventReadonlyHeaderBarsCommandMutation(host, id, 'active')) {
+          return
+        }
         const current = commands.get(id)
         if (current) {
           commands.set(id, { ...current, active: next })
@@ -343,7 +383,10 @@ export function getHeaderBarsCommandRef(
       enumerable: true,
       get: () => commands.get(id)?.src,
       set: (next: string | undefined) => {
-        if (typeof next !== 'string') {
+        if (
+          preventReadonlyHeaderBarsCommandMutation(host, id, 'src') ||
+          typeof next !== 'string'
+        ) {
           return
         }
         const current = commands.get(id)
@@ -369,6 +412,7 @@ export function getHeaderBarsCommandRef(
       get: () => commands.get(id)?.label,
       set: (next: string | undefined) => {
         if (
+          preventReadonlyHeaderBarsCommandMutation(host, id, 'label') ||
           typeof next !== 'string' ||
           id === 'title' ||
           id === 'save-status'
@@ -394,6 +438,9 @@ export function getHeaderBarsCommandRef(
       enumerable: true,
       get: () => commands.get(id)?.editable,
       set: (next: boolean | undefined) => {
+        if (preventReadonlyHeaderBarsCommandMutation(host, id, 'editable')) {
+          return
+        }
         if (id !== 'title') {
           host.emitHeaderBarsError(
             'headerBars command editable is only supported for title',
@@ -423,6 +470,11 @@ export function getHeaderBarsCommandRef(
       enumerable: true,
       get: () => host.getOverridesMap().get(id),
       set: (handler: (() => void | Promise<void>) | undefined) => {
+        if (
+          preventReadonlyHeaderBarsCommandMutation(host, id, 'onCommandClick')
+        ) {
+          return
+        }
         host.getOverridesMap().set(id, handler)
         host
           .invokeHeaderBars<undefined>(

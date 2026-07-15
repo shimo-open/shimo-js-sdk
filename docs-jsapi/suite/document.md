@@ -4,35 +4,33 @@
 
 ### 方法列表
 
-| 方法                                                                         | 说明                                           |
-| ---------------------------------------------------------------------------- | ---------------------------------------------- |
-| [sdk.title.addChangedListener](#sdktitleaddchangedlistenerlistener)          | 监听标题变化（PC only，`co-1.8+`）             |
-| [sdk.title.setTitle](#sdktitlesettitletitle)                                 | 设置标题（PC only，`co-1.8+`）                 |
-| [sdk.branding.getEditorFooterLogo](#sdkbrandinggeteditorfooterlogo)          | 获取编辑器底栏 Logo 配置（PC only，`co-1.8+`） |
-| [sdk.branding.setEditorFooterLogoSrc](#sdkbrandingseteditorfooterlogosrcsrc) | 设置编辑器底栏 Logo（PC only，`co-1.8+`）      |
-| [sdk.history.show](#sdkhistoryshow)                                          | 显示历史（PC only，`co-1.8+`）                 |
-| [sdk.history.hide](#sdkhistoryhide)                                          | 隐藏历史（PC only，`co-1.8+`）                 |
-| [sdk.comments.show](#sdkcommentsshowtype)                                    | 显示评论（PC only，`co-1.8+`）                 |
-| [sdk.comments.hide](#sdkcommentshidetype)                                    | 隐藏评论（PC only，`co-1.8+`）                 |
-| [sdk.discussion.show](#sdkdiscussionshow)                                    | 显示讨论（PC only，`co-1.8+`）                 |
-| [sdk.discussion.hide](#sdkdiscussionhide)                                    | 隐藏讨论（PC only，`co-1.8+`）                 |
-| [sdk.version](#sdkversion)                                                   | 版本能力（PC only，`co-1.8+`）                 |
-| [sdk.presentation.start](#sdkpresentationstartindex)                         | 启动演示（PC only，`co-1.8+`）                 |
-| [sdk.selection](#sdkselection)                                               | 选区能力（PC only，`co-1.8+`）                 |
-| [range: DocsRangeFacade](#sdkselectionrange)                                 | 选区范围对象能力（PC only，`co-1.8+`）         |
-| [sdk.search](#sdksearch)                                                     | 搜索与替换（PC only，`co-1.8+`）               |
-| [sdk.outline](#sdkoutline)                                                   | 目录能力（PC only，`co-1.8+`）                 |
-| [sdk.sidebar](#sdksidebar)                                                   | 侧边栏能力（PC only，`co-1.8+`）               |
-| [sdk.collaborator.show](#sdkcollaboratorshow)                                | 显示编写者信息（PC only，`co-1.8+`）           |
-| [sdk.collaborator.hide](#sdkcollaboratorhide)                                | 隐藏编写者信息（PC only，`co-1.8+`）           |
-| [sdk.externalApp.insert](#sdkexternalappinserturl-params)                    | 插入第三方应用（PC only，`co-1.8+`）           |
-| [sdk.tables](#sdktables)                                                     | 表格集合能力（PC only，`co-1.8+`）             |
-| [table: DocsTableFacade](#sdktablesitem)                                     | 单个表格对象能力（PC only，`co-1.8+`）         |
-| [cell: DocsTableCellFacade](#sdktablescell)                                  | 表格单元格对象能力（PC only，`co-1.8+`）       |
-| [range: DocsTableRangeFacade](#sdktablesrange)                               | 表格范围对象能力（PC only，`co-1.8+`）         |
-| [sdk.settings](#sdksettings)                                                 | 文档设置能力（PC only，`co-1.8+`）             |
-| [sdk.batchChanges](#sdkbatchchangescallback)                                 | 批量变更（PC only，`co-1.8+`）                 |
-| [sdk.print](#sdkprint)                                                       | 打印（PC only，`co-1.8+`）                     |
+| 方法                                                                | 说明                                     |
+| ------------------------------------------------------------------- | ---------------------------------------- |
+| [sdk.title.addChangedListener](#sdktitleaddchangedlistenerlistener) | 监听标题变化（PC only，`co-1.8+`）       |
+| [sdk.title.setTitle](#sdktitlesettitletitle)                        | 设置标题（PC only，`co-1.8+`）           |
+| [sdk.history.show](#sdkhistoryshow)                                 | 显示历史（PC only，`co-1.8+`）           |
+| [sdk.history.hide](#sdkhistoryhide)                                 | 隐藏历史（PC only，`co-1.8+`）           |
+| [sdk.comments.show](#sdkcommentsshowtype)                           | 显示评论（PC only，`co-1.8+`）           |
+| [sdk.comments.hide](#sdkcommentshidetype)                           | 隐藏评论（PC only，`co-1.8+`）           |
+| [sdk.discussion.show](#sdkdiscussionshow)                           | 显示讨论（PC only，`co-1.8+`）           |
+| [sdk.discussion.hide](#sdkdiscussionhide)                           | 隐藏讨论（PC only，`co-1.8+`）           |
+| [sdk.version](#sdkversion)                                          | 版本能力（PC only，`co-1.8+`）           |
+| [sdk.presentation.start](#sdkpresentationstartindex)                | 启动演示（PC only，`co-1.8+`）           |
+| [sdk.selection](#sdkselection)                                      | 选区能力（PC only，`co-1.8+`）           |
+| [range: DocsRangeFacade](#sdkselectionrange)                        | 选区范围对象能力（PC only，`co-1.8+`）   |
+| [sdk.search](#sdksearch)                                            | 搜索与替换（PC only，`co-1.8+`）         |
+| [sdk.outline](#sdkoutline)                                          | 目录能力（PC only，`co-1.8+`）           |
+| [sdk.sidebar](#sdksidebar)                                          | 侧边栏能力（PC only，`co-1.8+`）         |
+| [sdk.collaborator.show](#sdkcollaboratorshow)                       | 显示编写者信息（PC only，`co-1.8+`）     |
+| [sdk.collaborator.hide](#sdkcollaboratorhide)                       | 隐藏编写者信息（PC only，`co-1.8+`）     |
+| [sdk.externalApp.insert](#sdkexternalappinserturl-params)           | 插入第三方应用（PC only，`co-1.8+`）     |
+| [sdk.tables](#sdktables)                                            | 表格集合能力（PC only，`co-1.8+`）       |
+| [table: DocsTableFacade](#sdktablesitem)                            | 单个表格对象能力（PC only，`co-1.8+`）   |
+| [cell: DocsTableCellFacade](#sdktablescell)                         | 表格单元格对象能力（PC only，`co-1.8+`） |
+| [range: DocsTableRangeFacade](#sdktablesrange)                      | 表格范围对象能力（PC only，`co-1.8+`）   |
+| [sdk.settings](#sdksettings)                                        | 文档设置能力（PC only，`co-1.8+`）       |
+| [sdk.batchChanges](#sdkbatchchangescallback)                        | 批量变更（PC only，`co-1.8+`）           |
+| [sdk.print](#sdkprint)                                              | 打印（PC only，`co-1.8+`）               |
 
 ### API 调用方式
 
@@ -41,7 +39,6 @@ const sdk = await connect(options)
 
 await sdk.title?.setTitle('Weekly Report')
 await sdk.comments?.show('list')
-await sdk.branding.setEditorFooterLogoSrc('https://cdn.example.com/brand.svg')
 const range = await sdk.selection?.getRange()
 await range?.setText('Hello')
 ```
@@ -86,48 +83,6 @@ await sdk.title?.setTitle('Weekly Report')
 ### 新增 API 方法
 
 以下方法为本次补充的根级 API 调用方式。
-
-### sdk.branding.getEditorFooterLogo()
-
-#### 说明
-
-获取当前编辑器底栏 Logo 的品牌配置。当前没有可用配置时返回 `undefined`。
-
-#### 类型定义
-
-```typescript
-sdk.branding.getEditorFooterLogo(): Promise<SDKBrandConfig | undefined>
-```
-
-#### 相关类型
-
-- [SDKBrandConfig](#sdkbrandconfig)
-- [SDKBrandMode](#sdkbrandmode)
-- [SDKBrandSource](#sdkbrandsource)
-
----
-
-### sdk.branding.setEditorFooterLogoSrc(src)
-
-#### 说明
-
-设置当前编辑器底栏 Logo 的图片地址。Logo 自定义权限由 iframe 的 checkpoint mode 校验。
-
-#### 类型定义
-
-```typescript
-sdk.branding.setEditorFooterLogoSrc(src: string): Promise<void>
-```
-
-#### 参数
-
-- `src`: 新的 Logo 图片地址
-
-#### 返回值
-
-- `Promise<void>`：设置成功后完成；如果 iframe 拒绝修改或调用失败，Promise 会被拒绝
-
----
 
 ### sdk.title.addChangedListener(listener)
 
@@ -1344,38 +1299,5 @@ interface DocsDefaultStyle {
   lineSpacing: string
 }
 ```
-
-### SDKBrandConfig
-
-```typescript
-interface SDKBrandConfig {
-  mode: SDKBrandMode
-  customAddress?: string
-  source: SDKBrandSource
-}
-```
-
-- `mode`: iframe 返回的品牌模式标识
-- `customAddress`: 当前自定义 Logo 图片地址
-- `source`: iframe 返回的品牌来源标识
-
-### SDKBrandMode
-
-```typescript
-type SDKBrandMode = '0' | '1' | '2'
-```
-
-### SDKBrandSource
-
-```typescript
-type SDKBrandSource = 0 | 1 | 2 | 3
-```
-
-## 注意事项
-
-- `sdk.branding` 是根级 API，没有对应的旧 `sdk.getEditor()` 方法
-- Logo 自定义权限由 iframe 的 checkpoint mode 校验；没有权限或调用失败时，`setEditorFooterLogoSrc()` 会拒绝 Promise
-- `getEditorFooterLogo()` 在当前编辑器没有可用配置时返回 `undefined`
-- `sdk.headerBars.getCommand('logo').src` 修改的是 HeaderBars Logo，不是编辑器底栏 Logo
 
 ---

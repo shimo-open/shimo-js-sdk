@@ -233,17 +233,5 @@ export type EditorFacadeContractAssertions = [
       NonNullable<OfficeSDK['eventSubscription']>['addLoadedListener'],
       (listener: () => void) => () => void
     >
-  >,
-  Assert<
-    IsAssignable<
-      OfficeSDK['branding']['getEditorFooterLogo'],
-      () => Promise<import('./OfficeSDK').SDKBrandConfig | undefined>
-    >
-  >,
-  Assert<
-    IsAssignable<
-      OfficeSDK['branding']['setEditorFooterLogoSrc'],
-      (src: string) => Promise<void>
-    >
   >
 ]
