@@ -1345,6 +1345,7 @@ export class OfficeSDK extends TinyEmitter {
       },
       invokeHeaderBars: this.invokeHeaderBars.bind(this),
       emitHeaderBarsError: (message: string, err: unknown) => {
+        console.error(`[SDK] ${message}`, err)
         this.emit(
           Event.Error,
           err instanceof Error ? err : new Error(`${message}: ${String(err)}`)
@@ -1407,6 +1408,7 @@ export class OfficeSDK extends TinyEmitter {
       },
       invokeHeaderBars: this.invokeHeaderBars.bind(this),
       emitHeaderBarsError: (message: string, err: unknown) => {
+        console.error(`[SDK] ${message}`, err)
         this.emit(
           Event.Error,
           err instanceof Error ? err : new Error(`${message}: ${String(err)}`)
