@@ -8,6 +8,8 @@ _注：此 SDK 无法用于石墨文档官网产品 (即 shimo.im) 。_
 
 ## [文档详情](https://shimo-open.github.io/shimo-js-sdk/#/)
 
+### [新版 weboffice-js-sdk 文档地址](https://shimo-open.github.io/weboffice-js-sdk/#/)
+
 ### 安装
 
 ```shell
@@ -124,7 +126,7 @@ editor.on('saveStatusChanged', (payload) => {
 await editor.showHistory()
 ```
 
-### HeaderBars 使用说明
+### HeaderBars 使用说明 （co1.8+）
 
 `sdk.headerBars` 提供显式 facade，不依赖 editor Proxy 路径猜测能力。
 
@@ -441,7 +443,7 @@ connect({
 })
 ```
 
-### 覆盖编辑器内置 toast 文案
+### 覆盖编辑器内置 toast 文案 （co1.8+）
 
 支持的套件类型：
 
